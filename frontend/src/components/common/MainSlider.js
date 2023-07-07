@@ -12,9 +12,6 @@ import '../../assets/css/mainSlider.css';
 // slider
 import slide1 from '../../assets/images/slide_1.jpg'
 import slide2 from '../../assets/images/slide_2.jpg'
-import slide3 from '../../assets/images/slide_3.jpg'
-import slide4 from '../../assets/images/slide_4.jpg'
-import slide5 from '../../assets/images/slide_5.jpg'
 import slide6 from '../../assets/images/slide_6.jpg'
 import slide7 from '../../assets/images/slide_7.jpg'
 import slide8 from '../../assets/images/slide_8.jpg'

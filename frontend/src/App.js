@@ -1,15 +1,11 @@
 import './App.css';
-import NavBar from './components/common/NavBar';
-import MainSlider from './components/common/MainSlider'
+import Home from './pages/Home';
+
+
 function App() {
   return (
     <div className="App">
-      <div>
-      <MainSlider></MainSlider>
-      <div>
-        <NavBar></NavBar>
-      </div>
-      </div>
+      <Home></Home>
      
      
     </div>
