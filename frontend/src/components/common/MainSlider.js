@@ -16,6 +16,9 @@ import slide3 from '../../assets/images/slide_3.jpg'
 import slide4 from '../../assets/images/slide_4.jpg'
 import slide5 from '../../assets/images/slide_5.jpg'
 import slide6 from '../../assets/images/slide_6.jpg'
+import slide7 from '../../assets/images/slide_7.jpg'
+import slide8 from '../../assets/images/slide_8.jpg'
+import slide9 from '../../assets/images/slide_9.jpg'
 
 // import required modules
 import { Navigation, Pagination, Mousewheel, Keyboard,Autoplay } from 'swiper/modules';
@@ -39,9 +42,9 @@ export default function App() {
       >
         <SwiperSlide><img src={slide1}></img></SwiperSlide>
         <SwiperSlide><img src={slide2}></img></SwiperSlide>
-        <SwiperSlide><img src={slide3}></img></SwiperSlide>
-        <SwiperSlide><img src={slide4}></img></SwiperSlide>
-        <SwiperSlide><img src={slide5}></img></SwiperSlide>
+        <SwiperSlide><img src={slide8}></img></SwiperSlide>
+        <SwiperSlide><img src={slide7}></img></SwiperSlide>
+        <SwiperSlide><img src={slide9}></img></SwiperSlide>
         <SwiperSlide><img src={slide6}></img></SwiperSlide>
       </Swiper>
     </>
