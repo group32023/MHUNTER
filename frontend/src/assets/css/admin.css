@@ -1,0 +1,25 @@
+.login{
+    background-color:rgb(3, 3, 3); 
+}
+.form_container{
+    width: 30%;
+    background-color:rgb(68, 18, 88);
+    opacity: 0.7;
+    
+}
+
+@media screen and (max-width: 1000px) {
+    .form_container{
+        width: 45%;
+
+    }
+    
+}
+
+@media screen and (max-width: 700px) {
+    .form_container{
+        width: 65%;
+
+    }
+    
+}
