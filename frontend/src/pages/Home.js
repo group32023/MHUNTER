@@ -7,13 +7,15 @@ import {faPhone} from '@fortawesome/free-solid-svg-icons'
 import { faTwitter, faFontAwesome,faFacebook,faGooglePlusG,faLinkedinIn } from '@fortawesome/free-brands-svg-icons'
 
 import '../assets/css/home.css'
+import ArtistSlider from '../components/ArtistSlider';
 
 export default function 
 h() {
   return (
     <div>
        
-        <div>
+        <div className='homeMainContainer'>
+            
             <MainSlider></MainSlider>
             <div>
                 <NavBar></NavBar>
@@ -39,6 +41,9 @@ h() {
                 <button className='signupBtn'>SIGN UP</button>
                 
             </div>
+            <label className='headingArtist'>ARTISTS</label>
+
+            <ArtistSlider></ArtistSlider>
       </div>
     </div>
   )

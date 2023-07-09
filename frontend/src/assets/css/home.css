@@ -1,3 +1,11 @@
+body {
+    background-image: url('../images/backgroundForHome.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+   
+    
+  }
 .telno{
     display: flex;
     width: 227px;
@@ -47,6 +55,7 @@
     left: 84.5%;
     z-index: 100;
     cursor: pointer;
+    
 }
 .googlePlusIcon{
     width: 25.087px;
@@ -121,7 +130,6 @@
     font-weight: 800;
     letter-spacing: 0;
     line-height: normal;
-    position: fixed;
     cursor: pointer;
    
 }
@@ -129,4 +137,21 @@
     background-color: black;
     border: 5px solid;
     border-color: black;
+}
+
+.headingArtist{
+    display: flex;
+    width: 216px;
+    height: 65px;
+    flex-direction: column;
+    color: #FFF;
+    font-family: Inter;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+    position: absolute;
+    top: 743px;
+    left: 643px;
+    z-index: 100;
 }
