@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import sheshan from '../assets/images/shehan.jpeg'
+import shihan from '../assets/images/shihan.jpg'
 
 import '../assets/css/artistSlider.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -17,29 +17,33 @@ import 'swiper/css/pagination';
 // import './styles.css';
 
 // import required modules
-import { Autoplay, FreeMode, Pagination } from 'swiper/modules';
+import { FreeMode, Pagination,Mousewheel } from 'swiper/modules';
 
 
 export default function 
 () {
 
-  const [value,setValue] =useState(5)
+  const [value,setValue] =useState(5,4)
     
 
   return (
     <div>
+    <div className='listofArtistBg'></div>
     <div className='listOfArtist'>
       
     <Swiper
         slidesPerView={3}
         spaceBetween={30}
         freeMode={true}
+        direction={'horizontal'}
+        mousewheel={true}
+        navigation={true}
         
-        modules={[FreeMode, Pagination,Autoplay]}
+        modules={[FreeMode, Pagination,Mousewheel]}
         className="mySwiper"
       >
         <SwiperSlide style={{width:236,height:271}}> <div className='artistSlide1'>
-            <img src={sheshan} className='artist1Pic' style={{width:236,height:271}}></img>
+            <img src={shihan} className='artist1Pic' style={{width:236,height:271}}></img>
             <div className='reviewBox'>
                 <label className='artist1Name'>Shihan Mihranga</label>
                 <FontAwesomeIcon icon={faFacebook} className='facebookArtist'></FontAwesomeIcon>
@@ -57,7 +61,7 @@ export default function
         </div></SwiperSlide>
         <SwiperSlide>
         <div className='artistSlide1'>
-            <img src={sheshan} className='artist1Pic' style={{width:236,height:271}}></img>
+            <img src={shihan} className='artist1Pic' style={{width:236,height:271}}></img>
             <div className='reviewBox'>
                 <label className='artist1Name'>Shihan Mihranga</label>
                 <FontAwesomeIcon icon={faFacebook} className='facebookArtist'></FontAwesomeIcon>
@@ -76,7 +80,7 @@ export default function
         </SwiperSlide>
         <SwiperSlide>
         <div className='artistSlide1'>
-            <img src={sheshan} className='artist1Pic' style={{width:236,height:271}}></img>
+            <img src={shihan} className='artist1Pic' style={{width:236,height:271}}></img>
             <div className='reviewBox'>
                 <label className='artist1Name'>Shihan Mihranga</label>
                 <FontAwesomeIcon icon={faFacebook} className='facebookArtist'></FontAwesomeIcon>
@@ -95,7 +99,7 @@ export default function
         </SwiperSlide>
         <SwiperSlide>
         <div className='artistSlide1'>
-            <img src={sheshan} className='artist1Pic' style={{width:236,height:271}}></img>
+            <img src={shihan} className='artist1Pic' style={{width:236,height:271}}></img>
             <div className='reviewBox'>
                 <label className='artist1Name'>Shihan Mihranga</label>
                 <FontAwesomeIcon icon={faFacebook} className='facebookArtist'></FontAwesomeIcon>
@@ -114,7 +118,7 @@ export default function
         </SwiperSlide>
         <SwiperSlide>
         <div className='artistSlide1'>
-            <img src={sheshan} className='artist1Pic' style={{width:236,height:271}}></img>
+            <img src={shihan} className='artist1Pic' style={{width:236,height:271}}></img>
             <div className='reviewBox'>
                 <label className='artist1Name'>Shihan Mihranga</label>
                 <FontAwesomeIcon icon={faFacebook} className='facebookArtist'></FontAwesomeIcon>
@@ -133,7 +137,7 @@ export default function
         </SwiperSlide>
         <SwiperSlide>
         <div className='artistSlide1'>
-            <img src={sheshan} className='artist1Pic' style={{width:236,height:271}}></img>
+            <img src={shihan} className='artist1Pic' style={{width:236,height:271}}></img>
             <div className='reviewBox'>
                 <label className='artist1Name'>Shihan Mihranga</label>
                 <FontAwesomeIcon icon={faFacebook} className='facebookArtist'></FontAwesomeIcon>
@@ -152,7 +156,7 @@ export default function
         </SwiperSlide>
         <SwiperSlide>
         <div className='artistSlide1'>
-            <img src={sheshan} className='artist1Pic' style={{width:236,height:271}}></img>
+            <img src={shihan} className='artist1Pic' style={{width:236,height:271}}></img>
             <div className='reviewBox'>
                 <label className='artist1Name'>Shihan Mihranga</label>
                 <FontAwesomeIcon icon={faFacebook} className='facebookArtist'></FontAwesomeIcon>
@@ -171,7 +175,7 @@ export default function
         </SwiperSlide>
         <SwiperSlide>
         <div className='artistSlide1'>
-            <img src={sheshan} className='artist1Pic' style={{width:236,height:271}}></img>
+            <img src={shihan} className='artist1Pic' style={{width:236,height:271}}></img>
             <div className='reviewBox'>
                 <label className='artist1Name'>Shihan Mihranga</label>
                 <FontAwesomeIcon icon={faFacebook} className='facebookArtist'></FontAwesomeIcon>
@@ -190,7 +194,7 @@ export default function
         </SwiperSlide>
         <SwiperSlide>
         <div className='artistSlide1'>
-            <img src={sheshan} className='artist1Pic' style={{width:236,height:271}}></img>
+            <img src={shihan} className='artist1Pic' style={{width:236,height:271}}></img>
             <div className='reviewBox'>
                 <label className='artist1Name'>Shihan Mihranga</label>
                 <FontAwesomeIcon icon={faFacebook} className='facebookArtist'></FontAwesomeIcon>
