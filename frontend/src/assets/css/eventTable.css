@@ -6,6 +6,7 @@
 }
 .table{
     background-color: black;
+    opacity: 0.5;
 }
 
 #backgroundimage{
@@ -42,7 +43,7 @@
     font-weight: 800;
     line-height: normal;
     position: absolute;
-    top: 1206px;
+    top: -27px;
     left: 643px;
     z-index: 100;
 }

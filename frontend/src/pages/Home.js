@@ -8,6 +8,10 @@ import { faTwitter, faFontAwesome,faFacebook,faGooglePlusG,faLinkedinIn } from '
 
 import '../assets/css/home.css'
 import ArtistSlider from '../components/ArtistSlider';
+import Services from '../components/Services';
+import BandSlider from '../components/BandSlider';
+import EventTable from '../components/EventTable';
+import PerformanceView from '../components/PerformanceView';
 
 export default function 
 h() {
@@ -44,6 +48,14 @@ h() {
             <label className='headingArtist'>ARTISTS</label>
 
             <ArtistSlider></ArtistSlider>
+
+            <Services></Services>
+
+            <BandSlider></BandSlider>
+
+            <EventTable></EventTable>
+
+            {/* <PerformanceView></PerformanceView> */}
       </div>
     </div>
   )

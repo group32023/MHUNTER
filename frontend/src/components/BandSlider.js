@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import shihan from '../assets/images/shihan.jpg'
 
-import '../assets/css/artistSlider.css'
+import '../assets/css/bandSlider.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {faPhone,faStar} from '@fortawesome/free-solid-svg-icons'
 import { faTwitter, faFontAwesome,faFacebook,faGooglePlusG,faLinkedinIn } from '@fortawesome/free-brands-svg-icons'
@@ -17,7 +17,7 @@ import 'swiper/css/pagination';
 // import './styles.css';
 
 // import required modules
-import { FreeMode, Pagination,Mousewheel, Autoplay } from 'swiper/modules';
+import { FreeMode, Pagination,Mousewheel } from 'swiper/modules';
 
 
 export default function 
@@ -27,10 +27,10 @@ export default function
     
 
   return (
-    <div >
-    <div className='listofArtistBg'></div>
-    <div className='listOfArtist'>
-      
+    <div>
+    <div className='listofBandBg'></div>
+    <div className='listOfBand'>
+    <label className='bandHeader'>BANDS</label>
     <Swiper
         slidesPerView={3}
         spaceBetween={30}
@@ -38,14 +38,8 @@ export default function
         direction={'horizontal'}
         mousewheel={true}
         navigation={true}
-        loop={true}
-        autoplay={{
-            delay: 1500,
-            disableOnInteraction: false,
-            stopOnLastSlide:false
-          }}
         
-        modules={[FreeMode, Pagination,Autoplay]}
+        modules={[FreeMode, Pagination,Mousewheel]}
         className="mySwiper"
       >
         <SwiperSlide style={{width:236,height:271}}> <div className='artistSlide1'>
