@@ -1,10 +1,9 @@
 body {
     background-image: url('../images/backgroundForHome.jpg');
     background-position: center;
-    background-repeat: no-repeat;
+    background-repeat: repeat-y;
     background-size: cover;
-   
-    
+    z-index: 1000;
   }
 .telno{
     display: flex;

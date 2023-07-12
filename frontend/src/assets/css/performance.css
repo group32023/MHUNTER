@@ -1,0 +1,13 @@
+.cardOfPerformance{
+    position: absolute;
+    top: 429%;
+    left: 20%;
+}
+.headerofVideo{
+    background-color: #3B444D;
+    color: white;
+}
+.videoStream{
+    position: absolute;
+    top: 0px;
+}
