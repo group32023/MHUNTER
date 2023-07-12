@@ -1,25 +1,100 @@
 .login{
-    background-color:rgb(3, 3, 3); 
+    background-color:rgb(241, 234, 234); 
 }
 .form_container{
     width: 30%;
     background-color:rgb(68, 18, 88);
-    opacity: 0.7;
-    
 }
+.bgimage {
+    background-image: url("../images/bg.jpg");
+    background-size: cover;
+    background-position: center;
+  
+  }
+.form_signup_container{
+    width: 40%;
+    background-color:#3c096c;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+}
+
+.signup_button{
+    border: none;
+    border-radius: 10px;
+}
+
+.signup_button :hover{
+   color:#9d4edd;
+}
+
+.box-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .signup_text {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #fff;
+  }
+  
+  .boxes {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .left-box, .right-box {
+    flex: 1;
+    margin: 20px;
+    padding: 20px;
+    border-radius: 5px;
+    padding-left: 30px;
+    padding-right: 30px;
+    text-align: center;
+  }
+  
+  .left-box {
+    background-color: #7b2cbf; 
+    color: #fff; 
+  }
+  
+  .right-box {
+    background-color: #7b2cbf; 
+    color: #fff; 
+  }
+  
+
+  
 
 @media screen and (max-width: 1000px) {
     .form_container{
         width: 45%;
-
     }
-    
+    .form_signup_container{
+        width: 45%;
+    }
+    .left-box, .right-box {
+        padding: 10px;
+        margin: 5px;
+      }
 }
 
 @media screen and (max-width: 700px) {
     .form_container{
         width: 65%;
-
     }
-    
+    .form_signup_container{
+        width: 65%;
+    }
+
+    .left-box, .right-box {
+        padding: 10px;
+        margin: 5px;
+      }
+
 }
