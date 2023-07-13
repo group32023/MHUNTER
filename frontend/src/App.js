@@ -5,6 +5,7 @@ import Home from './pages/Home';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 import 'bootstrap/dist/css/bootstrap.min.css'
+import ArtistBandSignup from './pages/ArtistBandSignup';
 function App() {
   return (
     
@@ -14,6 +15,7 @@ function App() {
           <Route index element={<Home />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
+          <Route path='/artistbandsignup' element={<ArtistBandSignup />} />
 
       </Routes>
     </BrowserRouter>

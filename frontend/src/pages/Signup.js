@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 
 export default function Signup() {
 
@@ -12,7 +13,7 @@ export default function Signup() {
 
         <div className='left-box'>
           <div>
-            <h3>Get yourself hired...</h3>
+            <h3 className='header'>Get yourself hired...</h3>
           </div>
           <div>
             <p>Seamless Booking Process Promote yourself to get hired
@@ -21,13 +22,15 @@ export default function Signup() {
             </p>
           </div>
           <div>
+            <Link to={"/artistbandsignup"}>
             <button className='signup_button'><b><span className='text-danger'>SignUp</span> for MHUNTER Artist/Band</b></button>
+            </Link>
           </div>
 
         </div>
         <div className='right-box'>
           <div>
-            <h3>Book a talent...</h3>
+            <h3 className='header'>Book a talent...</h3>
           </div>
           <div>
             <p>Wide Talent Pool

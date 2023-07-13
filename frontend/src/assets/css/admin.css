@@ -10,19 +10,33 @@
     background-image: url("../images/bg.jpg");
     background-size: cover;
     background-position: center;
-  
   }
+.artist-image img, .band-image img{
+  border-radius: 40%;
+  margin-bottom: 10px;
+
+}
+
+
 .form_signup_container{
     width: 40%;
-    background-color:#3c096c;
+    background-color:rgb(68, 18, 88);
     display: flex;
     justify-content: center;
-    align-items: center; 
+    align-items: center;
+     
+}
+
+.header{
+  background-color: rgb(68, 18, 88);
+  border-radius: 10px;
+  
 }
 
 .signup_button{
     border: none;
     border-radius: 10px;
+    
 }
 
 .signup_button :hover{
@@ -41,6 +55,7 @@
     text-align: center;
     margin-bottom: 20px;
     color: #fff;
+    
   }
   
   .boxes {
@@ -60,12 +75,12 @@
   }
   
   .left-box {
-    background-color: #7b2cbf; 
+    background-color: #5a189a; 
     color: #fff; 
   }
   
   .right-box {
-    background-color: #7b2cbf; 
+    background-color: #5a189a; 
     color: #fff; 
   }
   
