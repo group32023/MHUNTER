@@ -3,7 +3,8 @@
 }
 .form_container{
     width: 30%;
-    background-color:rgb(68, 18, 88);
+    /*background-color:rgb(68, 18, 88);*/
+    background-color:#484E55;
 }
 .bgimage {
     background-image: url("../images/bg.jpg");
