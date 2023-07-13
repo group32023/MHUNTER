@@ -1,5 +1,5 @@
 import React from 'react'
-
+import { Link } from 'react-router-dom';
 
 export default function ArtistBandSignup() {
   return (
@@ -18,9 +18,9 @@ export default function ArtistBandSignup() {
             <img src={require('../assets/images/artist.jpg')} height={180}/>
           </div>
           <div>
-            
+            <Link to={"/artistsignup"}>
             <button className='signup_button'><b><span className='text-danger'>SignUp</span> for MHUNTER Artist</b></button>
-            
+            </Link>
           </div>
 
         </div>

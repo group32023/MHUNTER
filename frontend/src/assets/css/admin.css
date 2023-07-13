@@ -11,26 +11,28 @@
     background-size: cover;
     background-position: center;
   }
+
+.bgimage2 {
+    background-image: url("../images/artist-bg.jpg");
+    background-size: cover;
+    background-position: center;
+  }
 .artist-image img, .band-image img{
   border-radius: 40%;
   margin-bottom: 10px;
 
 }
-
-
 .form_signup_container{
     width: 40%;
     background-color:rgb(68, 18, 88);
     display: flex;
     justify-content: center;
-    align-items: center;
-     
+    align-items: center;  
 }
 
 .header{
   background-color: rgb(68, 18, 88);
-  border-radius: 10px;
-  
+  border-radius: 10px; 
 }
 
 .signup_button{
@@ -83,9 +85,6 @@
     background-color: #5a189a; 
     color: #fff; 
   }
-  
-
-  
 
 @media screen and (max-width: 1000px) {
     .form_container{
@@ -112,5 +111,72 @@
         padding: 10px;
         margin: 5px;
       }
+
+}
+
+/*Artist Signup*/
+.artist_signup_form_container{
+  width: 60%;
+  background-color:rgb(51, 13, 67);
+  display: flex;
+  justify-content: center;
+  align-items: center;  
+}
+.artist-signup-left-box{
+  background-color: none;
+  width: 60%;
+  margin-right: 10px;
+  padding: 20px;
+  padding-left: 50px;
+
+}
+.artist-signup-right-box{
+  background-color: none;
+  width: 40%;
+  margin-left:10px;
+  display: grid;
+  justify-content: center;
+}
+
+.artist-text{
+  text-align: center;
+  color: #fff;
+}
+
+.text-field input{
+  border-radius: 60px;
+  border: black;
+  border-style: solid;
+  opacity: 0.5;
+}
+.artist-signup-right-box h6{
+  background-color: #5a189a;
+  color: #fff;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+@media screen and (max-width: 700px) {
+  .artist_signup_form_container{
+    width: 80%;
+    background-color:rgb(68, 18, 88);
+    display: block;
+    justify-content: center;
+    align-items: center;  
+  }
+  .artist-signup-left-box{
+    width: 100%;
+    margin-right: 5px;
+    padding: 20px;
+    padding-left: 20px;
+  }
+
+  .artist-signup-right-box{
+    background-color: none;
+    width: 100%;
+    margin-left:10px;
+    display: grid;
+    justify-content: center;
+  }
 
 }

@@ -33,7 +33,7 @@ export default function Login() {
   
   return (
     <div className='login template d-flex justify-content-center align-items-center vh-100 bgimage '>
-      <div className='form_container p-5 rounded'>
+      <div className='form_container p-5 rounded' >
         <form className='form' >
           <h3 className='text-center text-white'>Sign In</h3>
           <div className='mb-2 text-white'>
