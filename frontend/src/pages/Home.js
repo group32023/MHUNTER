@@ -55,7 +55,7 @@ h() {
 
             <EventTable></EventTable>
 
-            {/* <PerformanceView></PerformanceView> */}
+            <PerformanceView></PerformanceView>
       </div>
     </div>
   )

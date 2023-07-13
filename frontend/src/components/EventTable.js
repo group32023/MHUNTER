@@ -56,9 +56,6 @@ export default function
                                 <td><FontAwesomeIcon icon={faLocationDot} id="LocationIcon"/>MATARA</td>
                                 <td>17.00</td>
                           </tr>
-                          
-                         
-                          
                         </tbody>
                       </Table>
                   

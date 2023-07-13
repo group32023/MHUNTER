@@ -1,6 +1,6 @@
 .cardOfPerformance{
-    position: absolute;
-    top: 429%;
+    position: relative;
+    top: 0px;
     left: 20%;
 }
 .headerofVideo{
@@ -8,6 +8,62 @@
     color: white;
 }
 .videoStream{
-    position: absolute;
-    top: 0px;
+    position: relative;
+    /* top: 0px; */
+    margin-top: 2414px;
+    margin-left: 86px;
 }
+.videoStream .swiper-slide{
+    width: 236px !important;
+}
+.videoStream .swiper-slide-active{
+    width: 236px !important;
+}
+.videoStream .swiper-slide-next{
+    width: 236px !important;
+}
+.performanceView{
+    display: flex;
+    width: 461px;
+    height: 65px;
+    flex-direction: column;
+    color: #FFF;
+    font-family: Inter;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+    position: absolute;
+    top: -91px;
+    left: 453px;
+    z-index: 100;
+}
+ 
+.artistSlide1 video::-webkit-media-controls-play-button {
+    background-color: pink; /* Change the background color */
+    color: white; /* Change the text color */
+  }
+
+.customeVideoPlayer::-webkit-media-controls-play-button {
+    /* Change the text color */
+    color: white;
+
+    /* Change the background color */
+    background-color: blue;
+  }
+  iframe{
+    height: 250px;
+    width: 236px;
+  }
+  .backgroudVideoCard{
+    background-color: black;
+  }
+  #play1{
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    position: absolute;
+    background: #F70F5D; 
+    top: 114px;
+    left: 88px;
+  }

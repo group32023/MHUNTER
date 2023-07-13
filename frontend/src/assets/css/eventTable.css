@@ -6,7 +6,7 @@
 }
 .table{
     background-color: black;
-    opacity: 0.5;
+    
 }
 
 #backgroundimage{
@@ -29,6 +29,7 @@
     font-size: 20px;
     width: 90%;
     text-align: center !important;
+    
 
 }
 .eventList{
@@ -44,7 +45,7 @@
     line-height: normal;
     position: absolute;
     top: -27px;
-    left: 643px;
+    left: 635px;
     z-index: 100;
 }
 #firstTD{

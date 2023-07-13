@@ -32,8 +32,8 @@ export default function
     <div className='listOfArtist'>
       
     <Swiper
-        slidesPerView={3}
-        spaceBetween={30}
+        slidesPerView={4}
+        spaceBetween={120}
         freeMode={true}
         direction={'horizontal'}
         mousewheel={true}
