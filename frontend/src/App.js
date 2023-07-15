@@ -1,12 +1,14 @@
 import './App.css';
 //import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import Home from './pages/Home';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import ArtistBandSignup from './pages/ArtistBandSignup';
 import ArtistSignup from './pages/ArtistSignup';
+import NavBar from './components/common/NavBar';
+import MainSlider from './components/common/MainSlider';
 function App() {
   return (
     
@@ -22,6 +24,16 @@ function App() {
       </Routes>
     </BrowserRouter>
       
+      {/*<div>
+      <MainSlider>
+      </MainSlider>
+      <div>
+        <NavBar>
+        </NavBar>
+      </div>
+  </div>*/}
+     
+     
     </div>
     
   );
