@@ -1,5 +1,10 @@
 import React, { useState } from "react";
 import "../../../assets/css/SideMenuBarOrganizer.css";
+import profilePhoto from '../../../assets/images/profilePhoto.jpeg'
+import dashboardimg from '../../../assets/icons/dashboard.png'
+import eventsimg from '../../../assets/icons/events.png'
+import eventhistoryimg from '../../../assets/icons/eventHistory.png'
+import complaintsimg from '../../../assets/icons/complaint.png'
 
 
 const SideMenuBarOrganizer = () => {
@@ -7,19 +12,19 @@ const SideMenuBarOrganizer = () => {
 	const menuItems = [
 		{
 			text: "Dashboard",
-			icon: "../../assets/icons/dashboard.png",
+			icon: dashboardimg,
 		},
 		{
 			text: "Events",
-			icon: "../../assets/icons/events.png",
+			icon: eventsimg,
 		},
 		{
 			text: "Event History",
-			icon: "../../assets/icons/eventHistory.png",
+			icon: eventhistoryimg,
 		},
 		{
 			text: "Complaints",
-			icon: "../../assets/icons/complaint.png",
+			icon: complaintsimg,
 		},
 	];
 
@@ -38,7 +43,7 @@ const SideMenuBarOrganizer = () => {
 				<div className="menu-heading">
 					{isExpanded && (
 						<div className="menu-brand">
-							<img src="../../assets/icons/logosidebar.svg" alt="" srcset="" />
+							<img src="../../assets/icons/logosidebar.svg" alt="" srcSet="" />
 						</div>
 					)}
 
@@ -57,7 +62,7 @@ const SideMenuBarOrganizer = () => {
 
 				</div>
 				<div className="menu-profilePhoto">
-					<img className={isExpanded ? "menu-item-profilePhoto" : "menu-item-profilePhoto-NX"} src="../../assets/images/profilePhoto.jpeg" alt="Profile" srcset="" width="130px" height="130px" />
+					<img className={isExpanded ? "menu-item-profilePhoto" : "menu-item-profilePhoto-NX"} src={profilePhoto} alt="Profile" srcSet="" width="130px" height="130px" />
 
 				</div>
 
@@ -67,10 +72,10 @@ const SideMenuBarOrganizer = () => {
 				</div>)}
 
 				<div className="menu-menu">
-					{menuItems.map(({ text, icon }) => (
+					{menuItems.map(({ text, icon },index) => (
 						/* eslint-disable-next-line jsx-a11y/anchor-is-valid */
-						<a className={isExpanded ? "menu-item" : "menu-item menu-item-NX"} href="#">
-							<img className="menu-item-icon" src={icon} alt="" srcset="" />
+						<a key={index} className={isExpanded ? "menu-item" : "menu-item menu-item-NX"} href="#">
+							<img className="menu-item-icon" src={icon} alt="" srcSet="" />
 							{isExpanded && <p>{text}</p>}
 						</a>
 					))}
