@@ -44,7 +44,11 @@ const SideMenuBarOrganizer = () => {
 				<div className="menu-heading">
 					{isExpanded && (
 						<div className="menu-brand">
+
 							<img src={logoImage} alt="" srcSet="" />
+
+							<img src="../../assets/icons/logosidebar.svg" alt="" srcSet="" />
+
 						</div>
 					)}
 
@@ -73,6 +77,8 @@ const SideMenuBarOrganizer = () => {
 				</div>)}
 
 				<div className="menu-menu">
+
+
 					{menuItems.map(({ text, icon }, index) => (
 						/* eslint-disable-next-line jsx-a11y/anchor-is-valid */
 						<a key={index} className={isExpanded ? "menu-item" : "menu-item menu-item-NX"} href="#">
