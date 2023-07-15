@@ -1,6 +1,19 @@
 import React from 'react'
+import { useRef, useState} from 'react'
 
 export default function ArtistSignup() {
+  const inputRef = useRef(null);
+  const [image, setImage] = useState("");
+
+  const handleImageClick = () =>{
+    inputRef.current.click();
+  }
+  const handleImageChange = (event) =>{
+    const file = event.target.files[0];
+    console.log(file);
+    setImage(event.target.files[0]);
+  }
+  
   return (
     <div className='login template d-flex justify-content-center align-items-center vh-100 bgimage2'>
         <div className='artist_signup_form_container p-5 rounded vh-50'>
@@ -18,11 +31,11 @@ export default function ArtistSignup() {
                   </div>
                   <div className='mb-2 text-white text-field' style={{display:'flex'}}>
                     <div style={{padding:'5px'}} >
-                      <label htmlFor='Email'>Email</label>
+                      <label htmlFor='Email'>First Name</label>
                       <input type='text' placeholder='' className='form-control'/>
                     </div>
                     <div style={{padding:'5px'}}>
-                      <label htmlFor='Email'>Email</label>
+                      <label htmlFor='Email'>Last Name</label>
                       <input type='text' placeholder='' className='form-control'/>
                     </div>
 
@@ -37,12 +50,44 @@ export default function ArtistSignup() {
                   </div>
             </div>
             <div className='artist-signup-right-box'>
-                <div className='artist-image'>
-                  <img src={require('../assets/images/artist.jpg')} height={150}/>
-                </div>
                 <div className=''>
-                    <h6><b>ArtistSignUp</b></h6>
+                    <h4>Artist Sign Up</h4>
                 </div>
+
+                <div className='artist-image' onClick={handleImageClick}>
+                  <div>
+    
+                  {image ? 
+                    <img src={URL.createObjectURL(image)} height={150}/>
+                  :
+                    <img src={require('../assets/images/artist.jpg')} height={150}/>
+                  }
+                  <input 
+                    type='file' 
+                    ref={inputRef} 
+                    onChange={handleImageChange} 
+                    style={{display:'none'}}
+                  />  
+                  </div>  
+
+                  <div className='upload-image'>
+                  <h6 ><b>Upload Image</b></h6>
+                  </div>
+                  
+                </div>
+                <div>
+                    <div style={{display:'flex', color:'white'}}>
+                    <input type="checkbox"  name="" value=""  />
+                    <label for=""> I have read the User Agreement and I agree with it.</label><br/>
+                    </div>
+                    <input type="checkbox"  name="" value="" />
+                    <label for="" style={{ color:'white'}}> I accept the Terms and Conditions.</label><br/><br />
+                  </div>
+
+                  <div className='signup-button'>
+                    <button>Signup</button>
+                  </div>
+                
             </div>
 
   
