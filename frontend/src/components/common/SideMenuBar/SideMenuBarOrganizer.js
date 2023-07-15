@@ -47,7 +47,6 @@ const SideMenuBarOrganizer = () => {
 
 							<img src={logoImage} alt="" srcSet="" />
 
-							<img src="../../assets/icons/logosidebar.svg" alt="" srcSet="" />
 
 						</div>
 					)}
