@@ -17,14 +17,17 @@
 // }
 
 // export default App;
-
-import SideMenuBarOrganizer from "../src/components/common/SideMenuBar/SideMenuBarOrganizer";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import OrganizerEventDashboard from "../src/pages/organizer/OrganizerEventDashboard";
 
 function App() {
   return (
-    <div>
-      <SideMenuBarOrganizer />
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/organizerEventDashboard" element={<OrganizerEventDashboard />} />
+      </Routes>
+    </BrowserRouter>
+
   );
 }
 
