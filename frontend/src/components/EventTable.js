@@ -2,7 +2,6 @@ import React from 'react'
 import eventimage from '../assets/images/slide_8.jpg';
 import { Table } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import {Form, Container} from 'react-bootstrap';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {faPhone,faLocationDot,faList} from '@fortawesome/free-solid-svg-icons'

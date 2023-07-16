@@ -1,10 +1,9 @@
 import React, { useState } from 'react'
-import shihan from '../assets/images/shihan.jpg'
+import band from '../assets/images/band.jpg'
 
 import '../assets/css/bandSlider.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import {faPhone,faStar} from '@fortawesome/free-solid-svg-icons'
-import { faTwitter, faFontAwesome,faFacebook,faGooglePlusG,faLinkedinIn } from '@fortawesome/free-brands-svg-icons'
+import { faTwitter,faFacebook,faLinkedinIn } from '@fortawesome/free-brands-svg-icons'
 
 import Rating from '@mui/material/Rating';
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -49,9 +48,9 @@ export default function
         className="mySwiper"
       >
         <SwiperSlide style={{width:236,height:271}}> <div className='artistSlide1'>
-            <img src={shihan} className='artist1Pic' style={{width:236,height:271}}></img>
+            <img src={band} className='artist1Pic' style={{width:236,height:271}}></img>
             <div className='reviewBox'>
-                <label className='artist1Name'>Shihan Mihranga</label>
+                <label className='artist1Name'>Flashback</label>
                 <FontAwesomeIcon icon={faFacebook} className='facebookArtist'></FontAwesomeIcon>
                 <FontAwesomeIcon icon={faTwitter} className='twiterArtist'></FontAwesomeIcon>
                 <FontAwesomeIcon icon={faLinkedinIn} className='linkedinArtist'></FontAwesomeIcon>
@@ -67,9 +66,9 @@ export default function
         </div></SwiperSlide>
         <SwiperSlide>
         <div className='artistSlide1'>
-            <img src={shihan} className='artist1Pic' style={{width:236,height:271}}></img>
+            <img src={band} className='artist1Pic' style={{width:236,height:271}}></img>
             <div className='reviewBox'>
-                <label className='artist1Name'>Shihan Mihranga</label>
+                <label className='artist1Name'>Flashback</label>
                 <FontAwesomeIcon icon={faFacebook} className='facebookArtist'></FontAwesomeIcon>
                 <FontAwesomeIcon icon={faTwitter} className='twiterArtist'></FontAwesomeIcon>
                 <FontAwesomeIcon icon={faLinkedinIn} className='linkedinArtist'></FontAwesomeIcon>
@@ -86,9 +85,9 @@ export default function
         </SwiperSlide>
         <SwiperSlide>
         <div className='artistSlide1'>
-            <img src={shihan} className='artist1Pic' style={{width:236,height:271}}></img>
+            <img src={band} className='artist1Pic' style={{width:236,height:271}}></img>
             <div className='reviewBox'>
-                <label className='artist1Name'>Shihan Mihranga</label>
+                <label className='artist1Name'>Flashback</label>
                 <FontAwesomeIcon icon={faFacebook} className='facebookArtist'></FontAwesomeIcon>
                 <FontAwesomeIcon icon={faTwitter} className='twiterArtist'></FontAwesomeIcon>
                 <FontAwesomeIcon icon={faLinkedinIn} className='linkedinArtist'></FontAwesomeIcon>
@@ -105,9 +104,9 @@ export default function
         </SwiperSlide>
         <SwiperSlide>
         <div className='artistSlide1'>
-            <img src={shihan} className='artist1Pic' style={{width:236,height:271}}></img>
+            <img src={band} className='artist1Pic' style={{width:236,height:271}}></img>
             <div className='reviewBox'>
-                <label className='artist1Name'>Shihan Mihranga</label>
+                <label className='artist1Name'>Flashback</label>
                 <FontAwesomeIcon icon={faFacebook} className='facebookArtist'></FontAwesomeIcon>
                 <FontAwesomeIcon icon={faTwitter} className='twiterArtist'></FontAwesomeIcon>
                 <FontAwesomeIcon icon={faLinkedinIn} className='linkedinArtist'></FontAwesomeIcon>
@@ -124,9 +123,9 @@ export default function
         </SwiperSlide>
         <SwiperSlide>
         <div className='artistSlide1'>
-            <img src={shihan} className='artist1Pic' style={{width:236,height:271}}></img>
+            <img src={band} className='artist1Pic' style={{width:236,height:271}}></img>
             <div className='reviewBox'>
-                <label className='artist1Name'>Shihan Mihranga</label>
+                <label className='artist1Name'>Flashback</label>
                 <FontAwesomeIcon icon={faFacebook} className='facebookArtist'></FontAwesomeIcon>
                 <FontAwesomeIcon icon={faTwitter} className='twiterArtist'></FontAwesomeIcon>
                 <FontAwesomeIcon icon={faLinkedinIn} className='linkedinArtist'></FontAwesomeIcon>
@@ -143,9 +142,9 @@ export default function
         </SwiperSlide>
         <SwiperSlide>
         <div className='artistSlide1'>
-            <img src={shihan} className='artist1Pic' style={{width:236,height:271}}></img>
+            <img src={band} className='artist1Pic' style={{width:236,height:271}}></img>
             <div className='reviewBox'>
-                <label className='artist1Name'>Shihan Mihranga</label>
+                <label className='artist1Name'>Flashback</label>
                 <FontAwesomeIcon icon={faFacebook} className='facebookArtist'></FontAwesomeIcon>
                 <FontAwesomeIcon icon={faTwitter} className='twiterArtist'></FontAwesomeIcon>
                 <FontAwesomeIcon icon={faLinkedinIn} className='linkedinArtist'></FontAwesomeIcon>
@@ -162,9 +161,9 @@ export default function
         </SwiperSlide>
         <SwiperSlide>
         <div className='artistSlide1'>
-            <img src={shihan} className='artist1Pic' style={{width:236,height:271}}></img>
+            <img src={band} className='artist1Pic' style={{width:236,height:271}}></img>
             <div className='reviewBox'>
-                <label className='artist1Name'>Shihan Mihranga</label>
+                <label className='artist1Name'>Flashback</label>
                 <FontAwesomeIcon icon={faFacebook} className='facebookArtist'></FontAwesomeIcon>
                 <FontAwesomeIcon icon={faTwitter} className='twiterArtist'></FontAwesomeIcon>
                 <FontAwesomeIcon icon={faLinkedinIn} className='linkedinArtist'></FontAwesomeIcon>
@@ -181,9 +180,9 @@ export default function
         </SwiperSlide>
         <SwiperSlide>
         <div className='artistSlide1'>
-            <img src={shihan} className='artist1Pic' style={{width:236,height:271}}></img>
+            <img src={band} className='artist1Pic' style={{width:236,height:271}}></img>
             <div className='reviewBox'>
-                <label className='artist1Name'>Shihan Mihranga</label>
+                <label className='artist1Name'>Flashback</label>
                 <FontAwesomeIcon icon={faFacebook} className='facebookArtist'></FontAwesomeIcon>
                 <FontAwesomeIcon icon={faTwitter} className='twiterArtist'></FontAwesomeIcon>
                 <FontAwesomeIcon icon={faLinkedinIn} className='linkedinArtist'></FontAwesomeIcon>
@@ -200,9 +199,9 @@ export default function
         </SwiperSlide>
         <SwiperSlide>
         <div className='artistSlide1'>
-            <img src={shihan} className='artist1Pic' style={{width:236,height:271}}></img>
+            <img src={band} className='artist1Pic' style={{width:236,height:271}}></img>
             <div className='reviewBox'>
-                <label className='artist1Name'>Shihan Mihranga</label>
+                <label className='artist1Name'>Flashback</label>
                 <FontAwesomeIcon icon={faFacebook} className='facebookArtist'></FontAwesomeIcon>
                 <FontAwesomeIcon icon={faTwitter} className='twiterArtist'></FontAwesomeIcon>
                 <FontAwesomeIcon icon={faLinkedinIn} className='linkedinArtist'></FontAwesomeIcon>

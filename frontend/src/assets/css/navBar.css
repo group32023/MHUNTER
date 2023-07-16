@@ -22,9 +22,10 @@
     top: 4px;
     left: 626px;
 }
-ul{
+.navContain ul{
     display: flex; 
     list-style: none;
+    margin-left: 122px;
 }
 
 ul li{
@@ -39,6 +40,7 @@ ul li{
     font-weight: 800;
     line-height: normal;
     padding-right: 22px;
+    padding-top: 15px;
 }
 
 .slide1{
@@ -48,4 +50,9 @@ ul li{
     width: 1536px;
     height: 706px;
     background-repeat: no-repeat;
+}
+
+.navContain nav a{
+    text-decoration: none;
+    color: white;
 }

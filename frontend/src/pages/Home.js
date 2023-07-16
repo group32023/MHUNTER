@@ -4,7 +4,7 @@ import MainSlider from '../components/common/MainSlider'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {faPhone} from '@fortawesome/free-solid-svg-icons'
-import { faTwitter, faFontAwesome,faFacebook,faGooglePlusG,faLinkedinIn } from '@fortawesome/free-brands-svg-icons'
+import { faTwitter,faFacebook,faGooglePlusG,faLinkedinIn } from '@fortawesome/free-brands-svg-icons'
 
 import '../assets/css/home.css'
 import ArtistSlider from '../components/ArtistSlider';
@@ -12,6 +12,8 @@ import Services from '../components/Services';
 import BandSlider from '../components/BandSlider';
 import EventTable from '../components/EventTable';
 import PerformanceView from '../components/PerformanceView';
+import EventSlider from '../components/EventSlider';
+import Footer from '../components/common/Footer';
 
 export default function 
 h() {
@@ -56,6 +58,10 @@ h() {
             <EventTable></EventTable>
 
             <PerformanceView></PerformanceView>
+
+            <EventSlider></EventSlider>
+
+            <Footer></Footer>
       </div>
     </div>
   )

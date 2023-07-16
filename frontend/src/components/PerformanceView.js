@@ -4,8 +4,9 @@ import CardMedia from "@mui/material/CardMedia";
 import video from '../assets/images/video.mp4'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {faPlay} from '@fortawesome/free-solid-svg-icons'
-import { useEffect,useRef } from 'react'
+
 import '../assets/css/performance.css'
+import { useRef } from "react";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/free-mode';
@@ -13,29 +14,27 @@ import 'swiper/css/pagination';
 
 import { FreeMode, Pagination, Autoplay } from 'swiper/modules';
 
+
 export default function PerformanceView() {
 
-  // create a videoRef object
-  const videoRef = useRef(null);
+  const videoRefs = useRef()
+
+  // let navigate = useNavigate()
   
 
-  useEffect(() => {
-    if (videoRef.current && typeof videoRef.current.pause === 'function') {
-      videoRef.current.pause(); // Pauses the video when the component mounts
-      console.log(videoRef.current)
-    }
-  }, []);
 
-// control the video 
-  const handlePlayPause = (videoRef) => {
-    if (videoRef.current && typeof videoRef.current.play === 'function') {
-        console.log('awa')
-        videoRef.current.pause();
-      
-    }
-  };
+  // function moveMusicPlayer(){
+  //   // navigate("www.google.com")
+  // }
+
+ function playVideo(){
+    videoRefs.current.play();
+  }
+
 
   return (
+    <div>
+      <div className="performancebg"></div>
     <div className="videoStream">
     <lable className="performanceView">LEATEST PERFORMANCE</lable>
     <Swiper
@@ -55,16 +54,16 @@ export default function PerformanceView() {
         modules={[FreeMode, Pagination,Autoplay]}
         className="mySwiper"
       >
-        <SwiperSlide style={{width:500,height:271,borderRadius:5}}> 
+        <SwiperSlide style={{width:500,height:236,borderRadius:5}}> 
         <div className='artistSlide1'>
             <Card sx={{ maxWidth: 236 }} >
       
       <CardMedia className="backgroudVideoCard">
         <div class="embed-responsive embed-responsive-16by9">
-        <iframe class="embed-responsive-item" src={video} ref={videoRef} allowfullscreen id="player1" onClick={handlePlayPause}  controls></iframe>
+        <video class="embed-responsive-item" src={video} ref={videoRefs}  allowfullscreen id="player1" title="performance" width={236} height={236}  ></video>
           
         </div>
-        <button type="button" class="btn btn-danger" id="play1"><FontAwesomeIcon icon={faPlay} /></button>
+        <button type="button" class="btn btn-danger" id="play1" onClick={playVideo} ><FontAwesomeIcon icon={faPlay} /></button>
       </CardMedia>
     </Card>
         </div>
@@ -76,9 +75,9 @@ export default function PerformanceView() {
       
       <CardMedia className="backgroudVideoCard">
       <div class="embed-responsive embed-responsive-16by9">
-        <iframe class="embed-responsive-item" src={video} ref={videoRef} allowfullscreen id="player2"  controls></iframe>
+        <video class="embed-responsive-item" src={video}  allowfullscreen title="performance" ref={videoRefs} width={236} height={236} ></video>
       </div>
-      <button type="button" class="btn btn-danger" id="play1"><FontAwesomeIcon icon={faPlay} ><a href="www.google.com"></a></FontAwesomeIcon></button>
+      <button type="button" class="btn btn-danger" id="play1" onClick={playVideo}><FontAwesomeIcon icon={faPlay} ></FontAwesomeIcon></button>
       </CardMedia>
     </Card>
   
@@ -90,9 +89,9 @@ export default function PerformanceView() {
       
       <CardMedia className="backgroudVideoCard">
         <div class="embed-responsive embed-responsive-16by9">
-        <iframe class="embed-responsive-item" src={video} ref={videoRef} allowfullscreen id="player3"  controls></iframe>
+        <video class="embed-responsive-item" src={video}  allowfullscreen id="player3" title="performance" ref={videoRefs} width={236} height={236}  ></video>
       </div>
-      <button type="button" class="btn btn-danger" id="play1"><FontAwesomeIcon icon={faPlay} /></button>
+      <button type="button" class="btn btn-danger" id="play1" onClick={playVideo}><FontAwesomeIcon icon={faPlay} /></button>
       </CardMedia>
     </Card>
             
@@ -104,9 +103,9 @@ export default function PerformanceView() {
       
       <CardMedia className="backgroudVideoCard">
       <div class="embed-responsive embed-responsive-16by9">
-        <iframe class="embed-responsive-item" src={video} ref={videoRef} allowfullscreen id="player"  controls></iframe>
+        <video class="embed-responsive-item" src={video}  allowfullscreen id="player" title="performance" ref={videoRefs} width={236} height={236}></video>
       </div>
-      <button type="button" class="btn btn-danger" id="play1"><FontAwesomeIcon icon={faPlay} /></button>
+      <button type="button" class="btn btn-danger" id="play1" onClick={playVideo}><FontAwesomeIcon icon={faPlay} /></button>
       </CardMedia>
     </Card>
             
@@ -118,9 +117,9 @@ export default function PerformanceView() {
       
       <CardMedia className="backgroudVideoCard">
       <div class="embed-responsive embed-responsive-16by9">
-        <iframe class="embed-responsive-item" src={video} ref={videoRef} allowfullscreen id="player"  controls></iframe>
+        <video class="embed-responsive-item" src={video}  allowfullscreen id="player" title="performance" ref={videoRefs} width={236} height={236}></video>
       </div>
-      <button type="button" class="btn btn-danger" id="play1"><FontAwesomeIcon icon={faPlay} /></button>
+      <button type="button" class="btn btn-danger" id="play1" onClick={playVideo}><FontAwesomeIcon icon={faPlay} /></button>
       </CardMedia>
     </Card>
         </div>
@@ -131,9 +130,9 @@ export default function PerformanceView() {
       
       <CardMedia className="backgroudVideoCard">
       <div class="embed-responsive embed-responsive-16by9">
-        <iframe class="embed-responsive-item" src={video} ref={videoRef} allowfullscreen id="player"  controls></iframe>
+        <video class="embed-responsive-item" src={video}  allowfullscreen id="player" title="performance" ref={videoRefs} width={236} height={236}></video>
       </div>
-      <button type="button" class="btn btn-danger" id="play1"><FontAwesomeIcon icon={faPlay} /></button>
+      <button type="button" class="btn btn-danger" id="play1" onClick={playVideo}><FontAwesomeIcon icon={faPlay} /></button>
       </CardMedia>
     </Card>
         </div>
@@ -144,9 +143,9 @@ export default function PerformanceView() {
       
       <CardMedia className="backgroudVideoCard">
       <div class="embed-responsive embed-responsive-16by9">
-        <iframe class="embed-responsive-item" src={video} ref={videoRef} allowfullscreen id="player"  controls></iframe>
+        <video class="embed-responsive-item" src={video}  allowfullscreen id="player" title="performance" ref={videoRefs}  width={236} height={236}></video>
       </div>
-      <button type="button" class="btn btn-danger" id="play1"><FontAwesomeIcon icon={faPlay} /></button>
+      <button type="button" class="btn btn-danger" id="play1" onClick={playVideo}><FontAwesomeIcon icon={faPlay} /></button>
       </CardMedia>
     </Card>
         </div>
@@ -157,9 +156,9 @@ export default function PerformanceView() {
       
       <CardMedia className="backgroudVideoCard">
       <div class="embed-responsive embed-responsive-16by9">
-        <iframe class="embed-responsive-item" src={video} ref={videoRef} allowfullscreen id="player"  controls></iframe>
+        <video class="embed-responsive-item" src={video}  allowfullscreen id="player" title="performance" ref={videoRefs}  width={236} height={236}></video>
       </div>
-      <button type="button" class="btn btn-danger" id="play1"><FontAwesomeIcon icon={faPlay} /></button>
+      <button type="button" class="btn btn-danger" id="play1" onClick={playVideo}><FontAwesomeIcon icon={faPlay} /></button>
       </CardMedia>
     </Card>
         </div>
@@ -170,14 +169,15 @@ export default function PerformanceView() {
      
       <CardMedia className="backgroudVideoCard">
       <div class="embed-responsive embed-responsive-16by9">
-        <iframe class="embed-responsive-item" src={video} ref={videoRef} allowfullscreen id="player"  controls></iframe>
+        <video class="embed-responsive-item" src={video}  allowfullscreen id="player" title="performance" ref={videoRefs} width={236} height={236}></video>
       </div>
-      <button type="button" class="btn btn-danger" id="play1"><FontAwesomeIcon icon={faPlay} /></button>
+      <button type="button" class="btn btn-danger" id="play1" onClick={playVideo}><FontAwesomeIcon icon={faPlay} /></button>
       </CardMedia>
     </Card>
         </div>
         </SwiperSlide>
       </Swiper>
+    </div>
     </div>
   );
 }

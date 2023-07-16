@@ -12,6 +12,7 @@
     /* top: 0px; */
     margin-top: 2414px;
     margin-left: 86px;
+    z-index: 1000;
 }
 .videoStream .swiper-slide{
     width: 236px !important;
@@ -39,20 +40,9 @@
     z-index: 100;
 }
  
-.artistSlide1 video::-webkit-media-controls-play-button {
-    background-color: pink; /* Change the background color */
-    color: white; /* Change the text color */
-  }
 
-.customeVideoPlayer::-webkit-media-controls-play-button {
-    /* Change the text color */
-    color: white;
-
-    /* Change the background color */
-    background-color: blue;
-  }
   iframe{
-    height: 250px;
+    height: 236px;
     width: 236px;
   }
   .backgroudVideoCard{
@@ -66,4 +56,13 @@
     background: #F70F5D; 
     top: 114px;
     left: 88px;
+  }
+
+  .performancebg{
+    background: black;
+    opacity: 0.7;
+    height: 300px;
+    width: 100%;
+    z-index: 100;
+    position: absolute;
   }

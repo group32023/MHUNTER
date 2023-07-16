@@ -1,0 +1,141 @@
+.Footer {
+    padding: 2rem 0;
+    margin-top: 15rem;
+    background: #10012D;
+  }
+  
+  .ft-1 h3 {
+    font-weight: 700;
+    font-family: cursive;
+    letter-spacing: 2px;
+    padding: 0.5rem 0;
+  }
+  
+  .ft-1 span {
+    color: #f60838;
+  }
+  
+  .ft-1 p {
+    padding: 0rem 5rem 0.8rem 0;
+    font-weight: 500;
+  }
+  
+  .footer-icons i {
+    padding: 0.4rem 0.5rem;
+    background: #e1e1e1;
+    color: #7643D2;
+    margin: 0 0.5rem;
+    border-radius: 50%;
+  }
+  
+  .footer-icons i:hover {
+    background: #7643D2;
+    color: #fff;
+    transition: 0.6s;
+    cursor: pointer;
+  }
+  
+  .Footer h5 {
+    color: #7643D2;
+  }
+  
+  .ft-2 ul {
+    list-style: none;
+    padding-left: 0;
+    display: list-item;
+    position: absolute;
+    left: 50.5%;
+    text-align: left;
+  }
+  
+  .ft-2 ul li {
+    padding: 0.35rem 0;
+    font-weight: 500;
+  }
+  
+  .ft-2 ul a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 1.06rem;
+    
+  }
+  
+  .ft-3 p {
+    font-weight: 500;
+    padding: 0.1rem 0;
+    font-size: 1.06rem;
+    color: #fff;
+    text-align: left;
+    margin-left: 148px;
+  }
+  
+  .ft-3 i {
+    padding-right: 0.5rem;
+  }
+  
+  .Last-footer {
+    background: #7643D2;
+    text-align: center;
+    padding: 1rem 0;
+  }
+  
+  .Last-footer p {
+    margin-bottom: 0;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: white;
+    font-family: 'Poiret One',cursive;
+  }
+  .ft-1 .logoInFooter{
+    position: absolute;
+    top: 590%;
+    left: 9%;
+    width: 176px;
+    height: 186px;
+  }
+  .ft-1  .introductionFooter{
+    position: absolute;
+    top: 611%;
+    left: 10%;
+    color: #fff;
+    font-family: 'Roboto', sans-serif;
+  }
+  .ft-1  .footer-icons .facebookIcon{
+    color: #fff;
+    position: absolute;
+    top: 590%;
+    left: 20%;
+  }
+  .ft-1  .footer-icons .twitterIcon{
+    color: #fff;
+    position: absolute;
+    top: 590%;
+    left: 23%;
+  }
+  .ft-1  .footer-icons .googlePlusIcon{
+    color: #fff;
+    position: absolute;
+    top: 590%;
+    left: 26%;
+  }
+  .ft-1 .footer-icons .linkedInIcon{
+    color: #fff;
+    position: absolute;
+    top: 590%;
+    left: 29%;
+  }
+  .footer-icons{
+    position: absolute;
+    left: -9%;
+    top: 618%;
+    width: 1470px;
+
+  }
+  .ft-3 p{
+    font-family: 'Roboto', sans-serif;
+  }
+  
+  .nav-item{
+    font-family: 'Roboto', sans-serif;
+  }
+  

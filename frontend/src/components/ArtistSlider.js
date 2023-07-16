@@ -3,8 +3,7 @@ import shihan from '../assets/images/shihan.jpg'
 
 import '../assets/css/artistSlider.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import {faPhone,faStar} from '@fortawesome/free-solid-svg-icons'
-import { faTwitter, faFontAwesome,faFacebook,faGooglePlusG,faLinkedinIn } from '@fortawesome/free-brands-svg-icons'
+import { faTwitter,faFacebook,faLinkedinIn } from '@fortawesome/free-brands-svg-icons'
 
 import Rating from '@mui/material/Rating';
 import { Swiper, SwiperSlide } from 'swiper/react';

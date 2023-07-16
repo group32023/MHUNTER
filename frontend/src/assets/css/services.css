@@ -86,7 +86,16 @@
 #SeeMoreEventMicrophoneBand{
     position: absolute;
     top: 79%;
-    left: 33%;
+    left: 28%;
     border-radius: 35px;
-    border: 5px solid #FFF; 
+    background: white;
+    color: black;
+    height: 50px;
+    width: 149px;
+}
+
+#SeeMoreEventMicrophoneBand:hover{
+    background: #7643D2;
+    color: white;
+    border-color: 1px solid #7643D2;
 }

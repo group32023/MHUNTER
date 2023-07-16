@@ -18,7 +18,7 @@ body {
     font-weight: 800;
     line-height: normal;
     position: absolute;
-    top: 1.5%;
+    top: 3.5%;
     left: 3%;
     z-index: 100;
 }
@@ -133,9 +133,9 @@ body {
    
 }
 .signupBtn:hover{
-    background-color: black;
+    background-color: #7643D2;
     border: 5px solid;
-    border-color: black;
+    border-color: #7643D2;
 }
 
 .headingArtist{

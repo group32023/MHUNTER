@@ -1,0 +1,12 @@
+.eventSliderDiv{
+    margin-top: 211px;
+}
+.eventSliderDiv .swiper-slide{
+    width: 400px !important;
+}
+.eventSliderDiv .swiper-slide-active{
+    width: 400px !important;
+}
+.eventSliderDiv .swiper-slide-next{
+    width: 400px !important;
+}
