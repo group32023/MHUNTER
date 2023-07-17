@@ -1,0 +1,45 @@
+#aboutUSviewbtn1{
+    z-index: 1000;
+    width: 30px;
+    height: 30px;
+    padding: 1px 0px;
+    border-radius: 15px;
+    color:black;
+    font-weight: 800;
+    font-size: 20px;
+    text-align: center;
+    background-color: white;
+    position: relative;
+    left: 70%;
+}
+#aboutUSviewbtn2{
+    z-index: 1000;
+    width: 30px;
+    height: 30px;
+    padding: 1px 0px;
+    border-radius: 15px;
+    color:black;
+    font-weight: 800;
+    font-size: 20px;
+    text-align: center;
+    background-color: white;
+    position: relative;
+    left: 70%;
+}
+
+#tableEvents{
+    --bs-table-bg: none !important;
+    font-size: 22px;
+    width: 90%;
+    left: 5%;
+    text-align: center !important;
+    font-family: Dosis;
+    position: relative;
+}
+
+#tableEvents tr{
+    width: 90%;
+    height: 40%;
+    text-align: left !important;
+    border-bottom: #7643D2 solid 3px !important;
+}
