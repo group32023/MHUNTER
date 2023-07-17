@@ -32,7 +32,9 @@ export default function ArtistBandSignup() {
             <img src={require('../assets/images/band.jpg')} height={180} width={150}/>
           </div>
           <div>
+          <Link to={"/bandsignup"}>
             <button className='signup_button'><b><span className='text-danger'>SignUp</span> for MHUNTER Band</b></button>
+          </Link>
           </div>
         </div>
 

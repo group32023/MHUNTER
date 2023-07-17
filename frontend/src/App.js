@@ -9,6 +9,7 @@ import ArtistBandSignup from './pages/ArtistBandSignup';
 import ArtistSignup from './pages/ArtistSignup';
 import NavBar from './components/common/NavBar';
 import MainSlider from './components/common/MainSlider';
+import BandSignup from './pages/BandSignup';
 function App() {
   return (
     
@@ -20,6 +21,7 @@ function App() {
           <Route path="/signup" element={<Signup />} />
           <Route path='/artistbandsignup' element={<ArtistBandSignup />} />
           <Route path='/artistsignup' element={<ArtistSignup />} />
+          <Route path='/bandsignup' element={<BandSignup/>} />
 
       </Routes>
     </BrowserRouter>
