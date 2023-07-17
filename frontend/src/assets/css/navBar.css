@@ -1,5 +1,5 @@
 .navBody{
-    width: 1536px;
+    width: 100%;
     height: 58px;
     flex-shrink: 0;
     background: #030303;
@@ -20,13 +20,21 @@
 .navContain{
     position: absolute;
     top: 4px;
+<<<<<<< Updated upstream
     left: 626px;
     
+=======
+    left: 46%;
+>>>>>>> Stashed changes
 }
 .navContain ul{
     display: flex; 
     list-style: none;
+<<<<<<< Updated upstream
     margin-left: 122px;
+=======
+
+>>>>>>> Stashed changes
 }
 
 ul li{
