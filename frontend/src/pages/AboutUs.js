@@ -98,17 +98,17 @@ App() {
                 <div className='eventcontainer'>
 
                    
-                      <Table className='table table-hover table-dark' id="tableEvents" >
+                      <Table className='table table-hover table-dark ' id="tableEvents" >
 
                             <tbody>
                             <tr>
                                 <td>PAYMENT OPTIONS
                                 <button type="button" class="btn btn-default btn-circle" id="aboutUSviewbtn1" onClick={viewContentPayments}>{buttonText}</button> </td>
-                               
+                                
                             </tr>
-                             <tr>
+                             <tr >
                              {                             
-                                show && <h4>Hello world! </h4>
+                                show && <div id="payments">Hello world! <br></br>hi hi <br></br>jkvo </div>
                              }
                              </tr>
                              
@@ -119,7 +119,7 @@ App() {
                             </tr>
                              <tr>
                              {                             
-                                show && <h4>Hello world hi! </h4>
+                                show && <div>Hello world hi! </div>
                              }
                              </tr>
 
