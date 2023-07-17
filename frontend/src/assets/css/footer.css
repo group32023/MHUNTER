@@ -141,4 +141,6 @@
   .active{
     color: #7643D2 !important;
 }
-  
+.ft-2 ul li a:hover{
+  color: #7643D2 !important;
+}

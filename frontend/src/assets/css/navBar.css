@@ -69,3 +69,6 @@ ul li{
 .active{
     color: #7643D2 !important;
 }
+.navContain nav ul li a:hover{
+    color: #7643D2 !important;
+  }
