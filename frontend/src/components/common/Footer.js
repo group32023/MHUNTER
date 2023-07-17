@@ -6,6 +6,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {faPhone,faEnvelope,faPaperPlane} from '@fortawesome/free-solid-svg-icons'
 
 const Footer = () => {
+    var url = window.location.href
+    var location = url.split('/')[3]
     return (
         <>
             <div className="Footer">
@@ -25,22 +27,22 @@ const Footer = () => {
                             <h5>Quick Links</h5>
                             <ul>
                                 <li className="nav-item">
-                                    <a className="" href="/">HOME</a>
+                                    <a href="/" className={`${(location.length===0) ? 'active':''}`}>HOME</a>
                                 </li>
                                 <li className="nav-item">
-                                    <a className="" href="/">EVENTS</a>
+                                    <a className={`${(location==='event') ? 'active':''}`} href="/">EVENTS</a>
                                 </li>
                                 <li className="nav-item">
-                                    <a className="" href="/">BANDS</a>
+                                    <a className={`${(location==='band') ? 'active':''}`} href="/">BANDS</a>
                                 </li>
                                 <li className="nav-item">
-                                    <a className="" href="/">ARTISTS</a>
+                                    <a className={`${(location==='artist') ? 'active':''}`} href="/">ARTISTS</a>
                                 </li>
                                 <li className="nav-item">
-                                    <a className="" href="/">ABOUT US</a>
+                                    <a className={`${(location==='about') ? 'active':''}`} href="/">ABOUT US</a>
                                 </li>
                                 <li className="nav-item">
-                                    <a className="" href="/">CONTACT</a>
+                                    <a className={`${(location==='contact') ? 'active':''}`} href="/">CONTACT</a>
                                 </li>
                             </ul>
                         </div>

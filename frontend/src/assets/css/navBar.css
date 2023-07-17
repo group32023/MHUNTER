@@ -21,6 +21,7 @@
     position: absolute;
     top: 4px;
     left: 626px;
+    
 }
 .navContain ul{
     display: flex; 
@@ -55,4 +56,16 @@ ul li{
 .navContain nav a{
     text-decoration: none;
     color: white;
+}
+.scroll{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 1536px;
+    height: 58px;
+    background: #030303;
+    z-index: 10000;
+}
+.active{
+    color: #7643D2 !important;
 }
