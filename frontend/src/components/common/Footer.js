@@ -30,16 +30,16 @@ const Footer = () => {
                                     <a href="/" className={`${(location.length===0) ? 'active':''}`}>HOME</a>
                                 </li>
                                 <li className="nav-item">
-                                    <a className={`${(location==='event') ? 'active':''}`} href="/">EVENTS</a>
+                                    <a className={`${(location==='event') ? 'active':''}`} href="/event">EVENTS</a>
                                 </li>
                                 <li className="nav-item">
-                                    <a className={`${(location==='band') ? 'active':''}`} href="/">BANDS</a>
+                                    <a className={`${(location==='band') ? 'active':''}`} href="/band">BANDS</a>
                                 </li>
                                 <li className="nav-item">
-                                    <a className={`${(location==='artist') ? 'active':''}`} href="/">ARTISTS</a>
+                                    <a className={`${(location==='artist') ? 'active':''}`} href="/artist">ARTISTS</a>
                                 </li>
                                 <li className="nav-item">
-                                    <a className={`${(location==='about') ? 'active':''}`} href="/">ABOUT US</a>
+                                    <a className={`${(location==='about') ? 'active':''}`} href="/aboutUs">ABOUT US</a>
                                 </li>
                                 <li className="nav-item">
                                     <a className={`${(location==='contact') ? 'active':''}`} href="/">CONTACT</a>

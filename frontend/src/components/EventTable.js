@@ -15,7 +15,7 @@ export default function
        
         <div>
              
-                <div className='eventcontainer'>
+                <div className='eventTablecontainer'>
 
                     <lable className="eventList">EVENTS LIST</lable>
                       <Table className='table table-hover table-dark' id="tableEvent" >

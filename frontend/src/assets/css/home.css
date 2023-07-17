@@ -135,7 +135,6 @@ body {
 .signupBtn:hover{
     background-color: #7643D2;
     border: 5px solid;
-<<<<<<< Updated upstream
     border-color: #7643D2;
 }
 
@@ -154,10 +153,10 @@ body {
     top: 743px;
     left: 643px;
     z-index: 100;
-}
-=======
     border-color: black;
 }
+    
+
 
 .descriptionDiv1{
     background-color:rgba(3, 3, 3, 0.4);
@@ -245,4 +244,3 @@ body {
 }
 
 
->>>>>>> Stashed changes

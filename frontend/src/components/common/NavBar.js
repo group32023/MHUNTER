@@ -37,10 +37,10 @@ export default function NavBar() {
               <nav>
             <ul>
                 <li><a href='/' className={`${(location.length===0) ? 'active':''}`}>HOME</a></li>
-                <li><a href='/' className={`${(location==='event') ? 'active':''}`}>EVENTS</a></li>
-                <li><a href='/' className={`${(location==='band') ? 'active':''}`}>BANDS</a></li>
-                <li><a href='/'  className={`${(location==='artist') ? 'active':''}`}>ARTISTS</a></li>
-                <li><a href='/' className={`${(location==='about') ? 'active':''}`}>ABOUT US</a></li>
+                <li><a href='/event' className={`${(location==='event') ? 'active':''}`}>EVENTS</a></li>
+                <li><a href='/band' className={`${(location==='band') ? 'active':''}`}>BANDS</a></li>
+                <li><a href='/artist'  className={`${(location==='artist') ? 'active':''}`}>ARTISTS</a></li>
+                <li><a href='/aboutUs' className={`${(location==='aboutUs') ? 'active':''}`}>ABOUT US</a></li>
                 <li><a href='/' className={`${(location==='contact') ? 'active':''}`}>CONTACT</a></li>
                 <li><a href='/'>LOGIN</a></li>
             </ul>
