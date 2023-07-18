@@ -48,6 +48,14 @@ export default function BandSignup() {
                       <label htmlFor='Address'>Address</label>
                       <input type='text' placeholder='' className='form-control'/>
                     </div>
+                    <div className='mb-2 text-white text-field'>
+                    <label htmlFor='Address'>Password</label>
+                    <input type='password' placeholder='' className='form-control'/>
+                  </div>
+                  <div className='mb-2 text-white text-field'>
+                    <label htmlFor='Address'>Confirm Password</label>
+                    <input type='password' placeholder='' className='form-control'/>
+                  </div>
               </div>
               <div className='artist-signup-right-box'>
                   <div className=''>
@@ -94,7 +102,7 @@ export default function BandSignup() {
           </div>
       </div>
   
-    )
-  }
+    );
+  };
   
   

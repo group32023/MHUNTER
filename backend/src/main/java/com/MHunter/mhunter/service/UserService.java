@@ -1,9 +1,10 @@
 package com.MHunter.mhunter.service;
 
-import com.MHunter.mhunter.model.User;
+import com.MHunter.mhunter.DTO.UserDTO;
 
 public interface UserService {
-    String addUser(User user);
 
-    User loginUser(String email, String password);
+    //User loginUser(String email, String password);
+
+    String addUser(UserDTO userDTO);
 }

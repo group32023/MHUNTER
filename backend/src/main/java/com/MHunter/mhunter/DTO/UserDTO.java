@@ -1,29 +1,20 @@
-package com.MHunter.mhunter.model;
+package com.MHunter.mhunter.DTO;
 
-import jakarta.persistence.*;
+public class UserDTO {
 
-@Entity
-@Table(name = "user")
-public class User {
-    @Id
-    @Column(name="user_id", length = 45)   //database row name
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private int userid;   //from form
-    @Column(name="email", length = 255)
+    private int userid;
     private String email;
-    @Column(name="user_name", length = 255)
     private String username ;
-    @Column(name="password", length = 255)
     private String password;
 
-    public User(int userid, String email, String username, String password) {
+    public UserDTO() {
+    }
+
+    public UserDTO(int userid, String email, String username, String password) {
         this.userid = userid;
         this.email = email;
         this.username = username;
         this.password = password;
-    }
-
-    public User() {
     }
 
     public int getUserid() {
@@ -60,7 +51,7 @@ public class User {
 
     @Override
     public String toString() {
-        return "User{" +
+        return "UserDTO{" +
                 "userid=" + userid +
                 ", email='" + email + '\'' +
                 ", username='" + username + '\'' +
