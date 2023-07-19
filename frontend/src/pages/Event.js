@@ -85,7 +85,7 @@ h() {
                       <Table className='table table-hover table-dark' id="tableEvent" >
                         <tbody>
                           <tr>
-                                <td id="firstTD">14 JULY</td>
+                                <td>14 JULY</td>
                                 <td><img src={eventimage} id="eventImage"></img></td>
                                 <td>BEZA</td>
                                 <td><FontAwesomeIcon icon={faLocationDot} id="LocationIcon"/>MATARA</td>

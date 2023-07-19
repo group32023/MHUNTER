@@ -1,4 +1,4 @@
-import React,{useState} from 'react'
+import React,{useState, useEffect,useRef} from 'react'
 import NavBar from '../components/common/NavBar';
 import MainSlider from '../components/common/MainSlider';
 import backgroundimage from '../assets/images/backgroundimage1.jpg';
@@ -20,35 +20,49 @@ import '../assets/css/aboutus.css'
 
 export default function 
 App() {
-    const [show,setShow]=useState(false);
-    const initialText = '+';
-  const [buttonText, setButtonText] = useState(initialText);
 
-  function viewContentPayments(){
-    if(buttonText==='+'){
-        setShow(true);
-        setButtonText('-');
+    //     id:
+    // })
+    // }
+//     const [show,setShow]=useState(false);
+//     const initialText = '+';
+//   const [buttonText, setButtonText] = useState(initialText);
 
-    }
-    else{
-        setShow(false);
-        setButtonText('+');
-    }
+//   function viewContentPayments(){
+//     if(buttonText==='+'){
+//         setShow(true);
+//         setButtonText('-');
+
+//     }
+//     else{
+//         setShow(false);
+//         setButtonText('+');
+//     }
     
 
-  }
-  function viewContentPayemntOptions(){
-    if(buttonText==='+'){
-        setShow(true);
-        setButtonText('-');
+//   }
+//   function viewContentPayemntOptions(){
+//     if(buttonText==='+'){
+//         setShow(true);
+//         setButtonText('-');
 
-    }
-    else{
-        setShow(false);
-        setButtonText('+');
-    }
+//     }
+//     else{
+//         setShow(false);
+//         setButtonText('+');
+//     }
 
-  }
+const [ButtonID,setButtonID]= useState("btn")
+var [buttonText, setButtonText] = useState('+');
+
+
+function setButtonIDFunction(){
+  
+
+    
+}
+
+  
   return (
     <div>
        
@@ -98,28 +112,28 @@ App() {
                 <div className='eventcontainer'>
 
                    
-                      <Table className='table table-hover table-dark' id="tableEvents" >
+                      <Table className='table table-hover table-dark ' id="tableEvents" >
 
                             <tbody>
                             <tr>
                                 <td>PAYMENT OPTIONS
-                                <button type="button" class="btn btn-default btn-circle" id="aboutUSviewbtn1" onClick={viewContentPayments}>{buttonText}</button> </td>
-                               
+                                <button type="button" class="btn btn-default btn-circle" id="aboutUSviewbtn1" onClick={setButtonIDFunction} >{buttonText}</button> </td>
+                                
                             </tr>
-                             <tr>
+                             <tr >
                              {                             
-                                show && <h4>Hello world! </h4>
+                                ButtonID==="aboutUSviewbtn1" && <div id="payments">hello welcome</div>
                              }
                              </tr>
                              
                              <tr>
                                 <td>PAYMENT OPTIONS
-                                <button type="button" class="btn btn-default btn-circle" id="aboutUSviewbtn2" onClick={viewContentPayemntOptions}>{buttonText}</button> </td>
+                                <button type="button" class="btn btn-default btn-circle" id="aboutUSviewbtn2" onClick={()=>setButtonIDFunction("aboutUSviewbtn2")}>{buttonText}</button></td>
                                
                             </tr>
                              <tr>
                              {                             
-                                show && <h4>Hello world hi! </h4>
+                                ButtonID==="aboutUSviewbtn2" && <div>Hello world hi! </div>
                              }
                              </tr>
 

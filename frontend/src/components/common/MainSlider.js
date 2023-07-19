@@ -23,7 +23,7 @@ import { Navigation, Pagination,Autoplay } from 'swiper/modules';
 export default function App() {
   return (
     <>
-       <Swiper
+      <Swiper
         spaceBetween={30}
         centeredSlides={true}
         autoplay={{
