@@ -1,5 +1,7 @@
 import './CreateEvent.css';
 import { useState } from 'react';
+import React from 'react';
+import LocationInput from '../../components/Organizer/LocationInput';
 
 function CreateEvent() {
 
@@ -17,15 +19,35 @@ function CreateEvent() {
   })
 
   const onChangeHandler = (event) => {
+    if (!event.target) return; // Check if event.target exists
+  
+    const { name, value } = event.target;
+  
+    if (name === 'location') {
+      // Handle location selection
+      setFormData((prevFormData) => ({
+        ...prevFormData,
+        location: value,
+      }));
+    } else {
+      // Handle form input changes
+      setFormData((prevFormData) => ({
+        ...prevFormData,
+        [name]: value,
+      }));
+    }
+  };
 
-    setFormData(() => ({
-      ...formData,
-      [event.target.name]: event.target.value
-
-    })
-    )
-
-  }
+  const handleLocationSelect = (selectedLocation) => {
+    // Update the location property in the formData state with the selected location data
+    setFormData((prevFormData) => ({
+      ...prevFormData,
+      location: selectedLocation.address,
+    }));
+  
+    // Print the location value in the console
+    console.log(selectedLocation.address);
+  };
 
   return (
     <div className="container">
@@ -89,7 +111,7 @@ function CreateEvent() {
         <div className="form-group">
 
           <label htmlFor="location" className="form-label">Location</label>
-          <input type="text" className="form-control" name="location" onChange={onChangeHandler} placeholder="Enter location"></input>
+          <LocationInput onLocationSelect={handleLocationSelect} />
 
         </div>
 
