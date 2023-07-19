@@ -3,7 +3,12 @@ import { GoogleMap, Marker, InfoWindow, LoadScript, StandaloneSearchBox } from '
 
 const LocationInput = ({ onLocationSelect }) => {
   const [selectedLocation, setSelectedLocation] = useState(null);
+  const mapRef = useRef(null);
   const searchBoxRef = useRef(null);
+
+  const handleMapLoad = (map) => {
+    mapRef.current = map;
+  };
 
   const handlePlaceSelect = () => {
     if (searchBoxRef.current) {
@@ -16,10 +21,10 @@ const LocationInput = ({ onLocationSelect }) => {
           address: place.formatted_address,
         });
         onLocationSelect({
-            lat: place.geometry.location.lat(),
-            lng: place.geometry.location.lng(),
-            address: place.formatted_address,
-          });
+          lat: place.geometry.location.lat(),
+          lng: place.geometry.location.lng(),
+          address: place.formatted_address,
+        });
       }
     }
   };
@@ -27,14 +32,12 @@ const LocationInput = ({ onLocationSelect }) => {
   return (
     <LoadScript googleMapsApiKey="AIzaSyBHUE7QQ_cie9vWpTKHX7rOuqAoD8uxhCA" libraries={['places']}>
       <div>
-        <StandaloneSearchBox
-          onLoad={(searchBox) => (searchBoxRef.current = searchBox)}
-          onPlacesChanged={handlePlaceSelect}
-        >
+        <StandaloneSearchBox onLoad={(searchBox) => (searchBoxRef.current = searchBox)} onPlacesChanged={handlePlaceSelect}>
           <input type="text" placeholder="Enter a location" />
         </StandaloneSearchBox>
         {selectedLocation && (
           <GoogleMap
+            onLoad={handleMapLoad}
             center={selectedLocation}
             zoom={15}
             mapContainerStyle={{ height: '300px', width: '100%' }}
