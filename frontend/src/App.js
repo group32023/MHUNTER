@@ -3,6 +3,7 @@ import NavBar from './components/common/NavBar';
 import MainSlider from './components/common/MainSlider'
 import Event from './pages/Event'
 import AboutUs from './pages/AboutUs'
+import { AccordionButton } from 'react-bootstrap';
 function App() {
   return (
     <div className="App">
@@ -12,7 +13,7 @@ function App() {
         <NavBar></NavBar>
       </div>
       </div> */}
-      <AboutUs></AboutUs>
+      {/* <AboutUs></AboutUs> */}
      
      
     </div>
