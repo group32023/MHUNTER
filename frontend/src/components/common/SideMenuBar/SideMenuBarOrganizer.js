@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import "../../../assets/css/SideMenuBarOrganizer.css";
-import profilePhoto from '../../../assets/images/profilePhoto.jpeg'
+// import profilePhoto from '../../../assets/images/profilePhoto.jpeg'
 import dashboardimg from '../../../assets/icons/dashboard.png'
 import eventsimg from '../../../assets/icons/events.png'
 import eventhistoryimg from '../../../assets/icons/eventHistory.png'
 import complaintsimg from '../../../assets/icons/complaint.png'
-import logoImage from '../../../assets/icons/logosidebar.svg'
+import logoImage from '../../../assets/icons/logosidebar.svg' 
 
 
 const SideMenuBarOrganizer = () => { 
@@ -65,10 +65,10 @@ const SideMenuBarOrganizer = () => {
 					</div>
 
 				</div>
-				<div className="menu-profilePhoto">
+				{/* <div className="menu-profilePhoto">
 					<img className={isExpanded ? "menu-item-profilePhoto" : "menu-item-profilePhoto-NX"} src={profilePhoto} alt="Profile" srcSet="" width="130px" height="130px" />
 
-				</div>
+				</div> */}
 
 				{isExpanded && (<div className="menu-profilePName">
 					<p >Tehani Imara</p>
