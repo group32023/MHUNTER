@@ -88,18 +88,18 @@ const LocationInput = ({ onLocationSelect,setFormData  }) => {
     newLocation.address = address;
   
     // Set the search box value to the fetched address
-    if (searchBoxRef.current) {
-      searchBoxRef.current.set('query', address);
-    }
+    // if (searchBoxRef.current) {
+    //   searchBoxRef.current.set('query', address);
+    // }
   
     setSelectedLocation(newLocation);
     onLocationSelect(newLocation);
     // setSearchValue(newLocation.address); 
   
-    const searchBoxInput = document.querySelector('.searchbox');
-  if (searchBoxInput) {
-    searchBoxInput.value = newLocation.address;
-  }
+    const searchBoxInput = document.querySelector('.searchbox input'); // Get the input element
+    if (searchBoxInput) {
+      searchBoxInput.value = newLocation.address;
+    }
 
     // Print the location value in the console
     console.log( address);
@@ -117,7 +117,7 @@ const LocationInput = ({ onLocationSelect,setFormData  }) => {
   return (
     <LoadScript googleMapsApiKey="AIzaSyBHUE7QQ_cie9vWpTKHX7rOuqAoD8uxhCA" libraries={libraries}>
       <div>
-        <StandaloneSearchBox className = "searchbox" onLoad={(searchBox) => (searchBoxRef.current = searchBox)} onPlacesChanged={handlePlaceSelect}>
+        <StandaloneSearchBox   onLoad={(searchBox) => (searchBoxRef.current = searchBox)} onPlacesChanged={handlePlaceSelect}>
           <input type="text" placeholder="Enter a location" />
         </StandaloneSearchBox>
         {selectedLocation && (
@@ -126,7 +126,7 @@ const LocationInput = ({ onLocationSelect,setFormData  }) => {
             onClick={handleMapClick} // Add the click event handler to the map
             center={selectedLocation}
             zoom={15}
-            mapContainerStyle={{ height: '300px', width: '100%' }}
+            mapContainerStyle={{ height: '200px', width: '80%' }}
           >
             <Marker position={selectedLocation} />
           </GoogleMap>
