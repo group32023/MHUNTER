@@ -65,7 +65,7 @@ function CreateEvent() {
         <div className="form-group">  
 
           <label htmlFor="eventname" className="form-label">Event Name</label>
-          <input type="text" className="form-control" onChange={onChangeHandler} name="eventname" placeholder="Enter event name"></input>
+          <input type="text" className="form-control" onChange={onChangeHandler} name="eventname" ></input>
 
         </div>
 
@@ -88,13 +88,13 @@ function CreateEvent() {
 
           <div className="form-group col-md-6">
             <label htmlFor="date" className="form-label" >Date</label>
-            <input type="date" className="form-control" onChange={onChangeHandler} name="date" placeholder="Enter expected crowd"></input>
+            <input type="date" className="form-control" onChange={onChangeHandler} name="date" ></input>
           </div>
 
           <div className="form-group col-md-6">
 
             <label htmlFor="eventcrowd" className="form-label">Expected Crowd</label>
-            <input type="text" className="form-control" onChange={onChangeHandler} name="eventcrowd" placeholder="Enter expected crowd"></input>
+            <input type="text" className="form-control" onChange={onChangeHandler} name="eventcrowd" ></input>
 
           </div>
         </div>
@@ -125,7 +125,7 @@ function CreateEvent() {
         <div className="form-group">
 
           <label htmlFor="description" className="form-label">Description</label>
-          <textarea type="text" className="form-control" onChange={onChangeHandler} name="description" placeholder="Enter event description"></textarea>
+          <textarea type="text" className="form-control" onChange={onChangeHandler} name="description" ></textarea>
 
         </div>
 
