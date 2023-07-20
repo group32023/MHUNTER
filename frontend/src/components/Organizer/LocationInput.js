@@ -18,11 +18,11 @@ const LocationInput = ({ onLocationSelect,setFormData  }) => {
       const places = searchBoxRef.current.getPlaces();
       if (places.length > 0) {
         const place = places[0];
-        const newLocation = {
+        const newLocation = {  
           lat: place.geometry.location.lat(),
           lng: place.geometry.location.lng(),
           address: place.formatted_address,
-        };
+        };   
   
         setSearchValue(newLocation.address);
         setSelectedLocation(newLocation);

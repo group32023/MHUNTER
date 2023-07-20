@@ -2,6 +2,7 @@ import './CreateEvent.css';
 import { useState } from 'react';
 import React from 'react';
 import LocationInput from '../../components/Organizer/LocationInput';
+import SideMenuBarOrganizer from '../../components/common/SideMenuBar/SideMenuBarOrganizer';
 
 function CreateEvent() {
 
@@ -54,6 +55,7 @@ function CreateEvent() {
   return (
     <div className="container">
 
+      <SideMenuBarOrganizer/>
       <form>
 
         <h2>Create Event</h2>
