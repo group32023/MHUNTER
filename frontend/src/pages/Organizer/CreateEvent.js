@@ -45,8 +45,6 @@ function CreateEvent() {
       location: selectedLocation.address,
     }));
   
-    // Print the location value in the console
-    console.log(selectedLocation.address);
   };
 
   return (
@@ -111,7 +109,7 @@ function CreateEvent() {
         <div className="form-group">
 
           <label htmlFor="location" className="form-label">Location</label>
-          <LocationInput onLocationSelect={handleLocationSelect} />
+          <LocationInput selectedLocation={formData.location} onLocationSelect={handleLocationSelect} setFormData={setFormData} />
 
         </div>
 
