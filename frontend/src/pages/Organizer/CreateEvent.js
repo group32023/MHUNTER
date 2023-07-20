@@ -15,6 +15,8 @@ function CreateEvent() {
     endtime: '',
     location: '',
     descrition: '',
+    latitude: '',
+    longitude: '',
 
   })
 

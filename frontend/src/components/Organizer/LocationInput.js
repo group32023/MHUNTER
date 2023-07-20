@@ -7,6 +7,7 @@ const LocationInput = ({ onLocationSelect,setFormData  }) => {
   const [selectedLocation, setSelectedLocation] = useState(null);
   const mapRef = useRef(null);
   const searchBoxRef = useRef(null);
+  const [searchValue, setSearchValue] = useState(''); 
 
   const handleMapLoad = (map) => {
     mapRef.current = map;
@@ -23,6 +24,7 @@ const LocationInput = ({ onLocationSelect,setFormData  }) => {
           address: place.formatted_address,
         };
   
+        setSearchValue(newLocation.address);
         setSelectedLocation(newLocation);
         onLocationSelect(newLocation);
   
@@ -30,9 +32,12 @@ const LocationInput = ({ onLocationSelect,setFormData  }) => {
         setFormData((prevFormData) => ({
           ...prevFormData,
           location: newLocation.address,
+          latitude: newLocation.lat,
+          longitude: newLocation.lng,
         }));
       }
     }
+    
   };
 
   const fetchAddressFromLatLng = async (lat, lng) => {
@@ -41,34 +46,33 @@ const LocationInput = ({ onLocationSelect,setFormData  }) => {
       `https://maps.googleapis.com/maps/api/geocode/json?latlng=${lat},${lng}&key=${apiKey}`
     );
     const data = await response.json();
+    console.log(data);
+  
+    let formattedAddress = '';
   
     if (data.results && data.results.length > 0) {
       const result = data.results[0];
       const addressComponents = result.address_components;
   
-      let address = {};
+      // Extract specific address components
+      const placeName = addressComponents.find((component) =>
+        component.types.includes('establishment')
+      )?.long_name;
+      const streetName = addressComponents.find((component) =>
+        component.types.includes('route')
+      )?.long_name;
+      const town = addressComponents.find((component) =>
+        component.types.includes('locality')
+      )?.long_name;
+      const country = addressComponents.find((component) =>
+        component.types.includes('country')
+      )?.long_name;
   
-      for (const component of addressComponents) {
-        const types = component.types;
-        if (types.includes('street_number')) {
-          address.streetNumber = component.long_name;
-        } else if (types.includes('route')) {
-          address.streetName = component.long_name;
-        } else if (types.includes('locality')) {
-          address.town = component.long_name;
-        } else if (types.includes('administrative_area_level_1')) {
-          address.state = component.long_name;
-        } else if (types.includes('country')) {
-          address.country = component.long_name;
-        } else if (types.includes('postal_code')) {
-          address.postalCode = component.long_name;
-        }
-      }
-  
-      return address;
+      // Construct the formatted address with available address components
+      formattedAddress = [placeName, streetName, town, country].filter(Boolean).join(', ');
     }
   
-    return {};
+    return formattedAddress;
   };
 
 
@@ -85,28 +89,21 @@ const LocationInput = ({ onLocationSelect,setFormData  }) => {
   
     // Set the search box value to the fetched address
     if (searchBoxRef.current) {
-      const formattedAddress = [
-        address.streetNumber,
-        address.streetName,
-        address.town,
-        address.state,
-        address.country,
-        address.postalCode,
-      ]
-        .filter(Boolean)
-        .join(', ');
-      searchBoxRef.current.set('query', formattedAddress);
+      searchBoxRef.current.set('query', address);
     }
   
     setSelectedLocation(newLocation);
     onLocationSelect(newLocation);
+    setSearchValue(newLocation.address); 
   
     // Print the location value in the console
-    console.log(newLocation.address);
+    console.log( address);
 
     setFormData((prevFormData) => ({
       ...prevFormData,
-      location: newLocation.address,
+      location:address,
+      latitude: newLocation.lat,
+      longitude: newLocation.lng,
     }));
 
   };
