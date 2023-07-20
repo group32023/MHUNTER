@@ -5,6 +5,7 @@ import com.MHunter.mhunter.repository.ArtistRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ArtistServiceImp implements ArtistService{
@@ -25,16 +26,24 @@ public class ArtistServiceImp implements ArtistService{
 
     @Override
     public Artist findSpecificArtist(int id) {
-        return null;
+
+        Optional<Artist> artist= artistRepository.findById(id);
+        return artist.orElse(null);
     }
 
     @Override
     public Artist updateArtist(Artist artist, int id) {
-        return null;
+        return artistRepository.findById(id).map(artist1 -> {
+            artist1.setArtistID(artist.getArtistID());
+            artist1.setMMID(artist.getMMID());
+            artist1.setUserID(artist.getUserID());
+            return artistRepository.save(artist1);
+        }).orElse(null);
     }
 
     @Override
     public boolean deleteArtist(int id) {
-        return false;
+        artistRepository.deleteById(id);
+        return true;
     }
 }
