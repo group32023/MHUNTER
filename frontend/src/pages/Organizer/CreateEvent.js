@@ -53,9 +53,12 @@ function CreateEvent() {
   };
 
   return (
-    <div className="container">
-
-      <SideMenuBarOrganizer/>
+  
+    <div>
+    <SideMenuBarOrganizer/>
+    
+    <div className="container" style={{ width: '1210px', marginLeft: '20%', margintop: '0.5rem' }} >
+ 
       <form>
 
         <h2>Create Event</h2>
@@ -138,6 +141,7 @@ function CreateEvent() {
 
     </div>
 
+    </div>
   );
 
 
