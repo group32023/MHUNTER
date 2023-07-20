@@ -94,8 +94,13 @@ const LocationInput = ({ onLocationSelect,setFormData  }) => {
   
     setSelectedLocation(newLocation);
     onLocationSelect(newLocation);
-    setSearchValue(newLocation.address); 
+    // setSearchValue(newLocation.address); 
   
+    const searchBoxInput = document.querySelector('.searchbox');
+  if (searchBoxInput) {
+    searchBoxInput.value = newLocation.address;
+  }
+
     // Print the location value in the console
     console.log( address);
 
@@ -112,7 +117,7 @@ const LocationInput = ({ onLocationSelect,setFormData  }) => {
   return (
     <LoadScript googleMapsApiKey="AIzaSyBHUE7QQ_cie9vWpTKHX7rOuqAoD8uxhCA" libraries={libraries}>
       <div>
-        <StandaloneSearchBox onLoad={(searchBox) => (searchBoxRef.current = searchBox)} onPlacesChanged={handlePlaceSelect}>
+        <StandaloneSearchBox className = "searchbox" onLoad={(searchBox) => (searchBoxRef.current = searchBox)} onPlacesChanged={handlePlaceSelect}>
           <input type="text" placeholder="Enter a location" />
         </StandaloneSearchBox>
         {selectedLocation && (
