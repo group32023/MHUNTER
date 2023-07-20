@@ -57,12 +57,12 @@ function CreateEvent() {
     <div>
     <SideMenuBarOrganizer/>
     
-    <div className="container" style={{ width: '1210px', marginLeft: '20%', margintop: '0.5rem' }} >
+    <div className="container" style={{ width: '1210px', marginLeft: '20%', marginTop: '0.5rem' }} >
  
       <form>
 
         <h2>Create Event</h2>
-        <div className="form-group">
+        <div className="form-group">  
 
           <label htmlFor="eventname" className="form-label">Event Name</label>
           <input type="text" className="form-control" onChange={onChangeHandler} name="eventname" placeholder="Enter event name"></input>
