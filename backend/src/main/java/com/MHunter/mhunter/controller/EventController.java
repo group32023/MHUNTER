@@ -6,7 +6,7 @@ import com.MHunter.mhunter.service.EventService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-@CrossOrigin
+@CrossOrigin (origins = "*")
 @RestController
 @RequestMapping("/event")
 public class EventController {
@@ -17,6 +17,8 @@ public class EventController {
     @PostMapping("/add")
     public String add(@RequestBody Event event) {
 
+//          return "added";
+        System.out.println("Event before save: " + event);
         eventService.saveEvent(event);
         return "added";
     }
