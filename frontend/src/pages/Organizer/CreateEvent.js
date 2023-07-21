@@ -131,7 +131,11 @@ function CreateEvent() {
 
         <div className="form-group">
 
-          <button class="btn btn-primary" type="submit" onClick={(event)=> { event.preventDefault(); console.log(formData);}} >Create Event</button>
+          <button class="btn btn-primary" type="submit" onClick={(event)=> { event.preventDefault(); console.log(formData); fetch("http://localhost :8080/event/add",{
+            method: "POST",
+            headers : {"Content-Type":"application/json"},
+            body:JSON.stringify(formData)
+          })  }} >Create Event</button>
 
         </div>
 
