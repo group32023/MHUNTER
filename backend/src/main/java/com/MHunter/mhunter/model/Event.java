@@ -20,6 +20,8 @@ public class Event {
     private String EventName;
     private String EventType;
     private String Location;
+    private Double Longitude;
+    private Double Latitude;
     private String Description;
     private LocalDate Date;
     private LocalTime StartTime;
