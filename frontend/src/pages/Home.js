@@ -7,12 +7,7 @@ import {faPhone} from '@fortawesome/free-solid-svg-icons'
 import { faTwitter,faFacebook,faGooglePlusG,faLinkedinIn } from '@fortawesome/free-brands-svg-icons'
 
 import '../assets/css/home.css'
-import ArtistSlider from '../components/ArtistSlider';
-import Services from '../components/Services';
-import BandSlider from '../components/BandSlider';
-import EventTable from '../components/EventTable';
-import PerformanceView from '../components/PerformanceView';
-import EventSlider from '../components/EventSlider';
+
 import Footer from '../components/common/Footer';
 
 export default function 
@@ -47,19 +42,7 @@ h() {
                 <button className='signupBtn'>SIGN UP</button>
                 
             </div>
-            <label className='headingArtist'>ARTISTS</label>
 
-            <ArtistSlider></ArtistSlider>
-
-            <Services></Services>
-
-            <BandSlider></BandSlider>
-
-            <EventTable></EventTable>
-
-            <PerformanceView></PerformanceView>
-
-            <EventSlider></EventSlider>
 
             <Footer></Footer>
       </div>
