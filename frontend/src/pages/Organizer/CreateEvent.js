@@ -8,14 +8,14 @@ function CreateEvent() {
 
   const [formData, setFormData] = useState({
 
-    eventName: '',
-    eventtype: '',
+    event_name: '',
+    event_type: '',
     date: '',
-    eventCrowd: '',
-    starttime: '',
-    endtime: '',
+    crowd: '',
+    start_time: '',
+    end_time: '',
     location: '',
-    descrition: '',
+    description: '',
     latitude: '',
     longitude: '',
 
@@ -64,15 +64,15 @@ function CreateEvent() {
         <h2>Create Event</h2>
         <div className="form-group">  
 
-          <label htmlFor="eventname" className="form-label">Event Name</label>
-          <input type="text" className="form-control" onChange={onChangeHandler} name="eventname" ></input>
+          <label htmlFor="event_name" className="form-label">Event Name</label>
+          <input type="text" className="form-control" onChange={onChangeHandler} name="event_name" ></input>
 
         </div>
 
         <div className="form-group">
 
-          <label htmlFor="eventtype" className="form-label">Event Type</label>
-          <select className="form-select" onChange={onChangeHandler} name="eventtype" >
+          <label htmlFor="event_type" className="form-label">Event Type</label>
+          <select className="form-select" onChange={onChangeHandler} name="event_type" >
 
             <option value="musical">Musical Show</option>
             <option value="party">Party</option>
@@ -93,8 +93,8 @@ function CreateEvent() {
 
           <div className="form-group col-md-6">
 
-            <label htmlFor="eventcrowd" className="form-label">Expected Crowd</label>
-            <input type="text" className="form-control" onChange={onChangeHandler} name="eventcrowd" ></input>
+            <label htmlFor="crowd" className="form-label">Expected Crowd</label>
+            <input type="text" className="form-control" onChange={onChangeHandler} name="crowd" ></input>
 
           </div>
         </div>
@@ -103,14 +103,14 @@ function CreateEvent() {
         <div className="form row">
 
           <div className="form-group col-md-6">
-            <label htmlFor="starttime" className="form-label" >Starting Time</label>
-            <input type="time" className="form-control" onChange={onChangeHandler} name="starttime" ></input>
+            <label htmlFor="start_time" className="form-label" >Starting Time</label>
+            <input type="time" className="form-control" onChange={onChangeHandler} name="start_time" ></input>
           </div>
 
           <div className="form-group col-md-6">
 
-            <label htmlFor="endtime" className="form-label">Ending Time</label>
-            <input type="time" className="form-control" onChange={onChangeHandler} name="endtime" ></input>
+            <label htmlFor="end_time" className="form-label">Ending Time</label>
+            <input type="time" className="form-control" onChange={onChangeHandler} name="end_time" ></input>
 
           </div>
         </div>

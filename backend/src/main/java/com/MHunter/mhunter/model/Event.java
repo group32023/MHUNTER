@@ -13,32 +13,33 @@ public class Event {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 
-    @Column(name = "EventID")
+//    @Column(name = "EventID")
     private int EventID;
-    @Column(name = "OrgID")
+    //    @Column(name = "OrgID")
     private int OrgID;
-    @Column(name = "EventName")
-    private String EventName;
-    @Column(name = "EventType")
-    private String EventType;
-    @Column(name = "Location")
+    //    @Column(name = "event_name")
+    private String event_name;
+    //    @Column(name = "event_type")
+    private String event_type;
+    //    @Column(name = "Location")
     private String Location;
-    @Column(name = "Longitude")
+    //    @Column(name = "Longitude")
     private Double Longitude;
-    @Column(name = "Latitude")
+    //    @Column(name = "Latitude")
     private Double Latitude;
-    @Column(name = "Description")
+    //    @Column(name = "Description")
     private String Description;
-    @Column(name = "Date")
+    //    @Column(name = "Date")
     private LocalDate Date;
-    @Column(name = "StartTime")
-    private LocalTime StartTime;
-    @Column(name = "EndTime")
-    private LocalTime EndTime;
-//    @Column(name = "Image")
+    //    @Column(name = "start_time")
+    private LocalTime start_time;
+    //    @Column(name = "end_time")
+    private LocalTime end_time;
+    //    @Column(name = "Image")
 //    private String Image;
-    @Column(name = "Crowd")
+//    @Column(name = "Crowd")
     private int Crowd;
+
 
     public Event() {
     }
@@ -59,20 +60,20 @@ public class Event {
         OrgID = orgID;
     }
 
-    public String getEventName() {
-        return EventName;
+    public String getEvent_name() {
+        return event_name;
     }
 
-    public void setEventName(String eventName) {
-        EventName = eventName;
+    public void setEvent_name(String event_name) {
+        this.event_name = event_name;
     }
 
-    public String getEventType() {
-        return EventType;
+    public String getEvent_type() {
+        return event_type;
     }
 
-    public void setEventType(String eventType) {
-        EventType = eventType;
+    public void setEvent_type(String event_type) {
+        this.event_type = event_type;
     }
 
     public String getLocation() {
@@ -115,29 +116,21 @@ public class Event {
         Date = date;
     }
 
-    public LocalTime getStartTime() {
-        return StartTime;
+    public LocalTime getStart_time() {
+        return start_time;
     }
 
-    public void setStartTime(LocalTime startTime) {
-        StartTime = startTime;
+    public void setStart_time(LocalTime start_time) {
+        this.start_time = start_time;
     }
 
-    public LocalTime getEndTime() {
-        return EndTime;
+    public LocalTime getEnd_time() {
+        return end_time;
     }
 
-    public void setEndTime(LocalTime endTime) {
-        EndTime = endTime;
+    public void setEnd_time(LocalTime end_time) {
+        this.end_time = end_time;
     }
-
-//    public String getImage() {
-//        return image;
-//    }
-//
-//    public void setImage(String image) {
-//        this.image = image;
-//    }
 
     public int getCrowd() {
         return Crowd;
