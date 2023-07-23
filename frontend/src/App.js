@@ -3,6 +3,7 @@ import './App.css';
 // import MainSlider from './components/common/MainSlider'
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import CreateEvent from './pages/Organizer/CreateEvent';
+import ViewEvents from './pages/Organizer/ViewEvents'
 
 function App() {
   return (
@@ -22,6 +23,8 @@ function App() {
       <Routes>
 
         <Route path="/Organizer/CreateEvent" element={<CreateEvent/>} >
+        </Route>
+        <Route path="/Organizer/ViewEvents" element={<ViewEvents/>} >
         </Route>
       </Routes>
 

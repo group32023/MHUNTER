@@ -1,0 +1,18 @@
+.container {
+    
+    background-color: #24292D ;
+    padding: 1rem;
+    max-height: 110vh;
+  }
+
+  .container .col-md-4{
+
+    max-height: 10rem;
+
+  }
+
+  .container .col-md-4 img{
+
+     
+
+  }

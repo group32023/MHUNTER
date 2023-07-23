@@ -67,7 +67,7 @@ function CreateEvent() {
           <label htmlFor="event_name" className="form-label">Event Name</label>
           <input type="text" className="form-control" onChange={onChangeHandler} name="event_name" ></input>
 
-        </div>
+        </div>   
 
         <div className="form-group">
 
