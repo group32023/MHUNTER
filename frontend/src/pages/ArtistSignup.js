@@ -1,8 +1,10 @@
 import React from 'react'
 import { useRef, useState} from 'react'
-import axios from 'react'
+//import axios from 'axios';
 
 export default function ArtistSignup() {
+  const formRef = useRef(null);
+
   const inputRef = useRef(null);
   const [image, setImage] = useState("");
 
@@ -22,21 +24,59 @@ export default function ArtistSignup() {
   const [phonenumber, setPhoneNumber] = useState("");
   const [address, setAddress] = useState("");
   const [password, setPassword] = useState("");
-
+  const [confirm_password, setCon_Password] = useState("");
+  
   async function save(event) {
     event.preventDefault();
     try {
-      await axios.post("", {
-        artistname: artistname,
-        email: email,
-        firstname: firstname,
-        lastname: lastname,
-        phonenumber: phonenumber,
-        address: address,
-        password: password,
 
-      });
-      alert("Artist Registration Sucessfully");
+      if(password.length < 8){
+        alert("Password must have at least 8 characters");
+      }
+      else if(password !== confirm_password){
+        alert("Input Confirm your password correctly");
+      }
+      else{
+        console.log("Artist Name:", artistname);
+        console.log("Email:", email);
+        console.log("First Name:", firstname);
+        console.log("Last Name:", lastname);
+        console.log("Phone Number:", phonenumber);
+        console.log("Address:", address);
+        console.log("Password:", password);
+        console.log(confirm_password);
+
+        /*const formData = new FormData();
+        formData.append('image', image);
+        formData.append('artistname', artistname);
+        formData.append('email', email);
+        formData.append('firstname', firstname);
+        formData.append('lastname', lastname);
+        formData.append('phonenumber', phonenumber);
+        formData.append('address', address);
+        formData.append('password', password);
+        await axios.post('/api/artist/signup', formData);
+
+        const response = await fetch('/api/artist/signup', {
+          method: 'POST',
+          body: formData,
+        });
+
+        if (response.ok) {
+          const data = await response.json();
+          console.log(data);
+        } else {
+          const errorData = await response.json();
+          console.log(errorData); 
+        }*/
+        
+
+        formRef.current.reset();
+  
+        alert("Artist Registration Sucessfully");
+      }
+
+
     }catch(err){
       alert(err);
     }
@@ -45,14 +85,15 @@ export default function ArtistSignup() {
 
   return (
     <div className='login template d-flex justify-content-center align-items-center vh-100 bgimage2'>
-        <div className='artist_signup_form_container p-5 rounded vh-50'>
+        
+          <form ref={formRef} onSubmit={save} className='artist_signup_form_container p-5 rounded vh-50'>
             <div className='artist-signup-left-box' >
                   <div className='artist-text'>
                     <h6><b>Start your journey to be hired today!</b></h6>
                   </div>
                   <div className='mb-2 text-white text-field'>
                     <label htmlFor='ArtistName'>Artist Name</label>
-                    <input type='text' placeholder='' className='form-control'
+                    <input type='text' placeholder='' className='form-control' required
                     value = {artistname}
                     onChange ={(event) => {
                     setArtistName(event.target.value);
@@ -64,7 +105,7 @@ export default function ArtistSignup() {
                   </div>
                   <div className='mb-2 text-white text-field'>
                     <label htmlFor='Email'>Email</label>
-                    <input type='email' placeholder='' className='form-control'
+                    <input type='email' placeholder='' className='form-control' required
                       value = {email}
                       onChange ={(event) => {
                       setEmail(event.target.value);
@@ -74,7 +115,7 @@ export default function ArtistSignup() {
                   <div className='mb-2 text-white text-field' style={{display:'flex'}}>
                     <div style={{padding:'5px'}} >
                       <label htmlFor='Email'>First Name</label>
-                      <input type='text' placeholder='' className='form-control'
+                      <input type='text' placeholder='' className='form-control' required
                         value = {firstname}
                         onChange ={(event) => {
                         setFirstName(event.target.value);
@@ -82,7 +123,7 @@ export default function ArtistSignup() {
                     </div>
                     <div style={{padding:'5px'}}>
                       <label htmlFor='Email'>Last Name</label>
-                      <input type='text' placeholder='' className='form-control'
+                      <input type='text' placeholder='' className='form-control' required
                       value = {lastname}
                       onChange ={(event) => {
                       setLastName(event.target.value);
@@ -92,7 +133,7 @@ export default function ArtistSignup() {
                   </div>
                   <div className='mb-2 text-white text-field'>
                     <label htmlFor='PhoneNumber'>Phone Number</label>
-                    <input type='number' placeholder='' className='form-control'
+                    <input type='tel' placeholder='071 1234567' className='form-control' pattern='[0-9]{3} [0-9]{7}'
                     value = {phonenumber}
                     onChange ={(event) => {
                     setPhoneNumber(event.target.value);
@@ -100,7 +141,7 @@ export default function ArtistSignup() {
                   </div>
                   <div className='mb-2 text-white text-field'>
                     <label htmlFor='Address'>Address</label>
-                    <input type='text' placeholder='' className='form-control'
+                    <input type='text' placeholder='' className='form-control' required
                     value = {address}
                     onChange ={(event) => {
                     setAddress(event.target.value);
@@ -108,7 +149,7 @@ export default function ArtistSignup() {
                   </div>
                   <div className='mb-2 text-white text-field'>
                     <label htmlFor='Address'>Password</label>
-                    <input type='password' placeholder='' className='form-control'
+                    <input type='password' placeholder='' className='form-control' required
                     value = {password}
                     onChange ={(event) => {
                     setPassword(event.target.value);
@@ -116,10 +157,14 @@ export default function ArtistSignup() {
                   </div>
                   <div className='mb-2 text-white text-field'>
                     <label htmlFor='Address'>Confirm Password</label>
-                    <input type='password' placeholder='' className='form-control'/>
+                    <input type='password' placeholder='' className='form-control'
+                    value = {confirm_password}
+                    onChange ={(event) => {
+                    setCon_Password(event.target.value);
+                  }}/>
                   </div>
             </div>
-            <div className='artist-signup-right-box' onChange={save}>
+            <div className='artist-signup-right-box'>
                 <div className=''>
                     <h4>Artist Sign Up</h4>
                 </div>
@@ -148,20 +193,20 @@ export default function ArtistSignup() {
                 <div>
                     <div style={{display:'flex', color:'white'}}>
                     <input type="checkbox"  name="" value=""  />
-                    <label for=""> I have read the User Agreement and I agree with it.</label><br/>
+                    <label htmlFor="userAgreementCheckbox"> I have read the User Agreement and I agree with it.</label><br/>
                     </div>
                     <input type="checkbox"  name="" value="" />
-                    <label for="" style={{ color:'white'}}> I accept the Terms and Conditions.</label><br/><br />
+                    <label htmlFor="termsAndConditionsCheckbox" style={{ color:'white'}}> I accept the Terms and Conditions.</label><br/><br />
                   </div>
 
-                  <div className='signup-button'>
-                    <button>Signup</button>
+                  <div className='signup-button' >
+                    <button type='submit' >Signup</button>
                   </div>
                 
             </div>
-
+          </form>
   
-        </div>
+        
     </div>
 
   )

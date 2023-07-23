@@ -124,6 +124,7 @@
   display: flex;
   justify-content: center;
   align-items: center;  
+
 }
 .artist-signup-left-box{
   background-color: none;
@@ -201,12 +202,14 @@
     display: block;
     justify-content: center;
     align-items: center;  
+
   }
   .artist-signup-left-box{
     width: 100%;
     margin-right: 5px;
     padding: 20px;
     padding-left: 20px;
+    
   }
 
   .artist-signup-right-box{
