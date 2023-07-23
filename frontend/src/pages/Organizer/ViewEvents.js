@@ -17,7 +17,6 @@ function ViewEvents() {
 
                 <div className='row'>
                     <div className='col-md-3'>
-
                         <a>
                             <div className='image'>
                                 <img src={slide_7}>
@@ -26,27 +25,28 @@ function ViewEvents() {
 
                             <div className='content'>
 
-                                <h3>Nadagama</h3>
+                                <h4>Nadagama</h4>
                                 <div className='newrow'>
-                                    <FontAwesomeIcon icon="map-marker-alt" />
-                                    <span>Gunasewana,Digaradda,ahanagama</span>
+                                    <FontAwesomeIcon icon="map-marker-alt" style={{color:"#7643D2" , fontSize: '18px' }}/>
+                                    <span style={{color: "#11FE70" }}>R.Premadasa International Stadium,Colombo</span>
                                 </div>
 
                                 <div className='newrow'>
-                                    <FontAwesomeIcon icon="calendar" />
+                                    <FontAwesomeIcon icon="calendar"  style={{ color:"#7643D2" ,fontSize: '18px' }}/>
                                     <span>July 23,2023</span>
                                 </div>
 
                                 <div className='newrow'>
-                                    <FontAwesomeIcon icon="clock" />
+                                    <FontAwesomeIcon icon="clock"  style={{ color:"#7643D2", fontSize: '18px' }}/>
                                     <span>10:00 AM</span>
                                 </div>
 
                             </div>
-
                         </a>
-
                     </div>
+
+                    
+
                 </div>
 
             </div>

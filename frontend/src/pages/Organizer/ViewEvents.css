@@ -10,10 +10,11 @@
     max-width: 16rem;
     /* max-height: 20rem; */
     height: auto;
-    border: white 1px solid;
+    border: #7643D2 0.5px solid;
     margin-left: 2rem;
-    border-radius: 10%;
+    border-radius: 8%;
     padding: 1rem;
+    background-color: #3B444D;
     
   }
 
@@ -28,7 +29,7 @@
   .image img{
 
     width: 100%;
-    border-radius: 10%;
+    border-radius:8%;
   }
 
   .content{
@@ -42,10 +43,20 @@
 
     display: flex;
     align-items: center;
+    margin-top: 2rem;
   }
 
-  .content.newrow span{
+   .newrow span{
 
-    max-width: 14rem;
-    word-wrap:  break-word;
+    /* max-width: 15rem;
+    word-wrap: break-word; */
+    margin-left: 1rem;
+  }
+
+  .col-md-3 h4{
+
+    margin-top: 1rem;
+    text-align: center;
+    color: white;
+    
   }
