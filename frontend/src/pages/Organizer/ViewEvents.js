@@ -1,7 +1,11 @@
 import React from 'react';
 import SideMenuBarOrganizer from '../../components/common/SideMenuBar/SideMenuBarOrganizer';
 import './ViewEvents.css';
-import
+import slide_7 from '../../assets/images/slide_7.jpg'
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { fas } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+library.add(fas);
 
 function ViewEvents() {
     return (
@@ -13,44 +17,35 @@ function ViewEvents() {
 
                 <div className='row'>
                     <div className='col-md-3'>
-                       
-                            <a>
-                                <img src="event-img">
+
+                        <a>
+                            <div className='image'>
+                                <img src={slide_7}>
                                 </img>
+                            </div>
 
-                                <div className='content'>
+                            <div className='content'>
 
-                                    <div className='row'>
-                                        <div className='col-md-1'>
-                                            <i className='icon fas fa-map-marker-alt'></i>
-                                        </div> 
-                                        <div className='col-md-11'>
-                                            <p>Gunasewana,Digaradda,ahanagama</p>
-                                        </div>
-                                    </div>
-
-                                    <div className='row'>
-                                        <div className='col-md-1'>
-                                            <i className='icon fas fa-calendar'></i>
-                                        </div>
-                                        <div className='col-md-11'>
-                                            <p>July 23,2023</p>
-                                        </div>
-                                    </div>
-
-                                    <div className='row'>
-                                        <div className='col-md-1'>
-                                            <i className='icon fas fa-clock'></i>
-                                        </div>
-                                        <div className='col-md-11'>
-                                            <p>10:00 AM</p>
-                                        </div>
-                                    </div>
-            
+                                <h3>Nadagama</h3>
+                                <div className='newrow'>
+                                    <FontAwesomeIcon icon="map-marker-alt" />
+                                    <span>Gunasewana,Digaradda,ahanagama</span>
                                 </div>
 
-                            </a>
-                       
+                                <div className='newrow'>
+                                    <FontAwesomeIcon icon="calendar" />
+                                    <span>July 23,2023</span>
+                                </div>
+
+                                <div className='newrow'>
+                                    <FontAwesomeIcon icon="clock" />
+                                    <span>10:00 AM</span>
+                                </div>
+
+                            </div>
+
+                        </a>
+
                     </div>
                 </div>
 
