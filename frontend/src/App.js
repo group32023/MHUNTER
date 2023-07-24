@@ -5,6 +5,7 @@ import Event from './pages/Event';
 import Band from './pages/Band';
 import Artist from './pages/Artist';
 import AboutUs from './pages/AboutUs';
+import ArtistDashboard from './pages/ArtistDashboard';
 
 
 
@@ -21,6 +22,7 @@ function App() {
           <Route path='/band' element={<Band/>}></Route>
           <Route path='/artist' element={<Artist/>}></Route>
           <Route path='/aboutUs' element={<AboutUs/>}></Route>
+          <Route path='/dashboard' element={<ArtistDashboard/>}></Route>
         </Routes>
       </Router>
      
