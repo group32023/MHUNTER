@@ -1,14 +1,13 @@
 import React from 'react'
 import NavBar from '../components/common/NavBar';
 import MainSlider from '../components/common/MainSlider';
+import Tabs from '../components/common/Tabs';
+
 import backgroundimage from '../assets/images/backgroundimage1.jpg';
+import artistImage from '../assets/images/shihan.jpg';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {Form, Container} from 'react-bootstrap';
 import Footer from '../components/common/Footer';
-import location from '../assets/images/location.png'
-import hotline from '../assets/images/hotline.png'
-import { Link } from 'react-router-dom';
-import clock from '../assets/images/clock.png'
 
 
 
@@ -19,7 +18,7 @@ import {faPhone,faList} from '@fortawesome/free-solid-svg-icons'
 import { faTwitter, faFontAwesome,faFacebook,faGooglePlusG,faLinkedinIn } from '@fortawesome/free-brands-svg-icons'
 
 import '../assets/css/home.css'
-import '../assets/css/contact.css'
+import '../assets/css/Artistdetails.css'
 
 export default function 
 h() {
@@ -57,42 +56,36 @@ h() {
 
             <div className='descriptionDiv1'>
                <div className='captionbackground'>
-                <p className='caption1'>HOME {'>'} CONTACT</p>
+                <p className='caption1'>ARTISTS {'>'} SHEHAN MIHIRANGA</p>
                 </div>
-               
-             <div>
-                <div class="map">
-                 <iframe
-                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.9283954771886!2d79.85487667464785!3d6.899167393100105!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae25961e5f288c9%3A0x8fa7cee7dbdd8697!2s33%2C%2023%20Queen&#39;s%20Rd%2C%20Colombo%2000300!5e0!3m2!1sen!2slk!4v1690021295416!5m2!1sen!2slk" >
-                 </iframe>
-                </div>
+                <div>
+                <div className='captionbackground2'>
+                <div className='name'>SHEHAN MIHIRANGA</div>
+                <div className="image-with-content">
+        <div className="image-container">
+          <img src={artistImage} alt="artistImage" className='artistImage' />
+        </div>
+        <div className="content-container">
+        <p className="artistDetails">
+        Shehan Mihiranga is a renowned Sri Lankan artist known for his exceptional musical talent.
+        With his soulful voice and captivating performances, Shehan has captivated audiences both in Sri Lanka and internationally. 
+        He has gained popularity for his versatility, seamlessly blending genres such as pop,
+        R&B, and traditional Sri Lankan music in his compositions. Shehan's heartfelt lyrics and melodious melodies have made him a 
+        beloved figure in the Sri Lankan music industry, and his contributions have earned him numerous accolades and a dedicated fan base.
+        </p>
+        </div>
+        </div>
+      </div>
+      <div><Tabs></Tabs></div>
+      
 
-                <div className='ContactDetailsDiv'>
-                <div className='contactItem'>
-                <img src={location} className='location' ></img>
-                <span className   = 'imageText'>33/23/1/1,<br></br>Queens Road,<br></br> Banbalapitiya ,<br></br>Sri Lanka</span>
-                </div>
-                <div className='contactItem'>
-                <img src={hotline} className='location' ></img>
-                <span className='imageText'>HOT LINE<br></br> +94773374306<br></br> +94773374308</span>
-                </div>
-                <div className='contactItem'>
-                <img src={clock} className='location' ></img>
-                <span className='imageText'>Working hours-<br></br> Monday to Friday<br></br> 9.00 AM  to 5.00 PM</span>
-                </div>
-                <Link to="/artistDetails">
+    </div>
 
-                <img src={clock} className='location' ></img>
-               </Link>
-                </div>
-
-                </div>
-
+</div>
             </div>
 
 
       </div>            
 
-    </div>
   )
 }
