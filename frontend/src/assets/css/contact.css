@@ -193,3 +193,39 @@
     height: 130%;
     border: none; /* Remove iframe border */
   }
+  .ContactDetailsDiv{
+    background-color:rgba(65, 65, 65, 0.563);
+    height: 18%;
+    position: absolute;
+    top: 40%;
+    left: -10%;
+    right: 0%;
+  }
+ 
+  
+  .contactItem {
+    display: inline-block;
+    text-align: center; /* Center the content horizontally if needed */
+    margin-left:200px; /* Adjust the horizontal margin as per your requirement */
+    margin-top: 30px; /* Add the desired fixed top margin for the images */
+    vertical-align: top;
+  }
+  
+  .location {
+    
+    width: 65px;
+    height: 65px;
+  
+    
+  }
+  
+  .imageText {
+    display: block;
+    font-family: 'Dosis-semibold'; 
+    font-size: 25px;
+    color:white;
+    margin-top: 30px; /* Add the desired fixed top margin for the images */
+
+  }
+  
+  
