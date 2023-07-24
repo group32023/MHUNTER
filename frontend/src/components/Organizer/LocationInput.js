@@ -18,11 +18,13 @@ const LocationInput = ({ onLocationSelect, setFormData }) => {
       const places = searchBoxRef.current.getPlaces();
       if (places.length > 0) {
         const place = places[0];
+        console.log('place:', places[0]); // Log the first place object
+        console.log('places array:', places); // Log the entire places array
         const newLocation = {
           lat: place.geometry.location.lat(),
           lng: place.geometry.location.lng(),
-          address: place.formatted_address,
-        };
+          address: `${place.name}, ${place.formatted_address}`,
+        };    
 
         setSearchValue(newLocation.address);
         setSelectedLocation(newLocation);
@@ -34,7 +36,7 @@ const LocationInput = ({ onLocationSelect, setFormData }) => {
           location: newLocation.address,
           latitude: newLocation.lat,
           longitude: newLocation.lng,
-        }));
+        })); 
       }
     }
 
@@ -51,28 +53,10 @@ const LocationInput = ({ onLocationSelect, setFormData }) => {
     let formattedAddress = '';
 
     if (data.results && data.results.length > 0) {
-      const result = data.results[0];
-      const addressComponents = result.address_components;
-
-      // Extract specific address components
-      const placeName = addressComponents.find((component) =>
-        component.types.includes('establishment')
-      )?.long_name;
-      const streetName = addressComponents.find((component) =>
-        component.types.includes('route')
-      )?.long_name;
-      const town = addressComponents.find((component) =>
-        component.types.includes('locality')
-      )?.long_name;
-      const country = addressComponents.find((component) =>
-        component.types.includes('country')
-      )?.long_name;
-
-      // Construct the formatted address with available address components
-      formattedAddress = [placeName, streetName, town, country].filter(Boolean).join(', ');
+      formattedAddress = data.results[0].formatted_address;
     }
 
-    return formattedAddress;
+    return formattedAddress;     
   };
 
 
@@ -85,13 +69,9 @@ const LocationInput = ({ onLocationSelect, setFormData }) => {
 
     // Fetch address using reverse geocoding
     const address = await fetchAddressFromLatLng(newLocation.lat, newLocation.lng);
-    newLocation.address = address;
+    newLocation.address = address;  
 
-    // Set the search box value to the fetched address
-    // if (searchBoxRef.current) {
-    //   searchBoxRef.current.set('query', address);
-    // }
-
+    
     setSelectedLocation(newLocation);
     onLocationSelect(newLocation);
     // setSearchValue(newLocation.address); 
