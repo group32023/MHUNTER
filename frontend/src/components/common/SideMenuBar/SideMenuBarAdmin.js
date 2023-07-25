@@ -57,8 +57,8 @@ function SideMenuBarAdmin() {
                     )}
                 </div>
 
-                <ul className={isExpanded ? "nav nav-pills flex-column px-0 mt-3" : "nav nav-pills flex-column px-0 mt-5"}>
-                    <li className="nav-item p-1">
+                <ul className={isExpanded ? "nav nav-pills flex-column px-0 mt-3" : "nav nav-pills flex-column px-0 mt-4"}>
+                    <li className={isExpanded ? "nav-item p-1" : "nav-item"}>
                         <Link to="/" className={isExpanded ? "nav-link   d-flex align-items-center text-decoration-none" : "nav-link collapsed-nav-link   d-flex align-items-center text-decoration-none"}>
                             <BiSolidDashboard className={isExpanded ? "menu-icon mx-4" : "menu-icon"} />
                             {isExpanded && (
@@ -69,7 +69,7 @@ function SideMenuBarAdmin() {
                         )}
 
                     </li>
-                    <li className="nav-item p-1">
+                    <li className={isExpanded ? "nav-item p-1" : "nav-item"}>
                         <Link to="/" className={isExpanded ? "nav-link   d-flex align-items-center text-decoration-none" : "nav-link collapsed-nav-link   d-flex align-items-center text-decoration-none"}>
                             <BiSolidUserPlus className={isExpanded ? "menu-icon mx-4" : "menu-icon"} />
                             {isExpanded && (
@@ -80,7 +80,7 @@ function SideMenuBarAdmin() {
                         )}
 
                     </li>
-                    <li className="nav-item p-1">
+                    <li className={isExpanded ? "nav-item p-1" : "nav-item"}>
                         <Link to="/" className={isExpanded ? "nav-link   d-flex align-items-center text-decoration-none" : "nav-link collapsed-nav-link   d-flex align-items-center text-decoration-none"}>
                             <BiSolidUserDetail className={isExpanded ? "menu-icon mx-4" : "menu-icon"} />
                             {isExpanded && (
@@ -91,7 +91,7 @@ function SideMenuBarAdmin() {
                         )}
 
                     </li>
-                    <li className="nav-item p-1">
+                    <li className={isExpanded ? "nav-item p-1" : "nav-item"}>
                         <Link to="/" className={isExpanded ? "nav-link d-flex align-items-center text-decoration-none" : "nav-link collapsed-nav-link d-flex align-items-center text-decoration-none"}>
                             <BiSolidCalendar className={isExpanded ? "menu-icon mx-4" : "menu-icon"} />
                             {isExpanded && (
@@ -102,7 +102,7 @@ function SideMenuBarAdmin() {
                         )}
 
                     </li>
-                    <li className="nav-item p-1">
+                    <li className={isExpanded ? "nav-item p-1" : "nav-item"}>
                         <Link to="/" className={isExpanded ? "nav-link   d-flex align-items-center text-decoration-none" : "nav-link collapsed-nav-link   d-flex align-items-center text-decoration-none"}>
                             <BiSolidReport className={isExpanded ? "menu-icon mx-4" : "menu-icon"} />
                             {isExpanded && (
@@ -113,7 +113,7 @@ function SideMenuBarAdmin() {
                         )}
 
                     </li>
-                    <li className="nav-item p-1">
+                    <li className={isExpanded ? "nav-item p-1" : "nav-item"}>
                         <Link to="/" className={isExpanded ? "nav-link d-flex align-items-center text-decoration-none" : "nav-link collapsed-nav-link d-flex align-items-center text-decoration-none"}>
                             <BiSolidCog className={isExpanded ? "menu-icon mx-4" : "menu-icon"} />
                             {isExpanded && (
@@ -134,3 +134,4 @@ function SideMenuBarAdmin() {
 };
 
 export default SideMenuBarAdmin;
+

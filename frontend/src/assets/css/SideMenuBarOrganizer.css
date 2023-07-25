@@ -19,16 +19,8 @@
 	left: 0;
 }
 
-.side-menu-container ul {
-	width: 250px;
-}
-
 .side-menu-container-NX {
-	width: 80px;
-}
-
-.side-menu-container-NX ul {
-	width: 60px;
+	width: 78px;
 }
 
 .menu-heading {
@@ -56,10 +48,10 @@
 
 .menu-icon {
 	height: 20px;
-	line-height: 20px;
 	font-size: 20px;
 	text-align: center;
 	color: white;
+	transition: all .5s ease;
 }
 
 .menu-item-profilePhoto-NX,
@@ -70,33 +62,34 @@
 .menu-item-profilePhoto-NX {
 	width: 30px;
 	height: 30px;
-	margin: 30px;
-	margin: 0;
+	margin: 10px;
 }
 
 .menu-profilePName p {
 	font-size: 18px;
 }
 
-.side-menu-container .nav-link li {
+.side-menu-container li {
 	position: relative;
 	margin: 2px 0;
 	list-style: none;
-
+	width: 90%;
 }
 
-.side-menu-container .collapsed-nav-link li {
-	width: 100%;
-	padding: 0;
-	margin: 0;
+.side-menu-container-NX li {
+	position: relative;
+	margin: 6px 0;
+	list-style: none;
+	width: 90%;
 }
+
 
 .side-menu-container li .tooltip {
 	position: absolute;
 	top: -20px;
 	left: calc(100% + 15px);
 	z-index: 3;
-	background-color: var(--color-white);
+	background-color: white;
 	box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
 	padding: 6px 14px;
 	font-size: 15px;
@@ -118,6 +111,7 @@
 .side-menu-container .nav-link {
 	height: 100%;
 	width: 100%;
+	background-color: #2f363e;
 	position: relative;
 	transition: all .5s ease;
 	z-index: 12;
@@ -131,7 +125,7 @@
 }
 
 .side-menu-container .nav-link:hover {
-	transform: scale(1.1);
+	transform: scale(1.125);
 	color: white;
 }
 
@@ -139,7 +133,7 @@
 .side-menu-container .nav-link::after {
 	content: "";
 	position: absolute;
-	width: 90%;
+	width: 80%;
 	height: 100%;
 	transform: scaleX(0);
 	background: linear-gradient(to right, #7643D2, #2f363e);
@@ -152,26 +146,4 @@
 .side-menu-container .nav-link:hover::after {
 	transform: scaleX(1);
 	color: #2f363e;
-}
-
-.sidebar li .menu_link_name {
-	color: white;
-	font-size: 15px;
-	font-weight: 400;
-	white-space: nowrap;
-	pointer-events: auto;
-	transition: all 0.4s ease;
-	pointer-events: none;
-	opacity: 0;
-}
-
-.sidebar li a:hover .menu_link_name,
-.sidebar li a:hover i {
-	transition: all 0.5s ease;
-	color: #2f363e
-}
-
-.sidebar.open li a .menu_link_name {
-	opacity: 1;
-	pointer-events: auto;
 }
