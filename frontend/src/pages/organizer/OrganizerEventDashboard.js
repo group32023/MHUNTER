@@ -1,8 +1,9 @@
 import React from 'react'
+import SideMenuBarOrganizer from '../../components/common/SideMenuBar/SideMenuBarOrganizer'
 
 const OrganizerEventDashboard = () => {
     return (
-        <div>OrganizerEventDashboard</div>
+        <div><SideMenuBarOrganizer /></div>
     )
 }
 

@@ -1,104 +1,100 @@
 import React, { useState } from "react";
 import "../../../assets/css/SideMenuBarOrganizer.css";
 import profilePhoto from '../../../assets/images/profilePhoto.jpeg'
-import dashboardimg from '../../../assets/icons/dashboard.png'
-import registerusersimg from '../../../assets/icons/registerusers.png'
-import reportsimg from '../../../assets/icons/reports.png'
-import settingsimg from '../../../assets/icons/settings.png'
-import userdetailsimg from '../../../assets/icons/userdetails.png'
-import eventsimg from '../../../assets/icons/events.png'
 import logoImage from '../../../assets/icons/logosidebar.svg'
+import 'bootstrap/dist/css/bootstrap.min.css'
+import 'bootstrap-icons/font/bootstrap-icons.css'
+import { Link } from 'react-router-dom';
+import { BiMenu } from "react-icons/bi";
+import { BiSolidDashboard } from "react-icons/bi";
+import { BiSolidUserPlus } from "react-icons/bi";
+import { BiSolidUserDetail } from "react-icons/bi";
+import { BiSolidCalendar } from "react-icons/bi";
 
 
 const SideMenuBarAdmin = () => {
     const [isExpanded, setExpandState] = useState(false);
-    const menuItems = [
-        {
-            text: "Dashboard",
-            icon: dashboardimg,
-        },
-        {
-            text: "Registration",
-            icon: registerusersimg,
-        },
-        {
-            text: "User Details",
-            icon: userdetailsimg,
-        },
-        {
-            text: "Events",
-            icon: eventsimg,
-        },
-        {
-            text: "Reports",
-            icon: reportsimg,
-        },
-        {
-            text: "Settings",
-            icon: settingsimg,
-        },
-    ];
 
 
     return (
         <div
             className={
                 isExpanded
-                    ? "side-menu-container"
-                    : "side-menu-container side-menu-container-NX"
+                    ? "side-menu-container d-flex flex-column justify-content-between text-white py-6 px-14 vh-100"
+                    : "side-menu-container side-menu-container-NX d-flex flex-column justify-content-between py-6 px-14 text-white p-4 vh-100"
             }
 
             style={{ fontFamily: 'MyCustomFont' }}
         >
             <div className="menu-upper">
-                <div className="menu-heading">
+                <div className="menu-heading d-flex align-items-center">
                     {isExpanded && (
                         <div className="menu-brand">
-
                             <img src={logoImage} alt="" srcSet="" />
-
-
                         </div>
                     )}
 
-                    <div className={isExpanded ? "sideIconDiv" : "sideIconDiv-NX"}>
-                        <button
-                            className={
-                                isExpanded ? "sideIcon sideIcon-in" : "sideIcon sideIcon-out"
-                            }
-                            onClick={() => setExpandState(!isExpanded)}
-                        >
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                        </button>
+                    <div className={isExpanded ? "sideIconDiv cursor-pointer" : "sideIconDiv-NX cursor-pointer"}>
+                        <BiMenu onClick={() => setExpandState(!isExpanded)} />
+
                     </div>
 
                 </div>
-                <div className="menu-profilePhoto">
-                    <img className={isExpanded ? "menu-item-profilePhoto" : "menu-item-profilePhoto-NX"} src={profilePhoto} alt="Profile" srcSet="" width="130px" height="130px" />
 
+                <div className="row">
+                    <div className="menu-profilePhoto col d-flex justify-content-center">
+                        <img className={isExpanded ? "menu-item-profilePhoto img-fluid my-4" : "menu-item-profilePhoto-NX"} src={profilePhoto} alt="Profile" srcSet="" width="130px" height="130px" />
+                    </div>
                 </div>
 
-                {isExpanded && (<div className="menu-profilePName">
-                    <p >Tehani Imara</p>
 
-                </div>)}
-
-                <div className="menu-menu">
-
-
-                    {menuItems.map(({ text, icon }, index) => (
-                        /* eslint-disable-next-line jsx-a11y/anchor-is-valid */
-                        <a key={index} className={isExpanded ? "menu-item" : "menu-item menu-item-NX"} href="#">
-                            <img className="menu-item-icon" src={icon} alt="" srcSet="" />
-                            {isExpanded && <p>{text}</p>}
-                        </a>
-                    ))}
+                <div className="row">
+                    {isExpanded && (
+                        <div className="menu-profilePName col d-flex justify-content-center">
+                            <p >Tehani Imara</p>
+                        </div>
+                    )}
                 </div>
+
+                <ul className="nav nav-pills flex-column px-0">
+                    <li className="nav-item p-1">
+                        <Link to="/" className="nav-link text-white">
+                            <BiSolidDashboard />
+                            {isExpanded && (
+                                <span className="fs-5">Dashboard</span>
+                            )}</Link>
+                        <span className="tooltip">Dashboard</span>
+                    </li>
+                    <li className="nav-item p-1">
+                        <Link to="/" className="nav-link text-white">
+                            <BiSolidUserPlus />
+                            {isExpanded && (
+                                <span className="fs-5">Dashboard</span>
+                            )}</Link>
+                        <span className="tooltip">Dashboard</span>
+                    </li>
+                    <li className="nav-item p-1">
+                        <Link to="/" className="nav-link text-white">
+                            <BiSolidUserDetail />
+                            {isExpanded && (
+                                <span className="fs-5">Dashboard</span>
+                            )}</Link>
+                        <span className="tooltip">Dashboard</span>
+                    </li>
+                    <li className="nav-item p-1">
+                        <Link to="/" className="nav-link text-white">
+                            <BiSolidCalendar />
+                            {isExpanded && (
+                                <span className="fs-5">Dashboard</span>
+                            )}</Link>
+                        <span className="tooltip">Dashboard</span>
+                    </li>
+                </ul>
+
+
             </div>
-
         </div>
+
     );
 };
 
