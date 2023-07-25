@@ -1,7 +1,7 @@
 /* NX = not expanded */
 @font-face {
 	font-family: 'MyCustomFont';
-	src: url('../fonts/Dosis-Bold.ttf') format('truetype');
+	src: url('../fonts/Dosis-Regular.ttf') format('truetype');
 	/* src: url('../../../assets/icons/dashboard.png') format('truetype'); */
 	/* Add other font file formats and their paths here */
 }
@@ -27,16 +27,17 @@
 	background-color: #2f363e;
 }
 
-.bx-menu #btn {
-	transform: translateY(-50%);
+.menu-icon {
+	height: 20px;
+	font-size: 20px;
 	text-align: center;
-	cursor: pointer;
-	transition: all .5s ease;
 }
 
+.menu-item-profilePhoto-NX,
 .menu-item-profilePhoto {
 	border-radius: 50%;
 }
+
 
 .menu-profilePName p {
 	font-size: 18px;

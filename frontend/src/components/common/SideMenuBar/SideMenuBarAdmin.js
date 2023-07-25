@@ -10,7 +10,8 @@ import { BiSolidDashboard } from "react-icons/bi";
 import { BiSolidUserPlus } from "react-icons/bi";
 import { BiSolidUserDetail } from "react-icons/bi";
 import { BiSolidCalendar } from "react-icons/bi";
-
+import { BiSolidReport } from "react-icons/bi";
+import { BiSolidCog } from "react-icons/bi";
 
 const SideMenuBarAdmin = () => {
     const [isExpanded, setExpandState] = useState(false);
@@ -35,7 +36,7 @@ const SideMenuBarAdmin = () => {
                     )}
 
                     <div className={isExpanded ? "sideIconDiv cursor-pointer" : "sideIconDiv-NX cursor-pointer"}>
-                        <BiMenu onClick={() => setExpandState(!isExpanded)} />
+                        <BiMenu onClick={() => setExpandState(!isExpanded)} className="menu-icon" />
 
                     </div>
 
@@ -58,34 +59,50 @@ const SideMenuBarAdmin = () => {
 
                 <ul className="nav nav-pills flex-column px-0">
                     <li className="nav-item p-1">
-                        <Link to="/" className="nav-link text-white">
-                            <BiSolidDashboard />
+                        <Link to="/" className="nav-link text-white d-flex align-items-center text-decoration-none">
+                            <BiSolidDashboard className="menu-icon" />
                             {isExpanded && (
-                                <span className="fs-5">Dashboard</span>
+                                <span className="fs-6 p-4">Dashboard</span>
                             )}</Link>
                         <span className="tooltip">Dashboard</span>
                     </li>
                     <li className="nav-item p-1">
-                        <Link to="/" className="nav-link text-white">
-                            <BiSolidUserPlus />
+                        <Link to="/" className="nav-link text-white d-flex align-items-center text-decoration-none">
+                            <BiSolidUserPlus className="menu-icon" />
                             {isExpanded && (
-                                <span className="fs-5">Dashboard</span>
+                                <span className="fs-6 p-4">Dashboard</span>
                             )}</Link>
                         <span className="tooltip">Dashboard</span>
                     </li>
                     <li className="nav-item p-1">
-                        <Link to="/" className="nav-link text-white">
-                            <BiSolidUserDetail />
+                        <Link to="/" className="nav-link text-white d-flex align-items-center text-decoration-none">
+                            <BiSolidUserDetail className="menu-icon" />
                             {isExpanded && (
-                                <span className="fs-5">Dashboard</span>
+                                <span className="fs-6 p-4">Dashboard</span>
                             )}</Link>
                         <span className="tooltip">Dashboard</span>
                     </li>
                     <li className="nav-item p-1">
-                        <Link to="/" className="nav-link text-white">
-                            <BiSolidCalendar />
+                        <Link to="/" className="nav-link text-white d-flex align-items-center text-decoration-none">
+                            <BiSolidCalendar className="menu-icon" />
                             {isExpanded && (
-                                <span className="fs-5">Dashboard</span>
+                                <span className="fs-6 p-4">Dashboard</span>
+                            )}</Link>
+                        <span className="tooltip">Dashboard</span>
+                    </li>
+                    <li className="nav-item p-1">
+                        <Link to="/" className="nav-link text-white d-flex align-items-center text-decoration-none">
+                            <BiSolidReport className="menu-icon" />
+                            {isExpanded && (
+                                <span className="fs-6 p-4">Dashboard</span>
+                            )}</Link>
+                        <span className="tooltip">Dashboard</span>
+                    </li>
+                    <li className="nav-item p-1">
+                        <Link to="/" className="nav-link text-white d-flex align-items-center text-decoration-none">
+                            <BiSolidCog className="menu-icon" />
+                            {isExpanded && (
+                                <span className="fs-6 p-4">Dashboard</span>
                             )}</Link>
                         <span className="tooltip">Dashboard</span>
                     </li>
