@@ -1,27 +1,18 @@
 package com.MHunter.mhunter.model;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 
 @Entity
-@Table(name = "user")
 public class User {
     @Id
-    @Column(name="user_id", length = 45)   //database row name
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private int userid;   //from form
-    @Column(name="email", length = 255)
-    private String email;
-    @Column(name="user_name", length = 255)
-    private String username ;
-    @Column(name="password", length = 255)
-    private String password;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int userid;
+    private String firstname;
 
-    public User(int userid, String email, String username, String password) {
-        this.userid = userid;
-        this.email = email;
-        this.username = username;
-        this.password = password;
-    }
+    private String lastname;
 
     public User() {
     }
@@ -34,37 +25,19 @@ public class User {
         this.userid = userid;
     }
 
-    public String getEmail() {
-        return email;
+    public String getFirstname() {
+        return firstname;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setFirstname(String firstname) {
+        this.firstname = firstname;
     }
 
-    public String getUsername() {
-        return username;
+    public String getLastname() {
+        return lastname;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    @Override
-    public String toString() {
-        return "User{" +
-                "userid=" + userid +
-                ", email='" + email + '\'' +
-                ", username='" + username + '\'' +
-                ", password='" + password + '\'' +
-                '}';
+    public void setLastname(String lastname) {
+        this.lastname = lastname;
     }
 }

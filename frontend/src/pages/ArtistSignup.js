@@ -1,6 +1,5 @@
 import React from 'react'
 import { useRef, useState} from 'react'
-//import axios from 'axios';
 
 export default function ArtistSignup() {
   const formRef = useRef(null);
@@ -24,54 +23,37 @@ export default function ArtistSignup() {
   const [phonenumber, setPhoneNumber] = useState("");
   const [address, setAddress] = useState("");
   const [password, setPassword] = useState("");
-  const [confirm_password, setCon_Password] = useState("");
+  const [confirmpassword, setCon_Password] = useState("");
   
-  async function save(event) {
+  const save = (event) => {
     event.preventDefault();
+    const artist = {
+       artistname, email, firstname, lastname, phonenumber, address, password };
     try {
 
       if(password.length < 8){
         alert("Password must have at least 8 characters");
       }
-      else if(password !== confirm_password){
+      else if(password !== confirmpassword){
         alert("Input Confirm your password correctly");
       }
       else{
-        console.log("Artist Name:", artistname);
+        /*console.log("Artist Name:", artistname);
         console.log("Email:", email);
         console.log("First Name:", firstname);
         console.log("Last Name:", lastname);
         console.log("Phone Number:", phonenumber);
         console.log("Address:", address);
         console.log("Password:", password);
-        console.log(confirm_password);
-
-        /*const formData = new FormData();
-        formData.append('image', image);
-        formData.append('artistname', artistname);
-        formData.append('email', email);
-        formData.append('firstname', firstname);
-        formData.append('lastname', lastname);
-        formData.append('phonenumber', phonenumber);
-        formData.append('address', address);
-        formData.append('password', password);
-        await axios.post('/api/artist/signup', formData);
-
-        const response = await fetch('/api/artist/signup', {
-          method: 'POST',
-          body: formData,
-        });
-
-        if (response.ok) {
-          const data = await response.json();
-          console.log(data);
-        } else {
-          const errorData = await response.json();
-          console.log(errorData); 
-        }*/
+        console.log(confirmpassword);*/
         
+        fetch("http://localhost:8080/user/signup", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(artist),
+        })
 
-        formRef.current.reset();
+       formRef.current.reset();
   
         alert("Artist Registration Sucessfully");
       }
@@ -158,7 +140,7 @@ export default function ArtistSignup() {
                   <div className='mb-2 text-white text-field'>
                     <label htmlFor='Address'>Confirm Password</label>
                     <input type='password' placeholder='' className='form-control'
-                    value = {confirm_password}
+                    value = {confirmpassword}
                     onChange ={(event) => {
                     setCon_Password(event.target.value);
                   }}/>
