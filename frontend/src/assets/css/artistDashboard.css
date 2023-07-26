@@ -1,0 +1,45 @@
+body{
+    background-color: #24292D;
+    width: 100%;
+    height: 100%;
+}
+
+.headerDashboard{
+    color: #FFF;
+    font-family: Dosis;
+    font-size: 35px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+    position: absolute;
+    top: 6%;
+    left: 10%;
+   
+}
+.notificationBg{
+    width: 65px;
+    height: 58px;
+    border-radius: 25px;
+    background: #3B444D;
+    position: absolute;
+    top: 5%;
+    left: 74%;
+}
+.homeBg{
+    width: 65px;
+    height: 58px;
+    border-radius: 25px;
+    background: #3B444D;
+    position: absolute;
+    top: 5%;
+    left: 81%;
+}
+.logoutBg{
+    width: 170px;
+    height: 58px;
+    border-radius: 25px;
+    background: #3B444D;
+    position: absolute;
+    top: 5%;
+    left: 88%;
+}
