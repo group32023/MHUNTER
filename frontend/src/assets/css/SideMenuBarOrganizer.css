@@ -37,9 +37,6 @@
 	background: linear-gradient(to right, #7643D2, #2f363e);
 }
 
-.nav-pills .nav-link.active {
-	background-color: #2f363e;
-}
 
 .side-menu-container {
 	position: fixed;
@@ -173,7 +170,7 @@
 }
 
 
-.side-menu-container .nav-link::after:not(.active) {
+/* .side-menu-container .nav-link::after:not(.active) {
 	content: "";
 	position: absolute;
 	width: 80%;
@@ -184,12 +181,12 @@
 	transition: 0.3s ease-in-out;
 	transform-origin: left;
 	z-index: -2;
-}
+} */
 
-.side-menu-container .nav-link:not(.active)::after {
+/* .side-menu-container .nav-link:not(.active)::after {
 	transform: scaleX(1);
 	color: #2f363e;
-}
+} */
 
 .menu-item-profilePhoto {
 	opacity: 1;

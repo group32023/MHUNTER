@@ -1,134 +1,125 @@
-import React, { useState } from "react";
+import "../../../assets/css/SideMenuBarOrganizer.css";
+import profilePhoto from '../../../assets/images/profilePhoto.jpeg'
+import logoImage from '../../../assets/icons/logosidebar.svg'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import 'bootstrap-icons/font/bootstrap-icons.css'
-import { Link } from 'react-router-dom';
-import logoImage from '../../../assets/icons/logosidebar.svg'
-import profilePhoto from '../../../assets/images/profilePhoto.jpeg'
+import { NavLink } from 'react-router-dom';
+import { BiMenu } from "react-icons/bi";
+import { BiSolidDashboard } from "react-icons/bi";
+import { BiSolidCalendar } from "react-icons/bi";
+import { BiSolidCalendarCheck } from "react-icons/bi";
+import { BiSolidCommentError } from "react-icons/bi";
+import React, { useState } from "react";
 
-
-const SideMenuBarOrganizer = () => {
+function SideMenuBarOrganizer({ children }) {
 	const [isExpanded, setExpandState] = useState(false);
-	// const menuItems = [
-	// 	{
-	// 		text: "Dashboard",
-	// 		icon: dashboardimg,
-	// 	},
-	// 	{
-	// 		text: "Events",
-	// 		icon: eventsimg,
-	// 	},
-	// 	{
-	// 		text: "Event History",
-	// 		icon: eventhistoryimg,
-	// 	},
-	// 	{
-	// 		text: "Complaints",
-	// 		icon: complaintsimg,
-	// 	},
-	// ];
-
 
 	return (
-		<div className={
-			isExpanded
-				? "side-menu-container d-flex flex-column justify-content-between text-white  vh-100"
-				: "side-menu-container side-menu-container-NX"
-		}
+		<div className="full-container">
+			<div
+				className={
+					isExpanded
+						? "side-menu-container vh-100 "
+						: "side-menu-container side-menu-container-NX vh-100"
+				}
 
-			style={{ fontFamily: 'MyCustomFont' }}>
-			<div>
-
-
-				<div className="menu-upper d-flex align-items-center">
-					<div className="menu-heading">
+				style={{ fontFamily: 'MyCustomFont' }}
+			>
+				<div className="menu-upper">
+					<div className="menu-heading d-flex align-items-center">
 						{isExpanded && (
 							<div className="menu-brand">
-
 								<img src={logoImage} alt="" srcSet="" />
-
-
 							</div>
 						)}
 
-						<div className={isExpanded ? "sideIconDiv" : "sideIconDiv-NX"}>
-							<button
-								className={
-									isExpanded ? "sideIcon sideIcon-in" : "sideIcon sideIcon-out"
-								}
-								onClick={() => setExpandState(!isExpanded)}
-							>
-								<span></span>
-								<span></span>
-								<span></span>
-							</button>
+						<div className={isExpanded ? "sideIconDiv cursor-pointer" : "sideIconDiv-NX cursor-pointer"}>
+							<BiMenu onClick={() => setExpandState(!isExpanded)} className={isExpanded ? "menubar-noncollapse-icon position-absolute text-white " : "menubar-collapse-icon position-absolute text-white"} />
+
 						</div>
 
 					</div>
 
-					<hr className="text-secondary mt-2" />
+					<div className="row">
+						<NavLink to="/">
+							<div className="menu-profilePhoto col d-flex justify-content-center">
+								<img className={isExpanded ? "menu-item-profilePhoto img-fluid my-4" : "menu-item-profilePhoto-NX"} src={profilePhoto} alt="Profile" srcSet="" width="130px" height="130px" />
+								{isExpanded && (
+									<div className="middle-pp-box">
+										<div className="middle-pp-text">Go to Profile</div>
+									</div>
+								)}
 
-					<div className="menu-profilePhoto">
-						<Link to="/" className="d-flex align-items-center">
-							<img className={isExpanded ? "menu-item-profilePhoto" : "menu-item-profilePhoto-NX"} src={profilePhoto} alt="Profile" srcSet="" width="130px" height="130px" />
-						</Link>
-
-						{isExpanded && (<div className="menu-profilePName">
-							<p >Tehani Imara</p>
-
-						</div>)}
+							</div>
+						</NavLink>
 
 					</div>
 
-					<ul className="nav nav-pills flex-column px-0">
-						<li className="nav-item p-1">
-							<Link to="/" className="nav-link text-white">
-								<i className="bi bi-speedometer me-2 fs-5"></i>
-								{isExpanded && (
-									<span className="fs-5">Dashboard</span>
-								)}
 
-							</Link>
-						</li>
-						<li className="nav-item p-1">
-							<Link to="/organizerDashboard" className="nav-link text-white fs-5" aria-current="page">
-								<i className="bi bi-table me-2 fs-5"></i>
+					<div className="row">
+						{isExpanded && (
+							<div className="menu-profilePName col d-flex justify-content-center">
+								<p >Tehani Imara</p>
+							</div>
+						)}
+					</div>
+
+					<ul className={isExpanded ? "nav nav-pills flex-column px-0 mt-3" : "nav nav-pills flex-column px-0 mt-4"}>
+						<li className={isExpanded ? "nav-item p-1" : "nav-item"}>
+							<NavLink to="/" activeclassName="active" className={isExpanded ? "nav-link   d-flex align-items-center text-decoration-none" : "nav-link collapsed-nav-link   d-flex align-items-center text-decoration-none"}>
+								<BiSolidDashboard className={isExpanded ? "menu-icon mx-4" : "menu-icon"} />
 								{isExpanded && (
-									<span className="fs-5">Dashboard</span>
-								)}
-							</Link>
+									<span className="menu_link_name fs-6 ">Dashboard</span>
+								)}</NavLink>
+							{!isExpanded && (
+								<span className="tooltip">Dashboard</span>
+							)}
+
 						</li>
-						<li className="nav-item p-1">
-							<Link to="/home" className="nav-link text-white fs-5" aria-current="page">
-								<i className="bi bi-house me-2 fs-5"></i>
+
+						<li className={isExpanded ? "nav-item p-1" : "nav-item"}>
+							<NavLink to="/complaint" activeclassName="active" className={isExpanded ? "nav-link d-flex align-items-center text-decoration-none" : "nav-link collapsed-nav-link d-flex align-items-center text-decoration-none"}>
+								<BiSolidCalendar className={isExpanded ? "menu-icon mx-4" : "menu-icon"} />
 								{isExpanded && (
-									<span className="fs-5">Dashboard</span>
-								)}
-							</Link>
+									<span className="menu_link_name fs-6 ">Events</span>
+								)}</NavLink>
+							{!isExpanded && (
+								<span className="tooltip">Events</span>
+							)}
+
 						</li>
-						<li className="nav-item p-1">
-							<Link to="/home" className="nav-link text-white fs-5" aria-current="page">
-								<i className="bi bi-people me-2 fs-5"></i>
+						<li className={isExpanded ? "nav-item p-1" : "nav-item"}>
+							<NavLink to="/" activeclassName="active" className={isExpanded ? "nav-link   d-flex align-items-center text-decoration-none" : "nav-link collapsed-nav-link   d-flex align-items-center text-decoration-none"}>
+								<BiSolidCalendarCheck className={isExpanded ? "menu-icon mx-4" : "menu-icon"} />
 								{isExpanded && (
-									<span className="fs-5">Dashboard</span>
-								)}
-							</Link>
+									<span className="menu_link_name fs-6 ">Event History</span>
+								)}</NavLink>
+							{!isExpanded && (
+								<span className="tooltip">Event History</span>
+							)}
+
+						</li>
+						<li className={isExpanded ? "nav-item p-1" : "nav-item"}>
+							<NavLink to="/" activeclassName="active" className={isExpanded ? "nav-link d-flex align-items-center text-decoration-none" : "nav-link collapsed-nav-link d-flex align-items-center text-decoration-none"}>
+								<BiSolidCommentError className={isExpanded ? "menu-icon mx-4" : "menu-icon"} />
+								{isExpanded && (
+									<span className="menu_link_name fs-6">Complaints</span>
+								)}</NavLink>
+							{!isExpanded && (
+								<span className="tooltip">Complaints</span>
+							)}
+
 						</li>
 					</ul>
-				</div>
 
+
+				</div>
 			</div>
 
-
-
-
-
-
-
-
-
+			<main className={isExpanded ? "mainContainer" : "mainContainer-NX"}>{children}</main>
 		</div>
-
 	);
 };
 
 export default SideMenuBarOrganizer;
+
