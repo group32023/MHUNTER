@@ -8,12 +8,15 @@ import logout from '../assets/images/logout.png'
 
 export default function ArtistDashboard() {
 
-
+function click(){
+  console.log('awa')
+}
   return (
     <div>
-        <div className='artistSideBar'>
-            <SideMenuBarArtist></SideMenuBarArtist>
-            <h3 className='headerDashboard'>Dashboard</h3>
+      <div className='mainArtistDashboard'>
+      <SideMenuBarArtist></SideMenuBarArtist>
+        <div className='artistSideBarOne'>
+            <p className='headerDashboard'>Dashboard</p>
             <div className='notificationBg'>
               <img src={notification} className='notificationIcon' alt='notification'></img>
             </div>
@@ -24,6 +27,7 @@ export default function ArtistDashboard() {
               <img src={logout} alt='logout'className='logout'></img>
               <p className='logoutbtn'>Logout</p>
             </div>
+        </div>
         </div>
     </div>
   )

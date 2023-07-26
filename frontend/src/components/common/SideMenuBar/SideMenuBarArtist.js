@@ -14,26 +14,32 @@ const SideMenuBarArtist = () => {
     const [isExpanded, setExpandState] = useState(false);
     const menuItems = [
         {
+            path:"/artistDashboard",
             text: "Dashboard",
             icon: dashboardimg,
         },
         {
+            path:"/artistDashboard",
             text: "Events",
             icon: eventsimg,
         },
         {
+            path:"/artistDashboard",
             text: "Pending Requests",
             icon: pendingimg,
         },
         {
+            path:"/artistDashboard",
             text: "My Feed",
             icon: feedimg,
         },
         {
+            path:"/artistDashboard",
             text: "Request Log",
             icon: requestlogimg,
         },
         {
+            path:"/artistDashboard",
             text: "Reports",
             icon: reportsimg,
         },
@@ -90,10 +96,11 @@ const SideMenuBarArtist = () => {
 
                     {menuItems.map(({ text, icon }, index) => (
                         /* eslint-disable-next-line jsx-a11y/anchor-is-valid */
-                        <a key={index} className={isExpanded ? "menu-item" : "menu-item menu-item-NX"} href="#">
+                        <a key={index} className={isExpanded ? "menu-item" : "menu-item menu-item-NX"} href="/artistDashboard">
                             <img className="menu-item-icon" src={icon} alt="" srcSet="" />
                             {isExpanded && <p>{text}</p>}
                         </a>
+                        
                     ))}
                 </div>
             </div>
