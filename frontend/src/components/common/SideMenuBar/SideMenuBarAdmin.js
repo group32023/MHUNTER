@@ -60,7 +60,7 @@ function SideMenuBarAdmin({ children }) {
 
                     <div className="row">
                         {isExpanded && (
-                            <div className="menu-profilePName col d-flex justify-content-center text-white">
+                            <div className="menu-profilePName col d-flex justify-content-center">
                                 <p >Tehani Imara</p>
                             </div>
                         )}

@@ -37,6 +37,10 @@
 	background: linear-gradient(to right, #7643D2, #2f363e);
 }
 
+.nav-pills .nav-link.active {
+	background-color: #2f363e;
+}
+
 .side-menu-container {
 	position: fixed;
 	transition: all .5s ease;
@@ -96,6 +100,12 @@
 
 .menu-profilePName p {
 	font-size: 18px;
+	color: white;
+}
+
+.menu-profilePName p:hover {
+	transform: scale(1.2);
+	color: #7643D2;
 }
 
 .side-menu-container li {
