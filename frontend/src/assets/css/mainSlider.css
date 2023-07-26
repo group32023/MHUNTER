@@ -38,4 +38,13 @@
     height: 702.5px;
     object-fit: cover;
   }
+
+ 
+  .swiper-button-prev{
+    display: none;
+  }
+
+  .swiper-button-next{
+    display: none;
+  }
   

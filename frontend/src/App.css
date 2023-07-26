@@ -1,5 +1,7 @@
 .App {
   text-align: center;
+  background-color: rgba(0, 0, 0, 0.4);
+  
 }
 
 .App-logo {
@@ -11,6 +13,10 @@
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
+}
+
+.swiper-button-prev{
+  display:none;
 }
 
 .App-header {
