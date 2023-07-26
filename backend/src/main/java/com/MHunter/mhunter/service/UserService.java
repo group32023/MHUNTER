@@ -1,6 +1,6 @@
-package com.MHunter.mhunter.service;
+package com.mhunter.MHunter.service;
 
-import com.MHunter.mhunter.model.User;
+import com.mhunter.MHunter.model.User;
 
 public interface UserService {
     public User saveUser(User user);

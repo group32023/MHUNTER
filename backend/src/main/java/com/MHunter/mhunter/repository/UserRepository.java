@@ -1,9 +1,10 @@
-package com.MHunter.mhunter.repository;
+package com.mhunter.MHunter.repository;
 
-import com.MHunter.mhunter.model.User;
+import com.mhunter.MHunter.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
 public interface UserRepository extends JpaRepository<User, Integer> {
+
 }
