@@ -11,12 +11,12 @@ function ViewEvents() {
 
     const [events, setEvents] = useState([])
 
-    const extractloc=(location)=>{
+    const extractloc = (location) => {
 
-      const parts = location.split(',');
-      const placeName = parts[0];
-      const town = parts[parts.length-2];
-      return `${placeName},${town}`;
+        const parts = location.split(',');
+        const placeName = parts[0];
+        const town = parts[parts.length - 2];
+        return `${placeName},${town}`;
     }
 
     const formatTime = (time) => {
@@ -62,7 +62,7 @@ function ViewEvents() {
                                     <h5>{event.event_name}</h5>
                                     <div className='newrow'>
                                         <FontAwesomeIcon icon="map-marker-alt" style={{ color: "#7643D2", fontSize: '20px' }} />
-                                        <span style={{ color: "#11FE70",marginLeft:"2rem",marginTop:"-1.5rem",display:"block"}}>{extractloc(event.location)}</span>
+                                        <span style={{ color: "#11FE70", marginLeft: "2rem", marginTop: "-1.5rem", display: "block" }}>{extractloc(event.location)}</span>
                                     </div>
 
                                     <div className='newrow'>
@@ -70,7 +70,7 @@ function ViewEvents() {
                                         <span>{event.date}</span>
                                     </div>
 
-                                    <div className='newrow' style={{ marginTop:"0.3rem" }}>
+                                    <div className='newrow' style={{ marginTop: "0.3rem" }}>
                                         <FontAwesomeIcon icon="clock" style={{ color: "#7643D2", fontSize: '18px' }} />
                                         <span>{formatTime(event.start_time)}</span>
                                     </div>
@@ -78,8 +78,16 @@ function ViewEvents() {
                                 </div>
                             </a>
                         </div>
+
+
                     ))}
 
+                    <div className='col-md-3'>
+
+                        <a>
+                            <FontAwesomeIcon icon="plus" style={{ color: "#24292D", height: "15rem", width: "15rem", marginTop: "2rem",marginLeft:"-0.3rem" }} />
+                        </a>
+                    </div>
 
                 </div>
 
