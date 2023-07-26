@@ -1,4 +1,4 @@
-package com.mhunter.MHunter.model;
+package com.MHunter.mhunter.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

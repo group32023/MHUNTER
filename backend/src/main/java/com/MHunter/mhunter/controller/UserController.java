@@ -1,7 +1,7 @@
-package com.mhunter.MHunter.controller;
+package com.MHunter.mhunter.controller;
 
-import com.mhunter.MHunter.model.User;
-import com.mhunter.MHunter.service.UserService;
+import com.MHunter.mhunter.model.User;
+import com.MHunter.mhunter.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

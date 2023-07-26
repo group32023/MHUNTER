@@ -1,7 +1,7 @@
-package com.mhunter.MHunter.service;
+package com.MHunter.mhunter.service;
 
-import com.mhunter.MHunter.model.User;
-import com.mhunter.MHunter.repository.UserRepository;
+import com.MHunter.mhunter.model.User;
+import com.MHunter.mhunter.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
