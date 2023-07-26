@@ -43,3 +43,35 @@ body{
     top: 5%;
     left: 88%;
 }
+.notificationIcon{
+    width: 48px;
+    height: 48px;
+    position: absolute;
+    top: 5px;
+    left: 8px;
+}
+.homeIcon{
+    width: 48px;
+    height: 48px;
+    position: absolute;
+    top: 4px;
+    left: 8px;
+}
+.logout{
+    width: 48px;
+    height: 48px;
+    position: absolute;
+    top: 5px;
+    left: 8px;
+}
+.logoutbtn{
+    color: #FFF;
+    font-family: Dosis;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+    position: absolute;
+    top: 14px;
+    left: 71px;
+}

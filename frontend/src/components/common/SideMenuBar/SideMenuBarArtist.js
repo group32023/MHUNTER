@@ -48,7 +48,7 @@ const SideMenuBarArtist = () => {
                     : "side-menu-container side-menu-container-NX"
             }
 
-            style={{ fontFamily: 'MyCustomFont' }}
+            style={{ fontFamily: 'MyCustomFont' }} 
         >
             <div className="menu-upper">
                 <div className="menu-heading">
