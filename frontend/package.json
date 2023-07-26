@@ -20,10 +20,10 @@
     "react": "^18.2.0",
     "react-bootstrap": "^2.8.0",
     "react-dom": "^18.2.0",
-    "react-router-dom": "^6.14.1",
+    "react-router-dom": "^6.14.2",
     "react-scripts": "5.0.1",
-    "styled-components": "^5.3.11",
     "slider": "^1.0.4",
+    "styled-components": "^5.3.11",
     "swiper": "^10.0.3",
     "web-vitals": "^2.1.4"
   },
