@@ -10,6 +10,11 @@ import ArtistSignup from './pages/ArtistSignup';
 import NavBar from './components/common/NavBar';
 import MainSlider from './components/common/MainSlider';
 import BandSignup from './pages/BandSignup';
+import AdminDashboard from './pages/admin/AdminDashboard';
+import OrganizerDashboard from './pages/organizer/OrganizerDashboard';
+import ArtistDashboard from './pages/artist/ArtistDashboard';
+import BandDashboard from './pages/band/BandDashboard';
+import ModeratorDashboard from './pages/moderator/ModeratorDashboard';
 function App() {
   return (
     
@@ -22,6 +27,12 @@ function App() {
           <Route path='/artistbandsignup' element={<ArtistBandSignup />} />
           <Route path='/artistsignup' element={<ArtistSignup />} />
           <Route path='/bandsignup' element={<BandSignup/>} />
+          <Route path='/admindashboard' element={<AdminDashboard/>} />
+          <Route path='/artistdashboard' element={<ArtistDashboard/>} />
+          <Route path='/banddashboard' element={<BandDashboard/>} />
+          <Route path='/moderator' element={<ModeratorDashboard/>} />
+          <Route path='/organizerdashboard' element={<OrganizerDashboard/>} />
+
 
       </Routes>
     </BrowserRouter>

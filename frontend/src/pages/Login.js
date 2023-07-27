@@ -1,25 +1,60 @@
 import React, { useState } from 'react'
 import '../assets/css/admin.css'
-import { Link } from 'react-router-dom';
-
+import {useNavigate} from 'react-router-dom';
+import { Link} from 'react-router-dom';
+import axios from "axios";
 
 export default function Login() {
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
- 
+  const [msg, setMsg] = useState("");
+  const navigate = useNavigate();
 
   const handleClick = (e) => {
+
+
     e.preventDefault();
     const credentials = { email, password };
+    axios
+      .post('http://localhost:8080/user/login', credentials)
+      .then((response) => {
+        const responseParts = response.data.msg.split('#');
+        const msg = responseParts[0];
+        const membertype = responseParts[1];
+        
+        alert(msg);
+        if(msg==="Login Success"){
+          if (membertype === "Artist") {
+            navigate('/artistdashboard');
+          } else if (membertype === "Band") {
+            navigate('/banddashboard');
+          }
+         
+        }
+      })
+      .catch((error) => {
+        if (error.response) {
+          setMsg(error.response.data.msg);
+        } else if (error.request) {
+          
+          setMsg('Network error. Please try again later.');
+        } else {
+          
+          setMsg('An error occurred. Please try again later.');
+        }
+        console.error(error);
+      });
 
-    fetch("http://localhost:8080/user/login", {
+    /*fetch("http://localhost:8080/user/login", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(credentials),
     })
       .then((response) => {
+        setMsg(response.data.msg);
         if (response.ok) {
+          
           console.log("Logged in successfully");
         } else {
           throw new Error("Failed to log in");
@@ -27,7 +62,7 @@ export default function Login() {
       })
       .catch((error) => {
         console.error(error);
-      });
+      });*/
   }
 
   
