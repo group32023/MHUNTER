@@ -30,7 +30,7 @@ function App() {
           <Route path='/admindashboard' element={<AdminDashboard/>} />
           <Route path='/artistdashboard' element={<ArtistDashboard/>} />
           <Route path='/banddashboard' element={<BandDashboard/>} />
-          <Route path='/moderator' element={<ModeratorDashboard/>} />
+          <Route path='/moderatordashboard' element={<ModeratorDashboard/>} />
           <Route path='/organizerdashboard' element={<OrganizerDashboard/>} />
 
 

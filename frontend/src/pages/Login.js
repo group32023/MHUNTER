@@ -29,6 +29,12 @@ export default function Login() {
             navigate('/artistdashboard');
           } else if (membertype === "Band") {
             navigate('/banddashboard');
+          }else if (membertype === "Organizer") {
+            navigate('/organizerdashboard');
+          }else if (membertype === "Moderator") {
+            navigate('/moderatordashboard');
+          }else if (membertype === "Admin") {
+            navigate('/admindashboard');
           }
          
         }
