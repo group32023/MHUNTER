@@ -11,6 +11,7 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int userid;
     private String artistname;
+    private String bandname;
     private String email;
     private String firstname;
     private String lastname;
@@ -37,6 +38,14 @@ public class User {
 
     public void setArtistname(String artistname) {
         this.artistname = artistname;
+    }
+
+    public String getBandname() {
+        return bandname;
+    }
+
+    public void setBandname(String bandname) {
+        this.bandname = bandname;
     }
 
     public String getEmail() {
