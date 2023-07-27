@@ -18,6 +18,18 @@ public class User {
     private String phonenumber;
     private String address;
     private String password;
+    private String membertype;
+    private String regdate;
+    private int isVerified;
+    private int removeStaffId;
+    private String removeDate;
+    private int suspendedStaffId;
+    private String suspendedDate;
+    private String remark;
+
+
+
+
 
 
 
@@ -94,5 +106,69 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getMembertype() {
+        return membertype;
+    }
+
+    public void setMembertype(String membertype) {
+        this.membertype = membertype;
+    }
+
+    public String getRegdate() {
+        return regdate;
+    }
+
+    public void setRegdate(String regdate) {
+        this.regdate = regdate;
+    }
+
+    public int getIsVerified() {
+        return isVerified;
+    }
+
+    public void setIsVerified(int isVerified) {
+        this.isVerified = isVerified;
+    }
+
+    public int getRemoveStaffId() {
+        return removeStaffId;
+    }
+
+    public void setRemoveStaffId(int removeStaffId) {
+        this.removeStaffId = removeStaffId;
+    }
+
+    public String getRemoveDate() {
+        return removeDate;
+    }
+
+    public void setRemoveDate(String removeDate) {
+        this.removeDate = removeDate;
+    }
+
+    public int getSuspendedStaffId() {
+        return suspendedStaffId;
+    }
+
+    public void setSuspendedStaffId(int suspendedStaffId) {
+        this.suspendedStaffId = suspendedStaffId;
+    }
+
+    public String getSuspendedDate() {
+        return suspendedDate;
+    }
+
+    public void setSuspendedDate(String suspendedDate) {
+        this.suspendedDate = suspendedDate;
+    }
+
+    public String getRemark() {
+        return remark;
+    }
+
+    public void setRemark(String remark) {
+        this.remark = remark;
     }
 }

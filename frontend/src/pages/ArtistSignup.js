@@ -24,11 +24,12 @@ export default function ArtistSignup() {
   const [address, setAddress] = useState("");
   const [password, setPassword] = useState("");
   const [confirmpassword, setCon_Password] = useState("");
-  
+  const membertype = "Artist";
+  const regdate = new Date();
   const save = (event) => {
     event.preventDefault();
     const artist = {
-       artistname, email, firstname, lastname, phonenumber, address, password };
+       artistname, email, firstname, lastname, phonenumber, address, password, membertype, regdate };
     try {
 
       if(password.length < 8){
