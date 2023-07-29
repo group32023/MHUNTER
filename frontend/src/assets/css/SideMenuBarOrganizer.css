@@ -67,7 +67,14 @@
 	transition: all .5s ease;
 	top: 57%;
 	right: 4%;
+	color: white;
 }
+
+.menubar-noncollapse-icon:hover,
+.menubar-collapse-icon:hover {
+	color: #7643D2;
+}
+
 
 .menubar-collapse-icon {
 	text-align: center;

@@ -34,7 +34,7 @@ function SideMenuBarOrganizer({ children }) {
 						)}
 
 						<div className={isExpanded ? "sideIconDiv cursor-pointer" : "sideIconDiv-NX cursor-pointer"}>
-							<BiMenu onClick={() => setExpandState(!isExpanded)} className={isExpanded ? "menubar-noncollapse-icon position-absolute text-white " : "menubar-collapse-icon position-absolute text-white"} />
+							<BiMenu onClick={() => setExpandState(!isExpanded)} className={isExpanded ? "menubar-noncollapse-icon position-absolute " : "menubar-collapse-icon position-absolute "} />
 
 						</div>
 
