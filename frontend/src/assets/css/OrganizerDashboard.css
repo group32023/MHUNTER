@@ -1,16 +1,25 @@
-.mainContainer {
+.main-content-container {
+    flex: 1;
     display: flex;
-    position: relative;
-    min-height: 100vh;
-    transition: all .5s ease;
-    z-index: 2;
-    /* width: calc(100% - 260px); */
-    background-color: #1c2126;
-    top: 0;
-
 }
 
+.main-content {
+    flex: 1;
+    padding: 20px;
+    transition: margin-left 0.3s;
+}
 
+.main-content.expanded {
+    margin-left: 50px;
+    /* Adjust the margin to show the expanded main content */
+}
+
+.artistSideBarOne {
+    margin-left: -1.9rem;
+    background: #24292D;
+    width: 1455px;
+    height: 728px;
+}
 
 
 .headerDashboard {

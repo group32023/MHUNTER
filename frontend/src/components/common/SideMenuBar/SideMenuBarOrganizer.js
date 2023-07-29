@@ -6,10 +6,15 @@ import eventsimg from '../../../assets/icons/events.png'
 import eventhistoryimg from '../../../assets/icons/eventHistory.png'
 import complaintsimg from '../../../assets/icons/complaint.png'
 import logoImage from '../../../assets/icons/logosidebar.svg'
-
+import { useSideMenubarOrganizerDashboard } from '../../../pages/organizer/OrganizerDashboard';
 
 const SideMenuBarOrganizer = () => {
-	const [isExpanded, setExpandState] = useState(false);
+	const { isExpanded, setExpandState } = useSideMenubarOrganizerDashboard();
+
+	const handleToggleSideMenubar = () => {
+		setExpandState(!isExpanded);
+	};
+
 	const menuItems = [
 		{
 			text: "Dashboard",
@@ -56,7 +61,7 @@ const SideMenuBarOrganizer = () => {
 							className={
 								isExpanded ? "sideIcon sideIcon-in" : "sideIcon sideIcon-out"
 							}
-							onClick={() => setExpandState(!isExpanded)}
+							onClick={handleToggleSideMenubar}
 						>
 							<span></span>
 							<span></span>
