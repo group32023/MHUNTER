@@ -25,7 +25,13 @@
     position: relative;
     background-image: url("../images/audio.png"); /* Replace with the path to your background image, if applicable */
   }
-  
+  .embed-responsive2 {
+    border-radius: 0%;
+    overflow: hidden;
+    width: 450px;
+    height: 450px;
+    position: relative;
+  }
   .embed-responsive .embed-responsive-item {
     position: absolute;
     top: 0;
