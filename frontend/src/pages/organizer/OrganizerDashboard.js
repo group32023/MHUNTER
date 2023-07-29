@@ -7,23 +7,23 @@ import OrganizerEventHistory from '../organizer/OrganizerEventHistory';
 import SideMenuBarOrganizer from '../../components/common/SideMenuBar/SideMenuBarOrganizer'
 
 function OrganizerDashboard() {
-    return (
-        <>
-            <SideMenuBarOrganizer>
-                <Routes>
-                    <Route path="/" element={<OrganizerDashboard />} />
-                    <Route path="/event" element={<OrganizerEventDashboard />} />
-                    <Route path="/eventhistory" element={<OrganizerEventHistory />} />
-                    <Route path="/complaint" element={<OrganizerComplaint />} />
-                </Routes>
-            </SideMenuBarOrganizer>
+  return (
+    <>
+      <SideMenuBarOrganizer>
+        <Routes>
+          <Route path="/" element={<OrganizerDashboard />} />
+          <Route path="/event" element={<OrganizerEventDashboard />} />
+          <Route path="/eventhistory" element={<OrganizerEventHistory />} />
+          <Route path="/complaint" element={<OrganizerComplaint />} />
+        </Routes>
+      </SideMenuBarOrganizer>
 
 
-            <div className='content_container'>
-                <h1>Home</h1>
-            </div>
-        </>
-    )
+      <div className='content_container'>
+        <h1>Home</h1>
+      </div>
+    </>
+  )
 }
 
 

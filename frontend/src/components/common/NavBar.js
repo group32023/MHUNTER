@@ -1,6 +1,7 @@
 import React from 'react'
 import logo from '../../assets/images/logo.png'
 import '../../assets/css/navBar.css'
+import { Link } from 'react-router-dom'
 
 export default function NavBar() {
   return (
@@ -13,13 +14,14 @@ export default function NavBar() {
           </div>
           <div className='navContain'>
             <ul>
-              <li>HOME</li>
-              <li>EVENTS</li>
-              <li>BANDS</li>
-              <li>ARTISTS</li>
-              <li>ABOUT US</li>
-              <li>CONTACT</li>
-              <li>LOGIN</li>
+                <li>HOME</li>
+                <li>EVENTS</li>
+                <li>BANDS</li>
+                <li>ARTISTS</li>
+                <li>ABOUT US</li>
+                <li>CONTACT</li>
+                <li><Link to="/login">LOGIN</Link></li>
+                
             </ul>
           </div>
 
