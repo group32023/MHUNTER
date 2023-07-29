@@ -6,8 +6,8 @@ import "./index.css"
 // import SideMenuBarOrganizer from '../src/components/common/SideMenuBar/SideMenuBarOrganizer'
 
 import './App.css';
-//import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
-import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import Home from './pages/Home';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
@@ -26,9 +26,9 @@ function App() {
 
     <div className="App">
 
-      <BrowserRouter>
+      <Router>
         <Routes>
-          <Route index element={<Home />} />
+          <Route path='/' element={<OrganizerDashboard />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           <Route path='/artistbandsignup' element={<ArtistBandSignup />} />
@@ -38,11 +38,11 @@ function App() {
           <Route path='/artistdashboard' element={<ArtistDashboard />} />
           <Route path='/banddashboard' element={<BandDashboard />} />
           <Route path='/moderatordashboard' element={<ModeratorDashboard />} />
-          <Route path='/organizerdashboard' element={<OrganizerDashboard />} />
+          {/* <Route path='/organizerdashboard' element={<OrganizerDashboard />} /> */}
 
 
         </Routes>
-      </BrowserRouter>
+      </Router>
 
       {/*<div>
       <MainSlider>

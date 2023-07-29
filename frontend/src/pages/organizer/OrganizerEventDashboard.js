@@ -1,6 +1,7 @@
 import React from 'react'
 import "../../assets/css/OrganizerEventDashboard.css"
 
+
 function OrganizerEventDashboard() {
     return (
         <>
