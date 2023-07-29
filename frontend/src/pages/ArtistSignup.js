@@ -25,11 +25,11 @@ export default function ArtistSignup() {
   const [password, setPassword] = useState("");
   const [confirmpassword, setCon_Password] = useState("");
   const membertype = "Artist";
-  const regdate = new Date();
+  //const regdate = new Date();
   const save = (event) => {
     event.preventDefault();
     const artist = {
-       artistname, email, firstname, lastname, phonenumber, address, password, membertype, regdate };
+       artistname, email, firstname, lastname, phonenumber, address, password, membertype};
     try {
 
       if(password.length < 8){
