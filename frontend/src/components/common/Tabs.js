@@ -1,6 +1,7 @@
 import { useState } from "react";
 import '../../assets/css/tabs.css'
 import Contact from '../../pages/contact';
+import Post from '../../pages/post';
 
 function Tabs() {
   const [toggleState, setToggleState] = useState(1);
@@ -43,7 +44,7 @@ function Tabs() {
 
       <div className={toggleState === 1 ? "content active-content" : "content"}>
 
-  {toggleState === 1 && <Contact/>}
+  {toggleState === 1 && <Post/>}
 </div>
 <div className={toggleState === 2 ? "content active-content" : "content"}>
 {toggleState === 2 && <Contact/>}

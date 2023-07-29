@@ -1,7 +1,7 @@
 import React from 'react'
 import NavBar from '../components/common/NavBar';
 import MainSlider from '../components/common/MainSlider';
-import Tabs from '../components/common/Tabs';
+import Tab from '../components/common/Tabs';
 
 import backgroundimage from '../assets/images/backgroundimage1.jpg';
 import artistImage from '../assets/images/shihan.jpg';
@@ -76,7 +76,7 @@ h() {
         </div>
         </div>
       </div>
-      <div><Tabs></Tabs></div>
+      <div><Tab></Tab></div>
       
 
     </div>
