@@ -3,7 +3,7 @@ import { useState } from 'react';
 import React from 'react';
 import { format } from 'date-fns'
 import LocationInput from '../../components/Organizer/LocationInput';
-import SideMenuBarOrganizer from '../../components/common/SideMenuBar/SideMenuBarOrganizer';
+// import SideMenuBarOrganizer from '../../components/common/SideMenuBar/SideMenuBarOrganizer';
 
 function CreateEvent() {
 
@@ -73,9 +73,9 @@ function CreateEvent() {
   return (
 
     <div>
-      <SideMenuBarOrganizer />
+      {/* <SideMenuBarOrganizer /> */}
 
-      <div className="container" style={{ width: '1210px', marginLeft: '20%', marginTop: '0.5rem' }} >
+      <div className="container" style={{ width: '1215px', marginLeft: '20%' }} >
 
         <form>
 

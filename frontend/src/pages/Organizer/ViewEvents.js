@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import SideMenuBarOrganizer from '../../components/common/SideMenuBar/SideMenuBarOrganizer';
+// import SideMenuBarOrganizer from '../../components/common/SideMenuBar/SideMenuBarOrganizer';
+import Topbar from '../../components/common/Topbar'; 
 import './ViewEvents.css';
 import musical from '../../assets/images/musical.jpg'
 import { library } from '@fortawesome/fontawesome-svg-core';
@@ -44,8 +45,9 @@ function ViewEvents() {
 
         <div>
 
-            <SideMenuBarOrganizer />
-            <div className="container" style={{ width: '1210px', marginLeft: '20%', marginTop: '0.5rem', height: '110vh' }} >
+            {/* <SideMenuBarOrganizer /> */}
+            {<Topbar></Topbar>}
+            <div className="container" style={{ width: '1215px', marginLeft: '20%', height: '110vh' }} >
 
                 <div className='row'>
 
