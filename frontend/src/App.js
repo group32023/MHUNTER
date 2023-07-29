@@ -6,6 +6,9 @@ import Band from './pages/Band';
 import Artist from './pages/Artist';
 import AboutUs from './pages/AboutUs';
 import ArtistDashboard from './pages/ArtistDashboard';
+import ArtistPendingRequests from "./pages/ArtistPendingRequests";
+import ArtistPendingRequestView from "./pages/ArtistPendingRequestView"
+
 
 
 
@@ -22,7 +25,9 @@ function App() {
           <Route path='/band' element={<Band/>}></Route>
           <Route path='/artist' element={<Artist/>}></Route>
           <Route path='/aboutUs' element={<AboutUs/>}></Route>
-          <Route path='/dashboard' element={<ArtistDashboard/>}></Route>
+          {/* <Route path='/dashboard' element={<ArtistPendingRequests/>}></Route> */}
+          <Route path='/dashboard' element={<ArtistPendingRequestView/>}></Route>
+
         </Routes>
       </Router>
      

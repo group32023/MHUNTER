@@ -1,9 +1,19 @@
-import React from 'react'
+import React from 'react';
 import SideMenuBarArtist from '../components/common/SideMenuBar/SideMenuBarArtist'
 import '../assets/css/artistDashboard.css'
 
+
+
+
+
+
 export default function ArtistDashboard() {
+ 
+  
+
   return (
+
+    
     <div>
         <div className='artistSideBar'>
             <SideMenuBarArtist></SideMenuBarArtist>
@@ -12,6 +22,8 @@ export default function ArtistDashboard() {
             <div className='homeBg'></div>
             <div className='logoutBg'></div>
         </div>
+        
+        
     </div>
   )
 }
