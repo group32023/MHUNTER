@@ -18,13 +18,12 @@
   }
   
   .embed-responsive {
-    border-radius: 50%;
+    border-radius: 80%;
     overflow: hidden;
     width: 450px;
     height: 450px;
     position: relative;
     background-image: url("../images/audio.png"); /* Replace with the path to your background image, if applicable */
-
   }
   
   .embed-responsive .embed-responsive-item {
@@ -46,8 +45,12 @@
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    margin-top:-20px;
+    margin-right: 80px;
+    margin-top: -250px;
+    position: relative; /* Add this to make z-index work */
+    z-index: 1; /* Add this to place the icon in front of the image */
   }
+  
   
   .btn-danger:focus {
     outline: none;

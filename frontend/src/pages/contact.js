@@ -80,10 +80,7 @@ h() {
                 <img src={clock} className='location' ></img>
                 <span className='imageText'>Working hours-<br></br> Monday to Friday<br></br> 9.00 AM  to 5.00 PM</span>
                 </div>
-                <Link to="/artistDetails">
-
-                <img src={clock} className='location' ></img>
-               </Link>
+              
                 </div>
 
                 </div>
