@@ -78,7 +78,7 @@ function SideMenuBarOrganizer({ children }) {
 						</li>
 
 						<li className={isExpanded ? "nav-item p-1" : "nav-item"}>
-							<NavLink to="/complaint" activeclassName="active" className={isExpanded ? "nav-link d-flex align-items-center text-decoration-none" : "nav-link collapsed-nav-link d-flex align-items-center text-decoration-none"}>
+							<NavLink to="/event" activeclassName="active" className={isExpanded ? "nav-link d-flex align-items-center text-decoration-none" : "nav-link collapsed-nav-link d-flex align-items-center text-decoration-none"}>
 								<BiSolidCalendar className={isExpanded ? "menu-icon mx-4" : "menu-icon"} />
 								{isExpanded && (
 									<span className="menu_link_name fs-6 ">Events</span>
@@ -89,7 +89,7 @@ function SideMenuBarOrganizer({ children }) {
 
 						</li>
 						<li className={isExpanded ? "nav-item p-1" : "nav-item"}>
-							<NavLink to="/" activeclassName="active" className={isExpanded ? "nav-link   d-flex align-items-center text-decoration-none" : "nav-link collapsed-nav-link   d-flex align-items-center text-decoration-none"}>
+							<NavLink to="/eventhistory" activeclassName="active" className={isExpanded ? "nav-link   d-flex align-items-center text-decoration-none" : "nav-link collapsed-nav-link   d-flex align-items-center text-decoration-none"}>
 								<BiSolidCalendarCheck className={isExpanded ? "menu-icon mx-4" : "menu-icon"} />
 								{isExpanded && (
 									<span className="menu_link_name fs-6 ">Event History</span>
@@ -100,7 +100,7 @@ function SideMenuBarOrganizer({ children }) {
 
 						</li>
 						<li className={isExpanded ? "nav-item p-1" : "nav-item"}>
-							<NavLink to="/" activeclassName="active" className={isExpanded ? "nav-link d-flex align-items-center text-decoration-none" : "nav-link collapsed-nav-link d-flex align-items-center text-decoration-none"}>
+							<NavLink to="/complaint" activeclassName="active" className={isExpanded ? "nav-link d-flex align-items-center text-decoration-none" : "nav-link collapsed-nav-link d-flex align-items-center text-decoration-none"}>
 								<BiSolidCommentError className={isExpanded ? "menu-icon mx-4" : "menu-icon"} />
 								{isExpanded && (
 									<span className="menu_link_name fs-6">Complaints</span>
