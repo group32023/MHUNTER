@@ -3,7 +3,7 @@ import "../../assets/css/OrganizerEventDashboard.css"
 import { Routes, Route } from 'react-router-dom';
 import OrganizerComplaint from '../../pages/organizer/OrganizerComplaint';
 import OrganizerEventDashboard from '../organizer/OrganizerEventDashboard'
-import { OrganizerEventHistory } from './OrganizerEventHistory';
+import OrganizerEventHistory from '../organizer/OrganizerEventHistory';
 import SideMenuBarOrganizer from '../../components/common/SideMenuBar/SideMenuBarOrganizer'
 
 function OrganizerDashboard() {

@@ -1,7 +1,9 @@
 import React from 'react'
 
-export const OrganizerEventHistory = () => {
+function OrganizerEventHistory() {
     return (
         <div>OrganizerEventHistory</div>
     )
 }
+
+export default OrganizerEventHistory
