@@ -46,10 +46,30 @@ export default function ArtistPendingRequests() {
             <div className='logoutBg'></div>
         </div>
 
-  
+        <div className="requestViewContainer">
+        
+            <img src={profileImage} className="profileView1"></img>
+            <p className='paraRequestName'>Requested By : </p>
+            <h4>W.R.A.Kavinda Perera</h4>
+
+            <div className='eventDetailsContainer'>
+            <p class="eventType"><FontAwesomeIcon icon={faCalendarDays} id="EventIconPendingRequest"/>Birthday Party</p>
+            <p class="eventDate"><FontAwesomeIcon icon={faCalendarDays} id="CalenderIconPendingRequest"/>2023.11.02</p>
+            <p class="venue"><FontAwesomeIcon icon={faLocationDot} id="LocationIconPendingRequest"/> Colombo 05</p>
+            <p class="eventType"><FontAwesomeIcon icon={faCalendarDays} id="EventIconPendingRequest"/>Birthday Party</p>
+            <p class="eventDate"><FontAwesomeIcon icon={faCalendarDays} id="CalenderIconPendingRequest"/>2023.11.02</p>
+            <p class="venue"><FontAwesomeIcon icon={faLocationDot} id="LocationIconPendingRequest"/> Colombo 05</p>
+
+            </div>
+
+            <MDBBtn className="priorbookingsBtn">Prior Bookings</MDBBtn>
+            <MDBBtn className="myEventsBtn">My Events</MDBBtn>
+            <MDBBtn className="acceptBtn">Accept</MDBBtn>
+            <MDBBtn className="rejectBtn">Reject</MDBBtn>
+        </div>
         
         
-        <div>{divElements}</div>;
+       
         
         
     </div>
