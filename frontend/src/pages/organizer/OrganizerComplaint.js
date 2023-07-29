@@ -1,8 +1,14 @@
 import React from 'react'
+import SideMenuBarOrganizer from '../../components/common/SideMenuBar/SideMenuBarOrganizer'
 
 const OrganizerComplaint = () => {
     return (
-        <div className='content_container text-white'>OrganizerComplaint</div>
+        <div>
+            <div className='mainContainer'>
+                <SideMenuBarOrganizer></SideMenuBarOrganizer>
+
+            </div>
+        </div>
     )
 }
 

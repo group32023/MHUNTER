@@ -1,0 +1,185 @@
+.mainContainer {
+    display: flex;
+    position: relative;
+    min-height: 100vh;
+    transition: all .5s ease;
+    z-index: 2;
+    /* width: calc(100% - 260px); */
+    background-color: #1c2126;
+    top: 0;
+
+}
+
+
+
+
+.headerDashboard {
+    color: #FFF;
+    font-family: Dosis;
+    font-size: 35px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+    position: relative;
+    top: 6%;
+    left: 6%;
+    width: 165px;
+
+}
+
+.notificationBg {
+    width: 58px;
+    height: 49px;
+    border-radius: 25px;
+    background: #3B444D;
+    position: absolute;
+    top: 5%;
+    left: 74%;
+}
+
+.homeBg {
+    width: 58px;
+    height: 49px;
+    border-radius: 25px;
+    background: #3B444D;
+    position: absolute;
+    top: 5%;
+    left: 81%;
+}
+
+.logoutBg {
+    width: 170px;
+    height: 48px;
+    border-radius: 25px;
+    background: #3B444D;
+    position: absolute;
+    top: 5%;
+    left: 88%;
+}
+
+.notificationIcon {
+    width: 38px;
+    height: 35px;
+    position: absolute;
+    top: 6px;
+    left: 9px;
+}
+
+.homeIcon {
+    width: 38px;
+    height: 35px;
+    position: absolute;
+    top: 8px;
+    left: 11px;
+}
+
+.logout {
+    width: 38px;
+    height: 35px;
+    position: absolute;
+    top: 7px;
+    left: 8px;
+}
+
+.logoutbtn {
+    color: #FFF;
+    font-family: Dosis;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+    position: absolute;
+    top: 9px;
+    left: 66px;
+}
+
+.artistWebPoster {
+    width: 529px;
+    height: 301px;
+    border-radius: 15px;
+    background: linear-gradient(180deg, #7643D2 5.21%, rgba(118, 67, 210, 0.19) 100%);
+    position: relative;
+    top: 56px;
+    left: 81px;
+}
+
+.artistWebPoster p {
+    color: #FFF;
+    font-family: Inter;
+    font-size: 41px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+}
+
+.artistWebPoster span {
+    width: 247px;
+    height: 204px;
+    color: #FFF;
+    font-family: 'Lobster Two', cursive;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    display: inline-block;
+    margin-left: -228px;
+    margin-top: 21px;
+}
+
+.webPostImage {
+    width: 189px;
+    height: 204px;
+    margin-top: -78px;
+    margin-right: -214px;
+}
+
+.pendingRequestDiv {
+    width: 366px;
+    height: 139px;
+    border-radius: 15px;
+    background: #3B444D;
+    position: absolute;
+    top: 16%;
+    left: 48%;
+}
+
+.artistIncomeDiv {
+    width: 366px;
+    height: 139px;
+    border-radius: 15px;
+    background: #3B444D;
+    position: absolute;
+    top: 39%;
+    left: 48%;
+}
+
+.artistCalanderDiv {
+    width: 344px;
+    height: 302.5px;
+    border-radius: 15px;
+    background: #3B444D;
+    position: absolute;
+    top: 16%;
+    left: 75%;
+
+}
+
+.artistEarningOverview {
+    width: 658px;
+    height: 281px;
+    border-radius: 15px;
+    background: #3B444D;
+    position: relative;
+    top: 30%;
+    left: 5.7%;
+}
+
+.artistUpcommingEvent {
+    width: 658px;
+    height: 281px;
+    border-radius: 15px;
+    background: #3B444D;
+    position: absolute;
+    top: 62%;
+    left: 54.8%;
+}

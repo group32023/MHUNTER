@@ -1,31 +1,42 @@
 import React from 'react'
-import "../../assets/css/OrganizerEventDashboard.css"
-// import { Routes, Route } from 'react-router-dom';
-// import OrganizerComplaint from '../../pages/organizer/OrganizerComplaint';
-// import OrganizerEventDashboard from '../organizer/OrganizerEventDashboard'
-// import OrganizerEventHistory from '../organizer/OrganizerEventHistory';
 import SideMenuBarOrganizer from '../../components/common/SideMenuBar/SideMenuBarOrganizer'
+import '../../assets/css/OrganizerDashboard.css'
 
-function OrganizerDashboard() {
+
+
+
+export default function OrganizerDashboard() {
+
+  function click() {
+    console.log('awa')
+  }
   return (
-    <>
-      <SideMenuBarOrganizer />
-      {/* <Routes>
-          <Route path="/" element={<OrganizerDashboard />} />
-          <Route path="/event" element={<OrganizerEventDashboard />} />
-          <Route path="/eventhistory" element={<OrganizerEventHistory />} />
-          <Route path="/complaint" element={<OrganizerComplaint />} />
-        </Routes>
-      </SideMenuBarOrganizer> */}
+    <div>
+      <div className='mainArtistDashboard'>
+        <SideMenuBarArtist></SideMenuBarArtist>
+        <div className='artistSideBarOne'>
+          <p className='headerDashboard'>Dashboard</p>
+          {/* <div className='notificationBg'>
+              <img src={notification} className='notificationIcon' alt='notification'></img>
+            </div>
+            <div className='homeBg'>
+              <img src={home} alt='homebtn' className='homeIcon'></img>
+            </div>
+            <div className='logoutBg'>
+              <img src={logout} alt='logout'className='logout'></img>
+              <p className='logoutbtn'>Logout</p>
+            </div> */}
+
+          {/* web post */}
+          <div className='artistWebPoster'>
+            <p>Welcome</p>
+
+          </div>
 
 
-      <div className='content_container'>
-        <h1>Home</h1>
+        </div>
+
       </div>
-    </>
+    </div>
   )
 }
-
-
-
-export default OrganizerDashboard

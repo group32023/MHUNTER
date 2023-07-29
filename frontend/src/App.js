@@ -1,7 +1,7 @@
 
 // import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import OrganizerDashboard from '../src/pages/organizer/OrganizerDashboard'
-// import OrganizerComplaint from './pages/organizer/OrganizerComplaint';
+import OrganizerComplaint from './pages/organizer/OrganizerComplaint';
 import "./index.css"
 // import SideMenuBarOrganizer from '../src/components/common/SideMenuBar/SideMenuBarOrganizer'
 
@@ -39,7 +39,8 @@ function App() {
           <Route path='/banddashboard' element={<BandDashboard />} />
           <Route path='/moderatordashboard' element={<ModeratorDashboard />} />
           {/* <Route path='/organizerdashboard' element={<OrganizerDashboard />} /> */}
-
+          <Route path='/organizer/dashboard' element={<OrganizerDashboard />}></Route>
+          <Route path='/organizer/complaint' element={<OrganizerComplaint />}></Route>
 
         </Routes>
       </Router>
