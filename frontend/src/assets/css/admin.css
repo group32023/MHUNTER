@@ -18,16 +18,17 @@
     background-position: center;
   }
 .artist-image img, .band-image img{
-  border-radius: 40%;
+  border-radius: 50%;
   margin-bottom: 10px;
 
 }
 .form_signup_container{
-    width: 40%;
+    width: 50%;
     background-color:rgb(68, 18, 88);
     display: flex;
     justify-content: center;
-    align-items: center;  
+    align-items: center;
+    border-radius: 50px;  
 }
 
 .header{
@@ -41,6 +42,7 @@
 .signup_button{
     border: none;
     border-radius: 10px;
+    padding: 10px;
     
 }
 
@@ -53,8 +55,9 @@
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
+    
   }
-  
+
   .signup_text {
     width: 100%;
     text-align: center;
@@ -62,6 +65,7 @@
     color: #fff;
     
   }
+
   
   .boxes {
     display: flex;

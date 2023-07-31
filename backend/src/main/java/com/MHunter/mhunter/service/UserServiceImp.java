@@ -27,7 +27,7 @@ public class UserServiceImp implements UserService{
             } else {
                 msg = "Incorrect password!";
             }
-            msg += "#" + user1.getMembertype();
+            msg += "#" + user1.getMemberType();
         } else {
             msg = "User not found!";
         }
