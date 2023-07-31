@@ -1,34 +1,19 @@
-
-import SideMenuBarOrganizer from '../../components/common/SideMenuBar/SideMenuBarOrganizer'
-import '../../assets/css/OrganizerDashboard.css'
-import React, { createContext, useContext, useState } from 'react';
-
-
-// Create a context to manage the sidebar state
-const SideMenubarContext = createContext();
-
-
+import React from 'react';
+import { Routes, Route } from 'react-router-dom';
+import SideMenuBarAdmin from '../../components/common/SideMenuBar/SideMenuBarAdmin';
+import OrganizerDashboardContent from './OrganizerDashboardContent';
+import OrganizerComplaint from './OrganizerComplaint';
+import '../../assets/css/OrganizerDashboard.css';
 
 export default function OrganizerDashboard() {
-  const [isExpanded, setExpandState] = useState(false);
-  const handleToggleSideMenubar = () => {
-    setExpandState(!isExpanded);
-  };
-
-
   return (
-    <SideMenubarContext.Provider value={{ isExpanded, handleToggleSideMenubar }}>
-      <div className="main-content-container">
-        <SideMenuBarOrganizer />
-        <div className={`main-content ${isExpanded ? 'expanded' : ''}`}>
-          {/* Main content goes here */}
-        </div>
-      </div>
-    </SideMenubarContext.Provider>
+    <SideMenuBarAdmin>
+      <Routes>
+        {/* Nested routes for the Organizer Dashboard */}
+        <Route path="/organizer/dashboard" element={<OrganizerDashboardContent />} />
+        <Route path="/organizer/complaint" element={<OrganizerComplaint />} />
+        {/* You can add more nested routes for the Organizer Dashboard here */}
+      </Routes>
+    </SideMenuBarAdmin>
   );
-};
-
-export const useSideMenubarOrganizerDashboard = () => {
-  return useContext(SideMenubarContext);
-};
-
+}
