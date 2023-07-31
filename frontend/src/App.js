@@ -1,10 +1,15 @@
 
-// import { BrowserRouter, Routes, Route } from 'react-router-dom';
+// import Organizer Components
 import OrganizerDashboard from '../src/pages/organizer/OrganizerDashboard'
 import OrganizerComplaint from './pages/organizer/OrganizerComplaint';
 import OrganizerDashboardContent from '../src/pages/organizer/OrganizerDashboardContent'
+import OrganizerEventHistory from '../src/pages/organizer/OrganizerEventHistory'
+import OrganizerEventDashboard from '../src/pages/organizer/OrganizerEventDashboard'
+import OrganizerProfile from '../src/pages/organizer/OrganizerProfile';
+
+
 import "./index.css"
-// import SideMenuBarOrganizer from '../src/components/common/SideMenuBar/SideMenuBarOrganizer'
+
 
 import './App.css';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
@@ -29,10 +34,14 @@ function App() {
 
       <Router>
         <Routes>
+          {/* Organizer Routes */}
           <Route path='/' element={<OrganizerDashboard />}>
 
             <Route path='/organizer/dashboard' element={<OrganizerDashboardContent />}></Route>
+            <Route path='/organizer/event' element={<OrganizerEventDashboard />}></Route>
+            <Route path='/organizer/eventhistory' element={<OrganizerEventHistory />}></Route>
             <Route path='/organizer/complaint' element={<OrganizerComplaint />}></Route>
+            <Route path='/organizer/profile' element={<OrganizerProfile />}></Route>
 
           </Route>
 

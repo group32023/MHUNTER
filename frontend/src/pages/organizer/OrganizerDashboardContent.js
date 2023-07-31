@@ -3,7 +3,7 @@ import React from 'react';
 function OrganizerDashboardContent() {
     // Your component logic here
     return (
-        <div className='display-flex'>
+        <div className='text-white'>
             <hr></hr>
             OrganizerDashboardContent
             <hr></hr>

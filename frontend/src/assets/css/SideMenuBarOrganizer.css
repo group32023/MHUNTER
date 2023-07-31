@@ -39,6 +39,10 @@
 	background: linear-gradient(to right, #7643D2, #2f363e);
 }
 
+.nav-pills {
+	--bs-nav-pills-link-active-bg: #2f363e;
+}
+
 
 .side-menu-container {
 	position: fixed;
