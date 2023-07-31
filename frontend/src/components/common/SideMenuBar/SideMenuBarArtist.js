@@ -8,69 +8,36 @@ import reportsimg from '../../../assets/icons/reports.png'
 import feedimg from '../../../assets/icons/feed.png'
 import eventsimg from '../../../assets/icons/events.png'
 import logoImage from '../../../assets/icons/logosidebar.svg'
-import { NavLink } from "react-bootstrap";
-
 
 
 const SideMenuBarArtist = () => {
     const [isExpanded, setExpandState] = useState(false);
-
-    var url = window.location.href
-    var key =url.split("/")[4]
-
     const menuItems = [
         {
-            path:"/artistDashboard",
             text: "Dashboard",
-            tag: "Dashboard",
-            active: "false",
             icon: dashboardimg,
         },
         {
-            path:"/artistDashboard",
             text: "Events",
-            tag: "Events",
-            active: "false",
             icon: eventsimg,
         },
         {
-            path:"/artistDashboard",
             text: "Pending Requests",
-            tag: "PendingRequests",
-            active: "false",
             icon: pendingimg,
         },
         {
-            path:"/artistDashboard",
             text: "My Feed",
-            tag: "MyFeed",
-            active: "false",
             icon: feedimg,
         },
         {
-            path:"/artistDashboard",
             text: "Request Log",
-            tag: "RequestLog",
-            active: "false",
             icon: requestlogimg,
         },
         {
-            path:"/artistDashboard",
             text: "Reports",
-            tag: "Reports",
-            active: "false",
             icon: reportsimg,
         },
     ];
-
-    menuItems.map((item,index)=>{
-        if(item.tag === key){
-            item.active = true
-        }
-        else{
-            item.active = false
-        }
-    })
 
 
     return (
@@ -81,7 +48,7 @@ const SideMenuBarArtist = () => {
                     : "side-menu-container side-menu-container-NX"
             }
 
-            style={{ fontFamily: 'MyCustomFont' }} 
+            style={{ fontFamily: 'MyCustomFont' }}
         >
             <div className="menu-upper">
                 <div className="menu-heading">
@@ -121,14 +88,12 @@ const SideMenuBarArtist = () => {
                 <div className="menu-menu">
 
 
-                    {menuItems.map(({ text, icon,path,active }, index) => (
+                    {menuItems.map(({ text, icon }, index) => (
                         /* eslint-disable-next-line jsx-a11y/anchor-is-valid */
-                       
-                        <NavLink to={path} key={index}>
-                            <div className={isExpanded ? (active) ? "Link-active-expand" :" " : (active) ? "Link-active" :" "}>
-                            <div  className={isExpanded ? "menu-item" :"menu-item menu-item-NX"}><img className="menu-item-icon" src={icon} alt="" srcSet="" /> {isExpanded && <p>{text}</p>}</div>
-                            </div>
-                        </NavLink>                        
+                        <a key={index} className={isExpanded ? "menu-item" : "menu-item menu-item-NX"} href="#">
+                            <img className="menu-item-icon" src={icon} alt="" srcSet="" />
+                            {isExpanded && <p>{text}</p>}
+                        </a>
                     ))}
                 </div>
             </div>
