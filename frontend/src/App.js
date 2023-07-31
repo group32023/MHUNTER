@@ -1,6 +1,6 @@
 import './App.css';
 //import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
-import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+//import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import Home from './pages/Home';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
@@ -15,11 +15,19 @@ import OrganizerDashboard from './pages/organizer/OrganizerDashboard';
 import ArtistDashboard from './pages/artist/ArtistDashboard';
 import BandDashboard from './pages/band/BandDashboard';
 import ModeratorDashboard from './pages/moderator/ModeratorDashboard';
+
+import { BrowserRouter as Router,Routes,Route } from 'react-router-dom';
+import SlideMenuBarArtist from './components/common/SideMenuBar/SideMenuBarArtist'
+import Event from './pages/Event';
+import Band from './pages/Band';
+import Artist from './pages/Artist';
+import AboutUs from './pages/AboutUs';
+import ArtistDashboard from './pages/ArtistDashboard';
 function App() {
   return (
     
     <div className="App">
-    <BrowserRouter>
+    <Router>
       <Routes>
           <Route index element={<Home />} />
           <Route path="/login" element={<Login />} />
@@ -33,9 +41,17 @@ function App() {
           <Route path='/moderatordashboard' element={<ModeratorDashboard/>} />
           <Route path='/organizerdashboard' element={<OrganizerDashboard/>} />
 
+          <Route path='/' element={<Home/>}></Route>
+          <Route path='/event' element={<Event/>}></Route>
+          <Route path='/band' element={<Band/>}></Route>
+          <Route path='/artist' element={<Artist/>}></Route>
+          <Route path='/aboutUs' element={<AboutUs/>}></Route>
+          
+          <Route path='/artist/Dashboard' element={<ArtistDashboard/>}></Route>
+
 
       </Routes>
-    </BrowserRouter>
+    </Router>
       
       {/*<div>
       <MainSlider>
@@ -45,11 +61,9 @@ function App() {
         </NavBar>
       </div>
   </div>*/}
-     
-     
-    </div>
-    
-  );
+  </div>
+  )
 }
+
 
 export default App;
