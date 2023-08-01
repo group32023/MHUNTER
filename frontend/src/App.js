@@ -1,6 +1,7 @@
 import './App.css';
 import Home from './pages/Home';
 import { BrowserRouter as Router,Routes,Route } from 'react-router-dom';
+import SlideMenuBarArtist from './components/common/SideMenuBar/SideMenuBarArtist'
 import Event from './pages/Event';
 import Band from './pages/Band';
 import Artist from './pages/Artist';
@@ -22,9 +23,13 @@ function App() {
           <Route path='/band' element={<Band/>}></Route>
           <Route path='/artist' element={<Artist/>}></Route>
           <Route path='/aboutUs' element={<AboutUs/>}></Route>
-          <Route path='/dashboard' element={<ArtistDashboard/>}></Route>
+          
+          <Route path='/artist/Dashboard' element={<ArtistDashboard/>}></Route>
+          
         </Routes>
       </Router>
+
+      
      
      
     </div>

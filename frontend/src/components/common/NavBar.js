@@ -42,7 +42,7 @@ export default function NavBar() {
                 <li><a href='/artist'  className={`${(location==='artist') ? 'active':''}`}>ARTISTS</a></li>
                 <li><a href='/aboutUs' className={`${(location==='aboutUs') ? 'active':''}`}>ABOUT US</a></li>
                 <li><a href='/' className={`${(location==='contact') ? 'active':''}`}>CONTACT</a></li>
-                <li><a href='/dashboard'>LOGIN</a></li>
+                <li><a href='/artist/Dashboard'>LOGIN</a></li>
             </ul>
             </nav>
             </div>
