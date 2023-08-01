@@ -15,11 +15,6 @@ function OrganizerDashboardContent() {
             <hr></hr>
             OrganizerDashboardContent
             <hr></hr>
-            vhv
-            OrganizerDashboardContent
-            <hr></hr>
-            vhOrganizerDashboardContent
-            <hr></hr>
             OrganizerDashboardContent
             <hr></hr>
             OrganizerDashboardContent
@@ -28,6 +23,7 @@ function OrganizerDashboardContent() {
             <hr></hr>
             OrganizerDashboardContent
             <hr></hr>
+            OrganizerDashboardContent
             <hr></hr>
             OrganizerDashboardContent
             <hr></hr>
@@ -39,11 +35,6 @@ function OrganizerDashboardContent() {
             <hr></hr>
             OrganizerDashboardContent
             <hr></hr>
-            vhv
-            OrganizerDashboardContent
-            <hr></hr>
-            vhOrganizerDashboardContent
-            <hr></hr>
             OrganizerDashboardContent
             <hr></hr>
             OrganizerDashboardContent
@@ -52,6 +43,7 @@ function OrganizerDashboardContent() {
             <hr></hr>
             OrganizerDashboardContent
             <hr></hr>
+            OrganizerDashboardContent
             <hr></hr>
             OrganizerDashboardContent
             <hr></hr>
@@ -63,20 +55,6 @@ function OrganizerDashboardContent() {
             <hr></hr>
             OrganizerDashboardContent
             <hr></hr>
-            vhv
-            OrganizerDashboardContent
-            <hr></hr>
-            vhOrganizerDashboardContent
-            <hr></hr>
-            OrganizerDashboardContent
-            <hr></hr>
-            OrganizerDashboardContent
-            <hr></hr>
-            OrganizerDashboardContent
-            <hr></hr>
-            OrganizerDashboardContent
-            <hr></hr>
-            <hr></hr>
             OrganizerDashboardContent
             <hr></hr>
             OrganizerDashboardContent
@@ -86,20 +64,6 @@ function OrganizerDashboardContent() {
             OrganizerDashboardContent
             <hr></hr>
             OrganizerDashboardContent
-            <hr></hr>
-            vhv
-            OrganizerDashboardContent
-            <hr></hr>
-            vhOrganizerDashboardContent
-            <hr></hr>
-            OrganizerDashboardContent
-            <hr></hr>
-            OrganizerDashboardContent
-            <hr></hr>
-            OrganizerDashboardContent
-            <hr></hr>
-            OrganizerDashboardContent
-            <hr></hr>
         </div>
     );
 };

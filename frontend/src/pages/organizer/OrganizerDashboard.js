@@ -1,24 +1,18 @@
-import React, { useState } from "react";
+import React from "react";
 import { Routes, Route } from 'react-router-dom';
 import SideMenuBarOrganizer from '../../components/common/SideMenuBar/SideMenuBarOrganizer';
-import OrganizerDashboardContent from './OrganizerDashboardContent';
+// import OrganizerDashboardContent from './OrganizerDashboardContent';
 import OrganizerComplaint from './OrganizerComplaint';
 import OrganizerEventHistory from './OrganizerEventHistory';
 import OrganizerProfile from './OrganizerProfile';
 import OrganizerEventDashboard from './OrganizerEventDashboard';
 import '../../assets/css/OrganizerDashboard.css';
+import OrganizerDashboardContent from "./OrganizerDashboardContent";
 
-export default function OrganizerDashboard({ children }) {
-  // Function to toggle the sidebar expansion
-  const handleToggleSidebar = () => {
-    setIsExpanded((prevIsExpanded) => !prevIsExpanded);
-  };
-
+export default function OrganizerDashboard() {
   return (
-    <div className="full-container">
-      {/* Button to toggle sidebar expansion */}
-      <button onClick={handleToggleSidebar}>Toggle Sidebar</button>
-      <SideMenuBarOrganizer isExpanded={isExpanded}>
+    <>
+      <SideMenuBarOrganizer>
         <Routes>
           {/* Nested routes for the Organizer Dashboard */}
           <Route path='/organizer/dashboard' element={<OrganizerDashboardContent />}></Route>
@@ -26,11 +20,11 @@ export default function OrganizerDashboard({ children }) {
           <Route path='/organizer/eventhistory' element={<OrganizerEventHistory />}></Route>
           <Route path='/organizer/complaint' element={<OrganizerComplaint />}></Route>
           <Route path='/organizer/profile' element={<OrganizerProfile />}></Route>
-          {/* You can add more nested routes for the Organizer Dashboard here */}
+
         </Routes>
       </SideMenuBarOrganizer>
-      <main className={isExpanded ? "mainContainer" : "mainContainer-NX"}>{children}</main>
-    </div>
+    </>
+
 
   );
 }
