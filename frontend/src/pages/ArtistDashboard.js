@@ -14,9 +14,6 @@ import ArtistUpcommingEvent from '../components/ArtistUpcommingEvent'
 
 export default function ArtistDashboard() {
 
-function click(){
-  console.log('awa')
-}
   return (
     <div>
       <div className='mainArtistDashboard'>

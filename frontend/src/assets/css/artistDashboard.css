@@ -159,9 +159,9 @@
     height: 281px;
     border-radius: 15px;
     background: #3B444D;
-    position: relative;
-    top: 30%;
-    left: 5.7%;
+    position: absolute;
+    top: 62%;
+    left: 10.7%;
 }
 
 .artistUpcommingEvent{
