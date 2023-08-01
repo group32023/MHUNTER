@@ -52,15 +52,56 @@ App() {
 //         setButtonText('+');
 //     }
 
-const [ButtonID,setButtonID]= useState("btn")
-var [buttonText, setButtonText] = useState('+');
+///////////
+
+// const [ButtonID,setButtonID]= useState("btn")
+// var [buttonText, setButtonText] = useState('+');
 
 
-function setButtonIDFunction(){
+// function setButtonIDFunction(){
   
 
     
-}
+// }
+
+    const [showDiv1, setShowDiv1] = useState(false);
+    const [showDiv2, setShowDiv2] = useState(false);
+
+
+    // Initialize state to store the content of each button
+    const [button1Content, setButton1Content] = useState('+');
+    const [button2Content, setButton2Content] = useState('+');
+    // Add more states for other buttons if you have more
+  
+    // Event handler for button clicks
+    const handleButtonClick = (buttonNumber) => {
+      // Update the content based on the button number
+      if (buttonNumber === "aboutUSviewbtn1") {
+        if(button1Content==="+"){
+            setButton1Content('-');
+            setShowDiv1(true)
+
+        }else{
+            setButton1Content('+');
+            setShowDiv1(false)
+
+
+        }
+       
+      } else if (buttonNumber === "aboutUSviewbtn2") {
+        if(button2Content==="+"){
+            setButton2Content('-');
+            setShowDiv2(true)
+
+        }else{
+            setButton2Content('+');
+            setShowDiv2(false)
+
+
+        }
+      }
+      // Add more conditions for other buttons if you have more
+    } 
 
   
   return (
@@ -117,23 +158,23 @@ function setButtonIDFunction(){
                             <tbody>
                             <tr>
                                 <td>PAYMENT OPTIONS
-                                <button type="button" class="btn btn-default btn-circle" id="aboutUSviewbtn1" onClick={setButtonIDFunction} >{buttonText}</button> </td>
+                                <button type="button" class="btn btn-default btn-circle" id="aboutUSviewbtn1" onClick={() => handleButtonClick("aboutUSviewbtn1")} >{button1Content}</button> </td>
                                 
                             </tr>
                              <tr >
                              {                             
-                                ButtonID==="aboutUSviewbtn1" && <div id="payments">hello welcome</div>
+                                showDiv1 && <div id="payments">hello welcome</div>
                              }
                              </tr>
                              
                              <tr>
                                 <td>PAYMENT OPTIONS
-                                <button type="button" class="btn btn-default btn-circle" id="aboutUSviewbtn2" onClick={()=>setButtonIDFunction("aboutUSviewbtn2")}>{buttonText}</button></td>
+                                <button type="button" class="btn btn-default btn-circle" id="aboutUSviewbtn2" onClick={() => handleButtonClick("aboutUSviewbtn2")} >{button2Content}</button></td>
                                
                             </tr>
                              <tr>
                              {                             
-                                ButtonID==="aboutUSviewbtn2" && <div>Hello world hi! </div>
+                                showDiv2 && <div>Hello world hi! </div>
                              }
                              </tr>
 
