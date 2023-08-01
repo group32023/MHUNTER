@@ -44,8 +44,10 @@
     padding-left: 0;
     display: list-item;
     position: absolute;
-    left: 50.5%;
+    left: 52.7%;
     text-align: left;
+    font-size: 10px;
+    top: 606%;
   }
   
   .ft-2 ul li {
@@ -66,7 +68,8 @@
     font-size: 1.06rem;
     color: #fff;
     text-align: left;
-    margin-left: 148px;
+    margin-left: 1027px;
+    width: 187px;
   }
   
   .ft-3 i {
@@ -144,3 +147,21 @@
 .ft-2 ul li a:hover{
   color: #7643D2 !important;
 }
+.ft-3 h5{
+  font-family: 'Roboto', sans-serif;
+  margin-left: 1046px;
+  position: relative;
+  top: -30px;
+}
+
+.ft-3 p{
+  position: relative;
+  top: -27px;
+  left: 21px;
+}
+
+/* .ft-2 ul {
+  position: relative;
+  top: 12px;
+  left: 119px;
+}  */
