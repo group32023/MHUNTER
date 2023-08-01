@@ -30,7 +30,7 @@ function App() {
           <Route path='/aboutUs' element={<AboutUs/>}></Route>
           {/* <Route path='/dashboard' element={<ArtistPendingRequests/>}></Route> */}
           {/* <Route path='/dashboard' element={<ArtistPendingRequestView/>}></Route> */}
-          <Route path='/dashboard' element={<ArtistGenerateReports/>}></Route>
+          <Route path='/artist/Dashboard' element={<ArtistGenerateReports/>}></Route>
 
         </Routes>
       </Router>
