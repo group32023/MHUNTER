@@ -6,6 +6,7 @@ import com.MHunter.mhunter.repository.IncomeArtistRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -15,7 +16,11 @@ public class IncomeArtistImp implements IncomeArtistService{
     private IncomeArtistRepository incomeArtistRepository;
 
     @Override
-    public IncomeArtist saveIncome(IncomeArtist incomeArtist) {return incomeArtistRepository.save(incomeArtist);}
+    public IncomeArtist saveIncome(IncomeArtist incomeArtist) {
+        LocalDateTime dateTime = LocalDateTime.now();
+        System.out.println(dateTime);
+        return incomeArtistRepository.save(incomeArtist);
+    }
 
     @Override
     public List<IncomeArtist> viewIncome() {return incomeArtistRepository.findAll();}

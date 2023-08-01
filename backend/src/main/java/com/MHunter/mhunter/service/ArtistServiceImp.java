@@ -2,6 +2,7 @@ package com.MHunter.mhunter.service;
 
 import com.MHunter.mhunter.model.Artist;
 import com.MHunter.mhunter.repository.ArtistRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -9,6 +10,7 @@ import java.util.Optional;
 
 @Service
 public class ArtistServiceImp implements ArtistService{
+    @Autowired
     private ArtistRepository artistRepository;
     public ArtistServiceImp() {
         super();
@@ -26,7 +28,7 @@ public class ArtistServiceImp implements ArtistService{
 
     @Override
     public Artist findSpecificArtist(int id) {
-
+       //optional = artist can be or not
         Optional<Artist> artist= artistRepository.findById(id);
         return artist.orElse(null);
     }
@@ -34,9 +36,9 @@ public class ArtistServiceImp implements ArtistService{
     @Override
     public Artist updateArtist(Artist artist, int id) {
         return artistRepository.findById(id).map(artist1 -> {
-            artist1.setArtistID(artist.getArtistID());
-            artist1.setMMID(artist.getMMID());
-            artist1.setUserID(artist.getUserID());
+            artist1.setArtistId(artist.getArtistId());
+            artist1.setMmId(artist.getMmId());
+            artist1.setUserId(artist.getUserId());
             return artistRepository.save(artist1);
         }).orElse(null);
     }

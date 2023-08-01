@@ -10,9 +10,10 @@ import java.time.*;
 import java.util.ArrayList;
 import java.util.List;
 
-@RestController
-@CrossOrigin
-@RequestMapping("/artistIncome")
+@RestController // as a controller
+@CrossOrigin  // connect front and back ends
+@RequestMapping("/artistIncome")  // main functionality
+
 public class IncomeArtistController {
     @Autowired
     private IncomeArtistService incomeArtistService;
@@ -24,6 +25,7 @@ public class IncomeArtistController {
     }
 
     @GetMapping("/specificArtistIncome/{artistId}/{eventId}")
+    //pathvariable == variable can be got in url
     public IncomeArtist viewSpecificArtistIncome(@PathVariable int artistId,@PathVariable int eventId){
         IncomeArtistId id = new IncomeArtistId(artistId,eventId);
         IncomeArtist income = incomeArtistService.viewSpecificIncome(id);

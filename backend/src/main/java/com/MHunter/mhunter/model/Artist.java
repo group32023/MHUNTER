@@ -11,8 +11,8 @@ import lombok.Data;
 public class Artist {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int artist_id;
-    private int mmid;
-    private  int user_id;
+    private int artistId;
+    private int mmId;
+    private  int userId;
 
 }

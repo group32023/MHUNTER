@@ -7,10 +7,10 @@ import jakarta.persistence.Id;
 import lombok.Data;
 
 @Entity
-@Data
+@Data  //getters setters
 public class User {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id  //primary key
+    @GeneratedValue(strategy = GenerationType.IDENTITY) //auto generate
     private int UserID;
     private String fname;
     private String lname;
