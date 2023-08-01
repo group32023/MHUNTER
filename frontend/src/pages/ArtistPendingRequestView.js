@@ -13,26 +13,6 @@ import { faTwitter, faFontAwesome,faFacebook,faGooglePlusG,faLinkedinIn } from '
 
 
 export default function ArtistPendingRequests() {
-  const divCount = 4;
-  const divElements = [];
-
-  // Using a for loop to generate the <div> tags
-  for (let i = 0; i < divCount; i++) {
-    divElements.push(<div key={i} className="requestContainer">
-      <img src={profileImage} className="profile"></img>
-      <div className="eventDetails">
-        <h4>W.R.A.Kavinda Perera</h4>
-        <p class="eventType"><FontAwesomeIcon icon={faCalendarDays} id="EventIconPendingRequest"/>Birthday Party</p>
-        <p class="eventDate"><FontAwesomeIcon icon={faCalendarDays} id="CalenderIconPendingRequest"/>2023.11.02</p>
-        <p class="venue"><FontAwesomeIcon icon={faLocationDot} id="LocationIconPendingRequest"/> Colombo 05</p>
-      </div>
-      <MDBBtn className="viewBtn">View</MDBBtn>
-   
-  </div>);
-   
-  }
-
-  
 
   return (
 
@@ -53,12 +33,12 @@ export default function ArtistPendingRequests() {
             <h4>W.R.A.Kavinda Perera</h4>
 
             <div className='eventDetailsContainer'>
-            <p class="eventType"><FontAwesomeIcon icon={faCalendarDays} id="EventIconPendingRequest"/>Birthday Party</p>
-            <p class="eventDate"><FontAwesomeIcon icon={faCalendarDays} id="CalenderIconPendingRequest"/>2023.11.02</p>
-            <p class="venue"><FontAwesomeIcon icon={faLocationDot} id="LocationIconPendingRequest"/> Colombo 05</p>
-            <p class="eventType"><FontAwesomeIcon icon={faCalendarDays} id="EventIconPendingRequest"/>Birthday Party</p>
-            <p class="eventDate"><FontAwesomeIcon icon={faCalendarDays} id="CalenderIconPendingRequest"/>2023.11.02</p>
-            <p class="venue"><FontAwesomeIcon icon={faLocationDot} id="LocationIconPendingRequest"/> Colombo 05</p>
+            <p class="eventType1"><FontAwesomeIcon icon={faCalendarDays} id="EventIconPendingRequest1"/>Birthday Party</p>
+            <p class="eventDate1"><FontAwesomeIcon icon={faCalendarDays} id="CalenderIconPendingRequest1"/>2023.11.02</p>
+            <p class="venue1"><FontAwesomeIcon icon={faLocationDot} id="LocationIconPendingRequest1"/> Colombo 05</p>
+            <p class="eventType2"><FontAwesomeIcon icon={faCalendarDays} id="EventIconPendingRequest2"/>Birthday Party</p>
+            <p class="eventDate2"><FontAwesomeIcon icon={faCalendarDays} id="CalenderIconPendingRequest2"/>2023.11.02</p>
+            <p class="venue2"><FontAwesomeIcon icon={faLocationDot} id="LocationIconPendingRequest2"/> Colombo 05</p>
 
             </div>
 

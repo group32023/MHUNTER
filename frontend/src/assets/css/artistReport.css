@@ -1,0 +1,198 @@
+.dateFrom{
+  
+        background-color: #ffffff !important;
+        position: absolute;
+        font-size: 15px;
+        width: 8%;
+        height: 5%;
+        font-weight: bold;
+        text-align: center;
+        color: #000000;
+        border-radius: 10px;
+        border: none !important;
+        left:12%;
+        top: 127px;
+
+    
+}
+
+.Today{
+        background-color: #ffffff !important;
+        position: absolute;
+        font-size: 15px;
+        width: 8%;
+        height: 5%;
+        font-weight: bold;
+        text-align: center;
+        color: #000000;
+        border-radius: 10px;
+        border: none !important;
+        left: 22%;
+        top: 127px;
+
+}
+
+.eventType{
+
+        background: #ffffff !important;
+        position: absolute;
+        font-size: 15px;
+        width: 8%;
+        height: 5%;
+        font-weight: bold;
+        text-align: center;
+        color: #000000;
+        border-radius: 10px;
+        border: none !important;
+        left: 32%;
+        top: 195px;
+        --bs-btn-hover-color: #7643D2 !important;
+    
+        
+
+}
+
+.download{
+    background-color: #7643D2 !important;
+    position: relative;
+    font-size: 15px;
+    width: 8%;
+    height: 5%;
+    font-weight: bold;
+    text-align: center;
+    color: #ffffff;
+    border-radius: 10px;
+    border: none !important;
+    left:25%;
+    top: 90%;
+ 
+
+
+}
+
+.artistContainer{
+    height: 1350px;
+}
+
+
+#CalenderReport{
+    position: relative;
+    left: -1%;
+    padding-right: 10px;
+}
+
+
+.ReportTable{
+    position: absolute;
+    top: 28%;
+    width: 60%;
+    left: 20%;
+    color: #ffffff !important;
+    background-color: none !important;
+}
+
+.ReportTable label{
+    color: #ffffff;
+}
+
+.ReportTable select{
+  
+    width: 50px;
+    left: 50px;
+}
+
+
+
+.ReportTable table{
+    position: relative;
+    top: 10px;
+    --bs-table-border:none ;
+    border-collapse: separate;
+    border-spacing: 0 15px;
+    background-color: none !important;
+    --bs-table-color: #ffffff !important;
+    --bs-table-color-type: none !important; 
+    justify-content: center;
+    --bs-table-bg: none !important;
+    text-align: center !important; 
+  
+}
+
+.ReportTable table thead{
+    /* background: #000000 !important;
+    color: #ffffff !important; */
+     --bs-table-bg: #2F363E;
+     --bs-table-color: #ffffff;
+}
+
+.ReportTable table tbody{
+    --bs-table-bg:#5F5C5C;
+}
+
+
+.ReportTable table, tr, td, th{
+
+    padding: 15px 10px 15px 10px !important;
+    
+    margin: auto;
+    text-align: center !important;
+    height: 55px;
+    
+    border: none;
+    --bs-table-striped-bg: #5F5C5C;
+    --bs-table-color: #ffffff !important;
+    --bs-table-color-type: none !important;  
+
+
+    
+    }
+
+
+.ReportTable .dataTables_info{
+   width: 250px;
+}
+
+.page-link:hover{
+    color: #7643D2 !important;
+
+}
+.page-link{
+    color: #7643D2 !important;
+
+}
+
+.active .page-link {
+    --bs-pagination-color: #ffffff !important;
+    --bs-pagination-focus-color: #ffffff !important;
+    --bs-pagination-hover-color: #ffffff !important;
+    background-color: #7643D2 !important;
+    border-color: #7643D2 !important;
+    color:#ffffff !important
+}
+
+.dataTables_paginate ul {
+    position: relative;
+    top: 35px;
+    left: -280px;
+
+}
+.dataTables_paginate ul li{
+    width: 90px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.dataTables_paginate ul li span {
+    font-size: 12px !important;
+    background:none;
+
+}
+
+.dataTables_paginate ul li a {
+    font-size: 12px !important;
+
+}
+
+.dataTables_paginate ul .page-link.disabled {
+    color: #ffffff !important;
+}
