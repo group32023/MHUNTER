@@ -8,6 +8,8 @@ import AboutUs from './pages/AboutUs';
 import ArtistDashboard from './pages/ArtistDashboard';
 import ArtistPendingRequests from "./pages/ArtistPendingRequests";
 import ArtistPendingRequestView from "./pages/ArtistPendingRequestView"
+import ArtistGenerateReports from "./pages/ArtistGenerateReports"
+
 
 
 
@@ -26,7 +28,8 @@ function App() {
           <Route path='/artist' element={<Artist/>}></Route>
           <Route path='/aboutUs' element={<AboutUs/>}></Route>
           {/* <Route path='/dashboard' element={<ArtistPendingRequests/>}></Route> */}
-          <Route path='/dashboard' element={<ArtistPendingRequestView/>}></Route>
+          {/* <Route path='/dashboard' element={<ArtistPendingRequestView/>}></Route> */}
+          <Route path='/dashboard' element={<ArtistGenerateReports/>}></Route>
 
         </Routes>
       </Router>
