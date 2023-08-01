@@ -1,0 +1,57 @@
+.main-container{
+    display: flex;
+}
+.body-container{
+    padding-top: 10px;
+    margin-left: -0.0rem;
+    padding-left: 10px;
+    background: #24292D;
+    width: 1440px;
+    height: 716px;
+}
+
+.header-admin {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+
+  }
+  
+  .header-title {
+    color: #FAECFA;
+    flex-grow: 1; 
+  }
+  
+  .header-icon {
+    display: flex;
+    align-items: center;
+  }
+  
+  .header-icon img {
+    margin-left: 10px; 
+    width: 50px;
+  }
+  
+  .logoutbtn {
+    margin-left: 5px; 
+    font-size: 20px;
+    color: #FAECFA;
+    padding-top: 10px;
+    padding-right: 10px;
+  }
+  .header-icon img:hover , .header-icon :hover {
+    cursor: pointer;
+    color: #7643d2;
+  }
+
+  .body-admin{
+   background-color: aliceblue;
+  }
+  .top-artists{
+    background-color: #7643d2;
+    padding: 2px;
+    border: #24292D;
+
+  }
+  

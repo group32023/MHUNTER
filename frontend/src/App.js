@@ -27,12 +27,14 @@ function App() {
           <Route path='/artistbandsignup' element={<ArtistBandSignup />} />
           <Route path='/artistsignup' element={<ArtistSignup />} />
           <Route path='/bandsignup' element={<BandSignup/>} />
-          <Route path='/admindashboard' element={<AdminDashboard/>} />
           <Route path='/artistdashboard' element={<ArtistDashboard/>} />
           <Route path='/banddashboard' element={<BandDashboard/>} />
           <Route path='/moderatordashboard' element={<ModeratorDashboard/>} />
           <Route path='/organizerdashboard' element={<OrganizerDashboard/>} />
 
+
+          {/*Admin*/}
+          <Route path='/admin/admindashboard' element={<AdminDashboard/>} />
 
       </Routes>
     </BrowserRouter>

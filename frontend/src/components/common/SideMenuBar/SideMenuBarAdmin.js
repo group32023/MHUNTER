@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "../../../assets/css/SideMenuBarOrganizer.css";
 import profilePhoto from '../../../assets/images/profilePhoto.jpeg'
+
 import dashboardimg from '../../../assets/icons/dashboard.png'
 import registerusersimg from '../../../assets/icons/registerusers.png'
 import reportsimg from '../../../assets/icons/reports.png'
@@ -8,37 +9,63 @@ import settingsimg from '../../../assets/icons/settings.png'
 import userdetailsimg from '../../../assets/icons/userdetails.png'
 import eventsimg from '../../../assets/icons/events.png'
 import logoImage from '../../../assets/icons/logosidebar.svg'
+import { NavLink} from "react-router-dom";
+//import { NavLink } from "react-bootstrap";
 
 
 const SideMenuBarAdmin = () => {
     const [isExpanded, setExpandState] = useState(false);
+    //const location = useLocation();
+
+    var url = window.location.href
+    var key =url.split("/")[4]
+
     const menuItems = [
         {
+            path:"/bandsignup",
             text: "Dashboard",
+            tag: "Dashboard",
+            active: "ture",
             icon: dashboardimg,
         },
         {
             text: "Registration",
+            active: "false",
             icon: registerusersimg,
         },
         {
             text: "User Details",
+            active: "false",
             icon: userdetailsimg,
         },
         {
             text: "Events",
+            active: "false",
             icon: eventsimg,
         },
         {
             text: "Reports",
+            active: "false",
             icon: reportsimg,
         },
         {
             text: "Settings",
+            active: "false",
             icon: settingsimg,
         },
     ];
 
+    menuItems.map((item,index)=>{
+        if(item.tag === key){
+            item.active = true
+        }
+        else{
+            item.active = false
+        }
+    });
+    /*menuItems.forEach((item) => {
+        item.active = item.path === location.pathname;
+      });*/
 
     return (
         <div
@@ -88,12 +115,13 @@ const SideMenuBarAdmin = () => {
                 <div className="menu-menu">
 
 
-                    {menuItems.map(({ text, icon }, index) => (
-                        /* eslint-disable-next-line jsx-a11y/anchor-is-valid */
-                        <a key={index} className={isExpanded ? "menu-item" : "menu-item menu-item-NX"} href="#">
-                            <img className="menu-item-icon" src={icon} alt="" srcSet="" />
-                            {isExpanded && <p>{text}</p>}
-                        </a>
+                    {menuItems.map(({ text,icon,path,active }, index) => (
+                        <NavLink to={path} key={index}>
+                            <div className={isExpanded ? (active) ? "Link-active-expand" :" " : (active) ? "Link-active" :" "}>
+                            <div  className={isExpanded ? "menu-item" :"menu-item menu-item-NX"}><img className="menu-item-icon" src={icon} alt="" srcSet="" /> {isExpanded && <p>{text}</p>}</div>
+                            </div>
+                        </NavLink> 
+
                     ))}
                 </div>
             </div>
@@ -101,5 +129,4 @@ const SideMenuBarAdmin = () => {
         </div>
     );
 };
-
 export default SideMenuBarAdmin;

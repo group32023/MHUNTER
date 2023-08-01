@@ -35,7 +35,7 @@ export default function Login() {
           }else if (membertype === "Moderator") {
             navigate('/moderatordashboard');
           }else if (membertype === "Admin") {
-            navigate('/admindashboard');
+            navigate('/admin/admindashboard');
           }
          
         }
