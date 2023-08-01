@@ -1,0 +1,125 @@
+.upcomingEventTitle{
+    color: #FFF;
+    font-family: 'Dosis', sans-serif;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    position: absolute;
+    top: 3%;
+    left: 3%;
+}
+.eventImage{
+    width: 122px;
+    height: 75px;
+    position: absolute;
+    top: 20%;
+    left: 4%;
+}
+.eventTopic{
+    color: #FFF;
+    font-family: 'Blinker', sans-serif;
+    font-size: 19px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    position: absolute;
+    top: 21%;
+    left: 28%;
+}
+
+.locationEvent{
+    color: #11FE70;
+    font-family: 'Blinker', sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    position: absolute;
+    top: 30%;
+    left: 28%;
+}
+.eventDescripition{
+    width: 476px;
+    height: 52px;
+    color: #FFF;
+    font-family: 'Blinker', sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    position: absolute;
+    top: 39%;
+    left: 28%;
+    text-align: left;
+}
+
+.eventTypeDiv{
+    width: 40px;
+    height: 40px;
+    border-radius: 40px;
+    background: #7643D2;
+    position: absolute;
+    top: 14%;
+    left: 62%;
+}
+
+.dateDiv{
+    width: 40px;
+    height: 40px;
+    border-radius: 40px;
+    background: #7643D2;
+    position: absolute;
+    top: 14%;
+    left: 83%;
+}
+
+.eventTypeImage{
+    width: 22px;
+    height: 22px;
+    flex-shrink: 0;
+    position: absolute;
+    top: 20%;
+    left: 23%;
+}
+
+.dateImage{
+    width: 22px;
+    height: 22px;
+    flex-shrink: 0;
+    position: absolute;
+    top: 20%;
+    left: 23%;
+}
+
+.eventTypeData{
+    color: #FFF;
+    font-family: 'Blinker', sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    position: absolute;
+    top: 30%;
+    left: 61.5%;
+}
+.dateData{
+    color: #FFF;
+    font-family: 'Blinker', sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    position: absolute;
+    top: 30%;
+    left: 81%;
+}
+.line{
+    width: 614px;
+    height: 2px;
+    flex-shrink: 0;
+    background: #FFF;
+    position: absolute;
+    top: 55%;
+    left: 3%;
+}
