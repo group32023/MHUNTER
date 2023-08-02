@@ -55,7 +55,7 @@ const SideMenuBarArtist = () => {
             icon: requestlogimg,
         },
         {
-            path:"/ArtistGenerateReports",
+            path:"/artistDashboard",
             text: "Reports",
             tag: "Reports",
             active: "false",
