@@ -8,10 +8,11 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class EventServiceImpl implements EventService{
+public class EventServiceImpl implements EventService {
 
     @Autowired
     private EventRepository eventRepository;
+
     @Override
     public Event saveEvent(Event event) {
 
@@ -27,9 +28,8 @@ public class EventServiceImpl implements EventService{
     }
 
     @Override
-    public List<Event> viewSpecificEvent(int eventId) {
-        return EventRepository.find
-
+    public List<Event> viewSpecificEvent(int eventid) {
+        return eventRepository.findByEventid(eventid);
     }
 
 

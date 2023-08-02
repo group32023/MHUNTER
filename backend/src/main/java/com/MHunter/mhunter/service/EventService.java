@@ -10,6 +10,6 @@ public interface EventService {
     public Event saveEvent(Event event);
     public List<Event> getAllEvents();
 
-    public List<Event> viewSpecificEvent(int eventId);
+    public List<Event> viewSpecificEvent(int eventid);
 
 }

@@ -34,9 +34,9 @@ public class ArtistServiceImp implements ArtistService{
     @Override
     public Artist updateArtist(Artist artist, int id) {
         return artistRepository.findById(id).map(artist1 -> {
-            artist1.setArtistID(artist.getArtistID());
-            artist1.setMMID(artist.getMMID());
-            artist1.setUserID(artist.getUserID());
+            artist1.setArtist_id(artist.getArtist_id());
+            artist1.setMmid(artist.getMmid());
+            artist1.setUser_id(artist.getUser_id());
             return artistRepository.save(artist1);
         }).orElse(null);
     }

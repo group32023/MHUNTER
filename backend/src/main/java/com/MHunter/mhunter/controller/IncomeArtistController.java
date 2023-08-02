@@ -1,7 +1,9 @@
 package com.MHunter.mhunter.controller;
 
+import com.MHunter.mhunter.model.Event;
 import com.MHunter.mhunter.model.IncomeArtist;
 import com.MHunter.mhunter.model.IncomeArtistId;
+import com.MHunter.mhunter.service.EventService;
 import com.MHunter.mhunter.service.IncomeArtistService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -9,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.time.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @CrossOrigin
@@ -16,6 +19,8 @@ import java.util.List;
 public class IncomeArtistController {
     @Autowired
     private IncomeArtistService incomeArtistService;
+    @Autowired
+    private EventService eventService;
 
     @PostMapping("/add")
     public String save(@RequestBody IncomeArtist incomeArtist){
@@ -34,7 +39,19 @@ public class IncomeArtistController {
     @GetMapping("/specificArtistIncomeList/{artistId}")
     public List<IncomeArtist> viewSpecificArtistIncomeList(@PathVariable int artistId){
         return incomeArtistService.viewListOfArtistIncomes(artistId);
+
     }
+    @GetMapping("/specificArtistIncomeDetails/{artistId}")
+    public List<Event> viewSpecificArtistIncomeDetails(@PathVariable int artistId) {
+        List<IncomeArtist> incomeList = incomeArtistService.viewListOfArtistIncomes(artistId);
+        List<Event> eventDetails=new ArrayList<Event>();
+        incomeList.forEach(incomeArtist ->
+                eventDetails.add(eventService.viewSpecificEvent(incomeArtist.getId().getEventId()).get(0)));
+
+        return eventDetails;
+    }
+
+
 
     // give monthly growth and income
     @GetMapping("/incomeAndMonthlyGrowth/{artistId}")

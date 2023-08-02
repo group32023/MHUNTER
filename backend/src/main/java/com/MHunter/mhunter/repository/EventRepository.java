@@ -11,8 +11,7 @@ import java.util.List;
 @Repository
 public interface EventRepository extends JpaRepository<Event,Integer> {
 
-    List<Event> findById_EventId(int eventId);
 
 
-
+    List<Event> findByEventid(int eventid);
 }

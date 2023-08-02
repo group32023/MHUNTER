@@ -30,4 +30,10 @@ public class EventController {
 
         return eventService.getAllEvents();
     }
+
+    @GetMapping("/viewSpecificEvent/{eventId}")
+    public List<Event> viewSpecificEvent(@PathVariable int eventId){
+        return eventService.viewSpecificEvent(eventId);
+
+    }
 }

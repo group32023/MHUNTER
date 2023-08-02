@@ -543,6 +543,7 @@ export default function ArtistGenerateReports() {
                 small
                 data={data}
                 />           
+                
           <MDBBtn className="download">Download</MDBBtn>
           </div>
           
