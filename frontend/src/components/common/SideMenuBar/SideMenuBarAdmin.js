@@ -22,7 +22,7 @@ const SideMenuBarAdmin = () => {
 
     const menuItems = [
         {
-            path:"/bandsignup",
+            path:"/admin/admindashboard",
             text: "Dashboard",
             tag: "Dashboard",
             active: "ture",

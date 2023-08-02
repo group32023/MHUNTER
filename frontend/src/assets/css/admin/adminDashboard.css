@@ -1,3 +1,10 @@
+.bgimage-admin {
+  background-image: url("../../images/band.jpg");
+  background-size: cover;
+  background-position: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  background-blend-mode: multiply;
+}
 .main-container{
     display: flex;
 }
@@ -39,6 +46,7 @@
     color: #FAECFA;
     padding-top: 10px;
     padding-right: 10px;
+    text-decoration: none;
   }
   .header-icon img:hover , .header-icon :hover {
     cursor: pointer;
@@ -50,9 +58,16 @@
   }
   .top-band-list{
     background-color: #7643d2;
+    border-radius: 10px;
+    padding: 20px;
+    height: 300px;
+    overflow-y: auto;
+    color: #FAECFA;
+    
   }
-  .top-artist-list{
-    background-color: #7643d2;
+  .admin-list{
+    padding-top: 2px;
+    font-size: 30px;
   }
 
 /* Calendar */
