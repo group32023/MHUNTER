@@ -15,6 +15,8 @@ import OrganizerDashboard from './pages/organizer/OrganizerDashboard';
 import ArtistDashboard from './pages/artist/ArtistDashboard';
 import BandDashboard from './pages/band/BandDashboard';
 import ModeratorDashboard from './pages/moderator/ModeratorDashboard';
+import AdminRegistration from './pages/admin/AdminRegistration';
+import ProofCheck from './pages/admin/ProofCheck';
 function App() {
   return (
     
@@ -35,6 +37,8 @@ function App() {
 
           {/*Admin*/}
           <Route path='/admin/admindashboard' element={<AdminDashboard/>} />
+          <Route path='/admin/registration' element={<AdminRegistration/>} />
+          <Route path='/admin/registration/proofcheck' element={<ProofCheck/>} />
 
       </Routes>
     </BrowserRouter>

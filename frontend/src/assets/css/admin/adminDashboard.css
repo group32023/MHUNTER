@@ -124,7 +124,136 @@
   }
 /* /Calender */
 
+/*Search Bar */
+.search-bar{
+  width: 30%;
+}
+.search-button{
+  background-color: #FAECFA;
+  border: none;
+  color: #7643d2;
+}
+.search-button:hover{
+  background-color: #7643d2;
+}
+/* /search bar*/
 
+/* Table */
+.data-row{
+  background-color: #2f363e;
+  color: #FAECFA;
+  border-radius: 10px;
+  padding: 10px 30px 10px;
+  margin: 20px 150px 5px;
+}
+.profile-picture{
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 15%;
+}
+.data-name{
+  margin-right: 15%;
+  font-size: larger;
+}
+.data-memberType{
+  margin-right: 15%;
+  font-size: larger;
+}
+.data-status{
+  font-size: larger;
+
+}
+.data-button .btn-primary{
+  background-color: #7643d2;
+  border: none;
+  float: right;
+  width: 100px;
+  
+}
+@media screen and (max-width: 1000px) {
+  .search-bar{
+    width: 50%;
+  }
+  .data-row{
+    margin: 10px 20px 5px;
+  }
+  .data-button .btn-primary{
+    width: 60px;
+  }
+  .data-name{
+    margin-right: 10%;
+    font-size: larger;
+  }
+  .data-memberType{
+    margin-right: 10%;
+    font-size: larger;
+  }
+}
+/* /Registration */
+
+/*View Detail- Proof Check */
+.user-details{
+  margin: 0 200px 0px;
+  padding-left: 20px;
+  background-color: #2f363e;
+  display: flex;
+}
+.profile-picture-proofcheck{
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  margin-right: 10%;
+  margin-top: 40%;
+  margin-left: 30%;
+}
+
+.my-form {
+  max-width: 400px;
+  margin: 10px auto;
+  margin-top: 20px;
+}
+
+.my-form label {
+  margin-bottom: 8px;
+  color: #FAECFA;
+  display: inline-block;
+  flex-direction: column;
+  font-size: 16px;
+}
+
+.my-form input[type="text"],
+.my-form input[type="email"] {
+
+  padding: 8px;
+  border: 1px solid #24292D;
+  border-radius: 5px;
+  margin-bottom: 16px;
+  margin-left: 30px;
+  background-color: #24292D;
+  width: calc(400px - 110px);
+
+}
+
+
+.proof{
+  margin: 0 200px 0;
+  padding-left: 20px;
+  background-color: #2f363e;
+}
+.button-proofcheck{
+  margin: 0px 40% 0px;
+}
+@media screen and (max-width: 1000px) {
+  .user-details , .proof{
+    margin: 0 50px 0;
+  }
+
+  .button-proofcheck{
+    margin: 0px 30% 0px;
+  }
+}
+/* /View Detail- Proof Check */
 
 
 

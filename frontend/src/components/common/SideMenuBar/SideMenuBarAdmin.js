@@ -29,7 +29,9 @@ const SideMenuBarAdmin = () => {
             icon: dashboardimg,
         },
         {
+            path:"/admin/registration",
             text: "Registration",
+            tag: "Registration",
             active: "false",
             icon: registerusersimg,
         },
