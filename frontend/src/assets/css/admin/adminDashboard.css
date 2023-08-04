@@ -160,6 +160,10 @@
   margin-right: 15%;
   font-size: larger;
 }
+.data-email{
+  margin-right: 6%;
+  font-size: larger;
+}
 .data-status{
   font-size: larger;
 
@@ -189,6 +193,10 @@
     margin-right: 10%;
     font-size: larger;
   }
+  .data-Email{
+    margin-right: 10%;
+    font-size: larger;
+  }
 }
 /* /Registration */
 
@@ -198,6 +206,7 @@
   padding-left: 20px;
   background-color: #2f363e;
   display: flex;
+  border-radius: 10px;
 }
 .profile-picture-proofcheck{
   width: 200px;
@@ -214,11 +223,9 @@
   margin-top: 20px;
 }
 
-.my-form label {
+.label {
   margin-bottom: 8px;
   color: #FAECFA;
-  display: inline-block;
-  flex-direction: column;
   font-size: 16px;
 }
 
@@ -237,9 +244,27 @@
 
 
 .proof{
-  margin: 0 200px 0;
+  margin: 15px 200px 15px;
   padding-left: 20px;
+  border-radius: 10px;
   background-color: #2f363e;
+  display: flex;
+}
+.proof-file{
+  padding-left: 200px;
+  border-radius: 50%;
+}
+.upload-icon{
+  background-color: #24292D;
+  color: #FAECFA;
+  padding: 20px;
+  margin-top: 15px;
+  border-radius: 50%;
+  margin-bottom: 15px;
+}
+.upload-icon:hover{
+  cursor: pointer;
+  background-color: #7643d2;
 }
 .button-proofcheck{
   margin: 0px 40% 0px;

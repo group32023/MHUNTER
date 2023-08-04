@@ -17,6 +17,10 @@ import BandDashboard from './pages/band/BandDashboard';
 import ModeratorDashboard from './pages/moderator/ModeratorDashboard';
 import AdminRegistration from './pages/admin/AdminRegistration';
 import ProofCheck from './pages/admin/ProofCheck';
+import AllUserDetails from './pages/admin/AllUserDetails';
+import ViewUserDetails from './pages/admin/ViewUserDetails';
+import AdminReport from './pages/admin/AdminReport';
+import AdminSettings from './pages/admin/AdminSettings';
 function App() {
   return (
     
@@ -39,6 +43,10 @@ function App() {
           <Route path='/admin/admindashboard' element={<AdminDashboard/>} />
           <Route path='/admin/registration' element={<AdminRegistration/>} />
           <Route path='/admin/registration/proofcheck' element={<ProofCheck/>} />
+          <Route path='/admin/userdetails' element={<AllUserDetails/>} />
+          <Route path='/admin/userdetails/viewdetails' element={<ViewUserDetails/>} />
+          <Route path='/admin/report' element={<AdminReport/>} />
+          <Route path='/admin/settings' element={<AdminSettings/>} />
 
       </Routes>
     </BrowserRouter>

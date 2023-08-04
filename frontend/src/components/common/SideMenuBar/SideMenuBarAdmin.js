@@ -36,22 +36,30 @@ const SideMenuBarAdmin = () => {
             icon: registerusersimg,
         },
         {
+            path:'/admin/userdetails',
             text: "User Details",
+            tag: "User Details",
             active: "false",
             icon: userdetailsimg,
         },
         {
+            
             text: "Events",
+            tag: "Events",
             active: "false",
             icon: eventsimg,
         },
         {
+            path:'/admin/report',
             text: "Reports",
+            tag:'Reports',
             active: "false",
             icon: reportsimg,
         },
         {
+            path:'/admin/settings',
             text: "Settings",
+            tag: "Settings",
             active: "false",
             icon: settingsimg,
         },
