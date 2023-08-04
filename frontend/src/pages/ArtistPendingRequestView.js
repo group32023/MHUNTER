@@ -2,7 +2,7 @@ import React,{useState, useEffect,useRef} from 'react';
 import SideMenuBarArtist from '../components/common/SideMenuBar/SideMenuBarArtist'
 import '../assets/css/artistDashboard.css'
 import '../assets/css/artistPendingRequests.css'
-import { MDBBtn } from 'mdb-react-ui-kit';
+// import { MDBBtn } from 'mdb-react-ui-kit';
 import profileImage from '../assets/images/profilePhoto.jpeg';
 
 
@@ -42,10 +42,10 @@ export default function ArtistPendingRequests() {
 
             </div>
 
-            <MDBBtn className="priorbookingsBtn">Prior Bookings</MDBBtn>
+            {/* <MDBBtn className="priorbookingsBtn">Prior Bookings</MDBBtn>
             <MDBBtn className="myEventsBtn">My Events</MDBBtn>
             <MDBBtn className="acceptBtn">Accept</MDBBtn>
-            <MDBBtn className="rejectBtn">Reject</MDBBtn>
+            <MDBBtn className="rejectBtn">Reject</MDBBtn> */}
         </div>
         
         

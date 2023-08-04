@@ -1,8 +1,8 @@
 import React,{useState, useEffect,useRef} from 'react';
-import { MDBDataTable } from 'mdbreact';
+// import { MDBDataTable } from 'mdbreact';
 import SideMenuBarArtist from '../components/common/SideMenuBar/SideMenuBarArtist'
 import '../assets/css/artistReport.css'
-import { MDBBtn } from 'mdb-react-ui-kit';
+// import { MDBBtn } from 'mdb-react-ui-kit';
 import profileImage from '../assets/images/profilePhoto.jpeg';
 
 
@@ -14,9 +14,6 @@ import { faTwitter, faFontAwesome,faFacebook,faGooglePlusG,faLinkedinIn } from '
 
 
 export default function ArtistGenerateReports() {
-
-   
-
   const data = {
     columns: [
       {
@@ -516,8 +513,6 @@ export default function ArtistGenerateReports() {
       
     ]}
 
-   
-
     return (
   
       
@@ -530,7 +525,7 @@ export default function ArtistGenerateReports() {
               <div className='logoutBg'></div>
           </div>
   
-          <MDBBtn className="dateFrom"><FontAwesomeIcon icon={faCalendarDays} id="CalenderReport"/>Date From</MDBBtn> 
+          {/* <MDBBtn className="dateFrom"><FontAwesomeIcon icon={faCalendarDays} id="CalenderReport"/>Date From</MDBBtn> 
           <MDBBtn className="Today"><FontAwesomeIcon icon={faCalendarDays} id="CalenderReport"/>Today</MDBBtn> 
           <MDBBtn className="eventType"><FontAwesomeIcon icon={faCalendarDays} id="CalenderReport"/>Event Type</MDBBtn>
           
@@ -544,8 +539,8 @@ export default function ArtistGenerateReports() {
                 data={data}
                 />           
                 
-          <MDBBtn className="download">Download</MDBBtn>
-          </div>
+          <MDBBtn className="download">Download</MDBBtn> */}
+          {/* </div> */}
           
           
           

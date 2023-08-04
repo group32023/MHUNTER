@@ -2,7 +2,7 @@ import React,{useState, useEffect,useRef} from 'react';
 import SideMenuBarArtist from '../components/common/SideMenuBar/SideMenuBarArtist'
 import '../assets/css/artistDashboard.css'
 import '../assets/css/artistPendingRequests.css'
-import { MDBBtn } from 'mdb-react-ui-kit';
+// import { MDBBtn } from 'mdb-react-ui-kit';
 import profileImage from '../assets/images/profilePhoto.jpeg';
 
 
@@ -26,7 +26,7 @@ export default function ArtistPendingRequests() {
         <p class="eventDate"><FontAwesomeIcon icon={faCalendarDays} id="CalenderIconPendingRequest"/>2023.11.02</p>
         <p class="venue"><FontAwesomeIcon icon={faLocationDot} id="LocationIconPendingRequest"/> Colombo 05</p>
       </div>
-      <MDBBtn className="viewBtn">View</MDBBtn>
+      {/* <MDBBtn className="viewBtn">View</MDBBtn> */}
    
   </div>);
    
