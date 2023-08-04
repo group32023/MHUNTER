@@ -30,11 +30,11 @@ function App() {
           <Route path='/band' element={<Band/>}></Route>
           <Route path='/artist' element={<Artist/>}></Route>
           <Route path='/aboutUs' element={<AboutUs/>}></Route>
-          <Route path='/artist/Dashboard' element={<ArtistPendingRequests/>}></Route>
+          {/* <Route path='/artist/Dashboard' element={<ArtistPendingRequests/>}></Route> */}
           {/* <Route path='/artist/Dashboard' element={<ArtistPendingRequestView/>}></Route> */}
-          {/* <Route path='/artist/Dashboard' element={<ArtistGenerateReports/>}></Route> */}
-          <Route path='/artist/PendingRequestView/:id' element={<ArtistPendingRequestView/>}></Route>
-          <Route path='/artist/pendingRequest/confirmRequest/:id' element={<ConfirmRequest/>}></Route>
+          <Route path='/artist/Dashboard' element={<ArtistGenerateReports/>}></Route>
+          {/* <Route path='/artist/PendingRequestView/:id' element={<ArtistPendingRequestView/>}></Route>
+          <Route path='/artist/pendingRequest/confirmRequest/:id' element={<ConfirmRequest/>}></Route> */}
 
         </Routes>
       </Router>
