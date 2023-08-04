@@ -532,7 +532,7 @@ export default function ArtistGenerateReports() {
   
           <MDBBtn className="dateFrom"><FontAwesomeIcon icon={faCalendarDays} id="CalenderReport"/>Date From</MDBBtn> 
           <MDBBtn className="Today"><FontAwesomeIcon icon={faCalendarDays} id="CalenderReport"/>Today</MDBBtn> 
-          <MDBBtn className="eventType"><FontAwesomeIcon icon={faCalendarDays} id="CalenderReport"/>Event Type</MDBBtn>
+          <MDBBtn className="eventTypeSelection"><FontAwesomeIcon icon={faCalendarDays} id="CalenderReport"/>Event Type</MDBBtn>
           
 
           <div className='reportContainer'>

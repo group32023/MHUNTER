@@ -1,4 +1,5 @@
 import React,{useState, useEffect,useRef} from 'react';
+import { Link,useParams } from 'react-router-dom';
 import SideMenuBarArtist from '../components/common/SideMenuBar/SideMenuBarArtist'
 import '../assets/css/artistDashboard.css'
 import '../assets/css/artistPendingRequests.css'
@@ -13,6 +14,35 @@ import { faTwitter, faFontAwesome,faFacebook,faGooglePlusG,faLinkedinIn } from '
 
 
 export default function ArtistPendingRequests() {
+
+  const { id } = useParams();
+
+  const [event, setEvent] = useState([]);
+  
+
+  useEffect(() => {
+    // Fetch the data from the Java backend
+    fetch(`http://localhost:8080/event/viewSpecificEvent/${id}`)
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      return response.json();
+    })
+     
+      .then((data) => {
+        setEvent(data);
+      })
+      .catch((error) => {
+        console.log('Error fetching data:', error);
+      });
+      console.log(event[0]);
+
+  }, []);
+
+
+ //var eventID =event[0]['eventid'];
+ 
 
   return (
 
@@ -32,24 +62,28 @@ export default function ArtistPendingRequests() {
             <p className='paraRequestName'>Requested By : </p>
             <h4>W.R.A.Kavinda Perera</h4>
 
-            <div className='eventDetailsContainer'>
-            <p class="eventType1"><FontAwesomeIcon icon={faCalendarDays} id="EventIconPendingRequest1"/>Birthday Party</p>
-            <p class="eventDate1"><FontAwesomeIcon icon={faCalendarDays} id="CalenderIconPendingRequest1"/>2023.11.02</p>
-            <p class="venue1"><FontAwesomeIcon icon={faLocationDot} id="LocationIconPendingRequest1"/> Colombo 05</p>
-            <p class="eventType2"><FontAwesomeIcon icon={faCalendarDays} id="EventIconPendingRequest2"/>Birthday Party</p>
-            <p class="eventDate2"><FontAwesomeIcon icon={faCalendarDays} id="CalenderIconPendingRequest2"/>2023.11.02</p>
-            <p class="venue2"><FontAwesomeIcon icon={faLocationDot} id="LocationIconPendingRequest2"/> Colombo 05</p>
+            {/* <div className='eventDetailsContainer'>
+            <p class="eventType1"><FontAwesomeIcon icon={faCalendarDays} id="EventIconPendingRequest1"/>{event[0]['event_name']}</p>
+            <p class="eventDate1"><FontAwesomeIcon icon={faCalendarDays} id="CalenderIconPendingRequest1"/>{event[0]['date']}</p>
+            <p class="venue1"><FontAwesomeIcon icon={faLocationDot} id="LocationIconPendingRequest1"/> {event[0]['start_time']}</p>
+            <p class="eventType2"><FontAwesomeIcon icon={faCalendarDays} id="EventIconPendingRequest2"/>{event[0]['end_time']-event[0]['start_time']}</p>
+            <p class="eventDate2"><FontAwesomeIcon icon={faCalendarDays} id="CalenderIconPendingRequest2"/>{event[0]['crowd']}</p>
+            <p class="venue2"><FontAwesomeIcon icon={faLocationDot} id="LocationIconPendingRequest2"/> {event[0]['location']}</p>
 
-            </div>
+            </div> */}
 
             <MDBBtn className="priorbookingsBtn">Prior Bookings</MDBBtn>
             <MDBBtn className="myEventsBtn">My Events</MDBBtn>
-            <MDBBtn className="acceptBtn">Accept</MDBBtn>
+
+           
+             {/* <Link to={ `/artist/pendingRequest/confirmRequest/${eventID}`}>
+               <MDBBtn className="acceptBtn">Accept</MDBBtn>
+               </Link> */}
             <MDBBtn className="rejectBtn">Reject</MDBBtn>
         </div>
         
         
-       
+      
         
         
     </div>

@@ -24,6 +24,8 @@ public class Event {
     //    @Column(name = "Location")
     private String Location;
     //    @Column(name = "Longitude")
+
+    private String Town;
     private Double Longitude;
     //    @Column(name = "Latitude")
     private Double Latitude;
@@ -86,6 +88,22 @@ public class Event {
 
     public Double getLongitude() {
         return Longitude;
+    }
+
+    public String getTown() {
+        return Town;
+    }
+
+    public void setTown(String town) {
+        Town = town;
+    }
+
+    public int getEventid() {
+        return eventid;
+    }
+
+    public void setEventid(int eventid) {
+        this.eventid = eventid;
     }
 
     public void setLongitude(Double longitude) {

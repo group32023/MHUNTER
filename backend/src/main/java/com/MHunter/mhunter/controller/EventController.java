@@ -33,6 +33,9 @@ public class EventController {
 
     @GetMapping("/viewSpecificEvent/{eventId}")
     public List<Event> viewSpecificEvent(@PathVariable int eventId){
+        System.out.println(
+                eventId
+        );
         return eventService.viewSpecificEvent(eventId);
 
     }
