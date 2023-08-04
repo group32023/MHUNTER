@@ -1,0 +1,19 @@
+@font-face {
+    font-family: 'MyCustomFont';
+    src: url('../fonts/Dosis-Regular.ttf') format('truetype');
+    /* src: url('../../../assets/icons/dashboard.png') format('truetype'); */
+    /* Add other font file formats and their paths here */
+}
+
+.eventDashboard_content_container {
+    color: white;
+}
+
+.horizontalLine {
+    background-color: #2f363e;
+
+}
+
+.horizontalLine span {
+    margin-left: 40px;
+}
