@@ -12,11 +12,6 @@ import ArtistEarningOverview from '../components/ArtistEarningOverview'
 import ArtistUpcommingEvent from '../components/ArtistUpcommingEvent'
 
 
-
-
-
-
-
 export default function ArtistDashboard() {
   
 
@@ -57,12 +52,15 @@ export default function ArtistDashboard() {
             <div className={expand ? 'artistIncomeDiv':'artistIncomeDiv-exp'}>
                 <ArtistIncome/>
             </div>
+
             <div className={expand ? 'artistCalanderDiv':'artistCalanderDiv-exp'}>
                 <ArtistCalendar/>
             </div>
+
             <div className={expand ? 'artistEarningOverview':'artistEarningOverview-exp'}>
               <ArtistEarningOverview/>
             </div>
+            
             <div className={expand ? 'artistUpcommingEvent':'artistUpcommingEvent-ex'}>
               <ArtistUpcommingEvent/>
             </div>

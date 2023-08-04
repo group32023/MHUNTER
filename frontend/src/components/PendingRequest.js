@@ -13,20 +13,21 @@ export default function PendingRequest({expand}) {
   
 
   useEffect(()=>{
-    var noRequest = "05"
-    // this is formula for monthly growth =(((Latest Month/ First Month)^(1/# of Months)) -1)*100
-    var lastMonthRequest = 5
-    var firstMonthRequest =4
-    var monthsDiff = 1
 
-    var increase = (((lastMonthRequest/firstMonthRequest)**(1/monthsDiff))-1)*100 
-    increase = Math.round(increase)
-    setRequests({requests:noRequest,increase:increase})
+    fetch("http://localhost:8080/requestMusicMember/noOfPendingRequest/758463").then((res)=>res.json()).then((result)=>setRequests({requests:result,increase:70}))
+    // var noRequest = "05"
+    // this is formula for monthly growth =(((Latest Month/ First Month)^(1/# of Months)) -1)*100
+    // var lastMonthRequest = 5
+    // var firstMonthRequest =4
+    // var monthsDiff = 1
+
+    // var increase = (((lastMonthRequest/firstMonthRequest)**(1/monthsDiff))-1)*100 
+    // increase = Math.round(increase)
+    // setRequests({requests:noRequest,increase:increase})
 
     
   },[])
 
-  console.log(isExpanded)
 
   return (
     <div>
@@ -34,7 +35,7 @@ export default function PendingRequest({expand}) {
             <img className='pendingRequestImg' src={incomeImg} alt=''></img>
             <p className='pendingRequestP'>Pending Requests</p>
             <img className='wave01Img' src={wave01} alt=''></img>
-            <p className='requestCount'>{requests.requests}</p>
+            <p className='requestCount'>{(requests.requests>=10) ? requests.requests:"0"+requests.requests}</p>
             <p className='monthlyRequestPersontage'>+{requests.increase}%</p>
             <p className='thisMonthRequest'>This Month</p>
             
