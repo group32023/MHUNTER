@@ -1,11 +1,11 @@
 import React from 'react'
+import CalendarEvent from './common/CalendarEvent'
 
 export default function ArtistCalendar() {
   return (
     <div>
-        <div className='artistCalanderDiv'>
-
-        </div>
+       <CalendarEvent/>
     </div>
+    
   )
 }

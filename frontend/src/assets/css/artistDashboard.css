@@ -1,6 +1,7 @@
 .mainArtistDashboard{
     display: flex;
-    
+    position: fixed;
+    overflow-y: scroll;
 }
 
 .artistSideBarOne{
@@ -8,8 +9,8 @@
     background: #24292D;
     width: 1455px;
     height: 728px;
+    flex: 3;
 }
-
 
 .headerDashboard{
     color: #FFF;
@@ -24,6 +25,7 @@
     width: 165px;
    
 }
+
 .notificationBg{
     width: 58px;
     height: 49px;
@@ -33,6 +35,17 @@
     top: 5%;
     left: 74%;
 }
+
+.notificationBg-ex{
+    width: 58px;
+    height: 49px;
+    border-radius: 25px;
+    background: #3B444D;
+    position: absolute;
+    top: 5%;
+    left: 67%;
+}
+
 .homeBg{
     width: 58px;
     height: 49px;
@@ -42,6 +55,17 @@
     top: 5%;
     left: 81%;
 }
+
+.homeBg-ex{
+    width: 58px;
+    height: 49px;
+    border-radius: 25px;
+    background: #3B444D;
+    position: absolute;
+    top: 5%;
+    left: 72.5%;
+}
+
 .logoutBg{
     width: 170px;
     height: 48px;
@@ -51,6 +75,17 @@
     top: 5%;
     left: 88%;
 }
+
+.logoutBg-ex{
+    width: 170px;
+    height: 48px;
+    border-radius: 25px;
+    background: #3B444D;
+    position: absolute;
+    top: 5%;
+    left: 78%;
+}
+
 .notificationIcon{
     width: 38px;
     height: 35px;
@@ -58,6 +93,7 @@
     top: 6px;
     left: 9px;
 }
+
 .homeIcon{
     width: 38px;
     height: 35px;
@@ -65,6 +101,7 @@
     top: 8px;
     left: 11px;
 }
+
 .logout{
     width: 38px;
     height: 35px;
@@ -72,6 +109,7 @@
     top: 7px;
     left: 8px;
 }
+
 .logoutbtn{
     color: #FFF;
     font-family: Dosis;
@@ -90,11 +128,30 @@
     border-radius: 15px;
     background: linear-gradient(180deg, #7643D2 5.21%, rgba(118, 67, 210, 0.19) 100%);
     position: relative;
+    top: 43px;
+    left: 81px;
+}
+
+.artistWebPoster-exp{
+    width: 389px;
+    height: 264px;
+    border-radius: 15px;
+    background: linear-gradient(180deg, #7643D2 5.21%, rgba(118, 67, 210, 0.19) 100%);
+    position: relative;
     top: 56px;
     left: 81px;
 }
 
 .artistWebPoster p{
+    color: #FFF;
+    font-family: Inter;
+    font-size: 41px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+}
+
+.artistWebPoster-exp p{
     color: #FFF;
     font-family: Inter;
     font-size: 41px;
@@ -116,6 +173,21 @@
     margin-left: -228px;
     margin-top: 21px;
 }
+
+.artistWebPoster-exp span{
+    width: 247px;
+    height: 204px;
+    color: #FFF;
+    font-family: 'Lobster Two', cursive;
+    font-size: 23px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    display: inline-block;
+    margin-left: -228px;
+    margin-top: 36px;
+}
+
 .webPostImage{
     width: 189px;
     height: 204px;
@@ -123,24 +195,97 @@
     margin-right: -214px;
 }
 
+.artistWebPoster-exp .webPostImage{
+    width: 143px;
+    height: 178px;
+    margin-top: -57px;
+    margin-right: -214px;
+  
+}
+
 .pendingRequestDiv{
     width: 366px;
     height: 139px;
     border-radius: 15px;
     background: #3B444D;
-    position: absolute;
-    top: 16%;
+    position: relative;
+    top: -2.6%;
     left: 48%;
+    margin-top: -240px;
+    margin-left: -43px;
 }
+
+.pendingRequestDiv-exp{
+    width: 366px;
+    height: 110px;
+    border-radius: 15px;
+    background: #3B444D;
+    position: relative;
+    top: 4.4%;
+    left: 48%;
+    margin-top: -240px;
+    margin-left: -197px;
+  
+ }
+
+ .pendingRequestDiv-exp .monthlyRequestPersontage{
+    color: #11FE70;
+    font-family: 'Dosis', sans-serif;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+    position: absolute;
+    top: 58%;
+    left: 80%;
+ }
 
 .artistIncomeDiv{
     width: 366px;
     height: 139px;
     border-radius: 15px;
     background: #3B444D;
-    position: absolute;
-    top: 39%;
+    position: relative;
+    top: -1.7%;
     left: 48%;
+    margin-top: 1.2%;
+    margin-left: -41px;
+}
+
+.artistIncomeDiv-exp{
+    width: 366px;
+    height: 110px;
+    border-radius: 15px;
+    background: #3B444D;
+    position: relative;
+    top: 8%;
+    left: 43.7%;
+    margin-top: 1.2%;
+    margin-left: -133px;
+}
+
+.artistIncomeDiv-exp .monthlyRequestPersontage{
+    color: #11FE70;
+    font-family: 'Dosis', sans-serif;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+    position: absolute;
+    top: 58%;
+    left: 80%;
+ }
+
+ .artistIncomeDiv-exp .monthlyRequestPersontageMinus {
+    color: #FF0000;
+    font-family: 'Dosis', sans-serif;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+    position: absolute;
+    top: 58%;
+    left: 80%;
 }
 
 .artistCalanderDiv{
@@ -148,10 +293,61 @@
     height: 302.5px;
     border-radius: 15px;
     background: #3B444D;
-    position: absolute;
-    top: 16%;
+    position: relative;
+    top: -1.2%;
     left: 75%;
+    margin-top: -21%;
+    margin-left: -1%;
   
+}
+
+.artistCalanderDiv-exp{
+    width: 344px;
+    height: 264px;
+    border-radius: 15px;
+    background: #3B444D;
+    position: relative;
+    top: 13.9%;
+    left: 72.3%;
+    margin-top: -21%;
+    margin-left: -10%;
+  
+}
+
+.artistCalanderDiv-exp .monthlyRequestPersontageMinus{
+    color: #FF0000;
+    font-family: 'Dosis', sans-serif;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+    position: absolute;
+    top: 57%;
+    left: 80%;
+}
+
+.artistCalanderDiv-exp .monthlyRequestPersontage{
+    color: #11FE70;
+    font-family: 'Dosis', sans-serif;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+    position: absolute;
+    top: 57%;
+    left: 80%;
+}
+
+.artistCalanderDiv-exp .css-15v8kdh-MuiPickersFadeTransitionGroup-root-MuiDateCalendar-viewTransitionContainer{
+    height: 234px;
+}
+
+.artistCalanderDiv-exp .css-nk89i7-MuiPickersCalendarHeader-root{
+    margin-top: 6px;
+    margin-bottom: -7px;
+}
+.artistCalanderDiv-exp .css-flbe84-MuiDayCalendar-weekContainer{
+    margin: 0px 0;
 }
 
 .artistEarningOverview{
@@ -159,9 +355,57 @@
     height: 281px;
     border-radius: 15px;
     background: #3B444D;
-    position: absolute;
-    top: 62%;
-    left: 10.7%;
+    position: relative;
+    top: 0%;
+    left: 5.7%;
+    margin-top: 27.5px;
+}
+
+.artistEarningOverview-exp{
+    width: 579px;
+    height: 281px;
+    border-radius: 15px;
+    background: #3B444D;
+    position: relative;
+    top: 3%;
+    left: 5.5%;
+    margin-top: 117.5px;
+}
+
+.artistEarningOverview-exp .apexcharts-svg.apexcharts-zoomable.hovering-pan{
+    width: 535px !important;
+}
+
+.artistEarningOverview .apexcharts-svg.apexcharts-zoomable.hovering-zoom{
+    width: 535px !important;
+    margin-left: -2px !important;
+}
+
+.artistEarningOverview-exp .apexcharts-canvas{
+    width: 535px !important;
+
+}
+
+ .artistEarningOverview-exp .apexchartsbasic-bar{
+    width: 535px !important;
+
+}
+
+.artistEarningOverview-exp .apexcharts-theme-light{
+    width: 535px !important;
+
+}
+
+.artistEarningOverview-exp .apexcharts-svg{
+    width: 535px !important;
+}
+
+.artistEarningOverview-exp .apexcharts-zoomable {
+    width: 535px !important;
+}
+
+.artistEarningOverview-exp .hovering-zoom{
+    width: 535px !important;
 }
 
 .artistUpcommingEvent{
@@ -169,7 +413,345 @@
     height: 281px;
     border-radius: 15px;
     background: #3B444D;
-    position: absolute;
-    top: 62%;
+    position: relative;
+    top: 0%;
     left: 54.8%;
+    margin-top: -19.3%;
+    margin-left: -2.4%;
 }
+
+.artistUpcommingEvent-ex{
+    width: 581px;
+    height: 281px;
+    border-radius: 15px;
+    background: #3B444D;
+    position: relative;
+    top: 3%;
+    left: 48.3%;
+    margin-top: -19.3%;
+    margin-left: -2.4%;
+}
+
+.artistUpcommingEvent-ex .eventDescripition{
+    width: 413px;
+    height: 52px;
+    color: #FFF;
+    font-family: 'Blinker', sans-serif;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    position: absolute;
+    top: 39%;
+    left: 28%;
+    text-align: left;
+}
+
+.artistUpcommingEvent-ex .line {
+    width: 550px;
+    height: 2px;
+    flex-shrink: 0;
+    background: #FFF;
+    position: absolute;
+    top: 55%;
+    left: 3%;
+  }
+
+
+@media screen and (max-width: 600px) {
+    .artistSideBarOne {
+        margin-left: -1.9rem;
+        background: #24292D;
+        width: 1455px;
+        height: 1625px;
+        flex: 3 1;
+      }
+     .artistWebPoster{
+        width: 393px;
+        height: 245px;
+    }
+
+    .artistWebPoster-exp{
+        width: 389px;
+        height: 264px;
+        border-radius: 15px;
+        background: linear-gradient(180deg, #7643D2 5.21%, rgba(118, 67, 210, 0.19) 100%);
+        position: relative;
+        top: 56px;
+        left: 81px;
+    }
+    
+    .artistWebPoster p{
+        color: #FFF;
+        font-family: Inter;
+        font-size: 41px;
+        font-style: normal;
+        font-weight: 800;
+        line-height: normal;
+    }
+    
+    .artistWebPoster-exp p{
+        color: #FFF;
+    font-family: Inter;
+    font-size: 41px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+    }
+    
+    
+    .artistWebPoster span{
+        width: 194px;
+        height: 186px;
+        color: #FFF;
+        font-family: 'Lobster Two', cursive;
+        font-size: 22px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        display: inline-block;
+        margin-left: -228px;
+        margin-top: 21px;
+    }
+    
+    .artistWebPoster-exp span{
+        width: 247px;
+        height: 204px;
+        color: #FFF;
+        font-family: 'Lobster Two', cursive;
+        font-size: 23px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        display: inline-block;
+        margin-left: -228px;
+        margin-top: 36px;
+        }
+    
+    .webPostImage{
+        width: 145px;
+        height: 156px;
+        margin-top: -64px;
+        margin-right: -227px;
+    }
+    
+    .artistWebPoster-exp .webPostImage{
+        width: 143px;
+        height: 178px;
+        margin-top: -57px;
+        margin-right: -214px;
+      
+    }
+    .notificationBg{
+        width: 58px;
+        height: 49px;
+        border-radius: 25px;
+        background: #3B444D;
+        position: absolute;
+        top: 2%;
+        left: 24%;
+    }
+    
+    .notificationBg-ex{
+        width: 58px;
+        height: 49px;
+        border-radius: 25px;
+        background: #3B444D;
+        position: absolute;
+        top: 5%;
+        left: 67%;
+    }
+    .homeBg{
+        width: 58px;
+        height: 49px;
+        border-radius: 25px;
+        background: #3B444D;
+        position: absolute;
+        top: 2%;
+        left: 28%;
+    }
+    .homeBg-ex{
+        width: 58px;
+        height: 49px;
+        border-radius: 25px;
+        background: #3B444D;
+        position: absolute;
+        top: 5%;
+        left: 72.5%;
+    }
+    .logoutBg{
+        width: 53px;
+        height: 48px;
+        border-radius: 25px;
+        background: #3B444D;
+        position: absolute;
+        top: 2%;
+        left: 32%;
+    }
+    
+    .logoutBg-ex{
+        width: 170px;
+        height: 48px;
+        border-radius: 25px;
+        background: #3B444D;
+        position: absolute;
+        top: 5%;
+        left: 78%;
+    }
+
+    .logoutbtn {
+       display: none;
+      }
+
+      .artistEarningOverviewHeader {
+        color: #FFF;
+        font-family: Dosis;
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        margin-top: 2%;
+        margin-left: -62%;
+      }
+
+      .pendingRequestDiv {
+        width: 366px;
+        height: 139px;
+        border-radius: 15px;
+        background: #3B444D;
+        position: relative;
+        top: 18.4%;
+        left: 9.5%;
+        margin-top: -240px;
+        margin-left: -43px;
+      }
+
+      .artistEarningOverview{
+        width: 370px;
+        height: 281px;
+        border-radius: 15px;
+        background: #3B444D;
+        position: relative;
+        top: 37.4%;
+        left: 6.5%;
+        margin-top: 27.5px;
+    }
+
+    .artistEarningOverview   .artistEarningOverviewHeader {
+        color: #FFF;
+        font-family: Dosis;
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        margin-top: 2%;
+        margin-left: -43%;
+      }
+
+    .artistEarningOverview {
+        width: 370px;
+        height: 281px;
+        border-radius: 15px;
+        background: #3B444D;
+        position: relative;
+        top: 38.1%;
+        left: 6.5%;
+        margin-top: 27.5px;
+    }
+    
+    .artistEarningOverview-exp{
+        width: 579px;
+        height: 281px;
+        border-radius: 15px;
+        background: #3B444D;
+        position: relative;
+        top: 3%;
+        left: 5.5%;
+        margin-top: 117.5px;
+    }
+    
+    .artistEarningOverview-exp .apexcharts-svg.apexcharts-zoomable.hovering-pan{
+        width: 370px !important;
+    }
+    
+    .artistEarningOverview .apexcharts-svg.apexcharts-zoomable.hovering-zoom{
+        width: 370px !important;
+        margin-left: -312px !important;
+    }
+    
+    .artistEarningOverview-exp .apexcharts-canvas{
+        width: 370px !important;
+    }
+    
+     .artistEarningOverview-exp .apexchartsbasic-bar{
+        width: 370px !important;
+    }
+    
+    .artistEarningOverview-exp .apexcharts-theme-light{
+        width: 370px !important;
+    
+    }
+    
+    .artistEarningOverview-exp .apexcharts-svg{
+        width: 370px !important;
+    }
+    
+    .artistEarningOverview-exp .apexcharts-zoomable {
+        width: 370px !important;
+    }
+    
+    .artistEarningOverview-exp .hovering-zoom{
+        width: 370px !important;
+    }
+
+    .artistIncomeDiv {
+        width: 366px;
+        height: 139px;
+        border-radius: 15px;
+        background: #3B444D;
+        position: relative;
+        top: 18.3%;
+        left: 9.3%;
+        margin-top: 1.2%;
+        margin-left: -41px;
+      }
+
+      .artistCalanderDiv {
+        width: 344px;
+        height: 302.5px;
+        border-radius: 15px;
+        background: #3B444D;
+        position: relative;
+        top: 38.3%;
+        left: 8.2%;
+        margin-top: -21%;
+        margin-left: -1%;
+      }
+
+      .artistUpcommingEvent {
+        width: 386px;
+        height: 383px;
+        border-radius: 15px;
+        background: #3B444D;
+        position: relative;
+        top: 131%;
+        left: 7.9%;
+        margin-top: -19.3%;
+        margin-left: -2.4%;
+      }
+
+      .headerDashboard {
+        color: #FFF;
+        font-family: Dosis;
+        font-size: 35px;
+        font-style: normal;
+        font-weight: 800;
+        line-height: normal;
+        position: relative;
+        top: 2%;
+        left: 6%;
+        width: 165px;
+      }
+    
+  }
+  

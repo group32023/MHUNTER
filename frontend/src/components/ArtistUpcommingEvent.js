@@ -17,9 +17,9 @@ export default function ArtistUpcommingEvent() {
 
   return (
     <div>
-        <div className='artistUpcommingEvent'>
+        
             {events}
         </div>
-    </div>
+    
   )
 }

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState } from 'react'
 import SideMenuBarArtist from '../components/common/SideMenuBar/SideMenuBarArtist'
 import '../assets/css/artistDashboard.css'
 import notification from '../assets/images/notification.png'
@@ -13,42 +13,52 @@ import ArtistUpcommingEvent from '../components/ArtistUpcommingEvent'
 
 
 export default function ArtistDashboard() {
+  
+
+  const [expand,setExpandedSideBar] = useState(true)
 
   return (
     <div>
       <div className='mainArtistDashboard'>
-        <SideMenuBarArtist></SideMenuBarArtist>
-        <div className='artistSideBarOne'>
+        <SideMenuBarArtist setExpandedSideBar={setExpandedSideBar}></SideMenuBarArtist>
+        <div className='artistSideBarOne' id='artistSideBarOne'>
             <p className='headerDashboard'>Dashboard</p>
-            <div className='notificationBg'>
+            <div className={expand ? 'notificationBg':'notificationBg-ex'}>
               <img src={notification} className='notificationIcon' alt='notification'></img>
             </div>
-            <div className='homeBg'>
+            <div className={expand ? 'homeBg':'homeBg-ex'}>
               <img src={home} alt='homebtn' className='homeIcon'></img>
             </div>
-            <div className='logoutBg'>
+            <div className={expand ? 'logoutBg':'logoutBg-ex'}>
               <img src={logout} alt='logout'className='logout'></img>
               <p className='logoutbtn'>Logout</p>
             </div>
 
             {/* web post */}
-            <div className='artistWebPoster'>
+            <div className={expand ? 'artistWebPoster':'artistWebPoster-exp'}>
               <p>Welcome</p>
               <span>welcome to one and only music event management system</span>
               <img src={kpop} alt='' className='webPostImage'></img>
             </div>
 
             {/* pending request */}
-            <PendingRequest />
+            <div className={expand ? 'pendingRequestDiv':'pendingRequestDiv-exp'}>
+                <PendingRequest />
+            </div>
 
             {/* Income */}
-            <ArtistIncome/>
-
-            <ArtistCalendar/>
-
-            <ArtistEarningOverview/>
-
-            <ArtistUpcommingEvent/>
+            <div className={expand ? 'artistIncomeDiv':'artistIncomeDiv-exp'}>
+                <ArtistIncome/>
+            </div>
+            <div className={expand ? 'artistCalanderDiv':'artistCalanderDiv-exp'}>
+                <ArtistCalendar/>
+            </div>
+            <div className={expand ? 'artistEarningOverview':'artistEarningOverview-exp'}>
+              <ArtistEarningOverview/>
+            </div>
+            <div className={expand ? 'artistUpcommingEvent':'artistUpcommingEvent-ex'}>
+              <ArtistUpcommingEvent/>
+            </div>
 
         </div>
         

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import "../../../assets/css/SideMenuBarOrganizer.css";
 import profilePhoto from '../../../assets/images/profilePhoto.jpeg'
 import dashboardimg from '../../../assets/icons/dashboard.png'
@@ -12,11 +12,13 @@ import { NavLink } from "react-bootstrap";
 
 
 
-const SideMenuBarArtist = () => {
+const SideMenuBarArtist = ({setExpandedSideBar}) => {
     const [isExpanded, setExpandState] = useState(false);
 
     var url = window.location.href
     var key =url.split("/")[4]
+
+    const artistDashboardRef = useRef()
 
     const menuItems = [
         {
@@ -72,6 +74,10 @@ const SideMenuBarArtist = () => {
         }
     })
 
+    const handle=()=>{
+        setExpandedSideBar(isExpanded)
+    }
+
 
     return (
         <div
@@ -81,8 +87,8 @@ const SideMenuBarArtist = () => {
                     : "side-menu-container side-menu-container-NX"
             }
 
-            style={{ fontFamily: 'MyCustomFont' }} 
-        >
+            style={{ fontFamily: 'MyCustomFont' ,width:isExpanded ? "300px":"85px" }} 
+        ref={artistDashboardRef}>
             <div className="menu-upper">
                 <div className="menu-heading">
                     {isExpanded && (
@@ -99,8 +105,8 @@ const SideMenuBarArtist = () => {
                             className={
                                 isExpanded ? "sideIcon sideIcon-in" : "sideIcon sideIcon-out"
                             }
-                            onClick={() => setExpandState(!isExpanded)}
-                        >
+                            onClick={() => {setExpandState(!isExpanded);handle()}}
+                         id="navBtn">
                             <span></span>
                             <span></span>
                             <span></span>
