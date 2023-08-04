@@ -12,12 +12,19 @@ import ArtistEarningOverview from '../components/ArtistEarningOverview'
 import ArtistUpcommingEvent from '../components/ArtistUpcommingEvent'
 
 
+
+
+
+
+
 export default function ArtistDashboard() {
   
 
   const [expand,setExpandedSideBar] = useState(true)
 
   return (
+
+    
     <div>
       <div className='mainArtistDashboard'>
         <SideMenuBarArtist setExpandedSideBar={setExpandedSideBar}></SideMenuBarArtist>
