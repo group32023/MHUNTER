@@ -2,7 +2,9 @@ import React from 'react'
 
 function OrganizerEventHistory() {
     return (
-        <div>OrganizerEventHistory</div>
+        <div>OrganizerEventHistory
+
+        </div>
     )
 }
 
