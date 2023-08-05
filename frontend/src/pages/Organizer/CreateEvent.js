@@ -2,7 +2,7 @@ import './CreateEvent.css';
 import { useState } from 'react';
 import React from 'react';
 import { format } from 'date-fns'
-import LocationInput from '../../components/Organizer/LocationInput';
+import LocationInput from '../../components/organizer/LocationInput';
 // import SideMenuBarOrganizer from '../../components/common/SideMenuBar/SideMenuBarOrganizer';
 
 function CreateEvent() {
