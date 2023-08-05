@@ -17,3 +17,14 @@
 .horizontalLine span {
     margin-left: 40px;
 }
+
+.eventDescriptionDiv {
+    height: 250px;
+    background-color: #2f363e;
+    border-radius: 10px;
+}
+
+.locationDescriptionDiv {
+    height: 100px;
+    background-color: #2f363e;
+}
