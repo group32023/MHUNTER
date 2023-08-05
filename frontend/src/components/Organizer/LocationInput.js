@@ -14,7 +14,7 @@ const LocationInput = ({ onLocationSelect, setFormData }) => {
   };
 
   const handlePlaceSelect = () => {
-    if (searchBoxRef.current) {
+    if (searchBoxRef.current) { 
       const places = searchBoxRef.current.getPlaces();
       if (places.length > 0) {
         const place = places[0];
