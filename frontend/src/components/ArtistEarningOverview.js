@@ -56,7 +56,7 @@ export default function ArtistEarningOverview() {
     },
     series: [
       {
-        name: "series-1",
+        name: "Income",
         data: [30, 40, 45, 50, 49, 60, 70, 91]
       }
     ]

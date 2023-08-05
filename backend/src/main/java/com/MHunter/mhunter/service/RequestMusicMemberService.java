@@ -18,5 +18,7 @@ public interface RequestMusicMemberService {
 
     public int countPendingRequest(int mmid);
 
-    public int countAllEvents(int mmid);
+    public List<RequestMusicMember> findEventsByMMID(int mmid);
+
+    public List<RequestMusicMember> findConformationEventsByMMID(int mmid);
 }

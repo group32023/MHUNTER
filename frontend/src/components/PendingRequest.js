@@ -4,6 +4,7 @@ import wave01 from '../assets/images/sound.png'
 import '../assets/css/pendingRequest.css'
 
 export default function PendingRequest({expand}) {
+  var inc;
   const [requests,setRequests] = useState({
     requests:"",
     increase:0
@@ -14,18 +15,9 @@ export default function PendingRequest({expand}) {
 
   useEffect(()=>{
 
-    fetch("http://localhost:8080/requestMusicMember/noOfPendingRequest/758463").then((res)=>res.json()).then((result)=>setRequests({requests:result,increase:70}))
-    // var noRequest = "05"
-    // this is formula for monthly growth =(((Latest Month/ First Month)^(1/# of Months)) -1)*100
-    // var lastMonthRequest = 5
-    // var firstMonthRequest =4
-    // var monthsDiff = 1
-
-    // var increase = (((lastMonthRequest/firstMonthRequest)**(1/monthsDiff))-1)*100 
-    // increase = Math.round(increase)
-    // setRequests({requests:noRequest,increase:increase})
-
-    
+    fetch("http://localhost:8080/requestMusicMember/monthlyGrowth/758463").then((res)=>res.json()).then((result)=>inc=result)
+    console.log(inc)
+    fetch("http://localhost:8080/requestMusicMember/noOfPendingRequest/758463").then((res)=>res.json()).then((result)=>setRequests({requests:result,increase:inc})) 
   },[])
 
 
@@ -36,7 +28,7 @@ export default function PendingRequest({expand}) {
             <p className='pendingRequestP'>Pending Requests</p>
             <img className='wave01Img' src={wave01} alt=''></img>
             <p className='requestCount'>{(requests.requests>=10) ? requests.requests:"0"+requests.requests}</p>
-            <p className='monthlyRequestPersontage'>+{requests.increase}%</p>
+            <p className={`${ requests.increase>=0 ? "monthlyRequestPersontage":"monthlyRequestPersontageMinus"}`}>{ requests.increase>=0 ?  "+"+requests.increase :requests.increase}%</p>
             <p className='thisMonthRequest'>This Month</p>
             
     </div>

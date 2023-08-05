@@ -22,14 +22,14 @@ const SideMenuBarArtist = ({setExpandedSideBar}) => {
 
     const menuItems = [
         {
-            path:"/artist/Dashboard",
+            path:"http://localhost:3000/artist/Dashboard",
             text: "Dashboard",
             tag: "Dashboard",
             active: "false",
             icon: dashboardimg,
         },
         {
-            path:"/artistDashboard",
+            path:"/artist/Event",
             text: "Events",
             tag: "Events",
             active: "false",

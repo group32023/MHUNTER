@@ -46,7 +46,7 @@ public class IncomeArtistController {
         List<IncomeArtist> incomeList = incomeArtistService.viewListOfArtistIncomes(artistId);
         List<Event> eventDetails=new ArrayList<Event>();
         incomeList.forEach(incomeArtist ->
-                eventDetails.add(eventService.viewSpecificEvent(incomeArtist.getId().getEventId()).get(0)));
+                eventDetails.add(eventService.viewSpecificEvent(incomeArtist.getId().getEventId())));
 
         return eventDetails;
     }

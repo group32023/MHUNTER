@@ -10,6 +10,7 @@ import ArtistDashboard from './pages/ArtistDashboard';
 import ArtistPendingRequests from "./pages/ArtistPendingRequests";
 import ArtistPendingRequestView from "./pages/ArtistPendingRequestView"
 import ArtistGenerateReports from "./pages/ArtistGenerateReports"
+import ArtistEvent from './pages/ArtistEvent';
 
 
 
@@ -32,6 +33,7 @@ function App() {
           {/* <Route path='/dashboard' element={<ArtistPendingRequestView/>}></Route> */}
           <Route path='/artist/Dashboard' element={<ArtistDashboard/>}></Route>
           <Route path='/artist/Reports' element={<ArtistGenerateReports/>}></Route>
+          <Route path='/artist/Event' element={<ArtistEvent/>}></Route>
 
         </Routes>
       </Router>

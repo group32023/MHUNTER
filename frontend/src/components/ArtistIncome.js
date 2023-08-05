@@ -9,16 +9,7 @@ export default function ArtistIncome() {
   useEffect(()=>{
 
     fetch("http://localhost:8080/artistIncome/incomeAndMonthlyGrowth/3001").then(res=>res.json()).then((result)=>setIncome(result))
-    console.log(income[0])
-    // this is formula for monthly growth =(((Latest Month/ First Month)^(1/# of Months)) -1)*100
-    var lastMonthIncome = 1200000
-    var firstMonthIncome =1100000
-    var monthsDiff = 1
-    var newIncome = "1,200,000"
     
-    var increase = (((lastMonthIncome/firstMonthIncome)**(1/monthsDiff))-1)*100 
-    increase = Math.round(increase)
-    setIncome({income:newIncome,increase:increase})
   },[])
 
   

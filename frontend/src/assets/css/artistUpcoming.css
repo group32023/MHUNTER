@@ -9,37 +9,39 @@
     top: 3%;
     left: 3%;
 }
-.eventImage{
+.eventImage {
     width: 122px;
     height: 75px;
-    position: absolute;
-    top: 20%;
-    left: 4%;
-}
-.eventTopic{
+    position: relative;
+    top: 63px;
+    left: -214px;
+  }
+  .eventTopic {
     color: #FFF;
     font-family: 'Blinker', sans-serif;
     font-size: 19px;
     font-style: normal;
     font-weight: 600;
     line-height: normal;
-    position: absolute;
-    top: 21%;
-    left: 28%;
-}
+    position: relative;
+    top: -19px;
+    left: 193px;
+    width: 200px;
+    text-align: left;
+  }
 
-.locationEvent{
+  .locationEvent {
     color: #11FE70;
     font-family: 'Blinker', sans-serif;
     font-size: 16px;
     font-style: normal;
     font-weight: 600;
     line-height: normal;
-    position: absolute;
-    top: 30%;
-    left: 28%;
-}
-.eventDescripition{
+    position: relative;
+    top: -37px;
+    left: -98px;
+  }
+  .eventDescripition {
     width: 476px;
     height: 52px;
     color: #FFF;
@@ -48,31 +50,31 @@
     font-style: normal;
     font-weight: 600;
     line-height: normal;
-    position: absolute;
-    top: 39%;
-    left: 28%;
+    position: relative;
+    top: -33px;
+    left: 183px;
     text-align: left;
-}
+  }
 
-.eventTypeDiv{
+  .eventTypeDiv {
     width: 40px;
     height: 40px;
     border-radius: 40px;
     background: #7643D2;
-    position: absolute;
-    top: 14%;
-    left: 62%;
-}
+    position: relative;
+    top: -164px;
+    left: 410px;
+  }
 
-.dateDiv{
+  .dateDiv {
     width: 40px;
     height: 40px;
     border-radius: 40px;
     background: #7643D2;
-    position: absolute;
-    top: 14%;
-    left: 83%;
-}
+    position: relative;
+    top: -236px;
+    left: 541px;
+  }
 
 .eventTypeImage{
     width: 22px;
@@ -92,34 +94,39 @@
     left: 23%;
 }
 
-.eventTypeData{
+.eventTypeData {
     color: #FFF;
     font-family: 'Blinker', sans-serif;
     font-size: 14px;
     font-style: normal;
     font-weight: 600;
     line-height: normal;
-    position: absolute;
-    top: 30%;
-    left: 61.5%;
-}
-.dateData{
+    position: relative;
+    top: -163px;
+    left: 104px;
+  }
+.dateData {
     color: #FFF;
     font-family: 'Blinker', sans-serif;
     font-size: 14px;
     font-style: normal;
     font-weight: 600;
     line-height: normal;
-    position: absolute;
-    top: 30%;
-    left: 81%;
-}
-.line{
+    position: relative;
+    top: -237px;
+    left: 235px;
+  }
+  .line {
     width: 614px;
     height: 2px;
     flex-shrink: 0;
     background: #FFF;
-    position: absolute;
-    top: 55%;
-    left: 3%;
+    position: relative;
+    top: -190px;
+    left: 21px;
+  }
+
+.eventItem{
+    position: relative;
+    margin-bottom: -243px;
 }
