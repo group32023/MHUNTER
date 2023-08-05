@@ -20,19 +20,65 @@
 
 .eventDescriptionDiv {
     margin-left: 35px;
-    height: 250px;
+    height: 240px;
     background-color: #2f363e;
     border-radius: 10px;
     width: 70%;
 }
 
-.eventTypeDescriptionDiv {
-    height: 120px;
+.eventImgDiv img {
+    border-radius: 50%;
+}
+
+.addTypeDescriptionDiv,
+.locationTypeDescriptionDiv {
+    height: 130px;
     background-color: #2f363e;
     border-radius: 10px;
     margin-right: 0px;
     margin-bottom: 10px;
 }
+
+.btnTypeDescriptionDiv,
+.crowdTypeDescriptionDiv,
+.eventTypeDescriptionDiv {
+    height: 100px;
+    background-color: #2f363e;
+    border-radius: 10px;
+    margin-right: 0px;
+    margin-bottom: 10px;
+}
+
+.btnTypeDescriptionDiv {
+    height: 70px;
+}
+
+.requestTypeDescriptionDiv {
+    margin-left: 35px;
+    height: 310px;
+    overflow-y: auto;
+    background-color: #2f363e;
+    border-radius: 10px;
+    width: 70%;
+}
+
+#scrollbarStyle-1::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    background-color: #1c2126;
+}
+
+#scrollbarStyle-1::-webkit-scrollbar {
+    width: 10px;
+    background-color: #1c2126;
+}
+
+#scrollbarStyle-1::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+    background-color: #7643D2;
+}
+
 
 .locationDescriptionDiv {
     /* background-color: antiquewhite; */
