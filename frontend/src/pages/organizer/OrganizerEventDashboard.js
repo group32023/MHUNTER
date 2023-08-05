@@ -14,32 +14,49 @@ function OrganizerEventDashboard() {
                 </div>
             </div>
 
-            <div class="row">
-
-
-                <div className="col-8 mt-4 mx-4">
-                    <div className="eventDescriptionDiv p-4">
+            <div className="row">
+                <div className="eventDescriptionDiv  mt-4 col-md-8">
+                    <div className="p-4">
                         Content for 8-cols div
                     </div>
                 </div>
 
-
-                {/* <div class="col-xs-4">
-                <div class="col-xs-4">
-                            <div className="locationDescriptionDiv">
-                                Content for 4-cols div
-                            </div>
-                        </div>
-
-
-                        <div class="col-xs-4">
-                            <div className="locationDescriptionDiv">
-                                Content for half-width 4-cols div
-                            </div>
+                <div className="locationDescriptionDiv mt-4 col-md-3">
+                    <div className="eventTypeDescriptionDiv ">
+                        <div className="p-4">
+                            Content for 4-cols div
                         </div>
                     </div>
-                </div> */}
+                    <div className="eventTypeDescriptionDiv ">
+                        <div className="p-4">
+                            Content for 4-cols div
+                        </div>
+                    </div>
+                </div>
             </div>
+
+
+            <div className="row">
+                <div className="eventDescriptionDiv  mt-4 col-md-8">
+                    <div className="p-4">
+                        Content for 8-cols div
+                    </div>
+                </div>
+
+                <div className="locationDescriptionDiv mt-4 col-md-3">
+                    <div className="eventTypeDescriptionDiv ">
+                        <div className="p-4">
+                            Content for 4-cols div
+                        </div>
+                    </div>
+                    <div className="eventTypeDescriptionDiv ">
+                        <div className="p-4">
+                            Content for 4-cols div
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
 
 

@@ -19,12 +19,24 @@
 }
 
 .eventDescriptionDiv {
+    margin-left: 35px;
     height: 250px;
     background-color: #2f363e;
     border-radius: 10px;
+    width: 70%;
+}
+
+.eventTypeDescriptionDiv {
+    height: 120px;
+    background-color: #2f363e;
+    border-radius: 10px;
+    margin-right: 0px;
+    margin-bottom: 10px;
 }
 
 .locationDescriptionDiv {
-    height: 100px;
-    background-color: #2f363e;
+    /* background-color: antiquewhite; */
+    height: auto;
+    margin-left: 5px;
+    width: 25%;
 }
