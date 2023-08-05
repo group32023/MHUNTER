@@ -1,0 +1,286 @@
+.bgimage-admin {
+  background-image: url("../../images/band.jpg");
+  background-size: cover;
+  background-position: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  background-blend-mode: multiply;
+}
+.main-container{
+    display: flex;
+}
+.body-container{
+    padding-top: 10px;
+    margin-left: -0.0rem;
+    padding-left: 10px;
+    background: #24292D;
+    width: 1440px;
+    height: 716px;
+}
+
+.header-admin {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+
+  }
+  
+  .header-title {
+    color: #FAECFA;
+    flex-grow: 1; 
+  }
+  
+  .header-icon {
+    display: flex;
+    align-items: center;
+  }
+  
+  .header-icon img {
+    margin-left: 10px; 
+    width: 50px;
+  }
+  
+  .logoutbtn {
+    margin-left: 5px; 
+    font-size: 20px;
+    color: #FAECFA;
+    padding-top: 10px;
+    padding-right: 10px;
+    text-decoration: none;
+  }
+  .header-icon img:hover , .header-icon :hover {
+    cursor: pointer;
+    color: #7643d2;
+  }
+
+  .body-admin{
+   background-color: aliceblue;
+  }
+  .top-band-list{
+    background-color: #7643d2;
+    border-radius: 10px;
+    padding: 20px;
+    height: 300px;
+    overflow-y: auto;
+    color: #FAECFA;
+    
+  }
+  .admin-list{
+    padding-top: 2px;
+    font-size: 30px;
+  }
+
+/* Calendar */
+  .react-calendar {  /*header of calender*/
+    max-width: 400px;
+    margin: 0 auto;
+    background-color: #2f363e; 
+    font-family: Arial, sans-serif;
+    border-radius: 10px;
+
+  }
+  .react-calendar__tile {  /*dates of calender*/
+    padding: 10px;
+    text-align: center;
+    background-color: #2f363e;
+    color: #FAECFA;
+    border: none;
+    border-radius: 10px;
+  }
+  .react-calendar__month-view__weekdays__weekday {
+    font-weight: bold;
+    color: #FAECFA;
+  }
+  .react-calendar__month-view__days__day--neighboringMonth { /*other month */
+    color: #b5b4b4;
+  }
+  .react-calendar__tile--active { /*today*/
+    background-color: #7643d2;
+    color: #fff;
+    border: none;
+  }
+  .react-calendar__navigation {
+    color: #2f363e;
+  }
+  .react-calendar__navigation__label {  /*name of month*/
+    font-size: 18px;
+    border: none;
+    background-color: #24292D;
+    color: #FAECFA;
+    border-radius: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  .react-calendar__navigation button:enabled:hover,
+  .react-calendar__navigation button:enabled:focus {
+    background-color: #7643d2;
+  }
+  .admin-calendar .react-calendar__navigation__arrow {
+    font-size: 24px;
+    cursor: pointer;
+    border: none;
+    background-color: #2f363e;
+    border-radius: 50px;
+  }
+/* /Calender */
+
+/*Search Bar */
+.search-bar{
+  width: 30%;
+}
+.search-button{
+  background-color: #FAECFA;
+  border: none;
+  color: #7643d2;
+}
+.search-button:hover{
+  background-color: #7643d2;
+}
+/* /search bar*/
+
+/* Table */
+.data-row{
+  background-color: #2f363e;
+  color: #FAECFA;
+  border-radius: 10px;
+  padding: 10px 30px 10px;
+  margin: 20px 150px 5px;
+}
+.profile-picture{
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 15%;
+}
+.data-name{
+  margin-right: 15%;
+  font-size: larger;
+}
+.data-memberType{
+  margin-right: 15%;
+  font-size: larger;
+}
+.data-email{
+  margin-right: 6%;
+  font-size: larger;
+}
+.data-status{
+  font-size: larger;
+
+}
+.data-button .btn-primary{
+  background-color: #7643d2;
+  border: none;
+  float: right;
+  width: 100px;
+  
+}
+@media screen and (max-width: 1000px) {
+  .search-bar{
+    width: 50%;
+  }
+  .data-row{
+    margin: 10px 20px 5px;
+  }
+  .data-button .btn-primary{
+    width: 60px;
+  }
+  .data-name{
+    margin-right: 10%;
+    font-size: larger;
+  }
+  .data-memberType{
+    margin-right: 10%;
+    font-size: larger;
+  }
+  .data-Email{
+    margin-right: 10%;
+    font-size: larger;
+  }
+}
+/* /Registration */
+
+/*View Detail- Proof Check */
+.user-details{
+  margin: 0 200px 0px;
+  padding-left: 20px;
+  background-color: #2f363e;
+  display: flex;
+  border-radius: 10px;
+}
+.profile-picture-proofcheck{
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  margin-right: 10%;
+  margin-top: 40%;
+  margin-left: 30%;
+}
+
+.my-form {
+  max-width: 400px;
+  margin: 10px auto;
+  margin-top: 20px;
+}
+
+.label {
+  margin-bottom: 8px;
+  color: #FAECFA;
+  font-size: 16px;
+}
+
+.my-form input[type="text"],
+.my-form input[type="email"] {
+
+  padding: 8px;
+  border: 1px solid #24292D;
+  border-radius: 5px;
+  margin-bottom: 16px;
+  margin-left: 30px;
+  background-color: #24292D;
+  width: calc(400px - 110px);
+
+}
+
+
+.proof{
+  margin: 15px 200px 15px;
+  padding-left: 20px;
+  border-radius: 10px;
+  background-color: #2f363e;
+  display: flex;
+}
+.proof-file{
+  padding-left: 200px;
+  border-radius: 50%;
+}
+.upload-icon{
+  background-color: #24292D;
+  color: #FAECFA;
+  padding: 20px;
+  margin-top: 15px;
+  border-radius: 50%;
+  margin-bottom: 15px;
+}
+.upload-icon:hover{
+  cursor: pointer;
+  background-color: #7643d2;
+}
+.button-proofcheck{
+  margin: 0px 40% 0px;
+}
+@media screen and (max-width: 1000px) {
+  .user-details , .proof{
+    margin: 0 50px 0;
+  }
+
+  .button-proofcheck{
+    margin: 0px 30% 0px;
+  }
+}
+/* /View Detail- Proof Check */
+
+
+
+
+  
