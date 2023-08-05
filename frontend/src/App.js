@@ -1,11 +1,11 @@
 
 // import Organizer Components
-import OrganizerDashboard from '../src/pages/organizer/OrganizerDashboard'
+import OrganizerDashboard from './pages/organizer/OrganizerDashboard'
 import OrganizerComplaint from './pages/organizer/OrganizerComplaint';
-import OrganizerDashboardContent from '../src/pages/organizer/OrganizerDashboardContent'
-import OrganizerEventHistory from '../src/pages/organizer/OrganizerEventHistory'
-import OrganizerEventDashboard from '../src/pages/organizer/OrganizerEventDashboard'
-import OrganizerProfile from '../src/pages/organizer/OrganizerProfile';
+import OrganizerDashboardContent from './pages/organizer/OrganizerDashboardContent'
+import OrganizerEventHistory from './pages/organizer/OrganizerEventHistory'
+import OrganizerEventDashboard from './pages/organizer/OrganizerEventDashboard'
+import OrganizerProfile from './pages/organizer/OrganizerProfile';
 
 
 import "./index.css"
