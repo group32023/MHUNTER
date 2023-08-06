@@ -8,7 +8,9 @@ import { BiSolidCalendar } from "react-icons/bi";
 import { BiSolidTimeFive } from "react-icons/bi";
 import { BiSolidUser } from "react-icons/bi";
 import { BiSolidCalendarStar } from "react-icons/bi";
+import { BiSolidPlusCircle } from "react-icons/bi";
 import 'bootstrap/dist/css/bootstrap.min.css'
+import { Button } from 'bootstrap';
 
 function OrganizerEventDashboard() {
     return (
@@ -67,7 +69,7 @@ function OrganizerEventDashboard() {
                                     </div>
                                 </div>
                                 <div className="dateTimeDiv">
-                                    <div className="row">
+                                    <div className="row" >
                                         <BiSolidTimeFive className='timeIcon fs-1 col-md-3 ' />
                                         <div className='col-md-8 mt-2'>
                                             <p>Event Time<br></br>
@@ -92,8 +94,8 @@ function OrganizerEventDashboard() {
                         </div>
                     </div>
                     <div className="eventTypeDescriptionDiv " style={{ fontFamily: 'MyCustomFont1' }}>
-                        <div className="p-4">
-                            <div className="row " >
+                        <div className="p-3">
+                            <div className="row " style={{ marginLeft: '30px' }} >
                                 <BiSolidCalendarStar className='dateIcon fs-1 col-md-3 ' />
                                 <div className='col-md-8' >
                                     <p className='fs-6' style={{ fontFamily: 'MyCustomFont' }}>Event Type<br></br>
@@ -110,39 +112,20 @@ function OrganizerEventDashboard() {
 
             <div className="row">
                 <div className="requestTypeDescriptionDiv  mt-2 col-md-7" id='scrollbarStyle-1' style={{ fontFamily: 'MyCustomFont' }}>
-                    <div className="p-4">
-                        Content for 8-cols div<hr></hr>
-                        Content for 8-cols div<hr></hr>
-                        Content for 8-cols div<hr></hr>
-                        Content for 8-cols div<hr></hr>
-                        Content for 8-cols div<hr></hr>
-                        Content for 8-cols div<hr></hr>
-                        Content for 8-cols div<hr></hr>
-                        Content for 8-cols div<hr></hr>
-                        Content for 8-cols div<hr></hr>
-                        Content for 8-cols div<hr></hr>
-                        Content for 8-cols div<hr></hr>
-                        Content for 8-cols div<hr></hr>
-                        Content for 8-cols div<hr></hr>
-                        Content for 8-cols div<hr></hr>
-                        Content for 8-cols div<hr></hr>
-                        Content for 8-cols div<hr></hr>
-                        Content for 8-cols div<hr></hr>
-                        Content for 8-cols div<hr></hr>
-                        Content for 8-cols div<hr></hr>
-                        Content for 8-cols div<hr></hr>
-                        Content for 8-cols div<hr></hr>
-                        Content for 8-cols div<hr></hr>
-                        Content for 8-cols div<hr></hr>
-                        Content for 8-cols div<hr></hr>
+                    <div className="p-3">
+                        <p className='fs-5' style={{ fontFamily: 'MyCustomFont1' }}>Requests</p>
+                        <hr></hr>
+                        <div className="requestTableTitle row">
+                            <div></div>
 
+                        </div>
                     </div>
                 </div>
 
                 <div className="locationDescriptionDiv mt-2 col-md-4">
                     <div className="crowdTypeDescriptionDiv " >
-                        <div className="p-4">
-                            <div className="row">
+                        <div className="p-3">
+                            <div className="row" style={{ marginLeft: '30px' }}>
                                 <BiSolidUser className='timeIcon fs-1 col-md-3 ' />
                                 <div className='col-md-8'>
                                     <p className='fs-6' style={{ fontFamily: 'MyCustomFont' }}>Expected Crowd<br></br>
@@ -153,18 +136,27 @@ function OrganizerEventDashboard() {
                             </div>
                         </div>
                     </div>
-                    <div className="addTypeDescriptionDiv ">
-                        <div className="row">
-                            Content for 4-cols div
-                        </div>
-                        <div className="row">
-                            Content for 4-cols div
+
+                    <div className="addTypeDescriptionDiv p-2" style={{ fontFamily: 'MyCustomFont1' }}>
+                        <div className="row col-md-12 ">
+                            <div className="addRow p-2 mt-2 text-center">Add Band
+                                <BiSolidPlusCircle className='plusIcon mx-2 fs-3' />
+                            </div>
+
+                            <div className="addRow mt-2 p-2 text-center">Add Artist
+                                <BiSolidPlusCircle className='plusIcon mx-2 fs-3' />
+                            </div>
+
                         </div>
                     </div>
-                    <div className="btnTypeDescriptionDiv ">
-                        <div className="p-4">
-                            Content for 4-cols div
-                        </div>
+
+                    <div className="row btnTypeDescriptionDiv " style={{ fontFamily: 'MyCustomFont1' }}>
+                        <button className="cancelBtn col-md-5" >
+                            Cancel Event
+                        </button>
+                        <button className="resheduleBtn col-md-5" >
+                            Reshedule Event
+                        </button>
                     </div>
                 </div>
             </div>
