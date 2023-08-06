@@ -14,21 +14,39 @@ export default function BandSignup() {
       console.log(file);
       setImage(event.target.files[0]);
     }
+    const resetFormFields = () => {
+      setBandName("");
+      setEmail("");
+      setFirstName("");
+      setLastName("");
+      setPhoneNumber("");
+      setAddress("");
+      setPassword("");
+      setCon_Password("");
+      setImage("");
+    };
 
-    const [bandname, setBandName] = useState("");
+    const [name, setBandName] = useState("");
     const [email, setEmail] = useState("");
-    const [firstname, setFirstName] = useState("");
-    const [lastname, setLastName] = useState("");
-    const [phonenumber, setPhoneNumber] = useState("");
+    const [firstName, setFirstName] = useState("");
+    const [lastName, setLastName] = useState("");
+    const [phoneNumber, setPhoneNumber] = useState("");
     const [address, setAddress] = useState("");
     const [password, setPassword] = useState("");
     const [confirmpassword, setCon_Password] = useState("");
-    const membertype = "Band";
-    const regdate = new Date();
+    const type = "Band";
+
+    const date = new Date();
+    const year = date.getFullYear();
+    const month = String(date.getMonth() + 1).padStart(2, '0');
+    const day = String(date.getDate()).padStart(2, '0');
+  
+    const regDate = `${year}-${month}-${day}`;
+
     const save = (event) => {
       event.preventDefault();
       const band = {
-         bandname, email, firstname, lastname, phonenumber, address, password, membertype, regdate };
+         name, email, firstName, lastName, phoneNumber, address, password, type, regDate };
       try {
   
         if(password.length < 8){
@@ -52,10 +70,10 @@ export default function BandSignup() {
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(band),
           })
-  
-         formRef.current.reset();
-    
+          resetFormFields();
           alert("Band Registration Sucessfully");
+          formRef.current.reset();
+          
         }
   
   
@@ -75,7 +93,7 @@ export default function BandSignup() {
                     <div className='mb-2 text-white text-field'>
                       <label htmlFor='ArtistName'>Band Name</label>
                       <input type='text' placeholder='' className='form-control'required
-                    value = {bandname}
+                    value = {name}
                     onChange ={(event) => {
                     setBandName(event.target.value);
                   }}/>
@@ -92,7 +110,7 @@ export default function BandSignup() {
                       <div style={{padding:'5px'}} >
                         <label htmlFor='Email'>First Name</label>
                         <input type='text' placeholder='' className='form-control' required
-                    value = {firstname}
+                    value = {firstName}
                     onChange ={(event) => {
                     setFirstName(event.target.value);
                   }}/>
@@ -100,7 +118,7 @@ export default function BandSignup() {
                       <div style={{padding:'5px'}}>
                         <label htmlFor='Email'>Last Name</label>
                         <input type='text' placeholder='' className='form-control' required
-                    value = {lastname}
+                    value = {lastName}
                     onChange ={(event) => {
                     setLastName(event.target.value);
                   }}/>
@@ -110,7 +128,7 @@ export default function BandSignup() {
                     <div className='mb-2 text-white text-field'>
                       <label htmlFor='PhoneNumber'>Phone Number</label>
                       <input type='tel' placeholder='' className='form-control' required pattern='[0-9]{3} [0-9]{7}'
-                    value = {phonenumber}
+                    value = {phoneNumber}
                     onChange ={(event) => {
                     setPhoneNumber(event.target.value);
                   }}/>
@@ -149,9 +167,9 @@ export default function BandSignup() {
                     <div>
       
                     {image ? 
-                      <img src={URL.createObjectURL(image)} height={150}/>
+                      <img src={URL.createObjectURL(image)} alt='banddp' height={150} width={150}/>
                     :
-                      <img src={require('../assets/images/band.jpg')} height={150}/>
+                      <img src={require('../assets/images/band.jpg')} alt='banddp'  height={150} width={150}/>
                     }
                     <input 
                       type='file' 

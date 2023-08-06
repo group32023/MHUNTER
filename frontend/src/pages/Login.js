@@ -3,6 +3,7 @@ import '../assets/css/admin.css'
 import {useNavigate} from 'react-router-dom';
 import { Link} from 'react-router-dom';
 import axios from "axios";
+import NavBar from '../components/common/NavBar';
 
 export default function Login() {
 
@@ -34,7 +35,7 @@ export default function Login() {
           }else if (membertype === "Moderator") {
             navigate('/moderatordashboard');
           }else if (membertype === "Admin") {
-            navigate('/admindashboard');
+            navigate('/admin/admindashboard');
           }
          
         }
@@ -73,6 +74,8 @@ export default function Login() {
 
   
   return (
+    <div>
+      <NavBar />  
     <div className='login template d-flex justify-content-center align-items-center vh-100 bgimage '>
       <div className='form_container p-5 rounded' >
         <form className='form' >
@@ -109,5 +112,6 @@ export default function Login() {
         </form>
       </div>
     </div>
+  </div>
   )
 }

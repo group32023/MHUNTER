@@ -15,27 +15,45 @@ export default function ArtistSignup() {
     console.log(file);
     setImage(event.target.files[0]);
   }
+  const resetFormFields = () => {
+    setArtistName("");
+    setEmail("");
+    setFirstName("");
+    setLastName("");
+    setPhoneNumber("");
+    setAddress("");
+    setPassword("");
+    setCon_Password("");
+    setImage("");
+  };
   
-  const [artistname, setArtistName] = useState("");
+  const [name, setArtistName] = useState("");
   const [email, setEmail] = useState("");
-  const [firstname, setFirstName] = useState("");
-  const [lastname, setLastName] = useState("");
-  const [phonenumber, setPhoneNumber] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState("");
   const [address, setAddress] = useState("");
   const [password, setPassword] = useState("");
-  const [confirmpassword, setCon_Password] = useState("");
-  const membertype = "Artist";
-  //const regdate = new Date();
+  const [confirmPassword, setCon_Password] = useState("");
+  const type = "Artist";
+
+  const date = new Date();
+  const year = date.getFullYear();
+  const month = String(date.getMonth() + 1).padStart(2, '0');
+  const day = String(date.getDate()).padStart(2, '0');
+
+  const regDate = `${year}-${month}-${day}`;
+  //const regDate = new Date();
   const save = (event) => {
     event.preventDefault();
     const artist = {
-       artistname, email, firstname, lastname, phonenumber, address, password, membertype};
+       name, email, firstName, lastName, phoneNumber, address, password, type, regDate};
     try {
 
       if(password.length < 8){
         alert("Password must have at least 8 characters");
       }
-      else if(password !== confirmpassword){
+      else if(password !== confirmPassword){
         alert("Input Confirm your password correctly");
       }
       else{
@@ -55,8 +73,9 @@ export default function ArtistSignup() {
         })
 
        formRef.current.reset();
-  
+        resetFormFields();
         alert("Artist Registration Sucessfully");
+        
       }
 
 
@@ -77,7 +96,7 @@ export default function ArtistSignup() {
                   <div className='mb-2 text-white text-field'>
                     <label htmlFor='ArtistName'>Artist Name</label>
                     <input type='text' placeholder='' className='form-control' required
-                    value = {artistname}
+                    value = {name}
                     onChange ={(event) => {
                     setArtistName(event.target.value);
                   }}
@@ -99,7 +118,7 @@ export default function ArtistSignup() {
                     <div style={{padding:'5px'}} >
                       <label htmlFor='Email'>First Name</label>
                       <input type='text' placeholder='' className='form-control' required
-                        value = {firstname}
+                        value = {firstName}
                         onChange ={(event) => {
                         setFirstName(event.target.value);
                       }}/>
@@ -107,7 +126,7 @@ export default function ArtistSignup() {
                     <div style={{padding:'5px'}}>
                       <label htmlFor='Email'>Last Name</label>
                       <input type='text' placeholder='' className='form-control' required
-                      value = {lastname}
+                      value = {lastName}
                       onChange ={(event) => {
                       setLastName(event.target.value);
                     }}/>
@@ -117,7 +136,7 @@ export default function ArtistSignup() {
                   <div className='mb-2 text-white text-field'>
                     <label htmlFor='PhoneNumber'>Phone Number</label>
                     <input type='tel' placeholder='071 1234567' className='form-control' pattern='[0-9]{3} [0-9]{7}'
-                    value = {phonenumber}
+                    value = {phoneNumber}
                     onChange ={(event) => {
                     setPhoneNumber(event.target.value);
                   }}/>
@@ -141,7 +160,7 @@ export default function ArtistSignup() {
                   <div className='mb-2 text-white text-field'>
                     <label htmlFor='Address'>Confirm Password</label>
                     <input type='password' placeholder='' className='form-control'
-                    value = {confirmpassword}
+                    value = {confirmPassword}
                     onChange ={(event) => {
                     setCon_Password(event.target.value);
                   }}/>
@@ -156,9 +175,9 @@ export default function ArtistSignup() {
                   <div>
     
                   {image ? 
-                    <img src={URL.createObjectURL(image)} height={150}/>
+                    <img src={URL.createObjectURL(image)} alt="ArtistDp" height={150} width={150}/>
                   :
-                    <img src={require('../assets/images/artist.jpg')} height={150}/>
+                    <img src={require('../assets/images/artist.jpg')} alt="ArtistDp" height={150} width={150}/>
                   }
                   <input 
                     type='file' 

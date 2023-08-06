@@ -9,17 +9,14 @@ import jakarta.persistence.Id;
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int userid;
-    private String artistname;
-    private String bandname;
+    private int userId;
     private String email;
-    private String firstname;
-    private String lastname;
-    private String phonenumber;
+    private String firstName;
+    private String lastName;
+    private String phoneNumber;
     private String address;
     private String password;
-    private String membertype;
-    private String regdate;
+    private String regDate;
     private int isVerified;
     private int removeStaffId;
     private String removeDate;
@@ -36,28 +33,12 @@ public class User {
     public User() {
     }
 
-    public int getUserid() {
-        return userid;
+    public int getUserId() {
+        return userId;
     }
 
-    public void setUserid(int userid) {
-        this.userid = userid;
-    }
-
-    public String getArtistname() {
-        return artistname;
-    }
-
-    public void setArtistname(String artistname) {
-        this.artistname = artistname;
-    }
-
-    public String getBandname() {
-        return bandname;
-    }
-
-    public void setBandname(String bandname) {
-        this.bandname = bandname;
+    public void setUserId(int userId) {
+        this.userId = userId;
     }
 
     public String getEmail() {
@@ -68,28 +49,28 @@ public class User {
         this.email = email;
     }
 
-    public String getFirstname() {
-        return firstname;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setFirstname(String firstname) {
-        this.firstname = firstname;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
-    public String getLastname() {
-        return lastname;
+    public String getLastName() {
+        return lastName;
     }
 
-    public void setLastname(String lastname) {
-        this.lastname = lastname;
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
-    public String getPhonenumber() {
-        return phonenumber;
+    public String getPhoneNumber() {
+        return phoneNumber;
     }
 
-    public void setPhonenumber(String phonenumber) {
-        this.phonenumber = phonenumber;
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
 
     public String getAddress() {
@@ -108,20 +89,12 @@ public class User {
         this.password = password;
     }
 
-    public String getMembertype() {
-        return membertype;
+    public String getRegDate() {
+        return regDate;
     }
 
-    public void setMembertype(String membertype) {
-        this.membertype = membertype;
-    }
-
-    public String getRegdate() {
-        return regdate;
-    }
-
-    public void setRegdate(String regdate) {
-        this.regdate = regdate;
+    public void setRegDate(String regDate) {
+        this.regDate = regDate;
     }
 
     public int getIsVerified() {

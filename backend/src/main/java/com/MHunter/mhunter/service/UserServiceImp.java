@@ -10,10 +10,18 @@ public class UserServiceImp implements UserService{
     @Autowired
     private UserRepository userRepository;
 
+    /*@Autowired
+    private PasswordEncoder passwordEncoder;*/
     @Override
     public User saveUser(User user) {
         return userRepository.save(user);
     }
+
+    /*public User saveUser(User user) {
+        String encodedPassword = passwordEncoder.encode(user.getPassword());
+        user.setPassword(encodedPassword);
+        return userRepository.save(user);
+    }*/
 
     @Override
     public String loginUser(User user) {
@@ -27,7 +35,7 @@ public class UserServiceImp implements UserService{
             } else {
                 msg = "Incorrect password!";
             }
-            msg += "#" + user1.getMembertype();
+            //msg += "#" + user1.getMemberType();
         } else {
             msg = "User not found!";
         }

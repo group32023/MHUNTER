@@ -5,7 +5,7 @@ export default function Signup() {
 
   return (
     <div className='login template d-flex justify-content-center align-items-center vh-100 bgimage'>
-    <div className='form_signup_container p-5 rounded vh-50'>
+    <div className='form_signup_container p-5 vh-50'>
     <div className='box-container'>
       <div className='signup_text'>
         <p>Join now and unlock the gateway to creating unforgettable moments where music and events unite!</p>
@@ -30,7 +30,7 @@ export default function Signup() {
         </div>
         <div className='right-box'>
           <div>
-            <h3 className='header'>Book a talent...</h3>
+            <h3 className='header' style={{padding:'23.6px'}}>Book a talent...</h3>
           </div>
           <div>
             <p>Wide Talent Pool
