@@ -58,7 +58,7 @@
 	background: none;
 	border: none;
 	cursor: pointer;
-	/* margin: 26px 0px 0px 16px */
+	 margin: 26px 0px 0px 16px 
 }
 
 .sideIcon span {
@@ -77,14 +77,14 @@
 	border-radius: 20%;
 	margin: auto;
 	margin-top: 45px;
-	/* margin-left: 0px; */
+	 margin-left: 0px; 
 }
 
 .sideIconDiv-NX {
 	background-color: #3b444d;
 	border-radius: 20%;
 	margin: auto;
-	margin-left: 22px;
+	margin-left: 20px;
 }
 
 .sideIcon:hover span {

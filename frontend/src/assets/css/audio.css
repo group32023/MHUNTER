@@ -9,29 +9,27 @@
   .videoStream {
     display: flex;
   }
-  
+  /* audio */
   .artistSlide1 {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 10px;
+    margin-top: 80px;
+    margin-right: 120px;
+    margin-left: 120px;
   }
   
   .embed-responsive {
-    border-radius: 80%;
+    border-radius: 250px;
     overflow: hidden;
-    width: 450px;
-    height: 450px;
+    width: 380px;
+    height: 380px;
     position: relative;
-    background-image: url("../images/audio.png"); /* Replace with the path to your background image, if applicable */
+    background-repeat:round;
+  
+    background-image: url("../images/artist.jpg"); /* Replace with the path to your background image, if applicable */
   }
-  .embed-responsive2 {
-    border-radius: 0%;
-    overflow: hidden;
-    width: 450px;
-    height: 450px;
-    position: relative;
-  }
+  
   .embed-responsive .embed-responsive-item {
     position: absolute;
     top: 0;
@@ -39,7 +37,29 @@
     width: 100%;
     height: 100%;
   }
+ /* video */
+  .artistSlide2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 80px;
+    margin-right: 0px;
+    margin-left: 0px;
+  }
+  .embed-responsive2 {
   
+    width: 450px;
+    height: 250px;
+    position: relative;
+
+  }
+  .embed-responsive2 .embed-responsive2-item {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 450px;
+    height: 250px;
+  }
   .btn-danger {
     background-color: #dc3545;
     border: none;
@@ -52,7 +72,7 @@
     justify-content: center;
     cursor: pointer;
     margin-right: 80px;
-    margin-top: -250px;
+    margin-top: -220px;
     position: relative; /* Add this to make z-index work */
     z-index: 1; /* Add this to place the icon in front of the image */
   }

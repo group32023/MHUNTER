@@ -24,10 +24,10 @@ export default function PerformanceView() {
     <div>
       <div className="performancebg"></div>
       <div className="videoStream">
-        <div className='artistSlide1'>
+        <div className='artistSlide2'>
           <div className="embed-responsive2 embed-responsive-16by9">
             <video
-              className="embed-responsive-item"
+              className="embed-responsive2-item"
               src={video}
               ref={videoRefs}
               allowFullScreen
@@ -45,10 +45,10 @@ export default function PerformanceView() {
             <FontAwesomeIcon icon={isPlaying ? faPause : faPlay} />
           </button>
         </div>
-        <div className='artistSlide1'>
+        <div className='artistSlide2'>
           <div className="embed-responsive2 embed-responsive-16by9">
             <video
-              className="embed-responsive-item"
+              className="embed-responsive2-item"
               src={video}
               ref={videoRefs}
               allowFullScreen

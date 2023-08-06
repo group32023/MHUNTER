@@ -27,6 +27,7 @@ import AllUserDetails from './pages/admin/AllUserDetails';
 import ViewUserDetails from './pages/admin/ViewUserDetails';
 import AdminReport from './pages/admin/AdminReport';
 import AdminSettings from './pages/admin/AdminSettings';
+import Admin from './pages/admin/admin';
 function App() {
   return (
     
@@ -51,6 +52,8 @@ function App() {
 
 
           {/*Admin*/}
+          <Route path='/admin/admin' element={<Admin/>} />
+
           <Route path='/admin/admindashboard' element={<AdminDashboard/>} />
           <Route path='/admin/registration' element={<AdminRegistration/>} />
           <Route path='/admin/registration/proofcheck' element={<ProofCheck/>} />

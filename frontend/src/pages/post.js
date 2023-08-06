@@ -66,6 +66,8 @@ export default function PerformanceView() {
             <FontAwesomeIcon icon={isPlaying ? faPause : faPlay} />
           </button>
         </div>
+        <br></br>
+        
       </div>
     </div>
   );
