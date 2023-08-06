@@ -190,19 +190,30 @@
     background-color: green;
 }
 
-.requestTableDiv .table {
+.requestTable {
     --bs-table-color: white;
     --bs-table-bg: #2f363e;
     border-collapse: separate;
     border-spacing: 0;
 }
 
-.requestTableDiv th,
-.requestTableDiv td {
+.requestTable th,
+.requestTable td {
     border: none;
-    padding: 10px;
+    padding: 15px;
+
 }
 
-.requestTableDiv .table thead {
+.requestTable tr {
+    border-radius: 10px;
+}
+
+.requestTable thead {
     background-color: #1c2126;
+    opacity: 0.8;
+    border-radius: 10px;
+}
+
+.requestTableDiv {
+    overflow: hidden;
 }

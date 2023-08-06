@@ -10,7 +10,7 @@ import { BiSolidUser } from "react-icons/bi";
 import { BiSolidCalendarStar } from "react-icons/bi";
 import { BiSolidPlusCircle } from "react-icons/bi";
 import 'bootstrap/dist/css/bootstrap.min.css'
-import { Button } from 'bootstrap';
+
 
 function OrganizerEventDashboard() {
     return (
@@ -116,7 +116,7 @@ function OrganizerEventDashboard() {
                         <p className='fs-5' style={{ fontFamily: 'MyCustomFont1' }}>Requests</p>
                         <hr></hr>
                         <div className="requestTableDiv d-flex justify-content-center align-items-center">
-                            <table className="table table-bordered text-center ">
+                            <table className="requestTable table table-bordered text-center ">
                                 <thead>
                                     <tr>
                                         <th className="col-md-5 fs-6" style={{ fontFamily: 'MyCustomFont1' }}>Artist/Band</th>
