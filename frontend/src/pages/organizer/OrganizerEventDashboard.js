@@ -115,8 +115,46 @@ function OrganizerEventDashboard() {
                     <div className="p-3">
                         <p className='fs-5' style={{ fontFamily: 'MyCustomFont1' }}>Requests</p>
                         <hr></hr>
-                        <div className="requestTableTitle row">
-                            <div></div>
+                        <div className="requestTableTitle d-flex justify-content-center align-items-center">
+                            <table className="table table-bordered text-center ">
+                                <thead>
+                                    <tr>
+                                        <th className="col-md-5 fs-6" style={{ fontFamily: 'MyCustomFont1' }}>Artist/Band</th>
+                                        <th className="col-md-5 fs-6" style={{ fontFamily: 'MyCustomFont1' }}>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Artist 1</td>
+                                        <td>Confirmed</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Artist 2</td>
+                                        <td>Pending</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Artist 3</td>
+                                        <td>Pending</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Artist 3</td>
+                                        <td>Pending</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Artist 3</td>
+                                        <td>Pending</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Artist 3</td>
+                                        <td>Pending</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Artist 3</td>
+                                        <td>Pending</td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
 
                         </div>
                     </div>
