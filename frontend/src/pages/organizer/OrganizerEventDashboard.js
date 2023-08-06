@@ -28,7 +28,7 @@ function OrganizerEventDashboard() {
                         <div className="eventDescDiv col-md-10 mt-2">
                             <span>BEAT BLITZ</span>
                             <div className="row">
-                                <div className="eventDescInnerDiv col-md-10 py-2 " style={{ fontFamily: 'MyCustomFont' }}>
+                                <div className="eventDescInnerDiv col-md-10 py-2 " >
                                     <p>
                                         for 8-cols div
                                         Content for 8-cols divContent for 8-cols divContent for 8-cols divContent for 8-cols div
@@ -53,14 +53,24 @@ function OrganizerEventDashboard() {
                                 </div>
                             </div>
 
-                            <div className="row mt-2" style={{ fontFamily: 'MyCustomFont' }}>
+                            <div className="row mt-2" style={{ fontFamily: 'MyCustomFont1' }}>
                                 <div className="dateTimeDiv">
-                                    <BiSolidCalendar className='dateIcon fs-1  ' />
-
+                                    <div className="row">
+                                        <BiSolidCalendar className='dateIcon fs-1 col-md-4 ' />
+                                        <div className='col-md-6 mt-2'>
+                                            <p>Event Date</p>
+                                            <span>Jun 14 2023</span>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div className="dateTimeDiv">
-                                    <BiSolidTimeFive className='timeIcon fs-1  ' />
-
+                                    <div className="row">
+                                        <BiSolidTimeFive className='timeIcon fs-1 col-md-4 ' />
+                                        <div className='col-md-6 mt-2'>
+                                            <p>Event Date</p>
+                                            <span>Jun 14 2023</span>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
 
@@ -86,7 +96,7 @@ function OrganizerEventDashboard() {
 
 
             <div className="row">
-                <div className="requestTypeDescriptionDiv  mt-2 col-md-7" id='scrollbarStyle-1'>
+                <div className="requestTypeDescriptionDiv  mt-2 col-md-7" id='scrollbarStyle-1' style={{ fontFamily: 'MyCustomFont' }}>
                     <div className="p-4">
                         Content for 8-cols div<hr></hr>
                         Content for 8-cols div<hr></hr>

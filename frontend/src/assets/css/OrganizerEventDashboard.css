@@ -5,6 +5,13 @@
     /* Add other font file formats and their paths here */
 }
 
+@font-face {
+    font-family: 'MyCustomFont1';
+    src: url('../fonts/Dosis-Bold.ttf') format('truetype');
+    /* src: url('../../../assets/icons/dashboard.png') format('truetype'); */
+    /* Add other font file formats and their paths here */
+}
+
 .eventDashboard_content_container {
     color: white;
 }
