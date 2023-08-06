@@ -195,12 +195,14 @@
     --bs-table-bg: #2f363e;
     border-collapse: separate;
     border-spacing: 0;
+    width: 100%;
 }
 
 .requestTable th,
 .requestTable td {
     border: none;
     padding: 15px;
+    font-size: 16px;
 
 }
 
@@ -209,11 +211,17 @@
 }
 
 .requestTable thead {
+    /* background: linear-gradient(to right, #2f363e, #1c2126, #2f363e); */
     background-color: #1c2126;
-    opacity: 0.8;
+    opacity: 0.5;
+    position: relative;
     border-radius: 10px;
 }
 
 .requestTableDiv {
     overflow: hidden;
+}
+
+.requestTableDiv .confirmed {
+    color: green;
 }

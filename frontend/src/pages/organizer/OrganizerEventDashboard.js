@@ -9,6 +9,7 @@ import { BiSolidTimeFive } from "react-icons/bi";
 import { BiSolidUser } from "react-icons/bi";
 import { BiSolidCalendarStar } from "react-icons/bi";
 import { BiSolidPlusCircle } from "react-icons/bi";
+import { BiSolidCircle } from "react-icons/bi";
 import 'bootstrap/dist/css/bootstrap.min.css'
 
 
@@ -116,17 +117,17 @@ function OrganizerEventDashboard() {
                         <p className='fs-5' style={{ fontFamily: 'MyCustomFont1' }}>Requests</p>
                         <hr></hr>
                         <div className="requestTableDiv d-flex justify-content-center align-items-center">
-                            <table className="requestTable table table-bordered text-center ">
+                            <table className="requestTable text-center ">
                                 <thead>
                                     <tr>
-                                        <th className="col-md-5 fs-6" style={{ fontFamily: 'MyCustomFont1' }}>Artist/Band</th>
+                                        <th className="fs-6" style={{ fontFamily: 'MyCustomFont1' }}>Artist/Band</th>
                                         <th className="col-md-5 fs-6" style={{ fontFamily: 'MyCustomFont1' }}>Status</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
                                         <td>Artist 1</td>
-                                        <td>Confirmed</td>
+                                        <td className='confirmed'>Confirmed<BiSolidCircle className='mx-2' style={{ color: 'green' }} /></td>
                                     </tr>
                                     <tr>
                                         <td>Artist 2</td>
