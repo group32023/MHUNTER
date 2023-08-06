@@ -37,7 +37,7 @@
     border-radius: 50%;
 }
 
-.eventDescDiv span {
+.eventDescDivSpan {
     font-size: 18px;
     color: #F70F5D;
     font-weight: 600;
@@ -127,6 +127,12 @@
     margin-right: 10px;
     width: 48.5%;
 
+}
+
+.eventTypeDescriptionDiv p:hover,
+.crowdTypeDescriptionDiv p:hover,
+.dateTimeDiv p:hover {
+    color: #7643D2;
 }
 
 .dateIcon {

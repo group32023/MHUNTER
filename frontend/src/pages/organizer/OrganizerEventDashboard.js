@@ -6,6 +6,8 @@ import { BiSolidEdit } from "react-icons/bi";
 import { BiSolidBox } from "react-icons/bi";
 import { BiSolidCalendar } from "react-icons/bi";
 import { BiSolidTimeFive } from "react-icons/bi";
+import { BiSolidUser } from "react-icons/bi";
+import { BiSolidCalendarStar } from "react-icons/bi";
 import 'bootstrap/dist/css/bootstrap.min.css'
 
 function OrganizerEventDashboard() {
@@ -26,7 +28,7 @@ function OrganizerEventDashboard() {
                             <img alt='' src={profilePhoto} width='120px' height='120px' />
                         </div>
                         <div className="eventDescDiv col-md-10 mt-2">
-                            <span>BEAT BLITZ</span>
+                            <span className="eventDescDivSpan">BEAT BLITZ</span>
                             <div className="row">
                                 <div className="eventDescInnerDiv col-md-10 py-2 " >
                                     <p>
@@ -56,19 +58,22 @@ function OrganizerEventDashboard() {
                             <div className="row mt-2" style={{ fontFamily: 'MyCustomFont1' }}>
                                 <div className="dateTimeDiv">
                                     <div className="row">
-                                        <BiSolidCalendar className='dateIcon fs-1 col-md-4 ' />
-                                        <div className='col-md-6 mt-2'>
-                                            <p>Event Date</p>
-                                            <span>Jun 14 2023</span>
+                                        <BiSolidCalendar className='dateIcon fs-1 col-md-3 ' />
+                                        <div className='col-md-8 mt-2'>
+                                            <p>Event Date<br></br>
+                                                <span className='fs-4'>Jun 14 2023</span>
+                                            </p>
                                         </div>
                                     </div>
                                 </div>
                                 <div className="dateTimeDiv">
                                     <div className="row">
-                                        <BiSolidTimeFive className='timeIcon fs-1 col-md-4 ' />
-                                        <div className='col-md-6 mt-2'>
-                                            <p>Event Date</p>
-                                            <span>Jun 14 2023</span>
+                                        <BiSolidTimeFive className='timeIcon fs-1 col-md-3 ' />
+                                        <div className='col-md-8 mt-2'>
+                                            <p>Event Time<br></br>
+                                                <span className='fs-4'>17:00:00</span>
+                                            </p>
+
                                         </div>
                                     </div>
                                 </div>
@@ -86,9 +91,17 @@ function OrganizerEventDashboard() {
                             Content for 4-cols div
                         </div>
                     </div>
-                    <div className="eventTypeDescriptionDiv ">
+                    <div className="eventTypeDescriptionDiv " style={{ fontFamily: 'MyCustomFont1' }}>
                         <div className="p-4">
-                            Content for 4-cols div
+                            <div className="row " >
+                                <BiSolidCalendarStar className='dateIcon fs-1 col-md-3 ' />
+                                <div className='col-md-8' >
+                                    <p className='fs-6' style={{ fontFamily: 'MyCustomFont' }}>Event Type<br></br>
+                                        <span className='fs-4' style={{ fontFamily: 'MyCustomFont1' }}>Wedding</span>
+                                    </p>
+
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -127,13 +140,24 @@ function OrganizerEventDashboard() {
                 </div>
 
                 <div className="locationDescriptionDiv mt-2 col-md-4">
-                    <div className="crowdTypeDescriptionDiv ">
+                    <div className="crowdTypeDescriptionDiv " >
                         <div className="p-4">
-                            Content for 4-cols div
+                            <div className="row">
+                                <BiSolidUser className='timeIcon fs-1 col-md-3 ' />
+                                <div className='col-md-8'>
+                                    <p className='fs-6' style={{ fontFamily: 'MyCustomFont' }}>Expected Crowd<br></br>
+                                        <span className='fs-3' style={{ fontFamily: 'MyCustomFont1' }}>8000</span>
+                                    </p>
+
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div className="addTypeDescriptionDiv ">
-                        <div className="p-4">
+                        <div className="row">
+                            Content for 4-cols div
+                        </div>
+                        <div className="row">
                             Content for 4-cols div
                         </div>
                     </div>
