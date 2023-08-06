@@ -1,15 +1,6 @@
-package com.MHunter.mhunter.model;
+package com.MHunter.mhunter.struct;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-
-@Entity
-public class User {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int userId;
+public class SignupRequest {
     private String email;
     private String firstName;
     private String lastName;
@@ -18,27 +9,10 @@ public class User {
     private String password;
     private String regDate;
     private int isVerified;
-    private int removeStaffId;
-    private String removeDate;
-    private int suspendedStaffId;
-    private String suspendedDate;
-    private String remark;
+    private String Name;
+    private String Type;
 
-
-
-
-
-
-
-    public User() {
-    }
-
-    public int getUserId() {
-        return userId;
-    }
-
-    public void setUserId(int userId) {
-        this.userId = userId;
+    public SignupRequest() {
     }
 
     public String getEmail() {
@@ -105,43 +79,19 @@ public class User {
         this.isVerified = isVerified;
     }
 
-    public int getRemoveStaffId() {
-        return removeStaffId;
+    public String getName() {
+        return Name;
     }
 
-    public void setRemoveStaffId(int removeStaffId) {
-        this.removeStaffId = removeStaffId;
+    public void setName(String name) {
+        Name = name;
     }
 
-    public String getRemoveDate() {
-        return removeDate;
+    public String getType() {
+        return Type;
     }
 
-    public void setRemoveDate(String removeDate) {
-        this.removeDate = removeDate;
-    }
-
-    public int getSuspendedStaffId() {
-        return suspendedStaffId;
-    }
-
-    public void setSuspendedStaffId(int suspendedStaffId) {
-        this.suspendedStaffId = suspendedStaffId;
-    }
-
-    public String getSuspendedDate() {
-        return suspendedDate;
-    }
-
-    public void setSuspendedDate(String suspendedDate) {
-        this.suspendedDate = suspendedDate;
-    }
-
-    public String getRemark() {
-        return remark;
-    }
-
-    public void setRemark(String remark) {
-        this.remark = remark;
+    public void setType(String type) {
+        Type = type;
     }
 }

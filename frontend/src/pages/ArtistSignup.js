@@ -27,7 +27,7 @@ export default function ArtistSignup() {
     setImage("");
   };
   
-  const [artistName, setArtistName] = useState("");
+  const [name, setArtistName] = useState("");
   const [email, setEmail] = useState("");
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
@@ -35,7 +35,7 @@ export default function ArtistSignup() {
   const [address, setAddress] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setCon_Password] = useState("");
-  const memberType = "Artist";
+  const type = "Artist";
 
   const date = new Date();
   const year = date.getFullYear();
@@ -47,7 +47,7 @@ export default function ArtistSignup() {
   const save = (event) => {
     event.preventDefault();
     const artist = {
-       artistName, email, firstName, lastName, phoneNumber, address, password, memberType, regDate};
+       name, email, firstName, lastName, phoneNumber, address, password, type, regDate};
     try {
 
       if(password.length < 8){
@@ -96,7 +96,7 @@ export default function ArtistSignup() {
                   <div className='mb-2 text-white text-field'>
                     <label htmlFor='ArtistName'>Artist Name</label>
                     <input type='text' placeholder='' className='form-control' required
-                    value = {artistName}
+                    value = {name}
                     onChange ={(event) => {
                     setArtistName(event.target.value);
                   }}

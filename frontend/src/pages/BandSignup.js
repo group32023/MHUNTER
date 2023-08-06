@@ -26,7 +26,7 @@ export default function BandSignup() {
       setImage("");
     };
 
-    const [bandName, setBandName] = useState("");
+    const [name, setBandName] = useState("");
     const [email, setEmail] = useState("");
     const [firstName, setFirstName] = useState("");
     const [lastName, setLastName] = useState("");
@@ -34,7 +34,7 @@ export default function BandSignup() {
     const [address, setAddress] = useState("");
     const [password, setPassword] = useState("");
     const [confirmpassword, setCon_Password] = useState("");
-    const memberType = "Band";
+    const type = "Band";
 
     const date = new Date();
     const year = date.getFullYear();
@@ -46,7 +46,7 @@ export default function BandSignup() {
     const save = (event) => {
       event.preventDefault();
       const band = {
-         bandName, email, firstName, lastName, phoneNumber, address, password, memberType, regDate };
+         name, email, firstName, lastName, phoneNumber, address, password, type, regDate };
       try {
   
         if(password.length < 8){
@@ -93,7 +93,7 @@ export default function BandSignup() {
                     <div className='mb-2 text-white text-field'>
                       <label htmlFor='ArtistName'>Band Name</label>
                       <input type='text' placeholder='' className='form-control'required
-                    value = {bandName}
+                    value = {name}
                     onChange ={(event) => {
                     setBandName(event.target.value);
                   }}/>

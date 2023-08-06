@@ -1,14 +1,12 @@
 package com.MHunter.mhunter.model;
 
 import jakarta.persistence.*;
-import lombok.Data;
 
 @Entity
-@Data
-public class Artist {
+public class Band {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int artistId;
+    private int BandID;
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "mmid")
     private MusicMember musicMember;
@@ -16,15 +14,15 @@ public class Artist {
     @JoinColumn(name = "user_id")
     private User user;
 
-    public Artist() {
+    public Band() {
     }
 
-    public int getArtistId() {
-        return artistId;
+    public int getBandID() {
+        return BandID;
     }
 
-    public void setArtistId(int artistId) {
-        this.artistId = artistId;
+    public void setBandID(int bandID) {
+        BandID = bandID;
     }
 
     public MusicMember getMusicMember() {
@@ -43,3 +41,4 @@ public class Artist {
         this.user = user;
     }
 }
+
