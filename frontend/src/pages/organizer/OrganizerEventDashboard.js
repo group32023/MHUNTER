@@ -2,6 +2,10 @@ import React from 'react'
 import "../../assets/css/OrganizerEventDashboard.css"
 import Topbar from '../../components/common/Topbar';
 import profilePhoto from '../../assets/images/profilePhoto.jpeg'
+import { BiSolidEdit } from "react-icons/bi";
+import { BiSolidBox } from "react-icons/bi";
+import { BiSolidCalendar } from "react-icons/bi";
+import { BiSolidTimeFive } from "react-icons/bi";
 import 'bootstrap/dist/css/bootstrap.min.css'
 
 function OrganizerEventDashboard() {
@@ -17,31 +21,52 @@ function OrganizerEventDashboard() {
 
             <div className="row">
                 <div className="eventDescriptionDiv  mt-4 col-md-7">
-                    <div className="row p-3">
-                        <div className="eventImgDiv col-md-2 mt-2">
-                            <img alt='' src={profilePhoto} width='130px' height='130px' />
+                    <div className="row p-2 ">
+                        <div className="eventImgDiv col-md-2 mt-4">
+                            <img alt='' src={profilePhoto} width='120px' height='120px' />
                         </div>
-                        <div className="eventDescDiv col-md-10">
+                        <div className="eventDescDiv col-md-10 mt-2">
                             <span>BEAT BLITZ</span>
-                            {/* Content for 8-cols div
-                            Content for 8-cols div
-                            Content for 8-cols div
-                            Content for 8-cols div
-                            Content for 8-cols div
-                            Content for 8-cols div
-                            Content for 8-cols div
-                            Content for 8-cols div
-                            Content for 8-cols div
-                            Content for 8-cols div
-                            Content for 8-cols div
-                            Content for 8-cols div
-                            Content for 8-cols div
-                            Content for 8-cols div
-                            Content for 8-cols div
-                            Content for 8-cols div
-                            Content for 8-cols div
-                            Content for 8-cols div */}
+                            <div className="row">
+                                <div className="eventDescInnerDiv col-md-10 py-2 " style={{ fontFamily: 'MyCustomFont' }}>
+                                    <p>
+                                        for 8-cols div
+                                        Content for 8-cols divContent for 8-cols divContent for 8-cols divContent for 8-cols div
+                                        Content for 8-cols div
+                                        Content for 8-cols div
+                                        Content for 8-cols div
+                                        Content for 8-cols div
+                                        Content for 8-cols div
+                                        Content for 8-cols div
+                                        Content for 8-cols div
+                                        Content for 8-cols div
+                                        Content for 8-cols div
+                                        Content for 8-cols div
+
+                                    </p>
+                                </div>
+                                <div className='col-md-1'>
+                                    <BiSolidEdit className='descriptionIcon fs-4  ' />
+                                </div>
+                                <div className='col-md-1 '>
+                                    <BiSolidBox className='descriptionIcon fs-4   ' />
+                                </div>
+                            </div>
+
+                            <div className="row mt-2" style={{ fontFamily: 'MyCustomFont' }}>
+                                <div className="dateTimeDiv">
+                                    <BiSolidCalendar className='dateIcon fs-1  ' />
+
+                                </div>
+                                <div className="dateTimeDiv">
+                                    <BiSolidTimeFive className='timeIcon fs-1  ' />
+
+                                </div>
+                            </div>
+
                         </div>
+
+
                     </div>
                 </div>
 
