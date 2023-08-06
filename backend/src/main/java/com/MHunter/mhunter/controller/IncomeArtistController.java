@@ -46,7 +46,7 @@ public class IncomeArtistController {
         List<IncomeArtist> incomeList = incomeArtistService.viewListOfArtistIncomes(artistId);
         List<Event> eventDetails=new ArrayList<Event>();
         incomeList.forEach(incomeArtist ->
-                eventDetails.add(eventService.viewSpecificEvent(incomeArtist.getId().getEventId()).get(0)));
+                eventDetails.add(eventService.viewSpecificEvent(incomeArtist.getId().getEventId())));
 
         return eventDetails;
     }
@@ -72,7 +72,7 @@ public class IncomeArtistController {
         monthlyGrowthAndIncome.add(0.0);
         List<IncomeArtist> incomeList = incomeArtistService.viewListOfArtistIncomes(artistId);
 
-        System.out.println(incomeList.size());
+// hello
 //        get the monthly income
         for(int i=0;i<incomeList.size();i++){
 
@@ -120,8 +120,7 @@ public class IncomeArtistController {
             }
 
         }
-        System.out.println(firstMonthIncome);
-        System.out.println(diffMonth);
+
         double monthlyGrowth =Math.round(((Math.pow((lastMonthIncome/firstMonthIncome),(1/diffMonth)))-1)*100);
 
         monthlyGrowthAndIncome.set(0,lastMonthIncome);

@@ -37,6 +37,25 @@ public class Event {
     private LocalTime start_time;
     //    @Column(name = "end_time")
     private LocalTime end_time;
+
+    private String town;
+
+    public int getEventid() {
+        return eventid;
+    }
+
+    public void setEventid(int eventid) {
+        this.eventid = eventid;
+    }
+
+    public String getTown() {
+        return town;
+    }
+
+    public void setTown(String town) {
+        this.town = town;
+    }
+
     //    @Column(name = "Image")
 //    private String Image;
 //    @Column(name = "Crowd")

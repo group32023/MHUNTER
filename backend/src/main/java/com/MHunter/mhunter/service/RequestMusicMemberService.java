@@ -1,18 +1,24 @@
 package com.MHunter.mhunter.service;
 
-import com.MHunter.mhunter.model.Event;
-import com.MHunter.mhunter.model.IncomeArtist;
-import com.MHunter.mhunter.model.IncomeArtistId;
 import com.MHunter.mhunter.model.RequestMusicMember;
+import com.MHunter.mhunter.model.RequestMusicMemberId;
 
 import java.util.List;
 
 public interface RequestMusicMemberService {
+    public RequestMusicMember saveRequestMusicMember(RequestMusicMember requestMusicMember);
 
-    public RequestMusicMember saveRequest(RequestMusicMember request);
-    public List<RequestMusicMember> getAllRequest();
+    public List<RequestMusicMember> viewAll();
 
-    public List<RequestMusicMember> viewSpecificPendingEventRequest(int artistId);
-    public RequestMusicMember updateRequest(int eventId);
+    public RequestMusicMember updateRequestMusicMember(RequestMusicMember requestMusicMember, RequestMusicMemberId id);
 
+    public boolean deleteRequestMusicMember(RequestMusicMemberId requestMusicMemberId);
+
+    public RequestMusicMember findSpecific(RequestMusicMemberId requestMusicMemberId);
+
+    public int countPendingRequest(int mmid);
+
+    public List<RequestMusicMember> findEventsByMMID(int mmid);
+
+    public List<RequestMusicMember> findConformationEventsByMMID(int mmid);
 }

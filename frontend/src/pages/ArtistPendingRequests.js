@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import SideMenuBarArtist from '../components/common/SideMenuBar/SideMenuBarArtist'
 import '../assets/css/artistDashboard.css'
 import '../assets/css/artistPendingRequests.css'
-import { MDBBtn } from 'mdb-react-ui-kit';
+// import { MDBBtn } from 'mdb-react-ui-kit';
 import profileImage from '../assets/images/profilePhoto.jpeg';
 
 

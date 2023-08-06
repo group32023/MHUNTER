@@ -1,6 +1,8 @@
 package com.MHunter.mhunter.model;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Column;
+import jakarta.persistence.EmbeddedId;
+import jakarta.persistence.Entity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -13,13 +15,12 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 public class RequestMusicMember {
     @EmbeddedId
-    private IncomeArtistId id;
+    private RequestMusicMemberId requestMusicMemberId;
     private int orgId;
     @Column(columnDefinition = "DATETIME DEFAULT CURRENT_TIMESTAMP")
     private LocalDateTime requestDate;
-    private byte confirmationStatus;
-    private LocalDateTime confirmedDate;
 
+    private int conformationStatus;
 
-
+    private LocalDateTime confirmationDate;
 }

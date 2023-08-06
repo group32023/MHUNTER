@@ -6,20 +6,44 @@ import artistUpcommingCalandar from '../assets/images/calendar(2).png'
 
 export default function ArtistUpcommingEvent() {
 
-  const [events,setEvents] =useState([])
+ var date = new Date()
+ var id = 758463
+ const [events,setEvents] =useState([])
+ const loadDate = () => {
+  fetch("http://localhost:8080/requestMusicMember/viewEventList/758463")
+  .then((res) => res.json())
+  .then((result) => {  
+      const newEvents = result.map(item => (
+          <div className='eventItem'> 
+              <img className='eventImage' src={event01} alt=''></img>
+              <p className='eventTopic'>{item.event_name}</p>
+              <span className='locationEvent'>{item.town}</span>
+              <p className='eventDescripition'>{item.description}</p>
+              <div className='eventTypeDiv'>
+                  <img className='eventTypeImage' src={eventType} alt=''></img>
+              </div>
+              <p className='eventTypeData'>{item.event_type}</p>
+              <div className='dateDiv'>
+                  <img className='dateImage' src={artistUpcommingCalandar} alt=''></img>
+              </div>
+              <p className='dateData'>{item.date}</p>
+              <hr className='line'></hr>
+          </div>
+      ));
+      setEvents(newEvents);
+  })
+}
 
-  useEffect(() => {
-    const newEvent =<div key={events.length}> <p className='upcomingEventTitle'>Upcoming Events</p> <img className='eventImage' src={event01} alt=''></img><p className='eventTopic'>BEAT BLITZ</p><span className='locationEvent'>Matara</span><p className='eventDescripition'>Join us for a heartwarming wedding celebration in the scenic coastal city of Matara. A day filled with love, laughter, and lasting memories. Let's toast to new beginnings!</p><div className='eventTypeDiv'><img className='eventTypeImage' src={eventType} alt=''></img></div><p className='eventTypeData'>Wedding</p><div className='dateDiv'><img className='dateImage' src={artistUpcommingCalandar} alt=''></img></div><p className='dateData'>Jun 14 2023</p><hr className='line'></hr></div>
-    setEvents(prevEvents => [...prevEvents, newEvent]);
-  }, []);
+useEffect(() => {
+loadDate();
+}, []);
 
- 
 
   return (
     <div>
-        <div className='artistUpcommingEvent'>
-            {events}
-        </div>
+      <p className='upcomingEventTitle'>Upcomming Events</p>
+        {events}
     </div>
+    
   )
 }
