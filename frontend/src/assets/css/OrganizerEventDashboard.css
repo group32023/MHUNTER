@@ -189,3 +189,20 @@
 .resheduleBtn {
     background-color: green;
 }
+
+.requestTableDiv .table {
+    --bs-table-color: white;
+    --bs-table-bg: #2f363e;
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+.requestTableDiv th,
+.requestTableDiv td {
+    border: none;
+    padding: 10px;
+}
+
+.requestTableDiv .table thead {
+    background-color: #1c2126;
+}

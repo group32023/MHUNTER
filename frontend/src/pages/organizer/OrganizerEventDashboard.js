@@ -115,7 +115,7 @@ function OrganizerEventDashboard() {
                     <div className="p-3">
                         <p className='fs-5' style={{ fontFamily: 'MyCustomFont1' }}>Requests</p>
                         <hr></hr>
-                        <div className="requestTableTitle d-flex justify-content-center align-items-center">
+                        <div className="requestTableDiv d-flex justify-content-center align-items-center">
                             <table className="table table-bordered text-center ">
                                 <thead>
                                     <tr>
