@@ -5,6 +5,7 @@ import com.MHunter.mhunter.model.RequestMusicMember;
 import com.MHunter.mhunter.model.RequestMusicMemberId;
 import com.MHunter.mhunter.service.EventService;
 import com.MHunter.mhunter.service.RequestMusicMemberService;
+import com.MHunter.mhunter.struct.EventOrganizer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -142,6 +143,27 @@ public class RequestMusicMemberController {
         });
 
         return events;
+    }
+
+    @GetMapping("/viewAllEvents/{mid}")
+    public List<EventOrganizer> viewAllEvents(@PathVariable int mid){
+        List<RequestMusicMember> requestMusicMembersList = requestMusicMemberService.findConformationEventsByMMID(mid);
+        List<EventOrganizer> eventOrganizerList = new ArrayList<>();
+
+
+        requestMusicMembersList.forEach(res ->{
+            Event event = eventService.viewSpecificEvent(res.getRequestMusicMemberId().getEventId());
+            EventOrganizer eventOrganizer = new EventOrganizer();
+            eventOrganizer.setOrganizerName("W.R.A Kavinda Perera");
+            eventOrganizer.setEventType(event.getEvent_type());
+            eventOrganizer.setPlace(event.getTown());
+            eventOrganizer.setDate(event.getDate());
+            eventOrganizerList.add(eventOrganizer);
+
+            System.out.println(eventOrganizer);
+        });
+
+        return eventOrganizerList;
     }
 
 }
