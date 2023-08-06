@@ -2,10 +2,11 @@
 import React,{useState, useEffect,useRef} from 'react';
 import { Link } from 'react-router-dom';
 import SideMenuBarArtist from '../components/common/SideMenuBar/SideMenuBarArtist'
-import '../assets/css/artistDashboard.css'
+import '../assets/css/artistInvoice.css'
 import '../assets/css/artistPendingRequests.css'
 // import { MDBBtn } from 'mdb-react-ui-kit';
 import profileImage from '../assets/images/profilePhoto.jpeg';
+import CurrencyInput from 'react-currency-input-field';
 
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -83,12 +84,22 @@ export default function ArtistPendingRequests() {
             <div className='logoutBg'></div>
         </div>
 
-  
-        {/* {eventList.map((item, index) => (
-      <li key={index}>{item}</li>
-    ))} */}
-        
-        <div>{divElements}</div>;
+        <div className='InvoiceContainer'>
+            <h3>Invoice</h3>
+            <div>
+            
+
+            <CurrencyInput
+            id="input-example"
+            className='currency-input1'
+            name="input-name"
+            placeholder="0.00"
+            defaultValue={'0.00'}
+            decimalsLimit={2}
+            onValueChange={(value, name) => console.log(value, name)}
+            />;
+            </div>
+        </div>
         
         
     </div>

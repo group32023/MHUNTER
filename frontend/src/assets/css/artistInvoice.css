@@ -1,0 +1,28 @@
+.MainContainer{
+
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    background: #24292D;
+
+}
+.InvoiceContainer{
+    position: absolute;
+    width: 60%;
+    left: 22.5%;
+    height: 60%;
+    top: 15%;
+    background: #2F363E;
+    color: #ffffff;
+}
+
+.InvoiceContainer h3{
+    position: relative;
+    top: 10%;
+}
+
+.currency-input1{
+    position: relative;
+    top: 45px;
+    align-items: center;
+}

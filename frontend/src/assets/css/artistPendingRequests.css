@@ -286,3 +286,12 @@
     left: -4%;
     
 }
+
+.MainContainer{
+
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    background: #24292D;
+
+}
