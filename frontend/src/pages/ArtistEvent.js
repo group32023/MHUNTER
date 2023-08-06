@@ -19,7 +19,7 @@ export default function ArtistEvent() {
   const divElements = [];
 
   const handle = ()=>{
-    fetch("http://localhost:8080/requestMusicMember/viewEventList/758463").then((res)=>res.json()).then((result)=>{
+    fetch("http://localhost:8080/requestMusicMember/viewAllEvents/758463").then((res)=>res.json()).then((result)=>{
       const newItem = result.map(item=>(
         <div  className="requestContainer">
       <img src={profileImage} className="profile"></img>
