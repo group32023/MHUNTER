@@ -2,6 +2,7 @@ import './CreateEvent.css';
 import { useState } from 'react';
 import React from 'react';
 import { format } from 'date-fns'
+import Topbar from '../../components/common/Topbar';
 import LocationInput from '../../components/organizer/LocationInput';
 // import SideMenuBarOrganizer from '../../components/common/SideMenuBar/SideMenuBarOrganizer';
 
@@ -72,11 +73,12 @@ function CreateEvent() {
 
   return (
 
-    <div>
+    <div className='new'>
       {/* <SideMenuBarOrganizer /> */}
 
-      <div className="container" style={{ width: '1215px', marginLeft: '20%' }} >
+      {/* <div className="container" style={{ width: '1215px', marginLeft: '20%' }} > */}
 
+        <Topbar />
         <form>
 
           <h2>Create Event</h2>
@@ -163,7 +165,7 @@ function CreateEvent() {
 
         </form>
 
-      </div>
+      {/* </div> */}
 
     </div>
   );

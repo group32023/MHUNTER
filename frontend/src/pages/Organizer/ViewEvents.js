@@ -1,5 +1,6 @@
 
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 // import SideMenuBarOrganizer from '../../components/common/SideMenuBar/SideMenuBarOrganizer';
 import Topbar from '../../components/common/Topbar';
 // import CreateEvent from './CreateEvent';
@@ -45,8 +46,6 @@ function ViewEvents() {
 
     return (
 
-
-
         <div className='row'>
             <Topbar />
             {events.map(event => (
@@ -65,7 +64,7 @@ function ViewEvents() {
                                 <span style={{ color: "#11FE70", marginLeft: "2rem", marginTop: "-1.5rem", display: "block" }}>{extractloc(event.location)}</span>
                             </div>
 
-                            <div className='newrow'>
+                            <div className='newrow'style={{ marginTop: "0.3rem" }}>
                                 <FontAwesomeIcon icon="calendar" style={{ color: "#7643D2", fontSize: '18px' }} />
                                 <span>{event.date}</span>
                             </div>
@@ -84,9 +83,12 @@ function ViewEvents() {
 
             <div className='col-md-3'>
 
-                <a href='./CreateEvent'>
-                    <FontAwesomeIcon icon="plus" style={{ color: "#24292D", height: "15rem", width: "15rem", marginTop: "2rem", marginLeft: "-0.3rem" }} />
-                </a>
+                <Link to="/organizer/event/CreateEvent">
+                    <FontAwesomeIcon
+                        icon="plus"
+                        style={{ color: "#24292D", height: "15rem", width: "15rem", marginTop: "2rem", marginLeft: "-0.3rem" }}
+                    />
+                </Link>
             </div>
 
         </div>

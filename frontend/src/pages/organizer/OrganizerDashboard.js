@@ -7,7 +7,7 @@ import OrganizerEventHistory from './OrganizerEventHistory';
 import OrganizerProfile from './OrganizerProfile';
 import OrganizerEventDashboard from './OrganizerEventDashboard';
 import ViewEvents from "./ViewEvents"; 
-import CreateEvent from './CreateEvent';
+import CreateEvent from './CreateEvent'; 
 import '../../assets/css/OrganizerDashboard.css';
 import OrganizerDashboardContent from "./OrganizerDashboardContent";
 
