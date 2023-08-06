@@ -1,0 +1,180 @@
+.date{
+  
+    background-color: #ffffff !important;
+    position: absolute;
+    font-size: 15px;
+    width: 8%;
+    height: 5%;
+    font-weight: bold;
+    text-align: center;
+    color: #000000;
+    border-radius: 10px;
+    border: none !important;
+    left:32%;
+    top: 218px;
+
+
+}
+
+.event_type{
+    background-color: #ffffff !important;
+    position: absolute;
+    font-size: 15px;
+    width: 8%;
+    height: 5%;
+    font-weight: bold;
+    text-align: center;
+    color: #000000;
+    border-radius: 10px;
+    border: none !important;
+    left: 42%;
+    top: 218px;
+}
+
+.filter{
+
+    background: #ffffff !important;
+    position: absolute; 
+    font-size: 15px;
+    width: 8%;
+    height: 5%;
+    font-weight: bold;
+    text-align: center;
+    color: #000000;
+    border-radius: 10px;
+    border: none !important;
+    left: 62%;
+    top: 218px;
+    --bs-btn-hover-color: #7643D2 !important;
+    background-color: #7643D2 !important;
+
+    
+
+}
+
+.download{
+background-color: #7643D2 !important;
+position: relative;
+font-size: 15px;
+width: 8%;
+height: 5%;
+font-weight: bold;
+text-align: center;
+color: #ffffff;
+border-radius: 10px;
+border: none !important;
+left:25%;
+top: 90%;
+
+
+
+}
+
+.artistContainer{
+height: 820px;
+}
+
+
+#CalenderReport{
+position: relative;
+left: -1%;
+padding-right: 10px;
+}
+
+
+/* .ReportTable{
+position: absolute;
+top: 28%;
+width: 60% !important;
+left: 20%;
+color: #ffffff !important;
+background-color: none !important;
+} */
+
+/* .ReportTable label{
+color: #ffffff;
+}
+
+.ReportTable select{
+
+width: 50px;
+left: 50px;
+} */
+
+
+
+#PriorBookingTable{
+width: 80% !important;
+position: absolute;
+top: 38% !important;
+left: 12.5% !important;
+
+
+
+--bs-table-border:none ;
+border-collapse: separate;
+border-spacing: 0 15px;
+background-color: none !important;
+--bs-table-color: #000000 !important;
+--bs-table-color-type: none !important; 
+justify-content: center;
+--bs-table-bg: none !important;
+text-align: center !important; 
+
+}
+
+#PriorBookingTable thead{
+
+ --bs-table-bg: #000000;
+ color: #ffffff !important;
+}
+
+#PriorBookingTable tbody{
+--bs-table-bg:#D9D9D9;
+}
+
+
+#PriorBookingTable tr, td{
+
+padding: 15px 10px 15px 10px !important;
+
+margin: auto;
+text-align: center !important;
+height: 23px;
+
+border: none;
+--bs-table-color: #000000 !important;
+--bs-table-color-type: none !important;  
+
+
+
+}
+
+.addressDiv{
+    color: #ffffff;
+    position: absolute;
+    top: 15%;
+    left: 15%;
+}
+
+.addressDiv h3{
+    position: relative;
+    top: 0%;
+    font-weight: 600;
+    left: 160%;
+}
+
+.addressDiv .organizer_tag{
+    position: relative;
+    top: 5%;
+    font-weight: 600;
+    left: -40%;
+}
+
+.addressDiv .organizerName{
+    position: relative;
+    top: -36px;
+    font-weight: 600;
+    left: 34%;
+    color: #11FE70;
+}

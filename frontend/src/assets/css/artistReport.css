@@ -45,7 +45,7 @@
         border-radius: 10px;
         border: none !important;
         left: 32%;
-        top: 195px;
+        top: 127px;
         --bs-btn-hover-color: #7643D2 !important;
     
         
@@ -71,7 +71,7 @@
 }
 
 .artistContainer{
-    height: 1350px;
+    height: 820px;
 }
 
 
@@ -82,16 +82,16 @@
 }
 
 
-.ReportTable{
+/* .ReportTable{
     position: absolute;
     top: 28%;
-    width: 60%;
+    width: 60% !important;
     left: 20%;
     color: #ffffff !important;
     background-color: none !important;
-}
+} */
 
-.ReportTable label{
+/* .ReportTable label{
     color: #ffffff;
 }
 
@@ -99,13 +99,18 @@
   
     width: 50px;
     left: 50px;
-}
+} */
 
 
 
-.ReportTable table{
-    position: relative;
-    top: 10px;
+#ReportTable{
+    width: 80% !important;
+    position: absolute;
+    top: 30% !important;
+    left: 12.5% !important;
+    
+   
+
     --bs-table-border:none ;
     border-collapse: separate;
     border-spacing: 0 15px;
@@ -118,25 +123,25 @@
   
 }
 
-.ReportTable table thead{
+#ReportTable thead{
     /* background: #000000 !important;
     color: #ffffff !important; */
      --bs-table-bg: #2F363E;
      --bs-table-color: #ffffff;
 }
 
-.ReportTable table tbody{
+#ReportTable tbody{
     --bs-table-bg:#5F5C5C;
 }
 
 
-.ReportTable table, tr, td, th{
+#ReportTable tr, td, th{
 
     padding: 15px 10px 15px 10px !important;
     
     margin: auto;
     text-align: center !important;
-    height: 55px;
+    height: 23px;
     
     border: none;
     --bs-table-striped-bg: #5F5C5C;
@@ -148,51 +153,3 @@
     }
 
 
-.ReportTable .dataTables_info{
-   width: 250px;
-}
-
-.page-link:hover{
-    color: #7643D2 !important;
-
-}
-.page-link{
-    color: #7643D2 !important;
-
-}
-
-.active .page-link {
-    --bs-pagination-color: #ffffff !important;
-    --bs-pagination-focus-color: #ffffff !important;
-    --bs-pagination-hover-color: #ffffff !important;
-    background-color: #7643D2 !important;
-    border-color: #7643D2 !important;
-    color:#ffffff !important
-}
-
-.dataTables_paginate ul {
-    position: relative;
-    top: 35px;
-    left: -280px;
-
-}
-.dataTables_paginate ul li{
-    width: 90px;
-    padding-left: 10px;
-    padding-right: 10px;
-}
-
-.dataTables_paginate ul li span {
-    font-size: 12px !important;
-    background:none;
-
-}
-
-.dataTables_paginate ul li a {
-    font-size: 12px !important;
-
-}
-
-.dataTables_paginate ul .page-link.disabled {
-    color: #ffffff !important;
-}

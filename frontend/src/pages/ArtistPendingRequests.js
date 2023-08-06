@@ -62,7 +62,8 @@ export default function ArtistPendingRequests() {
       </Link>
       
    
-  </div>);
+  </div>
+  );
    
   }
 

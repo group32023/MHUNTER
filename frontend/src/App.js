@@ -11,6 +11,7 @@ import ArtistPendingRequests from "./pages/ArtistPendingRequests";
 import ArtistPendingRequestView from "./pages/ArtistPendingRequestView"
 import ArtistGenerateReports from "./pages/ArtistGenerateReports"
 import ConfirmRequest from "./pages/ConfirmRequest"
+import ArtistPriorBooking from "./pages/ArtistPriorBooking"
 
 
 
@@ -32,7 +33,7 @@ function App() {
           <Route path='/aboutUs' element={<AboutUs/>}></Route>
           {/* <Route path='/artist/Dashboard' element={<ArtistPendingRequests/>}></Route> */}
           {/* <Route path='/artist/Dashboard' element={<ArtistPendingRequestView/>}></Route> */}
-          <Route path='/artist/Dashboard' element={<ArtistGenerateReports/>}></Route>
+          <Route path='/artist/Dashboard' element={<ArtistPriorBooking/>}></Route>
           {/* <Route path='/artist/PendingRequestView/:id' element={<ArtistPendingRequestView/>}></Route>
           <Route path='/artist/pendingRequest/confirmRequest/:id' element={<ConfirmRequest/>}></Route> */}
 

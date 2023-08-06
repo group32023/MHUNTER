@@ -1,8 +1,7 @@
 import React,{useState, useEffect,useRef} from 'react';
 import {Button, Table} from 'react-bootstrap';
-import { MDBDataTable } from 'mdbreact';
 import SideMenuBarArtist from '../components/common/SideMenuBar/SideMenuBarArtist'
-import '../assets/css/artistReport.css'
+import '../assets/css/priorbooking.css'
 import { MDBBtn } from 'mdb-react-ui-kit';
 import { useReactToPrint } from 'react-to-print'
 
@@ -77,15 +76,21 @@ export default function ArtistGenerateReports() {
       <div className='artistContainer'>
           <div className='artistSideBar'>
               <SideMenuBarArtist></SideMenuBarArtist>
-              <h3 className='headerDashboard'>Reports</h3>
+              <h3 className='headerDashboard'>Pending Requests</h3>
               <div className='notificationBg'></div>
               <div className='homeBg'></div>
               <div className='logoutBg'></div>
           </div>
+
+          <div className='addressDiv'>
+          <h3>Prior Booking </h3>
+          <h4 className="organizer_tag">Organizer :  </h4>
+          <h4 className="organizerName">W.R.A.Tharindu Wijesinghe</h4>
+          </div>
         
-              <MDBBtn className="dateFrom"><FontAwesomeIcon icon={faCalendarDays} id="CalenderReport"/>Date From</MDBBtn> 
-              <MDBBtn className="Today"><FontAwesomeIcon icon={faCalendarDays} id="CalenderReport"/>Today</MDBBtn> 
-              <MDBBtn className="eventTypeSelection"><FontAwesomeIcon icon={faCalendarDays} id="CalenderReport"/>Event Type</MDBBtn>
+              <MDBBtn className="date"><FontAwesomeIcon icon={faCalendarDays} id="CalenderReport"/>Date</MDBBtn> 
+              <MDBBtn className="event_type"><FontAwesomeIcon icon={faCalendarDays} id="CalenderReport"/>Event Type</MDBBtn> 
+              <MDBBtn className="filter">Filter</MDBBtn>
               
 
             <div className='reportContainer' >
@@ -93,7 +98,7 @@ export default function ArtistGenerateReports() {
 
               <p>Income</p>
           
-             <Table id="ReportTable" className='table table-hover table-dark table-condensed table-resposive'  >
+             <Table id="PriorBookingTable" className='table table-hover table-dark table-condensed table-resposive'  >
                         <thead>
                         <tr>
                           <th>Event Name</th>
