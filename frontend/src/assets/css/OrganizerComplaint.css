@@ -1,0 +1,37 @@
+@font-face {
+    font-family: 'MyCustomFont';
+    src: url('../fonts/Dosis-Regular.ttf') format('truetype');
+    /* src: url('../../../assets/icons/dashboard.png') format('truetype'); */
+    /* Add other font file formats and their paths here */
+}
+
+@font-face {
+    font-family: 'MyCustomFont1';
+    src: url('../fonts/Dosis-Bold.ttf') format('truetype');
+    /* src: url('../../../assets/icons/dashboard.png') format('truetype'); */
+    /* Add other font file formats and their paths here */
+}
+
+@font-face {
+    font-family: 'MyCustomFont2';
+    src: url('../fonts/Dosis-ExtraBold.ttf') format('truetype');
+    /* src: url('../../../assets/icons/dashboard.png') format('truetype'); */
+    /* Add other font file formats and their paths here */
+}
+
+.complaint_content_container {
+    color: white;
+
+}
+
+
+.complaintForm,
+.complaintTableDiv {
+    background-color: #2f363e;
+    border-radius: 10px;
+    height: 570px;
+}
+
+.complaintForm {
+    margin-left: 35px;
+}
