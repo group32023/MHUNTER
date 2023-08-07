@@ -12,6 +12,13 @@
     /* Add other font file formats and their paths here */
 }
 
+@font-face {
+    font-family: 'MyCustomFont2';
+    src: url('../fonts/Dosis-ExtraBold.ttf') format('truetype');
+    /* src: url('../../../assets/icons/dashboard.png') format('truetype'); */
+    /* Add other font file formats and their paths here */
+}
+
 .eventDashboard_content_container {
     color: white;
 }
@@ -190,38 +197,57 @@
     background-color: green;
 }
 
-.requestTable {
-    --bs-table-color: white;
-    --bs-table-bg: #2f363e;
-    border-collapse: separate;
-    border-spacing: 0;
-    width: 100%;
-}
-
-.requestTable th,
-.requestTable td {
-    border: none;
-    padding: 15px;
-    font-size: 16px;
-
-}
-
-.requestTable tr {
-    border-radius: 10px;
-}
-
-.requestTable thead {
-    /* background: linear-gradient(to right, #2f363e, #1c2126, #2f363e); */
-    background-color: #1c2126;
-    opacity: 0.5;
-    position: relative;
-    border-radius: 10px;
-}
-
 .requestTableDiv {
-    overflow: hidden;
+    flex-direction: column;
+}
+
+.requestTableDiv .row {
+    display: flex;
+    width: 100%;
+    margin-top: 5px;
+}
+
+.requestTableDiv .column {
+    flex: 1;
+    padding: 8px;
+    text-align: center;
+    justify-content: center;
+}
+
+.requestTableDiv .content {
+    padding: 10px;
+    text-align: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.requestTableDiv .headerContent {
+    background-color: #1c2126;
+    opacity: 0.8;
+    border-radius: 10px;
+
+}
+
+.requestTableDiv .headerContent:hover {
+    opacity: 1;
 }
 
 .requestTableDiv .confirmed {
     color: green;
+    font-weight: bolder;
+}
+
+.requestTableDiv .tableContent {
+    background-color: #3f4851;
+    border-radius: 10px;
+    opacity: 0.86;
+}
+
+.requestTableDiv .tableContent:hover {
+    opacity: 1;
+}
+
+.tableContent img {
+    border-radius: 50%;
 }

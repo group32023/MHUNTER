@@ -117,45 +117,88 @@ function OrganizerEventDashboard() {
                         <p className='fs-5' style={{ fontFamily: 'MyCustomFont1' }}>Requests</p>
                         <hr></hr>
                         <div className="requestTableDiv d-flex justify-content-center align-items-center">
-                            <table className="requestTable text-center ">
-                                <thead>
-                                    <tr>
-                                        <th className="fs-6" style={{ fontFamily: 'MyCustomFont1' }}>Artist/Band</th>
-                                        <th className="col-md-5 fs-6" style={{ fontFamily: 'MyCustomFont1' }}>Status</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>Artist 1</td>
-                                        <td className='confirmed'>Confirmed<BiSolidCircle className='mx-2' style={{ color: 'green' }} /></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Artist 2</td>
-                                        <td>Pending</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Artist 3</td>
-                                        <td>Pending</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Artist 3</td>
-                                        <td>Pending</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Artist 3</td>
-                                        <td>Pending</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Artist 3</td>
-                                        <td>Pending</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Artist 3</td>
-                                        <td>Pending</td>
-                                    </tr>
 
-                                </tbody>
-                            </table>
+                            <div className="row headerContent mb-3">
+                                <div className="column">
+                                    <div className="fs-6" style={{ fontFamily: 'MyCustomFont1' }}>
+                                        Artist/Band
+                                    </div>
+                                </div>
+                                <div className="column">
+                                    <div className="fs-6" style={{ fontFamily: 'MyCustomFont1' }}>
+                                        Status
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="row tableContent">
+                                <div className="column">
+                                    <div className="content">
+                                        <img alt='' src={profilePhoto} width='35px' height='35px' className='mx-4' />
+                                        Coldplay
+                                    </div>
+                                </div>
+                                <div className="column">
+                                    <div className="content confirmed mt-1" style={{ fontFamily: 'MyCustomFont2' }}>
+                                        Confirmed <BiSolidCircle className='mx-2' />
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="row tableContent">
+                                <div className="column">
+                                    <div className="content">
+                                        Ed Sheeran
+                                    </div>
+                                </div>
+                                <div className="column">
+                                    <div className="content">
+                                        Active
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div className="row tableContent">
+                                <div className="column">
+                                    <div className="content">
+                                        Ed Sheeran
+                                    </div>
+                                </div>
+                                <div className="column">
+                                    <div className="content">
+                                        Active
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div className="row tableContent">
+                                <div className="column">
+                                    <div className="content">
+                                        Ed Sheeran
+                                    </div>
+                                </div>
+                                <div className="column">
+                                    <div className="content">
+                                        Active
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div className="row tableContent">
+                                <div className="column">
+                                    <div className="content">
+                                        Ed Sheeran
+                                    </div>
+                                </div>
+                                <div className="column">
+                                    <div className="content">
+                                        Active
+                                    </div>
+                                </div>
+
+                            </div>
+
 
                         </div>
                     </div>
