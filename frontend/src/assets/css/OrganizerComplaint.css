@@ -35,3 +35,114 @@
 .complaintForm {
     margin-left: 35px;
 }
+
+.complaintFormForm textarea,
+.complaintFormForm input {
+    background-color: #1c2126 !important;
+    border-radius: 10px;
+    border: white -2px;
+}
+
+.complaintFormForm textarea {
+    height: 170px;
+    overflow-y: auto;
+}
+
+.complaintForm .btn {
+    width: 150px;
+    border: none;
+}
+
+.complaintForm .btn:hover {
+    opacity: 1;
+}
+
+#scrollbarStyle-1::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    background-color: #1c2126;
+}
+
+#scrollbarStyle-1::-webkit-scrollbar {
+    width: 10px;
+    background-color: #1c2126;
+}
+
+#scrollbarStyle-1::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+    background-color: #7643D2;
+}
+
+.complaintFormForm label:hover {
+    color: #7643D2;
+}
+
+.complaintFormForm .btn-secondary {
+    background-color: red;
+    opacity: 0.8;
+}
+
+.complaintFormForm .btn-primary {
+    background-color: green;
+    opacity: 0.8;
+}
+
+.data-table {
+    display: flex;
+    flex-direction: column;
+    margin: 30px auto;
+    max-width: 670px;
+}
+
+.data-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+
+}
+
+.table-title {
+    font-weight: bold;
+    background-color: #f8f9fa;
+    text-align: center;
+    padding: 10px;
+}
+
+.complaint-title {
+    flex: 2;
+}
+
+.date,
+.status {
+    flex: 1;
+    text-align: center;
+}
+
+.complaintTableDiv .data-table {
+    width: 100%;
+}
+
+.complaintTableDiv .table-title {
+    color: white;
+    background-color: #1c2126;
+    border-radius: 10px;
+}
+
+.complaintTableDiv .content-data-row {
+    background-color: #3e454c;
+    border-radius: 10px;
+    padding: 10px;
+    margin-top: 20px;
+    cursor: pointer;
+    opacity: 0.8;
+}
+
+.complaintTableDiv .content-data-row:hover {
+    opacity: 1;
+}
+
+.complaintTableDiv {
+    overflow-y: auto;
+}
