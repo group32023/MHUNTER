@@ -1,8 +1,10 @@
 import { useState } from "react";
 import '../../assets/css/tabs.css'
-import Contact from '../../pages/contact';
 import Post from '../../pages/post';
 import Video from '../../pages/video';
+import Photos from '../../pages/photos';
+import Audio from '../../pages/audio';
+
 
 function Tabs() {
   const [toggleState, setToggleState] = useState(1);
@@ -48,13 +50,13 @@ function Tabs() {
   {toggleState === 1 && <Post/>}
 </div>
 <div className={toggleState === 2 ? "content active-content" : "content"}>
-{toggleState === 2 && <Contact/>}
+{toggleState === 2 && <Audio/>}
 </div>
 <div className={toggleState === 3 ? "content active-content" : "content"}>
 {toggleState === 3 && <Video/>}
 </div>
 <div className={toggleState === 4 ? "content active-content" : "content"}>
-{toggleState === 4 && <Contact/>}
+{toggleState === 4 && <Photos/>}
 </div>
       </div>
     </div>

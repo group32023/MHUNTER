@@ -25,47 +25,93 @@ export default function PerformanceView() {
       <div className="performancebg"></div>
       <div className="videoStream">
         <div className='artistSlide2'>
-          <div className="embed-responsive2 embed-responsive-16by9">
+          <div className="embed-responsive2 embed-responsive2">
             <video
-              className="embed-responsive2-item"
+              className="embed-responsive2-item2"
               src={video}
               ref={videoRefs}
               allowFullScreen
               title="performance"
-              width={236}
+              width={536}
               height={236}
             ></video>
           </div>
+        <div>
           <button
             type="button"
-            className="btn btn-danger"
-            id="play1"
-            onClick={playVideo}
-          >
-            <FontAwesomeIcon icon={isPlaying ? faPause : faPlay} />
-          </button>
-        </div>
-        <div className='artistSlide2'>
-          <div className="embed-responsive2 embed-responsive-16by9">
-            <video
-              className="embed-responsive2-item"
-              src={video}
-              ref={videoRefs}
-              allowFullScreen
-              title="performance"
-              width={236}
-              height={236}
-            ></video>
-          </div>
-          <button
-            type="button"
-            className="btn btn-danger"
+            className="btn btn-danger2"
             id="play2" // Make sure to change the id to "play2" or something unique for the second player
             onClick={playVideo}
           >
             <FontAwesomeIcon icon={isPlaying ? faPause : faPlay} />
           </button>
+          </div>
+          <div className="videoText">
+                <p>Me As Diha Balan</p>
+         </div>
+         <div className="videoText2">
+                <p>Dec 12 2014</p>
+         </div>
         </div>
+        <div className='artistSlide2'>
+          <div className="embed-responsive2 embed-responsive2">
+            <video
+              className="embed-responsive2-item2"
+              src={video}
+              ref={videoRefs}
+              allowFullScreen
+              title="performance"
+              width={536}
+              height={236}
+            ></video>
+          </div>
+        <div>
+          <button
+            type="button"
+            className="btn btn-danger2"
+            id="play2" // Make sure to change the id to "play2" or something unique for the second player
+            onClick={playVideo}
+          >
+            <FontAwesomeIcon icon={isPlaying ? faPause : faPlay} />
+          </button>
+          </div>
+          <div className="videoText">
+                <p>Me As Diha Balan</p>
+         </div>
+         <div className="videoText2">
+                <p>Dec 12 2014</p>
+         </div>
+        </div>
+        <div className='artistSlide2'>
+          <div className="embed-responsive2 embed-responsive2">
+            <video
+              className="embed-responsive2-item2"
+              src={video}
+              ref={videoRefs}
+              allowFullScreen
+              title="performance"
+              width={536}
+              height={236}
+            ></video>
+          </div>
+        <div>
+          <button
+            type="button"
+            className="btn btn-danger2"
+            id="play2" // Make sure to change the id to "play2" or something unique for the second player
+            onClick={playVideo}
+          >
+            <FontAwesomeIcon icon={isPlaying ? faPause : faPlay} />
+          </button>
+          </div>
+          <div className="videoText">
+                <p>Me As Diha Balan</p>
+         </div>
+         <div className="videoText2">
+                <p>Dec 12 2014</p>
+         </div>
+        </div>
+        
       </div>
     </div>
   );

@@ -1,110 +1,16 @@
-#backgroundimage{
-  
-    width: 100%;
-    height: 50%;
-    top: 0;
-    position: absolute;
-    left: 0;
-    
-  
-}
 
-#tableEvent{
-    top: 14%;
-    left: 5%;
-    font-family: Dosis;
-    position: absolute;
-    --bs-table-bg: none !important;
-    font-size: 20px;
-    width: 90%;
-    text-align: center !important;
-    
-
-
-
-}
-#firstTD{
-    position: absolute;
-    width:10px;
-}
-
-#eventImage{
-   position: relative;
-   width: 40%;
-   display: block;
-  
-   
-  
-
-}
-#LocationIcon{
-
-    position: relative;
-    right: 3%;
-}
-
-#tableEvent tr{
-    width: 20%;
-    height: 40%;
-    text-align: center !important;
-    border-bottom: #7643D2 solid 3px !important;
-
-    
-}
-
-#tableEvent td{
-    top: 5%;
-    width: 20%;
-    height: 30%;
-    text-align: center;
-    padding-top: 20px;
-}
-
-#selectionMenu{
-    top: 6%;
-    width: 10%;
-    left: 30%;
-    position: absolute;
-    background-color:rgba(3, 3, 3, 0.10);
-    color: white;
-    border-color: #7643D2 !important;
-
-}
-
-#selectionMenu option{
-    background-color:rgba(3, 3, 3, 0.90);
-}
-
-#statusInput{
-    top: 6%;
-    width: 30%;
-    left: 44%;
-    position: absolute;
-    background-color:rgba(3, 3, 3, 0.10);
-    color: white;
-    border-color: #7643D2 !important;
-
-}
-
-#statusInput::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
-    color: white;
-    opacity: 1; /* Firefox */
-  }
-#location1{
-    font-size: 25%;
-    color: white;
-}
 
 .descriptionDiv1{
     background-color:rgba(3, 3, 3, 0.4);
     width: 100%;
     height: 250%;
     top: 88.5%;
-    z-index: 10;
+    z-index: 1000;
     position: absolute;
 
 
 }
+
 
 .captionbackground{
     background-color:rgba(3, 3, 3, 0.842);
@@ -112,7 +18,6 @@
     height: 3%;
     position: absolute;
     top: 1%;
-    z-index: 100;
 
 
 
@@ -228,6 +133,7 @@
     width:194px;
     height: 255px;
   }
+  
   .artistDetails {
     color: rgb(201, 178, 248);
     font-family: "Dosis";
@@ -243,7 +149,25 @@
     z-index: 1000;
     text-shadow: 2px -1px 3px rgba(118, 67, 210, 1);    /* Add the fill color */
 }
-
+@media screen and (max-width: 768px) {
+    .caption1 {
+      font-size: 24px; /* Adjust font size for mobile layout */
+    }
+  
+    .name {
+      font-size: 40px; /* Adjust font size for mobile layout */
+    }
+  
+    .artistImage {
+      width: 140px; /* Adjust image width for mobile layout */
+      height: 184px; /* Adjust image height for mobile layout */
+    }
+  
+    .artistDetails {
+      font-size: 18px; /* Adjust font size for mobile layout */
+    }
+  }
+  
 
 
   

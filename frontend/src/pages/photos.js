@@ -1,72 +1,36 @@
-import * as React from "react";
-import video from '../assets/images/audio1.mp3';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPlay, faPause } from '@fortawesome/free-solid-svg-icons';
-import { useRef, useState } from "react";
+import React from "react";
 import '../assets/css/audio.css'; // Import the CSS file
+import Photo1 from '../assets/images/shehan.jpeg';
+import Photo2 from '../assets/images/shihan.jpg';
+import Photo3 from '../assets/images/shehan1.jpg';
+import Photo4 from '../assets/images/shehan2.jpg';
+import Photo5 from '../assets/images/shehan3.jpeg';
+import Photo6 from '../assets/images/shehan4.jpeg';
+import Photo7 from '../assets/images/artist.jpg';
+import Photo8 from '../assets/images/event.jpg';
 
-export default function PerformanceView() {
-    const videoRefs = useRef();
-    const [isPlaying, setIsPlaying] = useState(false);
-  
-    function playVideo() {
-      if (videoRefs.current.paused) {
-        videoRefs.current.play();
-        setIsPlaying(true);
-      } else {
-        videoRefs.current.pause();
-        setIsPlaying(false);
-      }
-    }
-  
 
+
+const PhotoGallery = () => {
   return (
     <div>
-      <div className="performancebg"></div>
-      <div className="videoStream">
-        <div className='artistSlide1'>
-          <div className="embed-responsive embed-responsive-16by9">
-            <video
-              className="embed-responsive-item"
-              src={video}
-              ref={videoRefs}
-              allowFullScreen
-              title="performance"
-              width={236}
-              height={236}
-            ></video>
-          </div>
-          <button
-            type="button"
-            className="btn btn-danger"
-            id="play1"
-            onClick={playVideo}
-          >
-            <FontAwesomeIcon icon={isPlaying ? faPause : faPlay} />
-          </button>
-        </div>
-        <div className='artistSlide1'>
-          <div className="embed-responsive embed-responsive-16by9">
-            <video
-              className="embed-responsive-item"
-              src={video}
-              ref={videoRefs}
-              allowFullScreen
-              title="performance"
-              width={236}
-              height={236}
-            ></video>
-          </div>
-          <button
-            type="button"
-            className="btn btn-danger"
-            id="play2" // Make sure to change the id to "play2" or something unique for the second player
-            onClick={playVideo}
-          >
-            <FontAwesomeIcon icon={isPlaying ? faPause : faPlay} />
-          </button>
-        </div>
+      <div className="photo-container">
+        <img src={Photo1} alt="Shehan" />
+        <img src={Photo2} alt="Shihan" />
+        <img src={Photo3} alt="Shihan" />
+        <img src={Photo4} alt="Shihan" />
+        <img src={Photo5} alt="Shihan" />
+        <img src={Photo6} alt="Shihan" />
+        <img src={Photo7} alt="Shihan" />
+        <img src={Photo8} alt="Shihan" />
+
       </div>
     </div>
   );
-}
+};
+
+export default PhotoGallery;
+
+
+
+

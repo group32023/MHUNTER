@@ -54,39 +54,43 @@ h() {
                  
             </div>
 
-            <div className='descriptionDiv1'>
+          <div className='descriptionDiv1'>
                <div className='captionbackground'>
                 <p className='caption1'>ARTISTS {'>'} SHEHAN MIHIRANGA</p>
                 </div>
-                <div>
-                <div className='captionbackground2'>
+            
+            <div className='captionbackground2'>
                 <div className='name'>SHEHAN MIHIRANGA</div>
                 <div className="image-with-content">
-        <div className="image-container">
-          <img src={artistImage} alt="artistImage" className='artistImage' />
-        </div>
-        <div className="content-container">
-        <p className="artistDetails">
-        Shehan Mihiranga is a renowned Sri Lankan artist known for his exceptional musical talent.
-        With his soulful voice and captivating performances, Shehan has captivated audiences both in Sri Lanka and internationally. 
-        He has gained popularity for his versatility, seamlessly blending genres such as pop,
-        R&B, and traditional Sri Lankan music in his compositions. Shehan's heartfelt lyrics and melodious melodies have made him a 
-        beloved figure in the Sri Lankan music industry, and his contributions have earned him numerous accolades and a dedicated fan base.
-        </p>
-        </div>
-        </div>
-      </div>
-    
-      <div><Tab></Tab></div>
-      
+                   <div className="image-container">
+                    <img src={artistImage} alt="artistImage" className='artistImage' />
+                   </div>
+                  <div className="content-container">
+                     <p className="artistDetails">
+                    Shehan Mihiranga is a renowned Sri Lankan artist known for his exceptional musical talent.
+                    With his soulful voice and captivating performances, Shehan has captivated audiences both in Sri Lanka and internationally. 
+                    He has gained popularity for his versatility, seamlessly blending genres such as pop,
+                    R&B, and traditional Sri Lankan music in his compositions. Shehan's heartfelt lyrics and melodious melodies have made him a 
+                    beloved figure in the Sri Lankan music industry, and his contributions have earned him numerous accolades and a dedicated fan base.
+       
+                    </p>
+                </div>
+              </div>
+              </div><Tab></Tab></div>
+              
 
+      </div> 
+
+    
+
+     
+         
     </div>
 
-</div>
-            </div>
+
+ 
 
 
-      </div>            
 
   )
 }
