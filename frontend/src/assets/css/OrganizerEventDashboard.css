@@ -5,6 +5,20 @@
     /* Add other font file formats and their paths here */
 }
 
+@font-face {
+    font-family: 'MyCustomFont1';
+    src: url('../fonts/Dosis-Bold.ttf') format('truetype');
+    /* src: url('../../../assets/icons/dashboard.png') format('truetype'); */
+    /* Add other font file formats and their paths here */
+}
+
+@font-face {
+    font-family: 'MyCustomFont2';
+    src: url('../fonts/Dosis-ExtraBold.ttf') format('truetype');
+    /* src: url('../../../assets/icons/dashboard.png') format('truetype'); */
+    /* Add other font file formats and their paths here */
+}
+
 .eventDashboard_content_container {
     color: white;
 }
@@ -16,4 +30,224 @@
 
 .horizontalLine span {
     margin-left: 40px;
+}
+
+.eventDescriptionDiv {
+    margin-left: 35px;
+    height: 240px;
+    background-color: #2f363e;
+    border-radius: 10px;
+    width: 70%;
+}
+
+.eventImgDiv img {
+    border-radius: 50%;
+}
+
+.eventDescDivSpan {
+    font-size: 18px;
+    color: #F70F5D;
+    font-weight: 600;
+}
+
+.eventDescDiv .eventDescInnerDiv {
+    background-color: #1c2126;
+    border-radius: 10px;
+    height: 110px;
+    opacity: 0.7;
+    overflow-y: hidden;
+}
+
+.addTypeDescriptionDiv,
+.locationTypeDescriptionDiv {
+    height: 130px;
+    background-color: #2f363e;
+    border-radius: 10px;
+    margin-right: 0px;
+    margin-bottom: 10px;
+}
+
+
+.crowdTypeDescriptionDiv,
+.eventTypeDescriptionDiv {
+    height: 100px;
+    background-color: #2f363e;
+    border-radius: 10px;
+    margin-right: 0px;
+    margin-bottom: 10px;
+}
+
+.btnTypeDescriptionDiv {
+    height: 70px;
+}
+
+.requestTypeDescriptionDiv {
+    margin-left: 35px;
+    height: 310px;
+    overflow-y: auto;
+    background-color: #2f363e;
+    border-radius: 10px;
+    width: 70%;
+}
+
+#scrollbarStyle-1::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    background-color: #1c2126;
+}
+
+#scrollbarStyle-1::-webkit-scrollbar {
+    width: 10px;
+    background-color: #1c2126;
+}
+
+#scrollbarStyle-1::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+    background-color: #7643D2;
+}
+
+
+
+.locationDescriptionDiv {
+    /* background-color: antiquewhite; */
+    height: auto;
+    margin-left: 5px;
+    width: 25%;
+}
+
+.descriptionIcon {
+    color: white;
+    opacity: 0.7;
+    margin-left: 15px;
+}
+
+.descriptionIcon:hover {
+    color: #7643D2;
+}
+
+.dateTimeDiv {
+    background-color: #3e454c;
+    opacity: 0.8;
+    border-radius: 10px;
+    height: 70px;
+    margin-right: 10px;
+    width: 48.5%;
+
+}
+
+.eventTypeDescriptionDiv p:hover,
+.crowdTypeDescriptionDiv p:hover,
+.dateTimeDiv p:hover {
+    color: #7643D2;
+}
+
+.dateIcon {
+    margin-top: 13px;
+    color: #7643D2;
+}
+
+.timeIcon {
+    margin-top: 13px;
+    color: #F70F5D;
+}
+
+.dateIcon:hover,
+.timeIcon:hover {
+    color: white;
+}
+
+.addTypeDescriptionDiv .addRow {
+    background-color: #3e454c;
+    margin-left: 12px;
+    border-radius: 10px;
+}
+
+.addRow .plusIcon {
+    color: #1c2126;
+}
+
+.addRow:hover .plusIcon {
+    color: #7643D2;
+}
+
+.addRow:hover {
+    background-color: #1c2126;
+}
+
+.btnTypeDescriptionDiv button {
+    margin-left: 21px;
+    font-size: 16px;
+    border-radius: 10px;
+    height: 50px;
+    border: none;
+    color: white;
+    opacity: 0.7;
+}
+
+.btnTypeDescriptionDiv button:hover {
+    opacity: 0.9;
+}
+
+.cancelBtn {
+    background-color: red;
+}
+
+.resheduleBtn {
+    background-color: green;
+}
+
+.requestTableDiv {
+    flex-direction: column;
+}
+
+.requestTableDiv .row {
+    display: flex;
+    width: 100%;
+    margin-top: 5px;
+}
+
+.requestTableDiv .column {
+    flex: 1;
+    padding: 8px;
+    text-align: center;
+    justify-content: center;
+}
+
+.requestTableDiv .content {
+    padding: 10px;
+    text-align: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.requestTableDiv .headerContent {
+    background-color: #1c2126;
+    opacity: 0.8;
+    border-radius: 10px;
+
+}
+
+.requestTableDiv .headerContent:hover {
+    opacity: 1;
+}
+
+.requestTableDiv .confirmed {
+    color: green;
+    font-weight: bolder;
+}
+
+.requestTableDiv .tableContent {
+    background-color: #3f4851;
+    border-radius: 10px;
+    opacity: 0.86;
+}
+
+.requestTableDiv .tableContent:hover {
+    opacity: 1;
+}
+
+.tableContent img {
+    border-radius: 50%;
 }
