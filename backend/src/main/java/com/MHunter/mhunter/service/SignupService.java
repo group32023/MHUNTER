@@ -23,30 +23,46 @@ public class SignupService {
     private ArtistRepository artistRepository;
 
     @Autowired
+    private OrganizerRepository organizerRepository;
+
+    @Autowired
     private StaffMemberRepository staffMemberRepository;
 
     @Transactional
     public void signUpAndCreateMember(User user, String Name, String Type) {
         User savedUser = userRepository.save(user);
 
-        MusicMember musicMember = new MusicMember();
-        musicMember.setUser(savedUser);
-        musicMember.setName(Name);
-        musicMember.setType(Type);
-        musicMemberRepository.save(musicMember);
+        if("Organizer".equals(Type)){
+            Organizer organizer = new Organizer();
+            organizer.setUser(savedUser);
+            organizerRepository.save(organizer);
+        }
+        else if("Band".equals(Type) || "Artist".equals(Type) ){
+            MusicMember musicMember = new MusicMember();
+            musicMember.setUser(savedUser);
+            musicMember.setName(Name);
+            musicMember.setType(Type);
+            musicMemberRepository.save(musicMember);
 
-        if ("Band".equals(Type)){
-            Band band = new Band();
-            band.setUser(savedUser);
-            band.setMusicMember(musicMember);
-            bandRepository.save(band);
+            if ("Band".equals(Type)){
+                Band band = new Band();
+                band.setUser(savedUser);
+                band.setMusicMember(musicMember);
+                bandRepository.save(band);
+            }
+            else if("Artist".equals(Type)){
+                Artist artist = new Artist();
+                artist.setUser(savedUser);
+                artist.setMusicMember(musicMember);
+                artistRepository.save(artist);
+            }
         }
-        else if("Artist".equals(Type)){
-            Artist artist = new Artist();
-            artist.setUser(savedUser);
-            artist.setMusicMember(musicMember);
-            artistRepository.save(artist);
+        else{
+            StaffMember staffMember = new StaffMember();
+            staffMember.setUser(savedUser);
+            staffMemberRepository.save(staffMember);
         }
+
     }
 
     @Transactional
@@ -61,6 +77,7 @@ public class SignupService {
                 if (password.equals(checkPassword)) {
                     Band band = bandRepository.findByUserUserId(existingUser.getUserId());
                     Artist artist = artistRepository.findByUserUserId(existingUser.getUserId());
+                    Organizer organizer = organizerRepository.findByUserUserId(existingUser.getUserId());
                     StaffMember staffMember = staffMemberRepository.findByUserUserId(existingUser.getUserId());
                     String msg = "Login Success";
                     if (band != null) {
@@ -68,6 +85,9 @@ public class SignupService {
                     }
                     if (artist != null) {
                         msg += "#Artist";
+                    }
+                    if(organizer != null){
+                        msg += "#Organizer";
                     }
                     if(staffMember != null && "Admin".equals(staffMember.getJobRoll())){
                         msg += "#Admin";

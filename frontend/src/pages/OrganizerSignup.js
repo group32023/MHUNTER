@@ -32,7 +32,7 @@ function OrganizerSignup() {
     const [address, setAddress] = useState("");
     const [password, setPassword] = useState("");
     const [confirmpassword, setCon_Password] = useState("");
-    const type = "Band";
+    const type = "Organizer";
 
     const date = new Date();
     const year = date.getFullYear();
