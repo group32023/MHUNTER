@@ -1,13 +1,7 @@
 package com.MHunter.mhunter.service;
 
-import com.MHunter.mhunter.model.Artist;
-import com.MHunter.mhunter.model.Band;
-import com.MHunter.mhunter.model.MusicMember;
-import com.MHunter.mhunter.model.User;
-import com.MHunter.mhunter.repository.ArtistRepository;
-import com.MHunter.mhunter.repository.BandRepository;
-import com.MHunter.mhunter.repository.MusicMemberRepository;
-import com.MHunter.mhunter.repository.UserRepository;
+import com.MHunter.mhunter.model.*;
+import com.MHunter.mhunter.repository.*;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -27,6 +21,9 @@ public class SignupService {
 
     @Autowired
     private ArtistRepository artistRepository;
+
+    @Autowired
+    private StaffMemberRepository staffMemberRepository;
 
     @Transactional
     public void signUpAndCreateMember(User user, String Name, String Type) {
@@ -63,9 +60,20 @@ public class SignupService {
 
                 if (password.equals(checkPassword)) {
                     Band band = bandRepository.findByUserUserId(existingUser.getUserId());
+                    Artist artist = artistRepository.findByUserUserId(existingUser.getUserId());
+                    StaffMember staffMember = staffMemberRepository.findByUserUserId(existingUser.getUserId());
                     String msg = "Login Success";
                     if (band != null) {
                         msg += "#Band";
+                    }
+                    if (artist != null) {
+                        msg += "#Artist";
+                    }
+                    if(staffMember != null && "Admin".equals(staffMember.getJobRoll())){
+                        msg += "#Admin";
+                    }
+                    if(staffMember != null && "Moderator".equals(staffMember.getJobRoll())) {
+                        msg += "#Moderator";
                     }
                     return ResponseEntity.ok(msg);
                 } else {

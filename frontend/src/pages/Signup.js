@@ -41,7 +41,9 @@ export default function Signup() {
             </p>
           </div>
           <div>
-            <button className='signup_button'><b><span className='text-danger'>SignUp</span> for MHUNTER Event Organizer</b></button>
+            <Link to={"/organizersignup"}>
+              <button className='signup_button'><b><span className='text-danger'>SignUp</span> for MHUNTER Event Organizer</b></button>
+            </Link>
           </div>
         </div>
 

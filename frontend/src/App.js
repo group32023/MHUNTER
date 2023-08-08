@@ -21,6 +21,7 @@ import AllUserDetails from './pages/admin/AllUserDetails';
 import ViewUserDetails from './pages/admin/ViewUserDetails';
 import AdminReport from './pages/admin/AdminReport';
 import AdminSettings from './pages/admin/AdminSettings';
+import OrganizerSignup from './pages/OrganizerSignup';
 function App() {
   return (
     
@@ -33,6 +34,7 @@ function App() {
           <Route path='/artistbandsignup' element={<ArtistBandSignup />} />
           <Route path='/artistsignup' element={<ArtistSignup />} />
           <Route path='/bandsignup' element={<BandSignup/>} />
+          <Route path='/organizersignup' element ={<OrganizerSignup/>} />
           <Route path='/artistdashboard' element={<ArtistDashboard/>} />
           <Route path='/banddashboard' element={<BandDashboard/>} />
           <Route path='/moderatordashboard' element={<ModeratorDashboard/>} />
