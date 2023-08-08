@@ -127,10 +127,15 @@
 /*Search Bar */
 .search-bar{
   width: 30%;
+  border: none;
+
+  
 }
 .search-button{
-  background-color: #FAECFA;
+  background-color: #858585;
   border: none;
+  height: 100%;
+  margin-top: auto;
   color: #7643d2;
 }
 .search-button:hover{
@@ -173,6 +178,7 @@
   border: none;
   float: right;
   width: 100px;
+  height: auto;
   
 }
 @media screen and (max-width: 1000px) {
@@ -267,7 +273,7 @@
   background-color: #7643d2;
 }
 .button-proofcheck{
-  margin: 0px 40% 0px;
+  margin: 0px 20% 0px;
 }
 @media screen and (max-width: 1000px) {
   .user-details , .proof{
@@ -275,7 +281,7 @@
   }
 
   .button-proofcheck{
-    margin: 0px 30% 0px;
+    margin: 0px 40% 0px;
   }
 }
 /* /View Detail- Proof Check */

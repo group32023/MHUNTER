@@ -16,18 +16,29 @@ import ArtistSignup from './pages/ArtistSignup';
 import NavBar from './components/common/NavBar';
 import MainSlider from './components/common/MainSlider';
 import BandSignup from './pages/BandSignup';
-import AdminDashboard from './pages/admin/AdminDashboard';
+// import AdminDashboard from './pages/admin/AdminDashboard';
 import OrganizerDashboard from './pages/organizer/OrganizerDashboard';
 import ArtistDashboard from './pages/artist/ArtistDashboard';
 import BandDashboard from './pages/band/BandDashboard';
-import ModeratorDashboard from './pages/moderator/ModeratorDashboard';
-import AdminRegistration from './pages/admin/AdminRegistration';
-import ProofCheck from './pages/admin/ProofCheck';
-import AllUserDetails from './pages/admin/AllUserDetails';
-import ViewUserDetails from './pages/admin/ViewUserDetails';
-import AdminReport from './pages/admin/AdminReport';
-import AdminSettings from './pages/admin/AdminSettings';
-import Admin from './pages/admin/admin';
+import ModeratorDashboard from './pages/moderator/moderatorDashboard';
+import ModeratorDashoboardContent from './pages/moderator/moderatorDashoboardContent';
+import ModeratorRegistration from './pages/moderator/registration';
+import ModeratorComplaints from './pages/moderator/complaints';
+import ModeratorUserDetails from './pages/moderator/userDetails';
+import ProofCheck from './pages/moderator/ProofCheck';
+import EventDetails from './pages/moderator/eventDetails';
+
+
+// import '../../assets/css/OrganizerDashboard.css';
+import ModeratorEvent from "./pages/moderator/event";
+
+// import AdminRegistration from './pages/admin/AdminRegistration';
+// import ProofCheck from './pages/admin/ProofCheck';
+// import AllUserDetails from './pages/admin/AllUserDetails';
+// import ViewUserDetails from './pages/admin/ViewUserDetails';
+// import AdminReport from './pages/admin/AdminReport';
+// import AdminSettings from './pages/admin/AdminSettings';
+// import Admin from './pages/admin/admin';
 function App() {
   return (
     
@@ -35,7 +46,7 @@ function App() {
 
     <BrowserRouter>
       <Routes>
-      <Route path='/contact' element={<Contact/>}></Route>
+         <Route path='/contact' element={<Contact/>}></Route>
           <Route path='/artistDetails' element={<ArtistDetails/>}></Route>
           <Route path='/post' element={<Post/>}></Route>
           <Route path='/video' element={<Video/>}></Route>
@@ -47,20 +58,22 @@ function App() {
           <Route path='/bandsignup' element={<BandSignup/>} />
           <Route path='/artistdashboard' element={<ArtistDashboard/>} />
           <Route path='/banddashboard' element={<BandDashboard/>} />
-          <Route path='/moderatordashboard' element={<ModeratorDashboard/>} />
-          <Route path='/organizerdashboard' element={<OrganizerDashboard/>} />
+          
+          <Route path='/moderator/moderatorDashboard' element={<ModeratorDashboard/>} />
+
+          <Route path='/moderator/moderatorDashoboardContent' element={<ModeratorDashoboardContent />}></Route>
+          <Route path='/moderator/registration' element={<ModeratorRegistration  />}></Route>
+          <Route path='/moderator/registration/ProofCheck' element={<ProofCheck/>} />
+
+          <Route path='/moderator/complaints' element={<ModeratorComplaints />}></Route>
+          <Route path='/moderator/userDetails' element={<ModeratorUserDetails />}></Route>
+          <Route path='/moderator/event' element={<ModeratorEvent />}></Route>
+          <Route path='/moderator/event/eventDetails' element={<EventDetails/>}/>
 
 
-          {/*Admin*/}
-          <Route path='/admin/admin' element={<Admin/>} />
 
-          <Route path='/admin/admindashboard' element={<AdminDashboard/>} />
-          <Route path='/admin/registration' element={<AdminRegistration/>} />
-          <Route path='/admin/registration/proofcheck' element={<ProofCheck/>} />
-          <Route path='/admin/userdetails' element={<AllUserDetails/>} />
-          <Route path='/admin/userdetails/viewdetails' element={<ViewUserDetails/>} />
-          <Route path='/admin/report' element={<AdminReport/>} />
-          <Route path='/admin/settings' element={<AdminSettings/>} />
+
+         
 
       </Routes>
     </BrowserRouter>
