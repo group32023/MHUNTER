@@ -13,6 +13,7 @@ import theekshana from '../../assets/images/theekshana.jpg';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fas } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSearch } from '@fortawesome/free-solid-svg-icons';
 library.add(fas);
 
 function SearchArtist() {
@@ -27,12 +28,11 @@ function SearchArtist() {
                     <input
                         className="form-control me-1"
                         type="search"
-                        placeholder="Search"
-                        aria-label="Search"
+                        placeholder="Search An Artist"
+                        aria-label="Search"  
                     />
-                    <button className="btn btn-success" type="submit">
-                        <i className="faSearch"></i>
-                    </button>
+                    <FontAwesomeIcon icon={faSearch} className='searchicon'></FontAwesomeIcon>
+                   
                 </div>
             </div>
 

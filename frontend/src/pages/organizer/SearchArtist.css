@@ -109,7 +109,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #2F363E;
+  background-color: #1c2126;
   padding: 2rem 0;
 }
 
@@ -117,8 +117,8 @@
 .searchbar {
   display: flex;
   align-items: center;
-  background-color: white;
-  border-radius: 4px;
+  background-color: #1c2126;
+  border-radius: 10px;
   padding: 0.5rem;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
@@ -131,24 +131,8 @@
   flex: 1;
 }
 
-/* Style for the search button */
-.searchbar button {
-  border: none;
-  outline: none;
-  background-color: #28a745;
-  color: white;
-  padding: 0.5rem 1rem;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
+.searchbar .searchicon{
 
-/* Hover effect for the search button */
-.searchbar button:hover {
-  background-color: white;
-}
-
-/* Adjust the icon color inside the search button */
-.searchbar button i {
-  color: rgb(42, 8, 8);
+  margin-left: -15rem;
+  font-size: 30px;
 }
