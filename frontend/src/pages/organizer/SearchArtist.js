@@ -25,15 +25,20 @@ function SearchArtist() {
 
             <div className="search-container">
                 <div className="searchbar">
+                   
                     <input
                         className="form-control me-1"
                         type="search"
                         placeholder="Search An Artist"
-                        aria-label="Search"  
+                        aria-label="Search"
                     />
-                    <FontAwesomeIcon icon={faSearch} className='searchicon'></FontAwesomeIcon>
-                   
+                    
                 </div>
+ 
+                <div className='searchicon'>
+
+                <FontAwesomeIcon icon={faSearch} />
+                </div> 
             </div>
 
             <div className='col-md-3' >

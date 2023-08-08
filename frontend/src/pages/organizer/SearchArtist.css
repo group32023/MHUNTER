@@ -111,6 +111,7 @@
   align-items: center;
   background-color: #1c2126;
   padding: 2rem 0;
+ 
 }
 
 /* Styles for the search bar */
@@ -131,8 +132,8 @@
   flex: 1;
 }
 
-.searchbar .searchicon{
+.search-container .searchicon{
 
-  margin-left: -15rem;
+  margin-right: 5rem;
   font-size: 30px;
 }
