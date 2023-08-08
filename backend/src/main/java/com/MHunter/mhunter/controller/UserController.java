@@ -1,10 +1,9 @@
 package com.MHunter.mhunter.controller;
 
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@CrossOrigin
+
 //@RequestMapping("/user")
 public class UserController {
     //@Autowired
