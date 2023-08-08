@@ -4,7 +4,7 @@
     max-width: 16rem;
     /* max-height: 20rem; */
     height: auto;
-    border: #7643D2 0.5px solid;
+    /* border: #7643D2 0.5px solid; */
     margin-left: 4rem;
     border-radius: 8%;
     padding: 1rem;
@@ -27,7 +27,7 @@
     max-width: 16rem;
     /* max-height: 20rem; */
     height: auto;
-    border: #7643D2 0.5px solid;
+    /* border: #7643D2 0.5px solid; */
     margin-left: 4rem;
     border-radius: 8%;
     padding: 1rem;
@@ -81,7 +81,7 @@
 
     margin-top: 1rem;
     text-align: center;
-    color: #11FE70;
+    color: white;
     
   }
 
