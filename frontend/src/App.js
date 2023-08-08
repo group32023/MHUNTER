@@ -44,7 +44,7 @@ function App() {
       <Router>
         <Routes>
           {/* Organizer Routes */}
-          <Route path='/' element={<OrganizerDashboard />}>
+          <Route path='/' element={<Home />}>
 
             <Route path='/organizer/dashboard' element={<OrganizerDashboardContent />}></Route>
             <Route path='/organizer/event' element={<ViewEvents />}></Route>
