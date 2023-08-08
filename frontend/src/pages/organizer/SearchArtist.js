@@ -27,7 +27,7 @@ function SearchArtist() {
                 <div className="searchbar">
                    
                     <input
-                        className="form-control me-1"
+                        className="form-control me-1 custom-input"
                         type="search"
                         placeholder="Search An Artist"
                         aria-label="Search"
