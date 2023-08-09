@@ -3,7 +3,7 @@ import { useState } from 'react';
 import React from 'react';
 import { format } from 'date-fns'
 import Topbar from '../../components/common/Topbar';
-// import LocationInput from '../../components/organizer/LocationInput';
+import LocationInput from '../../components/organizer/LocationInput';
 // import SideMenuBarOrganizer from '../../components/common/SideMenuBar/SideMenuBarOrganizer';
 
 function CreateEvent() {
@@ -138,7 +138,7 @@ function CreateEvent() {
         <div className="form-group">
 
           <label htmlFor="location" className="form-label">Location</label>
-          {/* <LocationInput onLocationSelect={handleLocationSelect} setFormData={setFormData} /> */}
+          <LocationInput onLocationSelect={handleLocationSelect} setFormData={setFormData} />
 
         </div>
 
