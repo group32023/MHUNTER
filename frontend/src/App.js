@@ -20,7 +20,7 @@ import BandSignup from './pages/BandSignup';
 import OrganizerDashboard from './pages/organizer/OrganizerDashboard';
 import ArtistDashboard from './pages/artist/ArtistDashboard';
 import BandDashboard from './pages/band/BandDashboard';
-import ModeratorDashboard from './pages/moderator/moderatorDashboard';
+import ModeratorDashboard from './pages/moderator/ModeratorDashboard';
 import ModeratorDashoboardContent from './pages/moderator/moderatorDashoboardContent';
 import ModeratorRegistration from './pages/moderator/registration';
 import ModeratorComplaints from './pages/moderator/complaints';
@@ -31,16 +31,8 @@ import ViewComplaints from './pages/moderator/viewComplaints';
 
 
 
-// import '../../assets/css/OrganizerDashboard.css';
 import ModeratorEvent from "./pages/moderator/event";
 
-// import AdminRegistration from './pages/admin/AdminRegistration';
-// import ProofCheck from './pages/admin/ProofCheck';
-// import AllUserDetails from './pages/admin/AllUserDetails';
-// import ViewUserDetails from './pages/admin/ViewUserDetails';
-// import AdminReport from './pages/admin/AdminReport';
-// import AdminSettings from './pages/admin/AdminSettings';
-// import Admin from './pages/admin/admin';
 function App() {
   return (
     
@@ -82,15 +74,7 @@ function App() {
       </Routes>
     </BrowserRouter>
       
-      {/*<div>
-      <MainSlider>
-      </MainSlider>
-      <div>
-        <NavBar>
-        </NavBar>
-      </div>
-  </div>*/}
-     
+      
      
     </div>
     

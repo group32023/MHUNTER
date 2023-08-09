@@ -5,7 +5,7 @@ import ModeratorDashoboardContent from './moderatorDashoboardContent';
 import ModeratorRegistration from './registration';
 import ModeratorComplaints from './complaints';
 import ModeratorUserDetails from './userDetails';
-// import '../../assets/css/OrganizerDashboard.css';
+ import '../../assets/css/OrganizerDashboard.css';
 import ModeratorEvent from "./event";
 
 export default function OrganizerDashboard() {
