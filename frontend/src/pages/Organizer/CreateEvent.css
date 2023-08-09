@@ -1,31 +1,31 @@
 
 
  
-  .mainContainer form{
+  .create-event-container .create-event-form{
     
     color: aliceblue;
     background-color: #484E55;
-    margin-left: 15rem;
+    margin-left: 25rem;
     width: 500px;
     border: 2px black solid;
     padding: 2rem;
     border-radius: 10px;
   }
   
-  .mainContainer form h2{
+  .create-event-container .create-event-form h2{
     
    text-align: center;
   }
   
-  .form-group {
+   .create-event-form .form-group {
     margin-bottom: 20px;
   }
   
-  .form-label {
+  .create-event-form .form-label {
     font-weight: 400;
   }
   
-  .mainContainer form .form-control {
+   .create-event-form .form-control {
     width: 100%;
     padding: 8px;
     border: 1px solid white;
@@ -36,7 +36,7 @@
   }
 
 
-  .mainContainer form .form-select {
+   .create-event-form .form-select {
     width: 100%;
     padding: 8px;
     border: 1px solid #ccc;
@@ -46,7 +46,7 @@
     color: white;
   }
 
-  .mainContainer form button{
+   .create-event-form button{
 
     margin-left: 15rem;
     margin-top: 1rem;
@@ -55,21 +55,21 @@
     width: 10rem;
   }
 
-  .mainContainer form .form-control::placeholder {
+  .create-event-form .form-control::placeholder {
    color:#a09d9d;
   }
 
 
-  input[type="date"]::-webkit-calendar-picker-indicator {
+   .create-event-form input[type="date"]::-webkit-calendar-picker-indicator {
     filter: invert(1); /* This inverts the icon color; you can also use "grayscale(1)" or any other filter you prefer */
   }
   
   /* Time input field icon color */
-  input[type="time"]::-webkit-calendar-picker-indicator {
+   .create-event-form input[type="time"]::-webkit-calendar-picker-indicator {
     filter: invert(1); /* This inverts the icon color; you can also use "grayscale(1)" or any other filter you prefer */
   }
 
-  .standalone-searchbox > input {
+   .create-event-form .standalone-searchbox > input {
     background-color: black; /* Replace "your-color" with the desired background color for the search bar */
     color: black; /* Replace "your-text-color" with the desired text color for the search bar */
     border: 1px solid  ; /* Replace "your-border-color" with the desired border color for the search bar */
@@ -88,7 +88,7 @@
 
  
 
-  .mainContainer-NX form{
+  /* .mainContainer-NX form{
     
     color: aliceblue;
     background-color: #484E55;
@@ -137,4 +137,4 @@
 
   .mainContainer-NX form .form-control::placeholder {
    color:#a09d9d;
-  }
+  } */
