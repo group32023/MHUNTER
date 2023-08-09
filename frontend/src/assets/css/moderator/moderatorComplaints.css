@@ -62,10 +62,8 @@
 /* Styling for table cells */
 .data-row1 td {
     text-align: center;
-    font-family: Dosis;
     font-size: 17px;
     
-    font-weight: bold;
     border-bottom: 10px solid #5F5C5C; /* Apply border for all sides */
 
 }

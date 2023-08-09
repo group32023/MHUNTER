@@ -1,6 +1,12 @@
 import React, {useState } from 'react'
+import { Routes, Route } from 'react-router-dom';
+
 import SideMenuBarModerator from '../../components/common/SideMenuBar/SideMenuBarModerator';
 import '../../assets/css/moderator/moderatorComplaints.css'
+import ModeratorRegistration from './registration';
+import ModeratorComplaints from './complaints';
+import ModeratorUserDetails from './userDetails';
+import ModeratorEvent from "./event";
 
 import ModeratorImage from '../../assets/images/moderatorDash.png'
 import ModeratorPendingRequest from '../../components/Moderator/moderatorPendingRequest'
@@ -17,11 +23,11 @@ export default function ArtistDashboard() {
   const [expand,setExpandedSideBar] = useState(true)
 
   return (
-    
+    <>
+    <SideMenuBarModerator>
     <div className='main-container'>
         <div className='side-bar'>
 
-            <SideMenuBarModerator />
         </div>
         <div className='body-container'>
 
@@ -59,6 +65,14 @@ export default function ArtistDashboard() {
         </div> 
     </div>
     
-
+    <Routes>
+          {/* Nested routes for the Organizer Dashboard */}
+          <Route path='/moderator/registration' element={<ModeratorRegistration />}></Route>
+          <Route path='/moderator/complaints' element={<ModeratorComplaints />}></Route>
+          <Route path='/moderator/userDetails' element={<ModeratorUserDetails />}></Route>
+          <Route path='/moderator/event' element={<ModeratorEvent />}></Route>
+        </Routes>
+      </SideMenuBarModerator>
+    </>
   )
 }
