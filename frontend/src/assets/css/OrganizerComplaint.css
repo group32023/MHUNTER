@@ -95,7 +95,7 @@
     max-width: 670px;
 }
 
-.data-row {
+.complaintTableDataRow {
     display: flex;
     justify-content: space-between;
     align-items: center;

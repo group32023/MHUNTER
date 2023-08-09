@@ -20,7 +20,7 @@ function OrganizerComplaint() {
             <Topbar />
 
             <div className='complaint_content_container_main_row row mt-4 p-3'>
-                <div className='complaintForm col-md-4 p-3'>
+                <div className='complaintForm col-md-4 p-3 mx-4'>
                     <div className="p-3 ">
                         <p className='fs-5 text-center' style={{ fontFamily: 'MyCustomFont1' }}>Complaint Form</p>
                         <hr></hr>
@@ -46,67 +46,67 @@ function OrganizerComplaint() {
 
                 <div className='complaintTableDiv col-md-7 p-2 mx-4' id='scrollbarStyle-1'>
                     <div className="data-table d-flex justify-content-center text-center fs-6" style={{ fontFamily: 'MyCustomFont' }}>
-                        <div className="table-title data-row mb-4" style={{ fontFamily: 'MyCustomFont1' }}>
+                        <div className="table-title complaintTableDataRow mb-4" style={{ fontFamily: 'MyCustomFont1' }}>
                             <div className="complaint-title">Complaint Title</div>
                             <div className="date">Date</div>
                             <div className="status">Status</div>
                         </div>
-                        <div className="content-data-row data-row" onClick={handleShowModal}>
+                        <div className="content-data-row complaintTableDataRow" onClick={handleShowModal}>
                             <div className="complaint-title">Complaint 1</div>
                             <div className="date">2023-08-07</div>
                             <div className="status">Open</div>
                         </div>
-                        <div className="content-data-row data-row" onClick={handleShowModal}>
+                        <div className="content-data-row complaintTableDataRow" onClick={handleShowModal}>
                             <div className="complaint-title">Complaint 2</div>
                             <div className="date">2023-08-08</div>
                             <div className="status">Closed</div>
                         </div>
-                        <div className="content-data-row data-row" onClick={handleShowModal}>
+                        <div className="content-data-row complaintTableDataRow" onClick={handleShowModal}>
                             <div className="complaint-title">Complaint 3</div>
                             <div className="date">2023-08-09</div>
                             <div className="status">In Progress</div>
                         </div>
-                        <div className="content-data-row data-row" onClick={handleShowModal}>
+                        <div className="content-data-row complaintTableDataRow" onClick={handleShowModal}>
                             <div className="complaint-title">Complaint 1</div>
                             <div className="date">2023-08-07</div>
                             <div className="status">Open</div>
                         </div>
-                        <div className="content-data-row data-row" onClick={handleShowModal}>
+                        <div className="content-data-row complaintTableDataRow" onClick={handleShowModal}>
                             <div className="complaint-title">Complaint 2</div>
                             <div className="date">2023-08-08</div>
                             <div className="status">Closed</div>
                         </div>
-                        <div className="content-data-row data-row">
+                        <div className="content-data-row complaintTableDataRow">
                             <div className="complaint-title">Complaint 3</div>
                             <div className="date">2023-08-09</div>
                             <div className="status">In Progress</div>
                         </div>
-                        <div className="content-data-row data-row">
+                        <div className="content-data-row complaintTableDataRow">
                             <div className="complaint-title">Complaint 1</div>
                             <div className="date">2023-08-07</div>
                             <div className="status">Open</div>
                         </div>
-                        <div className="content-data-row data-row">
+                        <div className="content-data-row complaintTableDataRow">
                             <div className="complaint-title">Complaint 2</div>
                             <div className="date">2023-08-08</div>
                             <div className="status">Closed</div>
                         </div>
-                        <div className="content-data-row data-row">
+                        <div className="content-data-row complaintTableDataRow">
                             <div className="complaint-title">Complaint 3</div>
                             <div className="date">2023-08-09</div>
                             <div className="status">In Progress</div>
                         </div>
-                        <div className="content-data-row data-row">
+                        <div className="content-data-row complaintTableDataRow">
                             <div className="complaint-title">Complaint 1</div>
                             <div className="date">2023-08-07</div>
                             <div className="status">Open</div>
                         </div>
-                        <div className="content-data-row data-row">
+                        <div className="content-data-row complaintTableDataRow">
                             <div className="complaint-title">Complaint 2</div>
                             <div className="date">2023-08-08</div>
                             <div className="status">Closed</div>
                         </div>
-                        <div className="content-data-row data-row">
+                        <div className="content-data-row complaintTableDataRow">
                             <div className="complaint-title">Complaint 3</div>
                             <div className="date">2023-08-09</div>
                             <div className="status">In Progress</div>

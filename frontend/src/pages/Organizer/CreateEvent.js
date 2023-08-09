@@ -79,7 +79,7 @@ function CreateEvent() {
       {/* <div className="container" style={{ width: '1215px', marginLeft: '20%' }} > */}
 
       <Topbar />
-      <form>
+      <form className='organizerCreateEventForm'>
 
         <h2>Create Event</h2>
         <div className="form-group">
