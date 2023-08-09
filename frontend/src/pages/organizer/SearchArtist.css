@@ -1,5 +1,5 @@
 
-.mainContainer .col-md-3{
+.search-artist-container .artist-box{
 
     max-width: 16rem;
     /* max-height: 20rem; */
@@ -13,30 +13,7 @@
     
   }
 
-  .mainContainer .col-md-3 .image{
-
-    width: auto;
-    max-height: 15rem;
-    overflow: hidden;
-
-  }
-
-  
-  .mainContainer-NX .col-md-3{
-
-    max-width: 16rem;
-    /* max-height: 20rem; */
-    height: auto;
-    /* border: #7643D2 0.5px solid; */
-    margin-left: 4rem;
-    border-radius: 8%;
-    padding: 1rem;
-    background-color: #3B444D;
-    margin-top: 2rem;
-    
-  }
-
-  .mainContainer-NX .col-md-3 .image{
+  .search-artist-container .artist-box .image{
 
     width: auto;
     max-height: 15rem;
@@ -46,7 +23,7 @@
 
   
 
-  .image img{
+  .artist-box .image img{
 
     margin-top: 1rem ;
     margin-left: 1.5rem;
@@ -54,7 +31,7 @@
     border-radius:50%;
   }
 
-  .content{
+  .artist-box .content{
 
     position: relative;
     color: white;
@@ -62,14 +39,14 @@
 
   }
 
-  .content .star-rating{
+  .artist-box .content .star-rating{
 
     display: flex;
     align-items: center;
     margin-left: 2.5rem;
   }
 
-  .content .filled-star,.empty-star{
+  .artist-box .content .filled-star,.empty-star{
 
     color: gold;
     font-size: 1rem;
@@ -77,7 +54,7 @@
   }
 
 
-  .col-md-3 h5{
+  .artist-box h5{
 
     margin-top: 1rem;
     text-align: center;
@@ -89,23 +66,23 @@
 
 
 
-  .mainContainer .col-md-3,
-.mainContainer-NX .col-md-3 {
+  .search-artist-container .artist-box
+ {
     /* Your existing styles */
     /* ... */
     transition: background-color 0.3s ease; /* Add a smooth transition effect */
 }
 
 /* Styling for .col-md-3 when hovered */
-.mainContainer .col-md-3:hover,
-.mainContainer-NX .col-md-3:hover {
+.search-artist-container .artist-box:hover
+ {
     background-color: black; /* Change background color on hover */
     /* Additional hover-specific styles */
     /* ... */
 }
 
 
-.search-container {
+.search-artist-container .search-container {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -115,7 +92,7 @@
 }
 
 /* Styles for the search bar */
-.searchbar {
+.search-artist-container .searchbar {
   display: flex;
   align-items: center;
   background-color: #1c2126;
@@ -125,21 +102,21 @@
 }
 
 /* Style for the search input field */
-.searchbar input {
+.search-artist-container .searchbar input {
   border: none;
   outline: none;
   padding: 0.5rem;
   flex: 1;
 }
 
-.searchicon{
+.search-artist-container .searchicon{
 
 position: absolute;
 margin-right: -10rem;
 font-size: 20px;
 }
 
-.searchbar input[type="search"] {
+.search-artist-container .searchbar input[type="search"] {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;

@@ -20,7 +20,7 @@ function SearchArtist() {
 
     return (
 
-        <div className='row'>
+        <div className='row search-artist-container'>
             <Topbar />
 
             <div className="search-container">
@@ -41,7 +41,7 @@ function SearchArtist() {
                 </div> 
             </div>
 
-            <div className='col-md-3' >
+            <div className='col-md-3 artist-box' >
                 <a>
                     <div className='image'>
                         <img src={anushka}>
@@ -57,7 +57,7 @@ function SearchArtist() {
                 </a>
             </div>
 
-            <div className='col-md-3' >
+            <div className='col-md-3 artist-box' >
                 <a>
                     <div className='image'>
                         <img src={DineshGamage}>
@@ -73,7 +73,7 @@ function SearchArtist() {
                 </a>
             </div>
 
-            <div className='col-md-3' >
+            <div className='col-md-3 artist-box' >
                 <a>
                     <div className='image'>
                         <img src={dineshtharanga}>
@@ -89,7 +89,7 @@ function SearchArtist() {
                 </a>
             </div>
 
-            <div className='col-md-3' >
+            <div className='col-md-3 artist-box' >
                 <a>
                     <div className='image'>
                         <img src={theekshana}>
