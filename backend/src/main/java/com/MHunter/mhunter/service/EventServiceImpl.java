@@ -23,6 +23,7 @@ public class EventServiceImpl implements EventService{
 
     @Override
     public List<Event> getAllEvents() {
+
         return eventRepository.findAll();
     }
 }
