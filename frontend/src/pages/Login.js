@@ -10,6 +10,8 @@ export default function Login() {
   const [msg, setMsg] = useState('');
   const navigate = useNavigate();
 
+
+
   const handleClick = (e) => {
     e.preventDefault();
     const credentials = { email, password };
@@ -20,7 +22,6 @@ export default function Login() {
         const msg = responseParts[0];
         const membertype = responseParts[1];
 
-        alert(msg);
         if (msg === 'Login Success') {
           if (membertype === 'Artist') {
             navigate('/artistdashboard');
@@ -43,6 +44,7 @@ export default function Login() {
         } else {
           setMsg('An error occurred. Please try again later.');
         }
+        
         console.error(error);
       });
   };
