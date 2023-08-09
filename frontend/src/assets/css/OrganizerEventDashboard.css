@@ -173,6 +173,7 @@
 
 .addRow:hover {
     background-color: #1c2126;
+    cursor: pointer;
 }
 
 .btnTypeDescriptionDiv button {
