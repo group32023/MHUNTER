@@ -49,7 +49,7 @@ function ViewEvents() {
         <div className='row'>
             <Topbar />
             {events.map(event => (
-                <div className='col-md-3' key={event.eventid}>
+                <div className='organizerViewEvent col-md-3' key={event.eventid}>
                     <a>
                         <div className='image'>
                             <img src={musical}>
@@ -64,7 +64,7 @@ function ViewEvents() {
                                 <span style={{ color: "#11FE70", marginLeft: "2rem", marginTop: "-1.5rem", display: "block" }}>{extractloc(event.location)}</span>
                             </div>
 
-                            <div className='newrow'style={{ marginTop: "0.3rem" }}>
+                            <div className='newrow' style={{ marginTop: "0.3rem" }}>
                                 <FontAwesomeIcon icon="calendar" style={{ color: "#7643D2", fontSize: '18px' }} />
                                 <span>{event.date}</span>
                             </div>

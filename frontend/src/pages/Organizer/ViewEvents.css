@@ -1,81 +1,80 @@
+.mainContainer .organizerViewEvent {
 
-  .mainContainer .col-md-3{
+  max-width: 16rem;
+  /* max-height: 20rem; */
+  height: auto;
+  border: #7643D2 0.5px solid;
+  margin-left: 2rem;
+  border-radius: 8%;
+  padding: 1rem;
+  background-color: #3B444D;
+  margin-top: 2rem;
 
-    max-width: 16rem;
-    /* max-height: 20rem; */
-    height: auto;
-    border: #7643D2 0.5px solid;
-    margin-left: 2rem;
-    border-radius: 8%;
-    padding: 1rem;
-    background-color: #3B444D;
-    margin-top: 2rem;
-    
-  }
+}
 
-  .mainContainer .col-md-3 .image{
+.mainContainer .organizerViewEvent .image {
 
-    width: auto;
-    max-height: 15rem;
-    overflow: hidden;
+  width: auto;
+  max-height: 15rem;
+  overflow: hidden;
 
-  }
+}
 
-  
-  .mainContainer-NX .col-md-3{
 
-    max-width: 16rem;
-    /* max-height: 20rem; */
-    height: auto;
-    border: #7643D2 0.5px solid;
-    margin-left: 2rem;
-    border-radius: 8%;
-    padding: 1rem;
-    background-color: #3B444D;
-    margin-top: 2rem;
-    
-  }
+.mainContainer-NX .organizerViewEvent {
 
-  .mainContainer-NX .col-md-3 .image{
+  max-width: 16rem;
+  /* max-height: 20rem; */
+  height: auto;
+  border: #7643D2 0.5px solid;
+  margin-left: 2rem;
+  border-radius: 8%;
+  padding: 1rem;
+  background-color: #3B444D;
+  margin-top: 2rem;
 
-    width: auto;
-    max-height: 15rem;
-    overflow: hidden;
+}
 
-  }
+.mainContainer-NX .organizerViewEvent .image {
 
-  .image img{
+  width: auto;
+  max-height: 15rem;
+  overflow: hidden;
 
-    width: 100%;
-    border-radius:8%;
-  }
+}
 
-  .content{
+.image img {
 
-    position: relative;
-    color: white;
-   
-  }
+  width: 100%;
+  border-radius: 8%;
+}
 
-  .content.newrow{
+.content {
 
-    display: flex;
-    align-items: center;
-    margin-top: 2rem;
-  }
+  position: relative;
+  color: white;
 
-   .newrow span{
-    
-    max-width: 15rem;
-    /* word-wrap: break-word;  */
-    margin-left: 1rem;
+}
 
-  }
+.content.newrow {
 
-  .col-md-3 h5{
+  display: flex;
+  align-items: center;
+  margin-top: 2rem;
+}
 
-    margin-top: 1rem;
-    text-align: center;
-    color: white;
-    
-  }
+.newrow span {
+
+  max-width: 15rem;
+  /* word-wrap: break-word;  */
+  margin-left: 1rem;
+
+}
+
+.organizerViewEvent h5 {
+
+  margin-top: 1rem;
+  text-align: center;
+  color: white;
+
+}
