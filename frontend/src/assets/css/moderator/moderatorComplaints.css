@@ -1,0 +1,394 @@
+.bgimage-admin {
+    background-image: url("../../images/band.jpg");
+    background-size: cover;
+    background-position: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    background-blend-mode: multiply;
+  }
+  .main-container{
+      display: flex;
+  }
+  .body-container{
+      padding-top: 10px;
+      margin-left: -0.0rem;
+      padding-left: 10px;
+      background: #24292D;
+      width: 1440px;
+      height: 716px;
+  }
+  
+  .header-admin {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px;
+  
+    }
+    
+    .header-title {
+      color: #FAECFA;
+      flex-grow: 1; 
+    }
+    /* Styling for the table */
+.data-table {
+    border-collapse: collapse;
+    width: 80%;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-left: 70px;
+}
+
+/* Styling for the table headings */
+.data-table th {
+    background-color: #333;
+    color: white;
+    padding: 5px;
+    text-align: center;
+    font-size: large;
+    border: 13px solid #333; /* Apply border for all sides */
+
+}
+
+
+/* Styling for table rows */
+.data-row1{
+    background-color:  #24292D;
+    border: 14px solid #5F5C5C; /* Apply border for all sides */
+    border-radius: 50px; /* Apply rounded border to the whole row */
+
+
+}
+
+/* Styling for table cells */
+.data-row1 td {
+    text-align: center;
+    font-family: Dosis;
+    font-size: 17px;
+    
+    font-weight: bold;
+    border-bottom: 10px solid #5F5C5C; /* Apply border for all sides */
+
+}
+
+/* Styling for the "View" button */
+.data-name{
+    color:antiquewhite;
+
+}
+.data-name-completed {
+    color: #11FE70;
+}
+
+.data-name-Pending {
+    color: #F20C0C;
+}
+
+.data-name-Checking {
+    color: #7643D2;
+}
+
+.img-fluid {
+    max-width: 50%;
+    height: auto;
+align-items: center;  
+margin-top: 10px;}
+
+  .complaint-details {
+    color: white;
+    font-size: 21px;
+    font-weight: semi-bold;
+    margin-left: 5px;
+    text-align: left;
+    font-family: Dosis;
+
+  }
+  .complaint-remark {
+    color: white;
+    font-size: 21px;
+    font-weight: semi-bold;
+    margin-left: 5px;
+    text-align: left;
+    font-family: Dosis;
+    background-color:rgba(255, 255, 255, 0.42);
+    border-radius: 40px;
+    padding: 20px;
+
+  }
+  .form-control-r{
+    background-color:rgba(4, 4, 4, 0.747);
+    border-radius: 4px;
+    color: white;
+    font-size: 19px;
+    font-weight: semi-bold;
+    margin-left: 5px;
+    text-align: left;
+    font-family: Dosis;
+  }
+  .btn-primary-sub{
+    background-color: #056029;
+    height:fit-content; 
+    margin-top: 20px;
+ }
+  .btn-secondary-cancel{
+    background-color: #91040D;
+    height:fit-content;
+    margin-top: 20px;
+
+  }
+  .Complaincontainer {
+    background-color: #484E55;
+    color: white;
+    padding: 50px;
+    border-radius: 50px;
+    width: 80%;
+margin-left: 60px;  }
+  /* moderator dash */
+
+.moderatorWebPoster{
+    width: 629px;
+    height: 285px;
+    border-radius: 15px;
+    background: linear-gradient(180deg, #7643D2 5.21%, rgba(118, 67, 210, 0.19) 100%);
+    position: relative;
+    left: 81px;
+}
+
+.moderatorWebPoster-exp{
+    width: 389px;
+    height: 264px;
+    border-radius: 15px;
+    background: linear-gradient(180deg, #7643D2 5.21%, rgba(118, 67, 210, 0.19) 100%);
+    position: relative;
+    top: 56px;
+    left: 81px;
+}
+
+.moderatorWebPoster p{
+    color: #FFF;
+    font-family: Inter;
+    font-size: 41px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+    margin-bottom: 40px;
+}
+
+.moderatorWebPoster-exp p{
+    color: #FFF;
+    font-family: Inter;
+    font-size: 31px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+}
+
+.moderatorWebPoster span{
+    width: 247px;
+    height: 204px;
+    color: #FFF;
+    font-family: 'Lobster Two', cursive;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    display: inline-block;
+    text-align: justify;
+    margin-top: 21px;
+    margin-left: -70px;
+}
+
+.moderatorWebPoster-exp span{
+    width: 247px;
+    height: 204px;
+    color: #FFF;
+    font-family: 'Lobster Two', cursive;
+    font-size: 23px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    display: inline-block;
+    margin-left: -228px;
+    margin-top: 36px;
+}
+
+.webPostImage2{
+    width: 249px;
+    height: 250px;
+    margin-top: -128px;
+    margin-right: 70px;
+}
+
+/* Calendar */
+.react-calendar {  /*header of calender*/
+    max-width: 200px;
+    max-height: fit-content;
+    margin: 0 auto;
+    background-color: #2f363e; 
+    font-family: Arial, sans-serif;
+    border-radius: 10px;
+
+  }
+  .react-calendar__tile {  /*dates of calender*/
+    text-align: center;
+    background-color: #2f363e;
+    color: #FAECFA;
+    border: none;
+    border-radius: 10px;
+
+  }
+  .react-calendar__month-view__weekdays__weekday {
+    font-weight: bold;
+    color: #FAECFA;
+    
+    
+  }
+  .react-calendar__month-view__days__day--neighboringMonth { /*other month */
+    color: #b5b4b4;
+
+  }
+  .react-calendar__tile--active { /*today*/
+    background-color: #7643d2;
+    color: #fff;
+    border: none;
+    
+  }
+  .react-calendar__navigation {
+    color: #2f363e;
+  }
+  .react-calendar__navigation__label {  /*name of month*/
+    font-size: 12px;
+    border: none;
+    background-color: #24292D;
+    color: #FAECFA;
+    border-radius: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  .react-calendar__navigation button:enabled:hover,
+  .react-calendar__navigation button:enabled:focus {
+    background-color: #7643d2;
+  }
+  .Moderator-calendar .react-calendar__navigation__arrow {
+    font-size: 14px;
+    cursor: pointer;
+    border: none;
+    background-color: #2f363e;
+    border-radius: 50px;
+  }
+  .moderator-cal{
+    margin-top: -300px;
+    margin-left: 800px;
+
+  }
+  @media (max-width: 400px) {
+    /* Adjust styles for smaller screens */
+    .react-calendar {
+      max-width: 100%; /* Take full width on small screens */
+      margin: 0; /* Remove margin on small screens */
+    }}
+    
+@media (min-width: 601px) and (max-width: 1200px) {
+    /* Adjust styles for medium-sized screens */
+    .moderator-cal {
+      margin-top: 40px; /* Adjust as needed */
+      max-width: 800px; /* Increase width for medium screens */
+    }
+  
+    /* Adjust other styles as needed */
+  }
+  
+  @media (min-width: 1201px) {
+    /* Adjust styles for larger screens */
+    .moderator-cal {
+      margin-top: -300px;
+      margin-left: 800px;
+      max-width: none; /* Reset width for larger screens */
+    }
+  
+    /* Adjust other styles as needed */
+  }
+/* /Calender */
+
+.moderatorUpcommingEvent{
+    width: 658px;
+    height: 294px;
+    border-radius: 15px;
+    background: #3B444D;
+    position: relative;
+    top: -3%;
+    left: 54.8%;
+    margin-top: -10.3%;
+    margin-left: -49.4%;
+}
+
+.moderatorUpcommingEvent-ex{
+    width: 581px;
+    height: 281px;
+    border-radius: 15px;
+    background: #3B444D;
+    position: relative;
+    top: 3%;
+    left: 48.3%;
+    margin-top: -19.3%;
+    margin-left: -2.4%;
+}
+
+.moderatorUpcommingEvent-ex .eventDescripition{
+    width: 413px;
+    height: 52px;
+    color: #FFF;
+    font-family: 'Blinker', sans-serif;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    position: absolute;
+    top: 39%;
+    left: 28%;
+    text-align: left;
+}
+
+.moderatorUpcommingEvent-ex .line {
+    width: 550px;
+    height: 2px;
+    flex-shrink: 0;
+    background: #FFF;
+    position: absolute;
+    top: 55%;
+    left: 3%;
+  }
+  .moderatorpendingRequestDiv{
+    width: 386px;
+    height: 139px;
+    border-radius: 15px;
+    background: #3B444D;
+    position: relative;
+    top: -2.6%;
+    left: 48%;
+    margin-top: -100px;
+    margin-left: 170px;
+}
+  .moderatorpendingRequestDiv-exp{
+    width: 366px;
+    height: 110px;
+    border-radius: 15px;
+    background: #3B444D;
+    position: relative;
+    top: 4.4%;
+    left: 48%;
+    margin-top: -240px;
+    margin-left: -197px;
+  
+ }
+
+ .moderatorpendingRequestDiv-exp .monthlyRequestPersontage{
+    color: #11FE70;
+    font-family: 'Dosis', sans-serif;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+    position: absolute;
+    top: 58%;
+    left: 80%;
+ }

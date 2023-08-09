@@ -27,6 +27,8 @@ import ModeratorComplaints from './pages/moderator/complaints';
 import ModeratorUserDetails from './pages/moderator/userDetails';
 import ProofCheck from './pages/moderator/ProofCheck';
 import EventDetails from './pages/moderator/eventDetails';
+import ViewComplaints from './pages/moderator/viewComplaints';
+
 
 
 // import '../../assets/css/OrganizerDashboard.css';
@@ -66,6 +68,8 @@ function App() {
           <Route path='/moderator/registration/ProofCheck' element={<ProofCheck/>} />
 
           <Route path='/moderator/complaints' element={<ModeratorComplaints />}></Route>
+          <Route path='/moderator/complaints/viewComplaints' element={<ViewComplaints/>} />
+
           <Route path='/moderator/userDetails' element={<ModeratorUserDetails />}></Route>
           <Route path='/moderator/event' element={<ModeratorEvent />}></Route>
           <Route path='/moderator/event/eventDetails' element={<EventDetails/>}/>

@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import SideMenuBarModerator from '../../components/common/SideMenuBar/SideMenuBarModerator';
 import Topbar from '../../components/common/Topbar';
-import "../../assets/css/OrganizerEventDashboard.css"
+import "../../assets/css/moderator/moderatorEventDashboard.css"
 import profilePhoto from '../../assets/images/profilePhoto.jpeg'
 import { BiSolidEdit } from "react-icons/bi";
 import { BiSolidBox } from "react-icons/bi";

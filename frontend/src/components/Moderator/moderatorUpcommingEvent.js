@@ -7,16 +7,16 @@ import artistUpcomingCalendar from '../../assets/images/calendar(2).png';
 export default function ArtistUpcommingEvent() {
   const exampleEvents = [
     {
-      event_name: 'Example Event 1',
-      town: 'Example Town 1',
-      description: 'This is an example event description.',
+      event_name: 'Blits',
+      town: 'Galle',
+      description: 'Lorem ipsum dolor sit amet',
       event_type: 'Concert',
       date: '2023-08-15', // Example date format
     },
     {
-      event_name: 'Example Event 2',
-      town: 'Example Town 2',
-      description: 'Another example event description.',
+      event_name: 'Sakura',
+      town: 'Matara',
+      description: 'Lorem ipsum dolor sit amet',
       event_type: 'Festival',
       date: '2023-09-10', // Example date format
     },
