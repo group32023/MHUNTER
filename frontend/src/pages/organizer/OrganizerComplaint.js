@@ -6,6 +6,8 @@ import Button from 'react-bootstrap/Button';
 
 function OrganizerComplaint() {
     const [showModal, setShowModal] = useState(false);
+    const [title, setTitle] = useState('');
+    const [description, setDescription] = useState('');
 
     const handleShowModal = () => {
         setShowModal(true);
@@ -27,11 +29,13 @@ function OrganizerComplaint() {
                         <form className='complaintFormForm ' style={{ fontFamily: 'MyCustomFont' }}>
                             <div className="mb-3 mt-3">
                                 <label for="title" className="form-label mt-4 fs-6 mx-3">Title</label>
-                                <input type="text" className="form-control text-white" id="title" name="title" required />
+                                <input type="text" className="form-control text-white" id="title" name="title" required
+                                    value={title} onChange={(e) => setTitle(e.target.value)} />
                             </div>
                             <div className="mb-3">
                                 <label for="description" className="form-label mt-3 fs-6 mx-3">Description</label>
-                                <textarea className="form-control mb-5 text-white" id='scrollbarStyle-1' name="description" rows="4" required></textarea>
+                                <textarea className="form-control mb-5 text-white" id='scrollbarStyle-1' name="description" rows="4" required
+                                    value={description} onChange={(e) => setDescription(e.target.value)}></textarea>
                             </div>
                             <div className="row d-flex justify-content-center align-items-center" style={{ fontFamily: 'MyCustomFont1' }}>
                                 <button type="submit" className="btn btn-primary mx-2">Submit</button>
