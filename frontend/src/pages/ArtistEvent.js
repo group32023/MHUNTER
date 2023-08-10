@@ -1,6 +1,6 @@
 import React from 'react'
 import SideMenuBarArtist from '../components/common/SideMenuBar/SideMenuBarArtist'
-import { useState } from 'react'
+import { useState,useEffect } from 'react'
 import notification from '../assets/images/notification.png'
 import home from '../assets/images/home-button.png'
 import logout from '../assets/images/logout.png'
@@ -14,6 +14,7 @@ import eventType from '../assets/images/eventtype.png'
 
 export default function ArtistEvent() {
   const [expand,setExpandedSideBar] = useState(true)
+  const [data,setData] = useState([])
 
   const divCount = 4;
   const divElements = [];
@@ -24,32 +25,38 @@ export default function ArtistEvent() {
         <div  className="requestContainer">
       <img src={profileImage} className="profile"></img>
       <div className="eventDetails">
-        <h4>{}</h4>
-        <p class="artistEventType"><img src={eventType} alt=''className='artistEventTypeImg'></img>Birthday Party</p>
-        <p class="eventDate"><FontAwesomeIcon icon={faCalendarDays} id="CalenderIconPendingRequest"/>2023.11.02</p>
-        <p class="venue"><FontAwesomeIcon icon={faLocationDot} id="LocationIconPendingRequest"/> Colombo 05</p>
+        <h4>{item.organizerName}</h4>
+        <p class="artistEventType"><img src={eventType} alt=''className='artistEventTypeImg'></img>{item.eventType}</p>
+        <p class="eventDate"><FontAwesomeIcon icon={faCalendarDays} id="CalenderIconPendingRequest"/>{item.date}</p>
+        <p class="venue"><FontAwesomeIcon icon={faLocationDot} id="LocationIconPendingRequest"/>{item.place}</p>
       </div>
       <Button className="viewBtn">View</Button>
    
   </div>
       ))
+     setData(newItem) 
     })
+    
   }
+  console.log(data)
+  useEffect(()=>{
+    handle();
+  },[])
 
   // Using a for loop to generate the <div> tags
-  for (let i = 0; i < divCount; i++) {
-    divElements.push(<div key={i} className="requestContainer">
-      <img src={profileImage} className="profile"></img>
-      <div className="eventDetails">
-        <h4>W.R.A.Kavinda Perera</h4>
-        <p class="artistEventType"><img src={eventType} alt=''className='artistEventTypeImg'></img>Birthday Party</p>
-        <p class="eventDate"><FontAwesomeIcon icon={faCalendarDays} id="CalenderIconPendingRequest"/>2023.11.02</p>
-        <p class="venue"><FontAwesomeIcon icon={faLocationDot} id="LocationIconPendingRequest"/> Colombo 05</p>
-      </div>
-      <Button className="viewBtn">View</Button>
+  // for (let i = 0; i < divCount; i++) {
+  //   divElements.push(<div key={i} className="requestContainer">
+  //     <img src={profileImage} className="profile"></img>
+  //     <div className="eventDetails">
+  //       <h4>W.R.A.Kavinda Perera</h4>
+  //       <p class="artistEventType"><img src={eventType} alt=''className='artistEventTypeImg'></img>Birthday Party</p>
+  //       <p class="eventDate"><FontAwesomeIcon icon={faCalendarDays} id="CalenderIconPendingRequest"/>2023.11.02</p>
+  //       <p class="venue"><FontAwesomeIcon icon={faLocationDot} id="LocationIconPendingRequest"/> Colombo 05</p>
+  //     </div>
+  //     <Button className="viewBtn">View</Button>
    
-  </div>);
-  }
+  // </div>);
+  // }
   return (
     <div>
         <div className='mainArtistDashboard'>
@@ -67,7 +74,7 @@ export default function ArtistEvent() {
               <img src={logout} alt='logout'className='logout'></img>
               <p className='logoutbtn'>Logout</p>
             </div>
-            <div>{divElements}</div>
+            <div>{data}</div>
         </div>
     </div>
   )

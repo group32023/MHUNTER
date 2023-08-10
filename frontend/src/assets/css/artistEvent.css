@@ -68,19 +68,19 @@
   }
 
  .mainEventContainer .viewBtn {
-    background-color: #F70F5D !important;
-    position: relative;
-    font-size: 15px;
-    width: 7%;
-    height: 30px;
-    font-weight: bold;
-    text-align: center;
-    color: white;
-    left: 42%;
-    top: -65.8px;
-    border-radius: 10px;
-    border: none !important;
-    box-shadow: 4px 7px 10px rgba(0, 0, 0, .4) !important;
+  background-color: #F70F5D !important;
+  position: relative;
+  font-size: 15px;
+  width: 7%;
+  height: 30px;
+  font-weight: bold;
+  text-align: center;
+  color: white;
+  left: 42%;
+  top: -56.8px;
+  border-radius: 10px;
+  border: none !important;
+  box-shadow: 4px 7px 10px rgba(0, 0, 0, .4) !important;
   }
 
   .artistEventTypeImg{
