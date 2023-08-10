@@ -1,6 +1,22 @@
+
+// import Organizer Components
+import OrganizerDashboard from './pages/organizer/OrganizerDashboard'
+import OrganizerComplaint from './pages/organizer/OrganizerComplaint';
+import OrganizerDashboardContent from './pages/organizer/OrganizerDashboardContent'
+import OrganizerEventHistory from './pages/organizer/OrganizerEventHistory'
+import OrganizerEventDashboard from './pages/organizer/OrganizerEventDashboard'
+import ViewEvents from './pages/organizer/ViewEvents'
+import CreateEvent from './pages/organizer/CreateEvent'
+import OrganizerProfile from './pages/organizer/OrganizerProfile';
+import SearchArtist from './pages/organizer/SearchArtist';
+
+
+import "./index.css"
+
+
 import './App.css';
-//import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
-import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import Home from './pages/Home';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
@@ -11,7 +27,6 @@ import NavBar from './components/common/NavBar';
 import MainSlider from './components/common/MainSlider';
 import BandSignup from './pages/BandSignup';
 import AdminDashboard from './pages/admin/AdminDashboard';
-import OrganizerDashboard from './pages/organizer/OrganizerDashboard';
 import ArtistDashboard from './pages/artist/ArtistDashboard';
 import BandDashboard from './pages/band/BandDashboard';
 import ModeratorDashboard from './pages/moderator/ModeratorDashboard';
@@ -24,11 +39,24 @@ import AdminSettings from './pages/admin/AdminSettings';
 import OrganizerSignup from './pages/OrganizerSignup';
 function App() {
   return (
-    
+
     <div className="App">
-    <BrowserRouter>
-      <Routes>
-          <Route index element={<Home />} />
+
+      <Router>
+        <Routes>
+          {/* Organizer Routes */}
+          <Route path='/' element={<Home />}>
+
+            <Route path='/organizer/dashboard' element={<OrganizerDashboardContent />}></Route>
+            <Route path='/organizer/event' element={<ViewEvents />}></Route>
+            <Route path='/organizer/event/CreateEvent' element={<CreateEvent/>}></Route>
+            <Route path='/organizer/eventhistory' element={<OrganizerEventHistory />}></Route>
+            <Route path='/organizer/complaint' element={<OrganizerComplaint />}></Route>
+            <Route path='/organizer/profile' element={<OrganizerProfile />}></Route>
+            <Route path='/organizer/searchartist' element={<SearchArtist />} />
+          </Route>
+
+
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           <Route path='/artistbandsignup' element={<ArtistBandSignup />} />
@@ -51,7 +79,7 @@ function App() {
           <Route path='/admin/settings' element={<AdminSettings/>} />
 
       </Routes>
-    </BrowserRouter>
+    </Router>
       
       {/*<div>
       <MainSlider>
@@ -61,11 +89,15 @@ function App() {
         </NavBar>
       </div>
   </div>*/}
-     
-     
+
+
     </div>
-    
+
+
   );
+
 }
 
 export default App;
+
+

@@ -7,7 +7,15 @@ import logout from '../../assets/images/logout-a.png'
 import Calendar from 'react-calendar';
 import InfiniteScroll from 'react-infinite-scroll-component';
 
-import { Link } from 'react-router-dom';
+import AdminRegistration from './AdminRegistration';
+import ProofCheck from './ProofCheck';
+import AllUserDetails from './AllUserDetails';
+import ViewUserDetails from './ViewUserDetails';
+import AdminReport from './AdminReport';
+import AdminSettings from './AdminSettings';
+
+import { Link, Routes, Route } from 'react-router-dom';
+import Topbar from '../../components/common/Topbar';
 
 export default function AdminDashboard() {
   const [banddataSource, setBandDataSource] = useState(Array.from({length:10}));
@@ -43,26 +51,20 @@ export default function AdminDashboard() {
     setDate(date);
   }
   return (
+    <>
+    <SideMenuBarAdmin>
     <div className='main-container'>
       <div className='side-bar'>
-        <SideMenuBarAdmin />
+        {/* <SideMenuBarAdmin /> */}
+
       </div>
       <div className='body-container'>
+        <Topbar/>
         <div className='header-admin'>
 
           <div className='header-title'>
               <h1>Dashboard</h1>
           </div>
-
-          <div className='header-icon'>
-              <img src={notification} className='notificationIcon' alt='notification'></img>
-              <img src={home} alt='homebtn' className='homeIcon'></img>
-              <img src={logout} alt='logout'className='logout'></img>
-              <Link to={"/"} className='logoutbtn'>
-                <p>Logout</p>
-              </Link>
-          </div>
-
         </div>
 
 
@@ -98,5 +100,17 @@ export default function AdminDashboard() {
 
       </div> 
     </div>
+    <Routes>
+          
+          <Route path='/admin/registration' element={<AdminRegistration/>} />
+          <Route path='/admin/registration/proofcheck' element={<ProofCheck/>} />
+          <Route path='/admin/userdetails' element={<AllUserDetails/>} />
+          <Route path='/admin/userdetails/viewdetails' element={<ViewUserDetails/>} />
+          <Route path='/admin/report' element={<AdminReport/>} />
+          <Route path='/admin/settings' element={<AdminSettings/>} />
+    </Routes>
+    </SideMenuBarAdmin>
+    </>
+
   )
 }
