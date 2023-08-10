@@ -12,6 +12,8 @@ public class Complaint {
     private int complaintID;
     private String title;
     private String description;
+    private String status;
+    private String remark;
 
     public Complaint() {
     }
@@ -38,5 +40,21 @@ public class Complaint {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public String getRemark() {
+        return remark;
+    }
+
+    public void setRemark(String remark) {
+        this.remark = remark;
     }
 }
