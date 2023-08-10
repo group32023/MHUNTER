@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import "../../assets/css/OrganizerComplaint.css"
 import Topbar from '../../components/common/Topbar';
 import Modal from 'react-bootstrap/Modal';
@@ -8,6 +8,29 @@ function OrganizerComplaint() {
     const [showModal, setShowModal] = useState(false);
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
+    const [complaints, setComplaints] = useState([])
+
+    const handleClick = (e) => {
+        e.preventDefault()
+        const complaint = { title, description }
+        console.log(complaint)
+        fetch("http://localhost:8080/complaint/add", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(complaint)
+        }).then(() => {
+            console.log("New Complaint Added")
+        })
+    }
+
+    useEffect(() => {
+        fetch("http://localhost:8080/complaint/getAll")
+            .then(res => res.json())
+            .then((result) => {
+                setComplaints(result);
+            }
+            )
+    }, [])
 
     const handleShowModal = () => {
         setShowModal(true);
@@ -38,7 +61,7 @@ function OrganizerComplaint() {
                                     value={description} onChange={(e) => setDescription(e.target.value)}></textarea>
                             </div>
                             <div className="row d-flex justify-content-center align-items-center" style={{ fontFamily: 'MyCustomFont1' }}>
-                                <button type="submit" className="btn btn-primary mx-2">Submit</button>
+                                <button type="submit" className="btn btn-primary mx-2" onClick={handleClick}>Submit</button>
                                 <button type='button' className="btn btn-secondary mx-2">Cancel</button>
                             </div>
 
@@ -55,66 +78,13 @@ function OrganizerComplaint() {
                             <div className="date">Date</div>
                             <div className="status">Status</div>
                         </div>
-                        <div className="content-data-row complaintTableDataRow" onClick={handleShowModal}>
-                            <div className="complaint-title">Complaint 1</div>
-                            <div className="date">2023-08-07</div>
-                            <div className="status">Open</div>
-                        </div>
-                        <div className="content-data-row complaintTableDataRow" onClick={handleShowModal}>
-                            <div className="complaint-title">Complaint 2</div>
-                            <div className="date">2023-08-08</div>
-                            <div className="status">Closed</div>
-                        </div>
-                        <div className="content-data-row complaintTableDataRow" onClick={handleShowModal}>
-                            <div className="complaint-title">Complaint 3</div>
-                            <div className="date">2023-08-09</div>
-                            <div className="status">In Progress</div>
-                        </div>
-                        <div className="content-data-row complaintTableDataRow" onClick={handleShowModal}>
-                            <div className="complaint-title">Complaint 1</div>
-                            <div className="date">2023-08-07</div>
-                            <div className="status">Open</div>
-                        </div>
-                        <div className="content-data-row complaintTableDataRow" onClick={handleShowModal}>
-                            <div className="complaint-title">Complaint 2</div>
-                            <div className="date">2023-08-08</div>
-                            <div className="status">Closed</div>
-                        </div>
-                        <div className="content-data-row complaintTableDataRow">
-                            <div className="complaint-title">Complaint 3</div>
-                            <div className="date">2023-08-09</div>
-                            <div className="status">In Progress</div>
-                        </div>
-                        <div className="content-data-row complaintTableDataRow">
-                            <div className="complaint-title">Complaint 1</div>
-                            <div className="date">2023-08-07</div>
-                            <div className="status">Open</div>
-                        </div>
-                        <div className="content-data-row complaintTableDataRow">
-                            <div className="complaint-title">Complaint 2</div>
-                            <div className="date">2023-08-08</div>
-                            <div className="status">Closed</div>
-                        </div>
-                        <div className="content-data-row complaintTableDataRow">
-                            <div className="complaint-title">Complaint 3</div>
-                            <div className="date">2023-08-09</div>
-                            <div className="status">In Progress</div>
-                        </div>
-                        <div className="content-data-row complaintTableDataRow">
-                            <div className="complaint-title">Complaint 1</div>
-                            <div className="date">2023-08-07</div>
-                            <div className="status">Open</div>
-                        </div>
-                        <div className="content-data-row complaintTableDataRow">
-                            <div className="complaint-title">Complaint 2</div>
-                            <div className="date">2023-08-08</div>
-                            <div className="status">Closed</div>
-                        </div>
-                        <div className="content-data-row complaintTableDataRow">
-                            <div className="complaint-title">Complaint 3</div>
-                            <div className="date">2023-08-09</div>
-                            <div className="status">In Progress</div>
-                        </div>
+                        {complaints.map(complaint => (
+                            <div className="content-data-row complaintTableDataRow" onClick={handleShowModal}>
+                                <div className="complaint-title">{complaint.title}</div>
+                                <div className="date">2023-08-07</div>
+                                <div className="status">{complaint.status}</div>
+                            </div>
+                        ))}
 
                         {showModal && (
                             <div className="overlay">

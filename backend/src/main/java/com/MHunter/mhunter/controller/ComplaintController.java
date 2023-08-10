@@ -9,6 +9,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/complaint")
+@CrossOrigin
 public class ComplaintController {
     @Autowired
 
