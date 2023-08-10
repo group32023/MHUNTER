@@ -11,13 +11,17 @@ import java.util.List;
 
 @Repository
 public interface RequestMusicMemberRepository extends JpaRepository<RequestMusicMember, RequestMusicMemberId> {
-    @Query(value = "SELECT COUNT(*) FROM request_music_member WHERE mmid = :mmid AND conformation_status = 0", nativeQuery = true)
+    @Query(value = "SELECT COUNT(*) FROM request_music_member WHERE mmid = :mmid AND confirmation_status = 0", nativeQuery = true)
     int countByMMID(@Param("mmid") int mmid);
+
+
+    @Query(value = "SELECT * FROM request_music_member WHERE mmid = :mmid AND confirmation_status = 0", nativeQuery = true)
+    List<RequestMusicMember> viewPendingRequest(@Param("mmid") int mmid);
 
     @Query(value = "SELECT * FROM request_music_member WHERE mmid = :mmid GROUP BY request_date ASC",nativeQuery = true)
     List<RequestMusicMember> findByMMID(@Param("mmid") int mmid);
 
-    @Query(value = "SELECT * FROM request_music_member WHERE mmid = :mmid AND conformation_status = 1", nativeQuery = true)
+    @Query(value = "SELECT * FROM request_music_member WHERE mmid = :mmid AND confirmation_status = 1", nativeQuery = true)
     List<RequestMusicMember> findByMMIDList(@Param("mmid") int mmid);
 
 

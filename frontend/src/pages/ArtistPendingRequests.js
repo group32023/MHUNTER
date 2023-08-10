@@ -1,6 +1,6 @@
 /* eslint-disable react/jsx-no-undef */
 import React,{useState, useEffect,useRef} from 'react';
-import { Link } from 'react-router-dom';
+import { useNavigate} from 'react-router-dom';
 import SideMenuBarArtist from '../components/common/SideMenuBar/SideMenuBarArtist'
 import '../assets/css/artistDashboard.css'
 import '../assets/css/artistPendingRequests.css'
@@ -20,7 +20,7 @@ export default function ArtistPendingRequests() {
 
   useEffect(() => {
     // Fetch the data from the Java backend
-    fetch('http://localhost:8080/pendingRequest/specificArtistPendingRequest/3001')
+    fetch('http://localhost:8080/requestMusicMember/pendingRequest/101')
     .then((response) => {
       if (!response.ok) {
         throw new Error('Network response was not ok');
@@ -34,16 +34,24 @@ export default function ArtistPendingRequests() {
       .catch((error) => {
         console.log('Error fetching data:', error);
       });
+
       console.log(eventList);
 
   }, []);
+
+  let navigate = useNavigate();
+
+  const load=(id)=>{
+    navigate(`/artist/PendingRequestView/${id}`);
+
+  }
 
 
   const divCount = eventList.length;
   const divElements = [];
  
 
-  // Using a for loop to generate the <div> tags
+  //Using a for loop to generate the <div> tags
   for (let i = 0; i < divCount; i++) {
 
     var eventID=eventList[i]['eventid'];
@@ -57,9 +65,9 @@ export default function ArtistPendingRequests() {
         <p class="venue"><FontAwesomeIcon icon={faLocationDot} id="LocationIconPendingRequest"/> {eventList[i]['town']}</p>
       </div>
      
-      <Link to={ `/artist/PendingRequestView/${eventID}`}>
-      <MDBBtn className="viewBtn">View</MDBBtn>
-      </Link>
+   
+      <button className="viewBtn" onClick={()=>load(eventID)}>View</button>
+    
       
    
   </div>
@@ -68,7 +76,7 @@ export default function ArtistPendingRequests() {
   }
 
   
- 
+ if(eventList.length===0) return <div>Loading....................</div>
 
   return (
 

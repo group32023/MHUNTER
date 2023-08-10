@@ -1,6 +1,7 @@
 package com.MHunter.mhunter.controller;
 
 import com.MHunter.mhunter.model.Event;
+import com.MHunter.mhunter.model.IncomeArtist;
 import com.MHunter.mhunter.model.RequestMusicMember;
 import com.MHunter.mhunter.model.RequestMusicMemberId;
 import com.MHunter.mhunter.service.EventService;
@@ -68,7 +69,21 @@ public class RequestMusicMemberController {
         return requestMusicMemberService.countPendingRequest(mid);
     }
 
-//    find by id
+    //view pending requests
+    @GetMapping("/pendingRequest/{mid}")
+    public List<Event> pendingRequest(@PathVariable int mid){
+
+        List<RequestMusicMember> eventList = requestMusicMemberService.pendingRequest(mid);
+        List<Event> eventDetails=new ArrayList<Event>();
+        eventList.forEach(musicMember ->
+                eventDetails.add(eventService.viewSpecificEvent(musicMember.getRequestMusicMemberId().getEventId())));
+
+        return eventDetails;
+    }
+
+
+
+    //    find by id
     @GetMapping("/monthlyGrowth/{mid}")
     public Double getEventsByMMID(@PathVariable int mid){
         List<RequestMusicMember> reqData = requestMusicMemberService.findEventsByMMID(mid);

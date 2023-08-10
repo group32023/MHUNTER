@@ -1,5 +1,5 @@
 import React,{useState, useEffect,useRef} from 'react';
-import { Link,useParams } from 'react-router-dom';
+import { Link,useParams, useNavigate } from 'react-router-dom';
 import SideMenuBarArtist from '../components/common/SideMenuBar/SideMenuBarArtist'
 import '../assets/css/artistDashboard.css'
 import '../assets/css/artistPendingRequests.css'
@@ -19,6 +19,9 @@ export default function ArtistPendingRequests() {
 
   const [event, setEvent] = useState([]);
   
+  console.log(id);
+
+  let navigate = useNavigate();
 
   useEffect(() => {
     // Fetch the data from the Java backend
@@ -36,12 +39,29 @@ export default function ArtistPendingRequests() {
       .catch((error) => {
         console.log('Error fetching data:', error);
       });
-      console.log(event[0]);
+      console.log(event);
 
   }, []);
 
+  const loadInvoice=(id)=>{
+    navigate(`/band/invoice/${id}`);
+
+  }
+
+  const loadPriorBooking=(id)=>{
+    navigate(`/artist/priorbooking/${id}`);
+
+  }
+
+  const loadMyEventsOn=(id)=>{
+    navigate(`/artist/eventsOn/${id}`);
+
+  }
+
 
  //var eventID =event[0]['eventid'];
+
+ if(event===null) return <div>Loading....................</div>
  
 
   return (
@@ -62,24 +82,22 @@ export default function ArtistPendingRequests() {
             <p className='paraRequestName'>Requested By : </p>
             <h4>W.R.A.Kavinda Perera</h4>
 
-            {/* <div className='eventDetailsContainer'>
-            <p class="eventType1"><FontAwesomeIcon icon={faCalendarDays} id="EventIconPendingRequest1"/>{event[0]['event_name']}</p>
-            <p class="eventDate1"><FontAwesomeIcon icon={faCalendarDays} id="CalenderIconPendingRequest1"/>{event[0]['date']}</p>
-            <p class="venue1"><FontAwesomeIcon icon={faLocationDot} id="LocationIconPendingRequest1"/> {event[0]['start_time']}</p>
-            <p class="eventType2"><FontAwesomeIcon icon={faCalendarDays} id="EventIconPendingRequest2"/>{event[0]['end_time']-event[0]['start_time']}</p>
-            <p class="eventDate2"><FontAwesomeIcon icon={faCalendarDays} id="CalenderIconPendingRequest2"/>{event[0]['crowd']}</p>
-            <p class="venue2"><FontAwesomeIcon icon={faLocationDot} id="LocationIconPendingRequest2"/> {event[0]['location']}</p>
+            <div className='eventDetailsContainer'>
+            <p class="eventType1"><FontAwesomeIcon icon={faCalendarDays} id="EventIconPendingRequest1"/>{event['event_name']}</p>
+            <p class="eventDate1"><FontAwesomeIcon icon={faCalendarDays} id="CalenderIconPendingRequest1"/>{event['date']}</p>
+            <p class="venue1"><FontAwesomeIcon icon={faLocationDot} id="LocationIconPendingRequest1"/> {event['start_time']}</p>
+            <p class="eventType2"><FontAwesomeIcon icon={faCalendarDays} id="EventIconPendingRequest2"/>{event['end_time']-event['start_time']}</p>
+            <p class="eventDate2"><FontAwesomeIcon icon={faCalendarDays} id="CalenderIconPendingRequest2"/>{event['crowd']}</p>
+            <p class="venue2"><FontAwesomeIcon icon={faLocationDot} id="LocationIconPendingRequest2"/> {event['town']}</p>
 
-            </div> */}
+            </div>
 
-            {/* <MDBBtn className="priorbookingsBtn">Prior Bookings</MDBBtn>
-            <MDBBtn className="myEventsBtn">My Events</MDBBtn>
+            
 
-           
-             {/* <Link to={ `/artist/pendingRequest/confirmRequest/${eventID}`}>
-               <MDBBtn className="acceptBtn">Accept</MDBBtn>
-               </Link> */}
-            {/* <MDBBtn className="rejectBtn">Reject</MDBBtn> */}
+            <button className="priorbookingsBtn" onClick={()=>loadPriorBooking(101)}>Prior Bookings</button>
+            <button className="myEventsBtn" onClick={()=>loadMyEventsOn(101)}>My Events</button>
+            <button className="acceptBtn" onClick={()=>loadInvoice(event['eventid'])}>Accept</button>
+            <button className="rejectBtn">Reject</button>
         </div>
         
         

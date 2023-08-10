@@ -17,6 +17,7 @@ public interface RequestMusicMemberService {
     public RequestMusicMember findSpecific(RequestMusicMemberId requestMusicMemberId);
 
     public int countPendingRequest(int mmid);
+    public List<RequestMusicMember> pendingRequest(int mmid);
 
     public List<RequestMusicMember> findEventsByMMID(int mmid);
 

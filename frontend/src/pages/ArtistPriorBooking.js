@@ -12,7 +12,7 @@ import { faTwitter, faFontAwesome,faFacebook,faGooglePlusG,faLinkedinIn } from '
 
 
 
-export default function ArtistGenerateReports() {
+export default function ArtistPriorBooking() {
 
   const componentPDF = useRef();
   const [eventList, setEventList] = useState([]);
@@ -88,9 +88,9 @@ export default function ArtistGenerateReports() {
           <h4 className="organizerName">W.R.A.Tharindu Wijesinghe</h4>
           </div>
         
-              <MDBBtn className="date"><FontAwesomeIcon icon={faCalendarDays} id="CalenderReport"/>Date</MDBBtn> 
-              <MDBBtn className="event_type"><FontAwesomeIcon icon={faCalendarDays} id="CalenderReport"/>Event Type</MDBBtn> 
-              <MDBBtn className="filter">Filter</MDBBtn>
+              <Button className="date"><FontAwesomeIcon icon={faCalendarDays} id="CalenderReport"/>Date</Button> 
+              <Button className="event_type"><FontAwesomeIcon icon={faCalendarDays} id="CalenderReport"/>Event Type</Button> 
+              <Button className="filter">Filter</Button>
               
 
             <div className='reportContainer' >
@@ -121,7 +121,7 @@ export default function ArtistGenerateReports() {
                       </Table>
                   
           </div>     
-          <Button className="download" onClick={generatePDF}>Download</Button>
+          <Button className="download">Back</Button>
            </div>
           
           
