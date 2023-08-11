@@ -51,6 +51,16 @@
     margin-left: 15rem;
     margin-top: 1rem;
     background-color: #F70F5D;
+    color: white;
+    border-radius: 10px;
+    width: 10rem;
+  }
+
+  .artist-request-form button:hover{
+
+    margin-left: 15rem;
+    margin-top: 1rem;
+    background-color: #7643D2;
     border-radius: 10px;
     width: 10rem;
   }

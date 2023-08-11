@@ -175,5 +175,7 @@ gap: 3rem;
 .click-btns button:hover{
 
     background-color: #7643D2;
+    color: white;
     
+
 }

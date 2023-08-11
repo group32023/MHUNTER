@@ -140,7 +140,9 @@ function ViewArtist() {
             <div className='click-btns'>
 
                 <button type="button" class="btn btn-lg">Events On 21</button>
+                <Link to="/organizer/searchartist/viewartist/MakeArtistRequest">
                 <button type="button" class="btn btn-lg">Make a Request</button>
+                </Link>
             </div>
 
         </div>
