@@ -1,5 +1,6 @@
 import React from 'react';
 import Topbar from '../../components/common/Topbar';
+import DashboardCarousel from '../../components/organizer/DashboardCarousel';
 
 function OrganizerDashboardContent() {
     // Your component logic here
@@ -7,19 +8,7 @@ function OrganizerDashboardContent() {
 
         <div className='text-white'>
             <Topbar />
-            OrganizerDashboardContent
-            <hr></hr>
-            OrganizerDashboardContent
-            <hr></hr>
-            OrganizerDashboardContent
-            <hr></hr>
-            OrganizerDashboardContent
-            <hr></hr>
-            OrganizerDashboardContent
-            <hr></hr>
-            OrganizerDashboardContent
-            <hr></hr>
-            OrganizerDashboardContent
+            <DashboardCarousel />
         </div>
     );
 };

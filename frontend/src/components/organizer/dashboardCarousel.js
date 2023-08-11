@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { Carousel, Button } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import image1 from '../../assets/images/carousel1.jpg';
+import image1 from '../../assets/images/carousel1.png';
 import image2 from '../../assets/images/carousel2.jpg';
 import image3 from '../../assets/images/carousel3.jpg';
 import image4 from '../../assets/images/carousel4.jpg';
 import image5 from '../../assets/images/carousel5.jpg';
 
-function dashboardCarousel() {
+function DashboardCarousel() {
     const [index, setIndex] = useState(0);
 
     const handleSelect = (selectedIndex, e) => {
@@ -51,4 +51,4 @@ function dashboardCarousel() {
     );
 }
 
-export default dashboardCarousel
+export default DashboardCarousel
