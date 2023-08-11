@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Carousel, Button } from 'react-bootstrap';
+import { Carousel } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import image1 from '../../assets/images/carousel1.png';
 import image2 from '../../assets/images/carousel2.jpg';
@@ -31,7 +31,7 @@ function DashboardCarousel() {
     }, [images.length]);
 
     return (
-        <div style={{ maxWidth: '300px', margin: 'auto' }}>
+        <div className='' style={{ borderRadius: '10px', maxWidth: '1375px', marginRight: '20px' }}>
             <Carousel activeIndex={index} onSelect={handleSelect} interval={null}>
                 {images.map((image, i) => (
                     <Carousel.Item key={i}>
@@ -39,14 +39,12 @@ function DashboardCarousel() {
                             className="d-block w-100"
                             src={image}
                             alt={`Slide ${i}`}
-                            style={{ height: 'auto', maxWidth: '100%' }}
+                            style={{ height: '300px', borderRadius: '10px' }}
                         />
                     </Carousel.Item>
                 ))}
             </Carousel>
-            <Button variant="primary" onClick={() => setIndex((index + 1) % images.length)}>
-                Next Image
-            </Button>
+
         </div>
     );
 }
