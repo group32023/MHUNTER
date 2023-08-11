@@ -1,11 +1,31 @@
+@font-face {
+    font-family: 'MyCustomFont';
+    src: url('../fonts/Dosis-Regular.ttf') format('truetype');
+    /* src: url('../../../assets/icons/dashboard.png') format('truetype'); */
+    /* Add other font file formats and their paths here */
+}
+
+@font-face {
+    font-family: 'MyCustomFont1';
+    src: url('../fonts/Dosis-Bold.ttf') format('truetype');
+    /* src: url('../../../assets/icons/dashboard.png') format('truetype'); */
+    /* Add other font file formats and their paths here */
+}
+
+@font-face {
+    font-family: 'MyCustomFont2';
+    src: url('../fonts/Dosis-ExtraBold.ttf') format('truetype');
+    /* src: url('../../../assets/icons/dashboard.png') format('truetype'); */
+    /* Add other font file formats and their paths here */
+}
+
 .OrganizerDashboardMainContainer {
     color: white;
 }
 
 .UpcominEventsDiv {
     background-color: #2f363e;
-    height: 330px;
-    overflow-y: auto;
+    height: auto;
     border-radius: 10px;
 }
 

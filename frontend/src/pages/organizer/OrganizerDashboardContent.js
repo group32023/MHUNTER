@@ -19,11 +19,106 @@ function OrganizerDashboardContent() {
             </div>
 
             <div className='row mt-3' style={{ marginLeft: '45px' }}>
-                <div className='UpcominEventsDiv col-md-7'></div>
+
+                <div className='UpcominEventsDiv col-md-7'>
+                    <div className="p-3">
+                        <p className='fs-5' style={{ fontFamily: 'MyCustomFont1' }}>Upcoming Events</p>
+                        <hr></hr>
+                        <div className="requestTableDiv d-flex justify-content-center align-items-center">
+
+                            <div className="row headerContent mb-3">
+                                <div className="column">
+                                    <div className="fs-6" style={{ fontFamily: 'MyCustomFont1' }}>
+                                        Artist/Band
+                                    </div>
+                                </div>
+                                <div className="column">
+                                    <div className="fs-6" style={{ fontFamily: 'MyCustomFont1' }}>
+                                        Status
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="row tableContent">
+                                <div className="column">
+                                    <div className="content">
+
+                                        Coldplay
+                                    </div>
+                                </div>
+                                <div className="column">
+                                    <div className="content confirmed mt-1" style={{ fontFamily: 'MyCustomFont2' }}>
+                                        Confirmed
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="row tableContent">
+                                <div className="column">
+                                    <div className="content">
+                                        Ed Sheeran
+                                    </div>
+                                </div>
+                                <div className="column">
+                                    <div className="content">
+                                        Active
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div className="row tableContent">
+                                <div className="column">
+                                    <div className="content">
+                                        Ed Sheeran
+                                    </div>
+                                </div>
+                                <div className="column">
+                                    <div className="content">
+                                        Active
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div className="row tableContent">
+                                <div className="column">
+                                    <div className="content">
+                                        Ed Sheeran
+                                    </div>
+                                </div>
+                                <div className="column">
+                                    <div className="content">
+                                        Active
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div className="row tableContent">
+                                <div className="column">
+                                    <div className="content">
+                                        Ed Sheeran
+                                    </div>
+                                </div>
+                                <div className="column">
+                                    <div className="content">
+                                        Active
+                                    </div>
+                                </div>
+
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+
+
+
                 <div className='PaymentsDiv'></div>
 
             </div>
-
+            <br></br>
+            <br></br>
         </div>
     );
 };
