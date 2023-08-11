@@ -28,22 +28,22 @@ public class IncomeArtistController {
          return "Income Added";
     }
 
-    @GetMapping("/specificArtistIncome/{artistId}/{eventId}")
-    public IncomeArtist viewSpecificArtistIncome(@PathVariable int artistId,@PathVariable int eventId){
-        IncomeArtistId id = new IncomeArtistId(artistId,eventId);
+    @GetMapping("/specificArtistIncome/{mmid}/{eventId}")
+    public IncomeArtist viewSpecificArtistIncome(@PathVariable int mmid,@PathVariable int eventId){
+        IncomeArtistId id = new IncomeArtistId(mmid,eventId);
         IncomeArtist income = incomeArtistService.viewSpecificIncome(id);
         return income;
     }
 
 //    find the specific arist's income list
-    @GetMapping("/specificArtistIncomeList/{artistId}")
-    public List<IncomeArtist> viewSpecificArtistIncomeList(@PathVariable int artistId){
-        return incomeArtistService.viewListOfArtistIncomes(artistId);
+    @GetMapping("/specificArtistIncomeList/{mmid}")
+    public List<IncomeArtist> viewSpecificArtistIncomeList(@PathVariable int mmid){
+        return incomeArtistService.viewListOfArtistIncomes(mmid);
 
     }
-    @GetMapping("/specificArtistIncomeDetails/{artistId}")
-    public List<Event> viewSpecificArtistIncomeDetails(@PathVariable int artistId) {
-        List<IncomeArtist> incomeList = incomeArtistService.viewListOfArtistIncomes(artistId);
+    @GetMapping("/specificArtistIncomeDetails/{mmid}")
+    public List<Event> viewSpecificArtistIncomeDetails(@PathVariable int mmid) {
+        List<IncomeArtist> incomeList = incomeArtistService.viewListOfArtistIncomes(mmid);
         List<Event> eventDetails=new ArrayList<Event>();
         incomeList.forEach(incomeArtist ->
                 eventDetails.add(eventService.viewSpecificEvent(incomeArtist.getId().getEventId())));
@@ -54,8 +54,8 @@ public class IncomeArtistController {
 
 
     // give monthly growth and income
-    @GetMapping("/incomeAndMonthlyGrowth/{artistId}")
-    public List<Double> getIncomeAndMonthlyGrowthOfArtist(@PathVariable int artistId){
+    @GetMapping("/incomeAndMonthlyGrowth/{mmid}")
+    public List<Double> getIncomeAndMonthlyGrowthOfArtist(@PathVariable int mmid){
         double lastMonthIncome = 0;
         double firstMonthIncome = 0;
         int year;
@@ -70,7 +70,7 @@ public class IncomeArtistController {
         List<Double> monthlyGrowthAndIncome= new ArrayList<>(2);
         monthlyGrowthAndIncome.add(0.0);
         monthlyGrowthAndIncome.add(0.0);
-        List<IncomeArtist> incomeList = incomeArtistService.viewListOfArtistIncomes(artistId);
+        List<IncomeArtist> incomeList = incomeArtistService.viewListOfArtistIncomes(mmid);
 
 // hello
 //        get the monthly income

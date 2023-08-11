@@ -10,11 +10,11 @@ import java.util.List;
 public interface IncomeArtistService {
     public IncomeArtist saveIncome(IncomeArtist incomeArtist);
     public List<IncomeArtist> viewIncome();
-    public IncomeArtist updateIncome(IncomeArtist incomeArtist,int artistId,int eventId);
+    public IncomeArtist updateIncome(IncomeArtist incomeArtist,int mmid,int eventId);
     public IncomeArtist viewSpecificIncome(IncomeArtistId id);
 
 //    give artist income list
 
-    public List<IncomeArtist> viewListOfArtistIncomes(int artistId);
+    public List<IncomeArtist> viewListOfArtistIncomes(int mmid);
 
 }

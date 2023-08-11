@@ -295,3 +295,12 @@
     background: #24292D;
 
 }
+
+.pagination{
+    
+    position: absolute;
+    top: 90%;
+    left: 10%;
+   
+
+}

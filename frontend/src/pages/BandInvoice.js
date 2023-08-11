@@ -114,14 +114,14 @@ export default function BandInvoice() {
         <div className='eventDetailsDisplayContainer'>
              <div className='eventDetailsDisplayInnerContainer'>
              <img src={profileImage} className="profileInvoice"></img>
-             <p>W.R.A.S.Kavinda</p>
+             <p>{event['organizerName']}</p>
             
-            <p class="eventType1"><FontAwesomeIcon icon={faCalendarDays} id="EventIconPendingRequest1"/>{event['event_name']}</p>
+            <p class="eventType1"><FontAwesomeIcon icon={faCalendarDays} id="EventIconPendingRequest1"/>{event['eventName']}</p>
             <p class="eventDate1"><FontAwesomeIcon icon={faCalendarDays} id="CalenderIconPendingRequest1"/>{event['date']}</p>
-            <p class="venue1"><FontAwesomeIcon icon={faLocationDot} id="LocationIconPendingRequest1"/> {event['start_time']}</p>
-            <p class="eventType2"><FontAwesomeIcon icon={faCalendarDays} id="EventIconPendingRequest2"/>{event['end_time']-event['start_time']}</p>
+            <p class="venue1"><FontAwesomeIcon icon={faLocationDot} id="LocationIconPendingRequest1"/> {event['startTime']}</p>
+            <p class="eventType2"><FontAwesomeIcon icon={faCalendarDays} id="EventIconPendingRequest2"/>{event['duration']}</p>
             <p class="eventDate2"><FontAwesomeIcon icon={faCalendarDays} id="CalenderIconPendingRequest2"/>{event['crowd']}</p>
-            <p class="venue2"><FontAwesomeIcon icon={faLocationDot} id="LocationIconPendingRequest2"/> {event['town']}</p>
+            <p class="venue2"><FontAwesomeIcon icon={faLocationDot} id="LocationIconPendingRequest2"/> {event['place']}</p>
 
         
              </div>

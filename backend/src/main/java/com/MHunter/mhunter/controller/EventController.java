@@ -2,23 +2,36 @@ package com.MHunter.mhunter.controller;
 
 
 import com.MHunter.mhunter.model.Event;
+import com.MHunter.mhunter.model.Organizer;
 import com.MHunter.mhunter.model.RequestMusicMember;
+import com.MHunter.mhunter.model.User;
 import com.MHunter.mhunter.service.EventService;
+import com.MHunter.mhunter.service.OrganizerService;
 import com.MHunter.mhunter.service.RequestMusicMemberService;
+import com.MHunter.mhunter.service.UserService;
+import com.MHunter.mhunter.struct.EventOrganizer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.Duration;
 import java.util.List;
 
 @CrossOrigin (origins = "*")
 @RestController
 @RequestMapping("/event")
+
 public class EventController {
 
     @Autowired
     private EventService eventService;
     @Autowired
     private RequestMusicMemberService requestMusicMemberService;
+
+    @Autowired
+    private  OrganizerService organizerService;
+
+    @Autowired
+    private UserService userService;
 
     @PostMapping("/add")
     public String add(@RequestBody Event event) {
@@ -36,7 +49,33 @@ public class EventController {
     }
 
     @GetMapping("/viewSpecificEvent/{eventId}")
-    public Event viewSpecificEvent(@PathVariable int eventId){
-        return eventService.viewSpecificEvent(eventId);
+    public EventOrganizer viewSpecificEvent(@PathVariable int eventId) {
+        Event event = eventService.viewSpecificEvent(eventId);
+        Organizer organizer = organizerService.findSpecificOrganizer(event.getOrgID());
+        User user = userService.findSpecificUser(organizer.getUserId());
+        EventOrganizer eventOrganizer = new EventOrganizer();
+        eventOrganizer.setEventId((event.getEventID()));
+        eventOrganizer.setOrgId(event.getOrgID());
+        eventOrganizer.setOrganizerName(user.getFname() + " " + user.getLname());
+        eventOrganizer.setEventName(event.getEvent_name());
+        eventOrganizer.setStartTime(event.getStart_time());
+        eventOrganizer.setEventType(event.getEvent_type());
+        eventOrganizer.setPlace(event.getTown());
+        eventOrganizer.setDate(event.getDate());
+        eventOrganizer.setCrowd(event.getCrowd());
+        Duration difference = Duration.between(event.getStart_time(), event.getEnd_time());
+        long hours = difference.toHours();
+        long minutes = difference.toMinutes() % 60;
+        if (minutes == 0) {
+            eventOrganizer.setDuration(hours + " hours ");
+
+        } else {
+            eventOrganizer.setDuration(hours + " hours and " + minutes + " minutes");
+
+        }
+
+        return eventOrganizer;
+
+
     }
 }

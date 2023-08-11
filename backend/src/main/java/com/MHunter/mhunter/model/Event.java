@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.time.temporal.Temporal;
 
 
 @Entity
@@ -143,11 +144,11 @@ public class Event {
         return start_time;
     }
 
-    public void setStart_time(LocalTime start_time) {
+    public void setStart_time() {
         this.start_time = start_time;
     }
 
-    public LocalTime getEnd_time() {
+    public Temporal getEnd_time() {
         return end_time;
     }
 

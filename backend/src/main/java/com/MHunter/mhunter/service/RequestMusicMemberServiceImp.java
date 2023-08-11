@@ -69,4 +69,10 @@ public class RequestMusicMemberServiceImp implements RequestMusicMemberService{
     public List<RequestMusicMember> findConformationEventsByMMID(int mmid) {
         return requestMusicMemberRepository.findByMMIDList(mmid);
     }
+
+    @Override
+    public List<RequestMusicMember> findConformationEventsByMMIDForOrg(int mmid, int orgId) {
+        return requestMusicMemberRepository.findByMMIDListForAOrganizer(mmid,orgId);
+
+    }
 }

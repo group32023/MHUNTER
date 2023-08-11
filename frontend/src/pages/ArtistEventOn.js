@@ -1,5 +1,6 @@
 import React,{useState, useEffect,useRef} from 'react';
 import {Button, Table} from 'react-bootstrap';
+import { useNavigate,useParams} from 'react-router-dom';
 import SideMenuBarArtist from '../components/common/SideMenuBar/SideMenuBarArtist'
 import '../assets/css/priorbooking.css'
 import { MDBBtn } from 'mdb-react-ui-kit';
@@ -14,12 +15,14 @@ import { faTwitter, faFontAwesome,faFacebook,faGooglePlusG,faLinkedinIn } from '
 
 export default function ArtistEventOn() {
 
+
+  const { mmid, date } = useParams();
   const componentPDF = useRef();
   const [eventList, setEventList] = useState([]);
 
   useEffect(() => {
     // Fetch the data from the Java backend
-    fetch('http://localhost:8080/artistIncome/specificArtistIncomeDetails/3001')
+    fetch(`http://localhost:8080/requestMusicMember/eventsOn/${mmid}/${date}`)
     .then((response) => {
       if (!response.ok) {
         throw new Error('Network response was not ok');
@@ -52,12 +55,13 @@ export default function ArtistEventOn() {
     
     divElements.push(
       <tr>
-      <td>{eventList[i]['event_name']}</td>
-      <td>W.R.A.Kavindra Jayasignhe</td>
-      <td>{eventList[i]['event_type']}</td>
-      <td><FontAwesomeIcon icon={faLocationDot} id="LocationIcon"/>{eventList[i]['town']}</td>
-      <td>{eventList[i]['date']}</td>
-      <td>17000.00</td>
+      <td>{eventList[i]['eventName']}</td>
+      <td>{eventList[i]['organizerName']}</td>
+      <td>{eventList[i]['eventType']}</td>
+      <td><FontAwesomeIcon icon={faLocationDot} id="LocationIcon"/>{eventList[i]['place']}</td>
+      <td>{eventList[i]['crowd']}</td>
+      <td>{eventList[i]['income']}</td>
+      
 </tr>
   );
    
@@ -65,11 +69,7 @@ export default function ArtistEventOn() {
 
   
 
-   const generatePDF=useReactToPrint({
-    content:()=>componentPDF.current,
-    documentTitle:"Income",
-    onAfterPrint:()=>alert("Data saved in PDF")
-   });
+  if(eventList.length===0) return <div>Loading....................</div>
 
     return (
   
@@ -85,7 +85,7 @@ export default function ArtistEventOn() {
           <div className='addressDiv'>
           <h3>Prior Booking </h3>
           <h4 className="organizer_tag">Organizer :  </h4>
-          <h4 className="organizerName">W.R.A.Tharindu Wijesinghe</h4>
+          <h4 className="organizerName">{eventList[0]['organizerName']}</h4>
           </div>
         
               <Button className="date"><FontAwesomeIcon icon={faCalendarDays} id="CalenderReport"/>Date</Button> 
@@ -105,8 +105,9 @@ export default function ArtistEventOn() {
                           <th>Organizer Name</th>
                           <th>Event Type</th>
                           <th>Town</th>
-                          <th>Date</th>
-                          <th>Income</th>
+                          <th>Crowd</th>
+                          <th>Fee (Rs.)</th>
+                        
                           </tr>
                         </thead>
 

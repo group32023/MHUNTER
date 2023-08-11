@@ -16,7 +16,7 @@ public class OrganizerImp implements OrganizerService{
 
 
     @Override
-    public Organizer findOrganizer(int orgId) {
-        return organizerRepository.findByorgId(orgId);
+    public Organizer findSpecificOrganizer(int orgId) {
+        return organizerRepository.findByOrgId(orgId);
     }
 }

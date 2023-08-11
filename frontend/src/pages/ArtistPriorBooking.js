@@ -1,5 +1,6 @@
 import React,{useState, useEffect,useRef} from 'react';
 import {Button, Table} from 'react-bootstrap';
+import { useNavigate,useParams} from 'react-router-dom';
 import SideMenuBarArtist from '../components/common/SideMenuBar/SideMenuBarArtist'
 import '../assets/css/priorbooking.css'
 import { MDBBtn } from 'mdb-react-ui-kit';
@@ -15,11 +16,17 @@ import { faTwitter, faFontAwesome,faFacebook,faGooglePlusG,faLinkedinIn } from '
 export default function ArtistPriorBooking() {
 
   const componentPDF = useRef();
-  const [eventList, setEventList] = useState([]);
+  const { id1,id2 } = useParams();
+
+  console.log(id1);
+  console.log(id2);
+
+
+  const [events, setEvents] = useState([]);
 
   useEffect(() => {
     // Fetch the data from the Java backend
-    fetch('http://localhost:8080/artistIncome/specificArtistIncomeDetails/3001')
+    fetch(`http://localhost:8080/requestMusicMember/priorBooking/${id1}/${id2}`)
     .then((response) => {
       if (!response.ok) {
         throw new Error('Network response was not ok');
@@ -28,48 +35,48 @@ export default function ArtistPriorBooking() {
     })
      
       .then((data) => {
-        setEventList(data);
+        setEvents(data);
+
       })
       .catch((error) => {
         console.log('Error fetching data:', error);
       });
-      console.log(eventList);
+     
 
   }, []);
 
 
-
-   
   
-  const divCount = eventList.length;
+   
+
+  
+  const divCount = events.length;
   const divElements = [];
  
 
-  // Using a for loop to generate the <div> tags
+//   // Using a for loop to generate the <div> tags
   for (let i = 0; i < divCount; i++) {
 
     //var eventID=eventList[i]['eventid'];
     
     divElements.push(
       <tr>
-      <td>{eventList[i]['event_name']}</td>
-      <td>W.R.A.Kavindra Jayasignhe</td>
-      <td>{eventList[i]['event_type']}</td>
-      <td><FontAwesomeIcon icon={faLocationDot} id="LocationIcon"/>{eventList[i]['town']}</td>
-      <td>{eventList[i]['date']}</td>
-      <td>17000.00</td>
+      <td>{events[i]['eventName']}</td>
+      <td>{events[i]['eventType']}</td>
+      <td><FontAwesomeIcon icon={faLocationDot} id="LocationIcon"/>{events[i]['place']}</td>
+      <td>{events[i]['duration']}</td>
+      <td>{events[i]['crowd']}</td>
+      <td>{events[i]['income']}</td>
+      <td>{events[i]['date']}</td>
+    
 </tr>
   );
    
   }
 
   
+  if(events.length===0) return <div>Loading....................</div>
 
-   const generatePDF=useReactToPrint({
-    content:()=>componentPDF.current,
-    documentTitle:"Income",
-    onAfterPrint:()=>alert("Data saved in PDF")
-   });
 
     return (
   
@@ -84,17 +91,18 @@ export default function ArtistPriorBooking() {
 
           <div className='addressDiv'>
           <h3>Prior Booking </h3>
+      
           <h4 className="organizer_tag">Organizer :  </h4>
-          <h4 className="organizerName">W.R.A.Tharindu Wijesinghe</h4>
+          <h4 className="organizerName">{events[0]['organizerName']}</h4>
           </div>
         
-              <Button className="date"><FontAwesomeIcon icon={faCalendarDays} id="CalenderReport"/>Date</Button> 
+              {/* <Button className="date"><FontAwesomeIcon icon={faCalendarDays} id="CalenderReport"/>Date</Button> 
               <Button className="event_type"><FontAwesomeIcon icon={faCalendarDays} id="CalenderReport"/>Event Type</Button> 
               <Button className="filter">Filter</Button>
-              
+               */}
 
             <div className='reportContainer' >
-            <div ref={componentPDF}>
+            
 
               <p>Income</p>
           
@@ -102,18 +110,21 @@ export default function ArtistPriorBooking() {
                         <thead>
                         <tr>
                           <th>Event Name</th>
-                          <th>Organizer Name</th>
                           <th>Event Type</th>
                           <th>Town</th>
+                          <th>Duration</th>
+                          <th>Crowd</th>
+                          <th>Fee (Rs.)</th>
                           <th>Date</th>
-                          <th>Income</th>
+                     
                           </tr>
                         </thead>
 
                         <tbody>
                          
                        
-                         {divElements}
+                         {divElements
+                         }
                           
                          
                           
@@ -126,7 +137,7 @@ export default function ArtistPriorBooking() {
           
           
           
-      </div>
+  
     )
 }
 

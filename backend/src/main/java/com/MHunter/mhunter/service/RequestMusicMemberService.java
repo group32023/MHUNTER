@@ -22,4 +22,6 @@ public interface RequestMusicMemberService {
     public List<RequestMusicMember> findEventsByMMID(int mmid);
 
     public List<RequestMusicMember> findConformationEventsByMMID(int mmid);
+
+    public List<RequestMusicMember> findConformationEventsByMMIDForOrg(int mmid, int orgId);
 }

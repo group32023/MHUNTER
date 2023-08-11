@@ -39,7 +39,7 @@ export default function ArtistPendingRequests() {
       .catch((error) => {
         console.log('Error fetching data:', error);
       });
-      console.log(event);
+      //console.log(event[0]);
 
   }, []);
 
@@ -48,17 +48,18 @@ export default function ArtistPendingRequests() {
 
   }
 
-  const loadPriorBooking=(id)=>{
-    navigate(`/artist/priorbooking/${id}`);
+  const loadPriorBooking=(mmid, orgId)=>{
+    navigate(`/artist/priorbooking/${mmid}/${orgId}`);
 
   }
 
-  const loadMyEventsOn=(id)=>{
-    navigate(`/artist/eventsOn/${id}`);
+  const loadMyEventsOn=(mmid,date)=>{
+    navigate(`/artist/eventsOn/${mmid}/${date}`);
 
   }
 
 
+ 
  //var eventID =event[0]['eventid'];
 
  if(event===null) return <div>Loading....................</div>
@@ -80,23 +81,22 @@ export default function ArtistPendingRequests() {
         
             <img src={profileImage} className="profileView1"></img>
             <p className='paraRequestName'>Requested By : </p>
-            <h4>W.R.A.Kavinda Perera</h4>
+            <h4>{event['organizerName']}</h4>
 
             <div className='eventDetailsContainer'>
-            <p class="eventType1"><FontAwesomeIcon icon={faCalendarDays} id="EventIconPendingRequest1"/>{event['event_name']}</p>
+            <p class="eventType1"><FontAwesomeIcon icon={faCalendarDays} id="EventIconPendingRequest1"/>{event['eventName']}</p>
             <p class="eventDate1"><FontAwesomeIcon icon={faCalendarDays} id="CalenderIconPendingRequest1"/>{event['date']}</p>
-            <p class="venue1"><FontAwesomeIcon icon={faLocationDot} id="LocationIconPendingRequest1"/> {event['start_time']}</p>
-            <p class="eventType2"><FontAwesomeIcon icon={faCalendarDays} id="EventIconPendingRequest2"/>{event['end_time']-event['start_time']}</p>
+            <p class="venue1"><FontAwesomeIcon icon={faLocationDot} id="LocationIconPendingRequest1"/> {event['startTime']}</p>
+            <p class="eventType2"><FontAwesomeIcon icon={faCalendarDays} id="EventIconPendingRequest2"/>{event['duration']}</p>
             <p class="eventDate2"><FontAwesomeIcon icon={faCalendarDays} id="CalenderIconPendingRequest2"/>{event['crowd']}</p>
-            <p class="venue2"><FontAwesomeIcon icon={faLocationDot} id="LocationIconPendingRequest2"/> {event['town']}</p>
+            <p class="venue2"><FontAwesomeIcon icon={faLocationDot} id="LocationIconPendingRequest2"/> {event['place']}</p>
 
             </div>
-
             
 
-            <button className="priorbookingsBtn" onClick={()=>loadPriorBooking(101)}>Prior Bookings</button>
-            <button className="myEventsBtn" onClick={()=>loadMyEventsOn(101)}>My Events</button>
-            <button className="acceptBtn" onClick={()=>loadInvoice(event['eventid'])}>Accept</button>
+            <button className="priorbookingsBtn" onClick={()=>loadPriorBooking(101,event['orgId'])}>Prior Bookings</button>
+            <button className="myEventsBtn" onClick={()=>loadMyEventsOn(101,event['date'])}>My Events</button>
+            <button className="acceptBtn" onClick={()=>loadInvoice(event['eventId'])}>Accept</button>
             <button className="rejectBtn">Reject</button>
         </div>
         
