@@ -139,8 +139,8 @@ function ViewArtist() {
 
             <div className='click-btns'>
 
-                <button type="button" class="btn btn-primary btn-lg">Events On 21</button>
-                <button type="button" class="btn btn-primary btn-lg">Make a Request</button>
+                <button type="button" class="btn btn-lg">Events On 21</button>
+                <button type="button" class="btn btn-lg">Make a Request</button>
             </div>
 
         </div>

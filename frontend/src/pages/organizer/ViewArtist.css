@@ -50,7 +50,7 @@ align-items: center;
     border-radius: 5%;
     background-color: #3B444D;
     height: auto;
-    margin-left: 2rem;
+    margin-left: 3rem;
     margin-top: 2rem;
 
 }
@@ -169,4 +169,11 @@ gap: 3rem;
 .click-btns button{
 
     background-color: #F70F5D;
+    color: white;
+}
+
+.click-btns button:hover{
+
+    background-color: #7643D2;
+    
 }
