@@ -4,11 +4,6 @@
 }
 
 
-/* .artist-container .box-1{
-
-    position: fixed;
-} */
-
 .organizer-view-artist-container .artist-container .artist-logo{
 
 height: 15rem;
@@ -53,7 +48,7 @@ align-items: center;
 
     border: 1px white solid;
     border-radius: 5%;
-    background-color: #484E55;
+    background-color: #3B444D;
     height: auto;
     margin-left: 2rem;
     margin-top: 2rem;
@@ -99,10 +94,45 @@ align-items: center;
     border-radius:50%;
 }
 
-/* .organizer-view-artist-container .artist-container .box-2{
+.organizer-view-artist-container .artist-container .box-2{
 
-    border: 1px white solid;
+    /* border: 1px white solid; */
     height: auto;
  margin-top: 1rem;
+ padding: 2rem;
+ padding-left: 4rem;
+border-radius: 10px;
 
-} */
+
+}
+
+.feed-post .artist-image{
+
+    width: 2rem;
+    max-height: 2rem;
+    margin-top: -2rem;
+}
+
+.feed-post .artist-image img{
+    
+    width: 100%;
+    border-radius:50%;
+}
+
+.feed-post .content{
+
+    margin-top: -1rem;
+    margin-left: 1rem;
+
+}
+
+.feed-post .content p{
+
+    font-size: 11px;
+
+}
+
+.feed-post .post-content{
+
+    margin-left: 3rem;
+}

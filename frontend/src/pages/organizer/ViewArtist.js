@@ -80,7 +80,7 @@ function ViewArtist() {
                     </div>
 
                 </div>
-                <div className='col-md-7 box-2 d-flex flex-column'>
+                <div className='col-md-8 box-2 d-flex flex-column'>
 
                     <div className='feed-post'>
 
@@ -96,8 +96,8 @@ function ViewArtist() {
                         </div>
                         <div className='post-content'>
                             <div className='post-caption'>
-                            <p>Get ready to rock the night!
-                            </p>
+                                <p>Get ready to rock the night! 
+                                </p>
                             </div>
 
                             <div className='post-image'>
