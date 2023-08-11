@@ -1,0 +1,108 @@
+.organizer-view-artist-container{
+
+    color: white;
+}
+
+
+/* .artist-container .box-1{
+
+    position: fixed;
+} */
+
+.organizer-view-artist-container .artist-container .artist-logo{
+
+height: 15rem;
+margin-left: 2rem;
+align-items: center;
+/* padding: 1rem; */
+}
+
+.artist-logo .image{
+
+    width: 10rem;
+    max-height: 20rem;
+    overflow: hidden;
+    margin: auto;
+    margin-top: 2rem;
+
+  }
+  
+  .artist-logo .image img{
+
+    width: 100%;
+    border-radius:50%;
+  }
+
+  .box-1 .content-box h5{
+
+     margin-left: 4rem;
+     margin-top: 1rem;
+     color: white;
+  }
+
+ 
+  .box-1 .content-box .filled-star,.empty-star{
+
+    color: gold;
+    font-size: 0.8rem;
+    margin-left: 0.2rem;
+ 
+ }
+
+.organizer-view-artist-container .artist-container .feedback-log{
+
+    border: 1px white solid;
+    border-radius: 5%;
+    background-color: #484E55;
+    height: auto;
+    margin-left: 2rem;
+    margin-top: 2rem;
+
+}
+
+.feedback .filled-star,.empty-star{
+
+    color: gold;
+    font-size: 0.8rem;
+    margin-left: 0.2rem;
+  }
+
+
+.feedback-log .feedback{
+
+    margin-left: 1rem;
+}
+
+.feedback-log h5{
+
+    margin-top: 1rem;
+}
+
+.feedback .content{
+
+    margin-top: 0.5rem;
+    margin-left: 1rem;
+}
+
+.feedback-log .org-image{
+
+    width: 2rem;
+    max-height: 2rem;
+    overflow: hidden;
+    /* margin: auto;
+    margin-top: 2rem; */
+}
+
+.org-image img{
+
+    width: 100%;
+    border-radius:50%;
+}
+
+/* .organizer-view-artist-container .artist-container .box-2{
+
+    border: 1px white solid;
+    height: auto;
+ margin-top: 1rem;
+
+} */

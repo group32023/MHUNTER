@@ -9,6 +9,7 @@ import ViewEvents from './pages/organizer/ViewEvents'
 import CreateEvent from './pages/organizer/CreateEvent'
 import OrganizerProfile from './pages/organizer/OrganizerProfile';
 import SearchArtist from './pages/organizer/SearchArtist';
+import ViewArtist from './pages/organizer/ViewArtist';
 
 
 import "./index.css"
@@ -46,7 +47,8 @@ function App() {
             <Route path='/organizer/eventhistory' element={<OrganizerEventHistory />}></Route>
             <Route path='/organizer/complaint' element={<OrganizerComplaint />}></Route>
             <Route path='/organizer/profile' element={<OrganizerProfile />}></Route>
-            <Route path='/organizer/searchartist' element={<SearchArtist />} />
+            <Route path='/organizer/searchartist' element={<SearchArtist />} /> 
+            <Route path='/organizer/searchartist/viewartist' element={<ViewArtist />} />  
           </Route>
 
 

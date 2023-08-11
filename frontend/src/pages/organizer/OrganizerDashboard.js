@@ -11,6 +11,7 @@ import CreateEvent from './CreateEvent';
 import SearchArtist from "./SearchArtist";
 import '../../assets/css/OrganizerDashboard.css';
 import OrganizerDashboardContent from "./OrganizerDashboardContent";
+import ViewArtist from './ViewArtist';
 
 export default function OrganizerDashboard() {
   return (
@@ -24,8 +25,8 @@ export default function OrganizerDashboard() {
           <Route path='/organizer/eventhistory' element={<OrganizerEventHistory />}></Route>
           <Route path='/organizer/complaint' element={<OrganizerComplaint />}></Route>
           <Route path='/organizer/profile' element={<OrganizerProfile />}></Route>
-          <Route path='/organizer/searchartist' element={<SearchArtist />} />
-
+          <Route path='/organizer/searchartist' element={<SearchArtist />} /> 
+          <Route path='/organizer/searchartist/viewartist' element={<ViewArtist />} /> 
         </Routes>
       </SideMenuBarOrganizer>
     </>

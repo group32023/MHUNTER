@@ -42,7 +42,7 @@ function SearchArtist() {
             </div>
 
             <div className='col-md-3 artist-box' >
-                <a>
+                <Link to="/organizer/searchartist/viewartist">
                     <div className='image'>
                         <img src={anushka}>
                         </img>
@@ -54,11 +54,11 @@ function SearchArtist() {
                         <StarRating rating={5} ></StarRating>
 
                     </div>
-                </a>
+                </Link>
             </div>
 
             <div className='col-md-3 artist-box' >
-                <a>
+                <Link to="/organizer/searchartist/viewartist">
                     <div className='image'>
                         <img src={DineshGamage}>
                         </img>
@@ -70,11 +70,11 @@ function SearchArtist() {
                         <StarRating rating={4} ></StarRating>
 
                     </div>
-                </a>
+                </Link>
             </div>
 
             <div className='col-md-3 artist-box' >
-                <a>
+                <Link to="/organizer/searchartist/viewartist">
                     <div className='image'>
                         <img src={dineshtharanga}>
                         </img>
@@ -86,11 +86,11 @@ function SearchArtist() {
                         <StarRating rating={3.5} ></StarRating>
 
                     </div>
-                </a>
+                </Link>
             </div>
 
             <div className='col-md-3 artist-box' >
-                <a>
+                <Link to="/organizer/searchartist/viewartist">
                     <div className='image'>
                         <img src={theekshana}>
                         </img>
@@ -102,7 +102,7 @@ function SearchArtist() {
                         <StarRating rating={4} ></StarRating>
 
                     </div>
-                </a>
+                </Link>
             </div>
 
 
