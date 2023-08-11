@@ -1,7 +1,8 @@
 import React from 'react';
 import Topbar from '../../components/common/Topbar';
 import DashboardCarousel from '../../components/organizer/DashboardCarousel';
-import CalenderImg from '../../assets/images/calenderImg.png'
+import DashboardCalender from '../../components/organizer/DashboardCalender';
+// import CalenderImg from '../../assets/images/calenderImg.png'
 
 function OrganizerDashboardContent() {
     // Your component logic here
@@ -16,7 +17,8 @@ function OrganizerDashboardContent() {
             <div className='row mt-3' style={{ marginLeft: '45px' }}>
                 <div className='UpcominEventsDiv col-md-8'></div>
                 <div className='DashboardCalenderDiv'>
-                    <img alt='' className='mt-2' src={CalenderImg} width='330px' height='310px'></img>
+                    <DashboardCalender />
+                    {/* <img alt='' className='mt-2' src={CalenderImg} width='330px' height='310px'></img> */}
                 </div>
             </div>
 
