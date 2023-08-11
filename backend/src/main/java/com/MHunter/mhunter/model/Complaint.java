@@ -1,9 +1,8 @@
 package com.MHunter.mhunter.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+
+import java.util.Date;
 
 @Entity
 public class Complaint {
@@ -14,6 +13,8 @@ public class Complaint {
     private String description;
     private String status;
     private String remark;
+    @Temporal(TemporalType.DATE)
+    private Date date;
 
     public Complaint() {
     }
@@ -56,5 +57,13 @@ public class Complaint {
 
     public void setRemark(String remark) {
         this.remark = remark;
+    }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
     }
 }

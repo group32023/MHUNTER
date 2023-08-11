@@ -81,7 +81,7 @@ function OrganizerComplaint() {
                         {complaints.map(complaint => (
                             <div className="content-data-row complaintTableDataRow" onClick={handleShowModal}>
                                 <div className="complaint-title">{complaint.title}</div>
-                                <div className="date">2023-08-07</div>
+                                <div className="date">{complaint.date}</div>
                                 <div className="status">{complaint.status}</div>
                             </div>
                         ))}
