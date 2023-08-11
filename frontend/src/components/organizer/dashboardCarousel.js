@@ -31,7 +31,7 @@ function DashboardCarousel() {
     }, [images.length]);
 
     return (
-        <div className='' style={{ borderRadius: '10px', maxWidth: '1375px', marginRight: '20px' }}>
+        <div className='col-md-8' style={{ borderRadius: '10px' }}>
             <Carousel activeIndex={index} onSelect={handleSelect} interval={null}>
                 {images.map((image, i) => (
                     <Carousel.Item key={i}>

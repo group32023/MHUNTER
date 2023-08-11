@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
+import '../../assets/css/DashboardCalenderComponent.css';
 
 const DashboardCalender = () => {
     const [date, setDate] = useState(new Date());
@@ -10,7 +11,7 @@ const DashboardCalender = () => {
     };
     return (
 
-        <div className="calendar" style={{ backgroundColor: '#2f363e' }}>
+        <div className="calendar mt-3" style={{ backgroundColor: '#2f363e' }}>
             <Calendar onChange={handleDateChange} value={date} />
         </div>
 

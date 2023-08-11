@@ -10,20 +10,24 @@
 }
 
 .DashboardCalenderDiv {
-    /* background-color: #2f363e; */
-    height: 330px;
-    margin-left: 10px;
+    background-color: #2f363e;
+    height: 300px;
     border-radius: 10px;
-    width: auto;
+    width: 355px;
     transition: all .5s ease;
+    margin-left: 5px;
+
 }
 
 .mainContainer-NX .DashboardCalenderDiv {
-    margin-left: 30px;
+    width: 412px;
     transition: all .5s ease;
 }
 
-.mainContainer-NX .DashboardCalenderDiv img {
-    width: 345px;
-    transition: all .5s ease;
+.PaymentsDiv {
+    background-color: #2f363e;
+    width: auto;
+    height: 330px;
+    margin-left: 10px;
+    border-radius: 10px;
 }
