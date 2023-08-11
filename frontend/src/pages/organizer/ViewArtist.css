@@ -152,3 +152,21 @@ gap: 3rem;
     border-radius: 10px;
 
 }
+
+
+.organizer-view-artist-container .click-btns{
+
+        position: fixed;
+        bottom: 20px; /* Adjust this value to control the vertical position from the bottom */
+        right: 20px; /* Adjust this value to control the horizontal position from the right */
+        display: flex;
+        flex-direction: column;
+        gap: 10px; /* Adjust this value to set the gap between buttons */
+        z-index: 999; /* Make sure it's above other content */
+    
+}
+
+.click-btns button{
+
+    background-color: #F70F5D;
+}

@@ -6,6 +6,7 @@ import './ViewArtist.css';
 import anushka from '../../assets/images/anushka.png';
 import anushkashow from '../../assets/images/anushkashow.jpg';
 import anushkashow2 from '../../assets/images/anushkashow2.jpg';
+import anushkashow3 from '../../assets/images/anushkashow3.jpg';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fas } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -98,12 +99,12 @@ function ViewArtist() {
                         </div>
                         <div className='post-content'>
                             <div className='post-caption'>
-                                <p>Get ready to rock the night! 
+                                <p>Stepping onto the stage to share my soul through music. Get ready to be swept away by the rhythm and emotions. 🎶✨ #LivePerformance #yunpluggedstudio
                                 </p>
                             </div>
 
                             <div className='post-image'>
-                                <img src={anushkashow} alt="post Image" />
+                                <img src={anushkashow3} alt="post Image" />
                             </div>
                         </div>
                     </div>
@@ -117,12 +118,12 @@ function ViewArtist() {
 
                             <div className='ml-2 content'>
                                 <h7>Anushka Udana</h7>
-                                <p>12 hrs</p>
+                                <p>2 days</p>
                             </div>
                         </div>
                         <div className='post-content'>
                             <div className='post-caption'>
-                                <p>Stepping onto the stage to share my soul through music. Get ready to be swept away by the rhythm and emotions. 🎶✨ #LivePerformance #MusicalJourney
+                                <p>Get ready to rock the night!
                                 </p>
                             </div>
 
@@ -135,6 +136,12 @@ function ViewArtist() {
 
             </div>
 
+
+            <div className='click-btns'>
+
+                <button type="button" class="btn btn-primary btn-lg">Events On 21</button>
+                <button type="button" class="btn btn-primary btn-lg">Make a Request</button>
+            </div>
 
         </div>
 
