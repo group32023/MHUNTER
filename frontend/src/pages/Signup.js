@@ -22,7 +22,7 @@ export default function Signup() {
             </p>
           </div>
           <div>
-            <Link to={"/artistbandsignup"}>
+            <Link to={"/artistbandsignup"} className='button-in-signup'>
             <button className='signup_button'><b><span className='text-danger'>SignUp</span> for MHUNTER Artist/Band</b></button>
             </Link>
           </div>
