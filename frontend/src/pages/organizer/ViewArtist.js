@@ -5,6 +5,7 @@ import Topbar from '../../components/common/Topbar';
 import './ViewArtist.css';
 import anushka from '../../assets/images/anushka.png';
 import anushkashow from '../../assets/images/anushkashow.jpg';
+import anushkashow2 from '../../assets/images/anushkashow2.jpg';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fas } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -121,12 +122,12 @@ function ViewArtist() {
                         </div>
                         <div className='post-content'>
                             <div className='post-caption'>
-                                <p>Get ready to rock the night! 
+                                <p>Stepping onto the stage to share my soul through music. Get ready to be swept away by the rhythm and emotions. 🎶✨ #LivePerformance #MusicalJourney
                                 </p>
                             </div>
 
                             <div className='post-image'>
-                                <img src={anushkashow} alt="post Image" />
+                                <img src={anushkashow2} alt="post Image" />
                             </div>
                         </div>
                     </div>
