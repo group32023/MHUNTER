@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import Topbar from '../../components/common/Topbar';
 import './ViewArtist.css';
 import anushka from '../../assets/images/anushka.png';
+import anushkashow from '../../assets/images/anushkashow.jpg';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fas } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -80,7 +81,7 @@ function ViewArtist() {
                     </div>
 
                 </div>
-                <div className='col-md-8 box-2 d-flex flex-column'>
+                <div className='col-md-8 box-2 d-flex flex-column '>
 
                     <div className='feed-post'>
 
@@ -101,7 +102,31 @@ function ViewArtist() {
                             </div>
 
                             <div className='post-image'>
-                                <img src={anushka} alt="post Image" />
+                                <img src={anushkashow} alt="post Image" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className='feed-post'>
+
+                        <div className='d-flex align-items-center'>
+                            <div className='artist-image'>
+                                <img src={anushka} alt="User's Image" />
+                            </div>
+
+                            <div className='ml-2 content'>
+                                <h7>Anushka Udana</h7>
+                                <p>12 hrs</p>
+                            </div>
+                        </div>
+                        <div className='post-content'>
+                            <div className='post-caption'>
+                                <p>Get ready to rock the night! 
+                                </p>
+                            </div>
+
+                            <div className='post-image'>
+                                <img src={anushkashow} alt="post Image" />
                             </div>
                         </div>
                     </div>

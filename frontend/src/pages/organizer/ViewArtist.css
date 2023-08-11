@@ -102,7 +102,7 @@ align-items: center;
  padding: 2rem;
  padding-left: 4rem;
 border-radius: 10px;
-
+gap: 3rem;
 
 }
 
@@ -135,4 +135,20 @@ border-radius: 10px;
 .feed-post .post-content{
 
     margin-left: 3rem;
+}
+
+.post-content .post-image{
+
+    width: 40rem;
+    max-height: 30rem;
+    overflow: hidden;
+    /* margin: auto;
+    margin-top: 2rem; */
+}
+
+.post-content .post-image img{
+    
+    width: 100%;
+    border-radius: 10px;
+
 }
