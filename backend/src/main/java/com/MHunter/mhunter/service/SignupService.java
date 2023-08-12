@@ -36,8 +36,11 @@ public class SignupService {
 
     @Transactional
     public void signUpAndCreateMember(User user, String Name, String Type, MultipartFile Image) {
+        User existingUser = userRepository.findByEmail(user.getEmail());
+        if (existingUser != null) {
+            throw new RuntimeException("Email already exists!");
+        }
         User savedUser = userRepository.save(user);
-
 
         if("Organizer".equals(Type)){
             Organizer organizer = new Organizer();
@@ -110,6 +113,7 @@ public class SignupService {
                     if(staffMember != null && "Moderator".equals(staffMember.getJobRoll())) {
                         msg += "#Moderator";
                     }
+                    msg += "#" + existingUser.getUserId();
                     return ResponseEntity.ok(msg);
                 } else {
                     return ResponseEntity.badRequest().body("Incorrect password!");

@@ -75,7 +75,12 @@ export default function BandSignup() {
               resetFormFields();
               alert("Band Registration Successfully");
             } else {
-              alert("Failed to register Band");
+              const errorMessage = await response.text();
+              if (errorMessage === "Email is already registered.") {
+                alert("Failed to register artist");
+              } else {
+                alert("Email is already registered. Please use a different email.");
+              }
             }
           
         }

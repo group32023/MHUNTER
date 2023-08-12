@@ -11,7 +11,7 @@ export default function Login() {
   const [msg, setMsg] = useState('');
   const navigate = useNavigate();
 
-
+  const [userId, setUserId] = useState(null); 
 
   const handleClick = (e) => {
     e.preventDefault();
@@ -22,8 +22,10 @@ export default function Login() {
         const responseParts = response.data.split('#');
         const msg = responseParts[0];
         const membertype = responseParts[1];
+        const userId = responseParts[2];
 
         if (msg === 'Login Success') {
+          setUserId(userId);
           if (membertype === 'Artist') {
             navigate('/artistdashboard');
           } else if (membertype === 'Band') {
@@ -33,7 +35,7 @@ export default function Login() {
           } else if (membertype === 'Moderator') {
             navigate('/moderatordashboard');
           } else if (membertype === 'Admin') {
-            navigate('/admin/admindashboard');
+            navigate('/admin/admindashboard', { state: { userId } });
           }
         }
       })

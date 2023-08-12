@@ -98,7 +98,12 @@ export default function ArtistSignup() {
           resetFormFields();
           alert("Artist Registration Successfully");
         } else {
-          alert("Failed to register artist");
+          const errorMessage = await response.text();
+          if (errorMessage === "Email is already registered.") {
+            alert("Failed to register artist");
+          } else {
+            alert("Email is already registered. Please use a different email.");
+          }
         }
         
       }
