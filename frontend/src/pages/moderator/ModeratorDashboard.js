@@ -4,24 +4,31 @@ import SideMenuBarModerator from '../../components/common/SideMenuBar/SideMenuBa
 import ModeratorRegistration from './registration';
 import ModeratorComplaints from './complaints';
 import ModeratorUserDetails from './userDetails';
- import '../../assets/css/OrganizerDashboard.css';
-import ModeratorEvent from "./event";
-export default function OrganizerDashboard() {
+import ModeratorDashoboardContent from './moderatorDashoboardContent';
+import EventDetails from './eventDetails';
+import ModeratorEvent from './event';
+import ViewComplaints from './viewComplaints';
+import ProofCheck from './ProofCheck';
+import Suspenduser from './suspenduser';  
+export default function ModeratorDashboard() {
   return (
     <>
       <SideMenuBarModerator>
-        <div>
-          {/* Hard-coded content */}
-          <h2>Welcome to the Organizer Dashboard!</h2>
-          <p>This is the main dashboard for organizers. You can manage various aspects of your events and users here.</p>
-        </div>
+      
         
         <Routes>
           {/* Nested routes for the Organizer Dashboard */}
+          <Route path='/moderator/moderatorDashoboardContent' element={<ModeratorDashoboardContent />}></Route>
           <Route path='/moderator/registration' element={<ModeratorRegistration />}></Route>
           <Route path='/moderator/complaints' element={<ModeratorComplaints />}></Route>
+          <Route path='/moderator/complaints/viewComplaints' element={<ViewComplaints />}></Route>
+
           <Route path='/moderator/userDetails' element={<ModeratorUserDetails />}></Route>
           <Route path='/moderator/event' element={<ModeratorEvent />}></Route>
+          <Route path='/moderator/event/eventDetails' element={<EventDetails />}></Route>
+          <Route path='/moderator/registration/ProofCheck' element={<ProofCheck />}></Route>
+          <Route path='/moderator/registration/Proofcheck/suspenduser' element={<Suspenduser />}></Route>
+
         </Routes>
       </SideMenuBarModerator>
     </>

@@ -1,6 +1,7 @@
 import React, { useRef, useState } from 'react'
 import SideMenuBarModerator from '../../components/common/SideMenuBar/SideMenuBarModerator'
-import '../../assets/css/admin/adminDashboard.css'
+import '../../assets/css/moderator/moderatorComplaints.css'
+import Suspenduser from './suspenduser'; // Adjust the path to the actual location of PopupGfg component
 
 import band from '../../assets/images/band.jpg'
 import { Link } from 'react-router-dom';
@@ -41,11 +42,8 @@ function ProofCheck() {
   }
 
   return (
-    <div className='main-container'>
-      <div className='side-bar'>
-        <SideMenuBarModerator/>
-      </div>
-      <div className='body-container'>
+    <div className='moderator-body-container'>
+   
         <div className='header-admin'>
 
           <div className='header-title'>
@@ -122,13 +120,14 @@ function ProofCheck() {
           </div>
           <div className="d-flex justify-content-between button-proofcheck">
             <button  type="button" className="btn btn-primary" style={{backgroundColor:'rgb(118, 67, 210)', border:'none'}}><h5>Accept</h5></button>
-            <button  type="button" className="btn btn-danger"><h5>Reject</h5></button>
+            <Suspenduser/>
+
+           
           </div>
         </form>
 
 
       </div> 
-    </div>
   )
 }
 

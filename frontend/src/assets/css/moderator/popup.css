@@ -1,0 +1,53 @@
+/* Popup.css */
+.popup-container {
+    text-align: center;
+  }
+  
+  .popup-button {
+    margin-bottom: 20px;
+  }
+  
+  .popup-title {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+  }
+  
+  .popup-textarea {
+    width: 100%;
+    padding: 10px;
+    height: 100px;
+    background-color: rgba(82, 82, 92, 0.378);
+    border: 1px solid #cccccc95;
+    border-radius: 4px;
+    resize: vertical;
+  }
+  
+  .popup-footer {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+  
+  /* Change the background color of modal content */
+  .modal-content {
+    background-color: rgba(255, 255, 255, 0.919); /* Change this color to your desired grey shade */
+  }
+  .modal-header .icon {
+    color: rgba(251, 30, 30, 1);
+    width: 30px;
+    height: 30px;
+  }
+  .popup-submit-button {
+    background-color: rgba(162, 53, 247, 1); /* Red background color */
+    border-color: rgba(162, 53, 247, 1); /* Red border color */
+    color: white; /* Text color */
+    height: 30px;
+    padding: 0 10px;
+
+  }
+  
+  .popup-submit-button:hover {
+    background-color:rgba(91, 11, 153, 0.803); /* Darker red background color on hover */
+    border-color: rgba(162, 53, 247, 1); /* Darker red border color on hover */
+  }
+  

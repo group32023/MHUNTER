@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import SideMenuBarModerator from '../../components/common/SideMenuBar/SideMenuBarModerator'
-import '../../assets/css/admin/adminDashboard.css'
+import '../../assets/css/moderator/moderatorComplaints.css'
 
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -18,11 +18,8 @@ function AllUserDetails() {
       console.log('Searching for:', searchTerm);
     };
   return (
-    <div className='main-container'>
-        <div className='side-bar'>
-            <SideMenuBarModerator />
-        </div>
-        <div className='body-container'>
+    <div className='moderator-body-container'>
+       
             {/*header icon*/}
             <div className='header-admin'>
 
@@ -97,7 +94,6 @@ function AllUserDetails() {
                 </Link>
             </div>
 
-        </div> 
     </div>
   )
 }

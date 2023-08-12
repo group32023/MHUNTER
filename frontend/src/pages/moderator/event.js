@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import SideMenuBarModerator from '../../components/common/SideMenuBar/SideMenuBarModerator'
-import '../../assets/css/event.css'
+import "../../assets/css/moderator/moderatorEventDashboard.css"
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -14,7 +14,7 @@ library.add(fas);
 const events = [
     {
       eventid: 1,
-      event_name: 'Musical Concert',
+      event_name: 'Musical Conert',
       location: 'Example Place, Example Town',
       date: 'June 14 2023',
       start_time: '18:00',
@@ -48,11 +48,8 @@ const events = [
   
   const EventContainer = () => {
     return (
-    <div className='main-container'>
-        <div className='side-bar'>
-            <SideMenuBarModerator />
-        </div>
-        <div className='body-container'>
+      <div className='moderator-body-container'>
+
             {/*header icon*/}
             <div className='header-admin'>
 
@@ -87,7 +84,6 @@ const events = [
     </div>
                 
 
-            </div>
             
 
   )

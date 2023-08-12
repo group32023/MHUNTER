@@ -4,6 +4,7 @@ import SideMenuBarModerator from '../../components/common/SideMenuBar/SideMenuBa
 import Topbar from '../../components/common/Topbar';
 import "../../assets/css/moderator/moderatorEventDashboard.css"
 import profilePhoto from '../../assets/images/profilePhoto.jpeg'
+import band from '../../assets/images/band.jpg'
 import { BiSolidEdit } from "react-icons/bi";
 import { BiSolidBox } from "react-icons/bi";
 import { BiSolidCalendar } from "react-icons/bi";
@@ -34,11 +35,8 @@ function OrganizerEventDashboard() {
         console.log(formData);}
         
     return (
-<div className='main-container'>
-        <div className='side-bar'>
-            <SideMenuBarModerator />
-        </div>
-        <div className='body-container'>
+        <div className='moderator-body-container'>
+
             {/*header icon*/}
 
                 <div className='header-title'>
@@ -212,7 +210,7 @@ function OrganizerEventDashboard() {
             <div className="my-form">
                 <h2 className='formHeading'>Band Details</h2>
                 <div className="eventImgDiv ">
-                            <img alt='' src={profilePhoto} width='120px' height='120px' />
+                            <img alt='' src={band} width='120px' height='120px' />
                         </div><br></br>
               <table>
               <tr className="white-text-row">
@@ -245,7 +243,6 @@ function OrganizerEventDashboard() {
           
           
         </form>
-        </div>
         </div>
             </div>
 

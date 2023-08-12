@@ -13,12 +13,8 @@ import band from '../../assets/images/band.jpg'
 function AllUserDetails() {
     
   return (
-    <div className='main-container'>
-        <div className='side-bar'>
-
-            <SideMenuBarModerator />
-        </div>
-        <div className='body-container'>
+    <div className='moderator-body-container'>
+ 
 
             {/*header icon*/}
             <div className='header-admin'>
@@ -30,8 +26,9 @@ function AllUserDetails() {
             </div>
             <div className="Complaincontainer" >
       <div className="row">
-        <div className="col-12">
+        <div className="col-5">
           <h2>Complaint Details</h2>
+          <br></br>
         </div>
       </div>
       <div className="row">
@@ -67,7 +64,6 @@ function AllUserDetails() {
             
 
         </div> 
-    </div>
   )
 }
 

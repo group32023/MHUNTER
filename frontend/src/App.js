@@ -28,10 +28,8 @@ import ModeratorUserDetails from './pages/moderator/userDetails';
 import ProofCheck from './pages/moderator/ProofCheck';
 import EventDetails from './pages/moderator/eventDetails';
 import ViewComplaints from './pages/moderator/viewComplaints';
-
-
-
 import ModeratorEvent from "./pages/moderator/event";
+import Suspenduser from './pages/moderator/suspenduser';
 
 function App() {
   return (
@@ -52,24 +50,21 @@ function App() {
           <Route path='/bandsignup' element={<BandSignup/>} />
           <Route path='/artistdashboard' element={<ArtistDashboard/>} />
           <Route path='/banddashboard' element={<BandDashboard/>} />
-          
+           {/* moderator */}
+          <Route path='/' element={<ModeratorDashboard/>}>
           <Route path='/moderator/moderatorDashboard' element={<ModeratorDashboard/>} />
-
           <Route path='/moderator/moderatorDashoboardContent' element={<ModeratorDashoboardContent />}></Route>
           <Route path='/moderator/registration' element={<ModeratorRegistration  />}></Route>
           <Route path='/moderator/registration/ProofCheck' element={<ProofCheck/>} />
-
+          <Route path='/moderator/event' element={<ModeratorEvent />}></Route>
           <Route path='/moderator/complaints' element={<ModeratorComplaints />}></Route>
           <Route path='/moderator/complaints/viewComplaints' element={<ViewComplaints/>} />
-
           <Route path='/moderator/userDetails' element={<ModeratorUserDetails />}></Route>
-          <Route path='/moderator/event' element={<ModeratorEvent />}></Route>
           <Route path='/moderator/event/eventDetails' element={<EventDetails/>}/>
-
-
-
-
-         
+          <Route path='/moderator/registration/ProofCheck' element={<proofCheck/>}/>
+          <Route path='/moderator/registration/proofcheck/suspenduser' element={<Suspenduser/>}/>
+          </Route>
+   
 
       </Routes>
     </BrowserRouter>
