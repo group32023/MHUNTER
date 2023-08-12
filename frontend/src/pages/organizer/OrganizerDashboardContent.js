@@ -3,6 +3,8 @@ import Topbar from '../../components/common/Topbar';
 import DashboardCarousel from '../../components/organizer/DashboardCarousel';
 import DashboardCalender from '../../components/organizer/DashboardCalender';
 // import CalenderImg from '../../assets/images/calenderImg.png'
+import '../../assets/css/OrganizerDashboard.css'
+import EventImg from '../../assets/images/slide_7.jpg'
 
 function OrganizerDashboardContent() {
     // Your component logic here
@@ -24,89 +26,22 @@ function OrganizerDashboardContent() {
                     <div className="p-3">
                         <p className='fs-5' style={{ fontFamily: 'MyCustomFont1' }}>Upcoming Events</p>
                         <hr></hr>
-                        <div className="requestTableDiv d-flex justify-content-center align-items-center">
+                        <div className="UpcomingTableDiv mt-4">
 
-                            <div className="row headerContent mb-3">
-                                <div className="column">
-                                    <div className="fs-6" style={{ fontFamily: 'MyCustomFont1' }}>
-                                        Artist/Band
+                            <div className="row tableUpcomingContent">
+                                <img className='col-md-4' alt='' src={EventImg} width='50px' height='100px'></img>
+                                <div>
+                                    <div className='upcomingDivEventData col-md-7'>
+                                        <span className=''>BEAT BLITZ</span>
+                                        <div className=''>
+                                            <span className=' col-md-6'> Weligama,Matara</span>
+                                            <span className='col-md-6'>2023-10-05</span>
+                                        </div>
                                     </div>
-                                </div>
-                                <div className="column">
-                                    <div className="fs-6" style={{ fontFamily: 'MyCustomFont1' }}>
-                                        Status
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="row tableContent">
-                                <div className="column">
-                                    <div className="content">
-
-                                        Coldplay
-                                    </div>
-                                </div>
-                                <div className="column">
-                                    <div className="content confirmed mt-1" style={{ fontFamily: 'MyCustomFont2' }}>
-                                        Confirmed
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="row tableContent">
-                                <div className="column">
-                                    <div className="content">
-                                        Ed Sheeran
-                                    </div>
-                                </div>
-                                <div className="column">
-                                    <div className="content">
-                                        Active
-                                    </div>
+                                    <hr className='row'></hr>
                                 </div>
 
                             </div>
-
-                            <div className="row tableContent">
-                                <div className="column">
-                                    <div className="content">
-                                        Ed Sheeran
-                                    </div>
-                                </div>
-                                <div className="column">
-                                    <div className="content">
-                                        Active
-                                    </div>
-                                </div>
-
-                            </div>
-
-                            <div className="row tableContent">
-                                <div className="column">
-                                    <div className="content">
-                                        Ed Sheeran
-                                    </div>
-                                </div>
-                                <div className="column">
-                                    <div className="content">
-                                        Active
-                                    </div>
-                                </div>
-
-                            </div>
-
-                            <div className="row tableContent">
-                                <div className="column">
-                                    <div className="content">
-                                        Ed Sheeran
-                                    </div>
-                                </div>
-                                <div className="column">
-                                    <div className="content">
-                                        Active
-                                    </div>
-                                </div>
-
-                            </div>
-
 
                         </div>
                     </div>

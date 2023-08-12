@@ -11,7 +11,7 @@ const DashboardCalender = () => {
     };
     return (
 
-        <div className="calendar mt-3" style={{ backgroundColor: '#2f363e' }}>
+        <div className="calendar mt-1" style={{ backgroundColor: '#2f363e' }}>
             <Calendar onChange={handleDateChange} value={date} />
         </div>
 
