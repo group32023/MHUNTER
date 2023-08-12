@@ -13,6 +13,7 @@ import '../../assets/css/OrganizerDashboard.css';
 import OrganizerDashboardContent from "./OrganizerDashboardContent";
 import ViewArtist from './ViewArtist';
 import MakeArtistRequest from "./MakeArtistRequest";
+import ViewEventHistory from "./ViewEventHistory";
 
 export default function OrganizerDashboard() {
   return (
@@ -23,7 +24,7 @@ export default function OrganizerDashboard() {
           <Route path='/organizer/dashboard' element={<OrganizerDashboardContent />}></Route>
           <Route path='/organizer/event' element={<ViewEvents/>}></Route>
           <Route path='/organizer/event/CreateEvent' element={<CreateEvent/>}></Route>
-          <Route path='/organizer/eventhistory' element={<OrganizerEventHistory />}></Route>
+          <Route path='/organizer/eventhistory' element={<ViewEventHistory />}></Route> 
           <Route path='/organizer/complaint' element={<OrganizerComplaint />}></Route>
           <Route path='/organizer/profile' element={<OrganizerProfile />}></Route>
           <Route path='/organizer/searchartist' element={<SearchArtist />} /> 
