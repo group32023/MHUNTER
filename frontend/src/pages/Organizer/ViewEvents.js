@@ -39,7 +39,7 @@ function ViewEvents() {
             .then((result) => {
                 setEvents(result);
             }
-            )
+            ) 
     }, [])
 
 
