@@ -1,5 +1,7 @@
 package com.MHunter.mhunter.struct;
 
+import org.springframework.web.multipart.MultipartFile;
+
 public class SignupRequest {
     private String email;
     private String firstName;
@@ -11,6 +13,9 @@ public class SignupRequest {
     private int isVerified;
     private String Name;
     private String Type;
+    private MultipartFile Image;
+
+    private String imagePath;
 
     public SignupRequest() {
     }
@@ -93,5 +98,21 @@ public class SignupRequest {
 
     public void setType(String type) {
         Type = type;
+    }
+
+    public MultipartFile getImage() {
+        return Image;
+    }
+
+    public void setImage(MultipartFile image) {
+        Image = image;
+    }
+
+    public String getImagePath() {
+        return imagePath;
+    }
+
+    public void setImagePath(String imagePath) {
+        this.imagePath = imagePath;
     }
 }

@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 @RestController
 @CrossOrigin
@@ -17,7 +18,7 @@ public class SignupController {
     @Autowired
     private SignupService signupService;
 
-    @PostMapping("/signup")
+    /*@PostMapping("/signup")
     public ResponseEntity<String> signUp(@RequestBody SignupRequest signupRequest) {
         User newUser = new User();
         newUser.setAddress(signupRequest.getAddress());
@@ -29,6 +30,21 @@ public class SignupController {
         newUser.setRegDate(signupRequest.getRegDate());
 
         signupService.signUpAndCreateMember(newUser, signupRequest.getName(), signupRequest.getType());
+        return ResponseEntity.ok("User signed up successfully");
+    }*/
+    @PostMapping("/signup")
+    public ResponseEntity<String> signUp(@ModelAttribute SignupRequest signupRequest,
+                                         @RequestParam("Image") MultipartFile Image) {
+        User newUser = new User();
+        newUser.setAddress(signupRequest.getAddress());
+        newUser.setPhoneNumber(signupRequest.getPhoneNumber());
+        newUser.setEmail(signupRequest.getEmail());
+        newUser.setFirstName(signupRequest.getFirstName());
+        newUser.setLastName(signupRequest.getLastName());
+        newUser.setPassword(signupRequest.getPassword());
+        newUser.setRegDate(signupRequest.getRegDate());
+
+        signupService.signUpAndCreateMember(newUser, signupRequest.getName(), signupRequest.getType(), Image);
         return ResponseEntity.ok("User signed up successfully");
     }
     @PostMapping(path = "/login")

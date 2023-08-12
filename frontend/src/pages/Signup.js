@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
+import logo from '../assets/images/logo-login.png'
 
 export default function Signup() {
 
@@ -9,6 +10,9 @@ export default function Signup() {
     <div className='box-container'>
       <div className='signup_text'>
         <p>Join now and unlock the gateway to creating unforgettable moments where music and events unite!</p>
+        <div className='logo-in-login'>
+            <img src={logo} alt="Description of the image"></img>
+        </div>
       </div>
 
         <div className='left-box'>

@@ -3,7 +3,8 @@
 }
 .form_container{
     width: 30%;
-    background-color:rgb(68, 18, 88);
+    background-color:rgb(3, 3, 3,0.7);
+    border-radius: 15px;
     /*background-color:#484E55;*/
 }
 .bgimage {
@@ -13,7 +14,7 @@
   }
 
 .bgimage2 {
-    background-image: url("../images/artist-bg.jpg");
+    background-image: url("../images/slide_1.jpg");
     background-size: cover;
     background-position: center;
   }
@@ -22,9 +23,37 @@
   margin-bottom: 10px;
 
 }
+.logo-in-login{
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+}
+.logo-in-login img{
+  width: 100px;
+  padding: 0;
+  margin: 0;
+}
+.link-login a{
+  text-decoration: none;
+  color: #7643D2;
+  font-size: medium;
+}
+.link-login a:hover{
+  color: #F4ECFA;
+}
+.login-button:hover{
+  background-color: #F4ECFA;
+  color: black;
+}
+.login-button{
+  background-Color: rgb(118, 67, 210);
+}
+
+
 .form_signup_container{
     width: 50%;
-    background-color:rgb(68, 18, 88);
+    background-color:rgb(3, 3, 3,0.8);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -32,7 +61,7 @@
 }
 
 .header{
-  background-color: rgb(68, 18, 88);
+  background-color: rgb(3,3,3);
   border-radius: 10px; 
   padding-left: 2px;
   padding-right: 2px;
@@ -47,7 +76,7 @@
 }
 
 .signup_button :hover{
-   color: #F4ECFA;
+   color: #5a189a;
 }
 
 .button-in-signup{
@@ -87,12 +116,12 @@
   }
   
   .left-box {
-    background-color: #7643D2; 
+    background-color: rgb(252, 155, 248, 0.3); 
     color: #fff; 
   }
   
   .right-box {
-    background-color: #7643D2; 
+    background-color: rgb(252, 155, 248, 0.3); 
     color: #fff; 
   }
 
@@ -127,7 +156,7 @@
 /*Artist Signup*/
 .artist_signup_form_container{
   width: 60%;
-  background-color:rgb(51, 13, 67);
+  background-color:rgb(51, 13, 67, 0.9);
   display: flex;
   justify-content: center;
   align-items: center;  

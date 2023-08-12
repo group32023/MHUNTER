@@ -1,9 +1,7 @@
 package com.MHunter.mhunter.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+import org.springframework.web.multipart.MultipartFile;
 
 @Entity
 public class User {
@@ -23,6 +21,10 @@ public class User {
     private int suspendedStaffId;
     private String suspendedDate;
     private String remark;
+    @Transient
+    private MultipartFile Image;
+
+    private String imagePath;
 
 
 
@@ -143,5 +145,21 @@ public class User {
 
     public void setRemark(String remark) {
         this.remark = remark;
+    }
+
+    public MultipartFile getImage() {
+        return Image;
+    }
+
+    public void setImage(MultipartFile image) {
+        Image = image;
+    }
+
+    public String getImagePath() {
+        return imagePath;
+    }
+
+    public void setImagePath(String imagePath) {
+        this.imagePath = imagePath;
     }
 }
