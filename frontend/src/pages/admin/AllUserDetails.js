@@ -1,9 +1,6 @@
 import React, { useState } from 'react'
 import SideMenuBarAdmin from '../../components/common/SideMenuBar/SideMenuBarAdmin'
 import '../../assets/css/admin/adminDashboard.css'
-import notification from '../../assets/images/notification-a.png'
-import home from '../../assets/images/home-button-a.png'
-import logout from '../../assets/images/logout-a.png'
 import { Link, Route, Routes } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';

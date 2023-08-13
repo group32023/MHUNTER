@@ -37,6 +37,7 @@ import ViewUserDetails from './pages/admin/ViewUserDetails';
 import AdminReport from './pages/admin/AdminReport';
 import AdminSettings from './pages/admin/AdminSettings';
 import OrganizerSignup from './pages/OrganizerSignup';
+import UserDetails from './pages/admin/UserDetails';
 function App() {
   return (
 
@@ -73,6 +74,7 @@ function App() {
           <Route path='/admin/admindashboard' element={<AdminDashboard/>} />
           <Route path='/admin/registration' element={<AdminRegistration/>} />
           <Route path='/admin/registration/proofcheck' element={<ProofCheck/>} />
+          <Route path='/admin/Alluserdetails' element={<UserDetails/>} />
           <Route path='/admin/userdetails' element={<AllUserDetails/>} />
           <Route path='/admin/userdetails/viewdetails' element={<ViewUserDetails/>} />
           <Route path='/admin/report' element={<AdminReport/>} />
