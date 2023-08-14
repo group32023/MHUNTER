@@ -36,9 +36,10 @@ function App() {
           <Route path='/artist' element={<Artist/>}></Route>
           <Route path='/aboutUs' element={<AboutUs/>}></Route>
           {/* <Route path='/artist/Dashboard' element={<ArtistPendingRequests/>}></Route> */}
-          <Route path='/artist/Dashboard' element={<ArtistGenerateReports/>}></Route>
+          {/* <Route path='/artist/Dashboard' element={<ArtistGenerateReports/>}></Route> */}
+          <Route path='/artist/Dashboard' element={<ArtistDashboard/>}></Route>
           <Route path='/artist/report/today/:id' element={<ArtistGenerateReportsToday/>}></Route>
-
+          <Route path='/artist/Event' element={<ArtistEvent/>}></Route>
           <Route path='/artist/PendingRequestView/:id' element={<ArtistPendingRequestView/>}></Route>
           <Route path='/artist/priorbooking/:id1/:id2' element={<ArtistPriorBooking/>}></Route>
           <Route path='/artist/eventsOn/:mmid/:date/:id' element={<ArtistEventOn/>}></Route>
