@@ -11,7 +11,9 @@ import { library } from '@fortawesome/fontawesome-svg-core';
 import { fas } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import StarRating from '../../components/organizer/StarRating';
-import { Button,Modal } from 'bootstrap';
+import Modal from 'react-bootstrap/Modal';
+import Button from 'react-bootstrap/Button';
+
 library.add(fas);
 
 function ViewArtist() {
