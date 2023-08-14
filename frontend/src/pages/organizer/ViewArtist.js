@@ -17,7 +17,7 @@ import Button from 'react-bootstrap/Button';
 library.add(fas);
 
 function ViewArtist() {
-    
+
     const [showModal, setShowModal] = useState(false);
 
     const handleShowModal = () => {
@@ -155,27 +155,76 @@ function ViewArtist() {
 
                 <button type="button" class="btn btn-lg" onClick={handleShowModal}>Events On 21</button>
                 <Link to="/organizer/searchartist/viewartist/MakeArtistRequest">
-                <button type="button" class="btn btn-lg">Make a Request</button>
-                </Link> 
+                    <button type="button" class="btn btn-lg">Make a Request</button>
+                </Link>
             </div>
 
             {showModal && (
-                            <div className="overlay">
-                                <Modal show={showModal} onHide={handleCloseModal} centered>
-                                    <Modal.Header closeButton>
-                                        <Modal.Title>Popup Title</Modal.Title>
-                                    </Modal.Header>
-                                    <Modal.Body>
-                                        Content of the popup goes here.
-                                    </Modal.Body>
-                                    <Modal.Footer>
-                                        <Button variant="secondary" onClick={handleCloseModal}>
-                                            Close
-                                        </Button>
-                                    </Modal.Footer>
-                                </Modal>
+                <div className="overlay">
+                    <Modal show={showModal} onHide={handleCloseModal} centered>
+                        <Modal.Header closeButton>
+                            <Modal.Title>Events on August 21</Modal.Title>
+                        </Modal.Header>
+                        <Modal.Body>
+                            <div className='view-music-events-table d-flex flex-column '>
+
+                                <div className='titlenew-row music-events-table-data-row d-flex mb-4'>
+                                    <div className='event-name'>Event Name</div>
+                                    <div className='event-type'>Event Type</div>
+                                    <div className='event-location'>Location</div>
+                                    <div className='event-date'>Date</div>
+                                </div>
+
+                                <div className='datanew-row music-events-table-data-row d-flex'>
+                                    <div className='event-name'>Kalagame Awurudu</div>
+                                    <div className='event-type'>Awurudu function</div>
+                                    <div className='event-location'>Colombo</div>
+                                    <div className='event-date'>2023/07/14</div>
+                                </div>
+
+                                <div className='datanew-row music-events-table-data-row d-flex'>
+                                    <div className='event-name'>Ameesha's Wedding</div>
+                                    <div className='event-type'>Wedding</div>
+                                    <div className='event-location'>Hambanthots</div>
+                                    <div className='event-date'>2023/08/14</div>
+                                </div>
+
+                                <div className='datanew-row music-events-table-data-row d-flex'>
+                                    <div className='event-name'>UCSC Freshers Night</div>
+                                    <div className='event-type'> Musical Show</div>
+                                    <div className='event-location'>Colombo</div>
+                                    <div className='event-date'>2023/07/10</div>
+                                </div>
+
+                                <div className='datanew-row music-events-table-data-row d-flex'>
+                                    <div className='event-name'>Nadagama</div>
+                                    <div className='event-type'>Musical Show</div>
+                                    <div className='event-location'>Galle</div>
+                                    <div className='event-date'>2023/01/09</div>
+                                </div>
+                                <div className='datanew-row music-events-table-data-row d-flex'>
+                                    <div className='event-name'>Aluth Kalawak</div>
+                                    <div className='event-type'>Musical Show</div>
+                                    <div className='event-location'>Mathara</div>
+                                    <div className='event-date'>2023/03/19</div>
+                                </div>
+                                <div className='datanew-row music-events-table-data-row d-flex'>
+                                    <div className='event-name'>Rap Sajje</div>
+                                    <div className='event-type'>Musical Show</div>
+                                    <div className='event-location'>Dabulla</div>
+                                    <div className='event-date'>2023/05/11</div>
+                                </div>
+
                             </div>
-                        )}
+                        </Modal.Body>
+                        <Modal.Footer>
+                            <Button variant="secondary" onClick={handleCloseModal}>
+                                Close
+                            </Button>
+                        </Modal.Footer>
+                    </Modal>
+                </div>
+            )}
         </div>
 
 

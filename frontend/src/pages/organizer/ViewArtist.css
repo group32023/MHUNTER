@@ -179,3 +179,53 @@ gap: 3rem;
     
 
 }
+
+
+
+
+
+.organizer-view-artist-container .view-music-events-table{
+
+    color: white;
+    margin-left: 12rem;
+    margin-top: 5rem;
+    max-width: 60rem;
+    /* height: 25rem; */
+    background-color: #484E55;
+    padding: 4rem;
+    padding-bottom: 2rem;
+    padding-top: 1rem;
+    border-radius: 10px;
+}
+
+.organizer-view-artist-container .view-music-events-table .music-events-table-data-row{
+
+    /* align-items:center; */
+    padding: 10px;
+    
+}
+
+.view-music-events-table .titlenew-row{
+    font-weight: bold;
+    background-color: #2F363E;
+    border-radius: 10px;
+    text-align: center;
+    padding: 10px;
+    font-size: 16px;
+}
+
+
+.hist-table .event-name, .hist-table .event-type , .hist-table .event-location , .hist-table .event-date{
+
+    flex:1;
+    text-align: center;
+}
+
+.view-music-events-table .datanew-row {
+
+    background-color: #24292D;
+    border-radius: 10px;
+    text-align: center;
+    padding: 10px;
+    margin-top: 10px;
+}
