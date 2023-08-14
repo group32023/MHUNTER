@@ -140,11 +140,14 @@ margin-top: 10px;}
   background-color: #056029;
   height:fit-content; 
   margin-top: 20px;
+  color: white;
 }
 .btn-secondary-cancel{
   background-color: #91040D;
   height:fit-content;
   margin-top: 20px;
+  color: white;
+
 
 }
 .Complaincontainer {
@@ -405,6 +408,40 @@ margin-top: 10px;}
   top: 58%;
   left: 80%;
 }
+.moderatorpendingomplaintsDiv
+{
+  width: 480px;
+  height: 139px;
+  border-radius: 15px;
+  background: #3B444D;
+  position: relative;
+  left: 48%;
+  margin-top: 20px;
+  margin-left: 160px;
+}
+.moderatorpendingomplaintsDiv-exp{
+  width: 366px;
+  height: 110px;
+  border-radius: 15px;
+  background: #3B444D;
+  position: relative;
+  left: 48%;
+  margin-top: 20px;
+  margin-left: -197px;
+
+}
+
+.moderatorpendingomplaintsDiv-exp .monthlyRequestPersontage{
+  color: #11FE70;
+  font-family: 'Dosis', sans-serif;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: normal;
+  position: absolute;
+  top: 58%;
+  left: 80%;
+}
 /* admin */
 
 /*Search Bar */
@@ -583,9 +620,9 @@ margin: 0px 40% 0px;
   justify-content: center;
   align-items: center;
   margin-top: 20px;
-  width: fit-content;
+  width: 25%;
   height: 40px;
-  margin-left: 550px;
+  margin-left: 520px;
   border: 1.5px solid #7643d2;
   border-radius: 70px;
 }
@@ -594,6 +631,16 @@ margin: 0px 40% 0px;
   display: inline-block;
   font-size: 20px;
   color: white;
+  width: 101px;
+  height: 22px;
+  flex-direction: column;
+  flex-shrink: 0;
+  color: #FFF;
+  font-family: Inter;
+  font-style: normal;
+  font-weight: 800;
+  line-height: normal;
+  padding-right: 22px;
 }
 
 .pagination li.active2 {
@@ -617,5 +664,85 @@ margin: 0px 40% 0px;
 .pagination li a:hover {
   color: white;
   text-decoration: none;
+}
+
+
+.moderatorregisterOverview{
+  width: 670px;
+  height: 281px;
+  border-radius: 15px;
+  background: #3B444D;
+  position: relative;
+  top: 2%;
+  left: 5.7%;
+  margin-top: -40px;
+}
+
+.moderatorregisterOverview-exp{
+  width: 579px;
+  height: 281px;
+  border-radius: 15px;
+  background: #3B444D;
+  position: relative;
+  top: 3%;
+  left: 6.5%;
+  margin-top: 117.5px;
+}
+.moderatorregisterOverviewHeader {
+  color: #FFF;
+  font-family: 'Blinker', sans-serif;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin-top: 1%;
+  margin-left: -40%;
+}
+.moderatorregisterOverview  .moderatorregisterOverviewHeader {
+  color: #FFF;
+  font-family:'Blinker', sans-serif;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  padding-top: 20px;
+  margin-top: 1%;
+  margin-left: -43%;
+}
+
+.moderatorregisterOverview-exp .apexcharts-svg.apexcharts-zoomable.hovering-pan{
+  width: 535px !important;
+}
+
+.moderatorregisterOverview .apexcharts-svg.apexcharts-zoomable.hovering-zoom{
+  width: 535px !important;
+  margin-left: -2px !important;
+}
+
+.moderatorregisterOverview-exp .apexcharts-canvas{
+  width: 535px !important;
+
+}
+
+.moderatorregisterOverview-exp .apexchartsbasic-bar{
+  width: 535px !important;
+
+}
+
+.moderatorregisterOverview-exp .apexcharts-theme-light{
+  width: 535px !important;
+
+}
+
+.moderatorregisterOverview-exp .apexcharts-svg{
+  width: 535px !important;
+}
+
+.moderatorregisterOverview-exp .apexcharts-zoomable {
+  width: 535px !important;
+}
+
+.moderatorregisterOverview-exp .hovering-zoom{
+  width: 535px !important;
 }
 

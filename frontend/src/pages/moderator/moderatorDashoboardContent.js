@@ -1,13 +1,13 @@
 import React, {useState } from 'react'
 import { Routes, Route } from 'react-router-dom';
-
+import Topbar from '../../components/common/Topbar';
 import SideMenuBarModerator from '../../components/common/SideMenuBar/SideMenuBarModerator';
 import '../../assets/css/moderator/moderatorComplaints.css'
-
-
 import ModeratorImage from '../../assets/images/moderatorDash.png'
 import ModeratorPendingRequest from '../../components/Moderator/moderatorPendingRequest'
 import ModeratorUpcommingEvent from '../../components/Moderator/moderatorUpcommingEvent'
+import ModeratotPendingComplaints from '../../components/Moderator/moderatorPendingComplaints'
+import ModeratorMemberincrease from '../../components/Moderator/moderatorMemberincrease'
 import Calendar from 'react-calendar';
 
 
@@ -23,7 +23,7 @@ export default function ArtistDashboard() {
 
     <div className='moderator-container'>
     
-
+    <Topbar/>
             {/*header icon*/}
             <div className='header-admin'>
 
@@ -52,7 +52,14 @@ export default function ArtistDashboard() {
                  <div className={expand ? 'moderatorpendingRequestDiv':'moderatorpendingRequestDiv-exp'}>
                 <ModeratorPendingRequest />
             </div>
-
+                             {/* pending request */}
+                <div className={expand ? 'moderatorpendingomplaintsDiv':'moderatorpendingomplaintsDiv-exp'}>
+                 <ModeratotPendingComplaints />
+                </div>
+                <div className={expand ? 'moderatorregisterOverview':'moderatorregisterOverview-exp'}>
+                 < ModeratorMemberincrease/>
+                </div>
+ 
             
 
     </div>
