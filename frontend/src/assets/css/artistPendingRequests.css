@@ -25,17 +25,17 @@
 
 }
 
-.eventDate{
+.eventDetails .eventDate{
     position: relative;
     margin-top: -3.2%;
     left: 12%;
 }
-.eventType{
+.eventDetails .eventType{
     position: relative;
     margin-top: -4%;
     left: -3%;
 }
-.venue{
+.eventDetails .venue{
     position: relative;
     margin-top: -3.2%;
     left: 27%;
@@ -63,7 +63,7 @@
     height: 10%;
     width: 70%;
     position: relative;
-    top: -650px;
+    top: -597px;
     left: 18%;
     margin-bottom: 20px;
 }
@@ -285,4 +285,22 @@
     top: 15%;
     left: -4%;
     
+}
+
+.MainContainer{
+
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    background: #24292D;
+
+}
+
+.pagination{
+    
+    position: absolute;
+    top: 90%;
+    left: 10%;
+   
+
 }

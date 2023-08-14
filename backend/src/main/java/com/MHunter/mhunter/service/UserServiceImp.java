@@ -24,8 +24,7 @@ public class UserServiceImp implements UserService{
 
     @Override
     public User findSpecificUser(int id) {
-        Optional<User> user = userRepository.findById(id);
-        return user.orElse(null);
+        return  userRepository.findByUserId(id);
     }
 
     @Override

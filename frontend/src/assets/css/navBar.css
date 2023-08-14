@@ -29,7 +29,7 @@
     margin-left: 122px;
 }
 
-ul li{
+.navContain ul li{
     width: 101px;
     height: 22px;
     flex-direction: column;

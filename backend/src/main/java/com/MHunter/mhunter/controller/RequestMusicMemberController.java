@@ -1,18 +1,12 @@
 package com.MHunter.mhunter.controller;
 
-import com.MHunter.mhunter.model.Event;
-import com.MHunter.mhunter.model.RequestMusicMember;
-import com.MHunter.mhunter.model.RequestMusicMemberId;
-import com.MHunter.mhunter.service.EventService;
-import com.MHunter.mhunter.service.RequestMusicMemberService;
+import com.MHunter.mhunter.model.*;
+import com.MHunter.mhunter.service.*;
 import com.MHunter.mhunter.struct.EventOrganizer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.Month;
-import java.time.Period;
+import java.time.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -25,6 +19,15 @@ public class RequestMusicMemberController {
     private RequestMusicMemberService requestMusicMemberService;
     @Autowired
     private EventService eventService;
+
+    @Autowired
+    private UserService userService;
+
+    @Autowired
+    private OrganizerService organizerService;
+
+    @Autowired
+    private IncomeArtistService incomeArtistService;
 
     @PostMapping("/add")
     public String save(@RequestBody RequestMusicMember requestMusicMember){
@@ -69,7 +72,146 @@ public class RequestMusicMemberController {
         return requestMusicMemberService.countPendingRequest(mid);
     }
 
-//    find by id
+    //view pending requests
+    @GetMapping("/pendingRequest/{mid}")
+    public List<EventOrganizer> pendingRequest(@PathVariable int mid){
+
+        List<RequestMusicMember> eventList = requestMusicMemberService.pendingRequest(mid);
+        List<EventOrganizer> eventOrganizerList = new ArrayList<>();
+
+        eventList.forEach(res ->{
+            Event event = eventService.viewSpecificEvent(res.getRequestMusicMemberId().getEventId());
+            Organizer organizer = organizerService.findSpecificOrganizer(res.getOrgId());
+            User user = userService.findSpecificUser(organizer.getUserId());
+
+            EventOrganizer eventOrganizer = new EventOrganizer();
+            eventOrganizer.setOrgId(res.getOrgId());
+            eventOrganizer.setEventId((event.getEventID()));
+            eventOrganizer.setOrganizerName(user.getFname() + " " +  user.getLname());
+            eventOrganizer.setEventName(event.getEvent_name());
+            eventOrganizer.setEventType(event.getEvent_type());
+            eventOrganizer.setStartTime(event.getStart_time());
+            eventOrganizer.setPlace(event.getTown());
+            eventOrganizer.setDate(event.getDate());
+            eventOrganizer.setCrowd(event.getCrowd());
+
+            Duration difference = Duration.between( event.getStart_time(),event.getEnd_time());
+            long hours = difference.toHours();
+            long minutes = difference.toMinutes() % 60;
+            if(minutes==0){
+                eventOrganizer.setDuration(hours + " hours ");
+
+            }
+            else{
+                eventOrganizer.setDuration(hours + " hours and " + minutes + " minutes");
+
+            }
+            eventOrganizerList.add(eventOrganizer);
+
+
+            //System.out.println(eventOrganizer);
+        });
+
+        return eventOrganizerList;
+    }
+
+
+    @GetMapping("/priorBooking/{mid}/{orgId}")
+    public List<EventOrganizer> priorBooking(@PathVariable int mid, @PathVariable int orgId){
+
+        List<RequestMusicMember> eventList = requestMusicMemberService.findConformationEventsByMMIDForOrg(mid,orgId);
+        List<EventOrganizer> eventOrganizerList = new ArrayList<>();
+
+        eventList.forEach(res ->{
+            Event event = eventService.viewSpecificEvent(res.getRequestMusicMemberId().getEventId());
+            Organizer organizer = organizerService.findSpecificOrganizer(res.getOrgId());
+            User user = userService.findSpecificUser(organizer.getUserId());
+            EventOrganizer eventOrganizer = new EventOrganizer();
+            IncomeArtistId id = new IncomeArtistId(mid,res.getRequestMusicMemberId().getEventId());
+            IncomeArtist incomeArtist = incomeArtistService.viewSpecificIncome(id);
+            eventOrganizer.setIncome(incomeArtist.getIncome());
+            eventOrganizer.setEventId((event.getEventID()));
+            eventOrganizer.setOrgId(res.getOrgId());
+            eventOrganizer.setOrganizerName(user.getFname() + " " +  user.getLname());
+            eventOrganizer.setEventName(event.getEvent_name());
+            eventOrganizer.setEventType(event.getEvent_type());
+            eventOrganizer.setStartTime(event.getStart_time());
+            eventOrganizer.setPlace(event.getTown());
+            eventOrganizer.setDate(event.getDate());
+            eventOrganizer.setCrowd(event.getCrowd());
+            Duration difference = Duration.between( event.getStart_time(),event.getEnd_time());
+            long hours = difference.toHours();
+            long minutes = difference.toMinutes() % 60;
+            if(minutes==0){
+                eventOrganizer.setDuration(hours + " hours ");
+
+            }
+            else{
+                eventOrganizer.setDuration(hours + " hours and " + minutes + " minutes");
+
+            }
+            eventOrganizerList.add(eventOrganizer);
+
+
+            //System.out.println(eventOrganizer);
+        });
+
+        return eventOrganizerList;
+    }
+
+
+    @GetMapping("/eventsOn/{mid}/{date}")
+    public List<EventOrganizer> eventsOn(@PathVariable int mid, @PathVariable LocalDate date){
+
+        List<RequestMusicMember> requestMusicMembersList = requestMusicMemberService.findConformationEventsByMMID(mid);
+        List<EventOrganizer> eventOrganizerList = new ArrayList<>();
+        requestMusicMembersList.forEach(res ->{
+            Event event = eventService.viewSpecificEvent(res.getRequestMusicMemberId().getEventId());
+
+            if(date.equals(event.getDate()) ){
+
+                Organizer organizer = organizerService.findSpecificOrganizer(res.getOrgId());
+                User user = userService.findSpecificUser(organizer.getUserId());
+                EventOrganizer eventOrganizer = new EventOrganizer();
+                IncomeArtistId id = new IncomeArtistId(mid,res.getRequestMusicMemberId().getEventId());
+                IncomeArtist incomeArtist = incomeArtistService.viewSpecificIncome(id);
+                eventOrganizer.setIncome(incomeArtist.getIncome());
+                eventOrganizer.setEventId((event.getEventID()));
+                eventOrganizer.setOrgId(res.getOrgId());
+                eventOrganizer.setOrganizerName(user.getFname() + " " +  user.getLname());
+                eventOrganizer.setEventName(event.getEvent_name());
+                eventOrganizer.setEventType(event.getEvent_type());
+                eventOrganizer.setStartTime(event.getStart_time());
+                eventOrganizer.setPlace(event.getTown());
+                eventOrganizer.setDate(event.getDate());
+                eventOrganizer.setCrowd(event.getCrowd());
+                Duration difference = Duration.between( event.getStart_time(),event.getEnd_time());
+                long hours = difference.toHours();
+                long minutes = difference.toMinutes() % 60;
+                if(minutes==0){
+                    eventOrganizer.setDuration(hours + " hours ");
+
+                }
+                else{
+                    eventOrganizer.setDuration(hours + " hours and " + minutes + " minutes");
+
+                }
+                eventOrganizerList.add(eventOrganizer);
+
+
+            }
+
+        });
+
+        return eventOrganizerList;
+    }
+
+
+
+
+
+
+    //    find by id
     @GetMapping("/monthlyGrowth/{mid}")
     public Double getEventsByMMID(@PathVariable int mid){
         List<RequestMusicMember> reqData = requestMusicMemberService.findEventsByMMID(mid);
@@ -154,15 +296,29 @@ public class RequestMusicMemberController {
         requestMusicMembersList.forEach(res ->{
             Event event = eventService.viewSpecificEvent(res.getRequestMusicMemberId().getEventId());
 
+            Organizer organizer = organizerService.findSpecificOrganizer(res.getOrgId());
+            User user = userService.findSpecificUser(organizer.getUserId());
             EventOrganizer eventOrganizer = new EventOrganizer();
-            eventOrganizer.setOrganizerName("W.R.A Kavinda Perera");
-            eventOrganizer.setEventId(event.getEventID());
+            eventOrganizer.setOrganizerName(user.getFname() + " " +  user.getLname());
             eventOrganizer.setEventType(event.getEvent_type());
             eventOrganizer.setPlace(event.getTown());
             eventOrganizer.setDate(event.getDate());
+            eventOrganizer.setCrowd(event.getCrowd());
+            Duration difference = Duration.between( event.getStart_time(),event.getEnd_time());
+            long hours = difference.toHours();
+            long minutes = difference.toMinutes() % 60;
+            if(minutes==0){
+                eventOrganizer.setDuration(hours + " hours ");
+
+            }
+            else{
+                eventOrganizer.setDuration(hours + " hours and " + minutes + " minutes");
+
+            }
             eventOrganizerList.add(eventOrganizer);
 
-            System.out.println(eventOrganizer);
+
+            //System.out.println(eventOrganizer);
         });
 
         return eventOrganizerList;

@@ -1,13 +1,16 @@
 package com.MHunter.mhunter.controller;
 
-import com.MHunter.mhunter.model.Event;
-import com.MHunter.mhunter.model.IncomeArtist;
-import com.MHunter.mhunter.model.IncomeArtistId;
+import com.MHunter.mhunter.model.*;
 import com.MHunter.mhunter.service.EventService;
 import com.MHunter.mhunter.service.IncomeArtistService;
+import com.MHunter.mhunter.service.OrganizerService;
+import com.MHunter.mhunter.service.UserService;
+import com.MHunter.mhunter.struct.EventOrganizer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
+import com.MHunter.mhunter.model.Event;
+import com.MHunter.mhunter.model.Organizer;
+import com.MHunter.mhunter.model.User;
 import java.time.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -22,40 +25,126 @@ public class IncomeArtistController {
     @Autowired
     private EventService eventService;
 
+    @Autowired
+    private OrganizerService organizerService;
+
+    @Autowired
+    private UserService userService;
+
+
     @PostMapping("/add")
     public String save(@RequestBody IncomeArtist incomeArtist){
          incomeArtistService.saveIncome(incomeArtist);
          return "Income Added";
     }
 
-    @GetMapping("/specificArtistIncome/{artistId}/{eventId}")
-    public IncomeArtist viewSpecificArtistIncome(@PathVariable int artistId,@PathVariable int eventId){
-        IncomeArtistId id = new IncomeArtistId(artistId,eventId);
+    @GetMapping("/specificArtistIncome/{mmid}/{eventId}")
+    public IncomeArtist viewSpecificArtistIncome(@PathVariable int mmid,@PathVariable int eventId){
+        IncomeArtistId id = new IncomeArtistId(mmid,eventId);
         IncomeArtist income = incomeArtistService.viewSpecificIncome(id);
         return income;
     }
 
 //    find the specific arist's income list
-    @GetMapping("/specificArtistIncomeList/{artistId}")
-    public List<IncomeArtist> viewSpecificArtistIncomeList(@PathVariable int artistId){
-        return incomeArtistService.viewListOfArtistIncomes(artistId);
+    @GetMapping("/specificArtistIncomeList/{mmid}")
+    public List<IncomeArtist> viewSpecificArtistIncomeList(@PathVariable int mmid){
+        return incomeArtistService.viewListOfArtistIncomes(mmid);
 
     }
-    @GetMapping("/specificArtistIncomeDetails/{artistId}")
-    public List<Event> viewSpecificArtistIncomeDetails(@PathVariable int artistId) {
-        List<IncomeArtist> incomeList = incomeArtistService.viewListOfArtistIncomes(artistId);
-        List<Event> eventDetails=new ArrayList<Event>();
-        incomeList.forEach(incomeArtist ->
-                eventDetails.add(eventService.viewSpecificEvent(incomeArtist.getId().getEventId())));
+    @GetMapping("/specificArtistIncomeDetails/{mmid}")
+    public List<EventOrganizer> viewSpecificArtistIncomeDetails(@PathVariable int mmid) {
+        List<IncomeArtist> incomeList = incomeArtistService.viewListOfArtistIncomes(mmid);
+        List<EventOrganizer> eventOrganizerList = new ArrayList<>();
+          incomeList.forEach((res->{
+              Event event = eventService.viewSpecificEvent(res.getId().getEventId());
+              Organizer organizer = organizerService.findSpecificOrganizer(event.getOrgID());
+              User user = userService.findSpecificUser(organizer.getUserId());
+              EventOrganizer eventOrganizer = new EventOrganizer();
+              eventOrganizer.setIncome(res.getIncome());
+              eventOrganizer.setOrgId(event.getOrgID());
+              eventOrganizer.setEventId((event.getEventID()));
+              eventOrganizer.setOrganizerName(user.getFname() + " " +  user.getLname());
+              eventOrganizer.setEventName(event.getEvent_name());
+              eventOrganizer.setEventType(event.getEvent_type());
+              eventOrganizer.setStartTime(event.getStart_time());
+              eventOrganizer.setPlace(event.getTown());
+              eventOrganizer.setDate(event.getDate());
+              eventOrganizer.setCrowd(event.getCrowd());
 
-        return eventDetails;
+              Duration difference = Duration.between( event.getStart_time(),event.getEnd_time());
+              long hours = difference.toHours();
+              long minutes = difference.toMinutes() % 60;
+              if(minutes==0){
+                  eventOrganizer.setDuration(hours + " hours ");
+
+              }
+              else{
+                  eventOrganizer.setDuration(hours + " hours and " + minutes + " minutes");
+
+              }
+              eventOrganizerList.add(eventOrganizer);
+
+
+          }
+
+                  ));
+
+
+
+        return eventOrganizerList;
+    }
+
+    @GetMapping("/specificArtistIncomeDetailsOntoday/{eventType}/{fromDate}/{toDate}/{mmid}")
+    public List<EventOrganizer> specificArtistIncomeDetailsOntoday(@PathVariable String eventType,@PathVariable LocalDate fromDate,@PathVariable LocalDate toDate,@PathVariable int mmid) {
+        List<IncomeArtist> incomeList = incomeArtistService.viewListOfArtistIncomes(mmid);
+        List<EventOrganizer> eventOrganizerList = new ArrayList<>();
+        System.out.println(toDate.getClass());
+//        incomeList.forEach((res->{
+//           if(fromDate.(res.getDate().toLocalDate())){
+//               Event event = eventService.viewSpecificEvent(res.getId().getEventId());
+//               Organizer organizer = organizerService.findSpecificOrganizer(event.getOrgID());
+//               User user = userService.findSpecificUser(organizer.getUserId());
+//               EventOrganizer eventOrganizer = new EventOrganizer();
+//               eventOrganizer.setIncome(res.getIncome());
+//               eventOrganizer.setOrgId(event.getOrgID());
+//               eventOrganizer.setEventId((event.getEventID()));
+//               eventOrganizer.setOrganizerName(user.getFname() + " " +  user.getLname());
+//               eventOrganizer.setEventName(event.getEvent_name());
+//               eventOrganizer.setEventType(event.getEvent_type());
+//               eventOrganizer.setStartTime(event.getStart_time());
+//               eventOrganizer.setPlace(event.getTown());
+//               eventOrganizer.setDate(event.getDate());
+//               eventOrganizer.setCrowd(event.getCrowd());
+//
+//               Duration difference = Duration.between( event.getStart_time(),event.getEnd_time());
+//               long hours = difference.toHours();
+//               long minutes = difference.toMinutes() % 60;
+//               if(minutes==0){
+//                   eventOrganizer.setDuration(hours + " hours ");
+//
+//               }
+//               else{
+//                   eventOrganizer.setDuration(hours + " hours and " + minutes + " minutes");
+//
+//               }
+//               eventOrganizerList.add(eventOrganizer);
+//
+//           }
+//
+//        }
+//
+//        ));
+
+
+
+        return eventOrganizerList;
     }
 
 
 
     // give monthly growth and income
-    @GetMapping("/incomeAndMonthlyGrowth/{artistId}")
-    public List<Double> getIncomeAndMonthlyGrowthOfArtist(@PathVariable int artistId){
+    @GetMapping("/incomeAndMonthlyGrowth/{mmid}")
+    public List<Double> getIncomeAndMonthlyGrowthOfArtist(@PathVariable int mmid){
         double lastMonthIncome = 0;
         double firstMonthIncome = 0;
         int year;
@@ -70,7 +159,7 @@ public class IncomeArtistController {
         List<Double> monthlyGrowthAndIncome= new ArrayList<>(2);
         monthlyGrowthAndIncome.add(0.0);
         monthlyGrowthAndIncome.add(0.0);
-        List<IncomeArtist> incomeList = incomeArtistService.viewListOfArtistIncomes(artistId);
+        List<IncomeArtist> incomeList = incomeArtistService.viewListOfArtistIncomes(mmid);
 
 // hello
 //        get the monthly income

@@ -11,7 +11,7 @@ import lombok.Data;
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int UserID;
+    private int userId;
     private String fname;
     private String lname;
     private String address;

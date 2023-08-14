@@ -30,7 +30,7 @@ public class RequestMusicMemberServiceImp implements RequestMusicMemberService{
         return requestMusicMemberRepository.findById(id).map(requestMusicMember1 -> {
             requestMusicMember1.setRequestMusicMemberId(requestMusicMember.getRequestMusicMemberId());
             requestMusicMember1.setOrgId(requestMusicMember.getOrgId());
-            requestMusicMember1.setConformationStatus(requestMusicMember.getConformationStatus());
+            requestMusicMember1.setConfirmationStatus(requestMusicMember.getConfirmationStatus());
             requestMusicMember1.setRequestDate(requestMusicMember.getRequestDate());
             requestMusicMember1.setConfirmationDate(requestMusicMember.getConfirmationDate());
             return requestMusicMemberRepository.save(requestMusicMember1);
@@ -55,6 +55,12 @@ public class RequestMusicMemberServiceImp implements RequestMusicMemberService{
     }
 
     @Override
+    public List<RequestMusicMember> pendingRequest(int mmid)  {
+        return requestMusicMemberRepository.viewPendingRequest(mmid);
+
+    }
+
+    @Override
     public List<RequestMusicMember> findEventsByMMID(int mmid) {
         return requestMusicMemberRepository.findByMMID(mmid);
     }
@@ -62,5 +68,11 @@ public class RequestMusicMemberServiceImp implements RequestMusicMemberService{
     @Override
     public List<RequestMusicMember> findConformationEventsByMMID(int mmid) {
         return requestMusicMemberRepository.findByMMIDList(mmid);
+    }
+
+    @Override
+    public List<RequestMusicMember> findConformationEventsByMMIDForOrg(int mmid, int orgId) {
+        return requestMusicMemberRepository.findByMMIDListForAOrganizer(mmid,orgId);
+
     }
 }

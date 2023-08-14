@@ -19,8 +19,7 @@ public class RequestMusicMember {
     private int orgId;
     @Column(columnDefinition = "DATETIME DEFAULT CURRENT_TIMESTAMP")
     private LocalDateTime requestDate;
-
-    private int conformationStatus;
+    private int confirmationStatus;
 
     private LocalDateTime confirmationDate;
 }

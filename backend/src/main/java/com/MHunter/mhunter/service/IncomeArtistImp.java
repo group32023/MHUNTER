@@ -21,7 +21,7 @@ public class IncomeArtistImp implements IncomeArtistService{
     public List<IncomeArtist> viewIncome() {return incomeArtistRepository.findAll();}
 
     @Override
-    public IncomeArtist updateIncome(IncomeArtist incomeArtist,int artistId,int eventId) {
+    public IncomeArtist updateIncome(IncomeArtist incomeArtist,int mmid,int eventId) {
         return null;
     }
 
@@ -31,7 +31,7 @@ public class IncomeArtistImp implements IncomeArtistService{
     }
 
     @Override
-    public List<IncomeArtist> viewListOfArtistIncomes(int artistId) {
-        return incomeArtistRepository.findById_ArtistId(artistId);
+    public List<IncomeArtist> viewListOfArtistIncomes(int mmid) {
+        return incomeArtistRepository.findById_Mmid(mmid);
     }
 }

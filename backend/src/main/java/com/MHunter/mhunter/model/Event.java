@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.time.temporal.Temporal;
 
 
 @Entity
@@ -24,6 +25,8 @@ public class Event {
     //    @Column(name = "Location")
     private String Location;
     //    @Column(name = "Longitude")
+
+    private String Town;
     private Double Longitude;
     //    @Column(name = "Latitude")
     private Double Latitude;
@@ -36,23 +39,9 @@ public class Event {
     //    @Column(name = "end_time")
     private LocalTime end_time;
 
-    private String town;
 
-    public int getEventid() {
-        return eventid;
-    }
 
-    public void setEventid(int eventid) {
-        this.eventid = eventid;
-    }
 
-    public String getTown() {
-        return town;
-    }
-
-    public void setTown(String town) {
-        this.town = town;
-    }
 
     //    @Column(name = "Image")
 //    private String Image;
@@ -107,6 +96,22 @@ public class Event {
         return Longitude;
     }
 
+    public String getTown() {
+        return Town;
+    }
+
+    public void setTown(String town) {
+        Town = town;
+    }
+
+    public int getEventid() {
+        return eventid;
+    }
+
+    public void setEventid(int eventid) {
+        this.eventid = eventid;
+    }
+
     public void setLongitude(Double longitude) {
         Longitude = longitude;
     }
@@ -139,11 +144,11 @@ public class Event {
         return start_time;
     }
 
-    public void setStart_time(LocalTime start_time) {
+    public void setStart_time() {
         this.start_time = start_time;
     }
 
-    public LocalTime getEnd_time() {
+    public Temporal getEnd_time() {
         return end_time;
     }
 

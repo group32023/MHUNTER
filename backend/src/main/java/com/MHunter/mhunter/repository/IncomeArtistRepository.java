@@ -16,6 +16,6 @@ public interface IncomeArtistRepository extends JpaRepository<IncomeArtist, Inco
 
 //    find list of income using artist id
 //    @Query("SELECT i FROM income_artist i WHERE i.id.artistId = :artistId")
-    List<IncomeArtist> findById_ArtistId(int artistId);
+    List<IncomeArtist> findById_Mmid(int mmid);
 
 }

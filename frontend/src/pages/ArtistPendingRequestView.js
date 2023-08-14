@@ -1,4 +1,5 @@
 import React,{useState, useEffect,useRef} from 'react';
+import { Link,useParams, useNavigate } from 'react-router-dom';
 import SideMenuBarArtist from '../components/common/SideMenuBar/SideMenuBarArtist'
 import '../assets/css/artistDashboard.css'
 import '../assets/css/artistPendingRequests.css'
@@ -13,6 +14,56 @@ import { faTwitter, faFontAwesome,faFacebook,faGooglePlusG,faLinkedinIn } from '
 
 
 export default function ArtistPendingRequests() {
+
+  const { id } = useParams();
+
+  const [event, setEvent] = useState([]);
+  
+  console.log(id);
+
+  let navigate = useNavigate();
+
+  useEffect(() => {
+    // Fetch the data from the Java backend
+    fetch(`http://localhost:8080/event/viewSpecificEvent/${id}`)
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      return response.json();
+    })
+     
+      .then((data) => {
+        setEvent(data);
+      })
+      .catch((error) => {
+        console.log('Error fetching data:', error);
+      });
+      //console.log(event[0]);
+
+  }, []);
+
+  const loadInvoice=(id)=>{
+    navigate(`/band/invoice/${id}`);
+
+  }
+
+  const loadPriorBooking=(mmid, orgId)=>{
+    navigate(`/artist/priorbooking/${mmid}/${orgId}`);
+
+  }
+
+  const loadMyEventsOn=(mmid,date)=>{
+    navigate(`/artist/eventsOn/${mmid}/${date}`);
+
+  }
+
+
+ 
+ //var eventID =event[0]['eventid'];
+
+ if(event===null) return <div>Loading....................</div>
+ 
 
   return (
 
@@ -30,26 +81,27 @@ export default function ArtistPendingRequests() {
         
             <img src={profileImage} className="profileView1"></img>
             <p className='paraRequestName'>Requested By : </p>
-            <h4>W.R.A.Kavinda Perera</h4>
+            <h4>{event['organizerName']}</h4>
 
             <div className='eventDetailsContainer'>
-            <p class="eventType1"><FontAwesomeIcon icon={faCalendarDays} id="EventIconPendingRequest1"/>Birthday Party</p>
-            <p class="eventDate1"><FontAwesomeIcon icon={faCalendarDays} id="CalenderIconPendingRequest1"/>2023.11.02</p>
-            <p class="venue1"><FontAwesomeIcon icon={faLocationDot} id="LocationIconPendingRequest1"/> Colombo 05</p>
-            <p class="eventType2"><FontAwesomeIcon icon={faCalendarDays} id="EventIconPendingRequest2"/>Birthday Party</p>
-            <p class="eventDate2"><FontAwesomeIcon icon={faCalendarDays} id="CalenderIconPendingRequest2"/>2023.11.02</p>
-            <p class="venue2"><FontAwesomeIcon icon={faLocationDot} id="LocationIconPendingRequest2"/> Colombo 05</p>
+            <p class="eventType1"><FontAwesomeIcon icon={faCalendarDays} id="EventIconPendingRequest1"/>{event['eventName']}</p>
+            <p class="eventDate1"><FontAwesomeIcon icon={faCalendarDays} id="CalenderIconPendingRequest1"/>{event['date']}</p>
+            <p class="venue1"><FontAwesomeIcon icon={faLocationDot} id="LocationIconPendingRequest1"/> {event['startTime']}</p>
+            <p class="eventType2"><FontAwesomeIcon icon={faCalendarDays} id="EventIconPendingRequest2"/>{event['duration']}</p>
+            <p class="eventDate2"><FontAwesomeIcon icon={faCalendarDays} id="CalenderIconPendingRequest2"/>{event['crowd']}</p>
+            <p class="venue2"><FontAwesomeIcon icon={faLocationDot} id="LocationIconPendingRequest2"/> {event['place']}</p>
 
             </div>
+            
 
-            {/* <MDBBtn className="priorbookingsBtn">Prior Bookings</MDBBtn>
-            <MDBBtn className="myEventsBtn">My Events</MDBBtn>
-            <MDBBtn className="acceptBtn">Accept</MDBBtn>
-            <MDBBtn className="rejectBtn">Reject</MDBBtn> */}
+            <button className="priorbookingsBtn" onClick={()=>loadPriorBooking(101,event['orgId'])}>Prior Bookings</button>
+            <button className="myEventsBtn" onClick={()=>loadMyEventsOn(101,event['date'])}>My Events</button>
+            <button className="acceptBtn" onClick={()=>loadInvoice(event['eventId'])}>Accept</button>
+            <button className="rejectBtn">Reject</button>
         </div>
         
         
-       
+      
         
         
     </div>

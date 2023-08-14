@@ -1,9 +1,8 @@
 import React,{useState, useEffect,useRef} from 'react';
 import {Button, Table} from 'react-bootstrap';
-import { Link,useParams, useNavigate } from 'react-router-dom';
-import { MDBDataTable } from 'mdbreact';
+import { useNavigate,useParams} from 'react-router-dom';
 import SideMenuBarArtist from '../components/common/SideMenuBar/SideMenuBarArtist'
-import '../assets/css/artistReport.css'
+import '../assets/css/priorbooking.css'
 import { MDBBtn } from 'mdb-react-ui-kit';
 import { useReactToPrint } from 'react-to-print'
 
@@ -14,16 +13,16 @@ import { faTwitter, faFontAwesome,faFacebook,faGooglePlusG,faLinkedinIn } from '
 
 
 
-export default function ArtistGenerateReports() {
+export default function ArtistEventOn() {
 
 
-  const navigate = useNavigate();
+  const { mmid, date } = useParams();
   const componentPDF = useRef();
   const [eventList, setEventList] = useState([]);
 
   useEffect(() => {
     // Fetch the data from the Java backend
-    fetch('http://localhost:8080/artistIncome/specificArtistIncomeDetails/101')
+    fetch(`http://localhost:8080/requestMusicMember/eventsOn/${mmid}/${date}`)
     .then((response) => {
       if (!response.ok) {
         throw new Error('Network response was not ok');
@@ -42,23 +41,11 @@ export default function ArtistGenerateReports() {
   }, []);
 
 
-   
+
    
   
   const divCount = eventList.length;
   const divElements = [];
-  const today = new Date();
-  const year = today.getFullYear();
-  const month = today.getMonth() + 1;
-  const day = today.getDate();
-
-  const formattedDate = `${year}-${month < 10 ? '0' : ''}${month}-${day < 10 ? '0' : ''}${day}`;
- 
-
-  const todayIncome=(id)=>{
-    navigate(`/artist/report/today/${id}`);
-
-  }
  
 
   // Using a for loop to generate the <div> tags
@@ -72,9 +59,9 @@ export default function ArtistGenerateReports() {
       <td>{eventList[i]['organizerName']}</td>
       <td>{eventList[i]['eventType']}</td>
       <td><FontAwesomeIcon icon={faLocationDot} id="LocationIcon"/>{eventList[i]['place']}</td>
-      <td>{eventList[i]['date']}</td>
+      <td>{eventList[i]['crowd']}</td>
       <td>{eventList[i]['income']}</td>
-      <td>{}</td>
+      
 </tr>
   );
    
@@ -82,26 +69,28 @@ export default function ArtistGenerateReports() {
 
   
 
-   const generatePDF=useReactToPrint({
-    content:()=>componentPDF.current,
-    documentTitle:"Income",
-    onAfterPrint:()=>alert("Data saved in PDF")
-   });
+  if(eventList.length===0) return <div>Loading....................</div>
 
     return (
   
       <div className='artistContainer'>
           <div className='artistSideBar'>
               <SideMenuBarArtist></SideMenuBarArtist>
-              <h3 className='headerDashboard'>Reports</h3>
+              <h3 className='headerDashboard'>Pending Requests</h3>
               <div className='notificationBg'></div>
               <div className='homeBg'></div>
               <div className='logoutBg'></div>
           </div>
+
+          <div className='addressDiv'>
+          <h3>Prior Booking </h3>
+          <h4 className="organizer_tag">Organizer :  </h4>
+          <h4 className="organizerName">{eventList[0]['organizerName']}</h4>
+          </div>
         
-              <Button className="dateFrom"><FontAwesomeIcon icon={faCalendarDays} id="CalenderReport"/>Date From</Button> 
-              <Button className="Today"  onClick={()=>todayIncome(101)}><FontAwesomeIcon icon={faCalendarDays} id="CalenderReport"/>Today</Button> 
-              <Button className="eventTypeSelection"><FontAwesomeIcon icon={faCalendarDays} id="CalenderReport"/>Event Type</Button>
+              <Button className="date"><FontAwesomeIcon icon={faCalendarDays} id="CalenderReport"/>Date</Button> 
+              <Button className="event_type"><FontAwesomeIcon icon={faCalendarDays} id="CalenderReport"/>Event Type</Button> 
+              <Button className="filter">Filter</Button>
               
 
             <div className='reportContainer' >
@@ -109,15 +98,16 @@ export default function ArtistGenerateReports() {
 
               <p>Income</p>
           
-             <Table id="ReportTable" className='table table-hover table-dark table-condensed table-resposive'  >
+             <Table id="PriorBookingTable" className='table table-hover table-dark table-condensed table-resposive'  >
                         <thead>
                         <tr>
                           <th>Event Name</th>
                           <th>Organizer Name</th>
                           <th>Event Type</th>
                           <th>Town</th>
-                          <th>Date</th>
-                          <th>Income</th>
+                          <th>Crowd</th>
+                          <th>Fee (Rs.)</th>
+                        
                           </tr>
                         </thead>
 
@@ -132,7 +122,7 @@ export default function ArtistGenerateReports() {
                       </Table>
                   
           </div>     
-          <Button className="download" onClick={generatePDF}>Download</Button>
+          <Button className="download">Back</Button>
            </div>
           
           

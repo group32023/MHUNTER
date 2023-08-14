@@ -14,7 +14,7 @@ import java.time.LocalDateTime;
 public class IncomeArtist {
    @EmbeddedId
     private IncomeArtistId id;
-    private int income;
+    private Double income;
     @Column(columnDefinition = "DATETIME DEFAULT CURRENT_TIMESTAMP")
     private LocalDateTime date;
 

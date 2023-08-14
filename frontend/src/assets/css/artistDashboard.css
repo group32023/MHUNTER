@@ -22,10 +22,10 @@
     font-style: normal;
     font-weight: 800;
     line-height: normal;
-    position: relative;
-    top: 6%;
-    left: 6%;
-    width: 165px;
+    position: absolute;
+    top: 4% !important;
+    left: 8%;
+    width: 262px
    
 }
 
