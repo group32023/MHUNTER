@@ -161,7 +161,7 @@ function ViewArtist() {
 
             {showModal && (
                 <div className="overlay">
-                    <Modal show={showModal} onHide={handleCloseModal} centered>
+                    <Modal show={showModal} onHide={handleCloseModal}centered>
                         <Modal.Header closeButton>
                             <Modal.Title>Events on August 21</Modal.Title>
                         </Modal.Header>
@@ -175,27 +175,7 @@ function ViewArtist() {
                                     <div className='event-date'>Date</div>
                                 </div>
 
-                                <div className='datanew-row music-events-table-data-row d-flex'>
-                                    <div className='event-name'>Kalagame Awurudu</div>
-                                    <div className='event-type'>Awurudu function</div>
-                                    <div className='event-location'>Colombo</div>
-                                    <div className='event-date'>2023/07/14</div>
-                                </div>
-
-                                <div className='datanew-row music-events-table-data-row d-flex'>
-                                    <div className='event-name'>Ameesha's Wedding</div>
-                                    <div className='event-type'>Wedding</div>
-                                    <div className='event-location'>Hambanthots</div>
-                                    <div className='event-date'>2023/08/14</div>
-                                </div>
-
-                                <div className='datanew-row music-events-table-data-row d-flex'>
-                                    <div className='event-name'>UCSC Freshers Night</div>
-                                    <div className='event-type'> Musical Show</div>
-                                    <div className='event-location'>Colombo</div>
-                                    <div className='event-date'>2023/07/10</div>
-                                </div>
-
+                               
                                 <div className='datanew-row music-events-table-data-row d-flex'>
                                     <div className='event-name'>Nadagama</div>
                                     <div className='event-type'>Musical Show</div>
