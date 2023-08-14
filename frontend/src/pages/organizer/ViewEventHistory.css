@@ -13,7 +13,7 @@
 
   .filter-box-container .event-filter-box {
     margin-right: 20px;
-    border: 1px solid;
+    /* border: 1px solid; */
     border-radius: 10px;
     padding: 0.7rem;
     background-color:#484E55 ;
@@ -34,7 +34,7 @@
   .event-filter-box .form-date {
     padding: 5px;
     border: 1px solid #ccc;
-    border-radius: 5px;
+     border-radius: 5px; 
     background-color: #24292D;
     color: white;
   }
@@ -108,7 +108,7 @@
     filter: invert(1); /* This inverts the icon color; you can also use "grayscale(1)" or any other filter you prefer */
   }
 
-  .event-filter-box >input {
+  .event-filter-box  > input {
     background-color: black; /* Replace "your-color" with the desired background color for the search bar */
     color: black; /* Replace "your-text-color" with the desired text color for the search bar */
     border: 1px solid  ; /* Replace "your-border-color" with the desired border color for the search bar */
