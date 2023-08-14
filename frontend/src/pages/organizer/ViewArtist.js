@@ -11,9 +11,20 @@ import { library } from '@fortawesome/fontawesome-svg-core';
 import { fas } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import StarRating from '../../components/organizer/StarRating';
+import { Modal } from 'bootstrap';
 library.add(fas);
 
 function ViewArtist() {
+
+
+    const handleShowModal = () => {
+        setShowModal(true);
+    };
+
+    const handleCloseModal = () => {
+        setShowModal(false);
+    };
+
 
     return (
 
@@ -139,12 +150,29 @@ function ViewArtist() {
 
             <div className='click-btns'>
 
-                <button type="button" class="btn btn-lg">Events On 21</button>
+                <button type="button" class="btn btn-lg" onClick={handleShowModal}>Events On 21</button>
                 <Link to="/organizer/searchartist/viewartist/MakeArtistRequest">
                 <button type="button" class="btn btn-lg">Make a Request</button>
-                </Link>
+                </Link> 
             </div>
 
+            {showModal && (
+                            <div className="overlay">
+                                <Modal show={showModal} onHide={handleCloseModal} centered>
+                                    <Modal.Header closeButton>
+                                        <Modal.Title>Popup Title</Modal.Title>
+                                    </Modal.Header>
+                                    <Modal.Body>
+                                        Content of the popup goes here.
+                                    </Modal.Body>
+                                    <Modal.Footer>
+                                        <Button variant="secondary" onClick={handleCloseModal}>
+                                            Close
+                                        </Button>
+                                    </Modal.Footer>
+                                </Modal>
+                            </div>
+                        )}
         </div>
 
 
