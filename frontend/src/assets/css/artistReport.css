@@ -1,4 +1,4 @@
-.dateFrom{
+#dateFrom{
   
         background-color: #ffffff !important;
         position: absolute;
@@ -7,7 +7,7 @@
         height: 5%;
         font-weight: bold;
         text-align: center;
-        color: #000000;
+        color: #000000 !important;
         border-radius: 10px;
         border: none !important;
         left:12%;
@@ -16,7 +16,7 @@
     
 }
 
-.Today{
+#Today{
         background-color: #ffffff !important;
         position: absolute;
         font-size: 15px;
@@ -24,7 +24,7 @@
         height: 5%;
         font-weight: bold;
         text-align: center;
-        color: #000000;
+        color: #000000 !important;
         border-radius: 10px;
         border: none !important;
         left: 22%;
@@ -41,16 +41,29 @@
         height: 5%;
         font-weight: bold;
         text-align: center;
-        color: #000000;
+        color: #000000 !important;
         border-radius: 10px;
         border: none !important;
         left: 32%;
         top: 127px;
-        --bs-btn-hover-color: #7643D2 !important;
+        --bs-btn-active-color: #7643D2 !important;
     
         
 
 }
+
+#selector{
+    position: absolute;
+    font-size: 15px;
+    width: 6%;
+    height: 5%;
+    left: 32%;
+    top: 127px;
+    font-weight: bold;
+    border-radius: 10px;
+    --bs-btn-active-border-color: #7643D2 !important;
+}
+
 
 .download{
     background-color: #7643D2 !important;

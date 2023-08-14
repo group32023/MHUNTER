@@ -14,9 +14,9 @@ import ConfirmRequest from "./pages/ConfirmRequest"
 import ArtistPriorBooking from "./pages/ArtistPriorBooking"
 
 import ArtistEvent from './pages/ArtistEvent';
-import BandInvoice from './pages/BandInvoice.js';
+import BandInvoice from './pages/BandInvoice';
 import ArtistEventOn from './pages/ArtistEventOn';
-
+import ArtistGenerateReportsToday from './pages/ArtistGenerateReportsToday'
 
 
 
@@ -36,6 +36,8 @@ function App() {
           <Route path='/aboutUs' element={<AboutUs/>}></Route>
           {/* <Route path='/artist/Dashboard' element={<ArtistPendingRequests/>}></Route> */}
           <Route path='/artist/Dashboard' element={<ArtistGenerateReports/>}></Route>
+          <Route path='/artist/report/today/:id' element={<ArtistGenerateReportsToday/>}></Route>
+
           <Route path='/artist/PendingRequestView/:id' element={<ArtistPendingRequestView/>}></Route>
           <Route path='/artist/priorbooking/:id1/:id2' element={<ArtistPriorBooking/>}></Route>
           <Route path='/artist/eventsOn/:mmid/:date' element={<ArtistEventOn/>}></Route>
