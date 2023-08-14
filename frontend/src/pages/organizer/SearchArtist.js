@@ -41,10 +41,10 @@ function SearchArtist() {
                 </div> 
             </div>
 
-            <div className='col-md-3 artist-box' >
-                <Link to="/organizer/searchartist/viewartist">
+            <div className='col-md-3 artist-box' > 
+                <Link to="/organizer/searchartist/viewartist" className='link1'>
                     <div className='image'>
-                        <img src={anushka}>
+                        <img src={anushka} alt='image1'>
                         </img>
                     </div>
 
@@ -58,48 +58,48 @@ function SearchArtist() {
             </div>
 
             <div className='col-md-3 artist-box' >
-                <Link to="/organizer/searchartist/viewartist">
+                <Link to="/organizer/searchartist/viewartist" className='link1'>
                     <div className='image'>
-                        <img src={DineshGamage}>
+                        <img src={DineshGamage} alt='image2'>
                         </img>
                     </div>
 
                     <div className='content'>
 
                         <h5>Dinesh Gamage</h5>
-                        <StarRating rating={4} ></StarRating>
+                        <StarRating rating={5} ></StarRating>
 
                     </div>
                 </Link>
             </div>
 
             <div className='col-md-3 artist-box' >
-                <Link to="/organizer/searchartist/viewartist">
+                <Link to="/organizer/searchartist/viewartist" className='link1'>
                     <div className='image'>
-                        <img src={dineshtharanga}>
+                        <img src={dineshtharanga} alt='image3'>
                         </img>
                     </div>
 
                     <div className='content'>
 
                         <h5>Dinesh Tharanga</h5>
-                        <StarRating rating={3.5} ></StarRating>
+                        <StarRating rating={5} ></StarRating>
 
                     </div>
                 </Link>
             </div>
 
             <div className='col-md-3 artist-box' >
-                <Link to="/organizer/searchartist/viewartist">
+                <Link to="/organizer/searchartist/viewartist" className='link1'>
                     <div className='image'>
-                        <img src={theekshana}>
+                        <img src={theekshana} alt='image4'>
                         </img>
                     </div>
 
                     <div className='content'>
 
                         <h5>Theekshana Anuradha</h5>
-                        <StarRating rating={4} ></StarRating>
+                        <StarRating rating={5} ></StarRating>
 
                     </div>
                 </Link>

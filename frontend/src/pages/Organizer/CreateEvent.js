@@ -17,7 +17,7 @@ function CreateEvent() {
     date: '',
     crowd: '',
     start_time: '',
-    end_time: '',
+    end_time: '', 
     location: '',
     description: '',
     latitude: '',
@@ -30,7 +30,7 @@ function CreateEvent() {
   const onChangeHandler = (event) => {
     if (!event.target) return; // Check if event.target exists
 
-    const { name, value } = event.target;
+    const { name, value } = event.target; 
 
     if (name === 'crowd') {
 
@@ -97,8 +97,8 @@ function CreateEvent() {
               <option value="musical">Musical Show</option>
               <option value="party">Party</option>
               <option value="awurudu">Awurudu Function</option>
-              <option value="get">Get Together</option>
-              <option value="other">Other</option>
+              <option value="get">Get Together</option>  
+              <option value="other">Other</option> 
 
             </select>
 

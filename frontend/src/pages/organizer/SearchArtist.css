@@ -121,3 +121,8 @@ font-size: 20px;
   -moz-appearance: none;
   appearance: none;
 }
+
+.link1{
+
+  text-decoration: none;
+}

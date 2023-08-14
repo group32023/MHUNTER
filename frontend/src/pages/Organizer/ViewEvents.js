@@ -43,6 +43,10 @@ function ViewEvents() {
     }, [])
 
 
+    if (events === null){
+
+        return <div>Loading events...</div>;
+    }
 
     return (
 
