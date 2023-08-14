@@ -2,7 +2,8 @@ import './CreateEvent.css';
 import { useState } from 'react';
 import React from 'react';
 import { format } from 'date-fns'
-import LocationInput from '../../components/Organizer/LocationInput';
+import Topbar from '../../components/common/Topbar';
+import LocationInput from '../../components/organizer/LocationInput';
 // import SideMenuBarOrganizer from '../../components/common/SideMenuBar/SideMenuBarOrganizer';
 
 function CreateEvent() {
@@ -72,15 +73,16 @@ function CreateEvent() {
 
   return (
 
-    <div>
+    <div className='create-event-container'>
       {/* <SideMenuBarOrganizer /> */}
 
-      <div className="container" style={{ width: '1215px', marginLeft: '20%' }} >
+      {/* <div className="container" style={{ width: '1215px', marginLeft: '20%' }} > */}
 
-        <form>
+        <Topbar />
+        <form className='create-event-form'>
 
           <h2>Create Event</h2>
-          <div className="form-group">
+          <div className="form-group ">
 
             <label htmlFor="event_name" className="form-label">Event Name</label>
             <input type="text" className="form-control" onChange={onChangeHandler} name="event_name" ></input>
@@ -163,7 +165,7 @@ function CreateEvent() {
 
         </form>
 
-      </div>
+      {/* </div> */}
 
     </div>
   );

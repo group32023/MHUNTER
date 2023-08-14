@@ -1,9 +1,6 @@
 package com.MHunter.mhunter.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Data;
 
 @Entity
@@ -12,7 +9,37 @@ public class Artist {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int artist_id;
-    private int mmid;
-    private  int user_id;
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "mmid")
+    private MusicMember musicMember;
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id")
+    private User user;
 
+    public Artist() {
+    }
+
+    public int getArtistId() {
+        return artist_id;
+    }
+
+    public void setArtistId(int artistId) {
+        this.artist_id = artistId;
+    }
+
+    public MusicMember getMusicMember() {
+        return musicMember;
+    }
+
+    public void setMusicMember(MusicMember musicMember) {
+        this.musicMember = musicMember;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
 }

@@ -1,12 +1,5 @@
-.container {
-    
-    background-color: #24292D ;
-    padding: 1rem;
-    max-height: 110vh;
-  
-  }
 
-  .container .col-md-3{
+.view-events-container .event-box{
 
     max-width: 16rem;
     /* max-height: 20rem; */
@@ -20,7 +13,7 @@
     
   }
 
-  .container .col-md-3 .image{
+  .view-events-container .event-box .image{
 
     width: auto;
     max-height: 15rem;
@@ -28,13 +21,15 @@
 
   }
 
-  .image img{
+  
+  
+  .event-box .image img{
 
     width: 100%;
     border-radius:8%;
   }
 
-  .content{
+  .event-box .content{
 
     position: relative;
     color: white;
@@ -56,10 +51,12 @@
 
   }
 
-  .col-md-3 h5{
+   .event-box.col-md-3 h5{
 
     margin-top: 1rem;
     text-align: center;
     color: white;
     
   }
+
+
