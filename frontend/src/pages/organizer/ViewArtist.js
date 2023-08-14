@@ -11,11 +11,12 @@ import { library } from '@fortawesome/fontawesome-svg-core';
 import { fas } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import StarRating from '../../components/organizer/StarRating';
-import { Modal } from 'bootstrap';
+import { Button,Modal } from 'bootstrap';
 library.add(fas);
 
 function ViewArtist() {
-
+    
+    const [showModal, setShowModal] = useState(false);
 
     const handleShowModal = () => {
         setShowModal(true);
