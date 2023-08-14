@@ -3,15 +3,65 @@
     color: white;
 }
 
+
+.view-event-history-container .filter-box-container {
+    display: flex;
+    align-items: center;
+    margin-left: 20rem;
+    margin-top: 2rem;
+  }
+
+  .filter-box-container .event-filter-box {
+    margin-right: 20px;
+    border: 1px solid;
+    border-radius: 10px;
+    padding: 0.7rem;
+    background-color:#484E55 ;
+  }
+
+  /* .event-filter-box .event-filter-label {
+    font-weight: bold;
+  } */
+
+  .event-filter-box .form-select {
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #24292D;
+    color: white;
+  }
+
+  .event-filter-box .form-date {
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #24292D;
+    color: white;
+  }
+
+  .event-filter-box .filter-button {
+    padding: 5px 10px;
+    background-color: #484E55;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+
+  }
+
+
+
+
 .view-event-history-container .hist-table{
 
     color: white;
     margin-left: 12rem;
-    margin-top: 10rem;
+    margin-top: 5rem;
     max-width: 60rem;
-    height: 25rem;
+    /* height: 25rem; */
     background-color: #484E55;
     padding: 4rem;
+    padding-bottom: 2rem;
     padding-top: 1rem;
     border-radius: 10px;
 }
@@ -47,3 +97,21 @@
     padding: 10px;
     margin-top: 10px;
 }
+
+
+.event-filter-box input[type="date"]::-webkit-calendar-picker-indicator {
+    filter: invert(1); /* This inverts the icon color; you can also use "grayscale(1)" or any other filter you prefer */
+  }
+  
+  /* Time input field icon color */
+  .event-filter-box input[type="time"]::-webkit-calendar-picker-indicator {
+    filter: invert(1); /* This inverts the icon color; you can also use "grayscale(1)" or any other filter you prefer */
+  }
+
+  .event-filter-box >input {
+    background-color: black; /* Replace "your-color" with the desired background color for the search bar */
+    color: black; /* Replace "your-text-color" with the desired text color for the search bar */
+    border: 1px solid  ; /* Replace "your-border-color" with the desired border color for the search bar */
+    border-radius: 20px; /* Set the border radius to round the corners */
+    padding: 8px; /* Set the padding around the input field */
+  }
