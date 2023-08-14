@@ -1,0 +1,91 @@
+.postedFeedHead{
+    color: #FFF;
+    font-family: 'Dosis', sans-serif;
+    font-size: 31px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+}
+
+.postedFeedImg{
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+
+.postDiv{
+    position: relative;
+    margin-bottom: 10px;
+    width: 824px;
+    height: 358px;
+    background: radial-gradient(circle, rgba(0,0,0,1) 7%, rgba(118,67,210,1) 68%);
+    margin-left: 1%;
+    border-radius: 15px;
+}
+
+.postCaption{
+    color: #FFF;
+    font-family: Poiret One;
+    font-size: 27px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    position: absolute;
+    margin-left: 8%;
+
+}
+
+.imagePost{
+    width: 333px;
+    height: 210px;
+    flex-shrink: 0;
+    position: absolute;
+    left: 29%;
+    margin-top: 41px;
+}
+
+.postDescripiton{
+    color: #FFF;
+    font-family: Blinker;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    width: 742px;
+    position: absolute;
+    top: 253px;
+    left: 6%;
+    text-align: left;
+}
+
+.postDate{
+    color: #FFF;
+    font-family: 'Blinker', sans-serif;
+    font-size: 17px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+    position: absolute;
+    top: 315px;
+    left: 6%;
+  
+}
+
+.postDeleteBtn{
+    width: 40px;
+    height: 30px;
+    border-radius: 15px;
+    background: #FF0303;
+    position: absolute;
+    top: 303px;
+    left: 79%;
+    border-color: #FF0303;
+}
+
+.deleteLable{
+    width: 30px;
+    height: 30px;
+    flex-shrink: 0;
+}

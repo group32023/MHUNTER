@@ -153,8 +153,10 @@ public class RequestMusicMemberController {
 
         requestMusicMembersList.forEach(res ->{
             Event event = eventService.viewSpecificEvent(res.getRequestMusicMemberId().getEventId());
+
             EventOrganizer eventOrganizer = new EventOrganizer();
             eventOrganizer.setOrganizerName("W.R.A Kavinda Perera");
+            eventOrganizer.setEventId(event.getEventID());
             eventOrganizer.setEventType(event.getEvent_type());
             eventOrganizer.setPlace(event.getTown());
             eventOrganizer.setDate(event.getDate());

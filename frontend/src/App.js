@@ -1,6 +1,6 @@
 import './App.css';
 import Home from './pages/Home';
-import { BrowserRouter as Router,Routes,Route } from 'react-router-dom';
+import { BrowserRouter as Router,Routes,Route} from "react-router-dom";
 import SlideMenuBarArtist from './components/common/SideMenuBar/SideMenuBarArtist'
 import Event from './pages/Event';
 import Band from './pages/Band';
@@ -12,6 +12,7 @@ import ArtistPendingRequestView from "./pages/ArtistPendingRequestView"
 import ArtistGenerateReports from "./pages/ArtistGenerateReports"
 import ArtistEvent from './pages/ArtistEvent';
 import ArtistSpecificEvent from './pages/ArtistSpecificEvent';
+import MyFeed from './pages/MyFeed';
 
 function App() {
   return (
@@ -29,8 +30,8 @@ function App() {
           <Route path='/artist/Dashboard' element={<ArtistDashboard/>}></Route>
           <Route path='/artist/Reports' element={<ArtistGenerateReports/>}></Route>
           <Route path='/artist/Event' element={<ArtistEvent/>}></Route>
-          <Route path='/artist/EventSpecific' element={<ArtistSpecificEvent/>}></Route>
-
+          <Route path='/artist/EventSpecific/:id' element={<ArtistSpecificEvent/>}></Route>
+          <Route path='/artist/MyFeed' element={<MyFeed/>}></Route>
         </Routes>
       </Router>
 

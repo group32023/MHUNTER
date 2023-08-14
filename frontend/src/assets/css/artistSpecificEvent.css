@@ -124,19 +124,19 @@
     flex-shrink: 0;
     position: absolute;
     top: 17%;
-    left: 23%;
+    left: 20%;
 }
 
 .specificEventTypeExplain{
     color: #FFF;
     font-family: 'Dosis', sans-serif;
-    font-size: 24px;
+    font-size: 28px;
     font-style: normal;
     font-weight: 800;
     line-height: normal;
     position: absolute;
-    top: 46px;
-    left: 134px;
+    top: 37px;
+    left: 145px;
 }
 
 .specificEventDate{
@@ -362,4 +362,49 @@
     position: absolute;
     top: 180px;
     left: 220px;
+}
+
+.days{
+    position: absolute;
+top: 74px;
+left: 118px;
+color: #11FE70;
+font-size: 13px;
+}
+
+.hours {
+    position: absolute;
+    top: 74px;
+    left: 165px;
+    color: #11FE70;
+    font-size: 13px;
+  }
+
+  .mins {
+    position: absolute;
+    top: 74px;
+    left: 216px;
+    color: #11FE70;
+    font-size: 13px;
+  }
+
+  .secs {
+    position: absolute;
+    top: 74px;
+    left: 271px;
+    color: #11FE70;
+    font-size: 13px;
+  }
+
+.specificTimeValue{
+    color: #FFF;
+    font-family: 'Dosis', sans-serif;
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+    position: absolute;
+    top: 34px;
+    left: 102px;
+  
 }

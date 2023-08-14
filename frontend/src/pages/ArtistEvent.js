@@ -11,6 +11,7 @@ import profileImage from '../assets/images/profilePhoto.jpeg';
 import '../assets/css/artistPendingRequests.css'
 import { Button } from 'react-bootstrap'
 import eventType from '../assets/images/eventtype.png'
+import { useNavigate } from 'react-router-dom'
 
 export default function ArtistEvent() {
   const [expand,setExpandedSideBar] = useState(true)
@@ -18,6 +19,11 @@ export default function ArtistEvent() {
 
   const divCount = 4;
   const divElements = [];
+  let navigate = useNavigate()
+
+  const directions =(eventId)=>{
+    navigate(`/artist/EventSpecific/${eventId}`)
+  }
 
   const handle = ()=>{
     fetch("http://localhost:8080/requestMusicMember/viewAllEvents/758463").then((res)=>res.json()).then((result)=>{
@@ -30,7 +36,7 @@ export default function ArtistEvent() {
         <p class="eventDate"><FontAwesomeIcon icon={faCalendarDays} id="CalenderIconPendingRequest"/>{item.date}</p>
         <p class="venue"><FontAwesomeIcon icon={faLocationDot} id="LocationIconPendingRequest"/>{item.place}</p>
       </div>
-      <Button className="viewBtn">View</Button>
+      <Button className="viewBtn" onClick={()=>directions(item.eventId)}>View</Button>
    
   </div>
       ))
@@ -43,20 +49,6 @@ export default function ArtistEvent() {
     handle();
   },[])
 
-  // Using a for loop to generate the <div> tags
-  // for (let i = 0; i < divCount; i++) {
-  //   divElements.push(<div key={i} className="requestContainer">
-  //     <img src={profileImage} className="profile"></img>
-  //     <div className="eventDetails">
-  //       <h4>W.R.A.Kavinda Perera</h4>
-  //       <p class="artistEventType"><img src={eventType} alt=''className='artistEventTypeImg'></img>Birthday Party</p>
-  //       <p class="eventDate"><FontAwesomeIcon icon={faCalendarDays} id="CalenderIconPendingRequest"/>2023.11.02</p>
-  //       <p class="venue"><FontAwesomeIcon icon={faLocationDot} id="LocationIconPendingRequest"/> Colombo 05</p>
-  //     </div>
-  //     <Button className="viewBtn">View</Button>
-   
-  // </div>);
-  // }
   return (
     <div>
         <div className='mainArtistDashboard'>

@@ -1,0 +1,188 @@
+.myFeedContainer{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: #24292D;
+}
+
+.post{
+    width: 475px;
+    height: 572px;
+    border-radius: 15px;
+    background: #3B444D;
+    position: relative;
+    top: 104px;
+    left: 194px;
+    font-size: 15px;
+}
+
+.postTopic{
+    color: #11FE70; 
+    font-family: 'Dosis', sans-serif;
+    font-size: 31px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+    position: absolute;
+    top: 16px;
+    left: 177px; 
+}
+
+.caption{
+    color: #FFF;
+    font-family: Dosis;
+    font-size: 26px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    position: absolute;
+    top: 68px;
+    left: -175px;
+}
+
+.captionInput{
+    width: 406px;
+    height: 44px;
+    border-radius: 15px;
+    background: #FFF;
+    position: absolute;
+    top: 104px;
+    left: 37px;
+}
+
+.preview{
+    width: 406px;
+    height: 145px;
+    border-radius: 15px;
+    background: #FFF;
+    position: absolute;
+    top: 277px;
+    left: 31px;
+}
+
+.form-control-file{
+    position: absolute;
+    top: 184px;
+    left: 36px;
+}
+
+.postBtn{
+    background-color: #7643D2;
+    position: absolute;
+    top: 491px;
+    left: 124px;
+    width: 200px;
+    height: 35px;
+    border-radius: 15px;
+    border-color: #7643D2;
+    font-size: 24px;
+  
+}
+
+.photoImage{
+    position: absolute;
+    top: 186px;
+    left: 34px;
+    width: 182px;
+    height: 45px;
+    background-color: #7643D2;
+    border-color: #7643D2;
+    border-radius: 15px;
+}
+.photoImg{
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    top: 7px;
+    left: 14px;
+}
+
+.videoBtn{
+    position: absolute;
+    top: 166px;
+    left: 144px;
+    width: 50px;
+    height: 45px;
+    background-color: #7643D2;
+    border-color: #7643D2;
+    border-radius: 15px;
+}
+
+.videoImg{
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    top: 11px;
+    left: 77px;
+}
+
+.anyfileBtn{
+    position: absolute;
+    top: 166px;
+    left: 237px;
+    width: 50px;
+    height: 45px;
+    background-color: #7643D2;
+    border-color: #7643D2;
+    border-radius: 15px;
+}
+
+.anyFileImg{
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    top: 7px;
+    left: 141px;
+  
+}
+
+.previousFeed{
+    width: 844px;
+    height: 572px;
+    flex-shrink: 0;
+    border-radius: 15px;
+    background: #3B444D;
+    position: relative;
+    top: -470px;
+    left: 678px;
+    overflow-y: scroll;
+  
+}
+
+.captionError{
+    width: 100%;
+    margin-top: .25rem;
+    font-size: .875em;
+    color: #F93B4F;
+    position: absolute;
+    top: 152px;
+    left: -82px;
+}
+
+.desError{
+    width: 100%;
+    margin-top: .25rem;
+    font-size: .875em;
+    color: #F93B4F;
+    position: absolute;
+    top: 195px;
+    left: 58px;
+  }
+
+  .fileError{
+    width: 100%;
+    margin-top: .25rem;
+    font-size: .875em;
+    color: #F93B4F;
+    position: absolute;
+    top: 196px;
+    left: 50px;
+  }
+
+  .captionInput:focus{
+    border-color: #7643D2;
+  }
+
+  .preview:focus{
+    border-color: #7643D2;
+  }

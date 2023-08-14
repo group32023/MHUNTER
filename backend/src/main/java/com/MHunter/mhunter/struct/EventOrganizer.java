@@ -9,6 +9,7 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @AllArgsConstructor
 public class EventOrganizer {
+    private int eventId;
     private String organizerName;
     private LocalDate date;
     private String eventType;
