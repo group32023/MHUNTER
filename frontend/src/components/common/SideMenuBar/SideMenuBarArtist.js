@@ -16,7 +16,7 @@ import { BiSolidReport } from "react-icons/bi";
 
 
 
-const SideMenuBarArtist = ({setExpandedSideBar}) => {
+const SideMenuBarArtist = ({setExpandedSideBar,children}) => {
     const [isExpanded, setExpandState] = useState(false);
 
     var url = window.location.href
@@ -30,42 +30,42 @@ const SideMenuBarArtist = ({setExpandedSideBar}) => {
             text: "Dashboard",
             tag: "Dashboard",
             active: "false",
-            icon: dashboardimg,
+           
         },
         {
             path:"/artist/Event",
             text: "Events",
             tag: "Events",
             active: "false",
-            icon: eventsimg,
+            
         },
         {
             path:"/artistDashboard",
             text: "Pending Requests",
             tag: "PendingRequests",
             active: "false",
-            icon: pendingimg,
+            
         },
         {
             path:"/artistDashboard",
             text: "My Feed",
             tag: "MyFeed",
             active: "false",
-            icon: feedimg,
+           
         },
         {
             path:"/artistDashboard",
             text: "Request Log",
             tag: "RequestLog",
             active: "false",
-            icon: requestlogimg,
+            
         },
         {
             path:"/artistDashboard",
             text: "Reports",
             tag: "Reports",
             active: "false",
-            icon: reportsimg,
+            
         },
     ];
 
@@ -78,11 +78,12 @@ const SideMenuBarArtist = ({setExpandedSideBar}) => {
         }
     })
 
+
     const handle=()=>{
         setExpandedSideBar(isExpanded)
     }
 
-}
+
     return (
         <div className="full-container">
             <div
@@ -216,13 +217,18 @@ const SideMenuBarArtist = ({setExpandedSideBar}) => {
                     </ul>
 
 
-                </div>
-            </div>
+                
+            
 
             <main className={isExpanded ? "mainContainer" : "mainContainer-NX"}>{children}</main>
         </div>
-    );
-};
+         )}
+                      </div>
+        </div>
+        </div>
+        </div>
+        
+    )};
 
 export default SideMenuBarArtist;
 
