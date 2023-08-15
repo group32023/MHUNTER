@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import SideMenuBarModerator from '../../components/common/SideMenuBar/SideMenuBarModerator'
 import '../../assets/css/moderator/moderatorComplaints.css'
-
+import Topbar from '../../components/common/Topbar'
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
@@ -19,7 +19,8 @@ function AllUserDetails() {
     };
   return (
     <div className='moderator-body-container'>
-       
+           <Topbar/>
+
             {/*header icon*/}
             <div className='header-admin'>
 

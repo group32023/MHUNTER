@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import SideMenuBarModerator from '../../components/common/SideMenuBar/SideMenuBarModerator'
 import "../../assets/css/moderator/moderatorEventDashboard.css"
+import Topbar from '../../components/common/Topbar'
+
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -49,6 +51,8 @@ const events = [
   const EventContainer = () => {
     return (
       <div className='moderator-body-container'>
+            <Topbar/>
+
 
             {/*header icon*/}
             <div className='header-admin'>

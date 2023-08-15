@@ -36,6 +36,7 @@ function OrganizerEventDashboard() {
         
     return (
         <div className='moderator-body-container'>
+    <Topbar/>
 
             {/*header icon*/}
 

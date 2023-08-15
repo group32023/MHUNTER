@@ -1,8 +1,8 @@
 import React, {useState } from 'react'
 import { Routes, Route } from 'react-router-dom';
-import Topbar from '../../components/common/Topbar';
 import SideMenuBarModerator from '../../components/common/SideMenuBar/SideMenuBarModerator';
 import '../../assets/css/moderator/moderatorComplaints.css'
+import Topbar from '../../components/common/Topbar'
 import ModeratorImage from '../../assets/images/moderatorDash.png'
 import ModeratorPendingRequest from '../../components/Moderator/moderatorPendingRequest'
 import ModeratorUpcommingEvent from '../../components/Moderator/moderatorUpcommingEvent'
@@ -11,7 +11,7 @@ import ModeratorMemberincrease from '../../components/Moderator/moderatorMemberi
 import Calendar from 'react-calendar';
 
 
-export default function ArtistDashboard() {
+export default function ModeratorDashboard() {
   const[date, setDate] = useState(new Date());
 
   const onChange = date => {
@@ -21,7 +21,7 @@ export default function ArtistDashboard() {
 
   return (
 
-    <div className='moderator-container'>
+    <div className='moderator-body-container'>
     
     <Topbar/>
             {/*header icon*/}

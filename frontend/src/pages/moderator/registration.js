@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import SideMenuBarModerator from '../../components/common/SideMenuBar/SideMenuBarModerator'
 import '../../assets/css/moderator/moderatorComplaints.css'
-
+import Topbar from '../../components/common/Topbar'
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
@@ -21,6 +21,8 @@ function AdminRegistration() {
    
         <div className='moderator-body-container'>
             {/*header icon*/}
+            <Topbar/>
+
             <div className='header-admin'>
 
                 <div className='header-title'>

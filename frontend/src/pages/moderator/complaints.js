@@ -72,7 +72,8 @@ function Complaints() {
   return (
        
     <div className='moderator-body-container'>
-  
+         <Topbar/>
+
             {/*header icon*/}
             <div className='header-admin'>
 

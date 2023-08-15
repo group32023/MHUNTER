@@ -4,7 +4,6 @@ import Topbar from '../../components/common/Topbar'
 import '../../assets/css/moderator/moderatorComplaints.css'
 import 'bootstrap/dist/css/bootstrap.min.css'; // Import Bootstrap CSS
 import profilePhoto from '../../assets/images/profilePhoto.jpeg'
-
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
@@ -14,9 +13,8 @@ function AllUserDetails() {
     
   return (
     <div className='moderator-body-container'>
- 
+                 <Topbar/>
 
-            {/*header icon*/}
             <div className='header-admin'>
 
                 <div className='header-title'>

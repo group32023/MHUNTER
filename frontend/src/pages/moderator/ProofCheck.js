@@ -2,7 +2,7 @@ import React, { useRef, useState } from 'react'
 import SideMenuBarModerator from '../../components/common/SideMenuBar/SideMenuBarModerator'
 import '../../assets/css/moderator/moderatorComplaints.css'
 import Suspenduser from './suspenduser'; // Adjust the path to the actual location of PopupGfg component
-
+import Topbar from '../../components/common/Topbar'
 import band from '../../assets/images/band.jpg'
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -43,7 +43,8 @@ function ProofCheck() {
 
   return (
     <div className='moderator-body-container'>
-   
+       <Topbar/>
+
         <div className='header-admin'>
 
           <div className='header-title'>
