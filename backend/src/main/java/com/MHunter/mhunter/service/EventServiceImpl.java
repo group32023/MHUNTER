@@ -34,11 +34,7 @@ public class EventServiceImpl implements EventService {
         return eventRepository.findAll();
     }
 
-    @Override
-    public Event viewSpecificEvent(int eventid) {
-        Optional<Event> event = eventRepository.findById(eventid);
-        return event.orElse(null);
-    }
+
 
 
 }
