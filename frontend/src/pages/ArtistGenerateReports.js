@@ -23,7 +23,7 @@ export default function ArtistGenerateReports() {
 
   useEffect(() => {
     // Fetch the data from the Java backend
-    fetch('http://localhost:8080/artistIncome/specificArtistIncomeDetails/101')
+    fetch('http://localhost:8080/artistIncome/specificArtistIncomeDetails/758463')
     .then((response) => {
       if (!response.ok) {
         throw new Error('Network response was not ok');

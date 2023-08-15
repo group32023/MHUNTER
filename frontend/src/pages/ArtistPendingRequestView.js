@@ -94,8 +94,8 @@ export default function ArtistPendingRequests() {
             </div>
             
 
-            <button className="priorbookingsBtn" onClick={()=>loadPriorBooking(101,event['orgId'])}>Prior Bookings</button>
-            <button className="myEventsBtn" onClick={()=>loadMyEventsOn(101,event['date'])}>My Events</button>
+            <button className="priorbookingsBtn" onClick={()=>loadPriorBooking(7584633,event['orgId'])}>Prior Bookings</button>
+            <button className="myEventsBtn" onClick={()=>loadMyEventsOn(7584633,event['date'])}>My Events</button>
             <button className="acceptBtn" onClick={()=>loadInvoice(event['eventId'])}>Accept</button>
             <button className="rejectBtn">Reject</button>
         </div>

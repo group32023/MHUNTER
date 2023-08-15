@@ -36,6 +36,7 @@ export default function ArtistUpcommingEvent() {
 
 useEffect(() => {
 loadDate();
+console.log(events)
 }, []);
 
 

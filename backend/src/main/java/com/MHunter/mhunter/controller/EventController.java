@@ -14,6 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.Duration;
+import java.time.LocalTime;
 import java.util.List;
 
 @CrossOrigin (origins = "*")
@@ -56,6 +57,11 @@ public class EventController {
         EventOrganizer eventOrganizer = new EventOrganizer();
         eventOrganizer.setEventId((event.getEventID()));
         eventOrganizer.setOrgId(event.getOrgID());
+        eventOrganizer.setDescription(event.getDescription());
+        eventOrganizer.setLatitude(event.getLatitude());
+        eventOrganizer.setLongitude(event.getLongitude());
+        eventOrganizer.setEndTime((LocalTime) event.getEnd_time());
+        eventOrganizer.setTown(event.getTown());
         eventOrganizer.setOrganizerName(user.getFname() + " " + user.getLname());
         eventOrganizer.setEventName(event.getEvent_name());
         eventOrganizer.setStartTime(event.getStart_time());

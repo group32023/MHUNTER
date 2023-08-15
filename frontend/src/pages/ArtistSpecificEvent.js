@@ -36,8 +36,10 @@ export default function ArtistSpecificEvent() {
       loadData();
     },[])
 
+    console.log(data);
+
     var now = new Date();
-    let day = data.date +"T"+data.start_time;
+    let day = data.date +"T"+data.startTime;
     var future = new Date(day);
     var differenceInMs = future.getTime() - now.getTime();
     var differenceInSeconds = Math.floor(differenceInMs / 1000);
@@ -90,7 +92,7 @@ export default function ArtistSpecificEvent() {
 
             <div className='mainDescriptionDiv'>
                 <img src={event01} className='specificEventImg'></img>
-                <p className='specificEventName'>{data.event_name}</p>
+                <p className='specificEventName'>{data.eventName}</p>
                 <p className='specificEventDescription'>{data.description}</p>
 
             </div>
@@ -112,7 +114,7 @@ export default function ArtistSpecificEvent() {
                 <div className='specificeventTypeDiv'>
                   <img className='spcificEventTypeImage' src={eventType} alt=''></img>
               </div>
-              <p className='specificEventTypeExplain'>{data.event_type}</p>
+              <p className='specificEventTypeExplain'>{data.eventType}</p>
             </div>
 
             <div className='specificEventDate'>
@@ -125,7 +127,7 @@ export default function ArtistSpecificEvent() {
 
             <div className='specificEventTime'>
                 <p className='specificEventTimeTitle'>Event Time</p>
-                <p className='specificTimeValue'>{data.start_time} - {data.end_time}</p>
+                <p className='specificTimeValue'>{data.startTime} - {data.endTime}</p>
                 <img className='specificTimeImage' src={clock} alt=''></img>
             </div>
 
