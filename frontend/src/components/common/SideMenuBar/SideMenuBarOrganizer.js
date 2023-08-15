@@ -9,6 +9,7 @@ import { BiSolidDashboard } from "react-icons/bi";
 import { BiSolidCalendar } from "react-icons/bi";
 import { BiSolidCalendarCheck } from "react-icons/bi";
 import { BiSolidCommentError } from "react-icons/bi";
+import { BiSolidSearchAlt2 } from "react-icons/bi";
 import React, { useState } from "react";
 
 function SideMenuBarOrganizer({ children }) {
@@ -72,6 +73,18 @@ function SideMenuBarOrganizer({ children }) {
 								)}</NavLink>
 							{!isExpanded && (
 								<span className="tooltip">Dashboard</span>
+							)}
+
+						</li>
+
+						<li className={isExpanded ? "nav-item p-1" : "nav-item"}>
+							<NavLink to="/organizer/search" activeClassName="active" className={isExpanded ? "nav-link   d-flex align-items-center text-decoration-none" : "nav-link collapsed-nav-link   d-flex align-items-center text-decoration-none"}>
+								<BiSolidSearchAlt2 className={isExpanded ? "menu-icon mx-4" : "menu-icon"} />
+								{isExpanded && (
+									<span className="menu_link_name fs-6 ">Search</span>
+								)}</NavLink>
+							{!isExpanded && (
+								<span className="tooltip">Search</span>
 							)}
 
 						</li>

@@ -47,7 +47,7 @@
 
 .UpcominEventsDiv {
     background-color: #2f363e;
-    height: 330px;
+    height: auto;
     flex: 1;
     margin-left: 10px;
     border-radius: 10px;
@@ -60,15 +60,20 @@
 
 .tableUpcomingContent {
     display: flex;
+    cursor: pointer;
 }
 
 .upcomingDivEventImage {
     flex: 1;
 }
 
+/* .upcomingDivEventImage img {
+    border-radius: 10px;
+} */
+
 .upcomingDivEventData {
     flex: 2;
-    padding-left: 40px;
+    padding-left: 20px;
 }
 
 .upcomingDivEventData .eventTitle {
@@ -77,14 +82,14 @@
 
 .upcomingDivEventData .eventLocation {
     color: #11FE70;
-    margin-top: 3px;
+    margin-top: 5px;
     flex: 1;
 
 }
 
 .upcomingDivEventData .eventDataRow1 {
     display: flex;
-    font-size: 14px;
+    font-size: 13px;
     text-align: left;
 }
 
@@ -92,8 +97,13 @@
     flex: 1;
     display: grid;
     grid-template-columns: auto 1fr;
-    /* Adjust column widths as needed */
     align-items: center;
-    /* Align vertically centered */
-    column-gap: 10px;
+    font-weight: bold;
+}
+
+.upcomingDivEventData .eventDescription {
+    font-size: 12px;
+    text-align: justify;
+    padding-right: 10px;
+    opacity: 0.8;
 }
