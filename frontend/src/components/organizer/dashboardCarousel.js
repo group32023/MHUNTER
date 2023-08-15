@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Carousel } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import image1 from '../../assets/images/carousel1.png';
+import image1 from '../../assets/images/carousel3.png';
 import image2 from '../../assets/images/carousel2.jpg';
 import image3 from '../../assets/images/carousel4.png';
 import image4 from '../../assets/images/carousel5.png';

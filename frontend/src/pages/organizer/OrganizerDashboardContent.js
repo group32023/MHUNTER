@@ -11,6 +11,9 @@ import EventBanner3 from '../../assets/images/eventbanner3.jpg'
 import EventBanner4 from '../../assets/images/eventbanner4.jpg'
 import EventBanner5 from '../../assets/images/eventbanner5.jpg'
 import EventBanner6 from '../../assets/images/eventbanner6.jpg'
+import PaymentArtist1 from '../../assets/images/paymentArtist1.jpeg'
+import { Button } from 'react-bootstrap';
+
 
 function OrganizerDashboardContent() {
     // Your component logic here
@@ -27,10 +30,188 @@ function OrganizerDashboardContent() {
             </div>
 
             <div className='row mt-3 Dashboard-custom-flex-row' style={{ marginLeft: '50px' }}>
-                <div className='PaymentsDiv col-md-6'>
+                <div className='PaymentsTBDiv col-md-6'>
                     <div className="p-4">
                         <p className='fs-5' style={{ fontFamily: 'MyCustomFont1' }}>Payments To Be Done</p>
                         <hr></hr>
+
+                        <div className="PaymentTBTableDiv mt-4">
+
+                            <div className="row tablePaymentTBContent">
+                                <div className='PaymentTBImage '>
+                                    <img className='' alt='' src={PaymentArtist1} width='50px' height='50px'></img>
+                                </div>
+                                <div className="innertablePaymentTBContent">
+                                    <div className='PaymentTBTitle d-flex align-items-center justify-content-center'>WASTHI</div>
+                                    <div className='PaymentTBEventName d-flex align-items-center justify-content-center'>APE KALAWA</div>
+                                    <div className='PaymentTBAmount d-flex align-items-center justify-content-center'>LKR 60 000.00</div>
+                                    <div className=' PaymentTBBtn d-flex align-items-center justify-content-center'>
+                                        <Button className='paymentBtn shadow' variant="secondary" >
+                                            Pay Now
+                                        </Button>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div className="row tablePaymentTBContent">
+                                <div className='PaymentTBImage '>
+                                    <img className='' alt='' src={PaymentArtist1} width='50px' height='50px'></img>
+                                </div>
+                                <div className="innertablePaymentTBContent">
+                                    <div className='PaymentTBTitle d-flex align-items-center justify-content-center'>WASTHI</div>
+                                    <div className='PaymentTBEventName d-flex align-items-center justify-content-center'>APE KALAWA</div>
+                                    <div className='PaymentTBAmount d-flex align-items-center justify-content-center'>LKR 60 000.00</div>
+                                    <div className=' PaymentTBBtn d-flex align-items-center justify-content-center'>
+                                        <Button className='paymentBtn shadow' variant="secondary" >
+                                            Pay Now
+                                        </Button>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div className="row tablePaymentTBContent">
+                                <div className='PaymentTBImage '>
+                                    <img className='' alt='' src={PaymentArtist1} width='50px' height='50px'></img>
+                                </div>
+                                <div className="innertablePaymentTBContent">
+                                    <div className='PaymentTBTitle d-flex align-items-center justify-content-center'>WASTHI</div>
+                                    <div className='PaymentTBEventName d-flex align-items-center justify-content-center'>APE KALAWA</div>
+                                    <div className='PaymentTBAmount d-flex align-items-center justify-content-center'>LKR 60 000.00</div>
+                                    <div className=' PaymentTBBtn d-flex align-items-center justify-content-center'>
+                                        <Button className='paymentBtn shadow' variant="secondary" >
+                                            Pay Now
+                                        </Button>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div className="row tablePaymentTBContent">
+                                <div className='PaymentTBImage '>
+                                    <img className='' alt='' src={PaymentArtist1} width='50px' height='50px'></img>
+                                </div>
+                                <div className="innertablePaymentTBContent">
+                                    <div className='PaymentTBTitle d-flex align-items-center justify-content-center'>WASTHI</div>
+                                    <div className='PaymentTBEventName d-flex align-items-center justify-content-center'>APE KALAWA</div>
+                                    <div className='PaymentTBAmount d-flex align-items-center justify-content-center'>LKR 60 000.00</div>
+                                    <div className=' PaymentTBBtn d-flex align-items-center justify-content-center'>
+                                        <Button className='paymentBtn shadow' variant="secondary" >
+                                            Pay Now
+                                        </Button>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div className="row tablePaymentTBContent">
+                                <div className='PaymentTBImage '>
+                                    <img className='' alt='' src={PaymentArtist1} width='50px' height='50px'></img>
+                                </div>
+                                <div className="innertablePaymentTBContent">
+                                    <div className='PaymentTBTitle d-flex align-items-center justify-content-center'>WASTHI</div>
+                                    <div className='PaymentTBEventName d-flex align-items-center justify-content-center'>APE KALAWA</div>
+                                    <div className='PaymentTBAmount d-flex align-items-center justify-content-center'>LKR 60 000.00</div>
+                                    <div className=' PaymentTBBtn d-flex align-items-center justify-content-center'>
+                                        <Button className='paymentBtn shadow' variant="secondary" >
+                                            Pay Now
+                                        </Button>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div className="row tablePaymentTBContent">
+                                <div className='PaymentTBImage '>
+                                    <img className='' alt='' src={PaymentArtist1} width='50px' height='50px'></img>
+                                </div>
+                                <div className="innertablePaymentTBContent">
+                                    <div className='PaymentTBTitle d-flex align-items-center justify-content-center'>WASTHI</div>
+                                    <div className='PaymentTBEventName d-flex align-items-center justify-content-center'>APE KALAWA</div>
+                                    <div className='PaymentTBAmount d-flex align-items-center justify-content-center'>LKR 60 000.00</div>
+                                    <div className=' PaymentTBBtn d-flex align-items-center justify-content-center'>
+                                        <Button className='paymentBtn shadow' variant="secondary" >
+                                            Pay Now
+                                        </Button>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div className="row tablePaymentTBContent">
+                                <div className='PaymentTBImage '>
+                                    <img className='' alt='' src={PaymentArtist1} width='50px' height='50px'></img>
+                                </div>
+                                <div className="innertablePaymentTBContent">
+                                    <div className='PaymentTBTitle d-flex align-items-center justify-content-center'>WASTHI</div>
+                                    <div className='PaymentTBEventName d-flex align-items-center justify-content-center'>APE KALAWA</div>
+                                    <div className='PaymentTBAmount d-flex align-items-center justify-content-center'>LKR 60 000.00</div>
+                                    <div className=' PaymentTBBtn d-flex align-items-center justify-content-center'>
+                                        <Button className='paymentBtn shadow' variant="secondary" >
+                                            Pay Now
+                                        </Button>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div className="row tablePaymentTBContent">
+                                <div className='PaymentTBImage '>
+                                    <img className='' alt='' src={PaymentArtist1} width='50px' height='50px'></img>
+                                </div>
+                                <div className="innertablePaymentTBContent">
+                                    <div className='PaymentTBTitle d-flex align-items-center justify-content-center'>WASTHI</div>
+                                    <div className='PaymentTBEventName d-flex align-items-center justify-content-center'>APE KALAWA</div>
+                                    <div className='PaymentTBAmount d-flex align-items-center justify-content-center'>LKR 60 000.00</div>
+                                    <div className=' PaymentTBBtn d-flex align-items-center justify-content-center'>
+                                        <Button className='paymentBtn shadow' variant="secondary" >
+                                            Pay Now
+                                        </Button>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div className="row tablePaymentTBContent">
+                                <div className='PaymentTBImage '>
+                                    <img className='' alt='' src={PaymentArtist1} width='50px' height='50px'></img>
+                                </div>
+                                <div className="innertablePaymentTBContent">
+                                    <div className='PaymentTBTitle d-flex align-items-center justify-content-center'>WASTHI</div>
+                                    <div className='PaymentTBEventName d-flex align-items-center justify-content-center'>APE KALAWA</div>
+                                    <div className='PaymentTBAmount d-flex align-items-center justify-content-center'>LKR 60 000.00</div>
+                                    <div className=' PaymentTBBtn d-flex align-items-center justify-content-center'>
+                                        <Button className='paymentBtn shadow' variant="secondary" >
+                                            Pay Now
+                                        </Button>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div className="row tablePaymentTBContent">
+                                <div className='PaymentTBImage '>
+                                    <img className='' alt='' src={PaymentArtist1} width='50px' height='50px'></img>
+                                </div>
+                                <div className="innertablePaymentTBContent">
+                                    <div className='PaymentTBTitle d-flex align-items-center justify-content-center'>WASTHI</div>
+                                    <div className='PaymentTBEventName d-flex align-items-center justify-content-center'>APE KALAWA</div>
+                                    <div className='PaymentTBAmount d-flex align-items-center justify-content-center'>LKR 60 000.00</div>
+                                    <div className=' PaymentTBBtn d-flex align-items-center justify-content-center'>
+                                        <Button className='paymentBtn shadow' variant="secondary" >
+                                            Pay Now
+                                        </Button>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+
+
+
+
                     </div>
                 </div>
 
@@ -41,6 +222,31 @@ function OrganizerDashboardContent() {
                         <p className='fs-5' style={{ fontFamily: 'MyCustomFont1' }}>Upcoming Events</p>
                         <hr></hr>
                         <div className="UpcomingTableDiv mt-4">
+
+                            <div className="row tableUpcomingContent">
+                                <div className='upcomingDivEventImage '>
+                                    <img className='' alt='' src={EventBanner4} width='200px' height='110px'></img>
+                                </div>
+
+
+                                <div className='upcomingDivEventData'>
+                                    <span className='row eventTitle'>APE KALAWA</span>
+                                    <div className='row eventDataRow1'>
+                                        <span className='row eventLocation'>Viharamahadevi Open Air Theater</span>
+                                        <div className='row eventDate'>
+                                            <BiSolidCalendarStar className='fs-5' style={{ color: '#7643D2' }} />
+                                            <span >2023-12-31</span>
+                                        </div>
+
+                                    </div>
+
+                                    <span className='eventDescription row mt-1 '>The Ape Kalawa Concert is an energetic and diverse music event featuring renowned artists, dynamic performances, and cultural celebration. It blends modern genres, encouraging audience participation and showcasing emerging talent.</span>
+
+                                </div>
+                                <hr className='mt-3 '></hr>
+
+                            </div>
+
 
                             <div className="row tableUpcomingContent">
                                 <div>
@@ -115,32 +321,6 @@ function OrganizerDashboardContent() {
                                 <hr className='mt-3 '></hr>
 
                             </div>
-
-
-                            <div className="row tableUpcomingContent">
-                                <div className='upcomingDivEventImage '>
-                                    <img className='' alt='' src={EventBanner4} width='200px' height='110px'></img>
-                                </div>
-
-
-                                <div className='upcomingDivEventData'>
-                                    <span className='row eventTitle'>APE KALAWA</span>
-                                    <div className='row eventDataRow1'>
-                                        <span className='row eventLocation'>Viharamahadevi Open Air Theater</span>
-                                        <div className='row eventDate'>
-                                            <BiSolidCalendarStar className='fs-5' style={{ color: '#7643D2' }} />
-                                            <span >2023-12-31</span>
-                                        </div>
-
-                                    </div>
-
-                                    <span className='eventDescription row mt-1 '>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad mini</span>
-
-                                </div>
-                                <hr className='mt-3 '></hr>
-
-                            </div>
-
 
 
                             <div className="row tableUpcomingContent">
