@@ -33,6 +33,8 @@ public class SignupService {
 
     @Autowired
     private StaffMemberRepository staffMemberRepository;
+    /*@Autowired
+    private PasswordEncoder passwordEncoder;*/
 
     @Transactional
     public void signUpAndCreateMember(User user, String Name, String Type, MultipartFile Image) {
@@ -41,6 +43,9 @@ public class SignupService {
             throw new RuntimeException("Email already exists!");
         }
         User savedUser = userRepository.save(user);
+
+        /*String encodedPassword = passwordEncoder.encode(user.getPassword());
+        savedUser.setPassword(encodedPassword);*/
 
         if("Organizer".equals(Type)){
             Organizer organizer = new Organizer();

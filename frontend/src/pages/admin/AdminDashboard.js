@@ -3,7 +3,7 @@ import SideMenuBarAdmin from '../../components/common/SideMenuBar/SideMenuBarAdm
 import '../../assets/css/admin/adminDashboard.css'
 import Calendar from 'react-calendar';
 import InfiniteScroll from 'react-infinite-scroll-component';
-import { useLocation } from 'react-router-dom';
+//import { useLocation } from 'react-router-dom';
 
 import AdminRegistration from './AdminRegistration';
 import ProofCheck from './ProofCheck';
@@ -15,9 +15,10 @@ import AdminSettings from './AdminSettings';
 import { Link, Routes, Route } from 'react-router-dom';
 import Topbar from '../../components/common/Topbar';
 
+
 export default function AdminDashboard() {
-  const location = useLocation();
-  const userId = location.state.userId;
+  //const location = useLocation();
+  //const userId = location.state.userId;
 
   const [banddataSource, setBandDataSource] = useState(Array.from({length:10}));
   const [artistdataSource, setArtistDataSource] = useState(Array.from({length:10}));
@@ -58,7 +59,7 @@ export default function AdminDashboard() {
     <div className='header-admin'>
       <div className='header-title'>
         <h1>Dashboard</h1>
-        <p className='text-center text-white'>User ID: {userId}</p>
+        {/*<p className='text-center text-white'>User ID: {userId}</p>*/}
       </div>
     </div>
  
