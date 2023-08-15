@@ -25,4 +25,10 @@ public class UserController {
         return ResponseEntity.ok(response);
     }*/
 
+    @GetMapping("/viewSpecificUser/{id}")
+    public User viewSpecificUser(@PathVariable int id){
+        return userService.findSpecificUser(id);
+
+    }
+
 }

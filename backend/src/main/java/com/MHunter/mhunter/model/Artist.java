@@ -8,7 +8,7 @@ import lombok.Data;
 public class Artist {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int artistId;
+    private int artist_id;
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "mmid")
     private MusicMember musicMember;

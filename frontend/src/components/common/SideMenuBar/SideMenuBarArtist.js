@@ -1,3 +1,4 @@
+import React, { useRef, useState } from "react";
 import "../../../assets/css/SideMenuBarOrganizer.css";
 import profilePhoto from '../../../assets/images/profilePhoto.jpeg'
 import logoImage from '../../../assets/icons/logosidebar.svg'
@@ -11,11 +12,77 @@ import { BiSolidPhotoAlbum } from "react-icons/bi";
 import { BiSolidCalendar } from "react-icons/bi";
 import { BiSolidFile } from "react-icons/bi";
 import { BiSolidReport } from "react-icons/bi";
-import React, { useState } from "react";
 
-function SideMenuBarArtist({ children }) {
+
+
+
+const SideMenuBarArtist = ({setExpandedSideBar}) => {
     const [isExpanded, setExpandState] = useState(false);
 
+    var url = window.location.href
+    var key =url.split("/")[4]
+
+    const artistDashboardRef = useRef()
+
+    const menuItems = [
+        {
+            path:"http://localhost:3000/artist/Dashboard",
+            text: "Dashboard",
+            tag: "Dashboard",
+            active: "false",
+            icon: dashboardimg,
+        },
+        {
+            path:"/artist/Event",
+            text: "Events",
+            tag: "Events",
+            active: "false",
+            icon: eventsimg,
+        },
+        {
+            path:"/artistDashboard",
+            text: "Pending Requests",
+            tag: "PendingRequests",
+            active: "false",
+            icon: pendingimg,
+        },
+        {
+            path:"/artistDashboard",
+            text: "My Feed",
+            tag: "MyFeed",
+            active: "false",
+            icon: feedimg,
+        },
+        {
+            path:"/artistDashboard",
+            text: "Request Log",
+            tag: "RequestLog",
+            active: "false",
+            icon: requestlogimg,
+        },
+        {
+            path:"/artistDashboard",
+            text: "Reports",
+            tag: "Reports",
+            active: "false",
+            icon: reportsimg,
+        },
+    ];
+
+    menuItems.map((item,index)=>{
+        if(item.tag === key){
+            item.active = true
+        }
+        else{
+            item.active = false
+        }
+    })
+
+    const handle=()=>{
+        setExpandedSideBar(isExpanded)
+    }
+
+}
     return (
         <div className="full-container">
             <div
@@ -25,21 +92,31 @@ function SideMenuBarArtist({ children }) {
                         : "side-menu-container side-menu-container-NX vh-100"
                 }
 
-                style={{ fontFamily: 'MyCustomFont' }}
-            >
-                <div className="menu-upper">
-                    <div className="menu-heading d-flex align-items-center">
-                        {isExpanded && (
-                            <div className="menu-brand">
-                                <img src={logoImage} alt="" srcSet="" />
-                            </div>
-                        )}
+            style={{ fontFamily: 'MyCustomFont' ,width:isExpanded ? "300px":"85px" }} 
+        ref={artistDashboardRef}>
+            <div className="menu-upper">
+                <div className="menu-heading">
+                    {isExpanded && (
+                        <div className="menu-brand">
+
+                            <img src={logoImage} alt="" srcSet="" />
 
                         <div className={isExpanded ? "sideIconDiv cursor-pointer" : "sideIconDiv-NX cursor-pointer"}>
                             <BiMenu onClick={() => setExpandState(!isExpanded)} className={isExpanded ? "menubar-noncollapse-icon position-absolute  " : "menubar-collapse-icon position-absolute "} />
 
                         </div>
 
+                    <div className={isExpanded ? "sideIconDiv" : "sideIconDiv-NX"}>
+                        <button
+                            className={
+                                isExpanded ? "sideIcon sideIcon-in" : "sideIcon sideIcon-out"
+                            }
+                            onClick={() => {setExpandState(!isExpanded);handle()}}
+                         id="navBtn">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </button>
                     </div>
 
                     <div className="row">
