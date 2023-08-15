@@ -85,7 +85,7 @@ function Complaints() {
             </div>
             
             {/*table*/}
-            <table className='data-table'>
+            <table className='data-table-complaints'>
     <thead>
         <tr>
             <th>Complain ID</th>
@@ -98,12 +98,12 @@ function Complaints() {
     </thead>
     <tbody>
           {displayedData.map((item, index) => (
-            <tr key={index} className='data-row1'>
-              <td className='data-name'>{item.complainId}</td>
-              <td className='data-name'>{item.name}</td>
-              <td className='data-name'>{item.title}</td>
-              <td className='data-name'>{item.date}</td>
-              <td className={`data-name-${item.status}`}>{item.status}</td>
+            <tr key={index} className='data-row-complaints'>
+              <td className='data-name-complaints'>{item.complainId}</td>
+              <td className='data-name-complaints'>{item.name}</td>
+              <td className='data-name-complaints'>{item.title}</td>
+              <td className='data-name-complaints'>{item.date}</td>
+              <td className={`data-name-complaints-${item.status}`}>{item.status}</td>
               <td>
                 <Link to={`/moderator/complaints/viewComplaints`} className='data-button2'>
                   <button type='button' className='btn btn-primary2'>View</button>

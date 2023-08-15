@@ -25,7 +25,7 @@ function AllUserDetails() {
 
             </div>
             <div className="Complaincontainer" >
-      <div className="row">
+      <div className="complaint row">
         <div className="col-5">
           <h2>Complaint Details</h2>
           <br></br>

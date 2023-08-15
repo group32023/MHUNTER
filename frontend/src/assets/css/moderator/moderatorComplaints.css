@@ -31,7 +31,7 @@
     flex-grow: 1; 
   }
   /* Styling for the table */
-.data-table {
+.data-table-complaints {
   border-collapse: collapse;
   width: 90%;
   border-radius: 10px;
@@ -40,7 +40,7 @@
 }
 
 /* Styling for the table headings */
-.data-table th {
+.data-table-complaints th {
   background-color: #333;
   color: white;
   padding: 5px;
@@ -52,7 +52,7 @@
 
 
 /* Styling for table rows */
-.data-row1{
+.data-row-complaints{
   background-color:  #2f363edf;
   border: 14px solid #5F5C5C; /* Apply border for all sides */
   border-radius: 50px; /* Apply rounded border to the whole row */
@@ -61,7 +61,7 @@
 }
 
 /* Styling for table cells */
-.data-row1 td {
+.data-row-complaints td {
   text-align: center;
   font-size: 17px;
   
@@ -70,7 +70,7 @@
 }
 
 /* Styling for the "View" button */
-.data-name{
+.data-name-complaints{
   color:rgb(250, 250, 250);
 
 }
@@ -86,15 +86,15 @@
   
   }
 
-.data-name-Completed {
+.data-name-complaints-Completed {
   color: #11FE70;
 }
 
-.data-name-Pending {
+.data-name-complaints-Pending {
   color: #F20C0C;
 }
 
-.data-name-Checking {
+.data-name-complaints-Checking {
   color: #7643D2;
 }
 
