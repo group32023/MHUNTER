@@ -14,6 +14,7 @@ import ArtistGenerateReportsToday from './ArtistGenerateReportsToday'
 import ArtistDashboardContent from "./ArtistDashboardContent";
 import MyFeed from './MyFeed';
 import SideMenuBarArtist from "../components/common/SideMenuBar/SideMenuBarArtist";
+import SideMenuBarOrganizer from "../components/common/SideMenuBar/SideMenuBarOrganizer";
 
 export default function ArtistDashboard() {
   return (
