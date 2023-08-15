@@ -9,10 +9,11 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class EventServiceImpl implements EventService{
+public class EventServiceImpl implements EventService {
 
     @Autowired
     private EventRepository eventRepository;
+
     @Override
     public Event saveEvent(Event event) {
 
@@ -32,4 +33,12 @@ public class EventServiceImpl implements EventService{
     public List<Event> getAllEvents() {
         return eventRepository.findAll();
     }
+
+    @Override
+    public Event viewSpecificEvent(int eventid) {
+        Optional<Event> event = eventRepository.findById(eventid);
+        return event.orElse(null);
+    }
+
+
 }

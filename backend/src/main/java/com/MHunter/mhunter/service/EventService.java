@@ -1,6 +1,7 @@
 package com.MHunter.mhunter.service;
 
 import com.MHunter.mhunter.model.Event;
+import com.MHunter.mhunter.model.IncomeArtist;
 
 import java.util.List;
 

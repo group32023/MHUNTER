@@ -3,6 +3,7 @@ package com.MHunter.mhunter.controller;
 
 import com.MHunter.mhunter.model.Event;
 import com.MHunter.mhunter.model.Organizer;
+import com.MHunter.mhunter.model.RequestMusicMember;
 import com.MHunter.mhunter.model.User;
 import com.MHunter.mhunter.service.EventService;
 import com.MHunter.mhunter.service.OrganizerService;
