@@ -161,9 +161,9 @@ function ViewArtist() {
 
             {showModal && (
                 <div className="overlay">
-                    <Modal show={showModal} onHide={handleCloseModal}centered>
+                    <Modal show={showModal} onHide={handleCloseModal} className='modal-class-new'centered>
                         <Modal.Header closeButton>
-                            <Modal.Title>Events on August 21</Modal.Title>
+                            <Modal.Title className='events-view-modal-title'>Events on August 21</Modal.Title>
                         </Modal.Header>
                         <Modal.Body>
                             <div className='view-music-events-table d-flex flex-column '>

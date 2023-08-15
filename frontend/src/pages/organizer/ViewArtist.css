@@ -230,10 +230,17 @@ gap: 3rem;
     border-radius: 10px;
     text-align: center;
     padding: 10px;
-    margin-top: 10px;
+    margin-top: 8px;
 }
 
-.overlay .modal-content{
+.modal-class-new .modal-content{
 
-  background-color: black;
+    background-color: #484E55;
+    /* background-color: white; */
+}
+
+.modal-class-new .events-view-modal-title{
+
+    color: white;
+    margin-left: 7.5rem;
 }
