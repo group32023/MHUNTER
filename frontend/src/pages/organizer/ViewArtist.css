@@ -217,7 +217,7 @@ gap: 3rem;
 }
 
 
-.view-music-events-table .event-name, .view-music-events-table .event-type , .view-music-events-table .event-location , .view-music-events-table .event-date{
+.view-music-events-table .event-name,.view-music-events-table .event-time, .view-music-events-table .event-type , .view-music-events-table .event-location , .view-music-events-table .event-date{
 
     flex:1;
     text-align: center;
@@ -235,8 +235,11 @@ gap: 3rem;
 
 .modal-class-new .modal-content{
 
-    background-color: #484E55;
+    /* background-color: #484E55; */
+    background-color:#484E55;
+    /* background-color: #24292D; */
     /* background-color: white; */
+    
 }
 
 .modal-class-new .events-view-modal-title{

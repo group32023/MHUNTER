@@ -62,7 +62,7 @@ function ViewEvents() {
 
                         <div className='content'>
 
-                            <h5>{event.event_name}</h5>
+                            <h6>{event.event_name}</h6>
                             <div className='newrow'>
                                 <FontAwesomeIcon icon="map-marker-alt" style={{ color: "#7643D2", fontSize: '20px' }} />
                                 <span style={{ color: "#11FE70", marginLeft: "2rem", marginTop: "-1.5rem", display: "block" }}>{extractloc(event.location)}</span>

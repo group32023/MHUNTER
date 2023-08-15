@@ -5,9 +5,10 @@
     /* max-height: 20rem; */
     height: auto;
     /* border: #7643D2 0.5px solid; */
-    margin-left: 3rem;
+    margin-left: 2rem;
     border-radius: 8%;
     padding: 1rem;
+    padding-bottom: 0.5rem;
     background-color: #3B444D;
     margin-top: 2rem;
     
@@ -16,11 +17,11 @@
   .view-events-container .event-box .image{
 
     width: auto;
+    
     max-height: 15rem;
     overflow: hidden;
 
   }
-
   
   
   .event-box .image img{
@@ -51,7 +52,7 @@
 
   }
 
-   .event-box.col-md-3 h5{
+   .event-box.col-md-3 h6{
 
     margin-top: 1rem;
     text-align: center;
