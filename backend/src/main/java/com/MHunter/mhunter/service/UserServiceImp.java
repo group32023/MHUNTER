@@ -1,9 +1,12 @@
 package com.MHunter.mhunter.service;
 
 import com.MHunter.mhunter.model.User;
-import com.MHunter.mhunter.repository.UserRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.jetbrains.annotations.NotNull;
 import org.springframework.stereotype.Service;
+import org.springframework.beans.factory.annotation.Autowired;
+import com.MHunter.mhunter.repository.UserRepository;
+
+
 
 @Service
 public class UserServiceImp implements UserService{
@@ -15,7 +18,7 @@ public class UserServiceImp implements UserService{
     }
 
     @Override
-    public String loginUser(User user) {
+    public String loginUser(@NotNull User user) {
         String msg = "";
         User user1 = userRepository.findByEmail(user.getEmail());
         if (user1!= null) {
