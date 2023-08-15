@@ -17,6 +17,48 @@ function Complaints() {
     const itemsPerPage = 5;
   
     const data = [
+      {
+        complainId: 'C1001',
+        name: 'Karen Smith',
+        title: 'Refund Payment',
+        date: '2021/07/09',
+        status: 'Completed',
+      },
+      {
+        complainId: 'C1002',
+        name: 'John Doe',
+        title: 'Refund Payment',
+        date: '2021/08/15',
+        status: 'Pending',
+      },
+      {
+        complainId: 'C1003',
+        name: 'Alice Johnson',
+        title: 'Refund Payment',
+        date: '2021/09/20',
+        status: 'Checking',
+      },
+      {
+        complainId: 'C1004',
+        name: 'Refund Payment',
+        title: 'Late Delivery',
+        date: '2021/10/05',
+        status: 'Completed',
+      },
+      {
+        complainId: 'C1005',
+        name: 'Refund Payment',
+        title: 'Wrong Size',
+        date: '2021/11/17',
+        status: 'Pending',
+      },
+      {
+        complainId: 'C1006',
+        name: 'Refund Payment',
+        title: 'Billing Issue',
+        date: '2021/12/02',
+        status: 'Checking',
+      },
         {
             complainId: 'C1001',
             name: 'Karen Smith',
@@ -27,34 +69,34 @@ function Complaints() {
           {
             complainId: 'C1002',
             name: 'John Doe',
-            title: 'Product Quality',
+            title: 'Refund Payment',
             date: '2021/08/15',
             status: 'Pending',
           },
           {
             complainId: 'C1003',
             name: 'Alice Johnson',
-            title: 'Missing Items',
+            title: 'Refund Payment',
             date: '2021/09/20',
             status: 'Checking',
           },
           {
             complainId: 'C1004',
-            name: 'Robert Williams',
+            name: 'Refund Payment',
             title: 'Late Delivery',
             date: '2021/10/05',
             status: 'Completed',
           },
           {
             complainId: 'C1005',
-            name: 'Emily Davis',
+            name: 'Refund Payment',
             title: 'Wrong Size',
             date: '2021/11/17',
             status: 'Pending',
           },
           {
             complainId: 'C1006',
-            name: 'Michael Brown',
+            name: 'Refund Payment',
             title: 'Billing Issue',
             date: '2021/12/02',
             status: 'Checking',

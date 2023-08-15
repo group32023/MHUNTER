@@ -10,9 +10,8 @@
 }
 .moderator-body-container{
  
-  width: 1440px;
   height: 316px;
-  
+  width: auto;
 }
 
 
@@ -238,12 +237,11 @@ margin-top: 10px;}
 
 /* Calendar */
 .react-calendar {  /*header of calender*/
-  max-width: 500px;
+  max-width: 100%; /* Adjust the maximum width as needed */
   margin: 0 auto;
-  background-color: #2f363e; 
+  background-color: #2f363e;
   font-family: Arial, sans-serif;
   border-radius: 10px;
-
 }
 .react-calendar__tile {  /*dates of calender*/
   padding: 10px;
@@ -293,29 +291,15 @@ font-size: small;
   border-radius: 50px;
 }
 .moderator-cal{
+
   margin-top: -250px;
-  margin-left: 870px;
+  margin-left: 848px;
+  margin-right: auto;
 
 }
-@media (max-width: 400px) {
-  /* Adjust styles for smaller screens */
-  .react-calendar {
-    max-width: 100%; /* Take full width on small screens */
-    margin: 0; /* Remove margin on small screens */
-  }}
-  
 
 
-@media (min-width: 1201px) {
-  /* Adjust styles for larger screens */
-  .moderator-cal {
-    margin-top: -250px;
-    margin-left: 850px;
-    max-width: none; /* Reset width for larger screens */
-  }
 
-  /* Adjust other styles as needed */
-}
 
 /* /Calender */
 
@@ -690,7 +674,7 @@ margin: 0px 40% 0px;
   justify-content: center;
   align-items: center;
   margin-top: 20px;
-  width: 25%;
+  width: fit-content;
   height: 40px;
   margin-left: 520px;
   border: 1.5px solid #7643d2;
@@ -701,7 +685,6 @@ margin: 0px 40% 0px;
   display: inline-block;
   font-size: 20px;
   color: white;
-  width: 101px;
   height: 22px;
   flex-direction: column;
   flex-shrink: 0;
@@ -709,8 +692,9 @@ margin: 0px 40% 0px;
   font-family: Inter;
   font-style: normal;
   font-weight: 800;
+  margin-left: 30px;
+  margin-right: 30px;
   line-height: normal;
-  padding-right: 22px;
 }
 
 .pagination li.active2 {
