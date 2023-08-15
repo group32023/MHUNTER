@@ -1,0 +1,91 @@
+.mainEventContainer{
+    margin-left: 5.1rem;
+    background: #24292D;
+    width: 1455px;
+    height: 728px;
+    flex: 3;
+    position: fixed;
+}
+
+.mainEventContainer .requestContainer {
+    background-color: #3b444d;
+    height: 100px;
+    width: 1233px;
+    position: relative;
+    top: 132px;
+    left: 8%;
+    margin-bottom: 20px;
+    border-radius: 20px;
+    }
+
+    
+.mainEventContainer .requestContainer:hover {
+ transform: scale(1.1,1.1);
+  }
+
+  .mainEventContainer  .profile {
+    position: relative;
+    border-radius: 50%;
+    width: 55px;
+    height: 55px;
+    top: 23.5px;
+    left: -482px;
+  }
+
+  .mainEventContainer .eventDetails h4 {
+    position: relative;
+    top: -23px;
+    width: 250px;
+    margin-left: 15%;
+  }
+
+  .mainEventContainer  .artistEventType {
+    
+    position: absolute;
+    font-size: 15px;
+    width: 21%;
+    height: 5%;
+    text-align: center;
+    color: white;
+    border-radius: 10px;
+    left: 36%;
+    top: -17px;
+    
+  }
+
+  .mainEventContainer  .eventDate {
+    position: relative;
+    margin-top: -3.2%;
+    left: 12%;
+    top: -13px;
+  }
+
+  .mainEventContainer  .venue {
+    position: relative;
+    margin-top: -3.2%;
+    left: 27%;
+    top: -14px;
+  }
+
+ .mainEventContainer .viewBtn {
+  background-color: #F70F5D !important;
+  position: relative;
+  font-size: 15px;
+  width: 7%;
+  height: 30px;
+  font-weight: bold;
+  text-align: center;
+  color: white;
+  left: 42%;
+  top: -56.8px;
+  border-radius: 10px;
+  border: none !important;
+  box-shadow: 4px 7px 10px rgba(0, 0, 0, .4) !important;
+  }
+
+  .artistEventTypeImg{
+    position: relative;
+    top: -4px;
+    left: -7%;
+    width: 21px;
+  }

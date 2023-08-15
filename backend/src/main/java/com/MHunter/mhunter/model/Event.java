@@ -2,19 +2,24 @@ package com.MHunter.mhunter.model;
 
 
 import jakarta.persistence.*;
+import lombok.Data;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
 
 
 @Entity
+@Data
 public class Event {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 
 //    @Column(name = "EventID")
-    private int EventID;
+    private int eventid;
+
+    private String Town;
+
     //    @Column(name = "OrgID")
     private int OrgID;
     //    @Column(name = "event_name")
@@ -45,11 +50,11 @@ public class Event {
     }
 
     public int getEventID() {
-        return EventID;
+        return eventid;
     }
 
     public void setEventID(int eventID) {
-        EventID = eventID;
+        eventid = eventID;
     }
 
     public int getOrgID() {

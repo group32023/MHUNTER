@@ -8,7 +8,7 @@ import lombok.Data;
 public class Artist {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int artistId;
+    private int artist_id;
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "mmid")
     private MusicMember musicMember;
@@ -20,11 +20,11 @@ public class Artist {
     }
 
     public int getArtistId() {
-        return artistId;
+        return artist_id;
     }
 
     public void setArtistId(int artistId) {
-        this.artistId = artistId;
+        this.artist_id = artistId;
     }
 
     public MusicMember getMusicMember() {

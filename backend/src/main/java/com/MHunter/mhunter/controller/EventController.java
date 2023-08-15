@@ -3,7 +3,6 @@ package com.MHunter.mhunter.controller;
 
 import com.MHunter.mhunter.model.Event;
 import com.MHunter.mhunter.model.Organizer;
-import com.MHunter.mhunter.model.RequestMusicMember;
 import com.MHunter.mhunter.model.User;
 import com.MHunter.mhunter.service.EventService;
 import com.MHunter.mhunter.service.OrganizerService;
@@ -53,7 +52,7 @@ public class EventController {
     public EventOrganizer viewSpecificEvent(@PathVariable int eventId) {
         Event event = eventService.viewSpecificEvent(eventId);
         Organizer organizer = organizerService.findSpecificOrganizer(event.getOrgID());
-        User user = userService.findSpecificUser(organizer.getUserId());
+        User user = userService.findSpecificUser(organizer.getUser().getUserId());
         EventOrganizer eventOrganizer = new EventOrganizer();
         eventOrganizer.setEventId((event.getEventID()));
         eventOrganizer.setOrgId(event.getOrgID());
@@ -62,7 +61,7 @@ public class EventController {
         eventOrganizer.setLongitude(event.getLongitude());
         eventOrganizer.setEndTime((LocalTime) event.getEnd_time());
         eventOrganizer.setTown(event.getTown());
-        eventOrganizer.setOrganizerName(user.getFname() + " " + user.getLname());
+        eventOrganizer.setOrganizerName(user.getFirstName() + " " + user.getLastName());
         eventOrganizer.setEventName(event.getEvent_name());
         eventOrganizer.setStartTime(event.getStart_time());
         eventOrganizer.setEventType(event.getEvent_type());

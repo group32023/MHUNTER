@@ -30,19 +30,19 @@ public class UserServiceImp implements UserService{
     @Override
     public User updateUser(User user, int id) {
         return userRepository.findById(id).map(user1 -> {
-            user1.setFname(user.getFname());
-            user1.setLname(user.getLname());
+            user1.setFirstName(user.getFirstName());
+            user1.setLastName(user.getLastName());
             user1.setAddress(user.getAddress());
             user1.setEmail(user.getEmail());
             user1.setPassword(user.getPassword());
             user1.setIsVerified(user.getIsVerified());
-            user1.setProfileImage(user.getProfileImage());
-            user1.setPhoneNo(user.getPhoneNo());
-            user1.setMemberType(user.getMemberType());
-            user1.setRegData(user.getRegData());
-            user1.setRemovedStaffID(user.getRemovedStaffID());
-            user1.setRemovedDate(user.getRemovedDate());
-            user1.setSuspendedStaffID(user.getSuspendedStaffID());
+//            user1.setP(user.getProfileImage());
+            user1.setPhoneNumber(user.getPhoneNumber());
+//            user1.set(user.getMemberType());
+            user1.setRegDate(user.getRegDate());
+            user1.setRemoveStaffId(user.getRemoveStaffId());
+            user1.setRemoveDate(user.getRemoveDate());
+            user1.setSuspendedStaffId(user.getSuspendedStaffId());
             user1.setSuspendedDate(user.getSuspendedDate());
             user1.setRemark(user.getRemark());
             return userRepository.save(user1);

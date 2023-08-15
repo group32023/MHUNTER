@@ -6,7 +6,7 @@ import jakarta.persistence.*;
 public class MusicMember {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int MMID;
+    private int mmid;
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
     private User user;
@@ -21,11 +21,11 @@ public class MusicMember {
     }
 
     public int getMMID() {
-        return MMID;
+        return mmid;
     }
 
     public void setMMID(int MMID) {
-        this.MMID = MMID;
+        this.mmid = MMID;
     }
 
     public User getUser() {
