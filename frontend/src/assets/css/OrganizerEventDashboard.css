@@ -58,11 +58,16 @@
     overflow-y: hidden;
 }
 
-.addTypeDescriptionDiv,
-.locationTypeDescriptionDiv {
+.addTypeDescriptionDiv {
     height: 130px;
     background-color: #2f363e;
     border-radius: 10px;
+    margin-right: 0px;
+    margin-bottom: 10px;
+}
+
+.locationTypeDescriptionDiv {
+    height: 130px;
     margin-right: 0px;
     margin-bottom: 10px;
 }
@@ -114,6 +119,16 @@
     height: auto;
     margin-left: 5px;
     width: 25%;
+    position: relative;
+    overflow: hidden;
+}
+
+.locationDescriptionDiv img {
+    position: absolute;
+    object-fit: cover;
+    height: auto;
+    width: 93%;
+    border-radius: 10px;
 }
 
 .descriptionIcon {

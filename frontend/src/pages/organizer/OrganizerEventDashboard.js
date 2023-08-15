@@ -1,7 +1,7 @@
 import React from 'react'
 import "../../assets/css/OrganizerEventDashboard.css"
 import Topbar from '../../components/common/Topbar';
-import profilePhoto from '../../assets/images/profilePhoto.jpeg'
+
 import { BiSolidEdit } from "react-icons/bi";
 import { BiSolidBox } from "react-icons/bi";
 import { BiSolidCalendar } from "react-icons/bi";
@@ -12,7 +12,8 @@ import { BiSolidPlusCircle } from "react-icons/bi";
 import { BiSolidCircle } from "react-icons/bi";
 import 'bootstrap/dist/css/bootstrap.min.css'
 
-
+import profilePhoto from '../../assets/images/profilePhoto.jpeg'
+import locationDemo from '../../assets/images/locationDemo.jpeg'
 
 
 function OrganizerEventDashboard() {
@@ -92,9 +93,7 @@ function OrganizerEventDashboard() {
 
                 <div className="locationDescriptionDiv mt-4 col-md-4">
                     <div className="locationTypeDescriptionDiv">
-                        <div className="p-4">
-                            Content for 4-cols div
-                        </div>
+                        <img className='img-fluid' src={locationDemo} alt='' ></img>
                     </div>
                     <div className="eventTypeDescriptionDiv " style={{ fontFamily: 'MyCustomFont1' }}>
                         <div className="p-3">
