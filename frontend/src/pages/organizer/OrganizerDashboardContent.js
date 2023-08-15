@@ -43,6 +43,8 @@ function OrganizerDashboardContent() {
                         <div className="UpcomingTableDiv mt-4">
 
                             <div className="row tableUpcomingContent">
+                                <div>
+                                </div>
                                 <div className='upcomingDivEventImage '>
                                     <img className='' alt='' src={EventBanner2} width='200px' height='110px'></img>
                                 </div>

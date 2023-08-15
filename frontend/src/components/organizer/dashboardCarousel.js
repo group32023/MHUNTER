@@ -3,9 +3,9 @@ import { Carousel } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import image1 from '../../assets/images/carousel1.png';
 import image2 from '../../assets/images/carousel2.jpg';
-import image3 from '../../assets/images/carousel3.jpg';
-import image4 from '../../assets/images/carousel4.jpg';
-import image5 from '../../assets/images/carousel5.jpg';
+import image3 from '../../assets/images/carousel4.png';
+import image4 from '../../assets/images/carousel5.png';
+import image5 from '../../assets/images/carousel6.jpg';
 
 function DashboardCarousel() {
     const [index, setIndex] = useState(0);

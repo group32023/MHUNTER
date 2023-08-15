@@ -63,6 +63,10 @@
     cursor: pointer;
 }
 
+.tableUpcomingContent:hover {
+    transform: scaleX(1.05);
+}
+
 .upcomingDivEventImage {
     flex: 1;
 }
