@@ -4,6 +4,7 @@ import DashboardCarousel from '../../components/organizer/DashboardCarousel';
 import DashboardCalender from '../../components/organizer/DashboardCalender';
 // import CalenderImg from '../../assets/images/calenderImg.png'
 import '../../assets/css/OrganizerDashboard.css'
+import { BiSolidCalendarStar } from "react-icons/bi";
 import EventImg from '../../assets/images/slide_7.jpg'
 
 function OrganizerDashboardContent() {
@@ -20,25 +21,35 @@ function OrganizerDashboardContent() {
                 </div>
             </div>
 
-            <div className='row mt-3' style={{ marginLeft: '45px' }}>
+            <div className='row mt-3 Dashboard-custom-flex-row' style={{ marginLeft: '50px' }}>
+                <div className='PaymentsDiv col-md-6'></div>
 
-                <div className='UpcominEventsDiv col-md-7'>
+
+                <div className='UpcominEventsDiv '>
                     <div className="p-3">
                         <p className='fs-5' style={{ fontFamily: 'MyCustomFont1' }}>Upcoming Events</p>
                         <hr></hr>
                         <div className="UpcomingTableDiv mt-4">
 
                             <div className="row tableUpcomingContent">
-                                <img className='col-md-4' alt='' src={EventImg} width='50px' height='100px'></img>
-                                <div>
-                                    <div className='upcomingDivEventData col-md-7'>
-                                        <span className=''>BEAT BLITZ</span>
-                                        <div className=''>
-                                            <span className=' col-md-6'> Weligama,Matara</span>
-                                            <span className='col-md-6'>2023-10-05</span>
+                                <div className='upcomingDivEventImage '>
+                                    <img className='' alt='' src={EventImg} width='220px' height='120px'></img>
+                                </div>
+
+
+                                <div className='upcomingDivEventData'>
+                                    <span className='row eventTitle'>BEAT BLITZ</span>
+                                    <div className='row eventDataRow1'>
+                                        <span className='row eventLocation'> Weligama,Matara</span>
+                                        <div className='row eventDate'>
+                                            <BiSolidCalendarStar />
+                                            <span >2023-10-05</span>
                                         </div>
+
                                     </div>
-                                    <hr className='row'></hr>
+
+                                    <span className='row'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad mini</span>
+
                                 </div>
 
                             </div>
@@ -47,9 +58,6 @@ function OrganizerDashboardContent() {
                     </div>
                 </div>
 
-
-
-                <div className='PaymentsDiv'></div>
 
             </div>
             <br></br>

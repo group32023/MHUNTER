@@ -23,10 +23,11 @@
     color: white;
 }
 
-.UpcominEventsDiv {
+.PaymentsDiv {
     background-color: #2f363e;
     height: auto;
     border-radius: 10px;
+    flex: 1;
 }
 
 .DashboardCalenderDiv {
@@ -44,10 +45,55 @@
     transition: all .5s ease;
 }
 
-.PaymentsDiv {
+.UpcominEventsDiv {
     background-color: #2f363e;
-    width: auto;
     height: 330px;
+    flex: 1;
     margin-left: 10px;
     border-radius: 10px;
+}
+
+.Dashboard-custom-flex-row {
+    display: flex;
+    margin-right: 40px;
+}
+
+.tableUpcomingContent {
+    display: flex;
+}
+
+.upcomingDivEventImage {
+    flex: 1;
+}
+
+.upcomingDivEventData {
+    flex: 2;
+    padding-left: 40px;
+}
+
+.upcomingDivEventData .eventTitle {
+    font-weight: bold;
+}
+
+.upcomingDivEventData .eventLocation {
+    color: #11FE70;
+    margin-top: 3px;
+    flex: 1;
+
+}
+
+.upcomingDivEventData .eventDataRow1 {
+    display: flex;
+    font-size: 14px;
+    text-align: left;
+}
+
+.upcomingDivEventData .eventDate {
+    flex: 1;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    /* Adjust column widths as needed */
+    align-items: center;
+    /* Align vertically centered */
+    column-gap: 10px;
 }
