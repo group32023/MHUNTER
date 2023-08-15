@@ -68,7 +68,7 @@
 }
 
 .tableUpcomingContent:hover {
-    transform: scaleX(1.07);
+    transform: scaleX(1.05);
 }
 
 .upcomingDivEventImage {
@@ -129,6 +129,7 @@
     flex: 1;
     text-align: center;
     font-weight: bold;
+    font-size: 13px;
     /* color: #7643D2; */
 }
 
@@ -158,6 +159,7 @@
     /* background-color: #91040D; */
     background-color: red;
     color: white;
+    font-weight: normal;
     transform: scaleX(1.1);
 
 
@@ -171,7 +173,7 @@
 
 .innertablePaymentTBContent {
     width: 90%;
-    font-size: 13px;
+    font-size: 12px;
 }
 
 .tablePaymentTBContent {

@@ -4,15 +4,30 @@ import DashboardCarousel from '../../components/organizer/DashboardCarousel';
 import DashboardCalender from '../../components/organizer/DashboardCalender';
 // import CalenderImg from '../../assets/images/calenderImg.png'
 import '../../assets/css/OrganizerDashboard.css'
+import { BsMusicNoteList } from "react-icons/bs";
+import { Button } from 'react-bootstrap';
 import { BiSolidCalendarStar } from "react-icons/bi";
+
+
 import EventBanner1 from '../../assets/images/eventbanner1.jpeg'
 import EventBanner2 from '../../assets/images/eventbanner2.jpg'
 import EventBanner3 from '../../assets/images/eventbanner3.jpg'
 import EventBanner4 from '../../assets/images/eventbanner4.jpg'
 import EventBanner5 from '../../assets/images/eventbanner5.jpg'
 import EventBanner6 from '../../assets/images/eventbanner6.jpg'
+
+
 import PaymentArtist1 from '../../assets/images/paymentArtist1.jpeg'
-import { Button } from 'react-bootstrap';
+import PaymentArtist2 from '../../assets/images/paymentArtist2.jpeg'
+import PaymentArtist3 from '../../assets/images/paymentArtist3.jpg'
+import PaymentArtist4 from '../../assets/images/paymentArtist4.jpg'
+import PaymentArtist5 from '../../assets/images/paymentArtist5.jpeg'
+import PaymentArtist6 from '../../assets/images/paymentArtist6.jpg'
+import PaymentArtist7 from '../../assets/images/paymentArtist7.jpg'
+import PaymentArtist8 from '../../assets/images/paymentArtist8.png'
+import PaymentArtist9 from '../../assets/images/paymentArtist9.jpeg'
+import PaymentArtist10 from '../../assets/images/paymentArtist10.jpg'
+
 
 
 function OrganizerDashboardContent() {
@@ -31,7 +46,7 @@ function OrganizerDashboardContent() {
 
             <div className='row mt-3 Dashboard-custom-flex-row' style={{ marginLeft: '50px' }}>
                 <div className='PaymentsTBDiv col-md-6'>
-                    <div className="p-4">
+                    <div className="p-3">
                         <p className='fs-5' style={{ fontFamily: 'MyCustomFont1' }}>Payments To Be Done</p>
                         <hr></hr>
 
@@ -39,11 +54,11 @@ function OrganizerDashboardContent() {
 
                             <div className="row tablePaymentTBContent">
                                 <div className='PaymentTBImage '>
-                                    <img className='' alt='' src={PaymentArtist1} width='50px' height='50px'></img>
+                                    <img className='' alt='' src={PaymentArtist4} width='50px' height='50px'></img>
                                 </div>
                                 <div className="innertablePaymentTBContent">
-                                    <div className='PaymentTBTitle d-flex align-items-center justify-content-center'>WASTHI</div>
-                                    <div className='PaymentTBEventName d-flex align-items-center justify-content-center'>APE KALAWA</div>
+                                    <div className='PaymentTBTitle d-flex align-items-center justify-content-center'>DIM3</div>
+                                    <div className='PaymentTBEventName d-flex align-items-center justify-content-center'><BsMusicNoteList className='' style={{ fontSize: '18px', marginRight: '7px', color: '#7643D2' }} />APE KALAWA</div>
                                     <div className='PaymentTBAmount d-flex align-items-center justify-content-center'>LKR 60 000.00</div>
                                     <div className=' PaymentTBBtn d-flex align-items-center justify-content-center'>
                                         <Button className='paymentBtn shadow' variant="secondary" >
@@ -60,7 +75,92 @@ function OrganizerDashboardContent() {
                                 </div>
                                 <div className="innertablePaymentTBContent">
                                     <div className='PaymentTBTitle d-flex align-items-center justify-content-center'>WASTHI</div>
-                                    <div className='PaymentTBEventName d-flex align-items-center justify-content-center'>APE KALAWA</div>
+                                    <div className='PaymentTBEventName d-flex align-items-center justify-content-center'><BsMusicNoteList className='' style={{ fontSize: '18px', marginRight: '7px', color: '#7643D2' }} />APE KALAWA</div>
+                                    <div className='PaymentTBAmount d-flex align-items-center justify-content-center'>LKR 60 000.00</div>
+                                    <div className=' PaymentTBBtn d-flex align-items-center justify-content-center'>
+                                        <Button className='paymentBtn shadow' variant="secondary" >
+                                            Pay Now
+                                        </Button>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div className="row tablePaymentTBContent">
+                                <div className='PaymentTBImage '>
+                                    <img className='' alt='' src={PaymentArtist7} width='50px' height='50px'></img>
+                                </div>
+                                <div className="innertablePaymentTBContent">
+                                    <div className='PaymentTBTitle d-flex align-items-center justify-content-center'>B N S</div>
+                                    <div className='PaymentTBEventName d-flex align-items-center justify-content-center'><BsMusicNoteList className='' style={{ fontSize: '18px', marginRight: '7px', color: '#7643D2' }} />APE KALAWA</div>
+                                    <div className='PaymentTBAmount d-flex align-items-center justify-content-center'>LKR 60 000.00</div>
+                                    <div className=' PaymentTBBtn d-flex align-items-center justify-content-center'>
+                                        <Button className='paymentBtn shadow' variant="secondary" >
+                                            Pay Now
+                                        </Button>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div className="row tablePaymentTBContent">
+                                <div className='PaymentTBImage '>
+                                    <img className='' alt='' src={PaymentArtist8} width='50px' height='50px'></img>
+                                </div>
+                                <div className="innertablePaymentTBContent">
+                                    <div className='PaymentTBTitle d-flex align-items-center justify-content-center'>DINESH GAMAGE</div>
+                                    <div className='PaymentTBEventName d-flex align-items-center justify-content-center'><BsMusicNoteList className='' style={{ fontSize: '18px', marginRight: '7px', color: '#7643D2' }} />APE KALAWA</div>
+                                    <div className='PaymentTBAmount d-flex align-items-center justify-content-center'>LKR 60 000.00</div>
+                                    <div className=' PaymentTBBtn d-flex align-items-center justify-content-center'>
+                                        <Button className='paymentBtn shadow' variant="secondary" >
+                                            Pay Now
+                                        </Button>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div className="row tablePaymentTBContent">
+                                <div className='PaymentTBImage '>
+                                    <img className='' alt='' src={PaymentArtist9} width='50px' height='50px'></img>
+                                </div>
+                                <div className="innertablePaymentTBContent">
+                                    <div className='PaymentTBTitle d-flex align-items-center justify-content-center'>MARIANS</div>
+                                    <div className='PaymentTBEventName d-flex align-items-center justify-content-center'><BsMusicNoteList className='' style={{ fontSize: '18px', marginRight: '7px', color: '#7643D2' }} />APE KALAWA</div>
+                                    <div className='PaymentTBAmount d-flex align-items-center justify-content-center'>LKR 60 000.00</div>
+                                    <div className=' PaymentTBBtn d-flex align-items-center justify-content-center'>
+                                        <Button className='paymentBtn shadow' variant="secondary" >
+                                            Pay Now
+                                        </Button>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div className="row tablePaymentTBContent">
+                                <div className='PaymentTBImage '>
+                                    <img className='' alt='' src={PaymentArtist10} width='50px' height='50px'></img>
+                                </div>
+                                <div className="innertablePaymentTBContent">
+                                    <div className='PaymentTBTitle d-flex align-items-center justify-content-center'>DADDY</div>
+                                    <div className='PaymentTBEventName d-flex align-items-center justify-content-center'><BsMusicNoteList className='' style={{ fontSize: '18px', marginRight: '7px', color: '#7643D2' }} />APE KALAWA</div>
+                                    <div className='PaymentTBAmount d-flex align-items-center justify-content-center'>LKR 60 000.00</div>
+                                    <div className=' PaymentTBBtn d-flex align-items-center justify-content-center'>
+                                        <Button className='paymentBtn shadow' variant="secondary" >
+                                            Pay Now
+                                        </Button>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div className="row tablePaymentTBContent">
+                                <div className='PaymentTBImage '>
+                                    <img className='' alt='' src={PaymentArtist2} width='50px' height='50px'></img>
+                                </div>
+                                <div className="innertablePaymentTBContent">
+                                    <div className='PaymentTBTitle d-flex align-items-center justify-content-center'>KANCHANA ANURADHI</div>
+                                    <div className='PaymentTBEventName d-flex align-items-center justify-content-center'><BsMusicNoteList className='' style={{ fontSize: '18px', marginRight: '7px', color: '#7643D2' }} />APE KALAWA</div>
                                     <div className='PaymentTBAmount d-flex align-items-center justify-content-center'>LKR 60 000.00</div>
                                     <div className=' PaymentTBBtn d-flex align-items-center justify-content-center'>
                                         <Button className='paymentBtn shadow' variant="secondary" >
@@ -77,7 +177,26 @@ function OrganizerDashboardContent() {
                                 </div>
                                 <div className="innertablePaymentTBContent">
                                     <div className='PaymentTBTitle d-flex align-items-center justify-content-center'>WASTHI</div>
-                                    <div className='PaymentTBEventName d-flex align-items-center justify-content-center'>APE KALAWA</div>
+                                    <div className='PaymentTBEventName d-flex align-items-center justify-content-center'><BsMusicNoteList className='' style={{ fontSize: '18px', marginRight: '7px', color: '#7643D2' }} />APE KALAWA</div>
+                                    <div className='PaymentTBAmount d-flex align-items-center justify-content-center'>LKR 60 000.00</div>
+                                    <div className=' PaymentTBBtn d-flex align-items-center justify-content-center'>
+                                        <Button className='paymentBtn shadow' variant="secondary" >
+                                            Pay Now
+                                        </Button>
+                                    </div>
+
+                                </div>
+                            </div>
+
+
+
+                            <div className="row tablePaymentTBContent">
+                                <div className='PaymentTBImage '>
+                                    <img className='' alt='' src={PaymentArtist5} width='50px' height='50px'></img>
+                                </div>
+                                <div className="innertablePaymentTBContent">
+                                    <div className='PaymentTBTitle d-flex align-items-center justify-content-center'>WASTHI</div>
+                                    <div className='PaymentTBEventName d-flex align-items-center justify-content-center'><BsMusicNoteList className='' style={{ fontSize: '18px', marginRight: '7px', color: '#7643D2' }} />APE KALAWA</div>
                                     <div className='PaymentTBAmount d-flex align-items-center justify-content-center'>LKR 60 000.00</div>
                                     <div className=' PaymentTBBtn d-flex align-items-center justify-content-center'>
                                         <Button className='paymentBtn shadow' variant="secondary" >
@@ -90,11 +209,11 @@ function OrganizerDashboardContent() {
 
                             <div className="row tablePaymentTBContent">
                                 <div className='PaymentTBImage '>
-                                    <img className='' alt='' src={PaymentArtist1} width='50px' height='50px'></img>
+                                    <img className='' alt='' src={PaymentArtist6} width='50px' height='50px'></img>
                                 </div>
                                 <div className="innertablePaymentTBContent">
                                     <div className='PaymentTBTitle d-flex align-items-center justify-content-center'>WASTHI</div>
-                                    <div className='PaymentTBEventName d-flex align-items-center justify-content-center'>APE KALAWA</div>
+                                    <div className='PaymentTBEventName d-flex align-items-center justify-content-center'><BsMusicNoteList className='' style={{ fontSize: '18px', marginRight: '7px', color: '#7643D2' }} />APE KALAWA</div>
                                     <div className='PaymentTBAmount d-flex align-items-center justify-content-center'>LKR 60 000.00</div>
                                     <div className=' PaymentTBBtn d-flex align-items-center justify-content-center'>
                                         <Button className='paymentBtn shadow' variant="secondary" >
@@ -105,107 +224,6 @@ function OrganizerDashboardContent() {
                                 </div>
                             </div>
 
-                            <div className="row tablePaymentTBContent">
-                                <div className='PaymentTBImage '>
-                                    <img className='' alt='' src={PaymentArtist1} width='50px' height='50px'></img>
-                                </div>
-                                <div className="innertablePaymentTBContent">
-                                    <div className='PaymentTBTitle d-flex align-items-center justify-content-center'>WASTHI</div>
-                                    <div className='PaymentTBEventName d-flex align-items-center justify-content-center'>APE KALAWA</div>
-                                    <div className='PaymentTBAmount d-flex align-items-center justify-content-center'>LKR 60 000.00</div>
-                                    <div className=' PaymentTBBtn d-flex align-items-center justify-content-center'>
-                                        <Button className='paymentBtn shadow' variant="secondary" >
-                                            Pay Now
-                                        </Button>
-                                    </div>
-
-                                </div>
-                            </div>
-
-                            <div className="row tablePaymentTBContent">
-                                <div className='PaymentTBImage '>
-                                    <img className='' alt='' src={PaymentArtist1} width='50px' height='50px'></img>
-                                </div>
-                                <div className="innertablePaymentTBContent">
-                                    <div className='PaymentTBTitle d-flex align-items-center justify-content-center'>WASTHI</div>
-                                    <div className='PaymentTBEventName d-flex align-items-center justify-content-center'>APE KALAWA</div>
-                                    <div className='PaymentTBAmount d-flex align-items-center justify-content-center'>LKR 60 000.00</div>
-                                    <div className=' PaymentTBBtn d-flex align-items-center justify-content-center'>
-                                        <Button className='paymentBtn shadow' variant="secondary" >
-                                            Pay Now
-                                        </Button>
-                                    </div>
-
-                                </div>
-                            </div>
-
-                            <div className="row tablePaymentTBContent">
-                                <div className='PaymentTBImage '>
-                                    <img className='' alt='' src={PaymentArtist1} width='50px' height='50px'></img>
-                                </div>
-                                <div className="innertablePaymentTBContent">
-                                    <div className='PaymentTBTitle d-flex align-items-center justify-content-center'>WASTHI</div>
-                                    <div className='PaymentTBEventName d-flex align-items-center justify-content-center'>APE KALAWA</div>
-                                    <div className='PaymentTBAmount d-flex align-items-center justify-content-center'>LKR 60 000.00</div>
-                                    <div className=' PaymentTBBtn d-flex align-items-center justify-content-center'>
-                                        <Button className='paymentBtn shadow' variant="secondary" >
-                                            Pay Now
-                                        </Button>
-                                    </div>
-
-                                </div>
-                            </div>
-
-                            <div className="row tablePaymentTBContent">
-                                <div className='PaymentTBImage '>
-                                    <img className='' alt='' src={PaymentArtist1} width='50px' height='50px'></img>
-                                </div>
-                                <div className="innertablePaymentTBContent">
-                                    <div className='PaymentTBTitle d-flex align-items-center justify-content-center'>WASTHI</div>
-                                    <div className='PaymentTBEventName d-flex align-items-center justify-content-center'>APE KALAWA</div>
-                                    <div className='PaymentTBAmount d-flex align-items-center justify-content-center'>LKR 60 000.00</div>
-                                    <div className=' PaymentTBBtn d-flex align-items-center justify-content-center'>
-                                        <Button className='paymentBtn shadow' variant="secondary" >
-                                            Pay Now
-                                        </Button>
-                                    </div>
-
-                                </div>
-                            </div>
-
-                            <div className="row tablePaymentTBContent">
-                                <div className='PaymentTBImage '>
-                                    <img className='' alt='' src={PaymentArtist1} width='50px' height='50px'></img>
-                                </div>
-                                <div className="innertablePaymentTBContent">
-                                    <div className='PaymentTBTitle d-flex align-items-center justify-content-center'>WASTHI</div>
-                                    <div className='PaymentTBEventName d-flex align-items-center justify-content-center'>APE KALAWA</div>
-                                    <div className='PaymentTBAmount d-flex align-items-center justify-content-center'>LKR 60 000.00</div>
-                                    <div className=' PaymentTBBtn d-flex align-items-center justify-content-center'>
-                                        <Button className='paymentBtn shadow' variant="secondary" >
-                                            Pay Now
-                                        </Button>
-                                    </div>
-
-                                </div>
-                            </div>
-
-                            <div className="row tablePaymentTBContent">
-                                <div className='PaymentTBImage '>
-                                    <img className='' alt='' src={PaymentArtist1} width='50px' height='50px'></img>
-                                </div>
-                                <div className="innertablePaymentTBContent">
-                                    <div className='PaymentTBTitle d-flex align-items-center justify-content-center'>WASTHI</div>
-                                    <div className='PaymentTBEventName d-flex align-items-center justify-content-center'>APE KALAWA</div>
-                                    <div className='PaymentTBAmount d-flex align-items-center justify-content-center'>LKR 60 000.00</div>
-                                    <div className=' PaymentTBBtn d-flex align-items-center justify-content-center'>
-                                        <Button className='paymentBtn shadow' variant="secondary" >
-                                            Pay Now
-                                        </Button>
-                                    </div>
-
-                                </div>
-                            </div>
 
                         </div>
 
@@ -218,7 +236,7 @@ function OrganizerDashboardContent() {
                 {/* Upcoming Events Div */}
 
                 <div className='UpcominEventsDiv '>
-                    <div className="p-4">
+                    <div className="p-3">
                         <p className='fs-5' style={{ fontFamily: 'MyCustomFont1' }}>Upcoming Events</p>
                         <hr></hr>
                         <div className="UpcomingTableDiv mt-4">
