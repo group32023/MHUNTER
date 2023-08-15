@@ -5,7 +5,7 @@ export default function ArtistSignup() {
   const formRef = useRef(null);
 
   const inputRef = useRef(null);
-  const [image, setImage] = useState("");
+  const [Image, setImage] = useState("");
 
   const handleImageClick = () =>{
     inputRef.current.click();
@@ -27,7 +27,7 @@ export default function ArtistSignup() {
     setImage("");
   };
   
-  const [artistName, setArtistName] = useState("");
+  const [name, setArtistName] = useState("");
   const [email, setEmail] = useState("");
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
@@ -35,7 +35,7 @@ export default function ArtistSignup() {
   const [address, setAddress] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setCon_Password] = useState("");
-  const memberType = "Artist";
+  const type = "Artist";
 
   const date = new Date();
   const year = date.getFullYear();
@@ -44,10 +44,21 @@ export default function ArtistSignup() {
 
   const regDate = `${year}-${month}-${day}`;
   //const regDate = new Date();
-  const save = (event) => {
+  const save = async (event) => {
     event.preventDefault();
-    const artist = {
-       artistName, email, firstName, lastName, phoneNumber, address, password, memberType, regDate};
+    const formData = new FormData();
+    formData.append("name", name);
+    formData.append("email", email);
+    formData.append("firstName", firstName);
+    formData.append("lastName", lastName);
+    formData.append("phoneNumber", phoneNumber);
+    formData.append("address", address);
+    formData.append("password", password);
+    formData.append("type", type);
+    formData.append("regDate", regDate);
+    formData.append("Image", Image);
+    /*const artist = {
+       name, email, firstName, lastName, phoneNumber, address, password, type, regDate,image};*/
     try {
 
       if(password.length < 8){
@@ -66,15 +77,34 @@ export default function ArtistSignup() {
         console.log("Password:", password);
         console.log(confirmpassword);*/
         
-        fetch("http://localhost:8080/user/signup", {
+        
+        /*fetch("http://localhost:8080/user/signup", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(artist),
         })
 
-       formRef.current.reset();
+        formRef.current.reset();
         resetFormFields();
-        alert("Artist Registration Sucessfully");
+        alert("Artist Registration Sucessfully");*/
+
+        const response = await fetch("http://localhost:8080/user/signup", {
+          method: "POST",
+          body: formData, // Use FormData to send the data and the image
+        });
+
+        if (response.ok) {
+          formRef.current.reset();
+          resetFormFields();
+          alert("Artist Registration Successfully");
+        } else {
+          const errorMessage = await response.text();
+          if (errorMessage === "Email is already registered.") {
+            alert("Failed to register artist");
+          } else {
+            alert("Email is already registered. Please use a different email.");
+          }
+        }
         
       }
 
@@ -88,7 +118,7 @@ export default function ArtistSignup() {
   return (
     <div className='login template d-flex justify-content-center align-items-center vh-100 bgimage2'>
         
-          <form ref={formRef} onSubmit={save} className='artist_signup_form_container p-5 rounded vh-50'>
+          <form ref={formRef} onSubmit={save} className='artist_signup_form_container p-5 rounded vh-50' enctype="multipart/form-data">
             <div className='artist-signup-left-box' >
                   <div className='artist-text'>
                     <h6><b>Start your journey to be hired today!</b></h6>
@@ -96,7 +126,7 @@ export default function ArtistSignup() {
                   <div className='mb-2 text-white text-field'>
                     <label htmlFor='ArtistName'>Artist Name</label>
                     <input type='text' placeholder='' className='form-control' required
-                    value = {artistName}
+                    value = {name}
                     onChange ={(event) => {
                     setArtistName(event.target.value);
                   }}
@@ -174,13 +204,14 @@ export default function ArtistSignup() {
                 <div className='artist-image' onClick={handleImageClick}>
                   <div>
     
-                  {image ? 
-                    <img src={URL.createObjectURL(image)} alt="ArtistDp" height={150} width={150}/>
+                  {Image ? 
+                    <img src={URL.createObjectURL(Image)} alt="ArtistDp" height={150} width={150}/>
                   :
                     <img src={require('../assets/images/artist.jpg')} alt="ArtistDp" height={150} width={150}/>
                   }
                   <input 
                     type='file' 
+                    name="Image"
                     ref={inputRef} 
                     onChange={handleImageChange} 
                     style={{display:'none'}}
@@ -194,10 +225,10 @@ export default function ArtistSignup() {
                 </div>
                 <div>
                     <div style={{display:'flex', color:'white'}}>
-                    <input type="checkbox"  name="" value=""  />
+                    <input type="checkbox" required name="" value=""  />
                     <label htmlFor="userAgreementCheckbox"> I have read the User Agreement and I agree with it.</label><br/>
                     </div>
-                    <input type="checkbox"  name="" value="" />
+                    <input type="checkbox" required name="" value="" />
                     <label htmlFor="termsAndConditionsCheckbox" style={{ color:'white'}}> I accept the Terms and Conditions.</label><br/><br />
                   </div>
 

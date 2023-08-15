@@ -1,24 +1,19 @@
 package com.MHunter.mhunter.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+import org.springframework.web.multipart.MultipartFile;
 
 @Entity
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int userId;
-    private String artistName;
-    private String bandName;
     private String email;
     private String firstName;
     private String lastName;
     private String phoneNumber;
     private String address;
     private String password;
-    private String memberType;
     private String regDate;
     private int isVerified;
     private int removeStaffId;
@@ -26,6 +21,10 @@ public class User {
     private int suspendedStaffId;
     private String suspendedDate;
     private String remark;
+    @Transient
+    private MultipartFile Image;
+
+    private String imagePath;
 
 
 
@@ -42,22 +41,6 @@ public class User {
 
     public void setUserId(int userId) {
         this.userId = userId;
-    }
-
-    public String getArtistName() {
-        return artistName;
-    }
-
-    public void setArtistName(String artistName) {
-        this.artistName = artistName;
-    }
-
-    public String getBandName() {
-        return bandName;
-    }
-
-    public void setBandName(String bandName) {
-        this.bandName = bandName;
     }
 
     public String getEmail() {
@@ -106,14 +89,6 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
-    }
-
-    public String getMemberType() {
-        return memberType;
-    }
-
-    public void setMemberType(String memberType) {
-        this.memberType = memberType;
     }
 
     public String getRegDate() {
@@ -170,5 +145,21 @@ public class User {
 
     public void setRemark(String remark) {
         this.remark = remark;
+    }
+
+    public MultipartFile getImage() {
+        return Image;
+    }
+
+    public void setImage(MultipartFile image) {
+        Image = image;
+    }
+
+    public String getImagePath() {
+        return imagePath;
+    }
+
+    public void setImagePath(String imagePath) {
+        this.imagePath = imagePath;
     }
 }

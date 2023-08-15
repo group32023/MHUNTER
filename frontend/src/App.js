@@ -1,3 +1,20 @@
+
+
+// import Organizer Components
+import OrganizerDashboard from './pages/organizer/OrganizerDashboard'
+import OrganizerComplaint from './pages/organizer/OrganizerComplaint';
+import OrganizerDashboardContent from './pages/organizer/OrganizerDashboardContent'
+import OrganizerEventHistory from './pages/organizer/OrganizerEventHistory'
+import OrganizerEventDashboard from './pages/organizer/OrganizerEventDashboard'
+import ViewEvents from './pages/organizer/ViewEvents'
+import CreateEvent from './pages/organizer/CreateEvent'
+import OrganizerProfile from './pages/organizer/OrganizerProfile';
+import SearchArtist from './pages/organizer/SearchArtist';
+
+
+import "./index.css"
+
+
 import './App.css';
 import Home from './pages/Home';
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
@@ -17,19 +34,27 @@ import NavBar from './components/common/NavBar';
 import MainSlider from './components/common/MainSlider';
 import BandSignup from './pages/BandSignup';
 // import AdminDashboard from './pages/admin/AdminDashboard';
-import OrganizerDashboard from './pages/organizer/OrganizerDashboard';
-import ArtistDashboard from './pages/artist/ArtistDashboard';
-import BandDashboard from './pages/band/BandDashboard';
 import ModeratorDashboard from './pages/moderator/ModeratorDashboard';
 import ModeratorDashoboardContent from './pages/moderator/moderatorDashoboardContent';
 import ModeratorRegistration from './pages/moderator/registration';
 import ModeratorComplaints from './pages/moderator/complaints';
 import ModeratorUserDetails from './pages/moderator/userDetails';
-import ProofCheck from './pages/moderator/ProofCheck';
+import ModeratorProofCheck from './pages/moderator/ProofCheck';
 import EventDetails from './pages/moderator/eventDetails';
 import ViewComplaints from './pages/moderator/viewComplaints';
 import ModeratorEvent from "./pages/moderator/event";
 import Suspenduser from './pages/moderator/suspenduser';
+import AdminDashboard from './pages/admin/AdminDashboard';
+import ArtistDashboard from './pages/artist/ArtistDashboard';
+import BandDashboard from './pages/band/BandDashboard';
+import AdminRegistration from './pages/admin/AdminRegistration';
+import ProofCheck from './pages/admin/ProofCheck';
+import AllUserDetails from './pages/admin/AllUserDetails';
+import ViewUserDetails from './pages/admin/ViewUserDetails';
+import AdminReport from './pages/admin/AdminReport';
+import AdminSettings from './pages/admin/AdminSettings';
+import OrganizerSignup from './pages/OrganizerSignup';
+import UserDetails from './pages/admin/UserDetails';
 
 function App() {
   return (
@@ -43,6 +68,22 @@ function App() {
           <Route path='/post' element={<Post/>}></Route>
           <Route path='/video' element={<Video/>}></Route>
           <Route index element={<Home />} />
+
+
+
+          {/* Organizer Routes */}
+          <Route path='/' element={<Home />}>
+
+            <Route path='/organizer/dashboard' element={<OrganizerDashboardContent />}></Route>
+            <Route path='/organizer/event' element={<ViewEvents />}></Route>
+            <Route path='/organizer/event/CreateEvent' element={<CreateEvent/>}></Route>
+            <Route path='/organizer/eventhistory' element={<OrganizerEventHistory />}></Route>
+            <Route path='/organizer/complaint' element={<OrganizerComplaint />}></Route>
+            <Route path='/organizer/profile' element={<OrganizerProfile />}></Route>
+            <Route path='/organizer/searchartist' element={<SearchArtist />} />
+          </Route>
+
+
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           <Route path='/artistbandsignup' element={<ArtistBandSignup />} />
@@ -74,6 +115,7 @@ function App() {
     </div>
     
   );
+
 }
 
 export default App;

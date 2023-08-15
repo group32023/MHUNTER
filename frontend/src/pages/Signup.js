@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
+import logo from '../assets/images/logo-login.png'
 
 export default function Signup() {
 
@@ -9,6 +10,9 @@ export default function Signup() {
     <div className='box-container'>
       <div className='signup_text'>
         <p>Join now and unlock the gateway to creating unforgettable moments where music and events unite!</p>
+        <div className='logo-in-login'>
+            <img src={logo} alt="Description of the image"></img>
+        </div>
       </div>
 
         <div className='left-box'>
@@ -22,7 +26,7 @@ export default function Signup() {
             </p>
           </div>
           <div>
-            <Link to={"/artistbandsignup"}>
+            <Link to={"/artistbandsignup"} className='button-in-signup'>
             <button className='signup_button'><b><span className='text-danger'>SignUp</span> for MHUNTER Artist/Band</b></button>
             </Link>
           </div>
@@ -41,7 +45,9 @@ export default function Signup() {
             </p>
           </div>
           <div>
-            <button className='signup_button'><b><span className='text-danger'>SignUp</span> for MHUNTER Event Organizer</b></button>
+            <Link to={"/organizersignup"}>
+              <button className='signup_button'><b><span className='text-danger'>SignUp</span> for MHUNTER Event Organizer</b></button>
+            </Link>
           </div>
         </div>
 
