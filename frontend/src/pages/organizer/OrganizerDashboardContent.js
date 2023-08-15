@@ -58,7 +58,7 @@ function OrganizerDashboardContent() {
                                 </div>
                                 <div className="innertablePaymentTBContent">
                                     <div className='PaymentTBTitle d-flex align-items-center justify-content-center'>DIM3</div>
-                                    <div className='PaymentTBEventName d-flex align-items-center justify-content-center'><BsMusicNoteList className='' style={{ fontSize: '18px', marginRight: '7px', color: '#7643D2' }} />APE KALAWA</div>
+                                    <div className='PaymentTBEventName d-flex align-items-center justify-content-center'><BsMusicNoteList className='' style={{ fontSize: '18px', marginRight: '7px', color: '#7643D2' }} />OBA NISA PERA BEATZ</div>
                                     <div className='PaymentTBAmount d-flex align-items-center justify-content-center'>LKR 60 000.00</div>
                                     <div className=' PaymentTBBtn d-flex align-items-center justify-content-center'>
                                         <Button className='paymentBtn shadow' variant="secondary" >
@@ -92,7 +92,7 @@ function OrganizerDashboardContent() {
                                 </div>
                                 <div className="innertablePaymentTBContent">
                                     <div className='PaymentTBTitle d-flex align-items-center justify-content-center'>B N S</div>
-                                    <div className='PaymentTBEventName d-flex align-items-center justify-content-center'><BsMusicNoteList className='' style={{ fontSize: '18px', marginRight: '7px', color: '#7643D2' }} />APE KALAWA</div>
+                                    <div className='PaymentTBEventName d-flex align-items-center justify-content-center'><BsMusicNoteList className='' style={{ fontSize: '18px', marginRight: '7px', color: '#7643D2' }} />B N S LIVE IN CONCERT</div>
                                     <div className='PaymentTBAmount d-flex align-items-center justify-content-center'>LKR 60 000.00</div>
                                     <div className=' PaymentTBBtn d-flex align-items-center justify-content-center'>
                                         <Button className='paymentBtn shadow' variant="secondary" >
@@ -126,7 +126,7 @@ function OrganizerDashboardContent() {
                                 </div>
                                 <div className="innertablePaymentTBContent">
                                     <div className='PaymentTBTitle d-flex align-items-center justify-content-center'>MARIANS</div>
-                                    <div className='PaymentTBEventName d-flex align-items-center justify-content-center'><BsMusicNoteList className='' style={{ fontSize: '18px', marginRight: '7px', color: '#7643D2' }} />APE KALAWA</div>
+                                    <div className='PaymentTBEventName d-flex align-items-center justify-content-center'><BsMusicNoteList className='' style={{ fontSize: '18px', marginRight: '7px', color: '#7643D2' }} />LEGENDS PLUS LIVE</div>
                                     <div className='PaymentTBAmount d-flex align-items-center justify-content-center'>LKR 60 000.00</div>
                                     <div className=' PaymentTBBtn d-flex align-items-center justify-content-center'>
                                         <Button className='paymentBtn shadow' variant="secondary" >
@@ -177,7 +177,7 @@ function OrganizerDashboardContent() {
                                 </div>
                                 <div className="innertablePaymentTBContent">
                                     <div className='PaymentTBTitle d-flex align-items-center justify-content-center'>WASTHI</div>
-                                    <div className='PaymentTBEventName d-flex align-items-center justify-content-center'><BsMusicNoteList className='' style={{ fontSize: '18px', marginRight: '7px', color: '#7643D2' }} />APE KALAWA</div>
+                                    <div className='PaymentTBEventName d-flex align-items-center justify-content-center'><BsMusicNoteList className='' style={{ fontSize: '18px', marginRight: '7px', color: '#7643D2' }} />ROSA KALPANA</div>
                                     <div className='PaymentTBAmount d-flex align-items-center justify-content-center'>LKR 60 000.00</div>
                                     <div className=' PaymentTBBtn d-flex align-items-center justify-content-center'>
                                         <Button className='paymentBtn shadow' variant="secondary" >
@@ -196,7 +196,7 @@ function OrganizerDashboardContent() {
                                 </div>
                                 <div className="innertablePaymentTBContent">
                                     <div className='PaymentTBTitle d-flex align-items-center justify-content-center'>WASTHI</div>
-                                    <div className='PaymentTBEventName d-flex align-items-center justify-content-center'><BsMusicNoteList className='' style={{ fontSize: '18px', marginRight: '7px', color: '#7643D2' }} />APE KALAWA</div>
+                                    <div className='PaymentTBEventName d-flex align-items-center justify-content-center'><BsMusicNoteList className='' style={{ fontSize: '18px', marginRight: '7px', color: '#7643D2' }} />OBA NISA PERA BEATZ</div>
                                     <div className='PaymentTBAmount d-flex align-items-center justify-content-center'>LKR 60 000.00</div>
                                     <div className=' PaymentTBBtn d-flex align-items-center justify-content-center'>
                                         <Button className='paymentBtn shadow' variant="secondary" >
@@ -213,7 +213,7 @@ function OrganizerDashboardContent() {
                                 </div>
                                 <div className="innertablePaymentTBContent">
                                     <div className='PaymentTBTitle d-flex align-items-center justify-content-center'>WASTHI</div>
-                                    <div className='PaymentTBEventName d-flex align-items-center justify-content-center'><BsMusicNoteList className='' style={{ fontSize: '18px', marginRight: '7px', color: '#7643D2' }} />APE KALAWA</div>
+                                    <div className='PaymentTBEventName d-flex align-items-center justify-content-center'><BsMusicNoteList className='' style={{ fontSize: '18px', marginRight: '7px', color: '#7643D2' }} />ROSA KALPANA</div>
                                     <div className='PaymentTBAmount d-flex align-items-center justify-content-center'>LKR 60 000.00</div>
                                     <div className=' PaymentTBBtn d-flex align-items-center justify-content-center'>
                                         <Button className='paymentBtn shadow' variant="secondary" >
@@ -387,7 +387,7 @@ function OrganizerDashboardContent() {
                                     <span className='eventDescription row mt-1 '>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad mini</span>
 
                                 </div>
-                                <hr className='mt-3 '></hr>
+
 
                             </div>
 
