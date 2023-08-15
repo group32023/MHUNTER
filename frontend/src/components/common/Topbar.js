@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { AiOutlineLogout, AiOutlineBell, AiOutlineUser } from 'react-icons/ai';
 import styled, { css } from 'styled-components';
-import {Link} from 'react-router-dom';
 
 
 const TopbarContainer = styled.div`
@@ -10,7 +9,7 @@ justify-content : flex-end;
 align-items : center;
 height: 85px;
 min-width: 1275px;
-background-color : #1c2126;
+background-color : #24292D;
 padding-top : 1rem;
 padding-right : 2rem;
 `;
@@ -69,11 +68,9 @@ const Topbar = () => {
       <IconContainer onClick={handleProfile} active={profileActive}>
         <AiOutlineUser size={30}></AiOutlineUser>
       </IconContainer>
-      <Link to={"/"}>
       <IconContainer onClick={handleLogout} active={false} >
         <AiOutlineLogout size={30}></AiOutlineLogout>
       </IconContainer>
-      </Link>
     </TopbarContainer>
   );
 
