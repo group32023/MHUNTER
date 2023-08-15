@@ -21,7 +21,7 @@ import Event from './pages/Event';
 import Band from './pages/Band';
 import Artist from './pages/Artist';
 import AboutUs from './pages/AboutUs';
-import ArtistDashboard from './pages/ArtistDashboard';
+// import ArtistDashboard from './pages/ArtistDashboard';
 import ArtistPendingRequests from "./pages/ArtistPendingRequests";
 import ArtistPendingRequestView from "./pages/ArtistPendingRequestView"
 import ArtistGenerateReports from "./pages/ArtistGenerateReports"
@@ -51,7 +51,7 @@ import NavBar from './components/common/NavBar';
 import MainSlider from './components/common/MainSlider';
 import BandSignup from './pages/BandSignup';
 import AdminDashboard from './pages/admin/AdminDashboard';
-// import ArtistDashboard from './pages/artist/ArtistDashboard';
+import ArtistDashboard from './pages/artist/ArtistDashboard';
 import BandDashboard from './pages/band/BandDashboard';
 import ModeratorDashboard from './pages/moderator/ModeratorDashboard';
 import AdminRegistration from './pages/admin/AdminRegistration';
@@ -61,6 +61,7 @@ import ViewUserDetails from './pages/admin/ViewUserDetails';
 import AdminReport from './pages/admin/AdminReport';
 import AdminSettings from './pages/admin/AdminSettings';
 import OrganizerSignup from './pages/OrganizerSignup';
+
 function App() {
   return (
 
@@ -68,14 +69,14 @@ function App() {
 
        <Router>
         <Routes>
-          <Route path='/' element={<Home/>}></Route>
+          {/* <Route path='/' element={<Home/>}></Route>
           <Route path='/event' element={<Event/>}></Route>
           <Route path='/band' element={<Band/>}></Route>
           <Route path='/artist' element={<Artist/>}></Route>
-          <Route path='/aboutUs' element={<AboutUs/>}></Route> 
+          <Route path='/aboutUs' element={<AboutUs/>}></Route>  */}
           {/* <Route path='/artist/Dashboard' element={<ArtistPendingRequests/>}></Route> */}
           {/* <Route path='/artist/Dashboard' element={<ArtistGenerateReports/>}></Route> */}
-          <Route path='/artist/Dashboard' element={<ArtistDashboard/>}></Route>
+          {/* <Route path='/artist/Dashboard' element={<ArtistDashboard/>}></Route>
           <Route path='/artist/report/today/:id' element={<ArtistGenerateReportsToday/>}></Route>
           <Route path='/artist/Event' element={<ArtistEvent/>}></Route>
           <Route path='/artist/PendingRequestView/:id' element={<ArtistPendingRequestView/>}></Route>
@@ -85,10 +86,10 @@ function App() {
           
           <Route path='/artist/MyFeed' element={<MyFeed/>}></Route>
         </Routes>
-      </Router>
+      </Router> */}
       
           {/* Organizer Routes */}
-          {/* <Route path='/' element={<Home />}>
+          <Route path='/' element={<Home />}>
 
             <Route path='/organizer/dashboard' element={<OrganizerDashboardContent />}></Route>
             <Route path='/organizer/event' element={<ViewEvents />}></Route>
@@ -97,10 +98,10 @@ function App() {
             <Route path='/organizer/complaint' element={<OrganizerComplaint />}></Route>
             <Route path='/organizer/profile' element={<OrganizerProfile />}></Route>
             <Route path='/organizer/searchartist' element={<SearchArtist />} />
-          </Route> */}
+          </Route>
 
 
-          {/* <Route path="/login" element={<Login />} />
+          <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           <Route path='/artistbandsignup' element={<ArtistBandSignup />} />
           <Route path='/artistsignup' element={<ArtistSignup />} />
@@ -109,20 +110,20 @@ function App() {
           <Route path='/artistdashboard' element={<ArtistDashboard/>} />
           <Route path='/banddashboard' element={<BandDashboard/>} />
           <Route path='/moderatordashboard' element={<ModeratorDashboard/>} />
-          <Route path='/organizerdashboard' element={<OrganizerDashboard/>} /> */}
+          <Route path='/organizerdashboard' element={<OrganizerDashboard/>} />
 
 
           {/*Admin*/}
-          {/* <Route path='/admin/admindashboard' element={<AdminDashboard/>} />
+          <Route path='/admin/admindashboard' element={<AdminDashboard/>} />
           <Route path='/admin/registration' element={<AdminRegistration/>} />
           <Route path='/admin/registration/proofcheck' element={<ProofCheck/>} />
           <Route path='/admin/userdetails' element={<AllUserDetails/>} />
           <Route path='/admin/userdetails/viewdetails' element={<ViewUserDetails/>} />
           <Route path='/admin/report' element={<AdminReport/>} />
-          <Route path='/admin/settings' element={<AdminSettings/>} /> */}
+          <Route path='/admin/settings' element={<AdminSettings/>} />
 
-      {/* </Routes>
-    </Router> */}
+       </Routes>
+    </Router> 
       
       {/*<div>
       <MainSlider>

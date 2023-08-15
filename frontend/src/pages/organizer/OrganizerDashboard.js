@@ -12,6 +12,7 @@ import SearchArtist from "./SearchArtist";
 import '../../assets/css/OrganizerDashboard.css';
 import OrganizerDashboardContent from "./OrganizerDashboardContent";
 
+
 export default function OrganizerDashboard() {
   return (
     <>
