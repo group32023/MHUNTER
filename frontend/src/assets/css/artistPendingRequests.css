@@ -16,29 +16,28 @@
     text-align: center;
 }
 
-.eventDetails h4{
+.eventDetails h5{
        position: relative;
-    /* margin-top: -40px; */
-    top: -15px;
-    width: 250px;
-    margin-left: 15%;
+       top: -8px;
+       width: 250px;
+       margin-left: 10.5%;
 
 }
 
 .eventDetails .eventDate{
-    position: relative;
+    position: absolute;
     margin-top: -3.2%;
-    left: 12%;
+    left: 52%;
 }
 .eventDetails .eventType{
-    position: relative;
-    margin-top: -4%;
-    left: -3%;
+    position: absolute;
+    margin-top: -3.2%;
+    left: 35%;
 }
 .eventDetails .venue{
-    position: relative;
+    position: absolute;
     margin-top: -3.2%;
-    left: 27%;
+    left: 70%;
     
 }
 
@@ -47,7 +46,7 @@
     position: relative;
     font-size: 15px;
     width: 7%;
-    height: 95%;
+    height: 30px;
     font-weight: bold;
     text-align: center;
     color: white;
