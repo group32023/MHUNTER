@@ -20,9 +20,16 @@ function OrganizerComplaint() {
     const [description, setDescription] = useState('');
     const [complaints, setComplaints] = useState([])
 
+    const daten = new Date();
+    const year = daten.getFullYear();
+    const month = String(daten.getMonth() + 1).padStart(2, '0');
+    const day = String(daten.getDate()).padStart(2, '0');
+  
+    const date = `${year}-${month}-${day}`;
+
     const handleClick = (e) => {
         e.preventDefault()
-        const complaint = { title, description }
+        const complaint = { title, description,date }
         console.log(complaint)
         fetch("http://localhost:8080/complaint/add", {
             method: "POST",
