@@ -14,21 +14,34 @@ public class UserController {
     @Autowired
     private UserService userService;
 
+    @GetMapping("/users")
+    List<User> getAllUsers() {
+        return userRepository.findAll();
+    }
+    @GetMapping("/user/{userId}")
+    User getUserById(@PathVariable int userId) {
+        return userRepository.findById(userId)
+                .orElseThrow(() -> new UserNotFoundException(userId));
+    }
 
-    /*@PostMapping("/signup")
-    public String signup(@RequestBody User user ){
-        userService.saveUser(user);
-        return "Add User";
-    }*/
+    @PutMapping("/user/{userId}")
+    User updateUser(@RequestBody User newUser, @PathVariable int userId) {
+        return userRepository.findById(userId)
+                .map(user -> {
+                    user.setFirstName(newUser.getFirstName());
+                    user.setEmail(newUser.getEmail());
+                    return userRepository.save(user);
+                }).orElseThrow(() -> new UserNotFoundException(userId));
+    }
 
-
-   /* @PostMapping(path = "/login")
-    public ResponseEntity<Map<String, String>> login(@RequestBody User user) {
-        String msg = userService.loginUser(user);
-        Map<String, String> response = new HashMap<>();
-        response.put("msg", msg);
-        return ResponseEntity.ok(response);
-    }*/
+    @DeleteMapping("/user/{userId}")
+    String deleteUser(@PathVariable int userId){
+        if(!userRepository.existsById(userId)){
+            throw new UserNotFoundException(userId);
+        }
+        userRepository.deleteById(userId);
+        return  "User with id "+userId+" has been deleted success.";
+    }
 
 //    @GetMapping("/viewSpecificUser/{id}")
 //    public User viewSpecificUser(@PathVariable int id){

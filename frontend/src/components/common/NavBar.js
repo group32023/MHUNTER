@@ -3,6 +3,7 @@ import logo from '../../assets/images/logo.png'
 import '../../assets/css/navBar.css'
 
 
+
 export default function NavBar() {
   var [isScroll,setScroll] = useState(false)
   var url = window.location.href

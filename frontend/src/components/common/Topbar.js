@@ -9,7 +9,7 @@ justify-content : flex-end;
 align-items : center;
 height: 85px;
 min-width: 1275px;
-background-color : #1c2126;
+background-color : #24292D;
 padding-top : 1rem;
 padding-right : 2rem;
 `;

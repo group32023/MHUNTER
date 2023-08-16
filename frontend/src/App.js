@@ -1,4 +1,5 @@
 
+
 // import Organizer Components
 import OrganizerDashboard from './pages/organizer/OrganizerDashboard'
 import OrganizerComplaint from './pages/organizer/OrganizerComplaint';
@@ -20,6 +21,10 @@ import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import Home from './pages/Home';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
+import Contact from './pages/contact';
+import ArtistDetails from './pages/artistDetails';
+import Post from './pages/post';
+import Video from './pages/video';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import ArtistBandSignup from './pages/ArtistBandSignup';
 import ArtistSignup from './pages/ArtistSignup';
@@ -28,7 +33,6 @@ import MainSlider from './components/common/MainSlider';
 import BandSignup from './pages/BandSignup';
 import AdminDashboard from './pages/admin/AdminDashboard';
 import BandDashboard from './pages/band/BandDashboard';
-import ModeratorDashboard from './pages/moderator/ModeratorDashboard';
 import AdminRegistration from './pages/admin/AdminRegistration';
 import ProofCheck from './pages/admin/ProofCheck';
 import AllUserDetails from './pages/admin/AllUserDetails';
@@ -54,6 +58,16 @@ import ArtistSpecificEvent from './pages/ArtistSpecificEvent';
 import ArtistGenerateReportsToday from './pages/ArtistGenerateReportsToday'
 import ArtistDashboardContent from './pages/ArtistDashboardContent';
 import MyFeed from './pages/MyFeed';
+import ModeratorDashboard from './pages/moderator/ModeratorDashboard';
+import ModeratorDashoboardContent from './pages/moderator/moderatorDashoboardContent';
+import ModeratorRegistration from './pages/moderator/registration';
+import ModeratorComplaints from './pages/moderator/complaints';
+import ModeratorUserDetails from './pages/moderator/userDetails';
+import ModeratorProofCheck from './pages/moderator/ProofCheck';
+import EventDetails from './pages/moderator/eventDetails';
+import ViewComplaints from './pages/moderator/viewComplaints';
+import ModeratorEvent from "./pages/moderator/event";
+import Suspenduser from './pages/moderator/suspenduser';
 function App() {
   return (
 
@@ -98,8 +112,12 @@ function App() {
           <Route path='/organizersignup' element ={<OrganizerSignup/>} />
           <Route path='/artistdashboard' element={<ArtistDashboard/>} />
           <Route path='/banddashboard' element={<BandDashboard/>} />
-          <Route path='/moderatordashboard' element={<ModeratorDashboard/>} />
           <Route path='/organizerdashboard' element={<OrganizerDashboard/>} />
+          <Route path='/contact' element={<Contact/>}></Route>
+          <Route path='/artistDetails' element={<ArtistDetails/>}></Route>
+          <Route path='/post' element={<Post/>}></Route>
+          <Route path='/video' element={<Video/>}></Route>
+          <Route index element={<Home />} />
 
 
           {/* navBar */}
@@ -112,13 +130,28 @@ function App() {
           {/* <Route path='/admin/admindashboard' element={<AdminDashboard/>} />
           <Route path='/admin/registration' element={<AdminRegistration/>} />
           <Route path='/admin/registration/proofcheck' element={<ProofCheck/>} />
+          <Route path='/admin/Alluserdetails' element={<UserDetails/>} />
           <Route path='/admin/userdetails' element={<AllUserDetails/>} />
           <Route path='/admin/userdetails/viewdetails' element={<ViewUserDetails/>} />
           <Route path='/admin/report' element={<AdminReport/>} />
           <Route path='/admin/settings' element={<AdminSettings/>} />
+    
+                   {/* moderator */}
+          <Route path='/' element={<ModeratorDashboard/>}>
+          <Route path='/moderator/moderatorDashboard' element={<ModeratorDashboard/>} />
+          <Route path='/moderator/moderatorDashoboardContent' element={<ModeratorDashoboardContent />}></Route>
+          <Route path='/moderator/registration' element={<ModeratorRegistration  />}></Route>
+          <Route path='/moderator/registration/ProofCheck' element={<ProofCheck/>} />
+          <Route path='/moderator/event' element={<ModeratorEvent />}></Route>
+          <Route path='/moderator/complaints' element={<ModeratorComplaints />}></Route>
+          <Route path='/moderator/complaints/viewComplaints' element={<ViewComplaints/>} />
+          <Route path='/moderator/userDetails' element={<ModeratorUserDetails />}></Route>
+          <Route path='/moderator/event/eventDetails' element={<EventDetails/>}/>
+          <Route path='/moderator/registration/ProofCheck' element={<proofCheck/>}/>
+          <Route path='/moderator/registration/proofcheck/suspenduser' element={<Suspenduser/>}/>
+          </Route>
 
-      </Routes>
-    </Router>  */}
+    
           <Route path='/' element={<Home/>}></Route>
           <Route path='/event' element={<Event/>}></Route>
           <Route path='/band' element={<Band/>}></Route>
@@ -158,5 +191,7 @@ function App() {
 }
 
 export default App;
+
+
 
 

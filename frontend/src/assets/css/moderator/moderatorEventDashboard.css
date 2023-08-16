@@ -1,0 +1,374 @@
+@font-face {
+    font-family: 'MyCustomFont';
+    src: url('../../fonts/Dosis-Regular.ttf') format('truetype');
+    /* src: url('../../../assets/icons/dashboard.png') format('truetype'); */
+    /* Add other font file formats and their paths here */
+}
+
+@font-face {
+    font-family: 'MyCustomFont1';
+    src: url('../../fonts/Dosis-Bold.ttf') format('truetype');
+    /* src: url('../../../assets/icons/dashboard.png') format('truetype'); */
+    /* Add other font file formats and their paths here */
+}
+
+@font-face {
+    font-family: 'MyCustomFont2';
+    src: url('../../fonts/Dosis-ExtraBold.ttf') format('truetype');
+    /* src: url('../../../assets/icons/dashboard.png') format('truetype'); */
+    /* Add other font file formats and their paths here */
+}
+
+.bgimage-admin {
+    background-image: url("../../images/band.jpg");
+    background-size: cover;
+    background-position: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    background-blend-mode: multiply;
+  }
+  .main-container{
+      display: flex;
+  }
+  .body-container{
+      padding-top: 10px;
+      margin-left: 5rem;
+      padding-left: 10px;
+      background: #24292D;
+      width: 1440px;
+      height: 716px;
+  }
+  
+  .header-admin {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px;
+  
+    }
+    
+    .header-title {
+      color: #FAECFA;
+      flex-grow: 1; 
+      margin-bottom: 30px;
+    }
+    .formHeading{
+        font-family: 'MyCustomFont2';
+        font-size: 30px;
+        color:antiquewhite;
+        font-weight: 600;
+        margin-bottom: 20px;
+    }
+.eventDashboard_content_container {
+    color: white;
+}
+
+.horizontalLine {
+    background-color: #2f363e;
+    margin-bottom: 20px;
+
+}
+
+.horizontalLine span {
+    margin-left: 40px;
+    color: aliceblue;
+}
+
+.eventDescriptionDiv {
+    margin-left: 5px;
+    height: 250px;
+    background-color: #2f363e;
+    border-radius: 10px;
+    width: 64%;
+}
+.ArtistDetDiv{
+    margin-left: 30px;
+    margin-right: 30px;
+    height: 540px;
+    background-color: #2f363e;
+    border-radius: 10px;
+    width: 45%;
+    margin-bottom: 10px;
+}
+.LocationDiv {
+    margin-left: 35px;
+    height: 250px;
+    background-color: #2f363e;
+    border-radius: 10px;
+    width: 30%;
+}
+.LocationDiv iframe{
+   
+        position: relative;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 10px; /* Optional: Remove iframe border */
+      
+}
+
+.eventImgDiv img {
+    border-radius: 50%;
+}
+
+.eventDescDivSpan {
+    font-size: 18px;
+    color: #F70F5D;
+    font-weight: 600;
+}
+
+.eventDescDiv .eventDescInnerDiv {
+    background-color: #1c2126;
+    border-radius: 10px;
+    height: 110px;
+    opacity: 0.7;
+    overflow-y: hidden;
+}
+.eventDescInnerDiv {
+    color:aliceblue; /* Replace with your desired color value */
+  }
+
+.addTypeDescriptionDiv,
+.locationTypeDescriptionDiv {
+    height: 130px;
+    background-color: #2f363e;
+    border-radius: 10px;
+    margin-right: 0px;
+    margin-bottom: 10px;
+}
+
+.eventOrganiserDescriptionDiv
+{
+    height: 100px;
+    width: 33%;
+    background-color: #2f363e;
+    border-radius: 10px;
+    margin-right: 40px;
+    margin-bottom: 10px;
+}
+.eventTypeDescriptionDiv {
+    height: 100px;
+    width: 33%;
+    background-color: #2f363e;
+    border-radius: 10px;
+    margin-right: 40px;
+    margin-bottom: 10px;
+}
+.detailsDiv
+{
+    display: flex;
+    flex-direction: row;
+    max-width: 100%;
+    margin-left: 25px;
+}
+.Artistandband{
+    display: flex;
+    flex-direction: row;
+    max-width: 100%;
+    margin-left: 0px;
+}
+.btnTypeDescriptionDiv {
+    height: 70px;
+}
+/* Try a more specific selector */
+.white-text-row input[type="text"] {
+    color: white;
+  }
+  
+.requestTypeDescriptionDiv {
+    margin-left: 35px;
+    height: 310px;
+    overflow-y: auto;
+    background-color: #2f363e;
+    border-radius: 10px;
+    width: 70%;
+}
+
+#scrollbarStyle-1::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    background-color: #1c2126;
+}
+
+#scrollbarStyle-1::-webkit-scrollbar {
+    width: 10px;
+    background-color: #1c2126;
+}
+
+#scrollbarStyle-1::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+    background-color: #7643D2;
+}
+
+
+
+.locationDescriptionDiv {
+    /* background-color: antiquewhite; */
+    height: auto;
+    margin-left: 5px;
+    width: 25%;
+}
+
+.descriptionIcon {
+    color: white;
+    opacity: 0.7;
+    margin-left: 15px;
+}
+
+.descriptionIcon:hover {
+    color: #7643D2;
+}
+
+.dateTimeDiv {
+    background-color: #3e454c;
+    opacity: 0.8;
+    border-radius: 10px;
+    height: 70px;
+    margin-right: 10px;
+    width: 48.5%;
+
+}
+
+.eventTypeDescriptionDiv p:hover,
+.crowdTypeDescriptionDiv p:hover,
+.dateTimeDiv p:hover {
+    color: #7643D2;
+}
+
+.dateIcon {
+    margin-top: 13px;
+    color: #7643D2;
+}
+
+.timeIcon {
+    margin-top: 13px;
+    color: #F70F5D;
+}
+
+  
+    
+    .event-card {
+        width: 20rem;
+        height: 17rem;
+        border: #7643D2 0.5px solid;
+        margin-left: 6rem;
+        border-radius: 8%;
+        padding: 1rem;
+        background-color: #3B444D;
+        margin-top: 2rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        position: relative;
+        transition: transform 0.5s, box-shadow 0.5s, border-color 0.5s;
+
+      }
+      .event-card:hover {
+        transform: scale(0.98); /* Increases the size slightly on hover */
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Adds a shadow on hover */
+        border-color:  #7643D2 0.5px solid; /* Changes the border color on hover */
+    }
+      
+      .event-card h3,
+      .event-card p,
+      .event-card span {
+        font-family: 'Blinker', sans-serif; /* Assuming 'Blinker' is the font-family name */
+        color: white;
+        margin: 0;
+        font-size: 25px;
+
+      }
+      
+      .event-card h3,
+      .event-card p {
+        text-align: left;
+      }
+      
+      .event-card p {
+        color:#11FE70;
+        font-size: smaller;
+      }
+      .start-time {
+        color:#ffffff;
+        font-size: smaller;
+        text-align: left;
+
+      }
+      .start-date {
+        color:#ffffff;
+        font-size: smaller;
+
+      }
+      .date-container {
+       align-self: flex-end;
+      }
+      
+      .event-details{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+      }
+      
+     
+      .event-card img {
+        max-width: 100%;
+        max-height: 100%;
+      }
+      .event-link {
+        text-decoration: none;
+      }
+  
+      @media (min-width: 768px) {
+        .col-md-4 {
+          flex-basis: calc(33.333% - 1rem);
+        }
+      }
+
+/* Responsive adjustments */
+@media (min-width: 768px) {
+    .body-container {
+      padding-left: 1rem;
+      padding-right: 1rem;
+      width: 100%;
+      max-width: 1440px;
+      margin: 0 auto;
+    }
+  
+    /* Adjust other component-specific styles here */
+  }
+  
+  /* Mobile adjustments */
+  @media (max-width: 767px) {
+    .body-container {
+      padding-left: 0;
+      padding-right: 0;
+      max-width: 100%;
+    }
+  
+    /* Adjust other component-specific styles for mobile */
+    .ArtistDetDiv,
+    .LocationDiv,
+    .eventDescriptionDiv,
+    .Artistandband,
+    .eventOrganiserDescriptionDiv,
+    .eventTypeDescriptionDiv,
+    .locationTypeDescriptionDiv,
+    .addTypeDescriptionDiv,
+    .locationDescriptionDiv,
+    .descriptionIcon,
+    .dateTimeDiv
+    .detailsDiv
+    {
+      width: 100%;
+      margin-left: 0;
+      margin-right: 0;
+      margin-bottom: 20px;
+    }
+  }
+  
+  
+  
+  
+  
+  

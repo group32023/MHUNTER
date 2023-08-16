@@ -3,6 +3,7 @@ import '../assets/css/admin.css';
 import { useNavigate, Link } from 'react-router-dom';
 import axios from 'axios';
 import NavBar from '../components/common/NavBar';
+import logo from '../assets/images/logo-login.png'
 
 export default function Login() {
   const [email, setEmail] = useState('');
@@ -20,7 +21,6 @@ export default function Login() {
         const msg = responseParts[0];
         const membertype = responseParts[1];
 
-        alert(msg);
         if (msg === 'Login Success') {
           if (membertype === 'Artist') {
             navigate('/artistdashboard');
@@ -43,6 +43,7 @@ export default function Login() {
         } else {
           setMsg('An error occurred. Please try again later.');
         }
+        
         console.error(error);
       });
   };
@@ -51,9 +52,13 @@ export default function Login() {
     <div>
       <NavBar />
       <div className='login template d-flex justify-content-center align-items-center vh-100 bgimage '>
-        <div className='form_container p-5 rounded'>
+        <div className='form_container p-5'>
           <form className='form'>
-            <h3 className='text-center text-white'>Sign In</h3>
+            <h4 className='text-center text-white'>W E L C O M E to</h4>
+            <div className='logo-in-login'>
+            <img src={logo} alt="Description of the image"></img>
+            </div>
+            <p className='text-center text-white'>where your musical journey begins.</p>
             <div className='mb-2 text-white'>
             {msg && <p className='text-danger'>{msg}</p>}
               <label htmlFor='email'>E mail</label>
@@ -83,17 +88,16 @@ export default function Login() {
             </div>
             <div className='d-grid'>
               <button
-                className='btn btn-primary'
-                style={{ backgroundColor: 'rgb(118, 67, 210)' }}
+                className='btn btn-primary login-button'
                 onClick={handleClick}
               >
                 Sign In
               </button>
             </div>
-            <p className='text-end mt-2 text-white'>
-              Forgot <a href=''>Password?</a>
+            <p className='text-end mt-2 text-white link-login'>
+              Forgot <a href=''>Password?</a> or
               <Link to={'/signup'} className='ms-2'>
-                Sign Up{' '}
+                SignUp
               </Link>
             </p>
             
