@@ -45,7 +45,7 @@ function App() {
       <Router>
         <Routes>
           {/* Organizer Routes */}
-          <Route path='/' element={<Home />}>
+          <Route path='/' element={<Home />}></Route>
 
             <Route path='/organizer/dashboard' element={<OrganizerDashboardContent />}></Route>
             <Route path='/organizer/event' element={<ViewEvents />}></Route>
@@ -54,7 +54,7 @@ function App() {
             <Route path='/organizer/complaint' element={<OrganizerComplaint />}></Route>
             <Route path='/organizer/profile' element={<OrganizerProfile />}></Route>
             <Route path='/organizer/searchartist' element={<SearchArtist />} />
-          </Route>
+          
 
 
           <Route path="/login" element={<Login />} />

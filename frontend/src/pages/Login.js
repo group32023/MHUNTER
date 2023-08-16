@@ -27,7 +27,7 @@ export default function Login() {
           } else if (membertype === 'Band') {
             navigate('/banddashboard');
           } else if (membertype === 'Organizer') {
-            navigate('/organizerdashboard');
+            navigate('/organizer/dashboard');
           } else if (membertype === 'Moderator') {
             navigate('/moderator/moderatorDashoboardContent');
           } else if (membertype === 'Admin') {
