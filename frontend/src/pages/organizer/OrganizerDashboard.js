@@ -425,9 +425,10 @@ export default function OrganizerDashboard() {
         {/* Routes */}
         <Routes>
           {/* Nested routes for the Organizer Dashboard */}
-
-          <Route path='/organizer/event' element={<OrganizerEventDashboard />}></Route>
-          <Route path='/organizer/event/CreateEvent' element={<CreateEvent />}></Route>
+          <Route path='/organizer/dashboard' element={<OrganizerDashboard />}></Route>
+          <Route path='/organizer/event' element={<ViewEvents />}></Route>
+          <Route path='/organizer/event/eventdashboard' element={<OrganizerEventDashboard />}></Route>
+          <Route path='/organizer/event/createevent' element={<CreateEvent />}></Route>
           <Route path='/organizer/eventhistory' element={<OrganizerEventHistory />}></Route>
           <Route path='/organizer/complaint' element={<OrganizerComplaint />}></Route>
           <Route path='/organizer/profile' element={<OrganizerProfile />}></Route>

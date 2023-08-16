@@ -78,7 +78,7 @@ function SideMenuBarOrganizer({ children }) {
 						</li>
 
 						<li className={isExpanded ? "nav-item p-1" : "nav-item"}>
-							<NavLink to="/organizer/search" activeClassName="active" className={isExpanded ? "nav-link   d-flex align-items-center text-decoration-none" : "nav-link collapsed-nav-link   d-flex align-items-center text-decoration-none"}>
+							<NavLink to="/organizer/searchartist" activeClassName="active" className={isExpanded ? "nav-link   d-flex align-items-center text-decoration-none" : "nav-link collapsed-nav-link   d-flex align-items-center text-decoration-none"}>
 								<BiSolidSearch className={isExpanded ? "menu-icon mx-4" : "menu-icon"} />
 								{isExpanded && (
 									<span className="menu_link_name fs-6 ">Search</span>

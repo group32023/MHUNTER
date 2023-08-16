@@ -2,7 +2,7 @@
 // import Organizer Components
 import OrganizerDashboard from './pages/organizer/OrganizerDashboard'
 import OrganizerComplaint from './pages/organizer/OrganizerComplaint';
-import OrganizerDashboardContent from './pages/organizer/OrganizerDashboardContent'
+// import OrganizerDashboardContent from './pages/organizer/OrganizerDashboardContent'
 import OrganizerEventHistory from './pages/organizer/OrganizerEventHistory'
 import OrganizerEventDashboard from './pages/organizer/OrganizerEventDashboard'
 import ViewEvents from './pages/organizer/ViewEvents'
@@ -44,12 +44,14 @@ function App() {
 
       <Router>
         <Routes>
-          {/* Organizer Routes */}
+
           <Route path='/' element={<Home />}></Route>
 
+          {/* Organizer Routes */}
           <Route path='/organizer/dashboard' element={<OrganizerDashboard />}></Route>
           <Route path='/organizer/event' element={<ViewEvents />}></Route>
-          <Route path='/organizer/event/CreateEvent' element={<CreateEvent />}></Route>
+          <Route path='/organizer/event/eventdashboard' element={<OrganizerEventDashboard />}></Route>
+          <Route path='/organizer/event/createevent' element={<CreateEvent />}></Route>
           <Route path='/organizer/eventhistory' element={<OrganizerEventHistory />}></Route>
           <Route path='/organizer/complaint' element={<OrganizerComplaint />}></Route>
           <Route path='/organizer/profile' element={<OrganizerProfile />}></Route>
