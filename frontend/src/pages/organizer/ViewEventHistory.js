@@ -66,40 +66,40 @@ function ViewEventHistory() {
                             <div className='event-date'>Date</div>
                         </div>
 
-                        <div className='data-row history-table-data-row d-flex'>
+                        <div className='history-data-row history-table-data-row d-flex'>
                             <div className='event-name'>Kalagame Awurudu</div>
                             <div className='event-type'>Awurudu function</div>
                             <div className='event-location'>Colombo</div>
                             <div className='event-date'>2023/07/14</div>
                         </div>
 
-                        <div className='data-row history-table-data-row d-flex'>
+                        <div className='history-data-row history-table-data-row d-flex'>
                             <div className='event-name'>Ameesha's Wedding</div>
                             <div className='event-type'>Wedding</div>
                             <div className='event-location'>Hambanthots</div>
                             <div className='event-date'>2023/08/14</div>
                         </div>
 
-                        <div className='data-row history-table-data-row d-flex'>
+                        <div className='history-data-row history-table-data-row d-flex'>
                             <div className='event-name'>UCSC Freshers Night</div>
                             <div className='event-type'> Musical Show</div>
                             <div className='event-location'>Colombo</div>
                             <div className='event-date'>2023/07/10</div>
                         </div>
 
-                        <div className='data-row history-table-data-row d-flex'>
+                        <div className='history-data-row history-table-data-row d-flex'>
                             <div className='event-name'>Nadagama</div>
                             <div className='event-type'>Musical Show</div>
                             <div className='event-location'>Galle</div>
                             <div className='event-date'>2023/01/09</div>
                         </div>
-                        <div className='data-row history-table-data-row d-flex'>
+                        <div className='history-data-row history-table-data-row d-flex'>
                             <div className='event-name'>Aluth Kalawak</div>
                             <div className='event-type'>Musical Show</div>
                             <div className='event-location'>Mathara</div>
                             <div className='event-date'>2023/03/19</div>
                         </div>
-                        <div className='data-row history-table-data-row d-flex'>
+                        <div className='history-data-row history-table-data-row d-flex'>
                             <div className='event-name'>Rap Sajje</div>
                             <div className='event-type'>Musical Show</div>
                             <div className='event-location'>Dabulla</div>

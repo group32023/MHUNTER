@@ -60,6 +60,8 @@ const Topbar = () => {
 
   return (
 
+
+
     <TopbarContainer>
 
       <IconContainer onClick={handleNotifications} active={notificationsActive} >
@@ -72,6 +74,8 @@ const Topbar = () => {
         <AiOutlineLogout size={30}></AiOutlineLogout>
       </IconContainer>
     </TopbarContainer>
+
+
   );
 
 };

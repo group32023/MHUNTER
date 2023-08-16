@@ -1,7 +1,7 @@
 import React from "react";
 import { Routes, Route } from 'react-router-dom';
 import SideMenuBarOrganizer from '../../components/common/SideMenuBar/SideMenuBarOrganizer';
-
+import { Link } from "react-router-dom";
 
 // import OrganizerDashboardContent from './OrganizerDashboardContent';
 import OrganizerComplaint from './OrganizerComplaint';
@@ -260,29 +260,34 @@ export default function OrganizerDashboard() {
                 <hr></hr>
                 <div className="UpcomingTableDiv mt-4">
 
-                  <div className="row tableUpcomingContent">
-                    <div className='upcomingDivEventImage '>
-                      <img className='' alt='' src={EventBanner4} width='200px' height='110px'></img>
-                    </div>
+                  <Link to="/organizer/event/eventdashboard" style={{ color: 'white', textDecoration: 'none' }}>
 
-
-                    <div className='upcomingDivEventData'>
-                      <span className='row eventTitle'>APE KALAWA</span>
-                      <div className='row eventDataRow1'>
-                        <span className='row eventLocation'>Viharamahadevi Open Air Theater</span>
-                        <div className='row eventDate'>
-                          <BiSolidCalendarStar className='fs-5' style={{ color: '#7643D2' }} />
-                          <span >2023-12-31</span>
-                        </div>
-
+                    <div className="row tableUpcomingContent">
+                      <div className='upcomingDivEventImage '>
+                        <img className='' alt='' src={EventBanner4} width='200px' height='110px'></img>
                       </div>
 
-                      <span className='eventDescription row mt-1 '>The Ape Kalawa Concert is an energetic and diverse music event featuring renowned artists, dynamic performances, and cultural celebration. It blends modern genres, encouraging audience participation and showcasing emerging talent.</span>
+
+                      <div className='upcomingDivEventData'>
+                        <span className='row eventTitle'>APE KALAWA</span>
+                        <div className='row eventDataRow1'>
+                          <span className='row eventLocation'>Viharamahadevi Open Air Theater</span>
+                          <div className='row eventDate'>
+                            <BiSolidCalendarStar className='fs-5' style={{ color: '#7643D2' }} />
+                            <span >2023-12-31</span>
+                          </div>
+
+                        </div>
+
+                        <span className='eventDescription row mt-1 '>The Ape Kalawa Concert is an energetic and diverse music event featuring renowned artists, dynamic performances, and cultural celebration. It blends modern genres, encouraging audience participation and showcasing emerging talent.</span>
+
+                      </div>
+                      <hr className='mt-3 '></hr>
 
                     </div>
-                    <hr className='mt-3 '></hr>
+                  </Link>
 
-                  </div>
+
 
 
                   <div className="row tableUpcomingContent">
@@ -429,16 +434,16 @@ export default function OrganizerDashboard() {
         {/* Routes */}
         <Routes>
           {/* Nested routes for the Organizer Dashboard */}
-          
+
           <Route path='/organizer/event' element={<ViewEvents />}></Route>
           <Route path='/organizer/event/eventdashboard' element={<OrganizerEventDashboard />}></Route>
           <Route path='/organizer/event/CreateEvent' element={<CreateEvent />}></Route>
-          <Route path='/organizer/eventhistory' element={<ViewEventHistory/>}></Route>
+          <Route path='/organizer/eventhistory' element={<ViewEventHistory />}></Route>
           <Route path='/organizer/complaint' element={<OrganizerComplaint />}></Route>
           <Route path='/organizer/profile' element={<OrganizerProfile />}></Route>
           <Route path='/organizer/searchartist' element={<SearchArtist />} />
-          <Route path='/organizer/searchartist/viewartist' element={<ViewArtist />} />  
-          <Route path='/organizer/searchartist/viewartist/makeartistrequest' element={<MakeArtistRequest />} />  
+          <Route path='/organizer/searchartist/viewartist' element={<ViewArtist />} />
+          <Route path='/organizer/searchartist/viewartist/makeartistrequest' element={<MakeArtistRequest />} />
 
         </Routes>
       </SideMenuBarOrganizer>

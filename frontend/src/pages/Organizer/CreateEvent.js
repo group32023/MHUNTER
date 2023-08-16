@@ -1,6 +1,7 @@
 import './CreateEvent.css';
 import { useState } from 'react';
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { format } from 'date-fns'
 import Topbar from '../../components/common/Topbar';
 import LocationInput from '../../components/organizer/LocationInput';
@@ -162,15 +163,15 @@ function CreateEvent() {
             </div>
 
             <div className="form-group">
-
-              <button class="btn " type="submit" onClick={(event) => {
-                event.preventDefault(); console.log(formData); fetch("http://localhost:8080/event/add", {
-                  method: "POST",
-                  headers: { "Content-Type": "application/json" },
-                  body: JSON.stringify(formData)
-                })
-              }} >Create Event</button>
-
+              <Link to="/organizer/event" className='link1'>
+                <button class="btn " type="submit" onClick={(event) => {
+                  event.preventDefault(); console.log(formData); fetch("http://localhost:8080/event/add", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(formData)
+                  })
+                }} >Create Event</button>
+              </Link>
             </div>
 
 
@@ -182,15 +183,15 @@ function CreateEvent() {
         </div>
 
         <Routes>
-        <Route path='/organizer/dashboard' element={<OrganizerDashboard />}></Route>
+          <Route path='/organizer/dashboard' element={<OrganizerDashboard />}></Route>
           <Route path='/organizer/event' element={<ViewEvents />}></Route>
           <Route path='/organizer/event/eventdashboard' element={<OrganizerEventDashboard />}></Route>
-          <Route path='/organizer/eventhistory' element={<ViewEventHistory/>}></Route>
+          <Route path='/organizer/eventhistory' element={<ViewEventHistory />}></Route>
           <Route path='/organizer/complaint' element={<OrganizerComplaint />}></Route>
           <Route path='/organizer/profile' element={<OrganizerProfile />}></Route>
           <Route path='/organizer/searchartist' element={<SearchArtist />} />
-          <Route path='/organizer/searchartist/viewartist' element={<ViewArtist />} />  
-          <Route path='/organizer/searchartist/viewartist/makeartistrequest' element={<MakeArtistRequest />} />  
+          <Route path='/organizer/searchartist/viewartist' element={<ViewArtist />} />
+          <Route path='/organizer/searchartist/viewartist/makeartistrequest' element={<MakeArtistRequest />} />
         </Routes>
       </SideMenuBarOrganizer>
     </>
