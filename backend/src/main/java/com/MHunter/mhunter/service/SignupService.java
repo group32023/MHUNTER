@@ -1,5 +1,6 @@
 package com.MHunter.mhunter.service;
 
+import com.MHunter.mhunter.config.JwtTokenUtil;
 import com.MHunter.mhunter.model.*;
 import com.MHunter.mhunter.repository.*;
 import jakarta.transaction.Transactional;
@@ -33,8 +34,8 @@ public class SignupService {
 
     @Autowired
     private StaffMemberRepository staffMemberRepository;
-    /*@Autowired
-    private PasswordEncoder passwordEncoder;*/
+    @Autowired
+    private JwtTokenUtil jwtTokenUtil;
 
     @Transactional
     public void signUpAndCreateMember(User user, String Name, String Type, MultipartFile Image) {

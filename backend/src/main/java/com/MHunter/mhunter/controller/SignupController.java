@@ -1,5 +1,6 @@
 package com.MHunter.mhunter.controller;
 
+import com.MHunter.mhunter.config.JwtTokenUtil;
 import com.MHunter.mhunter.model.User;
 import com.MHunter.mhunter.service.SignupService;
 import com.MHunter.mhunter.struct.LoginRequest;
@@ -17,6 +18,11 @@ public class SignupController {
 
     @Autowired
     private SignupService signupService;
+    @Autowired
+    private JwtTokenUtil jwtTokenUtil;
+
+    /*@Autowired
+    private AuthenticationManager authenticationManager;*/
 
     /*@PostMapping("/signup")
     public ResponseEntity<String> signUp(@RequestBody SignupRequest signupRequest) {
@@ -59,5 +65,16 @@ public class SignupController {
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("An error occurred");
         }
+    }
+    @PostMapping("/authenticate")
+    public String authenticateAndGenerateToken(@RequestBody LoginRequest loginRequest){
+        /*Authentication authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(loginRequest.getEmail(),loginRequest.getPassword()));
+        if(authentication.isAuthenticated()){*/
+            return jwtTokenUtil.generateToken(loginRequest.getEmail());
+        /*}else {
+            throw new UsernameNotFoundException("invalid user request");
+        }*/
+
+
     }
 }
