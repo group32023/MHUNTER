@@ -34,7 +34,7 @@ function ViewEvents() {
     };
 
     useEffect(() => {
-        fetch("http://localhost:8080/event/getAll")
+        fetch("http://localhost:8080/event/getAll/10")
             .then(res => res.json())
             .then((result) => {
                 setEvents(result);

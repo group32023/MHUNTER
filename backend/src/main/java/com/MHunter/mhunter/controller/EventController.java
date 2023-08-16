@@ -25,9 +25,14 @@ public class EventController {
         return "added";
     }
 
-    @GetMapping("/getAll")
-    public List<Event> getAllEvents(){
+//    @GetMapping("/getAll")
+//    public List<Event> getAllEvents(){
+//
+//        return eventService.getAllEvents();
+//    }
 
-        return eventService.getAllEvents();
+    @GetMapping("/getAll/{orgID}")
+    public List<Event> getEventsByOrgID(@RequestParam int orgID) {
+        return eventService.getEventsByorgid(orgID);
     }
 }

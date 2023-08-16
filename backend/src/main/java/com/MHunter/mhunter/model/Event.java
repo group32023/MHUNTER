@@ -16,7 +16,7 @@ public class Event {
 //    @Column(name = "EventID")
     private int EventID;
     //    @Column(name = "OrgID")
-    private int OrgID;
+    private int orgid;
     //    @Column(name = "event_name")
     private String event_name;
     //    @Column(name = "event_type")
@@ -52,12 +52,12 @@ public class Event {
         EventID = eventID;
     }
 
-    public int getOrgID() {
-        return OrgID;
+    public int getorgid() {
+        return orgid;
     }
 
-    public void setOrgID(int orgID) {
-        OrgID = orgID;
+    public void setorgid(int orgid) {
+        this.orgid = orgid;
     }
 
     public String getEvent_name() {
