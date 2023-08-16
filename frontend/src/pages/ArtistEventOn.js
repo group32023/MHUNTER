@@ -83,22 +83,18 @@ export default function ArtistEventOn() {
           </div>
 
           <div className='addressDiv'>
-          <h3>Prior Booking </h3>
-          <h4 className="organizer_tag">Organizer :  </h4>
-          <h4 className="organizerName">{eventList[0]['organizerName']}</h4>
+          <h3>Envents On : {date} </h3>
+          
           </div>
         
-              <Button className="date"><FontAwesomeIcon icon={faCalendarDays} id="CalenderReport"/>Date</Button> 
-              <Button className="event_type"><FontAwesomeIcon icon={faCalendarDays} id="CalenderReport"/>Event Type</Button> 
-              <Button className="filter">Filter</Button>
               
 
             <div className='reportContainer' >
-            <div ref={componentPDF}>
+            <div >
 
               <p>Income</p>
           
-             <Table id="PriorBookingTable" className='table table-hover table-dark table-condensed table-resposive'  >
+             <Table id="PriorBookingTable1" className='table table-hover table-dark table-condensed table-resposive'  >
                         <thead>
                         <tr>
                           <th>Event Name</th>

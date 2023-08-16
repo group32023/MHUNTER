@@ -2,7 +2,8 @@
 import React,{useState, useEffect,useRef,Lable} from 'react';
 import { Link,useNavigate,useParams } from 'react-router-dom';
 import SideMenuBarArtist from '../components/common/SideMenuBar/SideMenuBarArtist'
-import '../assets/css/bandInvoice.css'
+import '../assets/css/artistInvoice.css'
+import '../assets/css/artistPendingRequests.css'
 // import { MDBBtn } from 'mdb-react-ui-kit';
 import profileImage from '../assets/images/profilePhoto.jpeg';
 import CurrencyInput from 'react-currency-input-field';
@@ -42,6 +43,7 @@ export default function BandInvoice() {
 
 
   const [bandFee,setBandFee] = useState(0.00);
+  const [artistFee,setArtistFee] = useState(0.00);
   const [soundFee,setSoundFee] = useState(0.00);
   const [instrumentFee,setInstrumentFee] = useState(0.00);
   const [transportFee,setTransportFee] = useState(0.00);
@@ -64,7 +66,7 @@ export default function BandInvoice() {
 
   const addInvoice=(e)=>{
     e.preventDefault();
-    const invoice = {bandFee,soundFee,instrumentFee,transportFee,others,totalAmount,paymentType}
+    const invoice = {artistFee,bandFee,soundFee,instrumentFee,transportFee,others,totalAmount,paymentType}
     console.log(invoice)
 
     
@@ -86,10 +88,10 @@ export default function BandInvoice() {
   
 
       useEffect(() => {
-        var totalAmountofInvoice = bandFee + soundFee + instrumentFee + transportFee + others;
+        var totalAmountofInvoice = artistFee+ bandFee + soundFee + instrumentFee + transportFee + others;
         //console.log(typeof(bandFee))
         setTotalAmount(totalAmountofInvoice);
-      }, [bandFee, soundFee, instrumentFee, transportFee, others]);
+      }, [artistFee, bandFee, soundFee, instrumentFee, transportFee, others]);
 
 
 
@@ -113,14 +115,14 @@ export default function BandInvoice() {
         <div className='eventDetailsDisplayContainer'>
              <div className='eventDetailsDisplayInnerContainer'>
              <img src={profileImage} className="profileInvoice"></img>
-             <p>{event['organizerName']}</p>
+             <h4>{event['organizerName']}</h4>
             
-            <p class="eventType1"><FontAwesomeIcon icon={faCalendarDays} id="EventIconPendingRequest1"/>{event['eventName']}</p>
-            <p class="eventDate1"><FontAwesomeIcon icon={faCalendarDays} id="CalenderIconPendingRequest1"/>{event['date']}</p>
-            <p class="venue1"><FontAwesomeIcon icon={faLocationDot} id="LocationIconPendingRequest1"/> {event['startTime']}</p>
-            <p class="eventType2"><FontAwesomeIcon icon={faCalendarDays} id="EventIconPendingRequest2"/>{event['duration']}</p>
-            <p class="eventDate2"><FontAwesomeIcon icon={faCalendarDays} id="CalenderIconPendingRequest2"/>{event['crowd']}</p>
-            <p class="venue2"><FontAwesomeIcon icon={faLocationDot} id="LocationIconPendingRequest2"/> {event['place']}</p>
+            <p class="eventType3"><FontAwesomeIcon icon={faCalendarDays} id="EventIconPendingRequest3"/>{event['eventName']}</p>
+            <p class="eventDate3"><FontAwesomeIcon icon={faCalendarDays} id="CalenderIconPendingRequest3"/>{event['date']}</p>
+            <p class="venue3"><FontAwesomeIcon icon={faLocationDot} id="LocationIconPendingRequest3"/> {event['startTime']}</p>
+            <p class="eventType4"><FontAwesomeIcon icon={faCalendarDays} id="EventIconPendingRequest4"/>{event['duration']}</p>
+            <p class="eventDate4"><FontAwesomeIcon icon={faCalendarDays} id="CalenderIconPendingRequest4"/>{event['crowd']}</p>
+            <p class="venue4"><FontAwesomeIcon icon={faLocationDot} id="LocationIconPendingRequest4"/> {event['place']}</p>
 
         
              </div>
@@ -133,10 +135,8 @@ export default function BandInvoice() {
             
             <div className='DescriptionLable'>
             <label for='description' className='label1'>Description</label>
-            <label for='bandFee' className='label2'>Band Fee</label>
-            <label for='soundFee' className='label3'>Sound Fee</label>
-            <label for='instrumentFee' className='label4'>Instrument Fee</label>
-            <label for='transportFee' className='label5'>Transport Fee</label>
+            <label for='bandFee' className='label2'>Artist Fee</label>
+            <label for='soundFee' className='label3'>Transport Fee</label>
             <label for='others' className='label6'>Others</label>
             </div>
             
@@ -147,14 +147,11 @@ export default function BandInvoice() {
             <form onSubmit={addInvoice}>
 
             <input type="number" min="0.00" max="100000000000000000.00" step="0.01" placeholder="0.00"
-            defaultValue={'0.00'} decimalsLimit={2} className='currency-input1' value={bandFee} onChange={(e)=>{setBandFee(parseFloat(e.target.value));}
+            defaultValue={'0.00'} decimalsLimit={2} className='currency-input1' value={artistFee} onChange={(e)=>{setArtistFee(parseFloat(e.target.value));}
             }/>
             <input type="number" min="0.00" max="100000000000000000.00" step="0.01" placeholder="0.00"
-            defaultValue={'0.00'} decimalsLimit={2} className='currency-input2' value={soundFee} onChange={(e)=>setSoundFee(parseFloat(e.target.value))}/>
-            <input type="number" min="0.00" max="100000000000000000.00" step="0.01" placeholder="0.00"
-            defaultValue={'0.00'} decimalsLimit={2} className='currency-input3' value={instrumentFee} onChange={(e)=>setInstrumentFee(parseFloat(e.target.value))}/>
-            <input type="number" min="0.00" max="100000000000000000.00" step="0.01" placeholder="0.00"
-            defaultValue={'0.00'} decimalsLimit={2} className='currency-input4' value={transportFee} onChange={(e)=>setTransportFee(parseFloat(e.target.value))}/>
+            defaultValue={'0.00'} decimalsLimit={2} className='currency-input2' value={transportFee} onChange={(e)=>setTransportFee(parseFloat(e.target.value))}/>
+           
             <input type="number" min="0.00" max="100000000000000000.00" step="0.01" placeholder="0.00"
             defaultValue={'0.00'} decimalsLimit={2} className='currency-input5' value={others} onChange={(e)=>setOthers(parseFloat(e.target.value))}/>
            

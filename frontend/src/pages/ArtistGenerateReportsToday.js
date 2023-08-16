@@ -50,7 +50,9 @@ export default function ArtistGenerateReports() {
     // Fetch the data from the Java backend
     const fromDateObject = new Date(fromDate);
     const toDateObject = new Date(toDate);
-    fetch(`http://localhost:8080/artistIncome/specificArtistIncomeDetailsOntoday/${selectedOption}/${fromDateObject.getDate}/${toDateObject.getDate}/101`)
+    // fetch(`http://localhost:8080/artistIncome/specificArtistIncomeDetailsOntoday/${selectedOption}/${fromDateObject.getDate}/${toDateObject.getDate}/101`)
+    fetch(`http://localhost:8080/artistIncome/specificArtistIncomeDetails/101`)
+
     .then((response) => {
       if (!response.ok) {
         throw new Error('Network response was not ok');
@@ -118,10 +120,10 @@ export default function ArtistGenerateReports() {
               <div className='homeBg'></div>
               <div className='logoutBg'></div>
           </div>
-             <lable className='col-sm-2 col-form-label' id="dateFrom">From Date: <input type='date' className='form-control' id="fromdate" name='fromdate' placeholder='dd-mm-yyyy'  value={fromDate} onChange={(e)=>handleDateChangeFromDate(e.target.value)}></input></lable>
+             <lable className='col-sm-2 col-form-label' id="dateFrom">From Date:</lable> <input type='date' className='form-control' id="fromdate" name='fromdate' placeholder='dd-mm-yyyy'  value={fromDate} onChange={(e)=>handleDateChangeFromDate(e.target.value)}></input>
              
+             <lable className='col-sm-2 col-form-label' id="Today"><FontAwesomeIcon icon={faCalendarDays} id="CalenderReport"/>To Date :</lable><input type='date' className='form-control' id="todate" name='todate' placeholder='dd-mm-yyyy' value={toDate} onChange={(e)=>handleDateChangeToDate(e.target.value)}></input>
 
-             <lable className='col-sm-2 col-form-label' id="Today"><FontAwesomeIcon icon={faCalendarDays} id="CalenderReport"/>To Date :<input type='date' className='form-control' id="todate" name='todate' placeholder='dd-mm-yyyy' value={toDate} onChange={(e)=>handleDateChangeToDate(e.target.value)}></input></lable>
         
               {/* <Button className="dateFrom"><FontAwesomeIcon icon={faCalendarDays} id="CalenderReport"/>Date From</Button> 
               <Button className="Today" onClick={()=>todayIncome(101)}><FontAwesomeIcon icon={faCalendarDays} id="CalenderReport"/>Today</Button> 
