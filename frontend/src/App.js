@@ -49,38 +49,37 @@ function App() {
 
             <Route path='/organizer/dashboard' element={<OrganizerDashboardContent />}></Route>
             <Route path='/organizer/event' element={<ViewEvents />}></Route>
-            <Route path='/organizer/event/CreateEvent' element={<CreateEvent/>}></Route>
+            <Route path='/organizer/event/CreateEvent' element={<CreateEvent />}></Route>
             <Route path='/organizer/eventhistory' element={<OrganizerEventHistory />}></Route>
             <Route path='/organizer/complaint' element={<OrganizerComplaint />}></Route>
             <Route path='/organizer/profile' element={<OrganizerProfile />}></Route>
             <Route path='/organizer/searchartist' element={<SearchArtist />} />
           
 
-
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           <Route path='/artistbandsignup' element={<ArtistBandSignup />} />
           <Route path='/artistsignup' element={<ArtistSignup />} />
-          <Route path='/bandsignup' element={<BandSignup/>} />
-          <Route path='/organizersignup' element ={<OrganizerSignup/>} />
-          <Route path='/artistdashboard' element={<ArtistDashboard/>} />
-          <Route path='/banddashboard' element={<BandDashboard/>} />
-          <Route path='/moderatordashboard' element={<ModeratorDashboard/>} />
-          <Route path='/organizerdashboard' element={<OrganizerDashboard/>} />
+          <Route path='/bandsignup' element={<BandSignup />} />
+          <Route path='/organizersignup' element={<OrganizerSignup />} />
+          <Route path='/artistdashboard' element={<ArtistDashboard />} />
+          <Route path='/banddashboard' element={<BandDashboard />} />
+          <Route path='/moderatordashboard' element={<ModeratorDashboard />} />
+          <Route path='/organizerdashboard' element={<OrganizerDashboard />} />
 
 
           {/*Admin*/}
-          <Route path='/admin/admindashboard' element={<AdminDashboard/>} />
-          <Route path='/admin/registration' element={<AdminRegistration/>} />
-          <Route path='/admin/registration/proofcheck' element={<ProofCheck/>} />
-          <Route path='/admin/userdetails' element={<AllUserDetails/>} />
-          <Route path='/admin/userdetails/viewdetails' element={<ViewUserDetails/>} />
-          <Route path='/admin/report' element={<AdminReport/>} />
-          <Route path='/admin/settings' element={<AdminSettings/>} />
+          <Route path='/admin/admindashboard' element={<AdminDashboard />} />
+          <Route path='/admin/registration' element={<AdminRegistration />} />
+          <Route path='/admin/registration/proofcheck' element={<ProofCheck />} />
+          <Route path='/admin/userdetails' element={<AllUserDetails />} />
+          <Route path='/admin/userdetails/viewdetails' element={<ViewUserDetails />} />
+          <Route path='/admin/report' element={<AdminReport />} />
+          <Route path='/admin/settings' element={<AdminSettings />} />
 
-      </Routes>
-    </Router>
-      
+        </Routes>
+      </Router>
+
       {/*<div>
       <MainSlider>
       </MainSlider>
