@@ -41,6 +41,8 @@ function OrganizerSignup() {
   
     const regDate = `${year}-${month}-${day}`;
 
+    //const [showSuccessModal, setShowSuccessModal] = useState(false);
+
     const save =async (event) => {
       event.preventDefault();
       const formData = new FormData();
@@ -71,7 +73,9 @@ function OrganizerSignup() {
           if (response.ok) {
             formRef.current.reset();
             resetFormFields();
+            //setShowSuccessModal(true);
             alert("Organizer Registration Successfully");
+            window.location.href = "/login";
           } else {
             const errorMessage = await response.text();
             if (errorMessage === "Email is already registered.") {
