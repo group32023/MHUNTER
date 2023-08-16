@@ -25,11 +25,4 @@ public class EventServiceImpl implements EventService{
     public List<Event> getAllEvents() {
         return eventRepository.findAll();
     }
-
-
-    @Override
-    public List<Event> getEventsByorgid(int orgID) {
-        return eventRepository.findByorgid(orgID);
-    }
-
 }
