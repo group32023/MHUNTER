@@ -143,7 +143,7 @@ function OrganizerComplaint() {
                                     <div className="overlay">
                                         <Modal show={showModal} onHide={handleCloseModal} centered>
                                             <Modal.Header closeButton>
-                                                <Modal.Title>Popup Title</Modal.Title>
+                                                <Modal.Title></Modal.Title>
                                             </Modal.Header>
                                             <Modal.Body>
                                                 Content of the popup goes here.
