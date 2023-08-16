@@ -69,7 +69,8 @@ function ViewEvents() {
                     <Topbar />
                     {events.map(event => (
                         <div className='col-md-3 event-box' key={event.eventid}>
-                            <a>
+                            <Link to="/organizer/event/eventdashboard" className='link1'>
+
                                 <div className='image'>
                                     <img src={musical}>
                                     </img>
@@ -94,7 +95,7 @@ function ViewEvents() {
                                     </div>
 
                                 </div>
-                            </a>
+                            </Link>
                         </div>
 
 
@@ -114,7 +115,7 @@ function ViewEvents() {
 
                 <Routes>
                     <Route path='/organizer/dashboard' element={<OrganizerDashboard />}></Route>
-                 
+
                     <Route path='/organizer/event/eventdashboard' element={<OrganizerEventDashboard />}></Route>
                     <Route path='/organizer/event/CreateEvent' element={<CreateEvent />}></Route>
                     <Route path='/organizer/eventhistory' element={<ViewEventHistory />}></Route>

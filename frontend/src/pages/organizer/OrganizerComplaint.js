@@ -96,7 +96,7 @@ function OrganizerComplaint() {
 
 
                         <div className='complaintTableDiv col-md-7 p-2 mx-4' id='scrollbarStyle-1'>
-                            <div className="data-table d-flex justify-content-center text-center fs-6" style={{ fontFamily: 'MyCustomFont' }}>
+                            <div className="organizer-complaint-data-table d-flex justify-content-center text-center fs-6" style={{ fontFamily: 'MyCustomFont' }}>
                                 <div className="table-title complaintTableDataRow mb-4" style={{ fontFamily: 'MyCustomFont1' }}>
                                     <div className="complaint-title">Complaint Title</div>
                                     <div className="date">Date</div>
