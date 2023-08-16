@@ -35,7 +35,7 @@ export default function ArtistPendingRequests() {
      
 
   }, []);
-  console.log(eventList);
+  
 
   const lastLineIndex = currentPage * linePerPage;
   const firstLineIndex = lastLineIndex - linePerPage;
@@ -56,7 +56,8 @@ export default function ArtistPendingRequests() {
   //Using a for loop to generate the <div> tags
   for (let i = 0; i < divCount; i++) {
 
-    var eventID=eventList1[i]['eventId'];
+ 
+  
     
     divElements.push(<div key={i} className="requestContainer">
       <img src={profileImage} className="profile"></img>
@@ -68,7 +69,7 @@ export default function ArtistPendingRequests() {
       </div>
      
    
-      <button className="viewBtn" onClick={()=>load(eventID)}>View</button>
+      <button className="viewBtn" onClick={()=>load(eventList1[i]['eventId'])}>View</button>
     
       
    

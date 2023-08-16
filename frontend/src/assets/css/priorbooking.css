@@ -106,7 +106,7 @@ left: 50px;
 #PriorBookingTable{
 width: 80% !important;
 position: absolute;
-top: 38% !important;
+top: 35% !important;
 left: 12.5% !important;
 
 
@@ -165,16 +165,16 @@ border: none;
 }
 
 .addressDiv .organizer_tag{
-    position: relative;
-    top: 5%;
+    position: absolute;
+    top: 61px !important;
     font-weight: 600;
     left: -40%;
 }
 
 .addressDiv .organizerName{
     position: relative;
-    top: -36px;
+    top: 20px;
     font-weight: 600;
-    left: 34%;
+    left: 22%;
     color: #11FE70;
 }

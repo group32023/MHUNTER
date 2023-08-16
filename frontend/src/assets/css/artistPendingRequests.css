@@ -149,7 +149,7 @@
     height: 8%;
     font-weight: bold;
     text-align: center;
-    color: #000000;
+    color: #000000 !important;
     left: 30%;
     top: -150px;
     border-radius: 10px;
@@ -181,7 +181,7 @@
     height: 8%;
     font-weight: bold;
     text-align: center;
-    color: #000000;
+   background-color: #3b444d !important;
     left: -22%;
     top: -17px;
     border-radius: 10px;
@@ -206,8 +206,8 @@
 .requestViewContainer h4{
     color: #FFFFFF;
     position: relative;
-    top: -13.5%;
-    left: -1%;
+    top: -12.5%;
+    left: -2%;
 
 }
 
@@ -254,35 +254,35 @@
 }
 
 .eventDate1{
-    position: relative;
-    left: -5%;
-    top: 8%;
+    position: absolute;
+    left: 20%;
+    top: 30%;
 }
 .eventType1{
-    position: relative;
-    left: -3%;
-    top: 7%;
+    position: absolute;
+    left: 20%;
+    top: 20%;
 }
 .venue1{
-    position: relative;
-    top: 9%;
-    left: -4%;
+    position: absolute;
+    top: 40%;
+    left: 20%;
     
 }
 .eventDate2{
-    position: relative;
-    top: 13%;
-    left: -5%;
+    position: absolute;
+    top: 50%;
+    left: 20%;
 }
 .eventType2{
-    position: relative;
-    top: 11%;
-    left: -3%;
+    position: absolute;
+    top: 60%;
+    left: 20%;
 }
 .venue2{
-    position: relative;
-    top: 15%;
-    left: -4%;
+    position: absolute;
+    top: 70%;
+    left: 20%;
     
 }
 

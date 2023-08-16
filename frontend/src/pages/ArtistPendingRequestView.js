@@ -1,7 +1,6 @@
 import React,{useState, useEffect,useRef} from 'react';
 import { Link,useParams, useNavigate } from 'react-router-dom';
 import SideMenuBarArtist from '../components/common/SideMenuBar/SideMenuBarArtist'
-import '../assets/css/artistDashboard.css'
 import '../assets/css/artistPendingRequests.css'
 // import { MDBBtn } from 'mdb-react-ui-kit';
 import profileImage from '../assets/images/profilePhoto.jpeg';
@@ -84,18 +83,18 @@ export default function ArtistPendingRequests() {
             <h4>{event['organizerName']}</h4>
 
             <div className='eventDetailsContainer'>
-            <p class="eventType1"><FontAwesomeIcon icon={faCalendarDays} id="EventIconPendingRequest1"/>{event['eventName']}</p>
-            <p class="eventDate1"><FontAwesomeIcon icon={faCalendarDays} id="CalenderIconPendingRequest1"/>{event['date']}</p>
-            <p class="venue1"><FontAwesomeIcon icon={faLocationDot} id="LocationIconPendingRequest1"/> {event['startTime']}</p>
-            <p class="eventType2"><FontAwesomeIcon icon={faCalendarDays} id="EventIconPendingRequest2"/>{event['duration']}</p>
-            <p class="eventDate2"><FontAwesomeIcon icon={faCalendarDays} id="CalenderIconPendingRequest2"/>{event['crowd']}</p>
-            <p class="venue2"><FontAwesomeIcon icon={faLocationDot} id="LocationIconPendingRequest2"/> {event['place']}</p>
+            <p class="eventType1"><FontAwesomeIcon icon={faCalendarDays} id="EventIconPendingRequest1"/>Event Name : {event['eventName']}</p>
+            <p class="eventDate1"><FontAwesomeIcon icon={faCalendarDays} id="CalenderIconPendingRequest1"/>Date : {event['date']}</p>
+            <p class="venue1"><FontAwesomeIcon icon={faLocationDot} id="LocationIconPendingRequest1"/> Time : {event['startTime']}</p>
+            <p class="eventType2"><FontAwesomeIcon icon={faCalendarDays} id="EventIconPendingRequest2"/>Duration : {event['duration']}</p>
+            <p class="eventDate2"><FontAwesomeIcon icon={faCalendarDays} id="CalenderIconPendingRequest2"/>Crowd : {event['crowd']}</p>
+            <p class="venue2"><FontAwesomeIcon icon={faLocationDot} id="LocationIconPendingRequest2"/>Venue : {event['place']}</p>
 
             </div>
             
 
-            <button className="priorbookingsBtn" onClick={()=>loadPriorBooking(7584633,event['orgId'])}>Prior Bookings</button>
-            <button className="myEventsBtn" onClick={()=>loadMyEventsOn(7584633,event['date'])}>My Events</button>
+            <button className="priorbookingsBtn" onClick={()=>loadPriorBooking(101,event['orgId'])}>Prior Bookings</button>
+            <button className="myEventsBtn" onClick={()=>loadMyEventsOn(101,event['date'])}>My Events</button>
             <button className="acceptBtn" onClick={()=>loadInvoice(event['eventId'])}>Accept</button>
             <button className="rejectBtn">Reject</button>
         </div>
