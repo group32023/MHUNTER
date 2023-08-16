@@ -140,7 +140,7 @@ function ModeratorEventDashboard() {
                             </div>
 
                             <div className="row mt-2" style={{ fontFamily: 'MyCustomFont1', color:"#fff" }}>
-                                <div className="dateTimeDiv">
+                                <div className="datemodTimeDiv">
                                     <div className="row">
                                         <BiSolidCalendar className='dateIcon fs-1 col-md-3 ' />
                                         <div className='col-md-8 mt-2'>
@@ -150,7 +150,7 @@ function ModeratorEventDashboard() {
                                         </div>
                                     </div>
                                 </div>
-                                <div className="dateTimeDiv">
+                                <div className="datemodTimeDiv">
                                     <div className="row" >
                                         <BiSolidTimeFive className='timeIcon fs-1 col-md-3 ' />
                                         <div className='col-md-8 mt-2'>

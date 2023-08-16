@@ -23,8 +23,8 @@ import Login from './pages/Login';
 import Signup from './pages/Signup';
 import Contact from './pages/contact';
 import ArtistDetails from './pages/artistDetails';
-import Post from './pages/post';
-import Video from './pages/video';
+// import Post from './pages/post';
+// import Video from './pages/video';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import ArtistBandSignup from './pages/ArtistBandSignup';
 import ArtistSignup from './pages/ArtistSignup';
@@ -83,8 +83,8 @@ function App() {
           <Route path='/organizerdashboard' element={<OrganizerDashboard/>} />
           <Route path='/contact' element={<Contact/>}></Route>
           <Route path='/artistDetails' element={<ArtistDetails/>}></Route>
-          <Route path='/post' element={<Post/>}></Route>
-          <Route path='/video' element={<Video/>}></Route>
+          {/* <Route path='/post' element={<Post/>}></Route>
+          <Route path='/video' element={<Video/>}></Route> */}
           <Route index element={<Home />} />
 
 
