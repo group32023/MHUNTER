@@ -29,7 +29,6 @@ import MyFeed from './pages/MyFeed';
 function App() {
   return (
     <div className="App">
-
       <Router>
         <Routes>
           <Route path='/' element={<Home/>}></Route>
@@ -53,10 +52,6 @@ function App() {
           <Route path='/artist/MyFeed' element={<MyFeed/>}></Route>
         </Routes>
       </Router>
-      
-      
-     
-     
     </div>
   );
 
