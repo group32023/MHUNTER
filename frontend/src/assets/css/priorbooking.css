@@ -150,6 +150,55 @@ border: none;
 
 }
 
+
+
+#PriorBookingTable1{
+    width: 80% !important;
+    position: absolute;
+    top: 25% !important;
+    left: 12.5% !important;
+    
+    
+    
+    --bs-table-border:none ;
+    border-collapse: separate;
+    border-spacing: 0 15px;
+    background-color: none !important;
+    --bs-table-color: #000000 !important;
+    --bs-table-color-type: none !important; 
+    justify-content: center;
+    --bs-table-bg: none !important;
+    text-align: center !important; 
+    
+    }
+    
+    #PriorBookingTable1 thead{
+    
+     --bs-table-bg: #000000;
+     color: #ffffff !important;
+    }
+    
+    #PriorBookingTable1 tbody{
+    --bs-table-bg:#D9D9D9;
+    }
+    
+    
+    #PriorBookingTable1 tr, td{
+    
+    padding: 15px 10px 15px 10px !important;
+    
+    margin: auto;
+    text-align: center !important;
+    height: 23px;
+    
+    border: none;
+    --bs-table-color: #000000 !important;
+    --bs-table-color-type: none !important;  
+    
+    
+    
+    }
+
 .addressDiv{
     color: #ffffff;
     position: absolute;
@@ -171,7 +220,22 @@ border: none;
     left: -40%;
 }
 
+.addressDiv .organizer_tag1{
+    position: absolute;
+    top: 61px !important;
+    font-weight: 600;
+    left: -40%;
+
+}
 .addressDiv .organizerName{
+    position: relative;
+    top: 20px;
+    font-weight: 600;
+    left: 22%;
+    color: #11FE70;
+}
+
+.addressDiv .organizerName1{
     position: relative;
     top: 20px;
     font-weight: 600;
