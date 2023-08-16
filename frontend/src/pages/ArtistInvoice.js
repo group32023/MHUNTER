@@ -10,7 +10,7 @@ import CurrencyInput from 'react-currency-input-field';
 
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import {faPhone,faLocationDot,faList,faCalendarDays} from '@fortawesome/free-solid-svg-icons'
+import {faPhone,faLocationDot,faList,faCalendarDays,faClock} from '@fortawesome/free-solid-svg-icons'
 import { faTwitter, faFontAwesome,faFacebook,faGooglePlusG,faLinkedinIn } from '@fortawesome/free-brands-svg-icons'
 import { Label } from '@mui/icons-material';
 
@@ -119,7 +119,7 @@ export default function BandInvoice() {
             
             <p class="eventType3"><FontAwesomeIcon icon={faCalendarDays} id="EventIconPendingRequest3"/>{event['eventName']}</p>
             <p class="eventDate3"><FontAwesomeIcon icon={faCalendarDays} id="CalenderIconPendingRequest3"/>{event['date']}</p>
-            <p class="venue3"><FontAwesomeIcon icon={faLocationDot} id="LocationIconPendingRequest3"/> {event['startTime']}</p>
+            <p class="venue3"><FontAwesomeIcon icon={faClock} id="LocationIconPendingRequest3"/> {event['startTime']}</p>
             <p class="eventType4"><FontAwesomeIcon icon={faCalendarDays} id="EventIconPendingRequest4"/>{event['duration']}</p>
             <p class="eventDate4"><FontAwesomeIcon icon={faCalendarDays} id="CalenderIconPendingRequest4"/>{event['crowd']}</p>
             <p class="venue4"><FontAwesomeIcon icon={faLocationDot} id="LocationIconPendingRequest4"/> {event['place']}</p>
