@@ -29,7 +29,7 @@ export default function Login() {
           } else if (membertype === 'Organizer') {
             navigate('/organizerdashboard');
           } else if (membertype === 'Moderator') {
-            navigate('/moderatordashboard');
+            navigate('/moderator/moderatorDashoboardContent');
           } else if (membertype === 'Admin') {
             navigate('/admin/admindashboard');
           }
