@@ -18,17 +18,11 @@ import BandInvoice from './pages/BandInvoice';
 import ArtistEventOn from './pages/ArtistEventOn';
 import ArtistSpecificEvent from './pages/ArtistSpecificEvent';
 import ArtistGenerateReportsToday from './pages/ArtistGenerateReportsToday'
-
-
-
-
-
 import MyFeed from './pages/MyFeed';
 
 function App() {
   return (
     <div className="App">
-
       <Router>
         <Routes>
           <Route path='/' element={<Home/>}></Route>
@@ -46,14 +40,9 @@ function App() {
           <Route path='/artist/priorbooking/:id1/:id2' element={<ArtistPriorBooking/>}></Route>
           <Route path='/artist/eventsOn/:mmid/:date/:id' element={<ArtistEventOn/>}></Route>
           <Route path='/band/invoice/:id' element={<BandInvoice/>}></Route> 
-          
           <Route path='/artist/MyFeed' element={<MyFeed/>}></Route>
         </Routes>
       </Router>
-      
-      
-     
-     
     </div>
   );
 

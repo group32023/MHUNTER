@@ -50,12 +50,12 @@
   }
   #play1{
     border-radius: 50%;
-    width: 60px;
-    height: 60px;
-    position: absolute;
-    background: #F70F5D; 
-    top: 114px;
-    left: 88px;
+      width: 30px;
+      height: 30px;
+      position: absolute;
+      background: #F70F5D;
+      top: 114px;
+      left: 88px;
   }
 
   .performancebg{
