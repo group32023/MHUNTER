@@ -1,4 +1,4 @@
-package com.MHunter.mhunter.controller;
+/*package com.MHunter.mhunter.controller;
 
 import com.MHunter.mhunter.model.User;
 import jakarta.servlet.http.HttpSession;
@@ -22,4 +22,4 @@ public class DashboardController {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Not logged in");
         }
     }
-}
+}*/
