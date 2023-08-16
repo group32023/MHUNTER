@@ -99,8 +99,8 @@ function App() {
           <Route path='/admin/settings' element={<AdminSettings/>} />
     
                    {/* moderator */}
-          <Route path='/' element={<ModeratorDashboard/>}>
-          <Route path='/moderator/moderatorDashboard' element={<ModeratorDashboard/>} />
+          {/* <Route path='/' element={<ModeratorDashboard/>}>
+          <Route path='/moderator/moderatorDashboard' element={<ModeratorDashboard/>} /> */}
           <Route path='/moderator/moderatorDashoboardContent' element={<ModeratorDashoboardContent />}></Route>
           <Route path='/moderator/registration' element={<ModeratorRegistration  />}></Route>
           <Route path='/moderator/registration/ProofCheck' element={<ProofCheck/>} />
@@ -111,7 +111,7 @@ function App() {
           <Route path='/moderator/event/eventDetails' element={<EventDetails/>}/>
           <Route path='/moderator/registration/ProofCheck' element={<proofCheck/>}/>
           <Route path='/moderator/registration/proofcheck/suspenduser' element={<Suspenduser/>}/>
-          </Route>
+          
 
     
       </Routes>
