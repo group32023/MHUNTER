@@ -25,7 +25,7 @@ export default function ArtistPendingRequests() {
   useEffect(() => {
     // Fetch the data from the Java backend
     const getPendingRequest = async () =>{
-      const res = await fetch('http://localhost:8080/requestMusicMember/pendingRequest/758463')
+      const res = await fetch('http://localhost:8080/requestMusicMember/pendingRequest/101')
 
       const data = await res.json();
         setEventList(data);
@@ -35,7 +35,7 @@ export default function ArtistPendingRequests() {
      
 
   }, []);
-  console.log(eventList);
+  
 
   const lastLineIndex = currentPage * linePerPage;
   const firstLineIndex = lastLineIndex - linePerPage;
@@ -56,19 +56,20 @@ export default function ArtistPendingRequests() {
   //Using a for loop to generate the <div> tags
   for (let i = 0; i < divCount; i++) {
 
-    var eventID=eventList1[i]['eventId'];
+ 
+  
     
     divElements.push(<div key={i} className="requestContainer">
       <img src={profileImage} className="profile"></img>
       <div className="eventDetails">
-        <h4>{eventList1[i]['organizerName']}</h4>
+        <h5>{eventList1[i]['organizerName']}</h5>
         <p class="eventType"><FontAwesomeIcon icon={faCalendarDays} id="EventIconPendingRequest"/>{eventList1[i]['eventName']}</p>
       <p class="eventDate"><FontAwesomeIcon icon={faCalendarDays} id="CalenderIconPendingRequest"/>{eventList1[i]['date']}</p>
         <p class="venue"><FontAwesomeIcon icon={faLocationDot} id="LocationIconPendingRequest"/> {eventList1[i]['place']}</p>
       </div>
      
    
-      <button className="viewBtn" onClick={()=>load(eventID)}>View</button>
+      <button className="viewBtn" onClick={()=>load(eventList1[i]['eventId'])}>View</button>
     
       
    
