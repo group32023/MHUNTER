@@ -15,6 +15,8 @@ import AdminSettings from './AdminSettings';
 import { Link, Routes, Route } from 'react-router-dom';
 import Topbar from '../../components/common/Topbar';
 
+import { BiSolidUserDetail } from "react-icons/bi";
+
 
 export default function AdminDashboard() {
   //const location = useLocation();
@@ -36,7 +38,7 @@ export default function AdminDashboard() {
   const fetchData = () => {
     return new Promise((resolve) => {
       setTimeout(() => {
-        const banddata = ['Band 1', 'Band 2', 'Band 3', 'Band 4', 'Band 5', 'Band 6', 'Band 7', 'Band 8', 'Band 9', 'Band 10'];
+        const banddata = ['FlashBack', 'Wayo', 'Jaya Sri', 'Marians', 'Sunflower', 'Gypsies', 'Dharmarathna Brother', 'Three Sisters Sri Lanka', 'La Bambas Sri Lanka', 'The Moonstones Sri Lanka'];
         resolve(banddata);
 
       }, 1000);
@@ -44,7 +46,7 @@ export default function AdminDashboard() {
     const fetchDataA = () => {
       return new Promise((resolve) => {
         setTimeout(() => {
-          const artistdata = ['Artist 1', 'Artist 2', 'Artist 3', 'Artist 4', 'Artist 5', 'Artist 6', 'Artist 7', 'Artist 8', 'Artist 9', 'Artist 10'];
+          const artistdata = ['Dhanith Sri', 'Dinesh Gamage', 'Supun Perera', 'Methun SK', 'Ridma Werawardhne', 'BnS', 'Lahiru Perera', 'Umara', 'Shashika Nisansala', 'Theekshana Anuradha'];
           resolve(artistdata);
         }, 1000);
       })}
@@ -91,6 +93,37 @@ export default function AdminDashboard() {
           </div>
         </div>
       </div>
+    </div>
+
+    <div className="row row-userdetails" >
+        <div className="col-sm-3">
+            <div className="card card-userdetails">
+            <div className="card-body text-center">
+              <span className='icon-name-container'><BiSolidUserDetail className='icon-dashboard'/><h3 className="card-title text-light">Artists</h3></span>
+            </div>
+            </div>
+        </div>
+        <div className="col-sm-3">
+            <div className="card card-userdetails">
+            <div className="card-body text-center">
+            <span className='icon-name-container'><BiSolidUserDetail className='icon-dashboard'/><h3 className="card-title text-light">Bands</h3></span>
+            </div>
+            </div>
+        </div>
+        <div className="col-sm-3">
+            <div className="card card-userdetails">
+            <div className="card-body text-center">
+            <span className='icon-name-container'><BiSolidUserDetail className='icon-dashboard'/><h3 className="card-title text-light">Organizer</h3></span>
+            </div>
+            </div>
+        </div>
+        <div className="col-sm-3">
+            <div className="card card-userdetails">
+            <div className="card-body text-center">
+            <span className='icon-name-container'><BiSolidUserDetail className='icon-dashboard'/><h3 className="card-title text-light">Moderator</h3></span>
+            </div>
+            </div>
+        </div>
     </div>
 
     <Routes>

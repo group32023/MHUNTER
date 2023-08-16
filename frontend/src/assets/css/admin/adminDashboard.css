@@ -308,6 +308,15 @@
 }
 
 
-
+.icon-name-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #7643d2;
+}
+.icon-dashboard{
+  font-size: 45px;
+  padding-right: 10px;
+}
 
   
