@@ -14,7 +14,7 @@
     top: 15%;
     background: #2F363E;
     color: #ffffff;
-    border-radius: 25px;
+    border-radius: 50px;
 }
 
 .InvoiceContainer h1{
@@ -308,6 +308,33 @@
 
 }
 
+.EventIconPendingRequest3{
+    position: relative;
+    width: 20px;
+    height: 20px;
+    left: -1px;
+    padding-right: 7px;
+    top: -2px;
+
+}
+.CalenderIconPendingRequest4{
+    position: relative;
+    width: 20px;
+    height: 20px;
+    left: -3px;
+    padding-right: 6px;
+    top: -2px;
+}
+.EventIconPendingRequest4{
+    position: relative;
+    width: 20px;
+    height: 20px;
+    left: -6px;
+    padding-right: 2px;
+    top: -2px;
+
+}
+
 
  .eventDetailsDisplayContainer{
     position: absolute;
@@ -335,7 +362,7 @@
 
  .eventDetailsDisplayInnerContainer h4{
     position: absolute;
-    top: 10%;
+    top: 8%;
     left: 30%;
 
  }
@@ -349,11 +376,11 @@
 
 }
 
-#EventIconPendingRequest3{
+/* #EventIconPendingRequest3{
     position: relative;
     left: -1%;
     padding-right: 10px;
-}
+} */
 
 #CalenderIconPendingRequest3{
     position: relative;
@@ -370,7 +397,7 @@
 
 }
 
-#EventIconPendingRequest4{
+/* #EventIconPendingRequest4{
     position: relative;
     left: -1%;
     padding-right: 10px;
@@ -381,7 +408,7 @@
     left: -1%;
     padding-right: 10px;
 
-}
+} */
 
 .eventDate3{
     position: absolute;

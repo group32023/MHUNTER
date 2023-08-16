@@ -5,6 +5,11 @@ import SideMenuBarArtist from '../components/common/SideMenuBar/SideMenuBarArtis
 import '../assets/css/priorbooking.css'
 import { MDBBtn } from 'mdb-react-ui-kit';
 import { useReactToPrint } from 'react-to-print'
+import notification from '../assets/images/notification.png'
+import home from '../assets/images/home-button.png'
+import logout from '../assets/images/logout.png'
+import kpop from '../assets/images/kpop.png'
+
 
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -14,12 +19,19 @@ import { faTwitter, faFontAwesome,faFacebook,faGooglePlusG,faLinkedinIn } from '
 
 
 export default function ArtistPriorBooking() {
-
+  const [expand,setExpandedSideBar] = useState(true)
   const componentPDF = useRef();
-  const { id1,id2 } = useParams();
+  const { id1,id2,id3 } = useParams();
 
   console.log(id1);
   console.log(id2);
+
+  let navigate = useNavigate();
+
+  const load=(id)=>{
+    navigate(`/artist/PendingRequestView/${id}`);
+
+  }
 
 
   const [events, setEvents] = useState([]);
@@ -80,13 +92,22 @@ export default function ArtistPriorBooking() {
 
     return (
   
-      <div className='artistContainer'>
-          <div className='artistSideBar'>
-              <SideMenuBarArtist></SideMenuBarArtist>
-              <h3 className='headerDashboard'>Pending Requests</h3>
-              <div className='notificationBg'></div>
-              <div className='homeBg'></div>
-              <div className='logoutBg'></div>
+      <div>
+          <div className='MainContainer'>
+
+          <SideMenuBarArtist setExpandedSideBar={setExpandedSideBar}></SideMenuBarArtist>
+        <div className='artistSideBarOne' id='artistSideBarOne'>
+            <p className='headerDashboard'>Pending Requests</p>
+            <div className={expand ? 'notificationBg':'notificationBg-ex'}>
+              <img src={notification} className='notificationIcon' alt='notification'></img>
+            </div>
+            <div className={expand ? 'homeBg':'homeBg-ex'}>
+              <img src={home} alt='homebtn' className='homeIcon'></img>
+            </div>
+            <div className={expand ? 'logoutBg':'logoutBg-ex'}>
+              <img src={logout} alt='logout'className='logout'></img>
+              <p className='logoutbtn'>Logout</p>
+            </div>
           </div>
 
           <div className='addressDiv'>
@@ -123,19 +144,18 @@ export default function ArtistPriorBooking() {
                         <tbody>
                          
                        
-                         {divElements
-                         }
+                         {divElements }
                           
-                         
+                    
                           
                         </tbody>
                       </Table>
                   
           </div>     
-          <Button className="download">Back</Button>
+          <Button className="back" onClick={()=>load(id3)}>Back</Button>
            </div>
           
-          
+          </div>
           
   
     )

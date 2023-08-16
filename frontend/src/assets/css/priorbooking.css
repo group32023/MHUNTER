@@ -16,6 +16,22 @@
 
 }
 
+.back{
+    background-color: #7643D2 !important;
+    position: absolute;
+    font-size: 15px;
+    width: 5%;
+    height: 4%;
+    font-weight: bold;
+    text-align: center;
+    color: #ffffff;
+    border-radius: 10px;
+    border: none !important;
+    left: 85%;
+    top: 80%;
+ 
+}
+
 .event_type{
     background-color: #ffffff !important;
     position: absolute;
@@ -29,6 +45,15 @@
     border: none !important;
     left: 42%;
     top: 218px;
+}
+
+.MainContainer{
+
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    background: #24292D;
+
 }
 
 .filter{
@@ -115,7 +140,7 @@ left: 12.5% !important;
 border-collapse: separate;
 border-spacing: 0 15px;
 background-color: none !important;
---bs-table-color: #000000 !important;
+--bs-table-color: #ffffff !important;
 --bs-table-color-type: none !important; 
 justify-content: center;
 --bs-table-bg: none !important;
@@ -130,7 +155,7 @@ text-align: center !important;
 }
 
 #PriorBookingTable tbody{
---bs-table-bg:#D9D9D9;
+--bs-table-bg:#373b3e !important;
 }
 
 
@@ -164,7 +189,7 @@ border: none;
     border-collapse: separate;
     border-spacing: 0 15px;
     background-color: none !important;
-    --bs-table-color: #000000 !important;
+    --bs-table-color: #ffffff !important;
     --bs-table-color-type: none !important; 
     justify-content: center;
     --bs-table-bg: none !important;
@@ -179,7 +204,7 @@ border: none;
     }
     
     #PriorBookingTable1 tbody{
-    --bs-table-bg:#D9D9D9;
+    --bs-table-bg:#373b3e !important;
     }
     
     

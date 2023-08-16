@@ -22,6 +22,15 @@
     font-weight: 500;
     top: 10%;
 }
+.MainContainer{
+
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    background: #24292D;
+
+}
+
 
 
 .currency-input1{

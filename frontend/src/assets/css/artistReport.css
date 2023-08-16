@@ -15,6 +15,15 @@
 
     
 }
+.MainContainer{
+
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    background: #24292D;
+
+}
+
 
 #fromdate{
 
@@ -91,7 +100,7 @@
 
 .download{
     background-color: #7643D2 !important;
-    position: relative;
+    position: absolute;
     font-size: 15px;
     width: 8%;
     height: 5%;
@@ -100,8 +109,8 @@
     color: #ffffff;
     border-radius: 10px;
     border: none !important;
-    left:25%;
-    top: 90%;
+    left: 80%;
+    top: 70%;
  
 
 

@@ -6,11 +6,19 @@ import '../assets/css/artistInvoice.css'
 import '../assets/css/artistPendingRequests.css'
 // import { MDBBtn } from 'mdb-react-ui-kit';
 import profileImage from '../assets/images/profilePhoto.jpeg';
-import CurrencyInput from 'react-currency-input-field';
+import crowd from '../assets/images/people.png';
+import duration from '../assets/images/hourglass.png';
+import eventtype from '../assets/images/eventtype.png';
+import notification from '../assets/images/notification.png'
+import home from '../assets/images/home-button.png'
+import logout from '../assets/images/logout.png'
+import kpop from '../assets/images/kpop.png'
+
+
 
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import {faPhone,faLocationDot,faList,faCalendarDays} from '@fortawesome/free-solid-svg-icons'
+import {faPhone,faLocationDot,faList,faCalendarDays,faClock} from '@fortawesome/free-solid-svg-icons'
 import { faTwitter, faFontAwesome,faFacebook,faGooglePlusG,faLinkedinIn } from '@fortawesome/free-brands-svg-icons'
 import { Label } from '@mui/icons-material';
 
@@ -18,9 +26,10 @@ import { Label } from '@mui/icons-material';
 
 
 export default function BandInvoice() {
+    let navigate = useNavigate();
   const { id } = useParams();
   const [event, setEvent] = useState([]);
-
+  const [expand,setExpandedSideBar] = useState(true)
   useEffect(() => {
     // Fetch the data from the Java backend
     fetch(`http://localhost:8080/event/viewSpecificEvent/${id}`)
@@ -60,29 +69,36 @@ export default function BandInvoice() {
     
   }
 
-  // var totalAmountofInvoice = bandFee+soundFee+instrumentFee+transportFee+others;
-  // setTotalAmount(totalAmountofInvoice);
-
-
+ 
   const addInvoice=(e)=>{
     e.preventDefault();
     const invoice = {artistFee,bandFee,soundFee,instrumentFee,transportFee,others,totalAmount,paymentType}
     console.log(invoice)
 
+    if(artistFee===0.00 && bandFee===0.00 && transportFee===0.00 && soundFee===0.00 && instrumentFee===0.00 && others===0.00){
+
+    }
+    else if(artistFee>=0.00 && bandFee>=0.00 && transportFee>=0.00 && soundFee>=0.00 && instrumentFee>=0.00 && others>=0.00){
+        fetch("http://localhost:8080/invoice/add",{
+            method:"POST",
+            headers:{"Content-Type" : "application/json"},
+            body:JSON.stringify(invoice)
+          }).then(()=>{
+      
+              alert("Confirm Request!");
+              setBandFee(0.00);
+              setArtistFee(0.00)
+              setTransportFee(0.00)
+              setOthers(0.00)
+              setInstrumentFee(0.00)
+              setTotalAmount(0.00)
+              setSoundFee(0.00)
+            })
+
+    }
     
-    // eslint-disable-next-line react-hooks/rules-of-hooks
-  // eslint-disable-next-line react-hooks/rules-of-hooks
-  
 
-
-    fetch("http://localhost:8080/invoice/add",{
-      method:"POST",
-      headers:{"Content-Type" : "application/json"},
-      body:JSON.stringify(invoice)
-    }).then(()=>{
-
-        console.log("New Student Added")
-      })
+   
      
       }
   
@@ -94,7 +110,10 @@ export default function BandInvoice() {
       }, [artistFee, bandFee, soundFee, instrumentFee, transportFee, others]);
 
 
-
+      const load=(id)=>{
+        navigate(`/artist/PendingRequestView/${id}`);
+    
+      }
       
  // eslint-disable-next-line no-restricted-globals
  if(event===null) return <div>Loading....................</div>
@@ -104,25 +123,33 @@ export default function BandInvoice() {
 
    
     
+    <div >
     <div className='MainContainer'>
-        <div className='artistSideBar'>
-            <SideMenuBarArtist></SideMenuBarArtist>
-            <h3 className='headerDashboard'>Pending Requests</h3>
-            <div className='notificationBg'></div>
-            <div className='homeBg'></div>
-            <div className='logoutBg'></div>
-        </div>
+        <SideMenuBarArtist setExpandedSideBar={setExpandedSideBar}></SideMenuBarArtist>
+        <div className='artistSideBarOne' id='artistSideBarOne'>
+            <p className='headerDashboard'>Pending Requests</p>
+            <div className={expand ? 'notificationBg':'notificationBg-ex'}>
+              <img src={notification} className='notificationIcon' alt='notification'></img>
+            </div>
+            <div className={expand ? 'homeBg':'homeBg-ex'}>
+              <img src={home} alt='homebtn' className='homeIcon'></img>
+            </div>
+            <div className={expand ? 'logoutBg':'logoutBg-ex'}>
+              <img src={logout} alt='logout'className='logout'></img>
+              <p className='logoutbtn'>Logout</p>
+            </div>
+          </div>
         <div className='eventDetailsDisplayContainer'>
              <div className='eventDetailsDisplayInnerContainer'>
              <img src={profileImage} className="profileInvoice"></img>
              <h4>{event['organizerName']}</h4>
-            
-            <p class="eventType3"><FontAwesomeIcon icon={faCalendarDays} id="EventIconPendingRequest3"/>{event['eventName']}</p>
-            <p class="eventDate3"><FontAwesomeIcon icon={faCalendarDays} id="CalenderIconPendingRequest3"/>{event['date']}</p>
-            <p class="venue3"><FontAwesomeIcon icon={faLocationDot} id="LocationIconPendingRequest3"/> {event['startTime']}</p>
-            <p class="eventType4"><FontAwesomeIcon icon={faCalendarDays} id="EventIconPendingRequest4"/>{event['duration']}</p>
-            <p class="eventDate4"><FontAwesomeIcon icon={faCalendarDays} id="CalenderIconPendingRequest4"/>{event['crowd']}</p>
-            <p class="venue4"><FontAwesomeIcon icon={faLocationDot} id="LocationIconPendingRequest4"/> {event['place']}</p>
+
+            <p class="eventType3"><img src={eventtype} className="EventIconPendingRequest3"></img>Event Name : {event['eventName']}</p>
+            <p class="eventDate3"><FontAwesomeIcon icon={faCalendarDays} id="CalenderIconPendingRequest3"/>Date : {event['date']}</p>
+            <p class="venue3"><FontAwesomeIcon icon={faClock} id="LocationIconPendingRequest3"/> Time : {event['startTime']}</p>
+            <p class="eventType4"><img src={duration} className="EventIconPendingRequest4"></img>Duration : {event['duration']}</p>
+            <p class="eventDate4"><img src={crowd} className="CalenderIconPendingRequest4"></img>Crowd : {event['crowd']}</p>
+            <p class="venue4"><FontAwesomeIcon icon={faLocationDot} id="LocationIconPendingRequest4"/>Venue : {event['place']}</p>
 
         
              </div>
@@ -168,11 +195,11 @@ export default function BandInvoice() {
 
      
       
-      <button className='backInvoice'>Back</button>
+      <button className='backInvoice' onClick={()=>load(101)}>Back</button>
 
           
         </div>
-        
+        </div>
         
     </div>
   )

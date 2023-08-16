@@ -43,8 +43,8 @@ function App() {
           <Route path='/artist/Event' element={<ArtistEvent/>}></Route>
           <Route path='/artist/EventSpecific/:id' element={<ArtistSpecificEvent/>}></Route>
           <Route path='/artist/PendingRequestView/:id' element={<ArtistPendingRequestView/>}></Route>
-          <Route path='/artist/priorbooking/:id1/:id2' element={<ArtistPriorBooking/>}></Route>
-          <Route path='/artist/eventsOn/:mmid/:date' element={<ArtistEventOn/>}></Route>
+          <Route path='/artist/priorbooking/:id1/:id2/:id3' element={<ArtistPriorBooking/>}></Route>
+          <Route path='/artist/eventsOn/:mmid/:date/:eventId' element={<ArtistEventOn/>}></Route>
           <Route path='/band/invoice/:id' element={<BandInvoice/>}></Route> 
           <Route path='/artist/invoice/:id' element={<ArtistInvoice/>}></Route> 
 

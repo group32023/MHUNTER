@@ -4,10 +4,17 @@ import SideMenuBarArtist from '../components/common/SideMenuBar/SideMenuBarArtis
 import '../assets/css/artistPendingRequests.css'
 // import { MDBBtn } from 'mdb-react-ui-kit';
 import profileImage from '../assets/images/profilePhoto.jpeg';
+import crowd from '../assets/images/people.png';
+import duration from '../assets/images/hourglass.png';
+import eventtype from '../assets/images/eventtype.png';
+import notification from '../assets/images/notification.png'
+import home from '../assets/images/home-button.png'
+import logout from '../assets/images/logout.png'
+import kpop from '../assets/images/kpop.png'
 
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import {faPhone,faLocationDot,faList,faCalendarDays} from '@fortawesome/free-solid-svg-icons'
+import {faPhone,faLocationDot,faList,faCalendarDays,faClock} from '@fortawesome/free-solid-svg-icons'
 import { faTwitter, faFontAwesome,faFacebook,faGooglePlusG,faLinkedinIn } from '@fortawesome/free-brands-svg-icons'
 
 
@@ -20,6 +27,7 @@ export default function ArtistPendingRequests() {
   
   console.log(id);
 
+  const [expand,setExpandedSideBar] = useState(true)
   let navigate = useNavigate();
 
   useEffect(() => {
@@ -47,17 +55,19 @@ export default function ArtistPendingRequests() {
 
   }
 
-  const loadPriorBooking=(mmid, orgId)=>{
-    navigate(`/artist/priorbooking/${mmid}/${orgId}`);
+  const loadPriorBooking=(mmid, orgId, eventId)=>{
+    navigate(`/artist/priorbooking/${mmid}/${orgId}/${eventId}`);
 
   }
 
-  const loadMyEventsOn=(mmid,date)=>{
-    navigate(`/artist/eventsOn/${mmid}/${date}`);
+  const loadMyEventsOn=(mmid,date,eventId)=>{
+    navigate(`/artist/eventsOn/${mmid}/${date}/${eventId}`);
 
   }
 
-
+const loadPendingRequest=()=>{
+  navigate('/artist/PendingRequests');
+}
  
  //var eventID =event[0]['eventid'];
 
@@ -68,13 +78,22 @@ export default function ArtistPendingRequests() {
 
     
     <div>
-        <div className='artistSideBar'>
-            <SideMenuBarArtist></SideMenuBarArtist>
-            <h3 className='headerDashboard'>Pending Requests</h3>
-            <div className='notificationBg'></div>
-            <div className='homeBg'></div>
-            <div className='logoutBg'></div>
-        </div>
+        <div className='MainContainer'>
+
+       <SideMenuBarArtist setExpandedSideBar={setExpandedSideBar}></SideMenuBarArtist>
+        <div className='artistSideBarOne' id='artistSideBarOne'>
+            <p className='headerDashboard'>Pending Requests</p>
+            <div className={expand ? 'notificationBg':'notificationBg-ex'}>
+              <img src={notification} className='notificationIcon' alt='notification'></img>
+            </div>
+            <div className={expand ? 'homeBg':'homeBg-ex'}>
+              <img src={home} alt='homebtn' className='homeIcon'></img>
+            </div>
+            <div className={expand ? 'logoutBg':'logoutBg-ex'}>
+              <img src={logout} alt='logout'className='logout'></img>
+              <p className='logoutbtn'>Logout</p>
+            </div>
+          </div>
 
         <div className="requestViewContainer">
         
@@ -83,25 +102,26 @@ export default function ArtistPendingRequests() {
             <h4>{event['organizerName']}</h4>
 
             <div className='eventDetailsContainer'>
-            <p class="eventType1"><FontAwesomeIcon icon={faCalendarDays} id="EventIconPendingRequest1"/>Event Name : {event['eventName']}</p>
+            <p class="eventType1"><img src={eventtype} className="EventIconPendingRequest1"></img>Event Name : {event['eventName']}</p>
             <p class="eventDate1"><FontAwesomeIcon icon={faCalendarDays} id="CalenderIconPendingRequest1"/>Date : {event['date']}</p>
-            <p class="venue1"><FontAwesomeIcon icon={faLocationDot} id="LocationIconPendingRequest1"/> Time : {event['startTime']}</p>
-            <p class="eventType2"><FontAwesomeIcon icon={faCalendarDays} id="EventIconPendingRequest2"/>Duration : {event['duration']}</p>
-            <p class="eventDate2"><FontAwesomeIcon icon={faCalendarDays} id="CalenderIconPendingRequest2"/>Crowd : {event['crowd']}</p>
+            <p class="venue1"><FontAwesomeIcon icon={faClock} id="LocationIconPendingRequest1"/> Time : {event['startTime']}</p>
+            <p class="eventType2"><img src={duration} className="EventIconPendingRequest2"></img>Duration : {event['duration']}</p>
+            <p class="eventDate2"><img src={crowd} className="CalenderIconPendingRequest2"></img>Crowd : {event['crowd']}</p>
             <p class="venue2"><FontAwesomeIcon icon={faLocationDot} id="LocationIconPendingRequest2"/>Venue : {event['place']}</p>
 
             </div>
             
 
-            <button className="priorbookingsBtn" onClick={()=>loadPriorBooking(101,event['orgId'])}>Prior Bookings</button>
-            <button className="myEventsBtn" onClick={()=>loadMyEventsOn(101,event['date'])}>My Events</button>
+            <button className="priorbookingsBtn" onClick={()=>loadPriorBooking(101,event['orgId'],event['eventId'])}>Prior Bookings</button>
+            <button className="myEventsBtn" onClick={()=>loadMyEventsOn(101,event['date'],event['eventId'])}>My Events</button>
             <button className="acceptBtn" onClick={()=>loadInvoice(event['eventId'])}>Accept</button>
-            <button className="rejectBtn">Reject</button>
+            <button className="rejectBtn" onClick={()=>loadPendingRequest()}>Reject</button>
         </div>
         
         
       
-        
+        </div>
+
         
     </div>
   )
