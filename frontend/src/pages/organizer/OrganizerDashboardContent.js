@@ -1,6 +1,6 @@
 import React from 'react';
 import Topbar from '../../components/common/Topbar';
-import DashboardCarousel from '../../components/organizer/DashboardCarousel';
+import DashboardCarousel from '../../components/organizer/dashboardCarousel';
 import DashboardCalender from '../../components/organizer/DashboardCalender';
 // import CalenderImg from '../../assets/images/calenderImg.png'
 import '../../assets/css/OrganizerDashboard.css'

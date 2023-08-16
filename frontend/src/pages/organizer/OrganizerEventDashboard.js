@@ -14,6 +14,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 
 import profilePhoto from '../../assets/images/profilePhoto.jpeg'
 import locationDemo from '../../assets/images/locationDemo.jpeg'
+import EventBanner4 from '../../assets/images/eventbanner4.jpg'
 
 
 function OrganizerEventDashboard() {
@@ -28,40 +29,28 @@ function OrganizerEventDashboard() {
             </div>
 
             <div className="row">
-                <div className="eventDescriptionDiv  mt-4 col-md-7">
+                <div className="eventDescriptionDiv  mt-3 col-md-7">
                     <div className="row p-2 ">
-                        <div className="eventImgDiv col-md-2 mt-4">
-                            <img alt='' src={profilePhoto} width='120px' height='120px' />
+                        <div className="eventImgDiv col-md-5 mt-2">
+                            <img alt='' src={EventBanner4} width='385px' height='210px' />
                         </div>
-                        <div className="eventDescDiv col-md-10 mt-2">
+                        <div className="eventDescDiv col-md-7 mt-2"  >
                             <span className="eventDescDivSpan">BEAT BLITZ</span>
-                            <div className="row">
+                            <div className="row" style={{ display: 'flex' }}>
                                 <div className="eventDescInnerDiv col-md-10 py-2 " >
-                                    <p>
-                                        for 8-cols div
-                                        Content for 8-cols divContent for 8-cols divContent for 8-cols divContent for 8-cols div
-                                        Content for 8-cols div
-                                        Content for 8-cols div
-                                        Content for 8-cols div
-                                        Content for 8-cols div
-                                        Content for 8-cols div
-                                        Content for 8-cols div
-                                        Content for 8-cols div
-                                        Content for 8-cols div
-                                        Content for 8-cols div
-                                        Content for 8-cols div
+                                    <p style={{ textAlign: 'justify' }}>
+                                        The Ape Kalawa Concert is an energetic and diverse music event featuring renowned artists, dynamic performances, and cultural celebration. It blends modern genres, encouraging audience participation and showcasing emerging talent.
 
                                     </p>
                                 </div>
-                                <div className='col-md-1'>
-                                    <BiSolidEdit className='descriptionIcon fs-4  ' />
+                                <div className='' style={{ display: 'flex', flex: '1', padding: '0px', margin: '0px' }}>
+                                    <BiSolidEdit className='descriptionIcon fs-4 d-flex align-items-center justify-content-center ' />
+                                    <BiSolidBox className='descriptionIcon fs-4  d-flex align-items-center justify-content-center ' />
                                 </div>
-                                <div className='col-md-1 '>
-                                    <BiSolidBox className='descriptionIcon fs-4   ' />
-                                </div>
+
                             </div>
 
-                            <div className="row mt-2" style={{ fontFamily: 'MyCustomFont1' }}>
+                            <div className="row mt-2" style={{ fontFamily: 'MyCustomFont1', display: 'flex' }}>
                                 <div className="dateTimeDiv">
                                     <div className="row">
                                         <BiSolidCalendar className='dateIcon fs-1 col-md-3 ' />
@@ -91,7 +80,7 @@ function OrganizerEventDashboard() {
                     </div>
                 </div>
 
-                <div className="locationDescriptionDiv mt-4 col-md-4">
+                <div className="locationDescriptionDiv mt-3 col-md-4">
                     <div className="locationTypeDescriptionDiv">
                         <img className='img-fluid' src={locationDemo} alt='' ></img>
                     </div>
