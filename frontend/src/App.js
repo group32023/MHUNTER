@@ -8,6 +8,7 @@ import OrganizerEventDashboard from './pages/organizer/OrganizerEventDashboard'
 import ViewEvents from './pages/organizer/ViewEvents'
 import CreateEvent from './pages/organizer/CreateEvent'
 import OrganizerProfile from './pages/organizer/OrganizerProfile';
+// import SearchArtist from './pages/organizer/SearchArtist';
 
 
 import "./index.css"
@@ -44,16 +45,16 @@ function App() {
       <Router>
         <Routes>
           {/* Organizer Routes */}
-          <Route path='/' element={<OrganizerDashboard />}>
+          <Route path='/' element={<Home />}></Route>
 
-            <Route path='/organizer/dashboard' element={<OrganizerDashboardContent />}></Route>
-            <Route path='/organizer/event' element={<OrganizerEventDashboard />}></Route>
-            <Route path='/organizer/event/CreateEvent' element={<CreateEvent />}></Route>
-            <Route path='/organizer/eventhistory' element={<OrganizerEventHistory />}></Route>
-            <Route path='/organizer/complaint' element={<OrganizerComplaint />}></Route>
-            <Route path='/organizer/profile' element={<OrganizerProfile />}></Route>
+          <Route path='/organizer/dashboard' element={<OrganizerDashboardContent />}></Route>
+          <Route path='/organizer/event' element={<ViewEvents />}></Route>
+          <Route path='/organizer/event/CreateEvent' element={<CreateEvent />}></Route>
+          <Route path='/organizer/eventhistory' element={<OrganizerEventHistory />}></Route>
+          <Route path='/organizer/complaint' element={<OrganizerComplaint />}></Route>
+          <Route path='/organizer/profile' element={<OrganizerProfile />}></Route>
+          {/* <Route path='/organizer/searchartist' element={<SearchArtist />} /> */}
 
-          </Route>
 
 
           <Route path="/login" element={<Login />} />
