@@ -73,7 +73,7 @@
     color: aliceblue;
 }
 
-.eventDescriptionDiv {
+.eventmoderaDescriptionDiv  {
     margin-left: 5px;
     height: 250px;
     background-color: #2f363e;
@@ -89,14 +89,14 @@
     width: 45%;
     margin-bottom: 10px;
 }
-.LocationDiv {
+.LocationmodDiv {
     margin-left: 35px;
     height: 250px;
     background-color: #2f363e;
     border-radius: 10px;
     width: 30%;
 }
-.LocationDiv iframe{
+.LocationmodDiv iframe{
    
         position: relative;
         top: 0;
@@ -137,7 +137,7 @@
     margin-bottom: 10px;
 }
 
-.eventOrganiserDescriptionDiv
+.eventModeratorDescriptionDiv 
 {
     height: 100px;
     width: 33%;
@@ -146,7 +146,7 @@
     margin-right: 40px;
     margin-bottom: 10px;
 }
-.eventTypeDescriptionDiv {
+.eventTypeModderatorDescriptionDiv {
     height: 100px;
     width: 33%;
     background-color: #2f363e;
@@ -230,7 +230,7 @@
 
 }
 
-.eventTypeDescriptionDiv p:hover,
+.eventTypeModderatorDescriptionDiv p:hover,
 .crowdTypeDescriptionDiv p:hover,
 .dateTimeDiv p:hover {
     color: #7643D2;
@@ -348,11 +348,11 @@
   
     /* Adjust other component-specific styles for mobile */
     .ArtistDetDiv,
-    .LocationDiv,
-    .eventDescriptionDiv,
+    .LocationmodDiv,
+    .eventmoderaDescriptionDiv ,
     .Artistandband,
-    .eventOrganiserDescriptionDiv,
-    .eventTypeDescriptionDiv,
+    .eventModeratorDescriptionDiv ,
+    .eventTypeModderatorDescriptionDiv,
     .locationTypeDescriptionDiv,
     .addTypeDescriptionDiv,
     .locationDescriptionDiv,

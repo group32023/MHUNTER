@@ -1,5 +1,7 @@
 
 import React, { useState } from 'react';
+import { Routes, Route } from 'react-router-dom';
+
 import SideMenuBarModerator from '../../components/common/SideMenuBar/SideMenuBarModerator';
 import Topbar from '../../components/common/Topbar';
 import "../../assets/css/moderator/moderatorEventDashboard.css"
@@ -14,8 +16,17 @@ import { BiSolidCalendarStar } from "react-icons/bi";
 import { BiSolidPlusCircle } from "react-icons/bi";
 import { BiSolidCircle } from "react-icons/bi";
 import 'bootstrap/dist/css/bootstrap.min.css'
+import ModeratorRegistration from './registration';
+import ModeratorComplaints from './complaints';
+import ModeratorUserDetails from './userDetails';
+import ModeratorDashoboardContent from './moderatorDashoboardContent';
+import EventDetails from './eventDetails';
+import ModeratorEvent from './event';
+import ViewComplaints from './viewComplaints';
+import ProofCheck from './ProofCheck';
+import Suspenduser from './suspenduser';  
 
-function OrganizerEventDashboard() {
+function ModeratorEventDashboard() {
     const [formData, setFormData] = useState({
         name: 'Theekshana Anuradha',
         usercode: '2020',
@@ -35,8 +46,10 @@ function OrganizerEventDashboard() {
         console.log(formData);}
         
     return (
+        <>
+        <SideMenuBarModerator>
+        <Topbar/>
         <div className='moderator-body-container'>
-    <Topbar/>
 
             {/*header icon*/}
 
@@ -48,7 +61,7 @@ function OrganizerEventDashboard() {
             </div> 
             {/* name.type.crowd */}
                 <div className="detailsDiv">        
-                <div className="eventOrganiserDescriptionDiv " style={{ fontFamily: 'MyCustomFont1' }}>
+                <div className="eventModeratorDescriptionDiv " style={{ fontFamily: 'MyCustomFont1' }}>
                         <div className="p-3">
                             <div className="row " style={{ marginLeft: '30px' }} >
                                 <BiSolidCalendarStar className='dateIcon fs-1 col-md-3 ' />
@@ -62,7 +75,7 @@ function OrganizerEventDashboard() {
                         </div>
                         
                 </div> 
-                <div className="eventTypeDescriptionDiv " style={{ fontFamily: 'MyCustomFont1' }}>
+                <div className="eventTypeModderatorDescriptionDiv " style={{ fontFamily: 'MyCustomFont1' }}>
                         <div className="p-3">
                             <div className="row " style={{ marginLeft: '30px' }} >
                                 <BiSolidCalendarStar className='dateIcon fs-1 col-md-3 ' />
@@ -76,7 +89,7 @@ function OrganizerEventDashboard() {
                         </div>
                         
                 </div> 
-                    <div className="eventTypeDescriptionDiv " >
+                    <div className="eventTypeModderatorDescriptionDiv " >
                         <div className="p-3">
                             <div className="row" style={{ marginLeft: '30px' }}>
                                 <BiSolidUser className='timeIcon fs-1 col-md-3 ' />
@@ -93,7 +106,7 @@ function OrganizerEventDashboard() {
          {/* end of the div name.type.crowd */}
          {/* details about the event */}
                 <div className="detailsDiv">
-                <div className="eventDescriptionDiv  mt-4 col-md-7">
+                <div className="eventmoderaDescriptionDiv  mt-4 col-md-7">
                     <div className="row p-2 ">
                         <div className="eventImgDiv col-md-2 mt-4">
                             <img alt='' src={profilePhoto} width='120px' height='120px' />
@@ -155,7 +168,7 @@ function OrganizerEventDashboard() {
 
                     </div>
                 </div>
-                <div className="LocationDiv  mt-4 col-md-7">
+                <div className="LocationmodDiv  mt-4 col-md-7">
                  <iframe
                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.9283954771886!2d79.85487667464785!3d6.899167393100105!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae25961e5f288c9%3A0x8fa7cee7dbdd8697!2s33%2C%2023%20Queen&#39;s%20Rd%2C%20Colombo%2000300!5e0!3m2!1sen!2slk!4v1690021295416!5m2!1sen!2slk" >
                  </iframe>
@@ -249,7 +262,23 @@ function OrganizerEventDashboard() {
 
 
 </div>
+<Routes>
+          {/* Nested routes for the Organizer Dashboard */}
+          <Route path='/moderator/moderatorDashoboardContent' element={<ModeratorDashoboardContent />}></Route>
+          <Route path='/moderator/registration' element={<ModeratorRegistration />}></Route>
+          <Route path='/moderator/complaints' element={<ModeratorComplaints />}></Route>
+          <Route path='/moderator/complaints/viewComplaints' element={<ViewComplaints />}></Route>
+
+          <Route path='/moderator/userDetails' element={<ModeratorUserDetails />}></Route>
+          <Route path='/moderator/event' element={<ModeratorEvent />}></Route>
+          <Route path='/moderator/event/eventDetails' element={<EventDetails />}></Route>
+          <Route path='/moderator/registration/ProofCheck' element={<ProofCheck />}></Route>
+          <Route path='/moderator/registration/Proofcheck/suspenduser' element={<Suspenduser />}></Route>
+
+        </Routes>
+      </SideMenuBarModerator>
+          </>
     )
 }
 
-export default OrganizerEventDashboard
+export default ModeratorEventDashboard
