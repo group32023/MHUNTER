@@ -7,6 +7,10 @@ import SideMenuBarArtist from '../components/common/SideMenuBar/SideMenuBarArtis
 import '../assets/css/artistReport.css'
 import { MDBBtn } from 'mdb-react-ui-kit';
 import { useReactToPrint } from 'react-to-print'
+import notification from '../assets/images/notification.png'
+import home from '../assets/images/home-button.png'
+import logout from '../assets/images/logout.png'
+import kpop from '../assets/images/kpop.png'
 
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -17,6 +21,7 @@ import { faTwitter, faFontAwesome,faFacebook,faGooglePlusG,faLinkedinIn } from '
 
 export default function ArtistGenerateReports() {
 
+  const [expand,setExpandedSideBar] = useState(true)
 
   const navigate = useNavigate();
   const componentPDF = useRef();
@@ -112,13 +117,22 @@ export default function ArtistGenerateReports() {
 
     return (
   
-      <div className='artistContainer'>
-          <div className='artistSideBar'>
-              <SideMenuBarArtist></SideMenuBarArtist>
-              <h3 className='headerDashboard'>Reports</h3>
-              <div className='notificationBg'></div>
-              <div className='homeBg'></div>
-              <div className='logoutBg'></div>
+      <div >
+       <div className='MainContainer'>
+      
+          <SideMenuBarArtist setExpandedSideBar={setExpandedSideBar}></SideMenuBarArtist>
+        <div className='artistSideBarOne' id='artistSideBarOne'>
+            <p className='headerDashboard'>Reports</p>
+            <div className={expand ? 'notificationBg':'notificationBg-ex'}>
+              <img src={notification} className='notificationIcon' alt='notification'></img>
+            </div>
+            <div className={expand ? 'homeBg':'homeBg-ex'}>
+              <img src={home} alt='homebtn' className='homeIcon'></img>
+            </div>
+            <div className={expand ? 'logoutBg':'logoutBg-ex'}>
+              <img src={logout} alt='logout'className='logout'></img>
+              <p className='logoutbtn'>Logout</p>
+            </div>
           </div>
              <lable className='col-sm-2 col-form-label' id="dateFrom">From Date:</lable> <input type='date' className='form-control' id="fromdate" name='fromdate' placeholder='dd-mm-yyyy'  value={fromDate} onChange={(e)=>handleDateChangeFromDate(e.target.value)}></input>
              
@@ -169,7 +183,7 @@ export default function ArtistGenerateReports() {
            </div>
           
           
-          
+           </div>
       </div>
     )
 }

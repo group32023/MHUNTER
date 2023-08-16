@@ -45,13 +45,13 @@
     background-color: #7643D2 !important;
     position: relative;
     font-size: 15px;
-    width: 7%;
-    height: 30px;
+    width: 8%;
+    height: 43px;
     font-weight: bold;
     text-align: center;
     color: white;
-    left: 42%;
-    top: -40.8px;
+    left: 40%;
+    top: -48.8px;
     border-radius: 10px;
     border: none !important;
     /* box-shadow: 4px 7px 10px rgba(0, 0, 0, .4) !important; */
@@ -59,12 +59,14 @@
 
 .requestContainer{
     background-color: #3b444d;
-    height: 10%;
+    height: 15%;
     width: 70%;
     position: relative;
-    top: -597px;
+    top: -554px;
     left: 18%;
     margin-bottom: 20px;
+    border-radius: 25px;
+  
 }
 
 #LocationIconPendingRequest{
@@ -74,6 +76,8 @@
     padding-right: 5px;
 
 }
+
+
 
 #EventIconPendingRequest{
     position: relative;
@@ -109,7 +113,8 @@
     width: 60%;
     position: absolute;
     top: 140px;
-    left: 23%;
+    left: 18%;
+    border-radius: 25px;
 
 }
 
@@ -134,8 +139,8 @@
     font-weight: bold;
     text-align: center;
     color: white;
-    left: 45%;
-    top: -250px;
+    left: 46%;
+    top: -277px;
     border-radius: 10px;
     border: none !important;
 
@@ -151,7 +156,7 @@
     text-align: center;
     color: #000000 !important;
     left: 30%;
-    top: -150px;
+    top: -187px;
     border-radius: 10px;
     border: none !important;
 
@@ -211,6 +216,34 @@
 
 }
 
+
+.EventIconPendingRequest1{
+    position: relative;
+    width: 20px;
+    height: 20px;
+    left: -1px;
+    padding-right: 7px;
+    top: -2px;
+
+}
+.CalenderIconPendingRequest2{
+    position: relative;
+    width: 20px;
+    height: 20px;
+    left: -3px;
+    padding-right: 6px;
+    top: -2px;
+}
+.EventIconPendingRequest2{
+    position: relative;
+    width: 20px;
+    height: 20px;
+    left: -6px;
+    padding-right: 2px;
+    top: -2px;
+
+}
+
 #LocationIconPendingRequest1{
 
     position: relative;
@@ -219,11 +252,6 @@
 
 }
 
-#EventIconPendingRequest1{
-    position: relative;
-    left: -1%;
-    padding-right: 10px;
-}
 
 #CalenderIconPendingRequest1{
     position: relative;
@@ -240,7 +268,7 @@
 
 }
 
-#EventIconPendingRequest2{
+/* #EventIconPendingRequest2{
     position: relative;
     left: -1%;
     padding-right: 10px;
@@ -251,7 +279,7 @@
     left: -1%;
     padding-right: 10px;
 
-}
+} */
 
 .eventDate1{
     position: absolute;
