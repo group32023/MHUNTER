@@ -3,6 +3,7 @@ import { Routes, Route } from 'react-router-dom';
 import SideMenuBarOrganizer from '../../components/common/SideMenuBar/SideMenuBarOrganizer';
 import "../../assets/css/OrganizerEventDashboard.css"
 import Topbar from '../../components/common/Topbar';
+import { Link } from 'react-router-dom';
 
 import CreateEvent from './CreateEvent';
 import ViewEvents from './ViewEvents';
@@ -225,13 +226,17 @@ function OrganizerEventDashboard() {
 
                             <div className="addTypeDescriptionDiv p-2" style={{ fontFamily: 'MyCustomFont1' }}>
                                 <div className="row col-md-12 ">
+                                    <Link to="/organizer/searchartist" className='link1'>
+                                        <div className="addRow mt-2 p-2 text-center">Add Artist
+                                            <BiSolidPlusCircle className='plusIcon mx-2 fs-3' />
+                                        </div>
+                                    </Link>
+
+                                    <Link to="/organizer/searchartist">
                                     <div className="addRow p-2 mt-2 text-center">Add Band
                                         <BiSolidPlusCircle className='plusIcon mx-2 fs-3' />
                                     </div>
-
-                                    <div className="addRow mt-2 p-2 text-center">Add Artist
-                                        <BiSolidPlusCircle className='plusIcon mx-2 fs-3' />
-                                    </div>
+                                    </Link>
 
                                 </div>
                             </div>
@@ -252,14 +257,14 @@ function OrganizerEventDashboard() {
                 <Routes>
                     {/* Nested routes for the Organizer Dashboard */}
                     <Route path='/organizer/dashboard' element={<OrganizerDashboard />}></Route>
-          <Route path='/organizer/event' element={<ViewEvents />}></Route>
-          <Route path='/organizer/event/CreateEvent' element={<CreateEvent />}></Route>
-          <Route path='/organizer/eventhistory' element={<ViewEventHistory/>}></Route>
-          <Route path='/organizer/complaint' element={<OrganizerComplaint />}></Route>
-          <Route path='/organizer/profile' element={<OrganizerProfile />}></Route>
-          <Route path='/organizer/searchartist' element={<SearchArtist />} />
-          <Route path='/organizer/searchartist/viewartist' element={<ViewArtist />} />  
-          <Route path='/organizer/searchartist/viewartist/makeartistrequest' element={<MakeArtistRequest />} /> 
+                    <Route path='/organizer/event' element={<ViewEvents />}></Route>
+                    <Route path='/organizer/event/CreateEvent' element={<CreateEvent />}></Route>
+                    <Route path='/organizer/eventhistory' element={<ViewEventHistory />}></Route>
+                    <Route path='/organizer/complaint' element={<OrganizerComplaint />}></Route>
+                    <Route path='/organizer/profile' element={<OrganizerProfile />}></Route>
+                    <Route path='/organizer/searchartist' element={<SearchArtist />} />
+                    <Route path='/organizer/searchartist/viewartist' element={<ViewArtist />} />
+                    <Route path='/organizer/searchartist/viewartist/makeartistrequest' element={<MakeArtistRequest />} />
 
                 </Routes>
 
