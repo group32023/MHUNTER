@@ -95,7 +95,7 @@
     max-width: 670px;
 }
 
-.data-row {
+.complaintTableDataRow {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -141,6 +141,9 @@
 
 .complaintTableDiv .content-data-row:hover {
     opacity: 1;
+    border-width: 2px;
+    border-style: solid;
+    border-color: #7643D2;
 }
 
 .complaintTableDiv {

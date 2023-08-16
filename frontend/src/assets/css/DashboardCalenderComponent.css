@@ -1,0 +1,34 @@
+/* CalendarComponent.css */
+
+/* Change the background color of the calendar container */
+.react-calendar {
+    background-color: #1c2126;
+    color: #ffffff;
+    border: none;
+    height: 260px;
+    width: auto;
+    font-size: 12px;
+
+}
+
+/* Change the background color of the days in the calendar */
+.react-calendar__tile {
+    background-color: #2f363e;
+}
+
+/* Change the background color of the selected day */
+.react-calendar__tile--active {
+    background-color: #7643D2;
+    color: #ffffff;
+    /* Set text color for better visibility */
+}
+
+.react-calendar__navigation button {
+    background-color: #2f363e;
+    color: #ffffff;
+}
+
+.react-calendar__tile:enabled:hover,
+.react-calendar__tile:enabled:focus {
+    background-color: #1c2126;
+}

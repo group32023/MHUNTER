@@ -18,116 +18,49 @@
     /* src: url('../../../assets/icons/dashboard.png') format('truetype'); */
     /* Add other font file formats and their paths here */
 }
-.formHeading{
-    font-family: 'MyCustomFont2';
-    font-size: 30px;
-    color:antiquewhite;
-    font-weight: 600;
-    margin-bottom: 20px;
-}
-.bgimage-admin {
-    background-image: url("../../assets/images/band.jpg");
-    background-size: cover;
-    background-position: center;
-    background-color: rgba(0, 0, 0, 0.5);
-    background-blend-mode: multiply;
-  }
-  .main-container{
-      display: flex;
-  }
-  .body-container{
-      padding-top: 10px;
-      margin-left: 5rem;
-      padding-left: 10px;
-      background: #24292D;
-      width: 1440px;
-      height: 716px;
-  }
-  
-  .header-admin {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 20px;
-  
-    }
-    
-    .header-title {
-      color: #FAECFA;
-      flex-grow: 1; 
-      margin-bottom: 30px;
-    }
+
 .eventDashboard_content_container {
     color: white;
 }
 
 .horizontalLine {
     background-color: #2f363e;
-    margin-bottom: 20px;
 
 }
 
 .horizontalLine span {
     margin-left: 40px;
-    color: aliceblue;
 }
 
 .eventDescriptionDiv {
-    margin-left: 5px;
-    height: 250px;
-    background-color: #2f363e;
-    border-radius: 10px;
-    width: 64%;
-}
-.ArtistDetDiv{
-    margin-left: 25px;
-    height: 540px;
-    background-color: #2f363e;
-    border-radius: 10px;
-    width: 45%;
-    margin-bottom: 10px;
-}
-.LocationDiv {
     margin-left: 35px;
-    height: 250px;
+    height: 240px;
     background-color: #2f363e;
     border-radius: 10px;
-    width: 30%;
-}
-.LocationDiv iframe{
-   
-        position: relative;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        border-radius: 10px; /* Optional: Remove iframe border */
-      
+    width: 70%;
 }
 
 .eventImgDiv img {
-    border-radius: 50%;
+    border-radius: 10px;
+
 }
 
 .eventDescDivSpan {
-    font-size: 18px;
-    color: #F70F5D;
+    font-size: 19px;
+    color: #11FE70;
     font-weight: 600;
 }
 
 .eventDescDiv .eventDescInnerDiv {
-    background-color: #1c2126;
+    /* background-color: #1c2126; */
     border-radius: 10px;
     height: 110px;
-    opacity: 0.7;
+    opacity: 0.9;
     overflow-y: hidden;
+    flex: 15;
 }
-.eventDescInnerDiv {
-    color:aliceblue; /* Replace with your desired color value */
-  }
 
-.addTypeDescriptionDiv,
-.locationTypeDescriptionDiv {
+.addTypeDescriptionDiv {
     height: 130px;
     background-color: #2f363e;
     border-radius: 10px;
@@ -135,44 +68,26 @@
     margin-bottom: 10px;
 }
 
-.eventOrganiserDescriptionDiv
-{
-    height: 100px;
-    width: 33%;
-    background-color: #2f363e;
-    border-radius: 10px;
-    margin-right: 40px;
+.locationTypeDescriptionDiv {
+    height: 130px;
+    margin-right: 0px;
     margin-bottom: 10px;
 }
+
+
+.crowdTypeDescriptionDiv,
 .eventTypeDescriptionDiv {
     height: 100px;
-    width: 33%;
     background-color: #2f363e;
     border-radius: 10px;
-    margin-right: 40px;
+    margin-right: 0px;
     margin-bottom: 10px;
 }
-.detailsDiv
-{
-    display: flex;
-    flex-direction: row;
-    max-width: 100%;
-    margin-left: 25px;
-}
-.Artistandband{
-    display: flex;
-    flex-direction: row;
-    max-width: 100%;
-    margin-left: 0px;
-}
+
 .btnTypeDescriptionDiv {
     height: 70px;
 }
-/* Try a more specific selector */
-.white-text-row input[type="text"] {
-    color: white;
-  }
-  
+
 .requestTypeDescriptionDiv {
     margin-left: 35px;
     height: 310px;
@@ -206,12 +121,24 @@
     height: auto;
     margin-left: 5px;
     width: 25%;
+    position: relative;
+    overflow: hidden;
+}
+
+.locationDescriptionDiv img {
+    position: absolute;
+    object-fit: cover;
+    height: auto;
+    width: 93%;
+    border-radius: 10px;
+    cursor: pointer;
 }
 
 .descriptionIcon {
     color: white;
     opacity: 0.7;
     margin-left: 15px;
+    flex: 1;
 }
 
 .descriptionIcon:hover {
@@ -220,11 +147,12 @@
 
 .dateTimeDiv {
     background-color: #3e454c;
-    opacity: 0.8;
+    opacity: 0.9;
     border-radius: 10px;
     height: 70px;
     margin-right: 10px;
     width: 48.5%;
+    flex: 1;
 
 }
 
@@ -244,48 +172,103 @@
     color: #F70F5D;
 }
 
-/* Responsive adjustments */
-@media (min-width: 768px) {
-    .body-container {
-      padding-left: 1rem;
-      padding-right: 1rem;
-      width: 100%;
-      max-width: 1440px;
-      margin: 0 auto;
-    }
-  
-    /* Adjust other component-specific styles here */
-  }
-  
-  /* Mobile adjustments */
-  @media (max-width: 767px) {
-    .body-container {
-      padding-left: 0;
-      padding-right: 0;
-      max-width: 100%;
-    }
-  
-    /* Adjust other component-specific styles for mobile */
-    .ArtistDetDiv,
-    .LocationDiv,
-    .eventDescriptionDiv,
-    .Artistandband,
-    .eventOrganiserDescriptionDiv,
-    .eventTypeDescriptionDiv,
-    .locationTypeDescriptionDiv,
-    .addTypeDescriptionDiv,
-    .locationDescriptionDiv,
-    .descriptionIcon,
-    .dateTimeDiv {
-      width: 100%;
-      margin-left: 0;
-      margin-right: 0;
-      margin-bottom: 20px;
-    }
-  }
-  
-  
-  
-  
-  
-  
+.dateIcon:hover,
+.timeIcon:hover {
+    color: white;
+}
+
+.addTypeDescriptionDiv .addRow {
+    background-color: #3e454c;
+    margin-left: 12px;
+    border-radius: 10px;
+}
+
+.addRow .plusIcon {
+    color: #1c2126;
+}
+
+.addRow:hover .plusIcon {
+    color: #7643D2;
+}
+
+.addRow:hover {
+    background-color: #1c2126;
+    cursor: pointer;
+}
+
+.btnTypeDescriptionDiv button {
+    margin-left: 21px;
+    font-size: 16px;
+    border-radius: 10px;
+    height: 50px;
+    border: none;
+    color: white;
+    opacity: 0.7;
+}
+
+.btnTypeDescriptionDiv button:hover {
+    opacity: 0.9;
+}
+
+.cancelBtn {
+    background-color: red;
+}
+
+.resheduleBtn {
+    background-color: green;
+}
+
+.requestTableDiv {
+    flex-direction: column;
+}
+
+.requestTableDiv .row {
+    display: flex;
+    width: 100%;
+    margin-top: 5px;
+}
+
+.requestTableDiv .column {
+    flex: 1;
+    padding: 8px;
+    text-align: center;
+    justify-content: center;
+}
+
+.requestTableDiv .content {
+    padding: 10px;
+    text-align: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.requestTableDiv .headerContent {
+    background-color: #1c2126;
+    opacity: 0.8;
+    border-radius: 10px;
+
+}
+
+.requestTableDiv .headerContent:hover {
+    opacity: 1;
+}
+
+.requestTableDiv .confirmed {
+    color: #11FE70;
+    font-weight: bolder;
+}
+
+.requestTableDiv .tableContent {
+    background-color: #3f4851;
+    border-radius: 10px;
+    opacity: 0.86;
+}
+
+.requestTableDiv .tableContent:hover {
+    opacity: 1;
+}
+
+.tableContent img {
+    border-radius: 50%;
+}

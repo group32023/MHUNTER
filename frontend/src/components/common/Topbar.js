@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { AiOutlineLogout, AiOutlineBell, AiOutlineUser } from 'react-icons/ai';
 import styled, { css } from 'styled-components';
-import {Link} from 'react-router-dom';
 
 
 const TopbarContainer = styled.div`
@@ -69,11 +68,9 @@ const Topbar = () => {
       <IconContainer onClick={handleProfile} active={profileActive}>
         <AiOutlineUser size={30}></AiOutlineUser>
       </IconContainer>
-      <Link to={"/"}>
       <IconContainer onClick={handleLogout} active={false} >
         <AiOutlineLogout size={30}></AiOutlineLogout>
       </IconContainer>
-      </Link>
     </TopbarContainer>
   );
 
