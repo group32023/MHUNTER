@@ -1,7 +1,7 @@
 
 
  
-  .create-event-container .create-event-form{
+  .artist-request-container .artist-request-form{
     
     color: aliceblue;
     background-color: #484E55;
@@ -12,20 +12,20 @@
     border-radius: 10px;
   }
   
-  .create-event-container .create-event-form h2{
+  .artist-request-container .artist-request-form h2{ 
     
    text-align: center;
   }
   
-   .create-event-form .form-group {
+   .artist-request-form .form-group {
     margin-bottom: 20px;
   }
   
-  .create-event-form .form-label {
+  .artist-request-form .form-label {
     font-weight: 400;
   }
   
-   .create-event-form .form-control {
+   .artist-request-form .form-control {
     width: 100%;
     padding: 8px;
     border: 1px solid white;
@@ -36,7 +36,7 @@
   }
 
 
-   .create-event-form .form-select {
+   .artist-request-form .form-select {
     width: 100%;
     padding: 8px;
     border: 1px solid #ccc;
@@ -46,25 +46,17 @@
     color: white;
   }
 
-   .create-event-form button{
+   .artist-request-form button{
 
     margin-left: 15rem;
     margin-top: 1rem;
     background-color: #F70F5D;
-    opacity: 0.8;
     color: white;
     border-radius: 10px;
     width: 10rem;
   }
 
-  .create-event-form button:hover{
-
-    background-color: #F70F5D ;
-    opacity: 1;
-  
-  }
-
-  .create-event-form button::after{
+  .artist-request-form button:hover{
 
     margin-left: 15rem;
     margin-top: 1rem;
@@ -73,27 +65,27 @@
     width: 10rem;
   }
 
-  .create-event-form .form-control::placeholder {
+  .artist-request-form .form-control::placeholder {
    color:#a09d9d;
   }
 
 
-   .create-event-form input[type="date"]::-webkit-calendar-picker-indicator {
+   .artist-request-form input[type="date"]::-webkit-calendar-picker-indicator {
     filter: invert(1); /* This inverts the icon color; you can also use "grayscale(1)" or any other filter you prefer */
   }
   
   /* Time input field icon color */
-   .create-event-form input[type="time"]::-webkit-calendar-picker-indicator {
+   .artist-request-form input[type="time"]::-webkit-calendar-picker-indicator {
     filter: invert(1); /* This inverts the icon color; you can also use "grayscale(1)" or any other filter you prefer */
   }
 
-   .create-event-form .standalone-searchbox > input {
+   .artist-request-form .standalone-searchbox > input {
     background-color: black; /* Replace "your-color" with the desired background color for the search bar */
     color: black; /* Replace "your-text-color" with the desired text color for the search bar */
     border: 1px solid  ; /* Replace "your-border-color" with the desired border color for the search bar */
     border-radius: 20px; /* Set the border radius to round the corners */
     padding: 8px; /* Set the padding around the input field */
-  }  
+  }
 
 
 
@@ -105,54 +97,3 @@
 
 
  
-
-  /* .mainContainer-NX form{
-    
-    color: aliceblue;
-    background-color: #484E55;
-    margin-left: 15rem;
-    width: 500px;
-    border: 2px black solid;
-    padding: 2rem;
-    border-radius: 10px;
-  }
-  
-  .mainContainer-NX form h2{
-    
-   text-align: center;
-  }
-  
-
-  .mainContainer-NX form .form-control {
-    width: 100%;
-    padding: 8px;
-    border: 1px solid white;
-    background-color: #24292D;
-    border-radius: 12px;
-    color: white;
-  
-  }
-
-
-  .mainContainer-NX form .form-select {
-    width: 100%;
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    background-color: #24292D;
-    border-radius: 12px;
-    color: white;
-  }
-
-  .mainContainer-NX form button{
-
-    margin-left: 15rem;
-    margin-top: 1rem;
-    background-color: #F70F5D;
-    border-radius: 10px;
-    width: 10rem;
-  }
-
-  .mainContainer-NX form .form-control::placeholder {
-   color:#a09d9d;
-  } */

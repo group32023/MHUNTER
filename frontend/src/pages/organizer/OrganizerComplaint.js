@@ -7,11 +7,16 @@ import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 
 import OrganizerDashboard from './OrganizerDashboard';
-import OrganizerEventHistory from './OrganizerEventHistory';
-import OrganizerProfile from './OrganizerProfile';
 import OrganizerEventDashboard from './OrganizerEventDashboard';
-import ViewEvents from "./ViewEvents";
+import ViewEvents from './ViewEvents';
 import CreateEvent from './CreateEvent';
+import ViewEventHistory from './ViewEventHistory';
+import OrganizerProfile from './OrganizerProfile';
+import SearchArtist from './SearchArtist';
+import ViewArtist from './ViewArtist';
+import MakeArtistRequest from './MakeArtistRequest';
+
+
 
 
 function OrganizerComplaint() {
@@ -127,10 +132,12 @@ function OrganizerComplaint() {
                     <Route path='/organizer/dashboard' element={<OrganizerDashboard />}></Route>
                     <Route path='/organizer/event' element={<ViewEvents />}></Route>
                     <Route path='/organizer/event/eventdashboard' element={<OrganizerEventDashboard />}></Route>
-                    <Route path='/organizer/event/createevent' element={<CreateEvent />}></Route>
-                    <Route path='/organizer/eventhistory' element={<OrganizerEventHistory />}></Route>
-                    <Route path='/organizer/complaint' element={<OrganizerComplaint />}></Route>
+                    <Route path='/organizer/event/CreateEvent' element={<CreateEvent />}></Route>
+                    <Route path='/organizer/eventhistory' element={<ViewEventHistory />}></Route>
                     <Route path='/organizer/profile' element={<OrganizerProfile />}></Route>
+                    <Route path='/organizer/searchartist' element={<SearchArtist />} />
+                    <Route path='/organizer/searchartist/viewartist' element={<ViewArtist />} />
+                    <Route path='/organizer/searchartist/viewartist/makeartistrequest' element={<MakeArtistRequest />} />
 
                 </Routes>
 

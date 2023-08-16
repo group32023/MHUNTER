@@ -4,13 +4,15 @@ import SideMenuBarOrganizer from '../../components/common/SideMenuBar/SideMenuBa
 import "../../assets/css/OrganizerEventDashboard.css"
 import Topbar from '../../components/common/Topbar';
 
-import OrganizerDashboard from './OrganizerDashboard';
-import OrganizerEventHistory from './OrganizerEventHistory';
-import OrganizerProfile from './OrganizerProfile';
-// import OrganizerEventDashboard from './OrganizerEventDashboard';
-import ViewEvents from "./ViewEvents";
 import CreateEvent from './CreateEvent';
+import ViewEvents from './ViewEvents';
+import ViewEventHistory from './ViewEventHistory';
 import OrganizerComplaint from './OrganizerComplaint';
+import OrganizerProfile from './OrganizerProfile';
+import SearchArtist from './SearchArtist';
+import ViewArtist from './ViewArtist';
+import MakeArtistRequest from './MakeArtistRequest';
+import OrganizerDashboard from './OrganizerDashboard';
 
 import { BiSolidEdit } from "react-icons/bi";
 import { BiSolidBox } from "react-icons/bi";
@@ -250,12 +252,14 @@ function OrganizerEventDashboard() {
                 <Routes>
                     {/* Nested routes for the Organizer Dashboard */}
                     <Route path='/organizer/dashboard' element={<OrganizerDashboard />}></Route>
-                    <Route path='/organizer/event' element={<ViewEvents />}></Route>
-                    <Route path='/organizer/event/eventdashboard' element={<OrganizerEventDashboard />}></Route>
-                    <Route path='/organizer/event/createevent' element={<CreateEvent />}></Route>
-                    <Route path='/organizer/eventhistory' element={<OrganizerEventHistory />}></Route>
-                    <Route path='/organizer/complaint' element={<OrganizerComplaint />}></Route>
-                    <Route path='/organizer/profile' element={<OrganizerProfile />}></Route>
+          <Route path='/organizer/event' element={<ViewEvents />}></Route>
+          <Route path='/organizer/event/CreateEvent' element={<CreateEvent />}></Route>
+          <Route path='/organizer/eventhistory' element={<ViewEventHistory/>}></Route>
+          <Route path='/organizer/complaint' element={<OrganizerComplaint />}></Route>
+          <Route path='/organizer/profile' element={<OrganizerProfile />}></Route>
+          <Route path='/organizer/searchartist' element={<SearchArtist />} />
+          <Route path='/organizer/searchartist/viewartist' element={<ViewArtist />} />  
+          <Route path='/organizer/searchartist/viewartist/makeartistrequest' element={<MakeArtistRequest />} /> 
 
                 </Routes>
 
