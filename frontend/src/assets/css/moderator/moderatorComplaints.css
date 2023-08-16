@@ -8,13 +8,10 @@
 .main-container{
   display: flex;
 }
-.body-container{
-  padding-top: 10px;
-  margin-left: 5rem;
-  padding-left: 10px;
-  background: #24292D;
-  width: 1440px;
-  height: 716px;
+.moderator-body-container{
+ 
+  height: 316px;
+  width: auto;
 }
 
 
@@ -31,7 +28,7 @@
     flex-grow: 1; 
   }
   /* Styling for the table */
-.data-table {
+.data-table-complaints {
   border-collapse: collapse;
   width: 90%;
   border-radius: 10px;
@@ -40,7 +37,7 @@
 }
 
 /* Styling for the table headings */
-.data-table th {
+.data-table-complaints th {
   background-color: #333;
   color: white;
   padding: 5px;
@@ -52,7 +49,7 @@
 
 
 /* Styling for table rows */
-.data-row1{
+.data-row-complaints{
   background-color:  #2f363edf;
   border: 14px solid #5F5C5C; /* Apply border for all sides */
   border-radius: 50px; /* Apply rounded border to the whole row */
@@ -61,7 +58,7 @@
 }
 
 /* Styling for table cells */
-.data-row1 td {
+.data-row-complaints td {
   text-align: center;
   font-size: 17px;
   
@@ -70,7 +67,7 @@
 }
 
 /* Styling for the "View" button */
-.data-name{
+.data-name-complaints{
   color:rgb(250, 250, 250);
 
 }
@@ -86,15 +83,15 @@
   
   }
 
-.data-name-Completed {
+.data-name-complaints-Completed {
   color: #11FE70;
 }
 
-.data-name-Pending {
+.data-name-complaints-Pending {
   color: #F20C0C;
 }
 
-.data-name-Checking {
+.data-name-complaints-Checking {
   color: #7643D2;
 }
 
@@ -158,7 +155,7 @@ margin-top: 10px;}
   width: 80%;
   margin-left: 150px;
 }
-/* moderator dash */
+/* moderator dashboard */
 
 .moderatorWebPoster{
   width: 680px;
@@ -170,7 +167,7 @@ margin-top: 10px;}
 }
 
 .moderatorWebPoster-exp{
-  width: 389px;
+  width: 680px;
   height: 245px;
   border-radius: 15px;
   background: linear-gradient(180deg, #7643D2 5.21%, rgba(118, 67, 210, 0.19) 100%);
@@ -192,10 +189,12 @@ margin-top: 10px;}
 .moderatorWebPoster-exp p{
   color: #FFF;
   font-family: Inter;
-  font-size: 31px;
+  font-size: 41px;
   font-style: normal;
   font-weight: 800;
   line-height: normal;
+  margin-bottom: 40px;
+
 }
 
 .moderatorWebPoster span{
@@ -218,13 +217,14 @@ margin-top: 10px;}
   height: 204px;
   color: #FFF;
   font-family: 'Lobster Two', cursive;
-  font-size: 23px;
+  font-size: 20px;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
   display: inline-block;
-  margin-left: -228px;
-  margin-top: 36px;
+  text-align: justify;
+  margin-top: 21px;
+  margin-left: -70px;
 }
 
 .webPostImage2{
@@ -234,56 +234,10 @@ margin-top: 10px;}
   margin-right: 70px;
 }
 
-/* Calendar */
-.react-calendar {  /*header of calender*/
-  max-width: auto;
-  max-height: auto;
-  margin: 0 auto;
-  background-color: #2f363e; 
-  font-family: Arial, sans-serif;
-  border-radius: 10px;
 
-}
-.react-calendar__tile {  /*dates of calender*/
-  text-align: center;
-  background-color: #2f363e;
-  color: #FAECFA;
-  border: none;
-  border-radius: 10px;
 
-}
-.react-calendar__month-view__weekdays__weekday {
-  font-weight: bold;
-  color: #FAECFA;
-  
-  
-}
-.react-calendar__month-view__days__day--neighboringMonth { /*other month */
-  color: #b5b4b4;
 
-}
-.react-calendar__tile--active { /*today*/
-  background-color: #7643d2;
-  color: #fff;
-  border: none;
-  
-}
-.react-calendar__navigation {
-  color: #2f363e;
-}
-.react-calendar__navigation__label {  /*name of month*/
-  font-size: 12px;
-  border: none;
-  background-color: #24292D;
-  color: #FAECFA;
-  border-radius: 10px;
-  padding-left: 10px;
-  padding-right: 10px;
-}
-.react-calendar__navigation button:enabled:hover,
-.react-calendar__navigation button:enabled:focus {
-  background-color: #7643d2;
-}
+
 .Moderator-calendar .react-calendar__navigation__arrow {
   font-size: 14px;
   cursor: pointer;
@@ -292,37 +246,15 @@ margin-top: 10px;}
   border-radius: 50px;
 }
 .moderator-cal{
+
   margin-top: -250px;
-  margin-left: 870px;
+  margin-left: 848px;
+  margin-right: auto;
 
 }
-@media (max-width: 400px) {
-  /* Adjust styles for smaller screens */
-  .react-calendar {
-    max-width: 100%; /* Take full width on small screens */
-    margin: 0; /* Remove margin on small screens */
-  }}
-  
-@media (min-width: 601px) and (max-width: 1200px) {
-  /* Adjust styles for medium-sized screens */
-  .moderator-cal {
-    margin-top: 40px; /* Adjust as needed */
-    max-width: 800px; /* Increase width for medium screens */
-  }
 
-  /* Adjust other styles as needed */
-}
 
-@media (min-width: 1201px) {
-  /* Adjust styles for larger screens */
-  .moderator-cal {
-    margin-top: -250px;
-    margin-left: 850px;
-    max-width: none; /* Reset width for larger screens */
-  }
 
-  /* Adjust other styles as needed */
-}
 
 /* /Calender */
 
@@ -332,22 +264,22 @@ margin-top: 10px;}
   border-radius: 15px;
   background: #3B444D;
   position: relative;
-  top: -5%;
+  top: 2%;
   left: 3.5%;
-  margin-top: -2%;
+  margin-top:-5%;
   margin-left: 2.3%;
 }
 
 .moderatorUpcommingEvent-ex{
-  width: 581px;
-  height: 281px;
+  width: 668px;
+  height: 294px;
   border-radius: 15px;
   background: #3B444D;
   position: relative;
-  top: 3%;
-  left: 48.3%;
-  margin-top: -19.3%;
-  margin-left: -2.4%;
+  top: 2%;
+  left: 3.5%;
+  margin-top:-5%;
+  margin-left: 2.3%;
 }
 
 .moderatorUpcommingEvent-ex .eventDescripition{
@@ -381,20 +313,18 @@ margin-top: 10px;}
   background: #3B444D;
   position: relative;
   left: 48%;
-  margin-top: -240px;
+  margin-top: -200px;
   margin-left: 160px;
 }
 .moderatorpendingRequestDiv-exp{
-  width: 366px;
-  height: 110px;
+  width: 480px;
+  height: 139px;
   border-radius: 15px;
   background: #3B444D;
   position: relative;
-  top: 4.4%;
   left: 48%;
-  margin-top: -240px;
-  margin-left: -197px;
-
+  margin-top: -200px;
+  margin-left: 160px;
 }
 
 .moderatorpendingRequestDiv-exp .monthlyRequestPersontage{
@@ -420,14 +350,14 @@ margin-top: 10px;}
   margin-left: 160px;
 }
 .moderatorpendingomplaintsDiv-exp{
-  width: 366px;
-  height: 110px;
+  width: 480px;
+  height: 139px;
   border-radius: 15px;
   background: #3B444D;
   position: relative;
   left: 48%;
   margin-top: 20px;
-  margin-left: -197px;
+  margin-left: 160px;
 
 }
 
@@ -442,8 +372,87 @@ margin-top: 10px;}
   top: 58%;
   left: 80%;
 }
-/* admin */
+.moderatorregisterOverview{
+  width: 670px;
+  height: 281px;
+  border-radius: 15px;
+  background: #3B444D;
+  position: relative;
+  top: 1%;
+  left: 5.7%;
+  margin-top: -50px;
+}
 
+.moderatorregisterOverview-exp{
+  width: 579px;
+  height: 281px;
+  border-radius: 15px;
+  background: #3B444D;
+  position: relative;
+  top: 3%;
+  left: 6.5%;
+  margin-top: 107.5px;
+}
+.moderatorregisterOverviewHeader {
+  color: #FFF;
+  font-family: 'Blinker', sans-serif;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin-top: 1%;
+  margin-left: -40%;
+}
+.moderatorregisterOverview  .moderatorregisterOverviewHeader {
+  color: #FFF;
+  font-family:'Blinker', sans-serif;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  padding-top: 20px;
+  margin-top: 1%;
+  margin-left: -43%;
+}
+
+.moderatorregisterOverview-exp .apexcharts-svg.apexcharts-zoomable.hovering-pan{
+  width: 535px !important;
+}
+
+.moderatorregisterOverview .apexcharts-svg.apexcharts-zoomable.hovering-zoom{
+  width: 535px !important;
+  margin-left: -2px !important;
+}
+
+.moderatorregisterOverview-exp .apexcharts-canvas{
+  width: 535px !important;
+
+}
+
+.moderatorregisterOverview-exp .apexchartsbasic-bar{
+  width: 535px !important;
+
+}
+
+.moderatorregisterOverview-exp .apexcharts-theme-light{
+  width: 535px !important;
+
+}
+
+.moderatorregisterOverview-exp .apexcharts-svg{
+  width: 535px !important;
+}
+
+.moderatorregisterOverview-exp .apexcharts-zoomable {
+  width: 535px !important;
+}
+
+.moderatorregisterOverview-exp .hovering-zoom{
+  width: 535px !important;
+}
+
+
+/* moderator dash end */
 /*Search Bar */
 .search-bar{
 width: 30%;
@@ -501,29 +510,6 @@ height:fit-content;
 
 }
 
-@media screen and (max-width: 1000px) {
-.search-bar{
-  width: 50%;
-}
-.data-row{
-  margin: 10px 20px 5px;
-}
-.data-button .btn-primary{
-  width: 60px;
-}
-.data-name{
-  margin-right: 10%;
-  font-size: larger;
-}
-.data-memberType{
-  margin-right: 10%;
-  font-size: larger;
-}
-.data-Email{
-  margin-right: 10%;
-  font-size: larger;
-}
-}
 /* /Registration */
 
 /*View Detail- Proof Check */
@@ -607,11 +593,7 @@ margin: 0px 40% 0px;
 /* /View Detail- Proof Check */
 
 /* Media query for smaller screens */
-@media (max-width: 768px) {
-  .moderatorpendingRequestDiv-exp .monthlyRequestPersontage {
-    font-size: 6vw; /* Adjust font size for smaller screens */
-  }
-}
+
 
 /* Pagination styling */
 .pagination {
@@ -620,7 +602,7 @@ margin: 0px 40% 0px;
   justify-content: center;
   align-items: center;
   margin-top: 20px;
-  width: 25%;
+  width: fit-content;
   height: 40px;
   margin-left: 520px;
   border: 1.5px solid #7643d2;
@@ -631,7 +613,6 @@ margin: 0px 40% 0px;
   display: inline-block;
   font-size: 20px;
   color: white;
-  width: 101px;
   height: 22px;
   flex-direction: column;
   flex-shrink: 0;
@@ -639,8 +620,9 @@ margin: 0px 40% 0px;
   font-family: Inter;
   font-style: normal;
   font-weight: 800;
+  margin-left: 30px;
+  margin-right: 30px;
   line-height: normal;
-  padding-right: 22px;
 }
 
 .pagination li.active2 {
@@ -667,82 +649,5 @@ margin: 0px 40% 0px;
 }
 
 
-.moderatorregisterOverview{
-  width: 670px;
-  height: 281px;
-  border-radius: 15px;
-  background: #3B444D;
-  position: relative;
-  top: 2%;
-  left: 5.7%;
-  margin-top: -40px;
-}
 
-.moderatorregisterOverview-exp{
-  width: 579px;
-  height: 281px;
-  border-radius: 15px;
-  background: #3B444D;
-  position: relative;
-  top: 3%;
-  left: 6.5%;
-  margin-top: 117.5px;
-}
-.moderatorregisterOverviewHeader {
-  color: #FFF;
-  font-family: 'Blinker', sans-serif;
-  font-size: 24px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
-  margin-top: 1%;
-  margin-left: -40%;
-}
-.moderatorregisterOverview  .moderatorregisterOverviewHeader {
-  color: #FFF;
-  font-family:'Blinker', sans-serif;
-  font-size: 24px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
-  padding-top: 20px;
-  margin-top: 1%;
-  margin-left: -43%;
-}
-
-.moderatorregisterOverview-exp .apexcharts-svg.apexcharts-zoomable.hovering-pan{
-  width: 535px !important;
-}
-
-.moderatorregisterOverview .apexcharts-svg.apexcharts-zoomable.hovering-zoom{
-  width: 535px !important;
-  margin-left: -2px !important;
-}
-
-.moderatorregisterOverview-exp .apexcharts-canvas{
-  width: 535px !important;
-
-}
-
-.moderatorregisterOverview-exp .apexchartsbasic-bar{
-  width: 535px !important;
-
-}
-
-.moderatorregisterOverview-exp .apexcharts-theme-light{
-  width: 535px !important;
-
-}
-
-.moderatorregisterOverview-exp .apexcharts-svg{
-  width: 535px !important;
-}
-
-.moderatorregisterOverview-exp .apexcharts-zoomable {
-  width: 535px !important;
-}
-
-.moderatorregisterOverview-exp .hovering-zoom{
-  width: 535px !important;
-}
 

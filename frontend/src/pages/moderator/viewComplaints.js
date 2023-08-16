@@ -1,22 +1,32 @@
 import React, { useState } from 'react'
+import { Routes, Route } from 'react-router-dom';
+
 import SideMenuBarModerator from '../../components/common/SideMenuBar/SideMenuBarModerator'
 import Topbar from '../../components/common/Topbar'
 import '../../assets/css/moderator/moderatorComplaints.css'
 import 'bootstrap/dist/css/bootstrap.min.css'; // Import Bootstrap CSS
 import profilePhoto from '../../assets/images/profilePhoto.jpeg'
-
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import band from '../../assets/images/band.jpg'
-
+import ModeratorRegistration from './registration';
+import ModeratorComplaints from './complaints';
+import ModeratorUserDetails from './userDetails';
+import ModeratorDashoboardContent from './moderatorDashoboardContent';
+import EventDetails from './eventDetails';
+import ModeratorEvent from './event';
+import ViewComplaints from './viewComplaints';
+import ProofCheck from './ProofCheck';
+import Suspenduser from './suspenduser';  
 function AllUserDetails() {
     
   return (
+    <>
+    <SideMenuBarModerator>
+    <Topbar/>
     <div className='moderator-body-container'>
- 
 
-            {/*header icon*/}
             <div className='header-admin'>
 
                 <div className='header-title'>
@@ -25,7 +35,7 @@ function AllUserDetails() {
 
             </div>
             <div className="Complaincontainer" >
-      <div className="row">
+      <div className="complaint row">
         <div className="col-5">
           <h2>Complaint Details</h2>
           <br></br>
@@ -64,6 +74,22 @@ function AllUserDetails() {
             
 
         </div> 
+        <Routes>
+          {/* Nested routes for the Organizer Dashboard */}
+          <Route path='/moderator/moderatorDashoboardContent' element={<ModeratorDashoboardContent />}></Route>
+          <Route path='/moderator/registration' element={<ModeratorRegistration />}></Route>
+          <Route path='/moderator/complaints' element={<ModeratorComplaints />}></Route>
+          <Route path='/moderator/complaints/viewComplaints' element={<ViewComplaints />}></Route>
+
+          <Route path='/moderator/userDetails' element={<ModeratorUserDetails />}></Route>
+          <Route path='/moderator/event' element={<ModeratorEvent />}></Route>
+          <Route path='/moderator/event/eventDetails' element={<EventDetails />}></Route>
+          <Route path='/moderator/registration/ProofCheck' element={<ProofCheck />}></Route>
+          <Route path='/moderator/registration/Proofcheck/suspenduser' element={<Suspenduser />}></Route>
+
+        </Routes>
+      </SideMenuBarModerator>
+          </>
   )
 }
 

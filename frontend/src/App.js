@@ -41,6 +41,18 @@ import AdminReport from './pages/admin/AdminReport';
 import AdminSettings from './pages/admin/AdminSettings';
 import OrganizerSignup from './pages/OrganizerSignup';
 import UserDetails from './pages/admin/UserDetails';
+import AdminEvents from './pages/admin/AdminEvents';
+import AdminEventDashboard from './pages/admin/AdminEventDashboard';
+
+import ModeratorDashoboardContent from './pages/moderator/moderatorDashoboardContent';
+import ModeratorRegistration from './pages/moderator/registration';
+import ModeratorComplaints from './pages/moderator/complaints';
+import ModeratorUserDetails from './pages/moderator/userDetails';
+import ModeratorProofCheck from './pages/moderator/ProofCheck';
+import EventDetails from './pages/moderator/eventDetails';
+import ViewComplaints from './pages/moderator/viewComplaints';
+import ModeratorEvent from "./pages/moderator/event";
+import Suspenduser from './pages/moderator/suspenduser';
 function App() {
   return (
 
@@ -83,6 +95,21 @@ function App() {
           <Route path='/admin/userdetails/viewdetails' element={<ViewUserDetails />} />
           <Route path='/admin/report' element={<AdminReport />} />
           <Route path='/admin/settings' element={<AdminSettings />} />
+          <Route path='/admin/event' element={<AdminEvents />} />
+          <Route path='/admin/event/eventDetails' element={<AdminEventDashboard/>} />
+
+          {/*moderator*/}
+          <Route path='/moderator/moderatorDashoboardContent' element={<ModeratorDashoboardContent />}></Route>
+          <Route path='/moderator/registration' element={<ModeratorRegistration  />}></Route>
+          <Route path='/moderator/registration/ProofCheck' element={<ProofCheck/>} />
+          <Route path='/moderator/event' element={<ModeratorEvent />}></Route>
+          <Route path='/moderator/complaints' element={<ModeratorComplaints />}></Route>
+          <Route path='/moderator/complaints/viewComplaints' element={<ViewComplaints/>} />
+          <Route path='/moderator/userDetails' element={<ModeratorUserDetails />}></Route>
+          <Route path='/moderator/event/eventDetails' element={<EventDetails/>}/>
+          <Route path='/moderator/registration/ProofCheck' element={<proofCheck/>}/>
+          <Route path='/moderator/registration/proofcheck/suspenduser' element={<Suspenduser/>}/>
+          
 
         </Routes>
       </Router>

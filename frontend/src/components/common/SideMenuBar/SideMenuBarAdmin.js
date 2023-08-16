@@ -101,7 +101,7 @@ function SideMenuBarAdmin({ children }) {
 
                         </li>
                         <li className={isExpanded ? "nav-item p-1" : "nav-item"}>
-                            <NavLink to="/admin/admindashboard" activeClassName="active" className={isExpanded ? "nav-link d-flex align-items-center text-decoration-none" : "nav-link collapsed-nav-link d-flex align-items-center text-decoration-none"}>
+                            <NavLink to='/admin/event' activeClassName="active" className={isExpanded ? "nav-link d-flex align-items-center text-decoration-none" : "nav-link collapsed-nav-link d-flex align-items-center text-decoration-none"}>
                                 <BiSolidCalendar className={isExpanded ? "menu-icon mx-4" : "menu-icon"} />
                                 {isExpanded && (
                                     <span className="menu_link_name fs-6 ">Events</span>
