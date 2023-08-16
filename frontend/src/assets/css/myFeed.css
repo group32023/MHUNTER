@@ -44,20 +44,24 @@
     width: 406px;
     height: 44px;
     border-radius: 15px;
-    background: #FFF;
+    background: #393939;
     position: absolute;
     top: 104px;
     left: 37px;
+    border-color: black;
+    color: white;
 }
 
 .preview{
     width: 406px;
     height: 145px;
     border-radius: 15px;
-    background: #FFF;
+    background: #393939;
     position: absolute;
     top: 277px;
     left: 31px;
+    border-color: black;
+    color: white;
 }
 
 .form-control-file{
@@ -85,7 +89,7 @@
     left: 34px;
     width: 182px;
     height: 45px;
-    background-color: #7643D2;
+    background-color: rgba(147, 94, 244, 0.2);
     border-color: #7643D2;
     border-radius: 15px;
 }

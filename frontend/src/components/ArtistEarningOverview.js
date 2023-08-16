@@ -11,7 +11,7 @@ export default function ArtistEarningOverview() {
         id: "basic-bar"
       },
       xaxis: {
-        categories: [1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998, 1999],
+        categories: ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Des"],
         labels: {
           style: {
             colors: 'white', 
@@ -57,7 +57,7 @@ export default function ArtistEarningOverview() {
     series: [
       {
         name: "Income",
-        data: [30, 40, 45, 50, 49, 60, 70, 91]
+        data: [50000,20000,80000,2500000,100000,200000,220000,200000]
       }
     ]
   }
