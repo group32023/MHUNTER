@@ -112,8 +112,8 @@ const loadPendingRequest=()=>{
             </div>
             
 
-            <button className="priorbookingsBtn" onClick={()=>loadPriorBooking(101,event['orgId'],event['eventId'])}>Prior Bookings</button>
-            <button className="myEventsBtn" onClick={()=>loadMyEventsOn(101,event['date'],event['eventId'])}>My Events</button>
+            <button className="priorbookingsBtn" onClick={()=>loadPriorBooking(758463,event['orgId'],event['eventId'])}>Prior Bookings</button>
+            <button className="myEventsBtn" onClick={()=>loadMyEventsOn(758463,event['date'],event['eventId'])}>My Events</button>
             <button className="acceptBtn" onClick={()=>loadInvoice(event['eventId'])}>Accept</button>
             <button className="rejectBtn" onClick={()=>loadPendingRequest()}>Reject</button>
         </div>
