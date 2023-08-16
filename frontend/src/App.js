@@ -8,8 +8,8 @@ import Artist from './pages/Artist';
 import AboutUs from './pages/AboutUs';
 import ArtistDashboard from './pages/ArtistDashboard';
 import ArtistPendingRequests from "./pages/ArtistPendingRequests";
-import ArtistPendingRequestView from "./pages/ArtistPendingRequestView"
-import ArtistGenerateReports from "./pages/ArtistGenerateReports"
+import ArtistPendingRequestView from "./pages/ArtistPendingRequestView";
+import ArtistGenerateReports from "./pages/ArtistGenerateReports";
 import ConfirmRequest from "./pages/ConfirmRequest"
 import ArtistPriorBooking from "./pages/ArtistPriorBooking"
 
