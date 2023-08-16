@@ -40,18 +40,18 @@ function App() {
       <Router>
         <Routes>
           {/* Organizer Routes */}
-          <Route path='/' element={<OrganizerDashboard />}>
+          <Route path='/' element={<Home />}></Route>  
 
-            <Route path='/organizer/dashboard' element={<OrganizerDashboardContent />}></Route>
+            <Route path='/organizer/dashboard' element={<OrganizerDashboard />}></Route>
             <Route path='/organizer/event' element={<ViewEvents />}></Route>
-            <Route path='/organizer/event/CreateEvent' element={<CreateEvent/>}></Route>
+            <Route path='/organizer/event/createevent' element={<CreateEvent/>}></Route>
             <Route path='/organizer/eventhistory' element={<ViewEventHistory/>}></Route>
             <Route path='/organizer/complaint' element={<OrganizerComplaint />}></Route>
             <Route path='/organizer/profile' element={<OrganizerProfile />}></Route>
             <Route path='/organizer/searchartist' element={<SearchArtist />} /> 
             <Route path='/organizer/searchartist/viewartist' element={<ViewArtist />} />  
-            <Route path='/organizer/searchartist/viewartist/MakeArtistRequest' element={<MakeArtistRequest />} />  
-          </Route>    
+            <Route path='/organizer/searchartist/viewartist/makeartistrequest' element={<MakeArtistRequest />} />  
+            
 
 
           <Route path="/login" element={<Login />} />

@@ -23,13 +23,13 @@ export default function OrganizerDashboard() {
           {/* Nested routes for the Organizer Dashboard */}
           <Route path='/organizer/dashboard' element={<OrganizerDashboardContent />}></Route>
           <Route path='/organizer/event' element={<ViewEvents/>}></Route>
-          <Route path='/organizer/event/CreateEvent' element={<CreateEvent/>}></Route>
+          <Route path='/organizer/event/createevent' element={<CreateEvent/>}></Route>
           <Route path='/organizer/eventhistory' element={<ViewEventHistory />}></Route> 
           <Route path='/organizer/complaint' element={<OrganizerComplaint />}></Route>
           <Route path='/organizer/profile' element={<OrganizerProfile />}></Route>
           <Route path='/organizer/searchartist' element={<SearchArtist />} /> 
           <Route path='/organizer/searchartist/viewartist' element={<ViewArtist />} /> 
-          <Route path='/organizer/searchartist/viewartist/MakeArtistRequest' element={<MakeArtistRequest />} /> 
+          <Route path='/organizer/searchartist/viewartist/makeartistrequest' element={<MakeArtistRequest />} /> 
 
         </Routes>
       </SideMenuBarOrganizer>

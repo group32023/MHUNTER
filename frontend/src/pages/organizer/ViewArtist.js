@@ -14,6 +14,18 @@ import StarRating from '../../components/organizer/StarRating';
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 
+import SideMenuBarOrganizer from '../../components/common/SideMenuBar/SideMenuBarOrganizer';
+import { Routes, Route } from 'react-router';
+import OrganizerDashboard from './OrganizerDashboard';
+import ViewEvents from './ViewEvents';
+import CreateEvent from './CreateEvent';
+import ViewEventHistory from './ViewEventHistory';
+import OrganizerComplaint from './OrganizerComplaint';
+import OrganizerProfile from './OrganizerProfile';
+import SearchArtist from './SearchArtist';
+import MakeArtistRequest from './MakeArtistRequest';
+
+
 library.add(fas);
 
 function ViewArtist() {
@@ -31,6 +43,9 @@ function ViewArtist() {
 
     return (
 
+
+        <>
+        <SideMenuBarOrganizer>
         <div className='organizer-view-artist-container'>
             <Topbar></Topbar>
             <div className='row artist-container'>
@@ -211,7 +226,19 @@ function ViewArtist() {
             )}
         </div>
 
+        <Routes>
+          <Route path='/organizer/dashboard' element={<OrganizerDashboard />}></Route>
+          <Route path='/organizer/event' element={<ViewEvents />}></Route>
+          <Route path='/organizer/event/createevent' element={<CreateEvent />}></Route>
+          <Route path='/organizer/eventhistory' element={<ViewEventHistory />}></Route>
+          <Route path='/organizer/complaint' element={<OrganizerComplaint />}></Route>
+          <Route path='/organizer/profile' element={<OrganizerProfile />}></Route>
+          <Route path='/organizer/searchartist' element={<SearchArtist />} />
+          <Route path='/organizer/searchartist/viewartist/makeartistrequest' element={<MakeArtistRequest />} />
+        </Routes>
 
+        </SideMenuBarOrganizer>
+        </>
     );
 
 }
