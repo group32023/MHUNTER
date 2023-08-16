@@ -280,6 +280,33 @@
 }
 /* /View Detail- Proof Check */
 
+/*View All Details with Card */
+.row-userdetails{
+  margin: 40px;
+  margin-top: 5px;
+}
+.col-userdetails{
+  margin-bottom: 10px;
+}
+.card-userdetails{
+  background-color: #2f363e;
+}
+.button-userdetails{
+  display: flex;
+  justify-content: center;
+}
+.button-userdetails button{
+  width: 40%;
+  background-color: #7643d2;
+  color: #FAECFA;
+}
+.button-userdetails button:hover{
+  background-color: #24292D;
+}
+.card-userdetails span {
+  text-decoration: none;
+}
+
 
 
 

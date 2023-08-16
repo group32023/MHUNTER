@@ -1,0 +1,132 @@
+.upcomingEventTitle{
+    color: #FFF;
+    font-family: 'Dosis', sans-serif;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    position: absolute;
+    top: 3%;
+    left: 3%;
+}
+.eventImage {
+    width: 122px;
+    height: 75px;
+    position: relative;
+    top: 63px;
+    left: -214px;
+  }
+  .eventTopic {
+    color: #FFF;
+    font-family: 'Blinker', sans-serif;
+    font-size: 19px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    position: relative;
+    top: -19px;
+    left: 193px;
+    width: 200px;
+    text-align: left;
+  }
+
+  .locationEvent {
+    color: #11FE70;
+    font-family: 'Blinker', sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    position: relative;
+    top: -37px;
+    left: -98px;
+  }
+  .eventDescripition {
+    width: 476px;
+    height: 52px;
+    color: #FFF;
+    font-family: 'Blinker', sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    position: relative;
+    top: -33px;
+    left: 183px;
+    text-align: left;
+  }
+
+  .eventTypeDiv {
+    width: 40px;
+    height: 40px;
+    border-radius: 40px;
+    background: #7643D2;
+    position: relative;
+    top: -164px;
+    left: 410px;
+  }
+
+  .dateDiv {
+    width: 40px;
+    height: 40px;
+    border-radius: 40px;
+    background: #7643D2;
+    position: relative;
+    top: -236px;
+    left: 541px;
+  }
+
+.eventTypeImage{
+    width: 22px;
+    height: 22px;
+    flex-shrink: 0;
+    position: absolute;
+    top: 20%;
+    left: 23%;
+}
+
+.dateImage{
+    width: 22px;
+    height: 22px;
+    flex-shrink: 0;
+    position: absolute;
+    top: 20%;
+    left: 23%;
+}
+
+.eventTypeData {
+    color: #FFF;
+    font-family: 'Blinker', sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    position: relative;
+    top: -163px;
+    left: 104px;
+  }
+.dateData {
+    color: #FFF;
+    font-family: 'Blinker', sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    position: relative;
+    top: -237px;
+    left: 235px;
+  }
+  .line {
+    width: 614px;
+    height: 2px;
+    flex-shrink: 0;
+    background: #FFF;
+    position: relative;
+    top: -190px;
+    left: 21px;
+  }
+
+.eventItem{
+    position: relative;
+    margin-bottom: -243px;
+}

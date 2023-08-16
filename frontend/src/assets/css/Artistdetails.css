@@ -1,0 +1,178 @@
+
+
+.descriptionDiv1{
+    background-color:rgba(3, 3, 3, 0.4);
+    width: 100%;
+    height: 250%;
+    top: 88.5%;
+    z-index: 1000;
+    position: absolute;
+
+
+}
+
+
+.captionbackground{
+    background-color:rgba(3, 3, 3, 0.842);
+    width: 100%;
+    height: 3%;
+    position: absolute;
+    top: 1%;
+
+
+
+
+}
+.captionbackground2{
+    background-color:rgba(17, 17, 17, 0.848);
+
+    width: 100%;
+    height: 30%;
+    position: absolute;
+    top: 9%;
+    z-index: 100;
+}
+.caption1{
+    color: #ffffff;
+    font-family: Dosis;
+    font-size: 32px;
+    font-weight: 800;
+    /* left: 0; */
+    letter-spacing: 0;
+    line-height: normal;
+    /* position: fixed; */
+    top: 10%;
+    white-space: nowrap;
+    width: 515px;
+    position: absolute;
+    left: 2%;
+    z-index: 1000;
+}
+.description1{
+    color: #ffffff;
+    font-family: Poppins;
+    font-size: 20px;
+    font-weight: 800;
+    text-align: left;
+    /* left: 0; */
+    letter-spacing: 0;
+    line-height: normal;
+    /* position: fixed;*/
+    top:9%;
+    width: 92%;
+    position: absolute;
+    left: 5%;
+    z-index: 1000;
+}
+
+.description2{
+    color: #ffffff;
+    font-family: Poppins;
+    font-size: 20px;
+    font-weight: 800;
+    text-align: left;
+    /* left: 0; */
+    letter-spacing: 0;
+    line-height: normal;
+    /* position: fixed;*/
+    top:15%;
+    width: 92%;
+    position: absolute;
+    left: 5%;
+    z-index: 1000;
+}
+
+.eventcontainer{
+
+    background-color:rgba(3, 3, 3, 0.60);
+    width: 94%;
+    height:53%;
+    position: absolute;
+    top: 24%;
+    left: 2%;
+    z-index: 100;
+
+}
+.name{
+    color:rgba(247, 15, 92, 0.858);
+    font-size:55px;
+    margin-top:4%;
+    font-family: "Inter-ExtraBold", Helvetica;
+    font-weight: 800;
+    /* left: 0; */
+    letter-spacing: 0;
+    line-height: normal;
+    /* position: fixed; */
+    /* top: 0; */
+    white-space: nowrap;
+    z-index: 100;
+  
+}
+.image-with-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 900px; /* Adjust this as per your layout */
+    margin: 0 auto; /* Centers the content horizontally */
+    padding: 10px;
+  }
+  
+  .image-container {
+    flex: 1;
+    margin-top: 25px;
+    margin-left: -110px; /* Add some spacing between the image and content */
+  }
+  
+  .content-container {
+    flex: 2;
+    margin-left: 50px;
+    /* Add any specific styles you want for the content side */
+  }
+  
+  .artistImage {
+    width:194px;
+    height: 255px;
+  }
+  
+  .artistDetails {
+    color: rgb(201, 178, 248);
+    font-family: "Dosis";
+    font-size: 25px;
+    font-weight:8;
+    text-align: justify; /* Add the content justification */
+
+    letter-spacing: 0;
+    line-height: normal;
+    top: 32%;
+    margin-right: 250px;
+    position: absolute;
+    z-index: 1000;
+    text-shadow: 2px -1px 3px rgba(118, 67, 210, 1);    /* Add the fill color */
+}
+@media screen and (max-width: 768px) {
+    .caption1 {
+      font-size: 24px; /* Adjust font size for mobile layout */
+    }
+  
+    .name {
+      font-size: 40px; /* Adjust font size for mobile layout */
+    }
+  
+    .artistImage {
+      width: 140px; /* Adjust image width for mobile layout */
+      height: 184px; /* Adjust image height for mobile layout */
+    }
+  
+    .artistDetails {
+      font-size: 18px; /* Adjust font size for mobile layout */
+    }
+  }
+  
+
+
+  
+  
+  
+  
+  
+  

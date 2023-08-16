@@ -4,7 +4,7 @@ import { useRef, useState} from 'react'
 function OrganizerSignup() {
     const formRef = useRef(null);
     const inputRef = useRef(null);
-    const [image, setImage] = useState("");
+    const [Image, setImage] = useState("");
   
     const handleImageClick = () =>{
       inputRef.current.click();
@@ -41,10 +41,18 @@ function OrganizerSignup() {
   
     const regDate = `${year}-${month}-${day}`;
 
-    const save = (event) => {
+    const save =async (event) => {
       event.preventDefault();
-      const organizer = {
-          email, firstName, lastName, phoneNumber, address, password, type, regDate };
+      const formData = new FormData();
+      formData.append("email", email);
+      formData.append("firstName", firstName);
+      formData.append("lastName", lastName);
+      formData.append("phoneNumber", phoneNumber);
+      formData.append("address", address);
+      formData.append("password", password);
+      formData.append("type", type);
+      formData.append("regDate", regDate);
+      formData.append("Image", Image);
       try {
   
         if(password.length < 8){
@@ -55,14 +63,23 @@ function OrganizerSignup() {
         }
         else{
           
-          fetch("http://localhost:8080/user/signup", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(organizer),
-          })
-          resetFormFields();
-          alert("Organizer Registration Sucessfully");
-          formRef.current.reset();
+          const response = await fetch("http://localhost:8080/user/signup", {
+          method: "POST",
+          body: formData, 
+          });
+
+          if (response.ok) {
+            formRef.current.reset();
+            resetFormFields();
+            alert("Organizer Registration Successfully");
+          } else {
+            const errorMessage = await response.text();
+            if (errorMessage === "Email is already registered.") {
+              alert("Failed to register artist");
+            } else {
+              alert("Email is already registered. Please use a different email.");
+            }
+          }
           
         }
   
@@ -74,7 +91,7 @@ function OrganizerSignup() {
     
     return (
       <div className='login template d-flex justify-content-center align-items-center vh-100 bgimage2'>
-        <form ref={formRef} onSubmit={save} className='artist_signup_form_container p-5 rounded vh-50'>
+        <form ref={formRef} onSubmit={save} className='artist_signup_form_container p-5 rounded vh-50' enctype="multipart/form-data">
           
               <div className='artist-signup-left-box'>
                     <div className='artist-text'>
@@ -150,13 +167,14 @@ function OrganizerSignup() {
                   <div className='artist-image' onClick={handleImageClick}>
                     <div>
       
-                    {image ? 
-                      <img src={URL.createObjectURL(image)} alt='banddp' height={150} width={150}/>
+                    {Image ? 
+                      <img src={URL.createObjectURL(Image)} alt='banddp' height={150} width={150}/>
                     :
-                      <img src={require('../assets/images/band.jpg')} alt='banddp'  height={150} width={150}/>
+                      <img src={require('../assets/images/profilePhoto.jpeg')} alt='banddp'  height={150} width={150}/>
                     }
                     <input 
                       type='file' 
+                      name="Image"
                       ref={inputRef} 
                       onChange={handleImageChange} 
                       style={{display:'none'}}
@@ -170,10 +188,10 @@ function OrganizerSignup() {
                   </div>
                   <div>
                       <div style={{display:'flex', color:'white'}}>
-                      <input type="checkbox"  name="" value=""  />
+                      <input type="checkbox" required name="" value=""  />
                       <label for=""> I have read the User Agreement and I agree with it.</label><br/>
                       </div>
-                      <input type="checkbox"  name="" value="" />
+                      <input type="checkbox" required name="" value="" />
                       <label for="" style={{ color:'white'}}> I accept the Terms and Conditions.</label><br/><br />
                     </div>
   

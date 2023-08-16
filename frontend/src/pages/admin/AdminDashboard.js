@@ -1,15 +1,25 @@
 import React, { useState, useEffect } from 'react'
 import SideMenuBarAdmin from '../../components/common/SideMenuBar/SideMenuBarAdmin';
 import '../../assets/css/admin/adminDashboard.css'
-import notification from '../../assets/images/notification-a.png'
-import home from '../../assets/images/home-button-a.png'
-import logout from '../../assets/images/logout-a.png'
 import Calendar from 'react-calendar';
 import InfiniteScroll from 'react-infinite-scroll-component';
+//import { useLocation } from 'react-router-dom';
 
-import { Link } from 'react-router-dom';
+import AdminRegistration from './AdminRegistration';
+import ProofCheck from './ProofCheck';
+import AllUserDetails from './AllUserDetails';
+import ViewUserDetails from './ViewUserDetails';
+import AdminReport from './AdminReport';
+import AdminSettings from './AdminSettings';
+
+import { Link, Routes, Route } from 'react-router-dom';
+import Topbar from '../../components/common/Topbar';
+
 
 export default function AdminDashboard() {
+  //const location = useLocation();
+  //const userId = location.state.userId;
+
   const [banddataSource, setBandDataSource] = useState(Array.from({length:10}));
   const [artistdataSource, setArtistDataSource] = useState(Array.from({length:10}));
   const[date, setDate] = useState(new Date());
@@ -43,60 +53,57 @@ export default function AdminDashboard() {
     setDate(date);
   }
   return (
-    <div className='main-container'>
-      <div className='side-bar'>
-        <SideMenuBarAdmin />
+    <>
+    <SideMenuBarAdmin>
+    <Topbar/>
+    <div className='header-admin'>
+      <div className='header-title'>
+        <h1>Dashboard</h1>
+        {/*<p className='text-center text-white'>User ID: {userId}</p>*/}
       </div>
-      <div className='body-container'>
-        <div className='header-admin'>
-
-          <div className='header-title'>
-              <h1>Dashboard</h1>
-          </div>
-
-          <div className='header-icon'>
-              <img src={notification} className='notificationIcon' alt='notification'></img>
-              <img src={home} alt='homebtn' className='homeIcon'></img>
-              <img src={logout} alt='logout'className='logout'></img>
-              <Link to={"/"} className='logoutbtn'>
-                <p>Logout</p>
-              </Link>
-          </div>
-
-        </div>
-
-
-        <div className="container ">
-          <div className="row">
-            <div className="col-sm-4 ">
-              <div className='top-band-list bgimage-admin'>
-                <h3 className='text-center'>Top 10 Bands</h3>
-                <InfiniteScroll dataLength={banddataSource.length} className='text-center admin-list'>
-                  {banddataSource.map((item, index)=>{
-                    return<div key={index}> {item} </div>
-                  })}
-                </InfiniteScroll>
-              </div>
-            </div>
-            <div className="col-sm-4">
-              <div className='top-band-list bgimage-admin'>
-                <h3 className='text-center'>Top 10 Artists</h3>
-                <InfiniteScroll dataLength={artistdataSource.length} className='text-center admin-list'>
-                  {artistdataSource.map((item, index)=>{
-                    return<div key={index}> {item} </div>
-                  })}
-                </InfiniteScroll>
-              </div>
-            </div>
-            <div className="col-sm-4">
-              <div className='admin-calendar text-center'>
-                <Calendar onChange={onChange} value={date} />
-              </div>
-            </div>
-          </div>
-        </div>
-
-      </div> 
     </div>
+ 
+    <div className="container ">
+      <div className="row">
+        <div className="col-sm-4 ">
+          <div className='top-band-list bgimage-admin'>
+            <h3 className='text-center'>Top 10 Bands</h3>
+            <InfiniteScroll dataLength={banddataSource.length} className='text-center admin-list'>
+              {banddataSource.map((item, index)=>{
+                return<div key={index}> {item} </div>
+              })}
+            </InfiniteScroll>
+          </div>
+        </div>
+        <div className="col-sm-4">
+          <div className='top-band-list bgimage-admin'>
+            <h3 className='text-center'>Top 10 Artists</h3>
+            <InfiniteScroll dataLength={artistdataSource.length} className='text-center admin-list'>
+              {artistdataSource.map((item, index)=>{
+                return<div key={index}> {item} </div>
+              })}
+            </InfiniteScroll>
+          </div>
+        </div>
+        <div className="col-sm-4">
+          <div className='admin-calendar text-center'>
+            <Calendar onChange={onChange} value={date} />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <Routes>
+          
+          <Route path='/admin/registration' element={<AdminRegistration/>} />
+          <Route path='/admin/registration/proofcheck' element={<ProofCheck/>} />
+          <Route path='/admin/userdetails' element={<AllUserDetails/>} />
+          <Route path='/admin/userdetails/viewdetails' element={<ViewUserDetails/>} />
+          <Route path='/admin/report' element={<AdminReport/>} />
+          <Route path='/admin/settings' element={<AdminSettings/>} />
+    </Routes>
+    </SideMenuBarAdmin>
+    </>
+
   )
 }

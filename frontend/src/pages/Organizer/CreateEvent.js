@@ -3,7 +3,7 @@ import { useState } from 'react';
 import React from 'react';
 import { format } from 'date-fns'
 import Topbar from '../../components/common/Topbar';
-import LocationInput from '../../components/organizer/LocationInput';
+// import LocationInput from '../../components/organizer/LocationInput';
 // import SideMenuBarOrganizer from '../../components/common/SideMenuBar/SideMenuBarOrganizer';
 
 function CreateEvent() {
@@ -73,16 +73,16 @@ function CreateEvent() {
 
   return (
 
-    <div className='new'>
+    <div className='create-event-container'>
       {/* <SideMenuBarOrganizer /> */}
 
       {/* <div className="container" style={{ width: '1215px', marginLeft: '20%' }} > */}
 
       <Topbar />
-      <form className='organizerCreateEventForm'>
+      <form className='create-event-form'>
 
         <h2>Create Event</h2>
-        <div className="form-group">
+        <div className="form-group ">
 
           <label htmlFor="event_name" className="form-label">Event Name</label>
           <input type="text" className="form-control" onChange={onChangeHandler} name="event_name" ></input>
@@ -129,8 +129,39 @@ function CreateEvent() {
 
           <div className="form-group col-md-6">
 
-            <label htmlFor="end_time" className="form-label">Ending Time</label>
-            <input type="time" className="form-control" onChange={onChangeHandler} name="end_time" ></input>
+            <div className="form-group col-md-6">
+              <label htmlFor="date" className="form-label" >Date</label>
+              <input type="date" className="form-control" onChange={onChangeHandler} name="date" min={currentDate} ></input>
+            </div>
+
+            <div className="form-group col-md-6">
+
+              <label htmlFor="crowd" className="form-label">Expected Crowd</label>
+              <input type="text" className="form-control" onChange={onChangeHandler} name="crowd" ></input>
+              {crowdError && <div className='invalid-feedback'>{crowdError}</div>}
+            </div>
+          </div>
+
+
+          <div className="form row">
+
+            <div className="form-group col-md-6">
+              <label htmlFor="start_time" className="form-label" >Starting Time</label>
+              <input type="time" className="form-control" onChange={onChangeHandler} name="start_time" ></input>
+            </div>
+
+            <div className="form-group col-md-6">
+
+              <label htmlFor="end_time" className="form-label">Ending Time</label>
+              <input type="time" className="form-control" onChange={onChangeHandler} name="end_time" ></input>
+
+            </div>
+          </div>
+
+          <div className="form-group">
+
+            <label htmlFor="location" className="form-label">Location</label>
+            {/* <LocationInput onLocationSelect={handleLocationSelect} setFormData={setFormData} /> */}
 
           </div>
         </div>

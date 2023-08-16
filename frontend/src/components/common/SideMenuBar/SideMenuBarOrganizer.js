@@ -1,5 +1,10 @@
+import React, { useState } from "react";
 import "../../../assets/css/SideMenuBarOrganizer.css";
 import profilePhoto from '../../../assets/images/profilePhoto.jpeg'
+import dashboardimg from '../../../assets/icons/dashboard.png'
+import eventsimg from '../../../assets/icons/events.png'
+import eventhistoryimg from '../../../assets/icons/eventHistory.png'
+import complaintsimg from '../../../assets/icons/complaint.png'
 import logoImage from '../../../assets/icons/logosidebar.svg'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import 'bootstrap-icons/font/bootstrap-icons.css'
@@ -12,32 +17,61 @@ import { BiSolidCommentError } from "react-icons/bi";
 import { BiSolidSearch } from "react-icons/bi";
 import React, { useState } from "react";
 
-function SideMenuBarOrganizer({ children }) {
+
+const SideMenuBarOrganizer = () => {
 	const [isExpanded, setExpandState] = useState(false);
+	const menuItems = [
+		{
+			text: "Dashboard",
+			icon: dashboardimg,
+		},
+		{
+			text: "Events",
+			icon: eventsimg,
+		},
+		{
+			text: "Event History",
+			icon: eventhistoryimg,
+		},
+		{
+			text: "Complaints",
+			icon: complaintsimg,
+		},
+	];
+
+
 	return (
-		<div className="full-container">
-			<div
-				className={
-					isExpanded
-						? "side-menu-container vh-100 "
-						: "side-menu-container side-menu-container-NX vh-100"
-				}
+		<div
+			className={
+				isExpanded
+					? "side-menu-container"
+					: "side-menu-container side-menu-container-NX"
+			}
 
-				style={{ fontFamily: 'MyCustomFont' }}
-			>
-				<div className="menu-upper">
-					<div className="menu-heading d-flex align-items-center">
-						{isExpanded && (
-							<div className="menu-brand">
-								<img src={logoImage} alt="" srcSet="" />
-							</div>
-						)}
+			style={{ fontFamily: 'MyCustomFont' }}
+		>
+			<div className="menu-upper">
+				<div className="menu-heading">
+					{isExpanded && (
+						<div className="menu-brand">
 
-						<div className={isExpanded ? "sideIconDiv cursor-pointer" : "sideIconDiv-NX cursor-pointer"}>
-							<BiMenu onClick={() => setExpandState(!isExpanded)} className={isExpanded ? "menubar-noncollapse-icon position-absolute " : "menubar-collapse-icon position-absolute "} />
+							<img src={logoImage} alt="" srcSet="" />
+
 
 						</div>
+					)}
 
+					<div className={isExpanded ? "sideIconDiv" : "sideIconDiv-NX"}>
+						<button
+							className={
+								isExpanded ? "sideIcon sideIcon-in" : "sideIcon sideIcon-out"
+							}
+							onClick={() => setExpandState(!isExpanded)}
+						>
+							<span></span>
+							<span></span>
+							<span></span>
+						</button>
 					</div>
 
 					<div className="row">
@@ -127,12 +161,9 @@ function SideMenuBarOrganizer({ children }) {
 
 				</div>
 			</div>
-			<main className={isExpanded ? "mainContainer" : "mainContainer-NX"}>{children}</main>
 
 		</div>
-
 	);
 };
 
 export default SideMenuBarOrganizer;
-

@@ -7,6 +7,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
+
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 @Service
 public class SignupService {
@@ -27,10 +33,19 @@ public class SignupService {
 
     @Autowired
     private StaffMemberRepository staffMemberRepository;
+    /*@Autowired
+    private PasswordEncoder passwordEncoder;*/
 
     @Transactional
-    public void signUpAndCreateMember(User user, String Name, String Type) {
+    public void signUpAndCreateMember(User user, String Name, String Type, MultipartFile Image) {
+        User existingUser = userRepository.findByEmail(user.getEmail());
+        if (existingUser != null) {
+            throw new RuntimeException("Email already exists!");
+        }
         User savedUser = userRepository.save(user);
+
+        /*String encodedPassword = passwordEncoder.encode(user.getPassword());
+        savedUser.setPassword(encodedPassword);*/
 
         if("Organizer".equals(Type)){
             Organizer organizer = new Organizer();
@@ -61,6 +76,14 @@ public class SignupService {
             StaffMember staffMember = new StaffMember();
             staffMember.setUser(savedUser);
             staffMemberRepository.save(staffMember);
+        }
+        String imageName = user.getUserId() + "_" + Image.getOriginalFilename();
+        Path imagePath = Paths.get("E:/UCSC/Academic/3rd Year/3rd Year Group Project/MHUNTER/Images", imageName);
+        try {
+            Files.write(imagePath, Image.getBytes());
+            user.setImagePath(imagePath.toString());
+        } catch (IOException e) {
+            throw new RuntimeException("Failed to save image: " + e.getMessage());
         }
 
     }
@@ -95,6 +118,7 @@ public class SignupService {
                     if(staffMember != null && "Moderator".equals(staffMember.getJobRoll())) {
                         msg += "#Moderator";
                     }
+                    msg += "#" + existingUser.getUserId();
                     return ResponseEntity.ok(msg);
                 } else {
                     return ResponseEntity.badRequest().body("Incorrect password!");

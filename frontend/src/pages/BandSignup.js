@@ -4,7 +4,7 @@ import { useRef, useState} from 'react'
 export default function BandSignup() {
     const formRef = useRef(null);
     const inputRef = useRef(null);
-    const [image, setImage] = useState("");
+    const [Image, setImage] = useState("");
   
     const handleImageClick = () =>{
       inputRef.current.click();
@@ -43,10 +43,19 @@ export default function BandSignup() {
   
     const regDate = `${year}-${month}-${day}`;
 
-    const save = (event) => {
+    const save = async (event) => {
       event.preventDefault();
-      const band = {
-         name, email, firstName, lastName, phoneNumber, address, password, type, regDate };
+      const formData = new FormData();
+      formData.append("name", name);
+      formData.append("email", email);
+      formData.append("firstName", firstName);
+      formData.append("lastName", lastName);
+      formData.append("phoneNumber", phoneNumber);
+      formData.append("address", address);
+      formData.append("password", password);
+      formData.append("type", type);
+      formData.append("regDate", regDate);
+      formData.append("Image", Image);
       try {
   
         if(password.length < 8){
@@ -56,23 +65,23 @@ export default function BandSignup() {
           alert("Input Confirm your password correctly");
         }
         else{
-          /*console.log("Artist Name:", artistname);
-          console.log("Email:", email);
-          console.log("First Name:", firstname);
-          console.log("Last Name:", lastname);
-          console.log("Phone Number:", phonenumber);
-          console.log("Address:", address);
-          console.log("Password:", password);
-          console.log(confirmpassword);*/
-          
-          fetch("http://localhost:8080/user/signup", {
+          const response = await fetch("http://localhost:8080/user/signup", {
             method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(band),
-          })
-          resetFormFields();
-          alert("Band Registration Sucessfully");
-          formRef.current.reset();
+            body: formData, 
+            });
+  
+            if (response.ok) {
+              formRef.current.reset();
+              resetFormFields();
+              alert("Band Registration Successfully");
+            } else {
+              const errorMessage = await response.text();
+              if (errorMessage === "Email is already registered.") {
+                alert("Failed to register artist");
+              } else {
+                alert("Email is already registered. Please use a different email.");
+              }
+            }
           
         }
   
@@ -84,7 +93,7 @@ export default function BandSignup() {
     
     return (
       <div className='login template d-flex justify-content-center align-items-center vh-100 bgimage2'>
-        <form ref={formRef} onSubmit={save} className='artist_signup_form_container p-5 rounded vh-50'>
+        <form ref={formRef} onSubmit={save} className='artist_signup_form_container p-5 rounded vh-50' enctype="multipart/form-data">
           
               <div className='artist-signup-left-box'>
                     <div className='artist-text'>
@@ -166,13 +175,14 @@ export default function BandSignup() {
                   <div className='artist-image' onClick={handleImageClick}>
                     <div>
       
-                    {image ? 
-                      <img src={URL.createObjectURL(image)} alt='banddp' height={150} width={150}/>
+                    {Image ? 
+                      <img src={URL.createObjectURL(Image)} alt='banddp' height={150} width={150}/>
                     :
                       <img src={require('../assets/images/band.jpg')} alt='banddp'  height={150} width={150}/>
                     }
                     <input 
-                      type='file' 
+                      type='file'
+                      name="Image" 
                       ref={inputRef} 
                       onChange={handleImageChange} 
                       style={{display:'none'}}
@@ -186,10 +196,10 @@ export default function BandSignup() {
                   </div>
                   <div>
                       <div style={{display:'flex', color:'white'}}>
-                      <input type="checkbox"  name="" value=""  />
+                      <input type="checkbox" required name="" value="" />
                       <label for=""> I have read the User Agreement and I agree with it.</label><br/>
                       </div>
-                      <input type="checkbox"  name="" value="" />
+                      <input type="checkbox" required name="" value="" />
                       <label for="" style={{ color:'white'}}> I accept the Terms and Conditions.</label><br/><br />
                     </div>
   

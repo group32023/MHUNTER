@@ -46,10 +46,10 @@ function ViewEvents() {
 
     return (
 
-        <div className='row'>
+        <div className='row view-events-container'>
             <Topbar />
             {events.map(event => (
-                <div className='organizerViewEvent col-md-3' key={event.eventid}>
+                <div className='col-md-3 event-box' key={event.eventid}>
                     <a>
                         <div className='image'>
                             <img src={musical}>
@@ -81,7 +81,7 @@ function ViewEvents() {
 
             ))}
 
-            <div className='col-md-3'>
+            <div className='col-md-3 event-box'>
 
                 <Link to="/organizer/event/CreateEvent">
                     <FontAwesomeIcon
