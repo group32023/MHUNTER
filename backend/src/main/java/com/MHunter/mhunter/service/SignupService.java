@@ -78,7 +78,7 @@ public class SignupService {
             staffMemberRepository.save(staffMember);
         }
         String imageName = user.getUserId() + "_" + Image.getOriginalFilename();
-        Path imagePath = Paths.get("E:/UCSC/Academic/3rd Year/3rd Year Group Project/MHUNTER/Images", imageName);
+        Path imagePath = Paths.get("C:/xampp/htdocs/MHUNTER/Images", imageName);
         try {
             Files.write(imagePath, Image.getBytes());
             user.setImagePath(imagePath.toString());

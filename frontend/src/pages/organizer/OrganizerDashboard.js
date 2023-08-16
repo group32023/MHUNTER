@@ -260,7 +260,7 @@ export default function OrganizerDashboard() {
                 <hr></hr>
                 <div className="UpcomingTableDiv mt-4">
 
-                  <Link to="/organizer/event/eventdashboard"  className='link1'>
+                  <Link to="/organizer/event/eventdashboard" style={{ color: 'white', textDecoration: 'none' }}>
 
                     <div className="row tableUpcomingContent">
                       <div className='upcomingDivEventImage '>
