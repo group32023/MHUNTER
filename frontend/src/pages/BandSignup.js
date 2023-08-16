@@ -74,6 +74,7 @@ export default function BandSignup() {
               formRef.current.reset();
               resetFormFields();
               alert("Band Registration Successfully");
+              window.location.href = "/login";
             } else {
               const errorMessage = await response.text();
               if (errorMessage === "Email is already registered.") {

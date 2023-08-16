@@ -60,7 +60,7 @@ function ProofCheck() {
       </div>
     </div>
 
-    <form>
+    <form className='form-user-details'>
       <div className='user-details'>
         <div >
           <img src={band} alt='band' className='profile-picture-proofcheck'></img>

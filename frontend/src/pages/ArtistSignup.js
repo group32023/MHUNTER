@@ -97,6 +97,7 @@ export default function ArtistSignup() {
           formRef.current.reset();
           resetFormFields();
           alert("Artist Registration Successfully");
+          window.location.href = "/login";
         } else {
           const errorMessage = await response.text();
           if (errorMessage === "Email is already registered.") {
