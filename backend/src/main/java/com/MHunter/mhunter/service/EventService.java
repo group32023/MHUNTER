@@ -8,5 +8,4 @@ public interface EventService {
 
     public Event saveEvent(Event event);
     public List<Event> getAllEvents();
-    public List<Event> getEventsByorgid(int orgID);
 }
