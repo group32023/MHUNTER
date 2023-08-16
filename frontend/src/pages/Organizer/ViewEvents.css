@@ -27,12 +27,10 @@
 
 
 
-.content.newrow {
+.event-box.col-md-3 h5 {
 
-  .event-box.col-md-3 h5 {
+  margin-top: 1rem;
+  text-align: center;
+  color: white;
 
-    margin-top: 1rem;
-    text-align: center;
-    color: white;
-
-  }
+}
