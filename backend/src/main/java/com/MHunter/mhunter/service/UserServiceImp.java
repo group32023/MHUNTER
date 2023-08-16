@@ -1,4 +1,4 @@
-package com.MHunter.mhunter.service;
+/*package com.MHunter.mhunter.service;
 
 import com.MHunter.mhunter.model.User;
 import org.jetbrains.annotations.NotNull;
@@ -37,4 +37,4 @@ public class UserServiceImp implements UserService{
     }
 
 
-}
+}*/
