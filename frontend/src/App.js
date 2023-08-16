@@ -50,7 +50,7 @@ function App() {
 
           <Route path='/organizer/dashboard' element={<OrganizerDashboard />}></Route>
           <Route path='/organizer/event' element={<ViewEvents />}></Route>
-          <Route path='/organizer/eventdashboard' element={<OrganizerEventDashboard />}></Route>
+          <Route path='/organizer/event/eventdashboard' element={<OrganizerEventDashboard />}></Route>
           <Route path='/organizer/event/CreateEvent' element={<CreateEvent />}></Route>
           <Route path='/organizer/eventhistory' element={<OrganizerEventHistory />}></Route>
           <Route path='/organizer/complaint' element={<OrganizerComplaint />}></Route>
