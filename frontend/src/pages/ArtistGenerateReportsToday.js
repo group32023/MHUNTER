@@ -56,7 +56,7 @@ export default function ArtistGenerateReports() {
     const fromDateObject = new Date(fromDate);
     const toDateObject = new Date(toDate);
     // fetch(`http://localhost:8080/artistIncome/specificArtistIncomeDetailsOntoday/${selectedOption}/${fromDateObject.getDate}/${toDateObject.getDate}/101`)
-    fetch(`http://localhost:8080/artistIncome/specificArtistIncomeDetails/101`)
+    fetch(`http://localhost:8080/artistIncome/specificArtistIncomeDetails/758463`)
 
     .then((response) => {
       if (!response.ok) {
