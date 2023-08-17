@@ -87,7 +87,7 @@ function OrganizerEventDashboard() {
                                                 <BiSolidTimeFive className='timeIcon fs-1 col-md-3 ' />
                                                 <div className='col-md-8 mt-2'>
                                                     <p>Event Time<br></br>
-                                                        <span className='fs-4'>17:00:00</span>
+                                                        <span className='fs-4'>10:00:00</span>
                                                     </p>
 
                                                 </div>
