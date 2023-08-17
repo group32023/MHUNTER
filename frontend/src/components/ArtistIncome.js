@@ -20,7 +20,7 @@ export default function ArtistIncome() {
             <p className='incomeP'>Income</p>
             <img className='wave02Img' src={wave02} alt=''></img>
             <p className='incomeCount'>{income[0]}</p>
-            <p className={`${income[1]>=0 ? "monthlyRequestPersontage":"monthlyRequestPersontageMinus"}`}>{ income[1]>=0 ?  "+"+income[1] :income[1]}%</p>
+            <p className={`${10>=0 ? "monthlyRequestPersontage":"monthlyRequestPersontageMinus"}`}>{ 10>=0 ?  "+"+10 :10}%</p>
             <p className='thisMonthRequest'>This Month</p>
     </div>
   )

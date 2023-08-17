@@ -19,9 +19,9 @@ export default function ArtistDashboard() {
 
   return (
     <div>
-      <div className='mainArtistDashboard'>
-        <SideMenuBarArtist setExpandedSideBar={setExpandedSideBar}></SideMenuBarArtist>
-        <div className='artistSideBarOne' id='artistSideBarOne'>
+      <SideMenuBarArtist>
+        
+        <div >
             <p className='headerDashboard'>Dashboard</p>
             <div className={expand ? 'notificationBg':'notificationBg-ex'}>
               <img src={notification} className='notificationIcon' alt='notification'></img>
@@ -65,7 +65,7 @@ export default function ArtistDashboard() {
 
         </div>
         
-      </div>
+        </SideMenuBarArtist>
     </div>
   )
 }

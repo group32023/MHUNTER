@@ -28,7 +28,7 @@ export default function PendingRequest({expand}) {
             <p className='pendingRequestP'>Pending Requests</p>
             <img className='wave01Img' src={wave01} alt=''></img>
             <p className='requestCount'>{(requests.requests>=10) ? requests.requests:"0"+requests.requests}</p>
-            <p className={`${ requests.increase>=0 ? "monthlyRequestPersontage":"monthlyRequestPersontageMinus"}`}>{ requests.increase>=0 ?  "+"+requests.increase :requests.increase}%</p>
+            <p className={`${ 20>=0 ? "monthlyRequestPersontage":"monthlyRequestPersontageMinus"}`}>{ 20>=0 ?  "+"+20 :20}%</p>
             <p className='thisMonthRequest'>This Month</p>
             
     </div>

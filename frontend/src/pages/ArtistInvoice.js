@@ -124,9 +124,9 @@ export default function BandInvoice() {
    
     
     <div >
-    <div className='MainContainer'>
-        <SideMenuBarArtist setExpandedSideBar={setExpandedSideBar}></SideMenuBarArtist>
-        <div className='artistSideBarOne' id='artistSideBarOne'>
+    
+        <SideMenuBarArtist>
+        <div>
             <p className='headerDashboard'>Pending Requests</p>
             <div className={expand ? 'notificationBg':'notificationBg-ex'}>
               <img src={notification} className='notificationIcon' alt='notification'></img>
@@ -199,7 +199,7 @@ export default function BandInvoice() {
 
           
         </div>
-        </div>
+        </SideMenuBarArtist>
         
     </div>
   )

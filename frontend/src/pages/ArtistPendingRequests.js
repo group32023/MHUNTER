@@ -99,9 +99,9 @@ export default function ArtistPendingRequests() {
    
     
     <div >
+    <SideMenuBarArtist >
+  
     
-    <div className='MainContainer'>
-    <SideMenuBarArtist setExpandedSideBar={setExpandedSideBar}></SideMenuBarArtist>
             <p className='headerDashboard'>Pending Requests</p>
             <div className={expand ? 'notificationBg':'notificationBg-ex'}>
               <img src={notification} className='notificationIcon' alt='notification'></img>
@@ -127,8 +127,8 @@ export default function ArtistPendingRequests() {
               />
       </div> */}
             
-      </div>
-        
+      
+      </SideMenuBarArtist>
     </div>
   )
 }

@@ -101,7 +101,7 @@ export default function ArtistGenerateReports() {
       <td><FontAwesomeIcon icon={faLocationDot} id="LocationIcon"/>{eventList[i]['place']}</td>
       <td>{eventList[i]['date']}</td>
       <td>{eventList[i]['income']}</td>
-      <td>{}</td>
+      
 </tr>
   );
    
@@ -118,10 +118,10 @@ export default function ArtistGenerateReports() {
     return (
   
       <div >
-       <div className='MainContainer'>
+       <SideMenuBarArtist>
       
-          <SideMenuBarArtist setExpandedSideBar={setExpandedSideBar}></SideMenuBarArtist>
-        <div className='artistSideBarOne' id='artistSideBarOne'>
+          
+        <div>
             <p className='headerDashboard'>Reports</p>
             <div className={expand ? 'notificationBg':'notificationBg-ex'}>
               <img src={notification} className='notificationIcon' alt='notification'></img>
@@ -182,8 +182,8 @@ export default function ArtistGenerateReports() {
           <Button className="download" onClick={generatePDF}>Download</Button>
            </div>
           
-          
-           </div>
+           </SideMenuBarArtist> 
+           
       </div>
     )
 }

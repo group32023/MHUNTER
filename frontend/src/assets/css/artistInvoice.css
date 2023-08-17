@@ -27,13 +27,12 @@
 .currency-input1{
     position: relative;
     top: 111px;
-    left: 441px;
+    left: 434px;
     width: 242px;
     height: 28px;
     border-radius: 10px;
-   
-    background:  #D9D9D9;
-    border:  #D9D9D9;
+    background: #D9D9D9;
+    border: #D9D9D9;
     color: #000000;
     font-weight: 700;
     text-align: center;
@@ -42,12 +41,11 @@
 .currency-input2{
     position: relative;
     top: 154px;
-    left: 194px;  
-    width: 242px;    
-    height: 28px;  
+    left: 192px;
+    width: 242px;
+    height: 28px;
     border-radius: 10px;
-    
-    background:  #D9D9D9;
+    background: #D9D9D9;
     border: #D9D9D9;
     color: #000000;
     font-weight: 700;
@@ -114,7 +112,7 @@
 .AmountLabel .label7{
     position: absolute;
     top: 118px;
-    left: 496px;
+    left: 431px;
     width: 249px;
     height: 33px;
     font-size: 18px;
@@ -226,7 +224,7 @@
 .displayTotalAmount{
     position: absolute;
     top: 348px;
-    left: 506px;
+    left: 432px;
     width: 249px;
     height: 33px;
     font-size: 18px;
@@ -270,28 +268,28 @@
     background-color: #1BD067 !important;
     position: absolute;
     font-size: 15px;
-    width: 8%;
-    height: 6%;
+    width: 14%;
+    height: 7%;
     font-weight: bold;
     text-align: center;
     color: white;
     border-radius: 10px;
     border: none !important;
-    left: 309px;
-    top: 493px;
+    left: 213px;
+    top: 470px;
 }
 
 .backInvoice{
     
     position: relative;
     font-size: 15px;
-    width: 8%;
-    height: 6%;
+    width: 14%;
+    height: 7%;
     font-weight: bold;
     text-align: center;
     color: #000000;
-    left: 106px;
-    top: 405px;
+    left: 147px;
+    top: 387px;
     border-radius: 10px;
     border: 3px solid #FF0000 !important;
     background: none;
