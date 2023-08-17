@@ -77,7 +77,7 @@ function OrganizerEventDashboard() {
                                                 <BiSolidCalendar className='dateIcon fs-1 col-md-3 ' />
                                                 <div className='col-md-8 mt-2'>
                                                     <p>Event Date<br></br>
-                                                        <span className='fs-4'>Jun 14 2023</span>
+                                                        <span className='fs-4'>Aug 25 2023</span>
                                                     </p>
                                                 </div>
                                             </div>
@@ -87,7 +87,7 @@ function OrganizerEventDashboard() {
                                                 <BiSolidTimeFive className='timeIcon fs-1 col-md-3 ' />
                                                 <div className='col-md-8 mt-2'>
                                                     <p>Event Time<br></br>
-                                                        <span className='fs-4'>17:00:00</span>
+                                                        <span className='fs-4'>10:00:00</span>
                                                     </p>
 
                                                 </div>
@@ -111,7 +111,7 @@ function OrganizerEventDashboard() {
                                         <BiSolidCalendarStar className='dateIcon fs-1 col-md-3 ' />
                                         <div className='col-md-8' >
                                             <p className='fs-6' style={{ fontFamily: 'MyCustomFont' }}>Event Type<br></br>
-                                                <span className='fs-4' style={{ fontFamily: 'MyCustomFont1' }}>Wedding</span>
+                                                <span className='fs-4' style={{ fontFamily: 'MyCustomFont1' }}>Musical Show</span>
                                             </p>
 
                                         </div>

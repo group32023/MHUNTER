@@ -97,7 +97,7 @@ function ViewArtist() {
                                             </div>
 
                                             <div className='ml-2 content'>
-                                                <h7>Saman Vidyarathna</h7>
+                                                <h7>Namal Gamage</h7>
                                                 <StarRating rating={5} />
                                             </div>
                                         </div>
@@ -169,7 +169,7 @@ function ViewArtist() {
 
                     <div className='click-btns'>
 
-                        <button type="button" class="btn btn-lg" onClick={handleShowModal}>Events On 21</button>
+                        <button type="button" class="btn btn-lg" onClick={handleShowModal}>Events On 25</button>
                         <Link to="/organizer/searchartist/viewartist/MakeArtistRequest">
                             <button type="button" class="btn btn-lg">Make a Request</button>
                         </Link>
@@ -179,7 +179,7 @@ function ViewArtist() {
                         <div className="overlay">
                             <Modal show={showModal} onHide={handleCloseModal} className='modal-class-new' centered>
                                 <Modal.Header closeButton>
-                                    <Modal.Title className='events-view-modal-title'>Events on August 21</Modal.Title>
+                                    <Modal.Title className='events-view-modal-title'>Events on August 25</Modal.Title>
                                 </Modal.Header>
                                 <Modal.Body>
                                     <div className='view-music-events-table d-flex flex-column '>
@@ -188,7 +188,7 @@ function ViewArtist() {
 
                                             <div className='event-type'>Event Type</div>
                                             <div className='event-location'>Location</div>
-                                            <div className='event-date'>Date</div>
+                                            {/* <div className='event-date'>Date</div> */}
                                             <div className='event-time'>Time</div>
                                         </div>
 
@@ -197,21 +197,21 @@ function ViewArtist() {
 
                                             <div className='event-type'>Musical Show</div>
                                             <div className='event-location'>Galle</div>
-                                            <div className='event-date'>2023/01/09</div>
+                                            {/* <div className='event-date'>2023/01/09</div> */}
                                             <div className='event-time'>12.00</div>
                                         </div>
                                         <div className='datanew-row music-events-table-data-row d-flex'>
 
                                             <div className='event-type'>Musical Show</div>
                                             <div className='event-location'>Mathara</div>
-                                            <div className='event-date'>2023/03/19</div>
+                                            {/* <div className='event-date'>2023/03/19</div> */}
                                             <div className='event-time'>8.00</div>
                                         </div>
                                         <div className='datanew-row music-events-table-data-row d-flex'>
 
                                             <div className='event-type'>Musical Show</div>
                                             <div className='event-location'>Dabulla</div>
-                                            <div className='event-date'>2023/05/11</div>
+                                            {/* <div className='event-date'>2023/05/11</div> */}
                                             <div className='event-time'>10.00</div>
                                         </div>
 
