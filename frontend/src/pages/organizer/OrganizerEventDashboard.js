@@ -111,7 +111,7 @@ function OrganizerEventDashboard() {
                                         <BiSolidCalendarStar className='dateIcon fs-1 col-md-3 ' />
                                         <div className='col-md-8' >
                                             <p className='fs-6' style={{ fontFamily: 'MyCustomFont' }}>Event Type<br></br>
-                                                <span className='fs-4' style={{ fontFamily: 'MyCustomFont1' }}>Wedding</span>
+                                                <span className='fs-4' style={{ fontFamily: 'MyCustomFont1' }}>Musical Show</span>
                                             </p>
 
                                         </div>
