@@ -45,7 +45,7 @@ function AllUserDetails() {
         <div className="col-md-4">
           <img src={profilePhoto} alt="Profile" className="img-fluid rounded-circle" />
         </div>
-        <div className="col-md-4 complaint-details">
+        <div className="col-md-3 complaint-details">
           <p>Complaint ID: C1001</p>
           <p>Name: Karen Smith</p>
           <p>Title: Refund Payment</p>

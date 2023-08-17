@@ -169,7 +169,9 @@ function CreateEvent() {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify(formData)
-                  })
+                  }).then(() => {
+                    window.location.href = "/organizer/event";
+                })
                 }} >Create Event</button>
               </Link>
             </div>

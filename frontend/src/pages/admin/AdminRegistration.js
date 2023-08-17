@@ -65,7 +65,7 @@ function AdminRegistration() {
     </div>
     <div className='data-row'>
         <span><img src={band} alt='band'className='profile-picture'></img></span>
-        <span className='data-name'>D.K.D.Anjalika</span>
+        <span className='data-name'>Lahiru Perera</span>
         <span className='data-memberType'>Artist</span>
         <span className='data-status'>Pending</span>
         <Link to={"/admin/registration/proofcheck"}>
@@ -74,8 +74,8 @@ function AdminRegistration() {
     </div>
     <div className='data-row'>
         <span><img src={band} alt='band'className='profile-picture'></img></span>
-        <span className='data-name'>D.K.D.Anjalika</span>
-        <span className='data-memberType'>Artist</span>
+        <span className='data-name'>Three Girls</span>
+        <span className='data-memberType'>Band</span>
         <span className='data-status'>Pending</span>
         <Link to={"/admin/registration/proofcheck"}>
             <span className='data-button'><button type='button' className=' btn btn-primary'> View </button></span>
@@ -83,8 +83,8 @@ function AdminRegistration() {
     </div>
     <div className='data-row'>
         <span><img src={band} alt='band'className='profile-picture'></img></span>
-        <span className='data-name'>D.K.D.Anjalika</span>
-        <span className='data-memberType'>Artist</span>
+        <span className='data-name'>L.P.Perera</span>
+        <span className='data-memberType'>Organizer</span>
         <span className='data-status'>Pending</span>
         <Link to={"/admin/registration/proofcheck"}>
             <span className='data-button'><button type='button' className=' btn btn-primary'> View </button></span>
@@ -92,7 +92,7 @@ function AdminRegistration() {
     </div>
     <div className='data-row'>
         <span><img src={band} alt='band'className='profile-picture'></img></span>
-        <span className='data-name'>D.K.D.Anjalika</span>
+        <span className='data-name'>Tharushi Samadhi</span>
         <span className='data-memberType'>Artist</span>
         <span className='data-status'>Pending</span>
         <Link to={"/admin/registration/proofcheck"}>

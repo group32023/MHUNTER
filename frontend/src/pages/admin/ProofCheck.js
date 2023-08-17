@@ -15,6 +15,7 @@ import ViewUserDetails from './ViewUserDetails';
 import AdminReport from './AdminReport';
 import AdminSettings from './AdminSettings';
 import Topbar from '../../components/common/Topbar'
+import fimage from '../../assets/icons/requestlog.png'
 
 
 function ProofCheck() {
@@ -69,26 +70,26 @@ function ProofCheck() {
           <table>
             <tr>
               <td className='label'>Name  :</td>
-              <td><input type="text" name="name" value={formData.name} onChange={handleChange} /></td>
+              <td><input type="text" name="name" value={formData.name} onChange={handleChange} placeholder='D.K.D.Anjalika' /></td>
             </tr>
 
             <tr>
               <td className='label'>User Code :</td>
-              <td><input type="text" name="usecode" value={formData.usecode} onChange={handleChange} /></td>
+              <td><input type="text" name="usecode" value={formData.usecode} onChange={handleChange} placeholder='1010'/></td>
             </tr>
 
             <tr>
               <td className='label'>User Type :</td>
-              <td><input type="text" name="userType" value={formData.userType} onChange={handleChange} /></td>
+              <td><input type="text" name="userType" value={formData.userType} onChange={handleChange} placeholder='Artist'/></td>
             </tr>
             <tr>
               <td className='label'>Address  :</td>
-              <td><input type="text" name="address" value={formData.address} onChange={handleChange} /></td>
+              <td><input type="text" name="address" value={formData.address} onChange={handleChange} placeholder='Matara' /></td>
 
             </tr>
 
               <td className='label'>Email   :</td>
-              <td><input type="email" name="email" value={formData.email} onChange={handleChange} /></td>
+              <td><input type="email" name="email" value={formData.email} onChange={handleChange} placeholder='anjalika@gmail.com'/></td>
           </table>
         </div>
       </div>
@@ -99,7 +100,9 @@ function ProofCheck() {
               {image ? 
                 <img src={URL.createObjectURL(image)} alt="Proof" height={150} width={150}/>
               :
-                <FontAwesomeIcon icon={faUpload} size="5x" className='upload-icon' />
+                /*<FontAwesomeIcon icon={faUpload} size="5x" className='upload-icon' />*/
+
+                <img src={fimage} alt="Proof" height={100} width={100} className='upload-icon'/>
               }
               <input 
                 type='file' 
@@ -114,7 +117,7 @@ function ProofCheck() {
                 {image ? 
                   <img src={URL.createObjectURL(image)} alt="proof" height={150} width={150}/>
                 :
-                <FontAwesomeIcon icon={faUpload} size="5x" className='upload-icon' />
+                <img src={fimage} alt="Proof" height={100} width={100} className='upload-icon'/>
                 }
                 <input 
                   type='file' 

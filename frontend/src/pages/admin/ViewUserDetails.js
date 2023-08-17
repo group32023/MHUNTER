@@ -15,6 +15,7 @@ import AllUserDetails from './AllUserDetails';
 import AdminReport from './AdminReport';
 import AdminSettings from './AdminSettings';
 import Topbar from '../../components/common/Topbar'
+import fimage from '../../assets/icons/requestlog.png'
 
 function ViewUserDetails() {
     const [formData, setFormData] = useState({
@@ -67,26 +68,26 @@ function ViewUserDetails() {
               <table>
                 <tr>
                   <td className='label'>Name  :</td>
-                  <td><input type="text" name="name" value={formData.name} onChange={handleChange} /></td>
+                  <td><input type="text" name="name" value={formData.name} onChange={handleChange} placeholder='D.K.D.Dickovita' /></td>
                 </tr>
 
                 <tr>
                   <td className='label'>User Code :</td>
-                  <td><input type="text" name="usecode" value={formData.usecode} onChange={handleChange} /></td>
+                  <td><input type="text" name="usecode" value={formData.usecode} onChange={handleChange} placeholder='0012' /></td>
                 </tr>
 
                 <tr>
                   <td className='label'>User Type :</td>
-                  <td><input type="text" name="userType" value={formData.userType} onChange={handleChange} /></td>
+                  <td><input type="text" name="userType" value={formData.userType} onChange={handleChange} placeholder='Artist'/></td>
                 </tr>
                 <tr>
                   <td className='label'>Address  :</td>
-                  <td><input type="text" name="address" value={formData.address} onChange={handleChange} /></td>
+                  <td><input type="text" name="address" value={formData.address} onChange={handleChange} placeholder='No 03, Colombo'/></td>
 
                 </tr>
 
                   <td className='label'>Email   :</td>
-                  <td><input type="email" name="email" value={formData.email} onChange={handleChange} /></td>
+                  <td><input type="email" name="email" value={formData.email} onChange={handleChange} placeholder='anjalika@gmail.com'/></td>
               </table>
             </div>
           </div>
@@ -97,7 +98,7 @@ function ViewUserDetails() {
                   {image ? 
                     <img src={URL.createObjectURL(image)} alt="Proof" height={150} width={150}/>
                   :
-                    <FontAwesomeIcon icon={faUpload} size="5x" className='upload-icon' />
+                  <img src={fimage} alt="Proof" height={100} width={100} className='upload-icon'/>
                   }
                   <input 
                     type='file' 
@@ -112,7 +113,7 @@ function ViewUserDetails() {
                     {image ? 
                       <img src={URL.createObjectURL(image)} alt="proof" height={150} width={150}/>
                     :
-                    <FontAwesomeIcon icon={faUpload} size="5x" className='upload-icon' />
+                    <img src={fimage} alt="Proof" height={100} width={100} className='upload-icon'/>
                     }
                     <input 
                       type='file' 
@@ -124,8 +125,8 @@ function ViewUserDetails() {
             </span>
           </div>
           <div className="d-flex justify-content-between button-proofcheck">
-            <button  type="button" className="btn btn-primary" style={{backgroundColor:'rgb(118, 67, 210)', border:'none'}}><h5>Accept</h5></button>
-            <button  type="button" className="btn btn-danger"><h5>Reject</h5></button>
+            
+            <button  type="button" className="btn btn-danger"><h5>Remove User</h5></button>
           </div>
         </form>
 
