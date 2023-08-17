@@ -97,7 +97,7 @@ function ViewArtist() {
                                             </div>
 
                                             <div className='ml-2 content'>
-                                                <h7>Saman Vidyarathna</h7>
+                                                <h7>Namal Gamage</h7>
                                                 <StarRating rating={5} />
                                             </div>
                                         </div>
