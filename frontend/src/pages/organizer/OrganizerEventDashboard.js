@@ -77,7 +77,7 @@ function OrganizerEventDashboard() {
                                                 <BiSolidCalendar className='dateIcon fs-1 col-md-3 ' />
                                                 <div className='col-md-8 mt-2'>
                                                     <p>Event Date<br></br>
-                                                        <span className='fs-4'>Jun 14 2023</span>
+                                                        <span className='fs-4'>Aug 25 2023</span>
                                                     </p>
                                                 </div>
                                             </div>
