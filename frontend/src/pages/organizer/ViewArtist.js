@@ -10,7 +10,7 @@ import anushkashow3 from '../../assets/images/anushkashow3.jpg';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fas } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import StarRating from '../../components/organizer/StarRating';
+import StarRating from '../../components/Organizer/StarRating';
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 

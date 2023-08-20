@@ -18,8 +18,8 @@ import '../../assets/css/OrganizerDashboard.css';
 // import OrganizerDashboardContent from "./OrganizerDashboardContent";
 
 import Topbar from '../../components/common/Topbar';
-import DashboardCarousel from '../../components/organizer/dashboardCarousel';
-import DashboardCalender from '../../components/organizer/DashboardCalender';
+import DashboardCarousel from '../../components/Organizer/dashboardCarousel';
+import DashboardCalender from '../../components/Organizer/DashboardCalender';
 // import CalenderImg from '../../assets/images/calenderImg.png'
 import '../../assets/css/OrganizerDashboard.css'
 import { BsMusicNoteList } from "react-icons/bs";

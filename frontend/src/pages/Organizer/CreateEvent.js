@@ -4,7 +4,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { format } from 'date-fns'
 import Topbar from '../../components/common/Topbar';
-import LocationInput from '../../components/organizer/LocationInput';
+import LocationInput from '../../components/Organizer/LocationInput';
 // import SideMenuBarOrganizer from '../../components/common/SideMenuBar/SideMenuBarOrganizer';
 import SideMenuBarOrganizer from '../../components/common/SideMenuBar/SideMenuBarOrganizer';
 import { Routes, Route } from 'react-router';
