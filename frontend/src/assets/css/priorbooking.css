@@ -20,8 +20,8 @@
     background-color: #7643D2 !important;
     position: absolute;
     font-size: 15px;
-    width: 5%;
-    height: 4%;
+    width: 7%;
+    height: 6%;
     font-weight: bold;
     text-align: center;
     color: #ffffff;
@@ -78,18 +78,18 @@
 }
 
 .download{
-background-color: #7643D2 !important;
-position: relative;
-font-size: 15px;
-width: 8%;
-height: 5%;
-font-weight: bold;
-text-align: center;
-color: #ffffff;
-border-radius: 10px;
-border: none !important;
-left:25%;
-top: 90%;
+    background-color: #7643D2 !important;
+    position: absolute;
+    font-size: 15px;
+    width: 8%;
+    height: 5%;
+    font-weight: bold;
+    text-align: center;
+    color: #ffffff;
+    border-radius: 10px;
+    border: none !important;
+    left: 85%;
+    top: 84%;
 
 
 

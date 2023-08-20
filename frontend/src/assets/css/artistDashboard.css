@@ -211,11 +211,12 @@
     height: 139px;
     border-radius: 15px;
     background: #3B444D;
-    position: relative;
-    top: 5.4%;
+    position: absolute;
+    top: 48.4%;
     left: 48%;
     margin-top: -240px;
     margin-left: -43px;
+  
 }
 
 .pendingRequestDiv-exp{
@@ -248,8 +249,8 @@
     height: 139px;
     border-radius: 15px;
     background: #3B444D;
-    position: relative;
-    top: 6.3%;
+    position: absolute;
+    top: 34.8%;
     left: 48%;
     margin-top: 1.2%;
     margin-left: -41px;
@@ -296,8 +297,8 @@
     height: 302.5px;
     border-radius: 15px;
     background: #3B444D;
-    position: relative;
-    top: 6.8%;
+    position: absolute;
+    top: 57.8%;
     left: 75%;
     margin-top: -21%;
     margin-left: -1%;
@@ -358,8 +359,8 @@
     height: 281px;
     border-radius: 15px;
     background: #3B444D;
-    position: relative;
-    top: 5%;
+    position: absolute;
+    top: 55%;
     left: 5.7%;
     margin-top: 27.5px;
 }
@@ -416,8 +417,8 @@
     height: 281px;
     border-radius: 15px;
     background: #3B444D;
-    position: relative;
-    top: 4.9%;
+    position: absolute;
+    top: 98.9%;
     left: 54.8%;
     margin-top: -19.3%;
     margin-left: -2.4%;
@@ -622,9 +623,9 @@
         height: 139px;
         border-radius: 15px;
         background: #3B444D;
-        position: relative;
-        top: 18.4%;
-        left: 9.5%;
+        position: absolute;
+        top: 48.4%;
+        left: 48%;
         margin-top: -240px;
         margin-left: -43px;
       }
@@ -712,9 +713,9 @@
         height: 139px;
         border-radius: 15px;
         background: #3B444D;
-        position: relative;
-        top: 18.3%;
-        left: 9.3%;
+        position: absolute;
+        top: 35.1%;
+        left: 48%;
         margin-top: 1.2%;
         margin-left: -41px;
       }
@@ -724,9 +725,9 @@
         height: 302.5px;
         border-radius: 15px;
         background: #3B444D;
-        position: relative;
-        top: 38.3%;
-        left: 8.2%;
+        position: absolute;
+        top: 57.8%;
+        left: 75%;
         margin-top: -21%;
         margin-left: -1%;
       }

@@ -5,6 +5,7 @@ import notification from '../assets/images/notification.png'
 import home from '../assets/images/home-button.png'
 import logout from '../assets/images/logout.png'
 import '../assets/css/artistEvent.css'
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {faLocationDot,faCalendarDays} from '@fortawesome/free-solid-svg-icons'
 import profileImage from '../assets/images/profilePhoto.jpeg';
@@ -28,15 +29,15 @@ export default function ArtistEvent() {
   const handle = ()=>{
     fetch("http://localhost:8080/requestMusicMember/viewAllEvents/758463").then((res)=>res.json()).then((result)=>{
       const newItem = result.map(item=>(
-        <div  className="requestContainer">
-      <img src={profileImage} className="profile"></img>
-      <div className="eventDetails">
+        <div  className="requestContainerArtistEvent">
+      <img src={profileImage} className="profileArtistEvent"></img>
+      <div className="eventDetailsArtistEvent">
         <h4>{item.organizerName}</h4>
-        <p class="artistEventType"><img src={eventType} alt=''className='artistEventTypeImg'></img>{item.eventType}</p>
-        <p class="eventDate"><FontAwesomeIcon icon={faCalendarDays} id="CalenderIconPendingRequest"/>{item.date}</p>
-        <p class="venue"><FontAwesomeIcon icon={faLocationDot} id="LocationIconPendingRequest"/>{item.place}</p>
+        <p class="artistEventTypeArtistEvent"><img src={eventType} alt=''className='artistEventTypeImg'></img>{item.eventType}</p>
+        <p class="eventDateArtistEvent"><FontAwesomeIcon icon={faCalendarDays} id="CalenderIconPendingRequest"/>{item.date}</p>
+        <p class="venueArtistEvent"><FontAwesomeIcon icon={faLocationDot} id="LocationIconPendingRequest"/>{item.place}</p>
       </div>
-      <Button className="viewBtn" onClick={()=>directions(item.eventId)}>View</Button>
+      <Button className="viewBtnArtistEvent" onClick={()=>directions(item.eventId)}>View</Button>
    
   </div>
       ))
@@ -51,10 +52,10 @@ export default function ArtistEvent() {
 
   return (
     <div>
-        <div className='mainArtistDashboard'>
-            <SideMenuBarArtist></SideMenuBarArtist>
-        </div>
-        <div className='mainEventContainer'>
+       
+            <SideMenuBarArtist>
+        
+        
         <p className='headerDashboard'>Events</p>
             <div className={expand ? 'notificationBg':'notificationBg-ex'}>
               <img src={notification} className='notificationIcon' alt='notification'></img>
@@ -67,7 +68,8 @@ export default function ArtistEvent() {
               <p className='logoutbtn'>Logout</p>
             </div>
             <div>{data}</div>
-        </div>
+       
+        </SideMenuBarArtist>
     </div>
   )
 }

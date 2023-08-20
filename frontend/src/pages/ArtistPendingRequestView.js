@@ -78,10 +78,11 @@ const loadPendingRequest=()=>{
 
     
     <div>
-        <div className='MainContainer'>
+      <SideMenuBarArtist>
+        
 
-       <SideMenuBarArtist setExpandedSideBar={setExpandedSideBar}></SideMenuBarArtist>
-        <div className='artistSideBarOne' id='artistSideBarOne'>
+       
+        <div >
             <p className='headerDashboard'>Pending Requests</p>
             <div className={expand ? 'notificationBg':'notificationBg-ex'}>
               <img src={notification} className='notificationIcon' alt='notification'></img>
@@ -117,11 +118,9 @@ const loadPendingRequest=()=>{
             <button className="acceptBtn" onClick={()=>loadInvoice(event['eventId'])}>Accept</button>
             <button className="rejectBtn" onClick={()=>loadPendingRequest()}>Reject</button>
         </div>
-        
-        
-      
-        </div>
 
+       
+        </SideMenuBarArtist>
         
     </div>
   )
