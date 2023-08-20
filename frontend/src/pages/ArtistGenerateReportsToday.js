@@ -101,7 +101,7 @@ export default function ArtistGenerateReports() {
       <td><FontAwesomeIcon icon={faLocationDot} id="LocationIcon"/>{eventList[i]['place']}</td>
       <td>{eventList[i]['date']}</td>
       <td>{eventList[i]['income']}</td>
-      <td>{}</td>
+     
 </tr>
   );
    
