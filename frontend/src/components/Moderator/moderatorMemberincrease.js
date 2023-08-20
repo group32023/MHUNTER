@@ -59,7 +59,7 @@ export default function ArtistEarningOverview() {
 
   return (
     <div>
-      <p className='moderatorregisterOverviewHeader'>Registered Users Overview</p>
+   
       <Chart
         options={state.options}
         series={state.series}

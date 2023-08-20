@@ -44,7 +44,7 @@ export default function ModeratorDashboard() {
 
             </div>
             <div className={expand ? 'moderatorWebPoster':'moderatorWebPoster-exp'}>
-              <p>Welcome!</p>
+              <center><p>Welcome!</p></center>
               <img src={ModeratorImage } alt='' className='webPostImage2'></img>
 
               <span>Welcome to a world where your music event dreams become a reality with just a few clicks...</span>
@@ -56,9 +56,9 @@ export default function ModeratorDashboard() {
               </div>
               
 
-              <div className={expand ? 'moderatorUpcommingEvent':'moderatorUpcommingEvent-ex'}>
+              {/* <div className={expand ? 'moderatorUpcommingEvent':'moderatorUpcommingEvent-ex'}>
               <ModeratorUpcommingEvent/>
-            </div>
+               </div> */}
                  {/* pending request */}
                  <div className={expand ? 'moderatorpendingRequestDiv':'moderatorpendingRequestDiv-exp'}>
                 <ModeratorPendingRequest />

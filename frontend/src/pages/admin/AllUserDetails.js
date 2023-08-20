@@ -55,45 +55,45 @@ function AllUserDetails() {
     {/*table*/}
     <div className='data-row'>
         <span><img src={band} alt='band'className='profile-picture'></img></span>
-        <span className='data-name'>D.K.D.Anjalika</span>
+        <span className='data-name'>D.K.D.Dickovita</span>
         <span className='data-email'>anjalika@gmail.com</span>
-        <span className='data-status'>Organizer</span>
+        <span className='data-status'>Artist</span>
         <Link to={'/admin/userdetails/viewdetails'}>
             <span className='data-button'><button type='button' className=' btn btn-primary'> View </button></span>
         </Link>
     </div>
     <div className='data-row'>
         <span><img src={band} alt='band'className='profile-picture'></img></span>
-        <span className='data-name'>D.K.D.Anjalika</span>
-        <span className='data-email'>anjalika@gmail.com</span>
-        <span className='data-status'>Organizer</span>
+        <span className='data-name'>Umasha Perera</span>
+        <span className='data-email'>pereraa@gmail.com</span>
+        <span className='data-status'>Artist</span>
         <Link to={'/admin/userdetails/viewdetails'}>
             <span className='data-button'><button type='button' className=' btn btn-primary'> View </button></span>
         </Link>
     </div>
     <div className='data-row'>
         <span><img src={band} alt='band'className='profile-picture'></img></span>
-        <span className='data-name'>D.K.D.Anjalika</span>
-        <span className='data-email'>anjalika@gmail.com</span>
-        <span className='data-status'>Organizer</span>
+        <span className='data-name'>Nirodha lakshan</span>
+        <span className='data-email'>lakshan@gmail.com</span>
+        <span className='data-status'>Artist</span>
         <Link to={'/admin/userdetails/viewdetails'}>
             <span className='data-button'><button type='button' className=' btn btn-primary'> View </button></span>
         </Link>
     </div>
     <div className='data-row'>
         <span><img src={band} alt='band'className='profile-picture'></img></span>
-        <span className='data-name'>D.K.D.Anjalika</span>
-        <span className='data-email'>anjalika@gmail.com</span>
-        <span className='data-status'>Organizer</span>
+        <span className='data-name'>S.P.Theekshani</span>
+        <span className='data-email'>thekshani@gmail.com</span>
+        <span className='data-status'>Artist</span>
         <Link to={'/admin/userdetails/viewdetails'}>
             <span className='data-button'><button type='button' className=' btn btn-primary'> View </button></span>
         </Link>
     </div>
     <div className='data-row'>
         <span><img src={band} alt='band'className='profile-picture'></img></span>
-        <span className='data-name'>D.K.D.Anjalika</span>
-        <span className='data-email'>anjalika@gmail.com</span>
-        <span className='data-status'>Organizer</span>
+        <span className='data-name'>Udari Wijamuni</span>
+        <span className='data-email'>wijamuni@gmail.com</span>
+        <span className='data-status'>Artist</span>
         <Link to={'/admin/userdetails/viewdetails'}>
             <span className='data-button'><button type='button' className=' btn btn-primary'> View </button></span>
         </Link>

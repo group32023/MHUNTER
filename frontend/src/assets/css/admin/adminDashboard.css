@@ -67,7 +67,7 @@
   }
   .admin-list{
     padding-top: 2px;
-    font-size: 30px;
+    font-size: 25px;
   }
 
 /* Calendar */
@@ -308,6 +308,57 @@
 }
 
 
+.icon-name-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #7643d2;
+}
+.icon-dashboard{
+  font-size: 45px;
+  padding-right: 10px;
+}
+
+/*event-dashboard*/
+.admin-event-dashboard-artist-details{
+  display: flex;
+  align-items: center; 
+  margin: 5px;
+  padding: 0px;
+
+}
+
+.artist-details-in-dashboard {
+  flex: 1; 
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}
 
 
+.artist-details-in-dashboard input[type=text] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #24292D;
+  border-radius: 4px;
+  resize: vertical;
+  background-color: #24292D;
+}
+
+.artist-details-in-dashboard label {
+  padding: 12px 12px 12px 0;
+  display: inline-block;
+}
+
+.col-25 {
+  float: left;
+  width: 25%;
+  margin-top: 6px;
+}
+
+.col-75 {
+  float: left;
+  width: 75%;
+  margin-top: 6px;
+}
   

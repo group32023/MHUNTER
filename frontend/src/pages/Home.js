@@ -9,6 +9,8 @@ import { faTwitter,faFacebook,faGooglePlusG,faLinkedinIn } from '@fortawesome/fr
 import '../assets/css/home.css'
 
 import Footer from '../components/common/Footer';
+import {Link} from 'react-router-dom';
+
 
 export default function 
 h() {
@@ -38,8 +40,9 @@ h() {
                     Introducing a Next-Level Music Event Management Experience
                     </p>
                 </section>
-
+                <Link to={"/signup"}>
                 <button className='signupBtn'>SIGN UP</button>
+                </Link>
                 
             </div>
 
