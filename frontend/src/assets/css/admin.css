@@ -1,0 +1,259 @@
+.login{
+    background-color:rgb(241, 234, 234); 
+}
+.form_container{
+    width: 30%;
+    background-color:rgb(3, 3, 3,0.7);
+    border-radius: 15px;
+    /*background-color:#484E55;*/
+}
+.bgimage {
+    background-image: url("../images/bg.jpg");
+    background-size: cover;
+    background-position: center;
+  }
+
+.bgimage2 {
+    background-image: url("../images/slide_1.jpg");
+    background-size: cover;
+    background-position: center;
+  }
+.artist-image img, .band-image img{
+  border-radius: 50%;
+  margin-bottom: 10px;
+
+}
+.logo-in-login{
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+}
+.logo-in-login img{
+  width: 100px;
+  padding: 0;
+  margin: 0;
+}
+.link-login a{
+  text-decoration: none;
+  color: #7643D2;
+  font-size: medium;
+}
+.link-login a:hover{
+  color: #F4ECFA;
+}
+.login-button:hover{
+  background-color: #F4ECFA;
+  color: black;
+}
+.login-button{
+  background-Color: rgb(118, 67, 210);
+}
+
+
+.form_signup_container{
+    width: 50%;
+    background-color:rgb(3, 3, 3,0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50px;  
+}
+
+.header{
+  background-color: rgb(3,3,3);
+  border-radius: 10px; 
+  padding-left: 2px;
+  padding-right: 2px;
+ 
+}
+
+.signup_button{
+    border: none;
+    border-radius: 10px;
+    padding: 10px;
+    
+}
+
+.signup_button :hover{
+   color: #5a189a;
+}
+
+.button-in-signup{
+  background-color: #7643D2;
+}
+.box-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    
+  }
+
+  .signup_text {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #fff;
+    
+  }
+
+  
+  .boxes {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .left-box, .right-box {
+    flex: 1;
+    margin: 20px;
+    padding: 20px;
+    border-radius: 5px;
+    padding-left: 30px;
+    padding-right: 30px;
+    text-align: center;
+  }
+  
+  .left-box {
+    background-color: rgb(252, 155, 248, 0.3); 
+    color: #fff; 
+  }
+  
+  .right-box {
+    background-color: rgb(252, 155, 248, 0.3); 
+    color: #fff; 
+  }
+
+@media screen and (max-width: 1000px) {
+    .form_container{
+        width: 45%;
+    }
+    .form_signup_container{
+        width: 45%;
+    }
+    .left-box, .right-box {
+        padding: 10px;
+        margin: 5px;
+      }
+}
+
+@media screen and (max-width: 700px) {
+    .form_container{
+        width: 65%;
+    }
+    .form_signup_container{
+        width: 65%;
+    }
+
+    .left-box, .right-box {
+        padding: 10px;
+        margin: 5px;
+      }
+
+}
+
+/*Artist Signup*/
+.artist_signup_form_container{
+  width: 60%;
+  background-color:rgb(51, 13, 67, 0.9);
+  display: flex;
+  justify-content: center;
+  align-items: center;  
+
+}
+.artist-signup-left-box{
+  background-color: none;
+  width: 60%;
+  margin-right: 10px;
+  padding: 20px;
+  padding-left: 50px;
+
+}
+.artist-signup-right-box{
+  background-color: none;
+  width: 40%;
+  margin-left:10px;
+  /*display: grid;
+  justify-content: center;*/
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.artist-text{
+  text-align: center;
+  color: #fff;
+  
+}
+
+.text-field input{
+  border-radius: 60px;
+  border: black;
+  border-style: solid;
+  opacity: 0.5;
+}
+.artist-signup-right-box h4{
+  
+  color: #fff;
+  padding: 10px;
+  border-radius: 10px;
+  letter-spacing: 3px;
+}
+
+.artist-signup-right-box h6{
+  background-color: #5a189a;
+  color: #fff;
+  padding: 10px;
+  border-radius: 10px;
+
+}
+
+.upload-image :hover{
+  cursor: pointer;
+  background-color: #fff;
+  color: #5a189a;
+
+}
+
+.signup-button button{
+  padding: 10px;
+  background-color: #5a189a;
+  color: #fff;
+  border-radius: 10px;
+  
+}
+
+.signup-button button:hover{
+  background-color: #fff;
+  color: #5a189a;
+  
+}
+
+@media screen and (max-width: 800px) {
+  .artist_signup_form_container{
+    width: 80%;
+    background-color:rgb(68, 18, 88);
+    display: block;
+    justify-content: center;
+    align-items: center;  
+
+  }
+  .artist-signup-left-box{
+    width: 100%;
+    margin-right: 5px;
+    padding: 20px;
+    padding-left: 20px;
+    
+  }
+
+  .artist-signup-right-box{
+    background-color: none;
+    width: 100%;
+    margin-left:10px;
+    display: grid;
+    justify-content: center;
+  }
+
+}

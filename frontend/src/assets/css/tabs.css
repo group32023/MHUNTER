@@ -1,0 +1,111 @@
+*, ::before, ::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+
+.container {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 100%; /* Change to a percentage value or use other units for responsiveness */
+  max-width: 1400px; /* Set a maximum width for larger screens */
+  height: auto; /* Remove fixed height to let content determine the height */
+  margin-top: 800px; /* Adjust margin for smaller screens */
+  word-break: break-all;
+  border: 1px solid rgba(0, 0, 0, 0.274);
+}
+
+.bloc-tabs {
+  display: flex;
+  flex-wrap: wrap; /* Allow tabs to wrap on smaller screens */
+}
+
+.tabs {
+  flex: 1; /* Distribute tabs evenly on larger screens */
+  padding: 15px;
+  text-align: center;
+  background: rgba(243, 243, 243, 0.075);
+  cursor: pointer;
+  box-sizing: content-box;
+  position: relative;
+  outline: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.274);
+  margin-top:auto;
+}
+
+.tabs:not(:last-child) {
+  border-bottom: 1px solid transparent;
+}
+
+.active-tabs {
+  background: rgba(118, 67, 210, 1);
+  border-bottom: 1px solid transparent;
+}
+
+button {
+  margin: 10px 5px; /* Adjust margin for smaller screens */
+  background-color: rgba(118, 67, 210, 1);
+  color: #fcfafa;
+  font-family: "Inter";
+  font-weight: bold;
+  font-size: 20px;
+  height: 22px;
+  border: none;
+  border-radius: 14px;
+  cursor: pointer;
+}
+
+.content-tabs {
+  flex-grow: 1;
+}
+
+.content {
+  background: rgba(28, 28, 28, 1);
+  padding: 20px;
+  width: 100%;
+  display: none;
+}
+
+.content h2 {
+  padding: 0px 0 5px 0px;
+}
+
+.content hr {
+  width: 100px;
+  height: 2px;
+  background: #222;
+  margin-bottom: 5px;
+}
+
+.content p {
+  width: 100%;
+}
+
+.active-content {
+  display: block;
+  margin-top: 20px; /* Adjust margin for smaller screens */
+}
+
+/* Media Queries for Mobile Responsiveness */
+@media only screen and (max-width: 768px) {
+  .container {
+    width: 90%; /* Adjust container width for smaller screens */
+    max-width: none; /* Remove the maximum width restriction */
+  }
+
+  .tabs {
+    flex: 1; /* Make tabs stack vertically on smaller screens */
+    margin-bottom: 5px; /* Add space between tabs */
+    border: none; /* Remove border between tabs */
+  }
+
+  button {
+    margin: 5px; /* Adjust button margin for smaller screens */
+  }
+
+  .active-content {
+    margin-top: 0; /* Remove margin for active content */
+  }
+}

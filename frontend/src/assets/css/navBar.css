@@ -1,4 +1,4 @@
-.navBody{
+.navBody {
     width: 1536px;
     height: 58px;
     flex-shrink: 0;
@@ -9,7 +9,8 @@
     left: 0px;
     z-index: 10000;
 }
-.logo img{
+
+.logo img {
     width: 189px;
     height: 161px;
     flex-shrink: 0;
@@ -21,17 +22,19 @@
     margin-bottom: 10px;
     margin-top: -56px; */
 }
-.navContain{
+
+.navContain {
     position: absolute;
     top: 4px;
     left: 626px;
 }
-ul{
+.navContain ul{
     display: flex; 
     list-style: none;
+    margin-left: 122px;
 }
 
-ul li{
+.navContain ul li{
     width: 101px;
     height: 22px;
     flex-direction: column;
@@ -43,9 +46,10 @@ ul li{
     font-weight: 800;
     line-height: normal;
     padding-right: 22px;
+    padding-top: 15px;
 }
 
-.slide1{
+.slide1 {
     width: 1440px;
     height: 702.791657px;
     flex-shrink: 0;
