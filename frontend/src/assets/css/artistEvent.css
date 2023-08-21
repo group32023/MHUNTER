@@ -29,7 +29,7 @@
     width: 55px;
     height: 55px;
     top: 11.5px;
-    left: -444px;
+    left: 38px;
   }
 
   .eventDetailsArtistEvent h4 {
@@ -49,7 +49,7 @@
     text-align: center;
     color: white;
     border-radius: 10px;
-    left: 36%;
+    left: 51%;
     top: 29px;
     
   }
@@ -57,7 +57,7 @@
   .eventDateArtistEvent {
     position: relative;
     margin-top: -3.2%;
-    left: 12%;
+    left: 42%;
     top: -30px;
     color: white;
   }
@@ -65,7 +65,7 @@
   .venueArtistEvent {
     position: relative;
     margin-top: -3.2%;
-    left: 27%;
+    left: 73%;
     top: -37px;
     color: white;
   }
@@ -74,12 +74,12 @@
     background-color: #F70F5D !important;
     position: relative;
     font-size: 15px;
-    width: 7%;
-    height: 30px;
+    width: 8%;
+    height: 39px;
     font-weight: bold;
     text-align: center;
     color: white;
-    left: 42%;
+    left: 88%;
     top: -81.8px;
     border-radius: 10px;
     border: none !important;

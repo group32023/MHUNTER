@@ -1,0 +1,60 @@
+#tableEvents{
+    top: 3%;
+    left: 5%;
+    font-family: Dosis;
+    position: absolute;
+    --bs-table-bg: none !important;
+    font-size: 22px;
+    width: 90%;
+    text-align: center !important;
+}
+#tableEvents tr{
+    width: 10%;
+    height: 40%;
+    text-align: left !important;
+    border-bottom: #7643D2 solid 3px !important;
+    
+
+    
+}
+#tableEvents td{
+    position: relative;
+    left: 5%;
+    width: 50%;
+}
+#tableEvents tr:hover{
+    background-color: unset !important;
+ }
+
+#aboutUSviewbtn1{
+    background-color: aliceblue !important;
+    color: black;
+    font-size: 22px;
+    font-weight: bolder;
+    position: relative;
+    left: 70%;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    
+
+}
+#aboutUSviewbtn2{
+    background-color: aliceblue !important;
+    color: black;
+    font-size: 22px;
+    font-weight: bolder;
+    position: relative;
+    left: 70%;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    
+
+}
+#payments{
+    position: relative;
+    left: 8%;
+    background-color: rgb(140, 142, 143);
+    width: 85%;
+}

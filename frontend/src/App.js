@@ -55,7 +55,6 @@ import NavBar from './components/common/NavBar';
 import MainSlider from './components/common/MainSlider';
 import BandSignup from './pages/BandSignup';
 import AdminDashboard from './pages/admin/AdminDashboard';
-import ArtistDashboard from './pages/artist/ArtistDashboard';
 import BandDashboard from './pages/band/BandDashboard';
 import ModeratorDashboard from './pages/moderator/ModeratorDashboard';
 import AdminRegistration from './pages/admin/AdminRegistration';

@@ -152,6 +152,7 @@
     font-style: normal;
     font-weight: 800;
     line-height: normal;
+    margin-left: 178px;
 }
 
 .artistWebPoster-exp p{
@@ -173,7 +174,7 @@
     font-weight: 400;
     line-height: normal;
     display: inline-block;
-    margin-left: -228px;
+    margin-left: 50px;
     margin-top: 21px;
 }
 
@@ -194,8 +195,8 @@
 .webPostImage{
     width: 189px;
     height: 204px;
-    margin-top: -78px;
-    margin-right: -214px;
+    margin-top: -296px;
+    margin-left: 314px;
 }
 
 .artistWebPoster-exp .webPostImage{
@@ -363,6 +364,7 @@
     top: 55%;
     left: 5.7%;
     margin-top: 27.5px;
+    overflow: hidden;
 }
 
 .artistEarningOverview-exp{
@@ -422,6 +424,7 @@
     left: 54.8%;
     margin-top: -19.3%;
     margin-left: -2.4%;
+    overflow: hidden;
 }
 
 .artistUpcommingEvent-ex{

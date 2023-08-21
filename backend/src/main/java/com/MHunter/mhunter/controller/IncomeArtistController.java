@@ -14,7 +14,6 @@ import com.MHunter.mhunter.model.User;
 import java.time.*;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 @RestController
 @CrossOrigin
@@ -58,12 +57,12 @@ public class IncomeArtistController {
           incomeList.forEach((res->{
               Event event = eventService.viewSpecificEvent(res.getId().getEventId());
               Organizer organizer = organizerService.findSpecificOrganizer(event.getOrgID());
-              User user = userService.findSpecificUser(organizer.getUserId());
+              User user = userService.findSpecificUser(organizer.getUser().getUserId());
               EventOrganizer eventOrganizer = new EventOrganizer();
               eventOrganizer.setIncome(res.getIncome());
               eventOrganizer.setOrgId(event.getOrgID());
               eventOrganizer.setEventId((event.getEventID()));
-              eventOrganizer.setOrganizerName(user.getFname() + " " +  user.getLname());
+              eventOrganizer.setOrganizerName(user.getFirstName() + " " +  user.getLastName());
               eventOrganizer.setEventName(event.getEvent_name());
               eventOrganizer.setEventType(event.getEvent_type());
               eventOrganizer.setStartTime(event.getStart_time());
