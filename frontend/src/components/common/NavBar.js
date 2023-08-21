@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import logo from '../../assets/images/logo.png'
 import '../../assets/css/navBar.css'
+import { Link } from 'react-router-dom'
 
 
 export default function NavBar() {
@@ -41,8 +42,8 @@ export default function NavBar() {
                 <li><a href='/band' className={`${(location==='band') ? 'active':''}`}>BANDS</a></li>
                 <li><a href='/artist'  className={`${(location==='artist') ? 'active':''}`}>ARTISTS</a></li>
                 <li><a href='/aboutUs' className={`${(location==='aboutUs') ? 'active':''}`}>ABOUT US</a></li>
-                <li><a href='/' className={`${(location==='contact') ? 'active':''}`}>CONTACT</a></li>
-                <li><a href='/artist/Dashboard'>LOGIN</a></li>
+                <li><a href='/contact' className={`${(location==='contact') ? 'active':''}`}>CONTACT</a></li>
+                <li><a href='/login'>LOGIN</a></li>
             </ul>
             </nav>
             </div>

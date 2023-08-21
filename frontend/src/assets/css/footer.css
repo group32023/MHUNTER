@@ -44,10 +44,8 @@
     padding-left: 0;
     display: list-item;
     position: absolute;
-    left: 52.7%;
+    left: 50.5%;
     text-align: left;
-    font-size: 10px;
-    top: 606%;
   }
   
   .ft-2 ul li {
@@ -67,8 +65,7 @@
     font-size: 1.06rem;
     color: #fff;
     text-align: left;
-    margin-left: 1027px;
-    width: 187px;
+    margin-left: 148px;
   }
   
   .ft-3 i {

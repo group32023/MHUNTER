@@ -1,4 +1,4 @@
-.homeMainContainer {
+body {
     background-image: url('../images/backgroundForHome.jpg');
     background-position: center;
     background-repeat: repeat-y;
@@ -242,5 +242,3 @@
     z-index: 100;
 
 }
-
-
