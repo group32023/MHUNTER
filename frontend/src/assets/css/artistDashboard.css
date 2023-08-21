@@ -461,6 +461,11 @@
     left: 3%;
   }
 
+  .he{
+    position: absolute;
+    top: 206px;
+  }
+
 
 @media screen and (max-width: 600px) {
     .artistSideBarOne {
@@ -758,4 +763,5 @@
       }
     
   }
+
   

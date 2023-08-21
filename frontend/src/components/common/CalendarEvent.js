@@ -8,10 +8,17 @@ import { DateCalendar } from '@mui/x-date-pickers/DateCalendar';
 import { DayCalendarSkeleton } from '@mui/x-date-pickers/DayCalendarSkeleton';
 import '../../assets/css/calendarEvent.css'
 import { Prev } from 'react-bootstrap/esm/PageItem';
+import CalendarEventPopup from './CalendarEventPopup';
+import reward from '../../assets/images/quality.png'
 
 // show the actual date of upcomming date
 const currentDate = new Date();
 const initialValue = dayjs(currentDate.toLocaleDateString());
+
+function handleHover(date){
+  return(<CalendarEventPopup/>);
+  
+}
 
 function ServerDay(props) {
   const { highlightedDays = [], day, outsideCurrentMonth, ...other } = props;
@@ -19,16 +26,17 @@ function ServerDay(props) {
   const isSelected =
     !props.outsideCurrentMonth && highlightedDays.includes(day.format('YYYY-MM-DD'));
 
-
+    console.log(isSelected)
   return (
     <Badge
       key={props.day.toString()}
       overlap="circular"
-      badgeContent={isSelected ? '🌚' : undefined}
-    >
+      badgeContent={isSelected ? <img src={reward} alt='reward' onMouseEnter={(e)=>handleHover(props.day.toString())} className='calendarEventReward'></img> : undefined} 
+     >
       <PickersDay {...other} outsideCurrentMonth={outsideCurrentMonth} day={day} />
     </Badge>
   );
+  
 }
 
 export default function CalendarEvent() {
