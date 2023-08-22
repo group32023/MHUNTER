@@ -1,0 +1,184 @@
+@font-face {
+    font-family: 'MyCustomFont';
+    src: url('../fonts/Dosis-Regular.ttf') format('truetype');
+    /* src: url('../../../assets/icons/dashboard.png') format('truetype'); */
+    /* Add other font file formats and their paths here */
+}
+
+@font-face {
+    font-family: 'MyCustomFont1';
+    src: url('../fonts/Dosis-Bold.ttf') format('truetype');
+    /* src: url('../../../assets/icons/dashboard.png') format('truetype'); */
+    /* Add other font file formats and their paths here */
+}
+
+@font-face {
+    font-family: 'MyCustomFont2';
+    src: url('../fonts/Dosis-ExtraBold.ttf') format('truetype');
+    /* src: url('../../../assets/icons/dashboard.png') format('truetype'); */
+    /* Add other font file formats and their paths here */
+}
+
+.OrganizerDashboardMainContainer {
+    color: white;
+}
+
+.PaymentsTBDiv {
+    background-color: #2f363e;
+    height: auto;
+    border-radius: 10px;
+    flex: 1;
+}
+
+.DashboardCalenderDiv {
+    background-color: #2f363e;
+    height: 300px;
+    border-radius: 10px;
+    width: 355px;
+    transition: all .5s ease;
+    margin-left: 5px;
+
+}
+
+.mainContainer-NX .DashboardCalenderDiv {
+    width: 412px;
+    transition: all .5s ease;
+}
+
+.UpcominEventsDiv {
+    background-color: #2f363e;
+    height: auto;
+    flex: 1;
+    margin-left: 10px;
+    border-radius: 10px;
+}
+
+.Dashboard-custom-flex-row {
+    display: flex;
+    margin-right: 40px;
+}
+
+.innertablePaymentTBContent {
+    display: flex;
+}
+
+.tableUpcomingContent {
+    display: flex;
+    cursor: pointer;
+}
+
+.tableUpcomingContent:hover {
+    transform: scaleX(1.05);
+}
+
+.upcomingDivEventImage {
+    flex: 1;
+}
+
+/* .upcomingDivEventImage img {
+    border-radius: 10px;
+} */
+
+.PaymentTBDivData,
+.upcomingDivEventData {
+    flex: 2;
+    padding-left: 20px;
+}
+
+.upcomingDivEventData .eventTitle {
+    font-weight: bold;
+}
+
+.upcomingDivEventData .eventLocation {
+    color: #11FE70;
+    margin-top: 5px;
+    flex: 1;
+
+}
+
+.upcomingDivEventData .eventDataRow1 {
+    display: flex;
+    font-size: 13px;
+    text-align: left;
+}
+
+.upcomingDivEventData .eventDate {
+    flex: 1;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: center;
+    font-weight: bold;
+}
+
+.upcomingDivEventData .eventDescription {
+    font-size: 12px;
+    text-align: justify;
+    padding-right: 10px;
+    opacity: 0.8;
+}
+
+.PaymentTBImage {
+    width: 10%;
+}
+
+.PaymentTBImage img {
+    border-radius: 50%;
+}
+
+.PaymentTBTitle {
+    flex: 1;
+    text-align: center;
+    font-weight: bold;
+    font-size: 13px;
+    /* color: #7643D2; */
+}
+
+.PaymentTBAmount {
+    flex: 1;
+    text-align: center;
+    /* color: red; */
+    /* opacity: 0.8; */
+    color: #11FE70;
+}
+
+.PaymentTBBtn {
+    flex: 1;
+    text-align: center;
+}
+
+.PaymentTBBtn .paymentBtn {
+    font-size: 13px;
+    font-weight: 600;
+    background-color: transparent;
+    border: 1px solid red;
+    color: red;
+    opacity: 0.8;
+}
+
+.PaymentTBBtn .paymentBtn:hover {
+    /* background-color: #91040D; */
+    background-color: red;
+    color: white;
+    font-weight: normal;
+    transform: scaleX(1.1);
+
+
+}
+
+.PaymentTBEventName {
+    flex: 2;
+    text-align: center;
+    /* color: #7643D2; */
+}
+
+.innertablePaymentTBContent {
+    width: 90%;
+    font-size: 12px;
+}
+
+.tablePaymentTBContent {
+    background-color: #1c2126;
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}

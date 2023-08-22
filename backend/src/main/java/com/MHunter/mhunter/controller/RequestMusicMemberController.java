@@ -82,12 +82,12 @@ public class RequestMusicMemberController {
         eventList.forEach(res ->{
             Event event = eventService.viewSpecificEvent(res.getRequestMusicMemberId().getEventId());
             Organizer organizer = organizerService.findSpecificOrganizer(res.getOrgId());
-            User user = userService.findSpecificUser(organizer.getUserId());
+            User user = userService.findSpecificUser(organizer.getUser().getUserId());
 
             EventOrganizer eventOrganizer = new EventOrganizer();
             eventOrganizer.setOrgId(res.getOrgId());
             eventOrganizer.setEventId((event.getEventID()));
-            eventOrganizer.setOrganizerName(user.getFname() + " " +  user.getLname());
+            eventOrganizer.setOrganizerName(user.getFirstName() + " " +  user.getLastName());
             eventOrganizer.setEventName(event.getEvent_name());
             eventOrganizer.setEventType(event.getEvent_type());
             eventOrganizer.setStartTime(event.getStart_time());
@@ -125,14 +125,14 @@ public class RequestMusicMemberController {
         eventList.forEach(res ->{
             Event event = eventService.viewSpecificEvent(res.getRequestMusicMemberId().getEventId());
             Organizer organizer = organizerService.findSpecificOrganizer(res.getOrgId());
-            User user = userService.findSpecificUser(organizer.getUserId());
+            User user = userService.findSpecificUser(organizer.getUser().getUserId());
             EventOrganizer eventOrganizer = new EventOrganizer();
             IncomeArtistId id = new IncomeArtistId(mid,res.getRequestMusicMemberId().getEventId());
             IncomeArtist incomeArtist = incomeArtistService.viewSpecificIncome(id);
             eventOrganizer.setIncome(incomeArtist.getIncome());
             eventOrganizer.setEventId((event.getEventID()));
             eventOrganizer.setOrgId(res.getOrgId());
-            eventOrganizer.setOrganizerName(user.getFname() + " " +  user.getLname());
+            eventOrganizer.setOrganizerName(user.getFirstName() + " " +  user.getFirstName());
             eventOrganizer.setEventName(event.getEvent_name());
             eventOrganizer.setEventType(event.getEvent_type());
             eventOrganizer.setStartTime(event.getStart_time());
@@ -171,14 +171,14 @@ public class RequestMusicMemberController {
             if(date.equals(event.getDate()) ){
 
                 Organizer organizer = organizerService.findSpecificOrganizer(res.getOrgId());
-                User user = userService.findSpecificUser(organizer.getUserId());
+                User user = userService.findSpecificUser(organizer.getUser().getUserId());
                 EventOrganizer eventOrganizer = new EventOrganizer();
                 IncomeArtistId id = new IncomeArtistId(mid,res.getRequestMusicMemberId().getEventId());
                 IncomeArtist incomeArtist = incomeArtistService.viewSpecificIncome(id);
                 eventOrganizer.setIncome(incomeArtist.getIncome());
                 eventOrganizer.setEventId((event.getEventID()));
                 eventOrganizer.setOrgId(res.getOrgId());
-                eventOrganizer.setOrganizerName(user.getFname() + " " +  user.getLname());
+                eventOrganizer.setOrganizerName(user.getFirstName() + " " +  user.getLastName());
                 eventOrganizer.setEventName(event.getEvent_name());
                 eventOrganizer.setEventType(event.getEvent_type());
                 eventOrganizer.setStartTime(event.getStart_time());
@@ -297,9 +297,9 @@ public class RequestMusicMemberController {
             Event event = eventService.viewSpecificEvent(res.getRequestMusicMemberId().getEventId());
 
             Organizer organizer = organizerService.findSpecificOrganizer(res.getOrgId());
-            User user = userService.findSpecificUser(organizer.getUserId());
+            User user = userService.findSpecificUser(organizer.getUser().getUserId());
             EventOrganizer eventOrganizer = new EventOrganizer();
-            eventOrganizer.setOrganizerName(user.getFname() + " " +  user.getLname());
+            eventOrganizer.setOrganizerName(user.getFirstName() + " " +  user.getLastName());
             eventOrganizer.setEventType(event.getEvent_type());
             eventOrganizer.setPlace(event.getTown());
             eventOrganizer.setDate(event.getDate());
