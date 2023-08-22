@@ -75,7 +75,7 @@ export default function BandInvoice() {
     e.preventDefault();
     const invoice = {artistFee,bandFee,soundFee,instrumentFee,transportFee,others,totalAmount,paymentType}
     console.log(invoice)
-    const musicMemberDetails = 
+ 
 
     if(artistFee===0.00 && bandFee===0.00 && transportFee===0.00 && soundFee===0.00 && instrumentFee===0.00 && others===0.00){
 
