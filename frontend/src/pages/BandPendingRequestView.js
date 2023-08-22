@@ -51,7 +51,7 @@ export default function ArtistPendingRequests() {
   }, []);
 
   const loadInvoice=(id)=>{
-    navigate(`/band/invoice/${id}`);
+    navigate(`/artist/invoice/${id}`);
 
   }
 
