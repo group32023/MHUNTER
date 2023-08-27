@@ -64,7 +64,7 @@ export default function ArtistEventOn() {
       <td>{eventList[i]['eventName']}</td>
       <td>{eventList[i]['organizerName']}</td>
       <td>{eventList[i]['eventType']}</td>
-      <td><FontAwesomeIcon icon={faLocationDot} id="LocationIcon"/>{eventList[i]['place']}</td>
+      <td><FontAwesomeIcon icon={faLocationDot} id="LocationIcon1"/>{eventList[i]['place']}</td>
       <td>{eventList[i]['crowd']}</td>
       <td>{eventList[i]['income']}</td>
       
@@ -100,7 +100,7 @@ export default function ArtistEventOn() {
           </div>
 
           <div className='addressDiv'>
-          <h3>Envents On : {date} </h3>
+          <h3 className='eventsOnDate'>Envents On : {date} </h3>
           
           </div>
         

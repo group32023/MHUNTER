@@ -124,7 +124,7 @@
 .AmountLabel .label17{
     position: absolute;
     top: 101px;
-    left: 393px;
+    left: 434px;
     width: 249px;
     height: 33px;
     font-size: 18px;
@@ -236,7 +236,7 @@
 .displayTotalAmount1{
     position: absolute;
     top: 398px;
-    left: 402px;
+    left: 444px;
     width: 249px;
     height: 33px;
     font-size: 18px;
@@ -273,6 +273,11 @@
     font-size: 18.5px;
     font-weight: 400;
     color: white;
+
+}
+body{
+
+    text-align: center;
 
 }
 
@@ -336,13 +341,52 @@
     left: 10%;
     width: 80%;
     height: 80%;
+    color: #ffffff;
     background: #4b525b;
     border-radius: 25px;
 
  }
- .eventDetailsDisplayInnerContainer .bandOrganizer{
+ .eventDetailsDisplayInnerContainer1 #bandOrganizer{
     position: absolute;
-    top: 8%;
+    top: 24px;
     left: 30%;
 
  }
+
+
+ .eventDetailsDisplayInnerContainer1 .eventType1{
+    position: absolute;
+    left: 20%;
+    top: 30%;
+ }
+
+ .eventDetailsDisplayInnerContainer1 .eventDate1{
+    position: absolute;
+    left: 20%;
+    top: 40%;
+ }
+ .eventDetailsDisplayInnerContainer1 .venue1{
+    position: absolute;
+    left: 20%;
+    top: 50%;
+ }
+ .eventDetailsDisplayInnerContainer1 .eventType2{
+    position: absolute;
+    left: 20%;
+    top: 60%;
+ }
+ .eventDetailsDisplayInnerContainer1 .eventDate2{
+    position: absolute;
+    left: 20%;
+    top: 70%;
+ }
+ .eventDetailsDisplayInnerContainer1 .venue2{
+    position: absolute;
+    left: 20%;
+    top: 80%;
+ }
+
+ /* .eventDetailsDisplayInnerContainer1 #EventIconPendingRequest1{
+    position: relative;
+    margin-right: 5px;
+ } */

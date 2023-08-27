@@ -6,6 +6,11 @@
     background: #24292D;
 
 }
+body{
+
+    text-align: center;
+
+}
 .InvoiceContainer{
     position: absolute;
     width: 50%;

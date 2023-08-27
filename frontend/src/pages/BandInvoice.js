@@ -51,6 +51,7 @@ export default function BandInvoice() {
 
 
   const [bandFee,setBandFee] = useState(0.00);
+  const [artistFee,setArtistFee] = useState(0.00);
   const [soundFee,setSoundFee] = useState(0.00);
   const [instrumentFee,setInstrumentFee] = useState(0.00);
   const [transportFee,setTransportFee] = useState(0.00);
@@ -82,14 +83,31 @@ export default function BandInvoice() {
   
 
 
-    fetch("http://localhost:8080/invoice/add",{
-      method:"POST",
-      headers:{"Content-Type" : "application/json"},
-      body:JSON.stringify(invoice)
-    }).then(()=>{
 
-        console.log("New Student Added")
-      })
+  if(artistFee===0.00 && bandFee===0.00 && transportFee===0.00 && soundFee===0.00 && instrumentFee===0.00 && others===0.00){
+
+  }
+  else if(artistFee>=0.00 && bandFee>=0.00 && transportFee>=0.00 && soundFee>=0.00 && instrumentFee>=0.00 && others>=0.00){
+      fetch("http://localhost:8080/invoice/add",{
+          method:"POST",
+          headers:{"Content-Type" : "application/json"},
+          body:JSON.stringify(invoice)
+        }).then(()=>{
+    
+            alert("Confirm Request!");
+            setBandFee(0.00);
+            setArtistFee(0.00)
+            setTransportFee(0.00)
+            setOthers(0.00)
+            setInstrumentFee(0.00)
+            setTotalAmount(0.00)
+            setSoundFee(0.00)
+          })
+          
+  }
+  
+
+ 
      
       }
   
@@ -129,14 +147,14 @@ export default function BandInvoice() {
           <div className='eventDetailsDisplayContainer'>
              <div className='eventDetailsDisplayInnerContainer1'>
              <img src={profileImage} className="profileInvoice"></img>
-             <h4 className='bandOrganizer'>{event['organizerName']}</h4>
+             <h5 id='bandOrganizer'>{event['organizerName']}</h5>
             
-            <p class="eventType1"><FontAwesomeIcon icon={faCalendarDays} id="EventIconPendingRequest1"/>{event['eventName']}</p>
-            <p class="eventDate1"><FontAwesomeIcon icon={faCalendarDays} id="CalenderIconPendingRequest1"/>{event['date']}</p>
-            <p class="venue1"><FontAwesomeIcon icon={faLocationDot} id="LocationIconPendingRequest1"/> {event['startTime']}</p>
-            <p class="eventType2"><FontAwesomeIcon icon={faCalendarDays} id="EventIconPendingRequest2"/>{event['duration']}</p>
-            <p class="eventDate2"><FontAwesomeIcon icon={faCalendarDays} id="CalenderIconPendingRequest2"/>{event['crowd']}</p>
-            <p class="venue2"><FontAwesomeIcon icon={faLocationDot} id="LocationIconPendingRequest2"/> {event['place']}</p>
+            <p class="eventType1"><img src={eventtype} className="EventIconPendingRequest3"></img>{event['eventName']}</p>
+            <p class="eventDate1"><FontAwesomeIcon icon={faCalendarDays} id="CalenderIconPendingRequest3"/>{event['date']}</p>
+            <p class="venue1"><FontAwesomeIcon icon={faLocationDot} id="LocationIconPendingRequest3"/> {event['startTime']}</p>
+            <p class="eventType2"><img src={duration} className="EventIconPendingRequest4"></img>{event['duration']}</p>
+            <p class="eventDate2"><img src={crowd} className="CalenderIconPendingRequest4"></img>{event['crowd']}</p>
+            <p class="venue2"><FontAwesomeIcon icon={faLocationDot} id="LocationIconPendingRequest4"/> {event['place']}</p>
 
         
              </div>
