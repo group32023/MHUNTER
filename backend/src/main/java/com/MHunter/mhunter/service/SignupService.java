@@ -36,6 +36,8 @@ public class SignupService {
     /*@Autowired
     private PasswordEncoder passwordEncoder;*/
 
+    private static String imagePath = System.getProperty("user.dir")+"/src/main/java/com/MHunter/mhunter/Uploads/Images";
+
     @Transactional
     public void signUpAndCreateMember(User user, String Name, String Type, MultipartFile Image) {
         User existingUser = userRepository.findByEmail(user.getEmail());
@@ -78,7 +80,7 @@ public class SignupService {
             staffMemberRepository.save(staffMember);
         }
         String imageName = user.getUserId() + "_" + Image.getOriginalFilename();
-        Path imagePath = Paths.get("E:/UCSC/Academic/3rd Year/3rd Year Group Project/MHUNTER/Images", imageName);
+        Path imagePath = Paths.get("C:/Users/kasun/Documents/thirdYearProject/MHUNTER/Images", imageName);
         try {
             Files.write(imagePath, Image.getBytes());
             user.setImagePath(imagePath.toString());
