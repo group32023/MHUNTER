@@ -26,6 +26,7 @@ import { Label } from '@mui/icons-material';
 
 
 export default function BandInvoice() {
+    const [confirmationStatus,setConfirmationStatus] = useState(0);
     let navigate = useNavigate();
   const { id } = useParams();
   const [event, setEvent] = useState([]);
@@ -74,6 +75,7 @@ export default function BandInvoice() {
     e.preventDefault();
     const invoice = {artistFee,bandFee,soundFee,instrumentFee,transportFee,others,totalAmount,paymentType}
     console.log(invoice)
+ 
 
     if(artistFee===0.00 && bandFee===0.00 && transportFee===0.00 && soundFee===0.00 && instrumentFee===0.00 && others===0.00){
 
@@ -94,7 +96,7 @@ export default function BandInvoice() {
               setTotalAmount(0.00)
               setSoundFee(0.00)
             })
-
+            
     }
     
 
@@ -106,8 +108,9 @@ export default function BandInvoice() {
       useEffect(() => {
         var totalAmountofInvoice = artistFee+ bandFee + soundFee + instrumentFee + transportFee + others;
         //console.log(typeof(bandFee))
+        setConfirmationStatus(1);
         setTotalAmount(totalAmountofInvoice);
-      }, [artistFee, bandFee, soundFee, instrumentFee, transportFee, others]);
+      }, [artistFee, bandFee, soundFee, instrumentFee, transportFee, others, confirmationStatus]);
 
 
       const load=(id)=>{

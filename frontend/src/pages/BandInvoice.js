@@ -6,6 +6,13 @@ import '../assets/css/bandInvoice.css'
 // import { MDBBtn } from 'mdb-react-ui-kit';
 import profileImage from '../assets/images/profilePhoto.jpeg';
 import CurrencyInput from 'react-currency-input-field';
+import crowd from '../assets/images/people.png';
+import duration from '../assets/images/hourglass.png';
+import eventtype from '../assets/images/eventtype.png';
+import notification from '../assets/images/notification.png'
+import home from '../assets/images/home-button.png'
+import logout from '../assets/images/logout.png'
+import kpop from '../assets/images/kpop.png'
 
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -19,6 +26,8 @@ import { Label } from '@mui/icons-material';
 export default function BandInvoice() {
   const { id } = useParams();
   const [event, setEvent] = useState([]);
+  const [expand,setExpandedSideBar] = useState(true)
+
 
   useEffect(() => {
     // Fetch the data from the Java backend
@@ -34,7 +43,7 @@ export default function BandInvoice() {
         setEvent(data);
       })
       .catch((error) => {
-        console.log('Error fetching data:', error);
+        console.log('Error fetching data :', error);
       });
       console.log(event);
 
@@ -102,18 +111,25 @@ export default function BandInvoice() {
 
    
     
-    <div className='MainContainer'>
-        <div className='artistSideBar'>
-            <SideMenuBarArtist></SideMenuBarArtist>
-            <h3 className='headerDashboard'>Pending Requests</h3>
-            <div className='notificationBg'></div>
-            <div className='homeBg'></div>
-            <div className='logoutBg'></div>
-        </div>
-        <div className='eventDetailsDisplayContainer'>
-             <div className='eventDetailsDisplayInnerContainer'>
+    <div >
+       <SideMenuBarArtist>
+        <div>
+            <p className='headerDashboard'>Pending Requests</p>
+            <div className={expand ? 'notificationBg':'notificationBg-ex'}>
+              <img src={notification} className='notificationIcon' alt='notification'></img>
+            </div>
+            <div className={expand ? 'homeBg':'homeBg-ex'}>
+              <img src={home} alt='homebtn' className='homeIcon'></img>
+            </div>
+            <div className={expand ? 'logoutBg':'logoutBg-ex'}>
+              <img src={logout} alt='logout'className='logout'></img>
+              <p className='logoutbtn'>Logout</p>
+            </div>
+          </div>
+          <div className='eventDetailsDisplayContainer'>
+             <div className='eventDetailsDisplayInnerContainer1'>
              <img src={profileImage} className="profileInvoice"></img>
-             <p>{event['organizerName']}</p>
+             <h4 className='bandOrganizer'>{event['organizerName']}</h4>
             
             <p class="eventType1"><FontAwesomeIcon icon={faCalendarDays} id="EventIconPendingRequest1"/>{event['eventName']}</p>
             <p class="eventDate1"><FontAwesomeIcon icon={faCalendarDays} id="CalenderIconPendingRequest1"/>{event['date']}</p>
@@ -132,50 +148,50 @@ export default function BandInvoice() {
            <div className='invoiceFees'>
             
             <div className='DescriptionLable'>
-            <label for='description' className='label1'>Description</label>
-            <label for='bandFee' className='label2'>Band Fee</label>
-            <label for='soundFee' className='label3'>Sound Fee</label>
-            <label for='instrumentFee' className='label4'>Instrument Fee</label>
-            <label for='transportFee' className='label5'>Transport Fee</label>
-            <label for='others' className='label6'>Others</label>
+            <label for='description' className='label11'>Description</label>
+            <label for='bandFee' className='label12'>Band Fee</label>
+            <label for='soundFee' className='label13'>Sound Fee</label>
+            <label for='instrumentFee' className='label14'>Instrument Fee</label>
+            <label for='transportFee' className='label15'>Transport Fee</label>
+            <label for='others' className='label16'>Others</label>
             </div>
             
             <div className='AmountLabel'>
-            <label for='amount' className='label7'>Amount(Rs.)</label>
+            <label for='amount' className='label17'>Amount(Rs.)</label>
 
 
             <form onSubmit={addInvoice}>
 
             <input type="number" min="0.00" max="100000000000000000.00" step="0.01" placeholder="0.00"
-            defaultValue={'0.00'} decimalsLimit={2} className='currency-input1' value={bandFee} onChange={(e)=>{setBandFee(parseFloat(e.target.value));}
+            defaultValue={'0.00'} decimalsLimit={2} className='currency-input11' value={bandFee} onChange={(e)=>{setBandFee(parseFloat(e.target.value));}
             }/>
             <input type="number" min="0.00" max="100000000000000000.00" step="0.01" placeholder="0.00"
-            defaultValue={'0.00'} decimalsLimit={2} className='currency-input2' value={soundFee} onChange={(e)=>setSoundFee(parseFloat(e.target.value))}/>
+            defaultValue={'0.00'} decimalsLimit={2} className='currency-input12' value={soundFee} onChange={(e)=>setSoundFee(parseFloat(e.target.value))}/>
             <input type="number" min="0.00" max="100000000000000000.00" step="0.01" placeholder="0.00"
-            defaultValue={'0.00'} decimalsLimit={2} className='currency-input3' value={instrumentFee} onChange={(e)=>setInstrumentFee(parseFloat(e.target.value))}/>
+            defaultValue={'0.00'} decimalsLimit={2} className='currency-input13' value={instrumentFee} onChange={(e)=>setInstrumentFee(parseFloat(e.target.value))}/>
             <input type="number" min="0.00" max="100000000000000000.00" step="0.01" placeholder="0.00"
-            defaultValue={'0.00'} decimalsLimit={2} className='currency-input4' value={transportFee} onChange={(e)=>setTransportFee(parseFloat(e.target.value))}/>
+            defaultValue={'0.00'} decimalsLimit={2} className='currency-input14' value={transportFee} onChange={(e)=>setTransportFee(parseFloat(e.target.value))}/>
             <input type="number" min="0.00" max="100000000000000000.00" step="0.01" placeholder="0.00"
-            defaultValue={'0.00'} decimalsLimit={2} className='currency-input5' value={others} onChange={(e)=>setOthers(parseFloat(e.target.value))}/>
+            defaultValue={'0.00'} decimalsLimit={2} className='currency-input15' value={others} onChange={(e)=>setOthers(parseFloat(e.target.value))}/>
            
-           <input type="checkbox" id="advanced" name="advanced" onChange={handleCheckboxChange}/>
-          <label for="advancedpayment" className='advancedpayment'>Advanced is required.</label>
+           <input type="checkbox" id="advanced1" name="advanced" onChange={handleCheckboxChange}/>
+          <label for="advancedpayment" className='advancedpayment1'>Advanced is required.</label>
 
-            <button type='submit' className='submitInvoice'>Submit</button>
+            <button type='submit' className='submitInvoice1'>Submit</button>
             </form>
             </div>
             </div>
-      <hr className='HrTag'></hr>
-      <label for='ttalAmount' className='totalAmount'>Total Amount</label>
-      <label for='displayTotalAmount' className='displayTotalAmount'>{totalAmount}</label>
+      <hr className='HrTag1'></hr>
+      <label for='ttalAmount' className='totalAmount1'>Total Amount</label>
+      <label for='displayTotalAmount' className='displayTotalAmount1'>{totalAmount}</label>
 
      
       
-      <button className='backInvoice'>Back</button>
+      <button className='backInvoice1'>Back</button>
 
           
         </div>
-        
+        </SideMenuBarArtist>
         
     </div>
   )

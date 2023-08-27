@@ -28,10 +28,10 @@ public class RequestMusicMemberServiceImp implements RequestMusicMemberService{
     @Override
     public RequestMusicMember updateRequestMusicMember(RequestMusicMember requestMusicMember, RequestMusicMemberId id) {
         return requestMusicMemberRepository.findById(id).map(requestMusicMember1 -> {
-            requestMusicMember1.setRequestMusicMemberId(requestMusicMember.getRequestMusicMemberId());
-            requestMusicMember1.setOrgId(requestMusicMember.getOrgId());
+//            requestMusicMember1.setRequestMusicMemberId(requestMusicMember.getRequestMusicMemberId());
+//            requestMusicMember1.setOrgId(requestMusicMember.getOrgId());
             requestMusicMember1.setConfirmationStatus(requestMusicMember.getConfirmationStatus());
-            requestMusicMember1.setRequestDate(requestMusicMember.getRequestDate());
+//            requestMusicMember1.setRequestDate(requestMusicMember.getRequestDate());
             requestMusicMember1.setConfirmationDate(requestMusicMember.getConfirmationDate());
             return requestMusicMemberRepository.save(requestMusicMember1);
         }).orElse(null);
