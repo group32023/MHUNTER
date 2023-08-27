@@ -57,7 +57,6 @@ function App() {
   return (
 
     <div className="App">
-<<<<<<< Updated upstream
 
       <Router>
         <Routes>
@@ -125,9 +124,6 @@ function App() {
   </div>*/}
 
 
-=======
-      
->>>>>>> Stashed changes
     </div>
 
 
