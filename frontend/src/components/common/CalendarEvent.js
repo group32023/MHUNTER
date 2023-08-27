@@ -20,7 +20,7 @@ const initialValue = dayjs(currentDate.toLocaleDateString());
 
 
 function ServerDay(props) {
-  const { highlightedDays = [], day, outsideCurrentMonth, ...other } = props;
+  const { highlightedDays = [], day, outsideCurrentMonth,setHoverDate,setPopupVisible ,...other } = props;
 
   const isSelected =
     !props.outsideCurrentMonth && highlightedDays.includes(day.format('YYYY-MM-DD'));
@@ -29,11 +29,13 @@ function ServerDay(props) {
     function handleHover(date){
       setHoverDate(date)
       setPopupVisible(true)
+      console.log('awa')
       
     }
     
     function leaveHover(){
       setPopupVisible(false)
+      console.log('leave awa')
       
     }
   return (
@@ -99,10 +101,14 @@ const [isPopupVisible,setPopupVisible] = useState(false)
     setIsLoading(true);
     setHighlightedDays([]);
     fetchHighlightedDays(date);
+
   };
 
+  console.log(isPopupVisible)
+  console.log(getHoverDate)
+
   return (
-    
+    <>
     <LocalizationProvider dateAdapter={AdapterDayjs}>
       <DateCalendar
         defaultValue={initialValue}
@@ -110,7 +116,14 @@ const [isPopupVisible,setPopupVisible] = useState(false)
         onMonthChange={handleMonthChange}
         renderLoading={() => <DayCalendarSkeleton />}
         slots={{
-          day: ServerDay,
+          day: (dayProps)=>(
+            <ServerDay 
+            {...dayProps}
+            setHoverDate={setHoverDate}
+            setPopupVisible={setPopupVisible}
+            />
+                         
+          ),
         }}
         slotProps={{
           day: {
@@ -118,7 +131,10 @@ const [isPopupVisible,setPopupVisible] = useState(false)
           },
         }}
       />
+      
     </LocalizationProvider>
+    {isPopupVisible} ? <CalendarEventPopup/> :{undefined}
+    </>
   );
 }
 
