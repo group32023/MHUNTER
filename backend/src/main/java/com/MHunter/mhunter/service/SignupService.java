@@ -8,6 +8,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.security.crypto.password.PasswordEncoder;
+
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -33,19 +35,18 @@ public class SignupService {
 
     @Autowired
     private StaffMemberRepository staffMemberRepository;
-    /*@Autowired
-    private PasswordEncoder passwordEncoder;*/
+    @Autowired
+    private PasswordEncoder passwordEncoder;
 
     @Transactional
-    public void signUpAndCreateMember(User user, String Name, String Type, MultipartFile Image) {
+    public ResponseEntity<String> signUpAndCreateMember(User user, String Name, String Type, MultipartFile Image) {
         User existingUser = userRepository.findByEmail(user.getEmail());
         if (existingUser != null) {
-            throw new RuntimeException("Email already exists!");
+            return ResponseEntity.badRequest().body("Email already exists!");
         }
         User savedUser = userRepository.save(user);
-
-        /*String encodedPassword = passwordEncoder.encode(user.getPassword());
-        savedUser.setPassword(encodedPassword);*/
+        String encodedPassword = passwordEncoder.encode(user.getPassword());
+        savedUser.setPassword(encodedPassword);
 
         if("Organizer".equals(Type)){
             Organizer organizer = new Organizer();
@@ -83,9 +84,11 @@ public class SignupService {
             Files.write(imagePath, Image.getBytes());
             user.setImagePath(imagePath.toString());
         } catch (IOException e) {
-            throw new RuntimeException("Failed to save image: " + e.getMessage());
+            return ResponseEntity.badRequest().body("Failed to save image");
+            //throw new RuntimeException("Failed to save image: " + e.getMessage());
         }
 
+        return ResponseEntity.ok("User created successfully");
     }
 
     @Transactional
@@ -97,7 +100,7 @@ public class SignupService {
                 String password = user.getPassword();
                 String checkPassword = existingUser.getPassword();
 
-                if (password.equals(checkPassword)) {
+                if (passwordEncoder.matches(password, checkPassword)) {
                     Band band = bandRepository.findByUserUserId(existingUser.getUserId());
                     Artist artist = artistRepository.findByUserUserId(existingUser.getUserId());
                     Organizer organizer = organizerRepository.findByUserUserId(existingUser.getUserId());
