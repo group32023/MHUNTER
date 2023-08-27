@@ -13,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.Duration;
+import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.List;
 
@@ -82,5 +83,10 @@ public class EventController {
         return eventOrganizer;
 
 
+    }
+
+    @GetMapping("/findEvent/{date}")
+    public Event getSpecificEventByDate(@PathVariable LocalDate date){
+        return eventService.getSpecificEventByDate(date);
     }
 }

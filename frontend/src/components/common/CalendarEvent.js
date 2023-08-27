@@ -29,13 +29,11 @@ function ServerDay(props) {
     function handleHover(date){
       setHoverDate(date)
       setPopupVisible(true)
-      console.log('awa')
       
     }
     
     function leaveHover(){
       setPopupVisible(false)
-      console.log('leave awa')
       
     }
   return (
@@ -102,10 +100,11 @@ const [isPopupVisible,setPopupVisible] = useState(false)
     setHighlightedDays([]);
     fetchHighlightedDays(date);
 
+    
+
   };
 
-  console.log(isPopupVisible)
-  console.log(getHoverDate)
+
 
   return (
     <>
@@ -133,7 +132,7 @@ const [isPopupVisible,setPopupVisible] = useState(false)
       />
       
     </LocalizationProvider>
-    {isPopupVisible} ? <CalendarEventPopup/> :{undefined}
+    {isPopupVisible ?  <CalendarEventPopup date={getHoverDate}/>:undefined}
     </>
   );
 }

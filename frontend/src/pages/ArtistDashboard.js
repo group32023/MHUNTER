@@ -64,7 +64,7 @@ export default function ArtistDashboard() {
               <ArtistUpcommingEvent/>
             </div>
             <div className='he'>
-            <CalendarEventPopup></CalendarEventPopup>
+            
             </div>
             
 
