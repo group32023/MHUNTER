@@ -15,6 +15,11 @@
 
 
 }
+body{
+
+    text-align: center;
+
+}
 
 .back{
     background-color: #7643D2 !important;
@@ -235,7 +240,13 @@ border: none;
     position: relative;
     top: 0%;
     font-weight: 600;
-    left: 160%;
+    left: 250%;
+}
+.addressDiv .eventsOnDate {
+    position: relative;
+    top: 0%;
+    font-weight: 600;
+    left: 140%;
 }
 
 .addressDiv .organizer_tag{
@@ -267,3 +278,11 @@ border: none;
     left: 22%;
     color: #11FE70;
 }
+ #LocationIcon1{
+    position: relative;
+    margin-right: 5px;
+}
+
+
+
+

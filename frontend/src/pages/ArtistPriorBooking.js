@@ -75,7 +75,7 @@ export default function ArtistPriorBooking() {
       <tr>
       <td>{events[i]['eventName']}</td>
       <td>{events[i]['eventType']}</td>
-      <td><FontAwesomeIcon icon={faLocationDot} id="LocationIcon"/>{events[i]['place']}</td>
+      <td><FontAwesomeIcon icon={faLocationDot} id="LocationIcon1"/>{events[i]['place']}</td>
       <td>{events[i]['duration']}</td>
       <td>{events[i]['crowd']}</td>
       <td>{events[i]['income']}</td>

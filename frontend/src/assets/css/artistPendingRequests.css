@@ -6,7 +6,11 @@
     top: 36.5px;
     left: -428px;
 }
+body{
 
+    text-align: center;
+
+}
 
 
 .eventDetails{
@@ -17,11 +21,10 @@
 }
 
 .eventDetails h5{
-       position: relative;
-       top: -8px;
-       width: 250px;
-       margin-left: 10.5%;
-
+    position: relative;
+    top: -6px;
+    width: 250px;
+    margin-left: 12.5%;
 }
 
 .eventDetails .eventDate{
@@ -211,8 +214,8 @@
 .requestViewContainer h4{
     color: #FFFFFF;
     position: relative;
-    top: -13.2%;
-    left: 0px;
+    top: -12.2%;
+    left: -10px;
 
 }
 
