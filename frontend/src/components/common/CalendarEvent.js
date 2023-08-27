@@ -15,10 +15,9 @@ import reward from '../../assets/images/quality.png'
 const currentDate = new Date();
 const initialValue = dayjs(currentDate.toLocaleDateString());
 
-function handleHover(date){
-  return(<CalendarEventPopup/>);
-  
-}
+
+
+
 
 function ServerDay(props) {
   const { highlightedDays = [], day, outsideCurrentMonth, ...other } = props;
@@ -26,12 +25,22 @@ function ServerDay(props) {
   const isSelected =
     !props.outsideCurrentMonth && highlightedDays.includes(day.format('YYYY-MM-DD'));
 
-    console.log(isSelected)
+
+    function handleHover(date){
+      setHoverDate(date)
+      setPopupVisible(true)
+      
+    }
+    
+    function leaveHover(){
+      setPopupVisible(false)
+      
+    }
   return (
     <Badge
       key={props.day.toString()}
       overlap="circular"
-      badgeContent={isSelected ? <img src={reward} alt='reward' onMouseEnter={(e)=>handleHover(props.day.toString())} className='calendarEventReward'></img> : undefined} 
+      badgeContent={isSelected ? <img src={reward} alt='reward' onMouseEnter={(e)=>handleHover(props.day.toString())} onMouseLeave={(e)=>leaveHover()} className='calendarEventReward'></img> : undefined} 
      >
       <PickersDay {...other} outsideCurrentMonth={outsideCurrentMonth} day={day} />
     </Badge>
@@ -45,6 +54,8 @@ export default function CalendarEvent() {
   const [highlightedDays, setHighlightedDays] = React.useState([]);
 
   const [upCommingEvent,setUpCommingEvents] = useState([])
+  const [getHoverDate,setHoverDate] = useState(null)
+const [isPopupVisible,setPopupVisible] = useState(false)
 
   const fetchHighlightedDays = (date) => {
     const controller = new AbortController();
