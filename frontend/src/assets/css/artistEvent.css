@@ -29,7 +29,7 @@
     width: 55px;
     height: 55px;
     top: 11.5px;
-    left: 38px;
+    left: -447px;
   }
 
   .eventDetailsArtistEvent h4 {
@@ -57,7 +57,7 @@
   .eventDateArtistEvent {
     position: relative;
     margin-top: -3.2%;
-    left: 42%;
+    left: -2%;
     top: -30px;
     color: white;
   }
@@ -65,25 +65,25 @@
   .venueArtistEvent {
     position: relative;
     margin-top: -3.2%;
-    left: 73%;
-    top: -37px;
+    left: 23%;
+    top: -34px;
     color: white;
   }
 
  .viewBtnArtistEvent{
-    background-color: #F70F5D !important;
-    position: relative;
-    font-size: 15px;
-    width: 8%;
-    height: 39px;
-    font-weight: bold;
-    text-align: center;
-    color: white;
-    left: 88%;
-    top: -81.8px;
-    border-radius: 10px;
-    border: none !important;
-    box-shadow: 4px 7px 10px rgba(0, 0, 0, .4) !important;
+  background-color: #F70F5D !important;
+  position: relative;
+  font-size: 15px;
+  width: 8%;
+  height: 39px;
+  font-weight: bold;
+  text-align: center;
+  color: white;
+  left: 39%;
+  top: -81.8px;
+  border-radius: 10px;
+  border: none !important;
+  box-shadow: 4px 7px 10px rgba(0, 0, 0, .4) !important;
   }
 
   .artistEventTypeImg{
@@ -92,4 +92,22 @@
     left: -7%;
     width: 21px;
     color: white;
+  }
+
+  .artistEventSearchBar{
+    position: absolute;
+    top: 114px;
+    left: 426px;
+    width: 664px;
+    height: 55px;
+    border-radius: 10px;
+    padding-left: 50px;
+  }
+  .artistEventSearchBarIcon{
+    color: gray;
+    position: absolute;
+    top: 131px;
+    left: 1038px;
+    font-size: 24px;
+    cursor: pointer;
   }

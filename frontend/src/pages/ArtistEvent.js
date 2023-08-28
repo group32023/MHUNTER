@@ -14,8 +14,10 @@ import { Button } from 'react-bootstrap'
 import eventType from '../assets/images/eventtype.png'
 import { useNavigate } from 'react-router-dom'
 
+
 export default function ArtistEvent() {
   const [expand,setExpandedSideBar] = useState(true)
+  const [getFilterData,setFilterData] = useState("")
   const [data,setData] = useState([])
 
   const divCount = 4;
@@ -27,7 +29,7 @@ export default function ArtistEvent() {
   }
 
   const handle = ()=>{
-    fetch("http://localhost:8080/requestMusicMember/viewAllEvents/758463").then((res)=>res.json()).then((result)=>{
+    fetch(`http://localhost:8080/requestMusicMember/viewAllEvents/758463?filterValue=${getFilterData}`).then((res)=>res.json()).then((result)=>{
       const newItem = result.map(item=>(
         <div  className="requestContainerArtistEvent">
       <img src={profileImage} className="profileArtistEvent"></img>
@@ -45,10 +47,20 @@ export default function ArtistEvent() {
     })
     
   }
-  console.log(data)
+ 
   useEffect(()=>{
     handle();
   },[])
+
+  function setFilter(){
+    handle();
+  }
+
+  function clearState(){
+    setFilterData("")
+  }
+
+  if(data===null) return <div>Loading....................</div>
 
   return (
     <div>
@@ -67,6 +79,11 @@ export default function ArtistEvent() {
               <img src={logout} alt='logout'className='logout'></img>
               <p className='logoutbtn'>Logout</p>
             </div>
+            <input className='artistEventSearchBar' placeholder='Search by keyword' value={getFilterData} onChange={(e)=>{setFilterData(e.target.value);setFilter()}}></input>
+            {getFilterData.length > 0 ? 
+            <FontAwesomeIcon icon="fa-solid fa-circle-xmark" className='artistEventSearchBarIcon' onClick={clearState}/>
+            :<FontAwesomeIcon icon="fa-solid fa-magnifying-glass" className='artistEventSearchBarIcon'/>}
+
             <div>{data}</div>
        
         </SideMenuBarArtist>
