@@ -86,7 +86,7 @@ public class EventController {
     }
 
     @GetMapping("/findEvent/{date}")
-    public Event getSpecificEventByDate(@PathVariable LocalDate date){
+    public List<Event> getSpecificEventByDate(@PathVariable LocalDate date){
         return eventService.getSpecificEventByDate(date);
     }
 }

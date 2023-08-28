@@ -9,10 +9,12 @@ import '../../assets/css/calenderPopup.css'
 import calendarEvent from '../../assets/images/calendar(1).png'
 import stopWatch from '../../assets/images/stopwatch.png'
 import location from '../../assets/images/location(1).png'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 export default function CalendarEventPopup({date}) {
   const [getEventDetails,setEventDetails] = useState([])
-  
+  const [getPopup,setPopup] = useState([])
+  const [getCurrentEvent, setCurrentEvent] = useState(0)
 
   // get event date 'yyyy-mm-dd' format
   function getDate(date){
@@ -26,10 +28,31 @@ export default function CalendarEventPopup({date}) {
   
   const eventDate = getDate(date)
 
-  fetch(`http://localhost:8080/event/findEvent/${eventDate}`).then((res)=>res.json()).then((result)=>{setEventDetails(result)})  
-  return (
-    
-    <Card sx={{ maxWidth: 345 }}>
+  function nextEvent(){
+    if(getCurrentEvent >= 0 && getCurrentEvent < getPopup.length-1){
+      setCurrentEvent(getCurrentEvent+1)
+      console.log('awaa')
+    }
+    else {
+      setCurrentEvent(0)
+      console.log('awa2')
+    }
+  }
+
+  function prevEvent(){
+    if(getCurrentEvent > 0 && getCurrentEvent < getPopup.length){
+      setCurrentEvent(getCurrentEvent-1)
+      console.log('awa3')
+    }
+    else{
+      setCurrentEvent(0)
+      console.log('awa4')
+    }
+  }
+
+  fetch(`http://localhost:8080/event/findEvent/${eventDate}`).then((res)=>res.json()).then((result)=>{
+    const newPopup = result.map(item=>(
+      <Card sx={{ maxWidth: 345 }}>
     <CardActionArea>
       <CardMedia
         component="img"
@@ -39,19 +62,33 @@ export default function CalendarEventPopup({date}) {
       />
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
-          {getEventDetails['event_name']}
+          {item.event_name}
           <hr></hr>
         </Typography>
         <Typography variant="body2" color="text.secondary">
           <img src={calendarEvent} alt='calendarEvent' className='calendarEventPopupImage'/>
-          <span className='calendarEventPopupDate'>{getEventDetails['date']}</span>
+          <span className='calendarEventPopupDate'>{item.date}</span>
           <img src={stopWatch} alt='calendarEvent' className='calendarEventPopupStopWatch'/>
-          <span className='calendarEventPopupTime'>{getEventDetails['start_time']}</span>
+          <span className='calendarEventPopupTime'>{item.start_time}</span>
           <img src={location} alt='calendarEvent' className='calendarEventPopupLocationImg'/>
-          <span className='calendarEventPopupLocation'>{getEventDetails['town']}</span>
+          <span className='calendarEventPopupLocation'>{item.town}</span>
         </Typography>
+        <Button className='popupPrevBtn' onClick={nextEvent}><FontAwesomeIcon icon="fa-solid fa-greater-than" /></Button>
+        <Button className='popupNextBtn' onClick={prevEvent}><FontAwesomeIcon icon="fa-solid fa-less-than" /></Button>
       </CardContent>
     </CardActionArea>
   </Card>
+    ));
+    setPopup(newPopup)
+  })  
+
+  console.log(getCurrentEvent)
+  
+  return (
+    <>
+    {getPopup[getCurrentEvent]}
+    
+    </>
+    
   )
 }

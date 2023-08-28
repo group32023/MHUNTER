@@ -13,6 +13,6 @@ public interface EventService {
 
     public Event viewSpecificEvent(int eventid);
 
-    public Event getSpecificEventByDate(LocalDate date);
+    public List<Event> getSpecificEventByDate(LocalDate date);
 
 }

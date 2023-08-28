@@ -57,4 +57,24 @@
     top: 272px;
     left: 140px;
 }
+.popupPrevBtn{
+    position: absolute;
+    top: -214px;
+    left: -43px;
+    background-color: rgba(199, 173, 233, 0.5) !important;
+    width: 40px;
+    height: 40px;
+    border-radius: 50% !important;
+    min-width: 0px !important;
+}
 
+.popupNextBtn{
+    position: absolute;
+    top: -213px;
+    left: -132px;
+    background-color: rgba(199, 173, 233, 0.5) !important;
+    width: 40px;
+    height: 40px;
+    border-radius: 50% !important;
+    min-width: 0px !important;
+}
