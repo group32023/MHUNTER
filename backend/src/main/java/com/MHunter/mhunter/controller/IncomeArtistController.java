@@ -11,8 +11,11 @@ import org.springframework.web.bind.annotation.*;
 import com.MHunter.mhunter.model.Event;
 import com.MHunter.mhunter.model.Organizer;
 import com.MHunter.mhunter.model.User;
+
+import java.lang.reflect.Array;
 import java.time.*;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 @RestController
@@ -216,5 +219,24 @@ public class IncomeArtistController {
 
         return monthlyGrowthAndIncome;
     }
+
+    @GetMapping("/monthlyOvercome/{mmid}")
+    public double[] monthlyOvercome(@PathVariable int mmid){
+       double[] monthlyEarning = {0,0,0,0,0,0,0,0,0,0,0,0};
+       List<IncomeArtist> incomeArtistList = incomeArtistService.viewListOfArtistIncomes(mmid);
+       int currentYear = LocalDate.now().getYear();
+       if(incomeArtistList.size() >0) {
+           incomeArtistList.forEach(item -> {
+               LocalDateTime dateTime = LocalDateTime.parse(item.getDate().toString());
+               if (currentYear == dateTime.getYear()) {
+                   int month = dateTime.getMonth().getValue();
+                   monthlyEarning[month - 1] = monthlyEarning[month - 1] + item.getIncome();
+               }
+           });
+       }
+        System.out.println(monthlyEarning[0]);
+       return monthlyEarning;
+    }
+
 
 }

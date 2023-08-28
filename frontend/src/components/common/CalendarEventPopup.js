@@ -99,7 +99,6 @@ export default function CalendarEventPopup({date}) {
     setPopup(newPopup)
   })  
 
-  console.log(getCurrentEvent)
   
   return (
     <>
