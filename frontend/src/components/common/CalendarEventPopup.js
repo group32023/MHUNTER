@@ -73,8 +73,25 @@ export default function CalendarEventPopup({date}) {
           <img src={location} alt='calendarEvent' className='calendarEventPopupLocationImg'/>
           <span className='calendarEventPopupLocation'>{item.town}</span>
         </Typography>
-        <Button className='popupPrevBtn' onClick={nextEvent}><FontAwesomeIcon icon="fa-solid fa-greater-than" /></Button>
-        <Button className='popupNextBtn' onClick={prevEvent}><FontAwesomeIcon icon="fa-solid fa-less-than" /></Button>
+        {getPopup.length-1 > 0 ? 
+          <>
+            {getCurrentEvent >= 0 && getCurrentEvent < getPopup.length-1 ?
+              <>
+                <Button className='popupPrevBtn' onClick={nextEvent}>
+                    <FontAwesomeIcon icon="fa-solid fa-greater-than" />
+                </Button>
+              </>:undefined
+            }
+            {getCurrentEvent < getPopup.length && getCurrentEvent > 0 ?
+            <>
+              <Button className='popupNextBtn' onClick={prevEvent}>
+                  <FontAwesomeIcon icon="fa-solid fa-less-than" />
+              </Button>
+            </> : undefined
+            }
+          </> 
+        : undefined}
+        
       </CardContent>
     </CardActionArea>
   </Card>
