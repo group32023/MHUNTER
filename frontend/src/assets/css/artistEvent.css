@@ -111,3 +111,14 @@
     font-size: 24px;
     cursor: pointer;
   }
+
+  .artistEventPagination{
+    position: absolute !important;
+    top: 600px !important;
+    left: 699px !important;
+  }
+
+  .css-19micn4-MuiButtonBase-root-MuiPaginationItem-root.Mui-selected{
+    background-color: #7643D2 !important;
+    
+  }

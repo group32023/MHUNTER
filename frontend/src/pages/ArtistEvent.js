@@ -13,21 +13,28 @@ import '../assets/css/artistPendingRequests.css'
 import { Button } from 'react-bootstrap'
 import eventType from '../assets/images/eventtype.png'
 import { useNavigate } from 'react-router-dom'
+import Pagination from '@mui/material/Pagination';
+import Stack from '@mui/material/Stack';
 
 
 export default function ArtistEvent() {
   const [expand,setExpandedSideBar] = useState(true)
   const [getFilterData,setFilterData] = useState("")
   const [data,setData] = useState([])
+  const [line,setLine] = useState([])
+  const [page,setPage] = useState(1)
+  const noOfLinePerPage = 4
 
   const divCount = 4;
   const divElements = [];
   let navigate = useNavigate()
 
+  // direct to the view page
   const directions =(eventId)=>{
     navigate(`/artist/EventSpecific/${eventId}`)
   }
 
+  // get the all data form backend
   const handle = ()=>{
     fetch(`http://localhost:8080/requestMusicMember/viewAllEvents/758463?filterValue=${getFilterData}`).then((res)=>res.json()).then((result)=>{
       const newItem = result.map(item=>(
@@ -48,19 +55,47 @@ export default function ArtistEvent() {
     
   }
  
+  
   useEffect(()=>{
     handle();
   },[])
 
+  // setup the filter
   function setFilter(){
     handle();
   }
 
+
+// clear the setFilterData state
   function clearState(){
     setFilterData("")
   }
 
+  // set the current page
+  const handleChange= (event,value)=>{
+    setPage(value)
+  }
+
+// setup the pagination
+  function setPagination(){
+    let noOfLine =1
+    let displayedData = [];
+    if(data.length < noOfLinePerPage*page){
+      noOfLine = data.length
+    }
+    else{
+      noOfLine =  noOfLinePerPage*page
+    }
+    for (let i = noOfLinePerPage*(page-1); i < noOfLine; i++) {
+      displayedData.push(data[i]);
+      
+    }
+    return displayedData
+  }
+  
+
   if(data===null) return <div>Loading....................</div>
+  
 
   return (
     <div>
@@ -84,7 +119,14 @@ export default function ArtistEvent() {
             <FontAwesomeIcon icon="fa-solid fa-circle-xmark" className='artistEventSearchBarIcon' onClick={clearState}/>
             :<FontAwesomeIcon icon="fa-solid fa-magnifying-glass" className='artistEventSearchBarIcon'/>}
 
-            <div>{data}</div>
+            <div>{setPagination().map((item) => item)}</div>
+
+            <div className='artistEventPagination'>
+              <Stack spacing={2}>
+                <Pagination count={(Math.round(data.length/noOfLinePerPage))} color="secondary" page={page} onChange={handleChange} />
+              </Stack>
+            </div>
+            
        
         </SideMenuBarArtist>
     </div>
