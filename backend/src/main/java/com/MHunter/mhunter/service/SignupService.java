@@ -6,10 +6,9 @@ import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
-import org.springframework.security.crypto.password.PasswordEncoder;
-
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -37,7 +36,7 @@ public class SignupService {
     private StaffMemberRepository staffMemberRepository;
     @Autowired
     private PasswordEncoder passwordEncoder;
-
+    private static final String UPLOAD_DIR = "Uploads/Images";
     @Transactional
     public ResponseEntity<String> signUpAndCreateMember(User user, String Name, String Type, MultipartFile Image) {
         User existingUser = userRepository.findByEmail(user.getEmail());
@@ -79,10 +78,16 @@ public class SignupService {
             staffMemberRepository.save(staffMember);
         }
         String imageName = user.getUserId() + "_" + Image.getOriginalFilename();
-        Path imagePath = Paths.get("E:/UCSC/Academic/3rd Year/3rd Year Group Project/MHUNTER/Images", imageName);
+        /*String relativeImagePath = "/" + UPLOAD_DIR + "/" + imageName;
+        Path imagePath = Paths.get(System.getProperty("user.dir"), UPLOAD_DIR, imageName);*/
+        String relativeImagePath = "Uploads/Images/" + imageName; // No leading '/'
+        Path imagePath = Paths.get("src/main/resources/static", UPLOAD_DIR, imageName);
         try {
+            Files.createDirectories(imagePath.getParent());
             Files.write(imagePath, Image.getBytes());
-            user.setImagePath(imagePath.toString());
+            //user.setImagePath(imagePath.toString());
+            savedUser.setImagePath(relativeImagePath);
+
         } catch (IOException e) {
             return ResponseEntity.badRequest().body("Failed to save image");
             //throw new RuntimeException("Failed to save image: " + e.getMessage());
@@ -133,6 +138,13 @@ public class SignupService {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("An error occurred");
         }
     }
+
+    @Transactional
+    public User getUserById(int userId) {
+        return userRepository.findById(userId).orElse(null);
+    }
+
+
 
 
 }

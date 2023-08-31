@@ -60,4 +60,14 @@ public class SignupController {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("An error occurred");
         }
     }
+
+    @GetMapping("/user/{userId}")
+    public ResponseEntity<User> getUserById(@PathVariable int userId) {
+        User user = signupService.getUserById(userId);
+        if (user != null) {
+            return ResponseEntity.ok(user);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
 }
