@@ -39,6 +39,7 @@ import ArtistEventOn from './pages/ArtistEventOn';
 import ArtistSpecificEvent from './pages/ArtistSpecificEvent';
 import ArtistGenerateReportsToday from './pages/ArtistGenerateReportsToday'
 import ArtistInvoice from './pages/ArtistInvoice';
+import RequestsLog from './pages/RequestLog';
 
 
 
@@ -107,6 +108,8 @@ function App() {
           <Route path='/artist/priorbooking/:id1/:id2/:id3' element={<ArtistPriorBooking/>}></Route>
           <Route path='/artist/eventsOn/:mmid/:date/:eventId' element={<ArtistEventOn/>}></Route>
           <Route path='/artist/invoice/:id' element={<ArtistInvoice/>}></Route> 
+          <Route path='/artist/RequestsLog' element={<RequestsLog/>}></Route> 
+
           <Route path='/artist/MyFeed' element={<MyFeed/>}></Route>
        
           {/* Band Routes */}
@@ -121,6 +124,7 @@ function App() {
           {/* <Route path='/artist/eventsOn/:mmid/:date/:eventId' element={<ArtistEventOn/>}></Route> */}
           <Route path='/band/agreement' element={<BandAgreement/>}></Route>
           <Route path='/band/invoice/:id' element={<BandInvoice/>}></Route> 
+          
           {/* <Route path='/artist/MyFeed' element={<MyFeed/>}></Route> */}
        
 

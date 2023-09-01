@@ -1,0 +1,108 @@
+.profilelog{
+    position: relative;
+    border-radius: 50%;
+    width: 55px;
+    height: 55px;
+    top: 36.5px;
+    left: -428px;
+}
+body{
+
+    text-align: center;
+
+}
+
+
+.eventDetailslog{
+    position: relative;
+    color: white;
+    font-size: 15px;
+    text-align: center;
+}
+
+.eventDetailslog h5{
+    position: relative;
+    top: -6px;
+    width: 250px;
+    margin-left: 12.5%;
+}
+
+.eventDetailslog .eventDate{
+    position: absolute;
+    margin-top: -3.2%;
+    left: 52%;
+}
+.eventDetailslog .eventType{
+    position: absolute;
+    margin-top: -3.2%;
+    left: 35%;
+}
+.eventDetailslog .venue{
+    position: absolute;
+    margin-top: -3.2%;
+    left: 70%;
+    
+}
+
+.cancelBtn{
+    background-color: #FF0303 !important;
+    position: relative;
+    font-size: 15px;
+    width: 8%;
+    height: 43px;
+    font-weight: bold;
+    text-align: center;
+    color: white;
+    left: 40%;
+    top: -48.8px;
+    border-radius: 10px;
+    border: none !important;
+    /* box-shadow: 4px 7px 10px rgba(0, 0, 0, .4) !important; */
+}
+
+.requestContainerlog{
+    background-color: #3b444d;
+    height: 15%;
+    width: 70%;
+    position: relative;
+    top: 187px;
+    left: 18%;
+    margin-bottom: 20px;
+    border-radius: 25px;
+  
+}
+
+#LocationIconPendingRequest{
+
+    position: relative;
+    left: -1%;
+    padding-right: 5px;
+
+}
+
+
+
+#EventIconPendingRequest{
+    position: relative;
+    left: -1%;
+    padding-right: 10px;
+}
+
+#CalenderIconPendingRequest{
+    position: relative;
+    left: -1%;
+    padding-right: 10px;
+
+}
+
+
+
+
+.pagination{
+    
+    position: absolute;
+    top: 90%;
+    left: 10%;
+   
+
+}
