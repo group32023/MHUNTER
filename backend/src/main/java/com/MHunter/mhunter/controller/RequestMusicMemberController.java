@@ -10,9 +10,11 @@ import java.time.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
+import java.util.stream.Collectors;
 
 @RestController
-@CrossOrigin
+@CrossOrigin(origins = "http://localhost:3000")
+
 @RequestMapping("/requestMusicMember")
 public class RequestMusicMemberController {
     @Autowired
@@ -288,14 +290,12 @@ public class RequestMusicMemberController {
     }
 
     @GetMapping("/viewAllEvents/{mid}")
-    public List<EventOrganizer> viewAllEvents(@PathVariable int mid){
+    public List<EventOrganizer> viewAllEvents(@PathVariable int mid, @RequestParam(required = false,defaultValue = "") String filterValue){
         List<RequestMusicMember> requestMusicMembersList = requestMusicMemberService.findConformationEventsByMMID(mid);
         List<EventOrganizer> eventOrganizerList = new ArrayList<>();
 
-
         requestMusicMembersList.forEach(res ->{
             Event event = eventService.viewSpecificEvent(res.getRequestMusicMemberId().getEventId());
-
             Organizer organizer = organizerService.findSpecificOrganizer(res.getOrgId());
             User user = userService.findSpecificUser(organizer.getUser().getUserId());
             EventOrganizer eventOrganizer = new EventOrganizer();
@@ -315,15 +315,23 @@ public class RequestMusicMemberController {
             }
             else{
                 eventOrganizer.setDuration(hours + " hours and " + minutes + " minutes");
-
             }
             eventOrganizerList.add(eventOrganizer);
-
-
-            //System.out.println(eventOrganizer);
         });
+        if(filterValue.equals("")){
+            return eventOrganizerList;
+        }
+        else{
+            System.out.println(filterValue.length());
+            List<EventOrganizer> newList =eventOrganizerList.stream()
+                    .filter(member ->member.getOrganizerName().toLowerCase().contains(filterValue.toLowerCase())
+                            || member.getEventType().toLowerCase().contains(filterValue.toLowerCase())
+                            || member.getDate().toString().contains(filterValue)
+                            || member.getPlace().toLowerCase().contains(filterValue.toLowerCase())
+                    ).collect(Collectors.toList());
+            return newList;
+        }
 
-        return eventOrganizerList;
     }
 
 }

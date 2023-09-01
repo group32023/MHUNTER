@@ -57,12 +57,26 @@ export default function ArtistEarningOverview() {
     series: [
       {
         name: "Income",
-        data: [50000,20000,80000,2500000,100000,200000,220000,200000]
+        data: [0,0,0,0,0,0,0,0]
       }
     ]
   }
   )
 
+  // update the data array of series
+  const updateSeriesData = (newData)=>{
+    setState(prevState=>({
+      ...prevState,
+      series:[{
+        ...prevState.series[0],
+        data:newData
+      }]
+    }))
+  }
+
+  fetch(`http://localhost:8080/artistIncome/monthlyOvercome/758463`).then((res)=>res.json()).then((result)=>updateSeriesData(result))
+
+ 
     
   return (
     <div>

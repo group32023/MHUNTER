@@ -208,7 +208,7 @@
 }
 
 .pendingRequestDiv{
-    width: 366px;
+    width: 230px;
     height: 139px;
     border-radius: 15px;
     background: #3B444D;
@@ -216,7 +216,7 @@
     top: 48.4%;
     left: 48%;
     margin-top: -240px;
-    margin-left: -43px;
+    margin-left: 120px;
   
 }
 
@@ -246,7 +246,7 @@
  }
 
 .artistIncomeDiv{
-    width: 366px;
+    width: 230px;
     height: 139px;
     border-radius: 15px;
     background: #3B444D;
@@ -254,7 +254,7 @@
     top: 34.8%;
     left: 48%;
     margin-top: 1.2%;
-    margin-left: -41px;
+    margin-left: 120px;
 }
 
 .artistIncomeDiv-exp{
@@ -627,7 +627,7 @@
       }
 
       .pendingRequestDiv {
-        width: 366px;
+        width: 230px;
         height: 139px;
         border-radius: 15px;
         background: #3B444D;
@@ -635,7 +635,7 @@
         top: 48.4%;
         left: 48%;
         margin-top: -240px;
-        margin-left: -43px;
+        margin-left: 120px;
       }
 
       .artistEarningOverview{

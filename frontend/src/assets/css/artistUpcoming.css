@@ -14,7 +14,7 @@
   height: 75px;
   position: relative;
   top: 50px;
-  left: 47px;
+  left: -224px;
 
   }
   .eventTopic {
@@ -40,7 +40,7 @@
     line-height: normal;
     position: relative;
     top: -45px;
-    left: 193px;
+    left: -106px;
   
   }
   .eventDescripition {
@@ -105,7 +105,7 @@
   line-height: normal;
   position: relative;
   top: -163px;
-  left: 392px;
+  left: 101px;
   }
 .dateData {
   color: #FFF;
@@ -116,7 +116,7 @@
   line-height: normal;
   position: relative;
   top: -237px;
-  left: 525px;
+  left: 233px;
   }
   .line {
     width: 614px;

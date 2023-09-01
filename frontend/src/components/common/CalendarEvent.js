@@ -20,7 +20,7 @@ const initialValue = dayjs(currentDate.toLocaleDateString());
 
 
 function ServerDay(props) {
-  const { highlightedDays = [], day, outsideCurrentMonth,setHoverDate,setPopupVisible ,...other } = props;
+  const { highlightedDays = [], day, outsideCurrentMonth,setHoverDate,setPopupVisible,isPopupVisible ,...other } = props;
 
   const isSelected =
     !props.outsideCurrentMonth && highlightedDays.includes(day.format('YYYY-MM-DD'));
@@ -28,21 +28,19 @@ function ServerDay(props) {
 
     function handleHover(date){
       setHoverDate(date)
-      setPopupVisible(true)
-      console.log('awa')
+      setPopupVisible(!isPopupVisible)
       
     }
     
     function leaveHover(){
-      setPopupVisible(false)
-      console.log('leave awa')
+      // setPopupVisible(false)
       
     }
   return (
     <Badge
       key={props.day.toString()}
       overlap="circular"
-      badgeContent={isSelected ? <img src={reward} alt='reward' onMouseEnter={(e)=>handleHover(props.day.toString())} onMouseLeave={(e)=>leaveHover()} className='calendarEventReward'></img> : undefined} 
+      badgeContent={isSelected ? <img src={reward} alt='reward' onClick={(e)=>handleHover(props.day.toString())} className='calendarEventReward'></img> : undefined} 
      >
       <PickersDay {...other} outsideCurrentMonth={outsideCurrentMonth} day={day} />
     </Badge>
@@ -102,10 +100,11 @@ const [isPopupVisible,setPopupVisible] = useState(false)
     setHighlightedDays([]);
     fetchHighlightedDays(date);
 
+    
+
   };
 
-  console.log(isPopupVisible)
-  console.log(getHoverDate)
+
 
   return (
     <>
@@ -121,6 +120,7 @@ const [isPopupVisible,setPopupVisible] = useState(false)
             {...dayProps}
             setHoverDate={setHoverDate}
             setPopupVisible={setPopupVisible}
+            isPopupVisible={isPopupVisible}
             />
                          
           ),
@@ -133,7 +133,7 @@ const [isPopupVisible,setPopupVisible] = useState(false)
       />
       
     </LocalizationProvider>
-    {isPopupVisible} ? <CalendarEventPopup/> :{undefined}
+    {isPopupVisible ?  <CalendarEventPopup date={getHoverDate}/>:undefined}
     </>
   );
 }

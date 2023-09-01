@@ -11,6 +11,8 @@ import ArtistCalendar from '../components/ArtistCalendar'
 import ArtistEarningOverview from '../components/ArtistEarningOverview'
 import ArtistUpcommingEvent from '../components/ArtistUpcommingEvent'
 import CalendarEventPopup from '../components/common/CalendarEventPopup'
+import DashboardCarousel from '../components/organizer/dashboardCarousel'
+import ArtistDashboardCarousel from '../components/ArtistDashboardCarousel'
 
 
 export default function ArtistDashboard() {
@@ -36,11 +38,7 @@ export default function ArtistDashboard() {
             </div>
 
             {/* web post */}
-            <div className={expand ? 'artistWebPoster':'artistWebPoster-exp'}>
-              <p>Welcome</p>
-              <span>welcome to one and only music event management system</span>
-              <img src={kpop} alt='' className='webPostImage'></img>
-            </div>
+            <ArtistDashboardCarousel/>
 
             {/* pending request */}
             <div className={expand ? 'pendingRequestDiv':'pendingRequestDiv-exp'}>
@@ -64,7 +62,7 @@ export default function ArtistDashboard() {
               <ArtistUpcommingEvent/>
             </div>
             <div className='he'>
-            <CalendarEventPopup></CalendarEventPopup>
+            
             </div>
             
 
