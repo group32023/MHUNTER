@@ -30,6 +30,17 @@ library.add(fas);
 
 function SearchArtist() {
 
+    const [artist, setArtists] = useState([])
+
+    useEffect(() => {
+        fetch("http://localhost:8080/searchartist/getAll")
+            .then(res => res.json())
+            .then((result) => {
+                setArtists(result);
+            }
+            )
+    }, [])
+
     return (
         <>
             <SideMenuBarOrganizer>
@@ -69,7 +80,7 @@ function SearchArtist() {
                             </div>
                         </Link>
                     </div>
-
+{/* 
                     <div className='col-md-3 artist-box' >
                         <Link to="/organizer/searchartist/viewartist" className='link1'>
                             <div className='image'>
@@ -116,7 +127,7 @@ function SearchArtist() {
 
                             </div>
                         </Link>
-                    </div>
+                    </div> */}
 
 
 
