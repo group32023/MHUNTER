@@ -1,4 +1,4 @@
-.profilelog{
+.requestContainerlog .profilelog{
     position: relative;
     border-radius: 50%;
     width: 55px;
@@ -6,7 +6,7 @@
     top: 36.5px;
     left: -428px;
 }
-body{
+.requestContainerlog body{
 
     text-align: center;
 

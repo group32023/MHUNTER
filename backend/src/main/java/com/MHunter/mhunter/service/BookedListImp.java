@@ -1,6 +1,7 @@
 package com.MHunter.mhunter.service;
 
 import com.MHunter.mhunter.model.BookedList;
+import com.MHunter.mhunter.model.RequestMusicMember;
 import com.MHunter.mhunter.repository.BookedListRepository;
 import com.MHunter.mhunter.repository.InvoiceRepository;
 import org.springframework.beans.factory.annotation.Autowired;

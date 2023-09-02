@@ -1,11 +1,20 @@
 /* eslint-disable react/jsx-no-undef */
 import React,{useState, useEffect,useRef,Lable} from 'react';
+import SignatureCanvas from 'react-signature-canvas';
 import { Link,useNavigate,useParams } from 'react-router-dom';
 import SideMenuBarArtist from '../components/common/SideMenuBar/SideMenuBarArtist'
-import '../assets/css/bandInvoice.css'
+import '../assets/css/bandAgreement.css'
 // import { MDBBtn } from 'mdb-react-ui-kit';
 import profileImage from '../assets/images/profilePhoto.jpeg';
 import CurrencyInput from 'react-currency-input-field';
+import crowd from '../assets/images/people.png';
+import duration from '../assets/images/hourglass.png';
+import eventtype from '../assets/images/eventtype.png';
+import notification from '../assets/images/notification.png'
+import home from '../assets/images/home-button.png'
+import logout from '../assets/images/logout.png'
+import kpop from '../assets/images/kpop.png'
+
 
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -19,107 +28,185 @@ import { Label } from '@mui/icons-material';
 export default function BandInvoice() {
   const { id } = useParams();
   const [event, setEvent] = useState([]);
-
-  useEffect(() => {
-    // Fetch the data from the Java backend
-    fetch(`http://localhost:8080/event/viewSpecificEvent/${id}`)
-    .then((response) => {
-      if (!response.ok) {
-        throw new Error('Network response was not ok');
-      }
-      return response.json();
-    })
-     
-      .then((data) => {
-        setEvent(data);
-      })
-      .catch((error) => {
-        console.log('Error fetching data:', error);
-      });
-      console.log(event);
-
-  }, []);
+  const [expand,setExpandedSideBar] = useState(true)
+  const [rule1, setRule1]=useState("null")
+  const [rule2, setRule2]=useState("null")
+  const [rule3, setRule3]=useState("null")
+  const [rule4, setRule4]=useState("null")
+  const [additionalRules, setAdditionalRules]=useState("")
+  const [sign,setSign]= useState()
+  const [url,setUrl] = useState()
 
 
-  const [bandFee,setBandFee] = useState(0.00);
-  const [soundFee,setSoundFee] = useState(0.00);
-  const [instrumentFee,setInstrumentFee] = useState(0.00);
-  const [transportFee,setTransportFee] = useState(0.00);
-  const [others,setOthers] = useState(0.00);
-  const [totalAmount,setTotalAmount] = useState(0.00);
-  const [paymentType, setpaymentType]=useState("Full")
-
- 
-
-  // Event handler for checkbox change
-  const handleCheckboxChange = () => {
-    
-    setpaymentType("Advanced");
-    
-  }
-
-  // var totalAmountofInvoice = bandFee+soundFee+instrumentFee+transportFee+others;
-  // setTotalAmount(totalAmountofInvoice);
 
 
-  const addInvoice=(e)=>{
+
+  const addAgreement=(e)=>{
     e.preventDefault();
-    const invoice = {bandFee,soundFee,instrumentFee,transportFee,others,totalAmount,paymentType}
-    console.log(invoice)
+    const agreement = {rule1,rule2,rule3,rule4,additionalRules,url}
+    console.log(agreement)
 
+
+    if(rule1==="null" && rule2==="null" && rule3==="null" && rule4==="null" && additionalRules==="null"){
+
+    }
+
+ else{
+      fetch("http://localhost:8080/bandAgreement/add",{
+          method:"POST",
+          headers:{"Content-Type" : "application/json"},
+          body:JSON.stringify(agreement)
+        }).then(()=>{
     
-    // eslint-disable-next-line react-hooks/rules-of-hooks
-  // eslint-disable-next-line react-hooks/rules-of-hooks
+            alert("Confirm Request!");
+           
+          
+           
+            
+          })
+          
+  }
   
 
-
-    fetch("http://localhost:8080/invoice/add",{
-      method:"POST",
-      headers:{"Content-Type" : "application/json"},
-      body:JSON.stringify(invoice)
-    }).then(()=>{
-
-        console.log("New Student Added")
-      })
+ 
      
       }
   
-
-      useEffect(() => {
-        var totalAmountofInvoice = bandFee + soundFee + instrumentFee + transportFee + others;
-        //console.log(typeof(bandFee))
-        setTotalAmount(totalAmountofInvoice);
-      }, [bandFee, soundFee, instrumentFee, transportFee, others]);
-
-
-
-      
- // eslint-disable-next-line no-restricted-globals
- if(event===null) return <div>Loading....................</div>
- 
-     
-  return (
 
    
-    
-    <div className='MainContainer'>
-        <div className='artistSideBar'>
-            <SideMenuBarArtist></SideMenuBarArtist>
-            <h3 className='headerDashboard'>Pending Requests</h3>
-            <div className='notificationBg'></div>
-            <div className='homeBg'></div>
-            <div className='logoutBg'></div>
-        </div>
-        
 
-     
+const clear=()=>{
+  sign.clear();
+}
+
+const Generate=()=>{
+  setUrl(sign.getTrimmedCanvas().toDataURL('image/png'))
+}
+
+
+
+
+const handleCheckboxChangeRule1=()=>{
+  setRule1("Advanced1");
+
+}
+
+const handleCheckboxChangeRule2=()=>{
+  setRule2("Advanced2");
+
+
+}
+
+const handleCheckboxChangeRule3=()=>{
+  setRule3("Advanced3");
+
+  
+}
+
+const handleCheckboxChangeRule4=()=>{
+  setRule4("Advanced4");
+
+  
+}
+
+// const handleCheckboxChangeRule5=()=>{
+  
+// }
+
+// const handleCheckboxChangeRule6=()=>{
+  
+// }
+
+
+let navigate = useNavigate();
+const loadPreview=(id)=>{
+  navigate(`/band/agreementPreview`);
+
+}
+
+
+
+
+  return ( 
+    
+    <div >
+       <SideMenuBarArtist>
+        <div>
+            <p className='headerDashboard'>Pending Requests</p>
+            <div className={expand ? 'notificationBg':'notificationBg-ex'}>
+              <img src={notification} className='notificationIcon' alt='notification'></img>
+            </div>
+            <div className={expand ? 'homeBg':'homeBg-ex'}>
+              <img src={home} alt='homebtn' className='homeIcon'></img>
+            </div>
+            <div className={expand ? 'logoutBg':'logoutBg-ex'}>
+              <img src={logout} alt='logout'className='logout'></img>
+              <p className='logoutbtn'>Logout</p>
+            </div>
+          </div>
+
+
+          <div className='containerForElements'>
+          <div id="left">
       
-      <button className='backInvoice'>Back</button>
+                  <h1>Agreement</h1>
 
+                  <div><p className='bandNameLable'>Band Name : </p> <p className='bandName'>FlashBack</p></div>
+
+                  <div><p className='bandAddressLable'>Address : </p> <p className='bandAddress'>Colombo 05</p></div>
+
+                  <div><p className='bandEmailLable'>E-mail : </p> <p className='bandEmail'>flashback@gmail.com</p></div>
+
+                  <h5>Rules</h5>
+                  <p className='commandRules'>* Select Rules, want to add into agreement.</p>
+                  <form onSubmit={addAgreement}>
+                        <div className='rulesForAgreement'>
+
+                      
+                            
+                        <input type="checkbox" id="advanced1" name="advanced" onChange={handleCheckboxChangeRule1}/> <label className='rule1'>Others Can not sing</label>
+                        <input type="checkbox" id="advanced2" name="advanced" onChange={handleCheckboxChangeRule2}/><label className='rule2'>Others Can not sing</label>
+                        <input type="checkbox" id="advanced3" name="advanced" onChange={handleCheckboxChangeRule3}/> <label className='rule3'>Others Can not sing</label>
+                        <input type="checkbox" id="advanced4" name="advanced" onChange={handleCheckboxChangeRule4}/> <label className='rule4'>Others Can not sing</label>
+                        {/* <input type="checkbox" id="advanced5" name="advanced" onChange={handleCheckboxChangeRule5}/> <label className='rule5'>Others Can not sing</label>
+                        <input type="checkbox" id="advanced6" name="advanced" onChange={handleCheckboxChangeRule6}/> <label className='rule6'>Others Can not sing</label> */}
+                        <lable className="otherRules">Addition Rules : </lable><input type='text' id="advanced7" name="advanced" value={additionalRules} onChange={(e)=>setAdditionalRules(e.target.value)}></input>
+
+                        </div>
+                  
+
+
+                          <label className='signatureLable'>Signature : </label>
+              
+                          <div className='canvasforSignature' style={{border:"2px solid #ffffff", background:"#D9D9D9", position:"absolute", top:"500px",left:"200px",width:300, height:150}}>
+                            <SignatureCanvas canvasProps={{width:300, height:150, className:'sigCanvas'}}
+                            ref={data=>setSign(data)}/>
+                       
+                         
+                          
+                            <button className='clearBtn' onClick={clear}>Clear</button>
+                            {/* <button className='saveBtn' onClick={Generate}>Save</button> */}
+                          </div>
+
+                          <button type='submit' className='submitAgreement' onClick={Generate}>Submit</button>
+                          <button type='button' className='previewAgreement' onClick={loadPreview} >Preview</button>
+
+
+                       </form>
+
+                       {/* <img src={url} /> */}
+          </div>
+
+          
+         
+        </div>
+          
+          
     
-        
+        </SideMenuBarArtist>
         
     </div>
   )
 }
+
 
