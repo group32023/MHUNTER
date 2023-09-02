@@ -99,7 +99,7 @@ export default function ArtistPendingRequests() {
     <div >
     <h2>FlashBack</h2>
     <h2>Negambo, Colombo 05</h2>
-    <h2></h2>
+    <h2>flashback@gmail.com</h2>
     <h1>Agreement</h1>
     
     </div>
