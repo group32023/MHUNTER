@@ -34,6 +34,7 @@ import ArtistEvent from './pages/ArtistEvent';
 import BandPendingRequests from './pages/BandPendingRequests';
 import BandPendingRequestView from './pages/BandPendingRequestView';
 import BandAgreement from './pages/BandAgreement';
+import BandAgreementPreview from './pages/BandAgreementPreview';
 import BandInvoice from './pages/BandInvoice';
 import ArtistEventOn from './pages/ArtistEventOn';
 import ArtistSpecificEvent from './pages/ArtistSpecificEvent';
@@ -124,6 +125,8 @@ function App() {
           {/* <Route path='/artist/eventsOn/:mmid/:date/:eventId' element={<ArtistEventOn/>}></Route> */}
           <Route path='/band/agreement' element={<BandAgreement/>}></Route>
           <Route path='/band/invoice/:id' element={<BandInvoice/>}></Route> 
+          <Route path='/band/agreementPreview' element={<BandAgreementPreview/>}></Route> 
+
           
           {/* <Route path='/artist/MyFeed' element={<MyFeed/>}></Route> */}
        

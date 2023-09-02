@@ -24,6 +24,10 @@ public class BookedList {
     private Invoice invoice;
 
     @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "agreement_id")
+    private BandAgreement bandAgreement;
+
+    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "org_id")
     private Organizer organizer;
 
