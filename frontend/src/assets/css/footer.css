@@ -59,7 +59,7 @@
   text-decoration: none;
   color: #fff;
   font-size: 1.06rem;
-  
+
 }
 
 .ft-3 p {
@@ -87,78 +87,89 @@
   font-size: 1.2rem;
   font-weight: 700;
   color: white;
-  font-family: 'Poiret One',cursive;
+  font-family: 'Poiret One', cursive;
 }
-.ft-1 .logoInFooter{
+
+.ft-1 .logoInFooter {
   position: absolute;
   top: 590%;
   left: 9%;
   width: 176px;
   height: 186px;
 }
-.ft-1  .introductionFooter{
+
+.ft-1 .introductionFooter {
   position: absolute;
   top: 611%;
   left: 10%;
   color: #fff;
   font-family: 'Roboto', sans-serif;
 }
-.ft-1  .footer-icons .facebookIcon{
+
+.ft-1 .footer-icons .facebookIcon {
   color: #fff;
   position: absolute;
   top: 590%;
   left: 20%;
 }
-.ft-1  .footer-icons .twitterIcon{
+
+.ft-1 .footer-icons .twitterIcon {
   color: #fff;
   position: absolute;
   top: 590%;
   left: 23%;
 }
-.ft-1  .footer-icons .googlePlusIcon{
+
+.ft-1 .footer-icons .googlePlusIcon {
   color: #fff;
   position: absolute;
   top: 590%;
   left: 26%;
 }
-.ft-1 .footer-icons .linkedInIcon{
+
+.ft-1 .footer-icons .linkedInIcon {
   color: #fff;
   position: absolute;
   top: 590%;
   left: 29%;
 }
-.footer-icons{
+
+.footer-icons {
   position: absolute;
   left: -9%;
   top: 618%;
   width: 1470px;
 
 }
-.ft-3 p{
+
+.ft-3 p {
   font-family: 'Roboto', sans-serif;
 }
 
-.nav-item{
+.Footer .nav-item {
   font-family: 'Roboto', sans-serif;
 }
-.active{
+
+.Footer .active {
   color: #7643D2 !important;
 }
-.ft-2 ul li a:hover{
-color: #7643D2 !important;
-}
-.ft-3 h5{
-font-family: 'Roboto', sans-serif;
-margin-left: 1046px;
-position: relative;
-top: -2px;
-left: -844px;
+
+.ft-2 ul li a:hover {
+  color: #7643D2 !important;
 }
 
-.ft-3 p{
-position: relative;
-top: -2px;
-left: -868px;
+.ft-3 h5 {
+  font-family: 'Roboto', sans-serif;
+  margin-left: 1046px;
+  position: relative;
+  top: -2px;
+  left: -844px;
+}
+
+.ft-3 p {
+  position: relative;
+  top: -2px;
+  left: -868px;
 }
 
 /* .ft-2 ul {
