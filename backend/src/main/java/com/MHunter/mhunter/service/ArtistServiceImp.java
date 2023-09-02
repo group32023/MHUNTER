@@ -2,6 +2,7 @@ package com.MHunter.mhunter.service;
 
 import com.MHunter.mhunter.model.Artist;
 import com.MHunter.mhunter.repository.ArtistRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -9,6 +10,7 @@ import java.util.Optional;
 
 @Service
 public class ArtistServiceImp implements ArtistService{
+    @Autowired
     private ArtistRepository artistRepository;
     public ArtistServiceImp() {
         super();

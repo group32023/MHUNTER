@@ -198,12 +198,18 @@
 
     background-color: rgba(3, 3, 3, 0.60);
     width: 94%;
-    height: 53%;
+    height: 82%;
     position: absolute;
     top: 338%;
     left: 2%;
     z-index: 100;
 
+}
+
+.artistEventTablePagination{
+ position: absolute !important;
+  top: 525px !important;
+  left: 699px !important;
 }
 
 
