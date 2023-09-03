@@ -7,7 +7,7 @@ public class MusicMember {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int MMID;
-    @OneToOne(fetch = FetchType.LAZY)
+    @OneToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "user_id")
     private User user;
     private String Name;

@@ -31,19 +31,25 @@ library.add(fas);
 function SearchArtist() {
 
     const [artist, setArtists] = useState([])
+    const [searchInput, setSearchInput] = useState('');
 
-    const imageExtention = ["jpg","png","jpeg"]
-  const BASE_URL = "http://localhost:8080";
+    const imageExtention = ["jpg", "png", "jpeg"]
+    const BASE_URL = "http://localhost:8080";
 
 
     useEffect(() => {
-        fetch("http://localhost:8080/searchartist/getAll")
+        fetch("http://localhost:8080/artist/getAll")
             .then(res => res.json())
             .then((result) => {
                 setArtists(result);
+                console.log(result);
             }
             )
     }, [])
+
+    const filteredArtists = artist.filter((artist) =>
+        artist.user.firstName.toLowerCase().includes(searchInput.toLowerCase())
+    );
 
     return (
         <>
@@ -59,6 +65,8 @@ function SearchArtist() {
                                 type="search"
                                 placeholder="Search An Artist"
                                 aria-label="Search"
+                                value={searchInput}
+                                onChange={(e) => setSearchInput(e.target.value)}
                             />
 
                         </div>
@@ -69,21 +77,28 @@ function SearchArtist() {
                         </div>
                     </div>
 
-                    <div className='col-md-3 artist-box' >
-                        <Link to="/organizer/searchartist/viewartist" className='link1'>
-                            <div className='image'>
-                             <img src={`${BASE_URL}/postData/uploads/image/${item.fileName}`} alt="post media" />
-                            </div>
+                    {filteredArtists.map(artist => (
 
-                            <div className='content'>
+            
+                        <div className='col-md-3 artist-box' >
+                            <Link to="/organizer/searchartist/viewartist" className='link1'>
+                                <div className='image'>
+                                    <img src={`${BASE_URL}/postData/uploads/image/dinesh-tharanga.jpg`} alt="post media" />
+                                </div>
 
-                                <h5>Anushka Udana</h5>
-                                <StarRating rating={5} ></StarRating>
+                                <div className='content'>
 
-                            </div>
-                        </Link>
-                    </div>
-{/* 
+                                    <h5>{artist.user.firstName} {artist.user.lastName}</h5>
+                                    <StarRating rating={5} ></StarRating>
+
+                                </div>
+                            </Link>
+                        </div>
+                    
+
+                    ))}
+
+                    {/* 
                     <div className='col-md-3 artist-box' >
                         <Link to="/organizer/searchartist/viewartist" className='link1'>
                             <div className='image'>
