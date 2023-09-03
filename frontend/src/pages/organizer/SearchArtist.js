@@ -32,6 +32,10 @@ function SearchArtist() {
 
     const [artist, setArtists] = useState([])
 
+    const imageExtention = ["jpg","png","jpeg"]
+  const BASE_URL = "http://localhost:8080";
+
+
     useEffect(() => {
         fetch("http://localhost:8080/searchartist/getAll")
             .then(res => res.json())
@@ -68,8 +72,7 @@ function SearchArtist() {
                     <div className='col-md-3 artist-box' >
                         <Link to="/organizer/searchartist/viewartist" className='link1'>
                             <div className='image'>
-                                <img src={anushka} alt='image1'>
-                                </img>
+                             <img src={`${BASE_URL}/postData/uploads/image/${item.fileName}`} alt="post media" />
                             </div>
 
                             <div className='content'>
