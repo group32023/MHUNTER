@@ -57,15 +57,11 @@
    position: relative;
    width: 40%;
    display: block;
-  
-   
-  
-
 }
 #LocationIcon{
 
     position: absolute;
-    right: 34%;
+    right: 38%;
     margin-top: 4px;
 }
 

@@ -1,6 +1,6 @@
 import React,{useState, useEffect,useRef} from 'react';
 import {Button, Table} from 'react-bootstrap';
-import { useNavigate,useParams} from 'react-router-dom';
+import { Link,useNavigate,useParams} from 'react-router-dom';
 import SideMenuBarArtist from '../components/common/SideMenuBar/SideMenuBarArtist'
 import '../assets/css/priorbooking.css'
 import { MDBBtn } from 'mdb-react-ui-kit';
@@ -10,7 +10,7 @@ import home from '../assets/images/home-button.png'
 import logout from '../assets/images/logout.png'
 import kpop from '../assets/images/kpop.png'
 
-
+import CircularProgress from '@mui/material/CircularProgress';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {faPhone,faLocationDot,faList,faCalendarDays} from '@fortawesome/free-solid-svg-icons'
@@ -87,7 +87,7 @@ export default function ArtistPriorBooking() {
   }
 
   
-  if(events.length===0) return <div>Loading....................</div>
+  if(events.length===0) return <div><CircularProgress color="secondary" /></div>
 
 
     return (
@@ -102,7 +102,9 @@ export default function ArtistPriorBooking() {
               <img src={notification} className='notificationIcon' alt='notification'></img>
             </div>
             <div className={expand ? 'homeBg':'homeBg-ex'}>
-              <img src={home} alt='homebtn' className='homeIcon'></img>
+            <Link to={'/'}>
+                <img src={home} alt='homebtn' className='homeIcon'></img>
+              </Link>
             </div>
             <div className={expand ? 'logoutBg':'logoutBg-ex'}>
               <img src={logout} alt='logout'className='logout'></img>

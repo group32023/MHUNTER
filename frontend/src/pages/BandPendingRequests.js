@@ -13,6 +13,7 @@ import notification from '../assets/images/notification.png'
 import home from '../assets/images/home-button.png'
 import logout from '../assets/images/logout.png'
 import kpop from '../assets/images/kpop.png'
+import CircularProgress from '@mui/material/CircularProgress';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {faPhone,faLocationDot,faList,faCalendarDays} from '@fortawesome/free-solid-svg-icons'
@@ -92,7 +93,7 @@ export default function ArtistPendingRequests() {
   }
 
   
- if(eventList.length===0) return <div>Loading....................</div>
+ if(eventList.length===0) return <div><CircularProgress color="secondary" /></div>
 
   return (
 
