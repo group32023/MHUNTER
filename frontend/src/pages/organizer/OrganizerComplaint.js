@@ -38,7 +38,7 @@ function OrganizerComplaint() {
 
     const handleClick = (e) => {
         e.preventDefault()
-        const complaint = { title, description, date, status: "PENDING", user_id: 1041 }
+        const complaint = { title, description, date, status: "PENDING", userId: 1041 };
         console.log(complaint)
         fetch("http://localhost:8080/complaint/add", {
             method: "POST",
@@ -46,10 +46,14 @@ function OrganizerComplaint() {
             body: JSON.stringify(complaint)
         }).then(() => {
             console.log("New Complaint Added");
+
             setShowSuccessComplaintAddPopup(true); // Show success popup
             setTimeout(() => {
                 setShowSuccessComplaintAddPopup(false); // Hide success popup after a timeout
-            }, 2000);
+
+            }, 2500);
+
+            window.location.reload();
         })
     }
 
