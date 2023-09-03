@@ -38,7 +38,7 @@ function OrganizerComplaint() {
 
     const handleClick = (e) => {
         e.preventDefault()
-        const complaint = { title, description, date, status: "PENDING" }
+        const complaint = { title, description, date, status: "PENDING", user_id: 1041 }
         console.log(complaint)
         fetch("http://localhost:8080/complaint/add", {
             method: "POST",
@@ -54,7 +54,7 @@ function OrganizerComplaint() {
     }
 
     useEffect(() => {
-        fetch("http://localhost:8080/complaint/getAll")
+        fetch("http://localhost:8080/complaint/complaintByUserId/1041")
             .then(res => res.json())
             .then((result) => {
                 setComplaints(result);

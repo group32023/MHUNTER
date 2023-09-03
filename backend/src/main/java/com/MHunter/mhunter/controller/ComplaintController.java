@@ -3,6 +3,7 @@ package com.MHunter.mhunter.controller;
 import com.MHunter.mhunter.model.Complaint;
 import com.MHunter.mhunter.service.ComplaintService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -21,8 +22,17 @@ public class ComplaintController {
         return "New Complaint Added";
     }
 
-    @GetMapping("/getAll")
-    public List<Complaint> getAllComplaints(){
-        return complaintService.getAllComplaints();
+//    @GetMapping("/getAll")
+//    public List<Complaint> getAllComplaints(){
+//        return complaintService.getAllComplaints();
+//    }
+
+    @GetMapping("/complaintByUserId/{userId}")
+    public ResponseEntity<List<Complaint>> getComplaintsByUserId(@PathVariable Integer userId) {
+        List<Complaint> complaints = complaintService.getComplaintsByUserId(userId);
+        if (complaints.isEmpty()) {
+            return ResponseEntity.notFound().build();
+        }
+        return ResponseEntity.ok(complaints);
     }
 }
