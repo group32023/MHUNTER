@@ -25,7 +25,7 @@ import { Label } from '@mui/icons-material';
 
 
 
-export default function BandInvoice() {
+export default function BandAgreem() {
   const { id } = useParams();
   const [event, setEvent] = useState([]);
   const [expand,setExpandedSideBar] = useState(true)
@@ -44,11 +44,11 @@ export default function BandInvoice() {
   const addAgreement=(e)=>{
     e.preventDefault();
     const agreement = {rule1,rule2,rule3,rule4,additionalRules,url}
-    console.log(agreement)
+    console.log(agreement.rule1)
 
 
-    if(rule1==="null" && rule2==="null" && rule3==="null" && rule4==="null" && additionalRules==="null"){
-
+    if(rule1==="null" && rule2==="null" && rule3==="null" && rule4==="null" && additionalRules===""){
+          console.log("cannot submit")
     }
 
  else{
