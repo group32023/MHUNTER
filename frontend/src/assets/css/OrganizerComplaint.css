@@ -160,6 +160,11 @@
     font-weight: bold;
 }
 
+.status-text-orange {
+    color: orange;
+    font-weight: bold;
+}
+
 /* .complaint-add-success-popup {
     position: fixed;
     top: 50%;
@@ -224,3 +229,16 @@
     /* Adjust the background color and transparency */
     z-index: 1040;
 }
+
+.selectedComplaint-Modal {
+
+    color: white;
+}
+
+.modal-content {
+    background-color: #1c2126 !important;
+}
+
+/* .modal-header .btn-close {
+    color: white !important;
+    /* Set the close button's color to white */

@@ -26,7 +26,7 @@ function OrganizerComplaint() {
     const [showSuccessComplaintAddPopup, setShowSuccessComplaintAddPopup] = useState(false);
     const [description, setDescription] = useState('');
     const [complaints, setComplaints] = useState([]);
-
+    const [selectedComplaint, setSelectedComplaint] = useState(null);
 
 
     const daten = new Date();
@@ -51,7 +51,7 @@ function OrganizerComplaint() {
             setTimeout(() => {
                 setShowSuccessComplaintAddPopup(false); // Hide success popup after a timeout
 
-            }, 2500);
+            }, 3000);
 
             window.location.reload();
         })
@@ -66,11 +66,13 @@ function OrganizerComplaint() {
             )
     }, [])
 
-    const handleShowModal = () => {
+    const handleShowModal = (complaint) => {
+        setSelectedComplaint(complaint);
         setShowModal(true);
     };
 
     const handleCloseModal = () => {
+        setSelectedComplaint(null);
         setShowModal(false);
     };
 
@@ -115,13 +117,21 @@ function OrganizerComplaint() {
                                     <div className="date">Date</div>
                                     <div className="status">Status</div>
                                 </div>
-                                {complaints.map(complaint => (
-                                    <div className="content-data-row complaintTableDataRow" onClick={handleShowModal}>
+                                {complaints.map((complaint, index) => (
+                                    <div className="content-data-row complaintTableDataRow" onClick={() => handleShowModal(complaint)} key={index}>
                                         <div className="complaint-title">{complaint.title}</div>
                                         <div className="date">{complaint.date}</div>
-                                        <div className={`status ${complaint.status === "PENDING" ? "status-text-green" : "status-text-red"}`}>
+                                        <div className={`status ${complaint.status === "PENDING"
+                                            ? "status-text-green"
+                                            : complaint.status === "ON-PROGRESS"
+                                                ? "status-text-orange"
+                                                : complaint.status === "CLOSED"
+                                                    ? "status-text-red"
+                                                    : "status-text-red" // Default class for REJECTED and other statuses
+                                            }`}>
                                             {complaint.status}
                                         </div>
+
                                     </div>
                                 ))}
 
@@ -145,12 +155,32 @@ function OrganizerComplaint() {
 
                                 {showModal && (
                                     <div className="overlay">
-                                        <Modal show={showModal} onHide={handleCloseModal} centered>
-                                            <Modal.Header closeButton>
-                                                <Modal.Title></Modal.Title>
+                                        <Modal show={showModal} onHide={handleCloseModal} centered className='selectedComplaint-Modal'>
+                                            <Modal.Header >
+                                                <Modal.Title>Complaint Details</Modal.Title>
                                             </Modal.Header>
                                             <Modal.Body>
-                                                Content of the popup goes here.
+                                                {selectedComplaint && (
+                                                    <>
+                                                        <div >
+                                                            <p>Title:</p>
+                                                            <p>{selectedComplaint.title}</p>
+                                                        </div>
+                                                        <div>
+                                                            <p>Title:</p>
+                                                            <p>{selectedComplaint.description}</p>
+                                                        </div>
+                                                        <div>
+                                                            <p>Date:</p>
+                                                            <p>{selectedComplaint.date}</p>
+                                                        </div>
+                                                        <div>
+                                                            <p>Status:</p>
+                                                            <p>{selectedComplaint.status}</p>
+                                                        </div>
+                                                        {/* Add more complaint details as needed */}
+                                                    </>
+                                                )}
                                             </Modal.Body>
                                             <Modal.Footer>
                                                 <Button variant="secondary" onClick={handleCloseModal}>
@@ -160,6 +190,8 @@ function OrganizerComplaint() {
                                         </Modal>
                                     </div>
                                 )}
+
+
                             </div>
                         </div>
 
