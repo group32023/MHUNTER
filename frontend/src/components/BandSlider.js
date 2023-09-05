@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState,useEffect } from 'react'
 import band from '../assets/images/band.jpg'
 
 import '../assets/css/bandSlider.css'
@@ -23,6 +23,44 @@ export default function
 () {
 
   const [value,setValue] =useState(5,4)
+  const [band,setBand] = useState([])
+  const BASE_URL = "http://localhost:8080";
+
+const handle = () =>{
+    fetch(`http://localhost:8080/band/view`).then((res)=>res.json()).then((data)=>{
+        const newItem = data.map(item =>
+                    (
+                        <SwiperSlide style={{width:236,height:271}}> <div className='artistSlide1'>
+                        <img src={`${BASE_URL}/postData/uploads/image/${item.imgPath}`} className='artist1Pic' style={{width:236,height:271}}></img>
+                        <div className='reviewBox'>
+                            <label className='artist1Name'>{item.bandName}</label>
+                            <FontAwesomeIcon icon={faFacebook} className='facebookArtist'></FontAwesomeIcon>
+                            <FontAwesomeIcon icon={faTwitter} className='twiterArtist'></FontAwesomeIcon>
+                            <FontAwesomeIcon icon={faLinkedinIn} className='linkedinArtist'></FontAwesomeIcon>
+            
+                        <div className='starList'>
+                             {/* generate the stars */}
+                            <Rating name="read-only" value={item.rate} readOnly className='rating'/>
+                        </div>
+                        </div>
+                    </div></SwiperSlide>
+                    ))
+                    
+                    setBand(newItem)
+            
+}) .catch(error =>{
+      console.log('There was a problem with the fetch operation:', error.message)
+  })
+
+}
+
+ 
+useEffect(()=>{
+    handle();
+  },[])
+    
+  
+  if(band===null) return <div>Loading....................</div>
     
 
   return (
@@ -47,175 +85,7 @@ export default function
         modules={[FreeMode, Pagination,Autoplay]}
         className="mySwiper"
       >
-        <SwiperSlide style={{width:236,height:271}}> <div className='artistSlide1'>
-            <img src={band} className='artist1Pic' style={{width:236,height:271}}></img>
-            <div className='reviewBox'>
-                <label className='artist1Name'>Flashback</label>
-                <FontAwesomeIcon icon={faFacebook} className='facebookArtist'></FontAwesomeIcon>
-                <FontAwesomeIcon icon={faTwitter} className='twiterArtist'></FontAwesomeIcon>
-                <FontAwesomeIcon icon={faLinkedinIn} className='linkedinArtist'></FontAwesomeIcon>
-
-            <div className='starList'>
-                 {/* generate the stars */}
-                <Rating name="read-only" value={value} readOnly />
-            </div>
-                
-           
-               
-            </div>
-        </div></SwiperSlide>
-        <SwiperSlide>
-        <div className='artistSlide1'>
-            <img src={band} className='artist1Pic' style={{width:236,height:271}}></img>
-            <div className='reviewBox'>
-                <label className='artist1Name'>Flashback</label>
-                <FontAwesomeIcon icon={faFacebook} className='facebookArtist'></FontAwesomeIcon>
-                <FontAwesomeIcon icon={faTwitter} className='twiterArtist'></FontAwesomeIcon>
-                <FontAwesomeIcon icon={faLinkedinIn} className='linkedinArtist'></FontAwesomeIcon>
-
-            <div className='starList'>
-                 {/* generate the stars */}
-                <Rating name="read-only" value={value} readOnly />
-            </div>
-                
-           
-               
-            </div>
-        </div>
-        </SwiperSlide>
-        <SwiperSlide>
-        <div className='artistSlide1'>
-            <img src={band} className='artist1Pic' style={{width:236,height:271}}></img>
-            <div className='reviewBox'>
-                <label className='artist1Name'>Flashback</label>
-                <FontAwesomeIcon icon={faFacebook} className='facebookArtist'></FontAwesomeIcon>
-                <FontAwesomeIcon icon={faTwitter} className='twiterArtist'></FontAwesomeIcon>
-                <FontAwesomeIcon icon={faLinkedinIn} className='linkedinArtist'></FontAwesomeIcon>
-
-            <div className='starList'>
-                 {/* generate the stars */}
-                <Rating name="read-only" value={value} readOnly />
-            </div>
-                
-           
-               
-            </div>
-        </div>
-        </SwiperSlide>
-        <SwiperSlide>
-        <div className='artistSlide1'>
-            <img src={band} className='artist1Pic' style={{width:236,height:271}}></img>
-            <div className='reviewBox'>
-                <label className='artist1Name'>Flashback</label>
-                <FontAwesomeIcon icon={faFacebook} className='facebookArtist'></FontAwesomeIcon>
-                <FontAwesomeIcon icon={faTwitter} className='twiterArtist'></FontAwesomeIcon>
-                <FontAwesomeIcon icon={faLinkedinIn} className='linkedinArtist'></FontAwesomeIcon>
-
-            <div className='starList'>
-                 {/* generate the stars */}
-                <Rating name="read-only" value={value} readOnly />
-            </div>
-                
-           
-               
-            </div>
-        </div>
-        </SwiperSlide>
-        <SwiperSlide>
-        <div className='artistSlide1'>
-            <img src={band} className='artist1Pic' style={{width:236,height:271}}></img>
-            <div className='reviewBox'>
-                <label className='artist1Name'>Flashback</label>
-                <FontAwesomeIcon icon={faFacebook} className='facebookArtist'></FontAwesomeIcon>
-                <FontAwesomeIcon icon={faTwitter} className='twiterArtist'></FontAwesomeIcon>
-                <FontAwesomeIcon icon={faLinkedinIn} className='linkedinArtist'></FontAwesomeIcon>
-
-            <div className='starList'>
-                 {/* generate the stars */}
-                <Rating name="read-only" value={value} readOnly />
-            </div>
-                
-           
-               
-            </div>
-        </div>
-        </SwiperSlide>
-        <SwiperSlide>
-        <div className='artistSlide1'>
-            <img src={band} className='artist1Pic' style={{width:236,height:271}}></img>
-            <div className='reviewBox'>
-                <label className='artist1Name'>Flashback</label>
-                <FontAwesomeIcon icon={faFacebook} className='facebookArtist'></FontAwesomeIcon>
-                <FontAwesomeIcon icon={faTwitter} className='twiterArtist'></FontAwesomeIcon>
-                <FontAwesomeIcon icon={faLinkedinIn} className='linkedinArtist'></FontAwesomeIcon>
-
-            <div className='starList'>
-                 {/* generate the stars */}
-                <Rating name="read-only" value={value} readOnly />
-            </div>
-                
-           
-               
-            </div>
-        </div>
-        </SwiperSlide>
-        <SwiperSlide>
-        <div className='artistSlide1'>
-            <img src={band} className='artist1Pic' style={{width:236,height:271}}></img>
-            <div className='reviewBox'>
-                <label className='artist1Name'>Flashback</label>
-                <FontAwesomeIcon icon={faFacebook} className='facebookArtist'></FontAwesomeIcon>
-                <FontAwesomeIcon icon={faTwitter} className='twiterArtist'></FontAwesomeIcon>
-                <FontAwesomeIcon icon={faLinkedinIn} className='linkedinArtist'></FontAwesomeIcon>
-
-            <div className='starList'>
-                 {/* generate the stars */}
-                <Rating name="read-only" value={value} readOnly />
-            </div>
-                
-           
-               
-            </div>
-        </div>
-        </SwiperSlide>
-        <SwiperSlide>
-        <div className='artistSlide1'>
-            <img src={band} className='artist1Pic' style={{width:236,height:271}}></img>
-            <div className='reviewBox'>
-                <label className='artist1Name'>Flashback</label>
-                <FontAwesomeIcon icon={faFacebook} className='facebookArtist'></FontAwesomeIcon>
-                <FontAwesomeIcon icon={faTwitter} className='twiterArtist'></FontAwesomeIcon>
-                <FontAwesomeIcon icon={faLinkedinIn} className='linkedinArtist'></FontAwesomeIcon>
-
-            <div className='starList'>
-                 {/* generate the stars */}
-                <Rating name="read-only" value={value} readOnly />
-            </div>
-                
-           
-               
-            </div>
-        </div>
-        </SwiperSlide>
-        <SwiperSlide>
-        <div className='artistSlide1'>
-            <img src={band} className='artist1Pic' style={{width:236,height:271}}></img>
-            <div className='reviewBox'>
-                <label className='artist1Name'>Flashback</label>
-                <FontAwesomeIcon icon={faFacebook} className='facebookArtist'></FontAwesomeIcon>
-                <FontAwesomeIcon icon={faTwitter} className='twiterArtist'></FontAwesomeIcon>
-                <FontAwesomeIcon icon={faLinkedinIn} className='linkedinArtist'></FontAwesomeIcon>
-
-            <div className='starList'>
-                 {/* generate the stars */}
-                <Rating name="read-only" value={value} readOnly />
-            </div>
-                
-           
-               
-            </div>
-        </div>
-        </SwiperSlide>
+        {band}
       </Swiper>
     </div>
    

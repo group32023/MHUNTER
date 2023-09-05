@@ -9,7 +9,7 @@ import folder from '../assets/images/folder.png'
 import SideMenuBarArtist from '../components/common/SideMenuBar/SideMenuBarArtist'
 import "../assets/css/myFeed.css"
 import PreviousFeed from '../components/PreviousFeed'
-
+import { Link, useNavigate } from 'react-router-dom'
 
 export default function MyFeed() {
     const [expand,setExpandedSideBar] = useState(true)
@@ -102,7 +102,9 @@ export default function MyFeed() {
               <img src={notification} className='notificationIcon' alt='notification'></img>
             </div>
             <div className={expand ? 'homeBg':'homeBg-ex'}>
-              <img src={home} alt='homebtn' className='homeIcon'></img>
+              <Link to={'/'}>
+                <img src={home} alt='homebtn' className='homeIcon'></img>
+              </Link>
             </div>
             <div className={expand ? 'logoutBg':'logoutBg-ex'}>
               <img src={logout} alt='logout'className='logout'></img>
@@ -153,3 +155,4 @@ export default function MyFeed() {
     </div>
   )
 }
+ 

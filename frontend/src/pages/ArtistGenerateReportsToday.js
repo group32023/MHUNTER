@@ -127,7 +127,9 @@ export default function ArtistGenerateReports() {
               <img src={notification} className='notificationIcon' alt='notification'></img>
             </div>
             <div className={expand ? 'homeBg':'homeBg-ex'}>
-              <img src={home} alt='homebtn' className='homeIcon'></img>
+            <Link to={'/'}>
+                <img src={home} alt='homebtn' className='homeIcon'></img>
+              </Link>
             </div>
             <div className={expand ? 'logoutBg':'logoutBg-ex'}>
               <img src={logout} alt='logout'className='logout'></img>

@@ -12,10 +12,12 @@ import artistUpcommingCalandar from '../assets/images/calendar(2).png'
 import crowd from '../assets/images/group.png'
 import SideMenuBarArtist from '../components/common/SideMenuBar/SideMenuBarArtist'
 import Countdown from "react-countdown";
+import { Link } from 'react-router-dom'
 
 import GoogleMapReact from 'google-map-react';
 import { useNavigate, useParams } from 'react-router-dom'
 import { Data } from '@react-google-maps/api'
+import CircularProgress from '@mui/material/CircularProgress';
 
 
 const AnyReactComponent = ({ text }) => <div>{text}</div>;
@@ -23,6 +25,7 @@ const AnyReactComponent = ({ text }) => <div>{text}</div>;
 export default function ArtistSpecificEvent() {
     const [expand,setExpandedSideBar] = useState(true)
     const [data, setData] = useState([])
+    const BASE_URL = "http://localhost:8080";
 
     let eventId = useParams()
     eventId =eventId.id
@@ -36,7 +39,7 @@ export default function ArtistSpecificEvent() {
       loadData();
     },[])
 
-    console.log(data);
+    
 
     var now = new Date();
     let day = data.date +"T"+data.startTime;
@@ -47,9 +50,9 @@ export default function ArtistSpecificEvent() {
 
     const renderer = ({ days,hours, minutes, seconds, completed }) => {
       if (completed) {
-          return <span style={{ color: 'red', fontSize: '25px'}}>Countdown completed!</span>;
+          return <span style={{ color: 'red', fontSize: '25px',position: 'absolute',top: '32px',left: '110px'}}>Countdown completed!</span>;
       } else {
-          return <span style={{ color: '#11FE70', fontSize: '40px' ,position: 'absolute',top: '25px',left: '110px'}}>{days}:{hours}:{minutes}:{seconds}</span>;
+          return <span style={{ color: '#11FE70', fontSize: '40px' ,position: 'absolute',top: '25px',left: '110px'}}>{(days<10)? '0'+days :days}:{(hours<10)?'0'+hours:hours}:{(minutes<10)?'0'+minutes:minutes}:{(seconds<10)?'0'+seconds:seconds}</span>;
       }
   };
 
@@ -71,7 +74,7 @@ export default function ArtistSpecificEvent() {
   }
   
 
-  if(data.length === 0) return <div>Loading...</div>
+  if(data.length === 0) return <div className='progressBar'><CircularProgress color="secondary" /></div>
   
   return (
     <div className='artistSpecificEventDiv'>
@@ -83,7 +86,9 @@ export default function ArtistSpecificEvent() {
               <img src={notification} className='notificationIcon' alt='notification'></img>
             </div>
             <div className={expand ? 'homeBg':'homeBg-ex'}>
-              <img src={home} alt='homebtn' className='homeIcon'></img>
+            <Link to={'/'}>
+                <img src={home} alt='homebtn' className='homeIcon'></img>
+              </Link>
             </div>
             <div className={expand ? 'logoutBg':'logoutBg-ex'}>
               <img src={logout} alt='logout'className='logout'></img>
@@ -91,7 +96,7 @@ export default function ArtistSpecificEvent() {
             </div>
 
             <div className='mainDescriptionDiv'>
-                <img src={event01} className='specificEventImg'></img>
+                <img src={`${BASE_URL}/postData/uploads/image/${data.eventImage}`} className='specificEventImg'></img>
                 <p className='specificEventName'>{data.eventName}</p>
                 <p className='specificEventDescription'>{data.description}</p>
 

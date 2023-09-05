@@ -15,6 +15,7 @@ export default function CalendarEventPopup({date}) {
   const [getEventDetails,setEventDetails] = useState([])
   const [getPopup,setPopup] = useState([])
   const [getCurrentEvent, setCurrentEvent] = useState(0)
+  const BASE_URL = "http://localhost:8080";
 
   // get event date 'yyyy-mm-dd' format
   function getDate(date){
@@ -31,22 +32,19 @@ export default function CalendarEventPopup({date}) {
   function nextEvent(){
     if(getCurrentEvent >= 0 && getCurrentEvent < getPopup.length-1){
       setCurrentEvent(getCurrentEvent+1)
-      console.log('awaa')
     }
     else {
       setCurrentEvent(0)
-      console.log('awa2')
     }
   }
 
   function prevEvent(){
     if(getCurrentEvent > 0 && getCurrentEvent < getPopup.length){
       setCurrentEvent(getCurrentEvent-1)
-      console.log('awa3')
     }
     else{
       setCurrentEvent(0)
-      console.log('awa4')
+
     }
   }
 
@@ -57,7 +55,7 @@ export default function CalendarEventPopup({date}) {
       <CardMedia
         component="img"
         height="140"
-        image={calendarEventPopupPost}
+        src={`${BASE_URL}/postData/uploads/image/${item.eventImage}`}
         alt="green iguana"
       />
       <CardContent>

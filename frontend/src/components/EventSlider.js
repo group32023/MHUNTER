@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState,useEffect } from 'react'
 
 import '../assets/css/eventSlider.css'
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -12,6 +12,37 @@ import event from '../assets/images/event.jpg'
 import { FreeMode, Pagination, Autoplay } from 'swiper/modules';
 
 export default function EventSlider() {
+    const [event,setEvent] = useState([])
+    const BASE_URL = "http://localhost:8080";
+
+
+    const handle = () =>{
+        fetch(`http://localhost:8080/event/getAll`).then((res)=>res.json()).then((data)=>{
+            const newItem = data.map(item =>
+                        (
+                            <SwiperSlide style={{width:400,height:400}}> <div className='artistSlide1'>
+                                <img src={`${BASE_URL}/postData/uploads/image/${item.eventImage}`} className='artist1Pic' style={{width:400,height:400}} alt='event'></img> 
+                                </div>
+                            </SwiperSlide>
+                        ))
+                        
+                        setEvent(newItem)
+                
+    }) .catch(error =>{
+          console.log('There was a problem with the fetch operation:', error.message)
+      })
+    
+    }
+    
+     
+    useEffect(()=>{
+        handle();
+      },[])
+        
+      
+      if(event===null) return <div>Loading....................</div>
+
+
   return (
     <div>
         <div className='eventSliderDiv'>
@@ -32,57 +63,7 @@ export default function EventSlider() {
         modules={[FreeMode, Pagination,Autoplay]}
         className="mySwiper"
       >
-        <SwiperSlide style={{width:400,height:400}}> <div className='artistSlide1'>
-            <img src={event} className='artist1Pic' style={{width:400,height:400}} alt='event'></img> 
-            </div>
-        </SwiperSlide>
-        <SwiperSlide>
-        <div className='artistSlide1'>
-            <img src={event} className='artist1Pic' style={{width:400,height:400}} alt='event'></img>
-        </div>
-        </SwiperSlide>
-        <SwiperSlide>
-        <div className='artistSlide1'>
-            <img src={event} className='artist1Pic' style={{width:400,height:400}} alt='event'></img>
-            
-        </div>
-        </SwiperSlide>
-        <SwiperSlide>
-        <div className='artistSlide1'>
-            <img src={event} className='artist1Pic' style={{width:400,height:400}} alt='event'></img>
-            
-        </div>
-        </SwiperSlide>
-        <SwiperSlide>
-        <div className='artistSlide1'>
-            <img src={event} className='artist1Pic' style={{width:400,height:400}} alt='event'></img>
-            
-        </div>
-        </SwiperSlide>
-        <SwiperSlide>
-        <div className='artistSlide1'>
-            <img src={event} className='artist1Pic' style={{width:400,height:400}} alt='event'></img>
-            
-        </div>
-        </SwiperSlide>
-        <SwiperSlide>
-        <div className='artistSlide1'>
-            <img src={event} className='artist1Pic' style={{width:400,height:400}} alt='event'></img>
-            
-        </div>
-        </SwiperSlide>
-        <SwiperSlide>
-        <div className='artistSlide1'>
-            <img src={event} className='artist1Pic' style={{width:400,height:400}} alt='event'></img>
-            
-        </div>
-        </SwiperSlide>
-        <SwiperSlide>
-        <div className='artistSlide1'>
-            <img src={event} className='artist1Pic' style={{width:400,height:400}} alt='event'></img>
-            
-        </div>
-        </SwiperSlide>
+        {event}
       </Swiper>
 
         </div>
