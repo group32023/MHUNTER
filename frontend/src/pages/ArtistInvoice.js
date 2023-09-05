@@ -117,7 +117,13 @@ export default function BandInvoice() {
         navigate(`/artist/PendingRequestView/${id}`);
     
       }
+     
       
+
+      const loadInvoicePreview=(id)=>{
+        navigate(`/band/invoicePreview`);
+      
+      }
  // eslint-disable-next-line no-restricted-globals
  if(event===null) return <div>Loading....................</div>
  
@@ -142,6 +148,8 @@ export default function BandInvoice() {
               <p className='logoutbtn'>Logout</p>
             </div>
           </div>
+
+    <div className='MainContainer'>
         <div className='eventDetailsDisplayContainer'>
              <div className='eventDetailsDisplayInnerContainer'>
              <img src={profileImage} className="profileInvoice"></img>
@@ -199,8 +207,9 @@ export default function BandInvoice() {
      
       
       <button className='backInvoice' onClick={()=>load(101)}>Back</button>
+      <button type='button' className='previewAgreement' onClick={loadInvoicePreview} >Preview</button>
 
-          
+    </div>   
         </div>
         </SideMenuBarArtist>
         

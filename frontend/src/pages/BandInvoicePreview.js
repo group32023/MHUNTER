@@ -106,26 +106,37 @@ export default function BandAgreementPreview() {
               <p className='bandAddress'>Negambo, Colombo 05</p>
               <p className='bandEmail'>flashback@gmail.com</p>
               <hr className='agreementHr'></hr>
-              <h3>Agreement</h3>
+              <h3>Invoice</h3>
               <div className='agreementContent'>
               <p className='organizerNamelabel'>Name : </p><p className='organizerName'> W.R.A.S.Kavishka</p>
               <p className='eventNamelabel'>Event : </p><p className='eventName'>Birthday Party</p>
               <p className='eventDatelabel'>Date : </p><p className='eventDate'> 2022-03-25</p>
               <p className='placelabel'>Venue :</p><p className='place'> Matara</p>
               <p className='timelabel'>Time : </p><p className='time'>6.00pm</p>
-              <p className='paraContent'>We are delighted to have hired our music band for your event. We expect you to abide by the following rules and regulations during your event.</p>
-              <p className='rulesLabel'>Rules & Regulations : </p>
-              <p className='additionalRulesLabel'>Additional Rules : </p>
-              <p className='additionalRules'>Can not sing Others</p>
+
+              <div className='invoiceDetailContainer'>
+              <div className='descriptionColumn'>
+              <label className='dColumn'>Description</label>
+              <label className='AFee'>Artist Fee</label>
+              <label className='tFee'>Transport Fee</label>
+              <label className='oFee'>Others</label>
+              <label className='totalFee'>Total Amount</label>
 
               </div>
-              <div className='verifyContent'>
-              <p className='today'>2023-09-02</p>
-               <p className='spaceDate'>..................................</p>
-               <p className='dateLabel'>Date</p>
-              <p className='spaceSignature'>..................................</p>
-              <p className='signature'>Signature</p>
+              <div className='amountColumn'>
+              <label className='aColumn'>Amonut (Rs.)</label>
+              <label className='AFeeAmpunt'>15000000</label>
+              <label className='tFeeAmpunt'>0</label>
+              <label className='oFeeAmpunt'>0</label>
+              <label className='totalFeeAmpunt'>15000000</label>
+
+    </div>
+           
               </div>
+              
+
+              </div>
+           
         </div>
 
     </div>
