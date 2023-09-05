@@ -155,26 +155,27 @@ function OrganizerComplaint() {
 
                                 {showModal && (
                                     <div className="overlay">
-                                        <Modal show={showModal} onHide={handleCloseModal} centered className='selectedComplaint-Modal'>
-                                            <Modal.Header >
-                                                <Modal.Title>Complaint Details</Modal.Title>
+                                        <Modal show={showModal} onHide={handleCloseModal} centered className='selectedComplaint-Modal '>
+                                            <Modal.Header className='p-4 d-flex justify-content-center text-center' >
+                                                <Modal.Title className=' fs-5' style={{ fontFamily: 'MyCustomFont2' }}>Complaint Details</Modal.Title>
+
                                             </Modal.Header>
-                                            <Modal.Body>
+                                            <Modal.Body className='p-4 '>
                                                 {selectedComplaint && (
                                                     <>
-                                                        <div >
+                                                        <div className='d-flex justify-content-center '>
                                                             <p>Title:</p>
                                                             <p>{selectedComplaint.title}</p>
                                                         </div>
-                                                        <div>
-                                                            <p>Title:</p>
+                                                        <div className='d-flex justify-content-center '>
+                                                            <p>Description:</p>
                                                             <p>{selectedComplaint.description}</p>
                                                         </div>
-                                                        <div>
+                                                        <div className='d-flex justify-content-center '>
                                                             <p>Date:</p>
                                                             <p>{selectedComplaint.date}</p>
                                                         </div>
-                                                        <div>
+                                                        <div className='d-flex justify-content-center '>
                                                             <p>Status:</p>
                                                             <p>{selectedComplaint.status}</p>
                                                         </div>

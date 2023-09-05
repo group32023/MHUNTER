@@ -239,6 +239,11 @@
     background-color: #1c2126 !important;
 }
 
+.modal-header {
+    border-bottom: 1px solid #2f363e;
+}
+
+
 /* .modal-header .btn-close {
     color: white !important;
     /* Set the close button's color to white */
