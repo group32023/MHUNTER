@@ -80,8 +80,8 @@ public class SignupService {
         String imageName = user.getUserId() + "_" + Image.getOriginalFilename();
         /*String relativeImagePath = "/" + UPLOAD_DIR + "/" + imageName;
         Path imagePath = Paths.get(System.getProperty("user.dir"), UPLOAD_DIR, imageName);*/
-        String relativeImagePath = "Uploads/Images/" + imageName; // No leading '/'
-        Path imagePath = Paths.get("src/main/resources/static", UPLOAD_DIR, imageName);
+        String relativeImagePath = imageName; // No leading '/'
+        Path imagePath = Paths.get("src/main/java/com/MHunter/mhunter", UPLOAD_DIR, imageName);
         try {
             Files.createDirectories(imagePath.getParent());
             Files.write(imagePath, Image.getBytes());

@@ -79,9 +79,9 @@ function OrganizerSignup() {
           } else {
             const errorMessage = await response.text();
             if (errorMessage === "Email already exists!") {
-              alert("Failed to register artist");
-            } else {
               alert("Email is already registered. Please use a different email.");
+            } else {
+              alert("Failed to register artist");
             }
           }
           
