@@ -13,8 +13,27 @@ import { BiSolidReport } from "react-icons/bi";
 import { BiSolidCog } from "react-icons/bi";
 import React, { useState } from "react";
 
+import {useEffect } from 'react';
+import axios from 'axios';
+
 function SideMenuBarAdmin({ children }) {
     const [isExpanded, setExpandState] = useState(false);
+    const [user, setUser] = useState(null);
+
+    useEffect(() => {
+        const userId = localStorage.getItem('userId');
+        if (userId) {
+            axios.get(`http://localhost:8080/user/user/${userId}`)
+                .then(response => {
+                    setUser(response.data);
+                })
+                .catch(error => {
+                    console.error(error);
+                    alert(error);
+                });
+        }
+    }, []);
+    console.log("Current user:", user); 
 
     return (
         <div className="full-container">
@@ -45,7 +64,9 @@ function SideMenuBarAdmin({ children }) {
                     <div className="row">
                         <NavLink to="/">
                             <div className="menu-profilePhoto col d-flex justify-content-center">
-                                <img className={isExpanded ? "menu-item-profilePhoto img-fluid my-4" : "menu-item-profilePhoto-NX"} src={profilePhoto} alt="Profile" srcSet="" width="130px" height="130px" />
+                                <img className={isExpanded ? "menu-item-profilePhoto img-fluid my-4" : "menu-item-profilePhoto-NX"} 
+                                src={`http://localhost:8080${user ? user.imagePath : profilePhoto}`}
+                                alt="Profile" srcSet="" width="130px" height="130px" />
                                 {isExpanded && (
                                     <div className="middle-pp-box">
                                         <div className="middle-pp-text">Go to Profile</div>
@@ -61,7 +82,7 @@ function SideMenuBarAdmin({ children }) {
                     <div className="row">
                         {isExpanded && (
                             <div className="menu-profilePName col d-flex justify-content-center">
-                                <p >Tehani Imara</p>
+                                <p >{user?.firstName} {user?.lastName}</p>
                             </div>
                         )}
                     </div>

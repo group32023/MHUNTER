@@ -100,7 +100,7 @@ export default function ArtistSignup() {
           window.location.href = "/login";
         } else {
           const errorMessage = await response.text();
-          if (errorMessage === "Email is already registered.") {
+          if (errorMessage === "Email already exists!") {
             alert("Failed to register artist");
           } else {
             alert("Email is already registered. Please use a different email.");

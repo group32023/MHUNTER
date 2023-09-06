@@ -44,8 +44,8 @@ public class SignupController {
         newUser.setPassword(signupRequest.getPassword());
         newUser.setRegDate(signupRequest.getRegDate());
 
-        signupService.signUpAndCreateMember(newUser, signupRequest.getName(), signupRequest.getType(), Image);
-        return ResponseEntity.ok("User signed up successfully");
+        ResponseEntity<String> response= signupService.signUpAndCreateMember(newUser, signupRequest.getName(), signupRequest.getType(), Image);
+        return response;
     }
     @PostMapping(path = "/login")
     public ResponseEntity<String> loginUser(@RequestBody LoginRequest loginRequest) {
@@ -58,6 +58,16 @@ public class SignupController {
             return response;
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("An error occurred");
+        }
+    }
+
+    @GetMapping("/user/{userId}")
+    public ResponseEntity<User> getUserById(@PathVariable int userId) {
+        User user = signupService.getUserById(userId);
+        if (user != null) {
+            return ResponseEntity.ok(user);
+        } else {
+            return ResponseEntity.notFound().build();
         }
     }
 }
