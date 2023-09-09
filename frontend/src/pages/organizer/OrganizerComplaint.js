@@ -163,23 +163,25 @@ function OrganizerComplaint() {
                                             <Modal.Body className='p-4 '>
                                                 {selectedComplaint && (
                                                     <>
-                                                        <div className='d-flex justify-content-center '>
+
+                                                        <div className='row'>
                                                             <p>Title:</p>
                                                             <p>{selectedComplaint.title}</p>
                                                         </div>
-                                                        <div className='d-flex justify-content-center '>
+                                                        <div className='form-group'>
                                                             <p>Description:</p>
                                                             <p>{selectedComplaint.description}</p>
                                                         </div>
-                                                        <div className='d-flex justify-content-center '>
+                                                        <div className='form-group'>
                                                             <p>Date:</p>
                                                             <p>{selectedComplaint.date}</p>
                                                         </div>
-                                                        <div className='d-flex justify-content-center '>
+                                                        <div className=' form-group'>
                                                             <p>Status:</p>
                                                             <p>{selectedComplaint.status}</p>
                                                         </div>
-                                                        {/* Add more complaint details as needed */}
+
+
                                                     </>
                                                 )}
                                             </Modal.Body>
