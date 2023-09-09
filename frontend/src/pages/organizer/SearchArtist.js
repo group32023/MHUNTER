@@ -48,7 +48,8 @@ function SearchArtist() {
     }, [])
 
     const filteredArtists = artist.filter((artist) =>
-        artist.user.firstName.toLowerCase().includes(searchInput.toLowerCase())
+    artist.user.firstName.toLowerCase().includes(searchInput.toLowerCase()) ||
+    artist.user.lastName.toLowerCase().includes(searchInput.toLowerCase())
     );
 
     return (
