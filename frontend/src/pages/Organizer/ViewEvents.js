@@ -66,7 +66,7 @@ function ViewEvents() {
         <>
             <SideMenuBarOrganizer>
                 <div className='row view-events-container'>
-                    <Topbar />
+                    <Topbar customProp="Events" />
                     {events.map(event => (
                         <div className='col-md-3 event-box' key={event.eventid}>
                             <Link to="/organizer/event/eventdashboard" className='link1'>

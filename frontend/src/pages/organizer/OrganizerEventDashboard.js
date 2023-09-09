@@ -41,7 +41,7 @@ function OrganizerEventDashboard() {
         <>
             <SideMenuBarOrganizer>
                 <div className='eventDashboard_content_container'>
-                    <Topbar />
+                    <Topbar customProp="Events" />
 
                     <div className="row">
                         <div className="horizontalLine col-md-12 py-2 fs-7">

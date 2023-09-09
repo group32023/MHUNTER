@@ -19,7 +19,7 @@ function ViewEventHistory() {
         <>
             <SideMenuBarOrganizer>
                 <div className='view-event-history-container'>
-                    <Topbar></Topbar>
+                    <Topbar customProp="Event History" />
 
                     <div className='filter-box-container'>
 

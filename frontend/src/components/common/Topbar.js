@@ -14,6 +14,14 @@ min-width: 1275px;
 background-color : #1c2126;
 padding-top : 1rem;
 padding-right : 2rem;
+position: relative;
+`;
+
+const PropText = styled.p`
+  position: absolute;
+  left: 32px;
+  top: 31px;
+  font-size: 23px;
 `;
 
 const IconContainer = styled.div`
@@ -41,17 +49,17 @@ ${(props) =>
       }
 `;
 
-const Topbar = () => {
+const Topbar = (props) => {
 
   const [notificationsActive, setnotificationsActive] = useState(false);
   const [profileActive, setProfileActive] = useState(false);
 
-  const navigate = useNavigate(); 
+  const navigate = useNavigate();
 
   const handleLogout = () => {
     localStorage.removeItem('userId');
-    navigate('/'); 
-};
+    navigate('/');
+  };
 
   const handleNotifications = () => {
     setnotificationsActive((prevState) => !prevState);
@@ -68,18 +76,18 @@ const Topbar = () => {
 
 
     <TopbarContainer>
-
+      <PropText style={{ fontFamily: 'MyCustomFont1' }}> {props.customProp}</PropText>
       <IconContainer onClick={handleNotifications} active={notificationsActive} >
         <AiOutlineBell size={30}></AiOutlineBell>
       </IconContainer>
       <IconContainer onClick={handleProfile} active={profileActive}>
         <AiOutlineUser size={30}></AiOutlineUser>
       </IconContainer>
-     
+
       <IconContainer onClick={handleLogout} active={false} >
         <AiOutlineLogout size={30}></AiOutlineLogout>
       </IconContainer>
-      
+
     </TopbarContainer>
 
 

@@ -80,7 +80,7 @@ function OrganizerComplaint() {
         <>
             <SideMenuBarOrganizer>
                 <div className='complaint_content_container'>
-                    <Topbar />
+                    <Topbar customProp="Complaint" />
 
                     <div className='complaint_content_container_main_row row mt-2 p-3'>
                         <div className='complaintForm col-md-4 p-3 mx-4'>

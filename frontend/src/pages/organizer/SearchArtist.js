@@ -34,7 +34,7 @@ function SearchArtist() {
         <>
             <SideMenuBarOrganizer>
                 <div className='row search-artist-container'>
-                    <Topbar />
+                    <Topbar customProp="Search" />
 
                     <div className="search-container">
                         <div className="searchbar">

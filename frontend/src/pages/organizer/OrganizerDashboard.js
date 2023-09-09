@@ -54,7 +54,7 @@ export default function OrganizerDashboard() {
       <SideMenuBarOrganizer>
 
         <div className='OrganizerDashboardMainContainer'>
-          <Topbar />
+          <Topbar customProp="Dashboard" />
           <div className='row' style={{ marginLeft: '35px' }}>
             <DashboardCarousel />
             <div className='DashboardCalenderDiv px-2'>
