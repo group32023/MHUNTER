@@ -12,6 +12,7 @@ import SearchArtist from './SearchArtist';
 import ViewArtist from './ViewArtist';
 import MakeArtistRequest from './MakeArtistRequest';
 import OrganizerEventDashboard from './OrganizerEventDashboard';
+import SearchBand from './SearchBand'
 
 function ViewEventHistory() {
     return (
@@ -121,6 +122,7 @@ function ViewEventHistory() {
                     <Route path='/organizer/searchartist' element={<SearchArtist />} />
                     <Route path='/organizer/searchartist/viewartist' element={<ViewArtist />} />
                     <Route path='/organizer/searchartist/viewartist/makeartistrequest' element={<MakeArtistRequest />} />
+                    <Route path='/organizer/searchband' element={<SearchBand />} />
                 </Routes>
             </SideMenuBarOrganizer>
         </>

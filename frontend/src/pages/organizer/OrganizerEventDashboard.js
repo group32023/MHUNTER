@@ -14,7 +14,7 @@ import SearchArtist from './SearchArtist';
 import ViewArtist from './ViewArtist';
 import MakeArtistRequest from './MakeArtistRequest';
 import OrganizerDashboard from './OrganizerDashboard';
-
+import SearchBand from './SearchBand'
 
 import { BiSolidEdit } from "react-icons/bi";
 import { BiSolidBox } from "react-icons/bi";
@@ -274,7 +274,7 @@ function OrganizerEventDashboard() {
                     <Route path='/organizer/searchartist' element={<SearchArtist />} />
                     <Route path='/organizer/searchartist/viewartist' element={<ViewArtist />} />
                     <Route path='/organizer/searchartist/viewartist/makeartistrequest' element={<MakeArtistRequest />} />
-
+                    <Route path='/organizer/searchband' element={<SearchBand />} />
                 </Routes>
 
             </SideMenuBarOrganizer>

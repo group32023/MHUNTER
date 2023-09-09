@@ -4,12 +4,7 @@ import { Link } from 'react-router-dom';
 import Topbar from '../../components/common/Topbar';
 // import CreateEvent from './CreateEvent';
 import StarRating from '../../components/organizer/StarRating';
-import './SearchArtist.css';
-import musical from '../../assets/images/musical.jpg';
-import DineshGamage from '../../assets/images/DineshGamage.png';
-import dineshtharanga from '../../assets/images/dineshtharanga.jpg';
-import anushka from '../../assets/images/anushka.png';
-import theekshana from '../../assets/images/theekshana.jpg';
+import './SearchBand.css';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fas } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -22,16 +17,16 @@ import ViewEventHistory from './ViewEventHistory';
 import OrganizerComplaint from './OrganizerComplaint';
 import OrganizerProfile from './OrganizerProfile';
 import CreateEvent from './CreateEvent';
+import SearchArtist from './SearchArtist';
 import ViewArtist from './ViewArtist';
 import MakeArtistRequest from './MakeArtistRequest';
 import OrganizerEventDashboard from './OrganizerEventDashboard';
-import SearchBand from './SearchBand'
 import SideMenuBarOrganizer from '../../components/common/SideMenuBar/SideMenuBarOrganizer';
 library.add(fas);
 
-function SearchArtist() {
+function SearchBand() {
 
-    const [artist, setArtists] = useState([])
+    const [band, setBands] = useState([])
     const [searchInput, setSearchInput] = useState('');
 
     const imageExtention = ["jpg", "png", "jpeg"]
@@ -39,24 +34,24 @@ function SearchArtist() {
 
 
     useEffect(() => {
-        fetch("http://localhost:8080/artist/getAll")
+        fetch("http://localhost:8080/band/getAll")
             .then(res => res.json())
             .then((result) => {
-                setArtists(result);
+                setBands(result);
                 console.log(result);
             }
             )
     }, [])
 
-    const filteredArtists = artist.filter((artist) =>
-    artist.user.firstName.toLowerCase().includes(searchInput.toLowerCase()) ||
-    artist.user.lastName.toLowerCase().includes(searchInput.toLowerCase())
+    const filteredBands = band.filter((band) =>
+    band.user.firstName.toLowerCase().includes(searchInput.toLowerCase()) ||
+    band.user.lastName.toLowerCase().includes(searchInput.toLowerCase())
     );
 
     return (
         <>
             <SideMenuBarOrganizer>
-                <div className='row search-artist-container'>
+                <div className='row search-band-container'>
                     <Topbar />
 
                     <div className="search-container">
@@ -79,18 +74,18 @@ function SearchArtist() {
                         </div>
                     </div>
 
-                    {filteredArtists.map(artist => (
+                    {filteredBands.map(band => (
 
             
-                        <div className='col-md-3 artist-box' >
-                            <Link to="/organizer/searchartist/viewartist" className='link1'>
+                        <div className='col-md-3 band-box' >
+                            <Link to="/organizer/searchband/viewband" className='link1'>
                                 <div className='image'>
                                     <img src={`${BASE_URL}/postData/uploads/image/dinesh-tharanga.jpg`} alt="post media" />
                                 </div>
 
                                 <div className='content'>
 
-                                    <h5>{artist.user.firstName} {artist.user.lastName}</h5>
+                                    <h5>{band.user.bandName}</h5>
                                     <StarRating rating={5} ></StarRating>
 
                                 </div>
@@ -162,9 +157,9 @@ function SearchArtist() {
                     <Route path='/organizer/eventhistory' element={<ViewEventHistory />}></Route>
                     <Route path='/organizer/complaint' element={<OrganizerComplaint />}></Route>
                     <Route path='/organizer/profile' element={<OrganizerProfile />}></Route>
+                    <Route path='/organizer/searchartist' element={<SearchArtist />} />
                     <Route path='/organizer/searchartist/viewartist' element={<ViewArtist />} />
                     <Route path='/organizer/searchartist/viewartist/makeartistrequest' element={<MakeArtistRequest />} />
-                    <Route path='/organizer/searchband' element={<SearchBand />} />
                 </Routes>
             </SideMenuBarOrganizer>
         </>
@@ -173,4 +168,4 @@ function SearchArtist() {
 
 }
 
-export default SearchArtist;
+export default SearchBand;

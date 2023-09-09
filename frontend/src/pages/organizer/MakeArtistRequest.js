@@ -15,6 +15,8 @@ import OrganizerComplaint from './OrganizerComplaint';
 import OrganizerProfile from './OrganizerProfile';
 import SearchArtist from './SearchArtist';
 import ViewArtist from './ViewArtist';
+import SearchBand from './SearchBand'
+
 import SideMenuBarOrganizer from '../../components/common/SideMenuBar/SideMenuBarOrganizer';
 
 
@@ -203,7 +205,7 @@ function MakeArtistRequest() {
                     <Route path='/organizer/profile' element={<OrganizerProfile />}></Route>
                     <Route path='/organizer/searchartist' element={<SearchArtist />} />
                     <Route path='/organizer/searchartist/viewartist' element={<ViewArtist />} />
-            
+                    <Route path='/organizer/searchband' element={<SearchBand />} />
                 </Routes>
             </SideMenuBarOrganizer>
         </>

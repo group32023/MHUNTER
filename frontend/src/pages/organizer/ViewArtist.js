@@ -25,7 +25,7 @@ import SearchArtist from './SearchArtist';
 import CreateEvent from './CreateEvent';
 import MakeArtistRequest from './MakeArtistRequest';
 import OrganizerEventDashboard from './OrganizerEventDashboard';
-
+import SearchBand from './SearchBand'
 
 library.add(fas);
 
@@ -237,6 +237,7 @@ function ViewArtist() {
                     <Route path='/organizer/profile' element={<OrganizerProfile />}></Route>
                     <Route path='/organizer/searchartist' element={<SearchArtist />} />
                     <Route path='/organizer/searchartist/viewartist/makeartistrequest' element={<MakeArtistRequest />} />
+                    <Route path='/organizer/searchband' element={<SearchBand />} />
                 </Routes>
 
             </SideMenuBarOrganizer>

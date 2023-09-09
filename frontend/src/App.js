@@ -12,7 +12,7 @@ import SearchArtist from './pages/organizer/SearchArtist';
 import ViewEventHistory from './pages/organizer/ViewEventHistory';
 import ViewArtist from './pages/organizer/ViewArtist';
 import MakeArtistRequest from './pages/organizer/MakeArtistRequest';
-
+import SearchBand from './pages/organizer/SearchBand';
 
 import "./index.css"
 
@@ -145,6 +145,7 @@ function App() {
           <Route path='/organizer/searchartist' element={<SearchArtist />} />
           <Route path='/organizer/searchartist/viewartist' element={<ViewArtist />} />  
           <Route path='/organizer/searchartist/viewartist/makeartistrequest' element={<MakeArtistRequest />} />  
+          <Route path='/organizer/searchband' element={<SearchBand />} />
 
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
