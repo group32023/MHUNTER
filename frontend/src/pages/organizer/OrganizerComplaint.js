@@ -157,29 +157,44 @@ function OrganizerComplaint() {
                                     <div className="overlay">
                                         <Modal show={showModal} onHide={handleCloseModal} centered className='selectedComplaint-Modal '>
                                             <Modal.Header className='p-4 d-flex justify-content-center text-center' >
-                                                <Modal.Title className=' fs-5' style={{ fontFamily: 'MyCustomFont2' }}>Complaint Details</Modal.Title>
+                                                <Modal.Title className=' fs-5' style={{ fontFamily: 'MyCustomFont1' }}>Complaint Details</Modal.Title>
 
                                             </Modal.Header>
-                                            <Modal.Body className='p-4 '>
+                                            <Modal.Body className='p-3 mx-3 '>
                                                 {selectedComplaint && (
                                                     <>
+                                                        <div className='row '>
+                                                            <div className=' row col-md-6'>
+                                                                <p className='  col-md-4'>Date:</p>
+                                                                <p className=' col-md-8'>{selectedComplaint.date}</p>
+                                                            </div>
+                                                            <div className='row col-md-6'>
+                                                                <p className='  col-md-4'>Status:</p>
+                                                                <p style={{ fontFamily: 'MyCustomFont1' }} className={`status col-md-8 ${selectedComplaint.status === "PENDING"
+                                                                    ? "status-text-green"
+                                                                    : selectedComplaint.status === "ON-PROGRESS"
+                                                                        ? "status-text-orange"
+                                                                        : selectedComplaint.status === "CLOSED"
+                                                                            ? "status-text-red"
+                                                                            : "status-text-red" // Default class for REJECTED and other statuses
+                                                                    }`}>{selectedComplaint.status}</p>
+                                                            </div>
+                                                        </div>
+                                                        <div className=''  >
+                                                            <p style={{ margin: '5px ', color: '#cccccc' }}>Remark : </p>
+                                                            <p style={{ border: '1px solid #2f363e', borderRadius: '10px', padding: '10px' }}>{selectedComplaint.remark}</p>
+                                                        </div>
 
-                                                        <div className='row'>
-                                                            <p>Title:</p>
-                                                            <p>{selectedComplaint.title}</p>
+                                                        <div className=''  >
+                                                            <p style={{ margin: '5px ', color: '#cccccc' }}>Title : </p>
+                                                            <p style={{ border: '1px solid #2f363e', borderRadius: '10px', padding: '10px' }}>{selectedComplaint.title}</p>
                                                         </div>
-                                                        <div className='form-group'>
-                                                            <p>Description:</p>
-                                                            <p>{selectedComplaint.description}</p>
+                                                        <div >
+                                                            <p style={{ margin: '5px ', color: '#cccccc' }}>Description:</p>
+                                                            <p style={{ border: '1px solid #2f363e', borderRadius: '10px', padding: '10px' }}>{selectedComplaint.description}</p>
                                                         </div>
-                                                        <div className='form-group'>
-                                                            <p>Date:</p>
-                                                            <p>{selectedComplaint.date}</p>
-                                                        </div>
-                                                        <div className=' form-group'>
-                                                            <p>Status:</p>
-                                                            <p>{selectedComplaint.status}</p>
-                                                        </div>
+
+
 
 
                                                     </>

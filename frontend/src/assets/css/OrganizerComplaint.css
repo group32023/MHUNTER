@@ -243,6 +243,10 @@
     border-bottom: 1px solid #2f363e;
 }
 
+.modal-footer {
+    border-top: none;
+}
+
 
 /* .modal-header .btn-close {
     color: white !important;
