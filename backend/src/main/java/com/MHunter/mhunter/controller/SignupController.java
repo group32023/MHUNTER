@@ -4,7 +4,9 @@ import com.MHunter.mhunter.model.User;
 import com.MHunter.mhunter.service.SignupService;
 import com.MHunter.mhunter.struct.LoginRequest;
 import com.MHunter.mhunter.struct.SignupRequest;
+import jakarta.annotation.Resource;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.ClassPathResource;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -67,6 +69,24 @@ public class SignupController {
         if (user != null) {
             return ResponseEntity.ok(user);
         } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
+    private static final String UPLOAD_DIR = "Uploads/Images";
+
+    @GetMapping("/uploads/images/{imageName:.+}")
+    public ResponseEntity<Resource> getImage(@PathVariable String imageName) {
+        String imagePath = "src/main/java/com/MHunter/mhunter/" + UPLOAD_DIR + "/" + imageName;
+        try {
+            ClassPathResource resource = new ClassPathResource(imagePath);
+
+            if (resource.exists() && resource.isReadable()) {
+                return ResponseEntity.ok().body((Resource) resource);
+            } else {
+                return ResponseEntity.notFound().build();
+            }
+        } catch (Exception e) {
             return ResponseEntity.notFound().build();
         }
     }
