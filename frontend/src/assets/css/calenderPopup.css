@@ -1,0 +1,80 @@
+.css-1ri6ub7-MuiPaper-root-MuiCard-root{
+  background-color: #3c3940 !important;
+    border-radius: 15px !important;
+    z-index: 100;
+    position: absolute;
+    top: 0px;
+    left: -303px;
+    width: 300px;
+    height: 300px;
+    animation-name: example;
+    animation-duration: 1s;
+}
+
+@keyframes example {
+  from {transform: scale(0.5, 0.5)}
+  to {transform: scale(1, 1);}
+}
+
+.calendarEventPopupImage{
+    width: 25px;
+    height: 25px;
+    position: absolute;
+    top: 208px;
+    left: 88px;
+}
+
+.calendarEventPopupDate{
+    color: white;
+    position: absolute;
+    top: 210px;
+    left: 140px;
+}
+.calendarEventPopupStopWatch{
+    width: 25px;
+    height: 25px;
+    position: absolute;
+    top: 240px;
+    left: 88px;
+}
+.calendarEventPopupTime{
+    color: white;
+    position: absolute;
+    top: 242px;
+    left: 140px;
+}
+.calendarEventPopupLocationImg{
+    width: 25px;
+    height: 25px;
+    position: absolute;
+    top: 270px;
+    left: 88px;
+}
+
+.calendarEventPopupLocation{
+    color: white;
+    position: absolute;
+    top: 272px;
+    left: 140px;
+}
+.popupPrevBtn{
+    position: absolute;
+    top: -214px;
+    left: -43px;
+    background-color: rgba(199, 173, 233, 0.5) !important;
+    width: 40px;
+    height: 40px;
+    border-radius: 50% !important;
+    min-width: 0px !important;
+}
+
+.popupNextBtn{
+    position: absolute;
+    top: -213px;
+    left: -127px;
+    background-color: rgba(199, 173, 233, 0.5) !important;
+    width: 40px;
+    height: 40px;
+    border-radius: 50% !important;
+    min-width: 0px !important;
+}

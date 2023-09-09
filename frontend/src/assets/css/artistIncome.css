@@ -1,14 +1,14 @@
 .incomeImg{
     width: 40px;
     height: 40px;
-    margin-left: -223px;
+    margin-left: -171px;
     margin-top: 13px;
 }
 
 .incomeP{
     color: #FFF;
     font-family: Dosis;
-    font-size: 24px;
+    font-size: 20px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
@@ -17,7 +17,7 @@
     left: 33%;
 }
 .wave02Img{
-    width: 111px;
+    width: 80px;
     height: 64px;
     flex-shrink: 0;
     position: absolute;
@@ -28,19 +28,19 @@
 .incomeCount{
     color: #FFF;
     font-family: 'Dosis', sans-serif;
-    font-size: 35px;
+    font-size: 25px;
     font-style: normal;
     font-weight: 800;
     line-height: normal;
     position: absolute;
-    top: 34%;
+    top: 43%;
     left: 42%;
 }
 
 .monthlyRequestPersontage{
     color: #11FE70;
     font-family: 'Dosis', sans-serif;
-    font-size: 20px;
+    font-size: 15px;
     font-style: normal;
     font-weight: 800;
     line-height: normal;
@@ -52,7 +52,7 @@
 .monthlyRequestPersontageMinus{
     color: #FF0000;
     font-family: 'Dosis', sans-serif;
-    font-size: 20px;
+    font-size: 15px;
     font-style: normal;
     font-weight: 800;
     line-height: normal;
@@ -64,12 +64,12 @@
 .thisMonthRequest{
     color: #FFF;
     font-family: 'Dosis', sans-serif;
-    font-size: 11px;
+    font-size: 9px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
     position: absolute;
     top: 77%;
-    left: 80%;
+    left: 78%;
 }
 

@@ -2,19 +2,25 @@ package com.MHunter.mhunter.model;
 
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.time.temporal.Temporal;
 
 
 @Entity
+@Data
+
 public class Event {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 
 //    @Column(name = "EventID")
-    private int EventID;
+    private int eventid;
     //    @Column(name = "OrgID")
     private int OrgID;
     //    @Column(name = "event_name")
@@ -24,6 +30,8 @@ public class Event {
     //    @Column(name = "Location")
     private String Location;
     //    @Column(name = "Longitude")
+
+    private String Town;
     private Double Longitude;
     //    @Column(name = "Latitude")
     private Double Latitude;
@@ -35,6 +43,13 @@ public class Event {
     private LocalTime start_time;
     //    @Column(name = "end_time")
     private LocalTime end_time;
+
+    private String eventImage;
+
+
+
+
+
     //    @Column(name = "Image")
 //    private String Image;
 //    @Column(name = "Crowd")
@@ -45,11 +60,11 @@ public class Event {
     }
 
     public int getEventID() {
-        return EventID;
+        return eventid;
     }
 
     public void setEventID(int eventID) {
-        EventID = eventID;
+        eventid = eventID;
     }
 
     public int getOrgID() {
@@ -88,6 +103,22 @@ public class Event {
         return Longitude;
     }
 
+    public String getTown() {
+        return Town;
+    }
+
+    public void setTown(String town) {
+        Town = town;
+    }
+
+    public int getEventid() {
+        return eventid;
+    }
+
+    public void setEventid(int eventid) {
+        this.eventid = eventid;
+    }
+
     public void setLongitude(Double longitude) {
         Longitude = longitude;
     }
@@ -120,11 +151,11 @@ public class Event {
         return start_time;
     }
 
-    public void setStart_time(LocalTime start_time) {
+    public void setStart_time() {
         this.start_time = start_time;
     }
 
-    public LocalTime getEnd_time() {
+    public Temporal getEnd_time() {
         return end_time;
     }
 

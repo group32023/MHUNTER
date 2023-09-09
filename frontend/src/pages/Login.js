@@ -20,8 +20,12 @@ export default function Login() {
         const responseParts = response.data.split('#');
         const msg = responseParts[0];
         const membertype = responseParts[1];
+        const userId = responseParts[2];
 
         if (msg === 'Login Success') {
+          
+          localStorage.setItem('userId', userId);
+
           if (membertype === 'Artist') {
             navigate('/artistdashboard');
           } else if (membertype === 'Band') {

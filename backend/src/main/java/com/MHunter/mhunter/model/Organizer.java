@@ -1,8 +1,14 @@
 package com.MHunter.mhunter.model;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class Organizer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -11,8 +17,7 @@ public class Organizer {
     @JoinColumn(name = "user_id")
     private User user;
 
-    public Organizer() {
-    }
+   
 
     public int getOrgId() {
         return orgId;

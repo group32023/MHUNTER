@@ -1,4 +1,4 @@
-body {
+.homeMainContainer {
     background-image: url('../images/backgroundForHome.jpg');
     background-position: center;
     background-repeat: repeat-y;
@@ -43,6 +43,9 @@ body {
     z-index: 100;
     cursor: pointer;
 }
+.facebookIcon:hover{
+    transform: scale(1.5,1.5);
+}
 
 .twitterIcon{
     width: 25.087px;
@@ -56,6 +59,9 @@ body {
     cursor: pointer;
     
 }
+.twitterIcon:hover{
+    transform: scale(1.5,1.5);
+}
 .googlePlusIcon{
     width: 25.087px;
     height: 23.997px;
@@ -67,6 +73,9 @@ body {
     z-index: 100;
     cursor: pointer;
 }
+.googlePlusIcon:hover{
+    transform: scale(1.5,1.5);
+}
 .linkedInIcon{
     width: 25.087px;
     height: 23.997px;
@@ -77,6 +86,9 @@ body {
     left: 92.5%;
     z-index: 100;
     cursor: pointer;
+}
+.linkedInIcon:hover{
+    transform: scale(1.5,1.5);
 }
 .caption{
     color: #ffffff;
@@ -130,6 +142,7 @@ body {
     letter-spacing: 0;
     line-height: normal;
     cursor: pointer;
+    text-decoration: none;
    
 }
 .signupBtn:hover{
@@ -242,3 +255,9 @@ body {
     z-index: 100;
 
 }
+.css-1vooibu-MuiSvgIcon-root{
+    color: rgb(189, 189, 3) !important;
+}
+
+
+

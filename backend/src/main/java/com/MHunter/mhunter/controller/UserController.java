@@ -3,6 +3,7 @@ package com.MHunter.mhunter.controller;
 import com.MHunter.mhunter.exception.UserNotFoundException;
 import com.MHunter.mhunter.model.User;
 import com.MHunter.mhunter.repository.UserRepository;
+import com.MHunter.mhunter.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -13,6 +14,9 @@ import java.util.List;
 public class UserController {
     @Autowired
     private UserRepository userRepository;
+
+    @Autowired
+    private UserService userService;
 
     @GetMapping("/users")
     List<User> getAllUsers() {
@@ -41,6 +45,12 @@ public class UserController {
         }
         userRepository.deleteById(userId);
         return  "User with id "+userId+" has been deleted success.";
+    }
+
+    @GetMapping("/viewSpecificUser/{id}")
+    public User viewSpecificUser(@PathVariable int id){
+        return userService.findSpecificUser(id);
+
     }
 
 }
