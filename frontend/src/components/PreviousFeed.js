@@ -4,6 +4,8 @@ import influencer from  '../assets/images/influencer.png'
 import eventPost from  '../assets/images/eventPost.jpg'
 import deleteBtn from  '../assets/images/recycle-bin.png'
 import { Button } from 'react-bootstrap'
+import CircularProgress from '@mui/material/CircularProgress';
+import empty from '../assets/images/empty(1).png'
 
 export default function PreviousFeed() {
   const [post,setData] = useState([])
@@ -50,12 +52,12 @@ export default function PreviousFeed() {
     
   }
 
-  if(post.length === 0) return <div>Loading...</div>
+ 
   
   return (
     <div>
         <p className='postedFeedHead'>Posted Feed</p>
-        {post}
+        {(post.length<=0)?<><img src={empty} className='emptyPreviousFeedImg'></img><span className='emptyContentPreviousFeed'>it's empty in here.</span></>:post}
 
     </div>
   )

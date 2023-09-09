@@ -1,9 +1,10 @@
-/* body{
+.MainContainer body {
 
     text-align: center;
 
-} */
-#dateFrom {
+}
+
+*/ #dateFrom {
 
     background-color: #ffffff !important;
     position: absolute;

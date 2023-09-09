@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { useEffect, useState } from 'react'
 import Card from "@mui/material/Card";
 import CardMedia from "@mui/material/CardMedia";
 import video from '../assets/images/video.mp4'
@@ -18,6 +18,23 @@ import { FreeMode, Pagination, Autoplay } from 'swiper/modules';
 export default function PerformanceView() {
 
   const videoRefs = useRef()
+  const [post,setData] = useState([])
+  const BASE_URL = "http://localhost:8080";
+  const videoExtention = ["mp4","mkv"]
+
+
+  const loadData = ()=>{
+    fetch(`http://localhost:8080/postData/postDetails`)
+    .then((res)=>res.json())
+    .then((result)=>{ 
+      const newPost = result.filter(item => videoExtention.includes(item.fileType));
+      setData(newPost)
+})
+  }
+
+  useEffect(()=>{
+    loadData()
+  },[])
 
   // let navigate = useNavigate()
   
@@ -54,128 +71,23 @@ export default function PerformanceView() {
         modules={[FreeMode, Pagination,Autoplay]}
         className="mySwiper"
       >
-        <SwiperSlide style={{width:500,height:236,borderRadius:5}}> 
-        <div className='artistSlide1'>
-            <Card sx={{ maxWidth: 236 }} >
-      
-      <CardMedia className="backgroudVideoCard">
-        <div class="embed-responsive embed-responsive-16by9">
-        <video class="embed-responsive-item" src={video} ref={videoRefs}  allowfullscreen id="player1" title="performance" width={236} height={236}  ></video>
-          
-        </div>
-        <button type="button" class="btn btn-danger" id="play1" onClick={playVideo} ><FontAwesomeIcon icon={faPlay} /></button>
-      </CardMedia>
-    </Card>
-        </div>
-        </SwiperSlide>
-
-        <SwiperSlide>
-        <div className='artistSlide1'>
-        <Card sx={{ maxWidth: 236 }} >
-      
-      <CardMedia className="backgroudVideoCard">
-      <div class="embed-responsive embed-responsive-16by9">
-        <video class="embed-responsive-item" src={video}  allowfullscreen title="performance" ref={videoRefs} width={236} height={236} ></video>
+       {post.map(item => (
+   <SwiperSlide style={{width:500, height:236, borderRadius:5}}>
+      <div className="artistSlide1">
+         <Card sx={{ maxWidth: 236 }}>
+            <CardMedia className="backgroudVideoCard">
+               <div className="embed-responsive embed-responsive-16by9">
+                  <video className="embed-responsive-item" src={`${BASE_URL}/postData/uploads/video/${item.fileName}`} ref={videoRefs} allowFullScreen id="player1" title="performance" width={236} height={236}></video>
+               </div>
+               <button type="button" className="btn btn-danger" id="play1" onClick={playVideo}>
+                  <FontAwesomeIcon icon={faPlay} />
+               </button>
+            </CardMedia>
+         </Card>
       </div>
-      <button type="button" class="btn btn-danger" id="play1" onClick={playVideo}><FontAwesomeIcon icon={faPlay} ></FontAwesomeIcon></button>
-      </CardMedia>
-    </Card>
-  
-        </div>
-        </SwiperSlide>
-        <SwiperSlide>
-        <div className='artistSlide1'>
-        <Card sx={{ maxWidth: 236 }} >
-      
-      <CardMedia className="backgroudVideoCard">
-        <div class="embed-responsive embed-responsive-16by9">
-        <video class="embed-responsive-item" src={video}  allowfullscreen id="player3" title="performance" ref={videoRefs} width={236} height={236}  ></video>
-      </div>
-      <button type="button" class="btn btn-danger" id="play1" onClick={playVideo}><FontAwesomeIcon icon={faPlay} /></button>
-      </CardMedia>
-    </Card>
-            
-        </div>
-        </SwiperSlide>
-        <SwiperSlide>
-        <div className='artistSlide1'>
-        <Card sx={{ maxWidth: 236 }} >
-      
-      <CardMedia className="backgroudVideoCard">
-      <div class="embed-responsive embed-responsive-16by9">
-        <video class="embed-responsive-item" src={video}  allowfullscreen id="player" title="performance" ref={videoRefs} width={236} height={236}></video>
-      </div>
-      <button type="button" class="btn btn-danger" id="play1" onClick={playVideo}><FontAwesomeIcon icon={faPlay} /></button>
-      </CardMedia>
-    </Card>
-            
-        </div>
-        </SwiperSlide>
-        <SwiperSlide>
-        <div className='artistSlide1'>
-        <Card sx={{ maxWidth: 236 }} >
-      
-      <CardMedia className="backgroudVideoCard">
-      <div class="embed-responsive embed-responsive-16by9">
-        <video class="embed-responsive-item" src={video}  allowfullscreen id="player" title="performance" ref={videoRefs} width={236} height={236}></video>
-      </div>
-      <button type="button" class="btn btn-danger" id="play1" onClick={playVideo}><FontAwesomeIcon icon={faPlay} /></button>
-      </CardMedia>
-    </Card>
-        </div>
-        </SwiperSlide>
-        <SwiperSlide>
-        <div className='artistSlide1'>
-        <Card sx={{ maxWidth: 236 }} >
-      
-      <CardMedia className="backgroudVideoCard">
-      <div class="embed-responsive embed-responsive-16by9">
-        <video class="embed-responsive-item" src={video}  allowfullscreen id="player" title="performance" ref={videoRefs} width={236} height={236}></video>
-      </div>
-      <button type="button" class="btn btn-danger" id="play1" onClick={playVideo}><FontAwesomeIcon icon={faPlay} /></button>
-      </CardMedia>
-    </Card>
-        </div>
-        </SwiperSlide>
-        <SwiperSlide>
-        <div className='artistSlide1'>
-        <Card sx={{ maxWidth: 236 }} >
-      
-      <CardMedia className="backgroudVideoCard">
-      <div class="embed-responsive embed-responsive-16by9">
-        <video class="embed-responsive-item" src={video}  allowfullscreen id="player" title="performance" ref={videoRefs}  width={236} height={236}></video>
-      </div>
-      <button type="button" class="btn btn-danger" id="play1" onClick={playVideo}><FontAwesomeIcon icon={faPlay} /></button>
-      </CardMedia>
-    </Card>
-        </div>
-        </SwiperSlide>
-        <SwiperSlide>
-        <div className='artistSlide1'>
-        <Card sx={{ maxWidth: 236 }} >
-      
-      <CardMedia className="backgroudVideoCard">
-      <div class="embed-responsive embed-responsive-16by9">
-        <video class="embed-responsive-item" src={video}  allowfullscreen id="player" title="performance" ref={videoRefs}  width={236} height={236}></video>
-      </div>
-      <button type="button" class="btn btn-danger" id="play1" onClick={playVideo}><FontAwesomeIcon icon={faPlay} /></button>
-      </CardMedia>
-    </Card>
-        </div>
-        </SwiperSlide>
-        <SwiperSlide>
-        <div className='artistSlide1'>
-        <Card sx={{ maxWidth: 236 }} >
-     
-      <CardMedia className="backgroudVideoCard">
-      <div class="embed-responsive embed-responsive-16by9">
-        <video class="embed-responsive-item" src={video}  allowfullscreen id="player" title="performance" ref={videoRefs} width={236} height={236}></video>
-      </div>
-      <button type="button" class="btn btn-danger" id="play1" onClick={playVideo}><FontAwesomeIcon icon={faPlay} /></button>
-      </CardMedia>
-    </Card>
-        </div>
-        </SwiperSlide>
+   </SwiperSlide>
+))}
+ 
       </Swiper>
     </div>
     </div>

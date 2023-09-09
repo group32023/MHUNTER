@@ -142,10 +142,44 @@ public class PostDataController {
       return postDet;
     }
 
+
+    @GetMapping("/postDetails")
+    private List<PostDetails> getAllPost(){
+
+        List<Post> posts =   postService.viewAll();
+        List<PostDetails> postDet = new ArrayList<>();
+
+        posts.forEach(res->{
+            PostDetails postDetails = new PostDetails();
+            String fileName = postDataService.getPostData(res.getPostId());
+            postDetails.setPostID(res.getPostId());
+            postDetails.setCaption(res.getCaption());
+            postDetails.setDescription(res.getDescription());
+            postDetails.setFileName(fileName);
+            postDetails.setDate(res.getDate().toLocalDate());
+
+//          get the file extension
+            if(fileName != null){
+                String extension =fileName.substring(fileName.lastIndexOf(".") + 1);
+                postDetails.setFileType(extension);
+                if(Arrays.asList(imageExtension).contains(extension)){
+                    postDetails.setFilePath(imagePath+"/"+fileName);
+                }
+                else if(Arrays.asList(videoExtension).contains(extension)){
+                    postDetails.setFilePath(videoPath+"/"+fileName);
+                }
+                else{
+                    postDetails.setFilePath(audioPath+"/"+fileName);
+                }
+            }
+            postDet.add(postDetails);
+        });
+        return postDet;
+    }
+
     @GetMapping("/uploads/image/{filename:.+}")
     public ResponseEntity<Resource> serveImage(@PathVariable String filename){
         Path path = Paths.get(imagePath,filename);
-        System.out.println("awa");
         Resource resource;
         try{
             resource = new UrlResource(path.toUri());

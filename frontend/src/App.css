@@ -1,0 +1,19 @@
+.progressBar{
+    position: absolute;
+    top: 350px;
+    left: 46%;
+}
+
+.empty{
+    position: absolute;
+    top: 258px;
+    width: 186px;
+    height: 186px;
+    left: 46%;
+}
+.emptyContent{
+    position: absolute;
+  top: 450px;
+  color: white;
+  left: 48.9%;
+}

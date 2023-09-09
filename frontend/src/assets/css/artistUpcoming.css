@@ -132,3 +132,19 @@
     position: relative;
     margin-bottom: -243px;
 }
+
+.emptyUpcommingEventImg{
+  position: absolute;
+  top: 40px;
+  width: 186px;
+  height: 186px;
+  left: 37%;
+}
+
+.emptyContentUpcommingEvent{
+  position: absolute;
+  top: 229px;
+  color: white;
+  left: 43.9%;
+
+}

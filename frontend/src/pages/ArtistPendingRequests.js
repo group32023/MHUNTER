@@ -13,7 +13,8 @@ import notification from '../assets/images/notification.png'
 import home from '../assets/images/home-button.png'
 import logout from '../assets/images/logout.png'
 import kpop from '../assets/images/kpop.png'
-
+import CircularProgress from '@mui/material/CircularProgress';
+import { Link } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {faPhone,faLocationDot,faList,faCalendarDays} from '@fortawesome/free-solid-svg-icons'
 import { faTwitter, faFontAwesome,faFacebook,faGooglePlusG,faLinkedinIn } from '@fortawesome/free-brands-svg-icons'
@@ -54,7 +55,6 @@ export default function ArtistPendingRequests() {
 
   }
 
-  console.log(eventList1);
 
   const divCount = eventList1.length;
   const divElements = [];
@@ -92,7 +92,7 @@ export default function ArtistPendingRequests() {
   }
 
   
- if(eventList.length===0) return <div>Loading....................</div>
+ if(eventList.length===0) return <div className='progressBar'><CircularProgress color="secondary" /></div>
 
   return (
 
@@ -100,14 +100,16 @@ export default function ArtistPendingRequests() {
     
     <div >
     <SideMenuBarArtist >
-  
+    <div className='MainContainer'>
     
             <p className='headerDashboard'>Pending Requests</p>
             <div className={expand ? 'notificationBg':'notificationBg-ex'}>
               <img src={notification} className='notificationIcon' alt='notification'></img>
             </div>
             <div className={expand ? 'homeBg':'homeBg-ex'}>
-              <img src={home} alt='homebtn' className='homeIcon'></img>
+            <Link to={'/'}>
+                <img src={home} alt='homebtn' className='homeIcon'></img>
+              </Link>
             </div>
             <div className={expand ? 'logoutBg':'logoutBg-ex'}>
               <img src={logout} alt='logout'className='logout'></img>
@@ -116,8 +118,10 @@ export default function ArtistPendingRequests() {
 
      
       
-        
+       
         {divElements}
+        </div>
+        
 
       {/* <div className='pagination'>
       <Pagination 

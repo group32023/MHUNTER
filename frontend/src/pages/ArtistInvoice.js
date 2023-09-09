@@ -13,6 +13,7 @@ import notification from '../assets/images/notification.png'
 import home from '../assets/images/home-button.png'
 import logout from '../assets/images/logout.png'
 import kpop from '../assets/images/kpop.png'
+import CircularProgress from '@mui/material/CircularProgress';
 
 
 
@@ -117,9 +118,15 @@ export default function BandInvoice() {
         navigate(`/artist/PendingRequestView/${id}`);
     
       }
+     
       
+
+      const loadInvoicePreview=(id)=>{
+        navigate(`/band/invoicePreview`);
+      
+      }
  // eslint-disable-next-line no-restricted-globals
- if(event===null) return <div>Loading....................</div>
+ if(event===null) return <div><CircularProgress color="secondary" /></div>
  
      
   return (
@@ -135,13 +142,17 @@ export default function BandInvoice() {
               <img src={notification} className='notificationIcon' alt='notification'></img>
             </div>
             <div className={expand ? 'homeBg':'homeBg-ex'}>
-              <img src={home} alt='homebtn' className='homeIcon'></img>
+            <Link to={'/'}>
+                <img src={home} alt='homebtn' className='homeIcon'></img>
+              </Link>
             </div>
             <div className={expand ? 'logoutBg':'logoutBg-ex'}>
               <img src={logout} alt='logout'className='logout'></img>
               <p className='logoutbtn'>Logout</p>
             </div>
           </div>
+
+    <div className='MainContainer'>
         <div className='eventDetailsDisplayContainer'>
              <div className='eventDetailsDisplayInnerContainer'>
              <img src={profileImage} className="profileInvoice"></img>
@@ -199,8 +210,9 @@ export default function BandInvoice() {
      
       
       <button className='backInvoice' onClick={()=>load(101)}>Back</button>
+      <button type='button' className='previewAgreement' onClick={loadInvoicePreview} >Preview</button>
 
-          
+    </div>   
         </div>
         </SideMenuBarArtist>
         

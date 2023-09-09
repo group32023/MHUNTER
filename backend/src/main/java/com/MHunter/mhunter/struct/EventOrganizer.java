@@ -28,4 +28,5 @@ public class EventOrganizer {
     private int crowd;
     private String duration;
     private Double income;
+    private String eventImage;
 }

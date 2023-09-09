@@ -2,6 +2,9 @@ package com.MHunter.mhunter.model;
 
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -9,6 +12,8 @@ import java.time.temporal.Temporal;
 
 
 @Entity
+@Data
+
 public class Event {
 
     @Id
@@ -38,6 +43,8 @@ public class Event {
     private LocalTime start_time;
     //    @Column(name = "end_time")
     private LocalTime end_time;
+
+    private String eventImage;
 
 
 

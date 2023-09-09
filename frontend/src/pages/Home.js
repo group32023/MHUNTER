@@ -14,6 +14,7 @@ import EventTable from '../components/EventTable';
 import PerformanceView from '../components/PerformanceView';
 import EventSlider from '../components/EventSlider';
 import Footer from '../components/common/Footer';
+import { Link } from 'react-router-dom';
 
 export default function 
 h() {
@@ -44,7 +45,7 @@ h() {
                     </p>
                 </section>
 
-                <button className='signupBtn'>SIGN UP</button>
+                <Link className='signupBtn' to={'/signup'}>SIGN UP</Link>
                 
             </div>
             <label className='headingArtist'>ARTISTS</label>

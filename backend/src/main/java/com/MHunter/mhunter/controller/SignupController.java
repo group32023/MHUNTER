@@ -4,7 +4,9 @@ import com.MHunter.mhunter.model.User;
 import com.MHunter.mhunter.service.SignupService;
 import com.MHunter.mhunter.struct.LoginRequest;
 import com.MHunter.mhunter.struct.SignupRequest;
+import jakarta.annotation.Resource;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.ClassPathResource;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -44,8 +46,8 @@ public class SignupController {
         newUser.setPassword(signupRequest.getPassword());
         newUser.setRegDate(signupRequest.getRegDate());
 
-        signupService.signUpAndCreateMember(newUser, signupRequest.getName(), signupRequest.getType(), Image);
-        return ResponseEntity.ok("User signed up successfully");
+        ResponseEntity<String> response= signupService.signUpAndCreateMember(newUser, signupRequest.getName(), signupRequest.getType(), Image);
+        return response;
     }
     @PostMapping(path = "/login")
     public ResponseEntity<String> loginUser(@RequestBody LoginRequest loginRequest) {
@@ -58,6 +60,34 @@ public class SignupController {
             return response;
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("An error occurred");
+        }
+    }
+
+    @GetMapping("/user/{userId}")
+    public ResponseEntity<User> getUserById(@PathVariable int userId) {
+        User user = signupService.getUserById(userId);
+        if (user != null) {
+            return ResponseEntity.ok(user);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
+    private static final String UPLOAD_DIR = "Uploads/Images";
+
+    @GetMapping("/uploads/images/{imageName:.+}")
+    public ResponseEntity<Resource> getImage(@PathVariable String imageName) {
+        String imagePath = "src/main/java/com/MHunter/mhunter/" + UPLOAD_DIR + "/" + imageName;
+        try {
+            ClassPathResource resource = new ClassPathResource(imagePath);
+
+            if (resource.exists() && resource.isReadable()) {
+                return ResponseEntity.ok().body((Resource) resource);
+            } else {
+                return ResponseEntity.notFound().build();
+            }
+        } catch (Exception e) {
+            return ResponseEntity.notFound().build();
         }
     }
 }

@@ -9,6 +9,8 @@ import notification from '../assets/images/notification.png'
 import home from '../assets/images/home-button.png'
 import logout from '../assets/images/logout.png'
 import kpop from '../assets/images/kpop.png'
+import CircularProgress from '@mui/material/CircularProgress';
+import { Link } from 'react-router-dom'
 
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -78,7 +80,7 @@ export default function ArtistEventOn() {
 
   }
 
-  if(eventList.length===0) return <div>Loading....................</div>
+  if(eventList.length===0) return <div className='progressBar'><CircularProgress color="secondary" /></div>
 
     return (
   
@@ -91,7 +93,9 @@ export default function ArtistEventOn() {
               <img src={notification} className='notificationIcon' alt='notification'></img>
             </div>
             <div className={expand ? 'homeBg':'homeBg-ex'}>
-              <img src={home} alt='homebtn' className='homeIcon'></img>
+            <Link to={'/'}>
+                <img src={home} alt='homebtn' className='homeIcon'></img>
+              </Link>
             </div>
             <div className={expand ? 'logoutBg':'logoutBg-ex'}>
               <img src={logout} alt='logout'className='logout'></img>
