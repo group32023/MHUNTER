@@ -41,6 +41,7 @@ function ViewArtist() {
         setShowModal(false);
     };
 
+    const mmid = 10;
 
     return (
 
