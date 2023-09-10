@@ -43,6 +43,16 @@ function ViewArtist() {
 
     const mmid = 10;
 
+    useEffect(() => {
+        fetch("http://localhost:8080/feedback/{10}")
+            .then(res => res.json())
+            .then((result) => {
+                setArtists(result);
+                console.log(result);
+            }
+            )
+    }, [])
+
     return (
 
 
@@ -66,6 +76,8 @@ function ViewArtist() {
                                         {/* <StarRating rating={5} style={{marginLeft:"2rem"}} /> */}
                                     </div>
                                 </div>
+
+
 
                                 <div className='d-flex flex-column feedback-log align-items-center'>
 
