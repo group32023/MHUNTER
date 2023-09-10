@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Topbar from '../../components/common/Topbar';
 // import CreateEvent from './CreateEvent';
-import StarRating from '../../components/Organizer/StarRating';
+import StarRating from '../../components/organizer/StarRating';
 import './SearchArtist.css';
 import musical from '../../assets/images/musical.jpg';
 import DineshGamage from '../../assets/images/DineshGamage.png';
