@@ -36,7 +36,7 @@ public class FeedbackController {
     @Autowired
     private UserService userService;
 
-    @PostMapping("/viewMusicMemberFeedback/{mmid}")
+    @GetMapping ("/viewMusicMemberFeedback/{mmid}")
 
     public List<MusicMemberFeedback> getFeedbacksOfMember(@PathVariable int mmid){
 
@@ -44,8 +44,6 @@ public class FeedbackController {
         List<MusicMemberFeedback> musicMemberFeedbackList = new ArrayList<>();
 
         feedbackLists.forEach(res ->{
-
-
 
               Feedback feedback = feedbackService.findFeedbackByFeedbackID(res.getFeedbackId()) ;
               Organizer organizer = organizerService.findSpecificOrganizer(res.getOrgId());
@@ -62,7 +60,7 @@ public class FeedbackController {
 
                 musicMemberFeedbackList.add(musicMemberFeedback);
 
-                }
+             }
         );
 
         return musicMemberFeedbackList;

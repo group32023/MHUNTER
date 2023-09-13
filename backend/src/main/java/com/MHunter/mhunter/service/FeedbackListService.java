@@ -5,7 +5,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@Service
+
 public interface FeedbackListService {
 
     public List<FeedbackList> findFeedbacksByMMID(int mmid);
