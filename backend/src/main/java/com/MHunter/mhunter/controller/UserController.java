@@ -2,11 +2,15 @@ package com.MHunter.mhunter.controller;
 
 import com.MHunter.mhunter.exception.UserNotFoundException;
 import com.MHunter.mhunter.model.User;
+import com.MHunter.mhunter.repository.ArtistRepository;
+import com.MHunter.mhunter.repository.BandRepository;
+import com.MHunter.mhunter.repository.OrganizerRepository;
 import com.MHunter.mhunter.repository.UserRepository;
 import com.MHunter.mhunter.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -18,10 +22,20 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @GetMapping("/users")
+
+    @Autowired
+    private OrganizerRepository organizerRepository;
+
+    @Autowired
+    private ArtistRepository artistRepository;
+    @Autowired
+    private BandRepository bandRepository;
+
+    @GetMapping("/allUsers")
     List<User> getAllUsers() {
-        return userRepository.findAll();
+        return userRepository.findAll(),organizerRepository.findAll();
     }
+
     @GetMapping("/user/{userId}")
     User getUserById(@PathVariable int userId) {
         return userRepository.findById(userId)
