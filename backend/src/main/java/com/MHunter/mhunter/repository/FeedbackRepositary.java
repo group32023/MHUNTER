@@ -1,4 +1,8 @@
 package com.MHunter.mhunter.repository;
 
-public interface FeedbackRepositary {
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface FeedbackRepositary extends JpaRepository<FeedbackRepositary,Integer> {
+
+
 }
