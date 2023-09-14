@@ -17,7 +17,27 @@ import AdminReport from './AdminReport';
 import AdminSettings from './AdminSettings';
 import Topbar from '../../components/common/Topbar'
 
+import {useEffect } from 'react';
+import axios from 'axios';
+
 function AdminRegistration() {
+
+  const [userR, setUserR] = useState([]);
+
+  useEffect(() => {
+    const userId = localStorage.getItem('userId');
+    if (userId) {
+        axios.get(`http://localhost:8080/allUsers`)
+            .then(response => {
+                setUserR(response.data);
+            })
+            .catch(error => {
+                console.error(error);
+                alert(error);
+            });
+    }
+}, []);
+
     const [searchTerm, setSearchTerm] = useState('');
 
     const handleInputChange = (event) => {
@@ -53,52 +73,53 @@ function AdminRegistration() {
             </div>
         </div>
     </div>
-    {/*table*/}
-    <div className='data-row'>
-        <span><img src={band} alt='band'className='profile-picture'></img></span>
-        <span className='data-name'>D.K.D.Anjalika</span>
-        <span className='data-memberType'>Artist</span>
-        <span className='data-status'>Pending</span>
-        <Link to={"/admin/registration/proofcheck"}>
-            <span className='data-button'><button type='button' className=' btn btn-primary'> View </button></span>
-        </Link>
-    </div>
-    <div className='data-row'>
-        <span><img src={band} alt='band'className='profile-picture'></img></span>
-        <span className='data-name'>Lahiru Perera</span>
-        <span className='data-memberType'>Artist</span>
-        <span className='data-status'>Pending</span>
-        <Link to={"/admin/registration/proofcheck"}>
-            <span className='data-button'><button type='button' className=' btn btn-primary'> View </button></span>
-        </Link>
-    </div>
-    <div className='data-row'>
-        <span><img src={band} alt='band'className='profile-picture'></img></span>
-        <span className='data-name'>Three Girls</span>
-        <span className='data-memberType'>Band</span>
-        <span className='data-status'>Pending</span>
-        <Link to={"/admin/registration/proofcheck"}>
-            <span className='data-button'><button type='button' className=' btn btn-primary'> View </button></span>
-        </Link>
-    </div>
-    <div className='data-row'>
-        <span><img src={band} alt='band'className='profile-picture'></img></span>
-        <span className='data-name'>L.P.Perera</span>
-        <span className='data-memberType'>Organizer</span>
-        <span className='data-status'>Pending</span>
-        <Link to={"/admin/registration/proofcheck"}>
-            <span className='data-button'><button type='button' className=' btn btn-primary'> View </button></span>
-        </Link>
-    </div>
-    <div className='data-row'>
-        <span><img src={band} alt='band'className='profile-picture'></img></span>
-        <span className='data-name'>Tharushi Samadhi</span>
-        <span className='data-memberType'>Artist</span>
-        <span className='data-status'>Pending</span>
-        <Link to={"/admin/registration/proofcheck"}>
-            <span className='data-button'><button type='button' className=' btn btn-primary'> View </button></span>
-        </Link>
-    </div>
+
+    {userR.length > 0 && (
+        <table style={{width:'80%'}} className='data-row-registration'>
+            {userR.map((row, index) => (
+                <tr key={index} className='data-row-registration-tr'>
+                    <td className='data-row-registration-td'>
+                    <img src={row.profilePicture} alt='band' className='profile-picture' />
+                    </td>
+                    <td className='data-row-registration-td'>{row.firstName}</td>
+                    <td className='data-row-registration-td'>{row.orgId}</td>
+                    <td className='data-row-registration-td'>{row.status}</td>
+                    <td className='data-row-registration-td'>
+                    <Link to={`/admin/registration/proofcheck/${row.id}`}>
+                        <span className='data-button'>
+                        <button type='button' className='btn btn-primary'>View</button>
+                        </span>
+                    </Link>
+                    </td>
+                </tr>
+                ))}
+            
+            <tr className='data-row-registration-tr'>
+                <td className='data-row-registration-td'><img src={band} alt='band'className='profile-picture'></img></td>
+                <td className='data-row-registration-td'>D.K.D.Anjalika</td>
+                <td className='data-row-registration-td'>Artist</td>
+                <td className='data-row-registration-td'>Pending</td>
+                <td className='data-row-registration-td'> 
+                    <Link to={"/admin/registration/proofcheck"}>
+                        <span className='data-button'><button type='button' className=' btn btn-primary'> View </button></span>
+                    </Link>
+                </td>
+            </tr>
+            <tr className='data-row-registration-tr'>
+                <td className='data-row-registration-td'><img src={band} alt='band'className='profile-picture'></img></td>
+                <td className='data-row-registration-td'>D.K.D.Anjaaaalika</td>
+                <td className='data-row-registration-td'>Artist</td>
+                <td className='data-row-registration-td'>Pending</td>
+                <td className='data-row-registration-td'> 
+                    <Link to={"/admin/registration/proofcheck"}>
+                        <span className='data-button'><button type='button' className=' btn btn-primary'> View </button></span>
+                    </Link>
+                </td>
+            </tr>  
+        </table>
+    )}
+
+
 
     <Routes>
           

@@ -35,6 +35,8 @@ import BandPendingRequests from './pages/BandPendingRequests';
 import BandPendingRequestView from './pages/BandPendingRequestView';
 import BandAgreement from './pages/BandAgreement';
 import BandAgreementPreview from './pages/BandAgreementPreview';
+import BandInvoicePreview from './pages/BandInvoicePreview';
+
 import BandInvoice from './pages/BandInvoice';
 import ArtistEventOn from './pages/ArtistEventOn';
 import ArtistSpecificEvent from './pages/ArtistSpecificEvent';
@@ -126,6 +128,7 @@ function App() {
           <Route path='/band/agreement' element={<BandAgreement/>}></Route>
           <Route path='/band/invoice/:id' element={<BandInvoice/>}></Route> 
           <Route path='/band/agreementPreview' element={<BandAgreementPreview/>}></Route> 
+          <Route path='/band/invoicePreview' element={<BandInvoicePreview/>}></Route> 
 
           
           {/* <Route path='/artist/MyFeed' element={<MyFeed/>}></Route> */}

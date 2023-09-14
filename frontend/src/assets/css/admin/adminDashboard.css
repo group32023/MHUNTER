@@ -138,34 +138,28 @@
 /* /search bar*/
 
 /* Table */
-.data-row{
-  background-color: #2f363e;
-  color: #FAECFA;
-  border-radius: 10px;
+.data-row-registration{
   padding: 10px 30px 10px;
   margin: 20px 150px 5px;
+}
+
+.data-row-registration-tr{
+  margin: 20px 150px 5px;
+  background-color: #2f363e;
+  border: 10px solid #212529;
+}
+
+.data-row-registration-td{
+  padding: 10px;
+  text-align: left;
+  color: white;
+  font-size: larger;
 }
 .profile-picture{
   width: 50px;
   height: 50px;
   border-radius: 50%;
   margin-right: 15%;
-}
-.data-name{
-  margin-right: 15%;
-  font-size: larger;
-}
-.data-memberType{
-  margin-right: 15%;
-  font-size: larger;
-}
-.data-email{
-  margin-right: 6%;
-  font-size: larger;
-}
-.data-status{
-  font-size: larger;
-
 }
 .data-button .btn-primary{
   background-color: #7643d2;
@@ -178,24 +172,10 @@
   .search-bar{
     width: 50%;
   }
-  .data-row{
-    margin: 10px 20px 5px;
-  }
   .data-button .btn-primary{
     width: 60px;
   }
-  .data-name{
-    margin-right: 10%;
-    font-size: larger;
-  }
-  .data-memberType{
-    margin-right: 10%;
-    font-size: larger;
-  }
-  .data-Email{
-    margin-right: 10%;
-    font-size: larger;
-  }
+
 }
 /* /Registration */
 

@@ -100,7 +100,7 @@ export default function ArtistPendingRequests() {
     
     <div >
     <SideMenuBarArtist >
-  
+    <div className='MainContainer'>
     
             <p className='headerDashboard'>Pending Requests</p>
             <div className={expand ? 'notificationBg':'notificationBg-ex'}>
@@ -118,8 +118,10 @@ export default function ArtistPendingRequests() {
 
      
       
-        
+       
         {divElements}
+        </div>
+        
 
       {/* <div className='pagination'>
       <Pagination 
