@@ -54,7 +54,8 @@ public class FeedbackController {
 
                 MusicMemberFeedback musicMemberFeedback = new MusicMemberFeedback();
 
-                musicMemberFeedback.setOrganizerName(user.getFirstName()+""+user.getLastName());
+                musicMemberFeedback.setFirstName(user.getFirstName() );
+                musicMemberFeedback.setLastName(user.getLastName() );
                 musicMemberFeedback.setImage(user.getImage());
                 musicMemberFeedback.setDescription(feedback.getDescription());
                 musicMemberFeedback.setRate(feedback.getRate());

@@ -31,7 +31,15 @@ library.add(fas);
 
 function ViewArtist() {
 
+    const [feedback, setFeedbacks] = useState([]);
+    const [post, setPosts] = useState([]);
     const [showModal, setShowModal] = useState(false);
+
+
+    const imageExtention = ["jpg", "png", "jpeg"]
+    const videoExtention = ["mp4", "mkv"]
+    const audioExtenstion = ["mp3", "pcm", "wav"]
+    const BASE_URL = "http://localhost:8080";
 
     const handleShowModal = () => {
         setShowModal(true);
@@ -41,17 +49,32 @@ function ViewArtist() {
         setShowModal(false);
     };
 
-    const mmid = 10;
+    const mmid = 100;
+    const mmid1 = 758463;
 
     useEffect(() => {
-        fetch("http://localhost:8080/feedback/{10}")
+        fetch(`http://localhost:8080/feedback/viewMusicMemberFeedback/${mmid}`)
             .then(res => res.json())
             .then((result) => {
-                setArtists(result);
+                setFeedbacks(result);
                 console.log(result);
             }
             )
     }, [])
+
+
+    useEffect(() => {
+
+        fetch(`http://localhost:8080/postData/postDetails/${mmid1}`)
+            .then(res => res.json())
+            .then((result) => {
+                setPosts(result);
+                console.log(result);
+            }
+            )
+
+    }, [])
+
 
     return (
 
@@ -82,27 +105,32 @@ function ViewArtist() {
                                 <div className='d-flex flex-column feedback-log align-items-center'>
 
                                     <h5>Feedbacks</h5>
-                                    <div className='feedback'>
 
-                                        <div className='d-flex align-items-center'>
-                                            <div className='org-image'>
-                                                <img src={anushka} alt="User's Image" />
+                                    {feedback.map(feedback => (
+
+                                        <div className='feedback'>
+
+                                            <div className='d-flex align-items-center'>
+                                                <div className='org-image'>
+                                                    <img src={`${BASE_URL}/postData/uploads/image/{feedback.image}`} alt="User's Image" />
+                                                </div>
+
+                                                <div className='ml-2 content'>
+                                                    <h7>{feedback.firstName}      {feedback.lastName}</h7>
+                                                    <StarRating rating={feedback.rate} />
+                                                </div>
+                                            </div>
+                                            <div className='summary'>
+
+                                                <p>{feedback.description}
+                                                </p>
                                             </div>
 
-                                            <div className='ml-2 content'>
-                                                <h7>Saman Vidyarathna</h7>
-                                                <StarRating rating={5} />
-                                            </div>
-                                        </div>
-                                        <div className='summary'>
-
-                                            <p>The Confidential were amazing! They have been worth every penny, totally made the evening special very professional and talented.
-                                            </p>
                                         </div>
 
-                                    </div>
+                                    ))}
 
-                                    <div className='feedback'>
+                                    {/* <div className='feedback'>
 
                                         <div className='d-flex align-items-center'>
                                             <div className='org-image'>
@@ -120,7 +148,7 @@ function ViewArtist() {
                                             </p>
                                         </div>
 
-                                    </div>
+                                    </div> */}
 
                                 </div>
                             </div>
@@ -128,31 +156,40 @@ function ViewArtist() {
                         </div>
                         <div className='col-md-8 box-2 d-flex flex-column '>
 
-                            <div className='feed-post'>
+                            {post.map(post => (
+                                <div className='feed-post'>
 
-                                <div className='d-flex align-items-center'>
-                                    <div className='artist-image'>
-                                        <img src={anushka} alt="User's Image" />
+                                    <div className='d-flex align-items-center'>
+                                        <div className='artist-image'>
+                                            <img src={anushka} alt="User's Image" />
+                                        </div>
+
+                                        <div className='ml-2 content'>
+                                            <h7>Anushka Udana</h7>
+                                            <p>12 hrs</p>
+                                        </div>
                                     </div>
+                                    <div className='post-content'>
+                                        <div className='post-caption'>
+                                            <p>{post.description}</p>
+                                        </div>
 
-                                    <div className='ml-2 content'>
-                                        <h7>Anushka Udana</h7>
-                                        <p>12 hrs</p>
+                                        <div className='post-image'>
+                                            {
+                                                (imageExtention.includes(post.fileType))
+                                                    ? <img  src={`${BASE_URL}/postData/uploads/image/${post.fileName}`} alt="post media" />
+                                                    : (videoExtention.includes(post.fileType))
+                                                        ? <video  controls width="320" height="240"><source src={`${BASE_URL}/postData/uploads/video/${post.fileName}`} type={`video/${post.fileType}`} /></video>
+                                                        : <audio  controls><source src={`${BASE_URL}/postData/uploads/audio/${post.fileName}`} type={`audio/${post.fileType}`} /></audio>
+                                            }
+                                        </div>
                                     </div>
                                 </div>
-                                <div className='post-content'>
-                                    <div className='post-caption'>
-                                        <p>Stepping onto the stage to share my soul through music. Get ready to be swept away by the rhythm and emotions. 🎶✨ #LivePerformance #yunpluggedstudio
-                                        </p>
-                                    </div>
 
-                                    <div className='post-image'>
-                                        <img src={anushkashow3} alt="post Image" />
-                                    </div>
-                                </div>
-                            </div>
 
-                            <div className='feed-post'>
+                            ))}
+
+                            {/* <div className='feed-post'>
 
                                 <div className='d-flex align-items-center'>
                                     <div className='artist-image'>
@@ -174,7 +211,7 @@ function ViewArtist() {
                                         <img src={anushkashow2} alt="post Image" />
                                     </div>
                                 </div>
-                            </div>
+                            </div> */}
                         </div>
 
                     </div>

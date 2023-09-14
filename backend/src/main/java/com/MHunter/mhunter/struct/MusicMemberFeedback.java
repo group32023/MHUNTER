@@ -13,7 +13,8 @@ import java.util.Date;
 @AllArgsConstructor
 public class MusicMemberFeedback {
 
-    private String organizerName;
+    private String firstName;
+    private String lastName;
     private MultipartFile Image;
     private String description;
     private int rate;
