@@ -9,4 +9,6 @@ import com.MHunter.mhunter.model.Organizer;
 public interface OrganizerService {
     public Organizer findSpecificOrganizer(int orgId);
 
+
+
 }

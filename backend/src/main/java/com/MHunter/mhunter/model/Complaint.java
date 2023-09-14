@@ -17,6 +17,7 @@ public class Complaint {
     @Temporal(TemporalType.DATE)
     private Date date;
     private Integer userId;
+    private Integer eventId;
 
     public Complaint() {
     }

@@ -90,4 +90,6 @@ public class EventController {
     public List<Event> getSpecificEventByDate(@PathVariable LocalDate date){
         return eventService.getSpecificEventByDate(date);
     }
+
+
 }

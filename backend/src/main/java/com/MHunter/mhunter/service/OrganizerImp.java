@@ -19,4 +19,6 @@ public class OrganizerImp implements OrganizerService{
     public Organizer findSpecificOrganizer(int orgId) {
         return organizerRepository.findByOrgId(orgId);
     }
+
+
 }

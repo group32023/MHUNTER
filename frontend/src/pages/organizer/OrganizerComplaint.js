@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import SideMenuBarOrganizer from '../../components/common/SideMenuBar/SideMenuBarOrganizer';
 import { BiSolidCheckCircle } from "react-icons/bi";
+// import { BiX } from "react-icons/bi";
 import "../../assets/css/OrganizerComplaint.css"
 import Topbar from '../../components/common/Topbar';
 import Modal from 'react-bootstrap/Modal';
@@ -157,8 +158,7 @@ function OrganizerComplaint() {
                                     <div className="overlay">
                                         <Modal show={showModal} onHide={handleCloseModal} centered className='selectedComplaint-Modal '>
                                             <Modal.Header className='p-4 d-flex justify-content-center text-center' >
-                                                <Modal.Title className=' fs-5' style={{ fontFamily: 'MyCustomFont1' }}>Complaint Details</Modal.Title>
-
+                                                <Modal.Title className=' fs-5 mx-5' style={{ fontFamily: 'MyCustomFont1' }}>Complaint Details</Modal.Title>
                                             </Modal.Header>
                                             <Modal.Body className='p-3 mx-3 '>
                                                 {selectedComplaint && (
@@ -201,7 +201,7 @@ function OrganizerComplaint() {
                                                 )}
                                             </Modal.Body>
                                             <Modal.Footer>
-                                                <Button variant="secondary" onClick={handleCloseModal}>
+                                                <Button variant="secondary" onClick={handleCloseModal} style={{ fontFamily: 'MyCustomFont2' }}>
                                                     Close
                                                 </Button>
                                             </Modal.Footer>

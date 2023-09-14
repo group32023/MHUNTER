@@ -67,11 +67,11 @@ public class Event {
         eventid = eventID;
     }
 
-    public int getOrgID() {
+    public Integer getOrgID() {
         return OrgID;
     }
 
-    public void setOrgID(int orgID) {
+    public void setOrgID(Integer orgID) {
         OrgID = orgID;
     }
 

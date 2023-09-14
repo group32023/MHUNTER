@@ -15,4 +15,6 @@ public interface EventService {
 
     public List<Event> getSpecificEventByDate(LocalDate date);
 
+
+
 }
