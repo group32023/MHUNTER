@@ -179,7 +179,7 @@ function ViewArtist() {
                                                 (imageExtention.includes(post.fileType))
                                                     ? <img  src={`${BASE_URL}/postData/uploads/image/${post.fileName}`} alt="post media" />
                                                     : (videoExtention.includes(post.fileType))
-                                                        ? <video  controls width="320" height="240"><source src={`${BASE_URL}/postData/uploads/video/${post.fileName}`} type={`video/${post.fileType}`} /></video>
+                                                        ? <video  controls width="640" height="360"><source src={`${BASE_URL}/postData/uploads/video/${post.fileName}`} type={`video/${post.fileType}`} /></video>
                                                         : <audio  controls><source src={`${BASE_URL}/postData/uploads/audio/${post.fileName}`} type={`audio/${post.fileType}`} /></audio>
                                             }
                                         </div>
@@ -244,7 +244,7 @@ function ViewArtist() {
 
 
                                         <div className='datanew-row music-events-table-data-row d-flex'>
-
+ 
                                             <div className='event-type'>Musical Show</div>
                                             <div className='event-location'>Galle</div>
                                             {/* <div className='event-date'>2023/01/09</div> */}
