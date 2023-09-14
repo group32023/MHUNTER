@@ -47,6 +47,8 @@ public class FeedbackController {
 
               Feedback feedback = feedbackService.findFeedbackByFeedbackID(res.getFeedbackId()) ;
               Organizer organizer = organizerService.findSpecificOrganizer(res.getOrgId());
+              System.out.println("OrgId: " + res.getOrgId());
+              System.out.println("Organizer object: " + organizer);
               User user = userService.findSpecificUser(organizer.getUser().getUserId());
 
 

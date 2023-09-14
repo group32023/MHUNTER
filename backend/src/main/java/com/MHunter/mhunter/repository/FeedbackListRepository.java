@@ -12,6 +12,6 @@ import java.util.List;
 @Repository
 public interface FeedbackListRepository extends JpaRepository<FeedbackList,Integer> {
 
-    @Query(value = "SELECT * FROM feedbacklist WHERE mmid = :mmid ",nativeQuery = true)
+    @Query(value = "SELECT * FROM feedback_list WHERE mmid = :mmid ",nativeQuery = true)
     List<FeedbackList> findByMMID(@Param("mmid") int mmid);
 }

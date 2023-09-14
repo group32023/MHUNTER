@@ -12,12 +12,12 @@ import java.util.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 
-@Table(name = "feedback")
-
+@Table (name = "feedback")
 public class Feedback {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "feedback_id")
     private int feedbackId;
     private String description;
     private int rate;
