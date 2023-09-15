@@ -251,7 +251,7 @@ function OrganizerEventDashboard() {
                             </div>
 
                             <div className="row btnTypeDescriptionDiv " style={{ fontFamily: 'MyCustomFont1' }}>
-                                <button className="cancelBtn col-md-5" >
+                                <button className="eventDashboardCancelBtn col-md-5" >
                                     Cancel Event
                                 </button>
                                 <button className="resheduleBtn col-md-5" >

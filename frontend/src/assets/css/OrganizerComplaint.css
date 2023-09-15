@@ -40,7 +40,7 @@
 .complaintFormForm input {
     background-color: #1c2126 !important;
     border-radius: 10px;
-    border: white -2px;
+    border: white -1px;
 }
 
 .complaintFormForm textarea {
@@ -255,3 +255,12 @@
 /* .modal-header .btn-close {
     color: white !important;
     /* Set the close button's color to white */
+
+.complaintSelectEventByName {
+    background-color: #1c2126 !important;
+    border-radius: 10px;
+    padding: 0.375rem 0.75rem;
+    /* border: white -5px; */
+    color: white;
+    width: 420px;
+}

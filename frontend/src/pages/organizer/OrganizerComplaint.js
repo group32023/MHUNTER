@@ -7,6 +7,7 @@ import "../../assets/css/OrganizerComplaint.css"
 import Topbar from '../../components/common/Topbar';
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
+import axios from 'axios';
 
 import OrganizerDashboard from './OrganizerDashboard';
 import OrganizerEventDashboard from './OrganizerEventDashboard';
@@ -25,6 +26,9 @@ function OrganizerComplaint() {
     const [showModal, setShowModal] = useState(false);
     const [title, setTitle] = useState('');
     const [showSuccessComplaintAddPopup, setShowSuccessComplaintAddPopup] = useState(false);
+    const [events, setEvents] = useState([]);
+    const [selectedEvent, setSelectedEvent] = useState(null);
+    // const [submittedEvent, setSubmittedEvent] = useState(null);
     const [description, setDescription] = useState('');
     const [complaints, setComplaints] = useState([]);
     const [selectedComplaint, setSelectedComplaint] = useState(null);
@@ -39,7 +43,7 @@ function OrganizerComplaint() {
 
     const handleClick = (e) => {
         e.preventDefault()
-        const complaint = { title, description, date, status: "PENDING", orgId: 9 };
+        const complaint = { title, description, date, status: "PENDING", orgId: 9, eventId: selectedEvent };
         console.log(complaint)
         fetch("http://localhost:8080/complaint/add", {
             method: "POST",
@@ -54,7 +58,7 @@ function OrganizerComplaint() {
 
             }, 3000);
 
-            window.location.reload();
+            // window.location.reload();
         })
     }
 
@@ -66,6 +70,28 @@ function OrganizerComplaint() {
             }
             )
     }, [])
+
+    const handleEventChange = (event) => {
+        const selectedEventId = event.target.value;
+        setSelectedEvent(selectedEventId);
+    };
+
+
+
+    useEffect(() => {
+
+        axios.get('http://localhost:8080/event/byOrgID/9')
+            .then((response) => {
+                // Assuming your API returns an array of events
+                setEvents(response.data);
+            })
+            .catch((error) => {
+                console.error('Error fetching data:', error);
+            });
+    }, []);
+
+
+
 
     const handleShowModal = (complaint) => {
         setSelectedComplaint(complaint);
@@ -89,14 +115,26 @@ function OrganizerComplaint() {
                                 <p className='fs-5 text-center' style={{ fontFamily: 'MyCustomFont1' }}>Complaint Form</p>
                                 <hr></hr>
                                 <form className='complaintFormForm ' style={{ fontFamily: 'MyCustomFont' }}>
-                                    <div className="mb-3 mt-3">
-                                        <label for="title" className="form-label mt-4 fs-6 mx-3">Title</label>
+                                    <div className="mb-1">
+                                        <label className='mt-3 mb-2 fs-6 mx-3'>Select an event:</label>
+                                        <select className='complaintSelectEventByName fs-6 ' value={selectedEvent} onChange={handleEventChange} required>
+                                            <option value="">Select an event</option>
+                                            {events.map((event) => (
+                                                <option key={event.eventid} value={event.eventid}>
+                                                    {event.event_name}
+                                                </option>
+                                            ))}
+                                        </select>
+                                        {/* {selectedEvent && <p>You selected: {selectedEvent}</p>} */}
+                                    </div>
+                                    <div className="mb-1 ">
+                                        <label for="title" className="form-label mt-2 fs-6 mx-3">Title</label>
                                         <input type="text" className="form-control text-white" id="title" name="title" required
                                             value={title} onChange={(e) => setTitle(e.target.value)} />
                                     </div>
-                                    <div className="mb-3">
-                                        <label for="description" className="form-label mt-3 fs-6 mx-3">Description</label>
-                                        <textarea className="form-control mb-5 text-white" id='scrollbarStyle-1' name="description" rows="4" required
+                                    <div className="mb-1">
+                                        <label for="description" className="form-label mt-2 fs-6 mx-3">Description</label>
+                                        <textarea className="form-control mb-4 text-white" id='scrollbarStyle-1' name="description" rows="4" required
                                             value={description} onChange={(e) => setDescription(e.target.value)}></textarea>
                                     </div>
 
