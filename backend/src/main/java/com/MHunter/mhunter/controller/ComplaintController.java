@@ -27,9 +27,9 @@ public class ComplaintController {
 //        return complaintService.getAllComplaints();
 //    }
 
-    @GetMapping("/complaintByUserId/{userId}")
-    public ResponseEntity<List<Complaint>> getComplaintsByUserId(@PathVariable Integer userId) {
-        List<Complaint> complaints = complaintService.getComplaintsByUserId(userId);
+    @GetMapping("/complaintByOrgId/{orgId}")
+    public ResponseEntity<List<Complaint>> getComplaintsByOrgId(@PathVariable Integer orgId) {
+        List<Complaint> complaints = complaintService.getComplaintsByOrgId(orgId);
         if (complaints.isEmpty()) {
             return ResponseEntity.notFound().build();
         }

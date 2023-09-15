@@ -8,5 +8,5 @@ public interface ComplaintService {
 
     public Complaint saveComplaint(Complaint complaint);
 
-    public List<Complaint> getComplaintsByUserId(Integer userId);
+    public List<Complaint> getComplaintsByOrgId(Integer orgId);
 }

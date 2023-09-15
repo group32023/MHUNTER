@@ -16,7 +16,7 @@ public class Complaint {
     private String remark;
     @Temporal(TemporalType.DATE)
     private Date date;
-    private Integer userId;
+    private Integer orgId;
     private Integer eventId;
 
     public Complaint() {

@@ -12,7 +12,7 @@ import java.time.temporal.Temporal;
 
 
 @Entity
-@Data
+
 
 public class Event {
 
