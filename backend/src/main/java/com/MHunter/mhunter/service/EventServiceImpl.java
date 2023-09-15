@@ -39,4 +39,14 @@ public class EventServiceImpl implements EventService {
     public List<Event> getSpecificEventByDate(LocalDate date) {
         return eventRepository.findByDate(date);
     }
+
+    @Override
+    public List<Event> viewMusicMemberEventsOnDate(int mmid,LocalDate date){
+
+        return  eventRepository.viewMusicMemberEventsOnDate(mmid,date);
+
+    }
+
+
+
 }

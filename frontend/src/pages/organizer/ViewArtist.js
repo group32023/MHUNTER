@@ -33,6 +33,8 @@ function ViewArtist() {
 
     const [feedback, setFeedbacks] = useState([]);
     const [post, setPosts] = useState([]);
+    const [eventondate, setEventondate] = useState([]);
+    const [event, setEvents] = useState([]);
     const [showModal, setShowModal] = useState(false);
 
 
@@ -51,6 +53,7 @@ function ViewArtist() {
 
     const mmid = 100;
     const mmid1 = 758463;
+    const eventid = 3;
 
     useEffect(() => {
         fetch(`http://localhost:8080/feedback/viewMusicMemberFeedback/${mmid}`)
@@ -69,6 +72,29 @@ function ViewArtist() {
             .then(res => res.json())
             .then((result) => {
                 setPosts(result);
+                console.log(result);
+            }
+            )
+
+    }, [])
+
+
+    useEffect(() => {
+        fetch(`http://localhost:8080/event/viewSpecificEvent/${eventid}`)
+            .then(res => res.json())
+            .then((result) => {
+                setEvents(result);
+                // console.log(result);
+            }
+            )
+    }, [])
+
+    useEffect(() => {
+
+        fetch(`http://localhost:8080/requestMusicMember/eventsOn/${mmid}/{2023-09-03}`)
+            .then(res => res.json())
+            .then((result) => {
+                setEventondate(result);
                 console.log(result);
             }
             )

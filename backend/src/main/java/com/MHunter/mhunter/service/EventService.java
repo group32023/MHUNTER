@@ -15,4 +15,5 @@ public interface EventService {
 
     public List<Event> getSpecificEventByDate(LocalDate date);
 
+    public List<Event> viewMusicMemberEventsOnDate(int mmid,LocalDate date);
 }

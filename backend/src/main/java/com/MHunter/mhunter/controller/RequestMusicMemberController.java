@@ -122,6 +122,9 @@ public class RequestMusicMemberController {
     public List<EventOrganizer> priorBooking(@PathVariable int mid, @PathVariable int orgId){
 
         List<RequestMusicMember> eventList = requestMusicMemberService.findConformationEventsByMMIDForOrg(mid,orgId);
+
+
+
         List<EventOrganizer> eventOrganizerList = new ArrayList<>();
 
         eventList.forEach(res ->{
@@ -169,6 +172,7 @@ public class RequestMusicMemberController {
         List<EventOrganizer> eventOrganizerList = new ArrayList<>();
         requestMusicMembersList.forEach(res ->{
             Event event = eventService.viewSpecificEvent(res.getRequestMusicMemberId().getEventId());
+
 
             if(date.equals(event.getDate()) ){
 
