@@ -42,5 +42,10 @@ public class EventServiceImpl implements EventService {
         return eventRepository.findByDate(date);
     }
 
+    @Override
+    public List<Event> getEventsByOrgID(Integer OrgID){
+        return eventRepository.findByOrgID(OrgID);
+    }
+
 
 }

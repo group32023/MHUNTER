@@ -1,5 +1,6 @@
 package com.MHunter.mhunter.service;
 
+import com.MHunter.mhunter.model.Complaint;
 import com.MHunter.mhunter.model.Event;
 import com.MHunter.mhunter.model.IncomeArtist;
 
@@ -14,6 +15,8 @@ public interface EventService {
     public Event viewSpecificEvent(int eventid);
 
     public List<Event> getSpecificEventByDate(LocalDate date);
+
+    public List<Event> getEventsByOrgID(Integer OrgID);
 
 
 

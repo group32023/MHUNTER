@@ -10,6 +10,7 @@ import com.MHunter.mhunter.service.RequestMusicMemberService;
 import com.MHunter.mhunter.service.UserService;
 import com.MHunter.mhunter.struct.EventOrganizer;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.Duration;
@@ -91,5 +92,13 @@ public class EventController {
         return eventService.getSpecificEventByDate(date);
     }
 
+    @GetMapping("/byOrgID/{OrgID}")
+    public ResponseEntity<List<Event>> getEventsByOrgId(@PathVariable Integer OrgID) {
+        List<Event> events = eventService.getEventsByOrgID(OrgID);
+        if (events.isEmpty()) {
+            return ResponseEntity.notFound().build();
+        }
+        return ResponseEntity.ok(events);
+    }
 
 }
