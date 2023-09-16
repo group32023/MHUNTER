@@ -1,9 +1,10 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import SideMenuBarOrganizer from '../../components/common/SideMenuBar/SideMenuBarOrganizer';
 import "../../assets/css/OrganizerEventDashboard.css"
 import Topbar from '../../components/common/Topbar';
 import { Link, useParams } from 'react-router-dom';
+import axios from 'axios';
 
 
 import CreateEvent from './CreateEvent';
@@ -42,17 +43,38 @@ import PaymentArtist8 from '../../assets/images/paymentArtist8.png'
 function OrganizerEventDashboard() {
 
     const { eventid } = useParams();
+    const [event, setEvent] = useState(null);
+
+
+    useEffect(() => {
+        axios.get(`http://localhost:8080/event/byEventid/${eventid}`)
+            .then((response) => {
+                setEvent(response.data[0]);
+            })
+            .catch((error) => {
+                console.error('Error fetching event data:', error);
+            });
+    }, [eventid]);
+
+    if (!event) {
+        return <div>Loading...</div>;
+    }
+
     return (
         <>
             <SideMenuBarOrganizer>
                 <div className='eventDashboard_content_container'>
                     <Topbar customProp="Events" />
 
+
+
                     <div className="row">
                         <div className="horizontalLine col-md-12 py-2 fs-7">
-                            <span >Events / APE KALAWA/Event ID: {eventid}</span>
+                            <span >Events / {event.event_name.toUpperCase()}</span>
                         </div>
                     </div>
+
+
 
                     <div className="row">
                         <div className="eventDescriptionDiv  mt-3 col-md-7">
@@ -61,12 +83,11 @@ function OrganizerEventDashboard() {
                                     <img alt='' src={EventBanner4} width='385px' height='210px' />
                                 </div>
                                 <div className="eventDescDiv col-md-7 mt-2"  >
-                                    <span className="eventDescDivSpan">APE KALAWA</span>
+                                    <span className="eventDescDivSpan">{event.event_name.toUpperCase()}</span>
                                     <div className="row" style={{ display: 'flex' }}>
                                         <div className="eventDescInnerDiv col-md-10 py-2 " >
                                             <p style={{ textAlign: 'justify' }}>
-                                                The Ape Kalawa Concert is an energetic and diverse music event featuring renowned artists, dynamic performances, and cultural celebration. It blends modern genres, encouraging audience participation and showcasing emerging talent.
-
+                                                {event.description}
                                             </p>
                                         </div>
                                         <div className='' style={{ display: 'flex', flex: '1', padding: '0px', margin: '0px' }}>
@@ -82,7 +103,7 @@ function OrganizerEventDashboard() {
                                                 <BiSolidCalendar className='dateIcon fs-1 col-md-3 ' />
                                                 <div className='col-md-8 mt-2'>
                                                     <p>Event Date<br></br>
-                                                        <span className='fs-4'>Aug 25 2023</span>
+                                                        <span className='fs-4'>{event.date}</span>
                                                     </p>
                                                 </div>
                                             </div>
@@ -92,7 +113,7 @@ function OrganizerEventDashboard() {
                                                 <BiSolidTimeFive className='timeIcon fs-1 col-md-3 ' />
                                                 <div className='col-md-8 mt-2'>
                                                     <p>Event Time<br></br>
-                                                        <span className='fs-4'>10:00:00</span>
+                                                        <span className='fs-4'>{event.start_time}</span>
                                                     </p>
 
                                                 </div>
@@ -116,7 +137,7 @@ function OrganizerEventDashboard() {
                                         <BiSolidCalendarStar className='dateIcon fs-1 col-md-3 ' />
                                         <div className='col-md-8' >
                                             <p className='fs-6' style={{ fontFamily: 'MyCustomFont' }}>Event Type<br></br>
-                                                <span className='fs-4' style={{ fontFamily: 'MyCustomFont1' }}>Musical Show</span>
+                                                <span className='fs-4' style={{ fontFamily: 'MyCustomFont1' }}>{event.event_type}</span>
                                             </p>
 
                                         </div>
@@ -230,7 +251,7 @@ function OrganizerEventDashboard() {
                                         <BiSolidUser className='timeIcon fs-1 col-md-3 ' />
                                         <div className='col-md-8'>
                                             <p className='fs-6' style={{ fontFamily: 'MyCustomFont' }}>Expected Crowd<br></br>
-                                                <span className='fs-3' style={{ fontFamily: 'MyCustomFont1' }}>8000</span>
+                                                <span className='fs-3' style={{ fontFamily: 'MyCustomFont1' }}>{event.crowd}</span>
                                             </p>
 
                                         </div>
