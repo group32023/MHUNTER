@@ -1,12 +1,15 @@
 package com.MHunter.mhunter.controller;
 
 import com.MHunter.mhunter.exception.UserNotFoundException;
+import com.MHunter.mhunter.model.MusicMember;
+import com.MHunter.mhunter.model.Organizer;
 import com.MHunter.mhunter.model.User;
 import com.MHunter.mhunter.repository.ArtistRepository;
 import com.MHunter.mhunter.repository.BandRepository;
 import com.MHunter.mhunter.repository.OrganizerRepository;
 import com.MHunter.mhunter.repository.UserRepository;
-import com.MHunter.mhunter.service.UserService;
+import com.MHunter.mhunter.service.*;
+import com.MHunter.mhunter.struct.AllUsers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -20,7 +23,19 @@ public class UserController {
     private UserRepository userRepository;
 
     @Autowired
+    private ArtistService artistService;
+
+    @Autowired
+    private BandService bandService;
+
+    @Autowired
     private UserService userService;
+
+    @Autowired
+    private MusicMemberService musicMemberService;
+
+    @Autowired
+    private OrganizerService organizerService;
 
 
     @Autowired
@@ -33,7 +48,35 @@ public class UserController {
 
     @GetMapping("/allUsers")
     List<User> getAllUsers() {
-        return userRepository.findAll(),organizerRepository.findAll();
+        return userRepository.findAll();
+    }
+    @GetMapping("/view")
+    public List<AllUsers> viewAll(){
+        List<MusicMember> artistBandLists = musicMemberService.viewMusicMembers();
+        List<Organizer> organizerList = organizerService.findAllOrganizer();
+        List<AllUsers> allUsersList = new ArrayList<>();
+        artistBandLists.forEach(item ->{
+            AllUsers allUsers = new AllUsers();
+            allUsers.setName(item.getName());
+            allUsers.setImagePath(item.getUser().getImagePath());
+            allUsers.setFirstName(item.getUser().getFirstName());
+            allUsers.setLastName(item.getUser().getLastName());
+            allUsers.setType(item.getType());
+            allUsersList.add(allUsers);
+        });
+        /*List<Band> bandList = bandService.viewAllBands();
+        bandList.forEach(item ->{
+            MusicMember musicMember = musicMemberService.findSpecificMusicMember(item.getMusicMember().getMMID());
+            //if(musicMember.getType().equals("Artist")){
+            AllUsers allUsers = new AllUsers();
+            allUsers.setName(musicMember.getName());
+            allUsers.setImagePath(item.getUser().getImagePath());
+            allUsers.setType(musicMember.getType());
+
+            allUsersList.add(allUsers);
+            //}
+        });*/
+        return allUsersList;
     }
 
     @GetMapping("/user/{userId}")
