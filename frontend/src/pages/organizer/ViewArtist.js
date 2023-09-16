@@ -1,5 +1,5 @@
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState ,useRef } from 'react';
 import { Link } from 'react-router-dom';
 import Topbar from '../../components/common/Topbar';
 import './ViewArtist.css';
@@ -51,10 +51,36 @@ function ViewArtist() {
         setShowModal(false);
     };
 
+
+    const extractloc = (location) => {
+
+        const parts = location.split(',');
+        const placeName = parts[0];
+        const town = parts[parts.length - 2];
+        return `${town}`;
+    }
+
+    const formatTime = (time) => {
+        const [hours, minutes] = time.split(':');
+        const hour = parseInt(hours, 10);
+        const minute = parseInt(minutes, 10);
+        const period = hour >= 12 ? 'pm' : 'am';
+        const formattedHour = hour % 12 || 12;
+        const formattedMinute = minute.toString().padStart(2, '0');
+        return `${formattedHour}:${formattedMinute} ${period}`;
+    };
+
+
     const mmid = 100;
     const mmid1 = 758463;
     const eventid = 3;
+    let formattedDate;
+    let formattedDate1;
+    let formattedDateString;
+    let options;
+    const formattedDateStringRef = useRef(null) ;
 
+    
     useEffect(() => {
         fetch(`http://localhost:8080/feedback/viewMusicMemberFeedback/${mmid}`)
             .then(res => res.json())
@@ -83,23 +109,40 @@ function ViewArtist() {
         fetch(`http://localhost:8080/event/viewSpecificEvent/${eventid}`)
             .then(res => res.json())
             .then((result) => {
+                formattedDate = result.date;
                 setEvents(result);
-                // console.log(result);
-            }
-            )
-    }, [])
-
-    useEffect(() => {
-
-        fetch(`http://localhost:8080/requestMusicMember/eventsOn/${mmid}/{2023-09-03}`)
-            .then(res => res.json())
-            .then((result) => {
-                setEventondate(result);
+                formattedDate1 = new Date(result.date);
+                options = { month: 'short', day: '2-digit' };
+                formattedDateString = formattedDate1.toLocaleDateString('en-US', options);
+                formattedDateStringRef.current = formattedDateString;
                 console.log(result);
+                console.log(formattedDateString );
+
+                fetch(`http://localhost:8080/event/musicMemberEventsOnDate/${mmid}/${formattedDate}`)
+                    .then(res => res.json())
+                    .then((result) => {
+                        setEventondate(result);
+                        console.log(result);
+                    }
+                    )
+
             }
             )
 
     }, [])
+
+    
+    // useEffect(() => {
+
+    //     fetch(`http://localhost:8080/event/musicMemberEventsOnDate/${mmid}/${formattedDate}`)
+    //         .then(res => res.json())
+    //         .then((result) => {
+    //             setEventondate(result);
+    //             console.log(result);
+    //         }
+    //         )
+
+    // }, [])
 
 
     return (
@@ -121,7 +164,7 @@ function ViewArtist() {
 
                                     <div className='content-box'>
 
-                                        <h5>Anushka Udana</h5>
+                                        <h5>Anushka Udana </h5>
                                         {/* <StarRating rating={5} style={{marginLeft:"2rem"}} /> */}
                                     </div>
                                 </div>
@@ -203,10 +246,10 @@ function ViewArtist() {
                                         <div className='post-image'>
                                             {
                                                 (imageExtention.includes(post.fileType))
-                                                    ? <img  src={`${BASE_URL}/postData/uploads/image/${post.fileName}`} alt="post media" />
+                                                    ? <img src={`${BASE_URL}/postData/uploads/image/${post.fileName}`} alt="post media" />
                                                     : (videoExtention.includes(post.fileType))
-                                                        ? <video  controls width="640" height="360"><source src={`${BASE_URL}/postData/uploads/video/${post.fileName}`} type={`video/${post.fileType}`} /></video>
-                                                        : <audio  controls><source src={`${BASE_URL}/postData/uploads/audio/${post.fileName}`} type={`audio/${post.fileType}`} /></audio>
+                                                        ? <video controls width="640" height="360"><source src={`${BASE_URL}/postData/uploads/video/${post.fileName}`} type={`video/${post.fileType}`} /></video>
+                                                        : <audio controls><source src={`${BASE_URL}/postData/uploads/audio/${post.fileName}`} type={`audio/${post.fileType}`} /></audio>
                                             }
                                         </div>
                                     </div>
@@ -245,7 +288,8 @@ function ViewArtist() {
 
                     <div className='click-btns'>
 
-                        <button type="button" class="btn btn-lg" onClick={handleShowModal}>Events On 25</button>
+
+                        <button type="button" class="btn btn-lg" onClick={handleShowModal}>Events On {formattedDateStringRef.current}</button>
                         <Link to="/organizer/searchartist/viewartist/MakeArtistRequest">
                             <button type="button" class="btn btn-lg">Make a Request</button>
                         </Link>
@@ -255,7 +299,7 @@ function ViewArtist() {
                         <div className="overlay">
                             <Modal show={showModal} onHide={handleCloseModal} className='modal-class-new' centered>
                                 <Modal.Header closeButton>
-                                    <Modal.Title className='events-view-modal-title'>Events on August 25</Modal.Title>
+                                    <Modal.Title className='events-view-modal-title'>Events on {formattedDateStringRef.current}</Modal.Title>
                                 </Modal.Header>
                                 <Modal.Body>
                                     <div className='view-music-events-table d-flex flex-column '>
@@ -264,32 +308,30 @@ function ViewArtist() {
 
                                             <div className='event-type'>Event Type</div>
                                             <div className='event-location'>Location</div>
-                                            {/* <div className='event-date'>Date</div> */}
                                             <div className='event-time'>Time</div>
-                                        </div>
+                                        </div> 
 
+                                        {eventondate.map(event => (
+                                            <div className='datanew-row music-events-table-data-row d-flex'>
 
-                                        <div className='datanew-row music-events-table-data-row d-flex'>
- 
-                                            <div className='event-type'>Musical Show</div>
-                                            <div className='event-location'>Galle</div>
-                                            {/* <div className='event-date'>2023/01/09</div> */}
-                                            <div className='event-time'>12.00</div>
-                                        </div>
-                                        <div className='datanew-row music-events-table-data-row d-flex'>
+                                                <div className='event-type'>{event.event_type}</div>
+                                                <div className='event-location'>{extractloc(event.location)}</div>
+                                                <div className='event-time'>{formatTime(event.start_time)}</div>
+                                            </div>
+
+                                        ))}
+                                        {/* <div className='datanew-row music-events-table-data-row d-flex'>
 
                                             <div className='event-type'>Musical Show</div>
                                             <div className='event-location'>Mathara</div>
-                                            {/* <div className='event-date'>2023/03/19</div> */}
                                             <div className='event-time'>8.00</div>
                                         </div>
                                         <div className='datanew-row music-events-table-data-row d-flex'>
 
                                             <div className='event-type'>Musical Show</div>
                                             <div className='event-location'>Dabulla</div>
-                                            {/* <div className='event-date'>2023/05/11</div> */}
                                             <div className='event-time'>10.00</div>
-                                        </div>
+                                        </div> */}
 
                                     </div>
                                 </Modal.Body>
