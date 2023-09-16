@@ -121,7 +121,7 @@ gap: 3rem;
 
 .feed-post .content{
 
-    margin-top: -1rem;
+    margin-top: -2rem;
     margin-left: 1rem;
 
 }
@@ -135,6 +135,7 @@ gap: 3rem;
 .feed-post .post-content{
 
     margin-left: 3rem;
+    margin-top: 1rem;
 }
 
 .post-content .post-image{

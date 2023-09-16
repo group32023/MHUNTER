@@ -4,10 +4,7 @@ package com.MHunter.mhunter.controller;
 import com.MHunter.mhunter.model.Artist;
 import com.MHunter.mhunter.service.ArtistService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -25,4 +22,12 @@ public class ArtistController {
 
         return artistService.findAllArtist();
     }
+
+    @GetMapping("/viewSpecificArtist/{mmid}")
+    public Artist viewSpecificArtist(@PathVariable int mmid){
+
+        return artistService.findSpecificArtist(mmid);
+    }
+
+
 }

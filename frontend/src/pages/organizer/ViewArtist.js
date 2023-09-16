@@ -35,6 +35,7 @@ function ViewArtist() {
     const [post, setPosts] = useState([]);
     const [eventondate, setEventondate] = useState([]);
     const [event, setEvents] = useState([]);
+    const [artist, setArtists] = useState([]);
     const [showModal, setShowModal] = useState(false);
 
 
@@ -78,7 +79,22 @@ function ViewArtist() {
     let formattedDate1;
     let formattedDateString;
     let options;
+    let artistName;
     const formattedDateStringRef = useRef(null) ;
+    const artistNameRef = useRef(null) ;
+
+    useEffect(() => {
+        fetch(`http://localhost:8080/artist/viewSpecificArtist/${mmid}`)
+            .then(res => res.json())
+            .then((result) => {
+                setArtists(result);
+                artistName = result.musicMember.user.firstName + ' ' + result.musicMember.user.lastName  ;
+                artistNameRef.current = artistName;
+                console.log(artistName);
+
+            }
+            )
+    }, [])
 
     
     useEffect(() => {
@@ -86,7 +102,7 @@ function ViewArtist() {
             .then(res => res.json())
             .then((result) => {
                 setFeedbacks(result);
-                console.log(result);
+                // console.log(result);
             }
             )
     }, [])
@@ -98,7 +114,7 @@ function ViewArtist() {
             .then(res => res.json())
             .then((result) => {
                 setPosts(result);
-                console.log(result);
+                // console.log(result);
             }
             )
 
@@ -115,14 +131,14 @@ function ViewArtist() {
                 options = { month: 'short', day: '2-digit' };
                 formattedDateString = formattedDate1.toLocaleDateString('en-US', options);
                 formattedDateStringRef.current = formattedDateString;
-                console.log(result);
-                console.log(formattedDateString );
+                // console.log(result);
+                // console.log(formattedDateString );
 
                 fetch(`http://localhost:8080/event/musicMemberEventsOnDate/${mmid}/${formattedDate}`)
                     .then(res => res.json())
                     .then((result) => {
                         setEventondate(result);
-                        console.log(result);
+                        // console.log(result);
                     }
                     )
 
@@ -164,7 +180,7 @@ function ViewArtist() {
 
                                     <div className='content-box'>
 
-                                        <h5>Anushka Udana </h5>
+                                        <h5>{artistNameRef.current}</h5>
                                         {/* <StarRating rating={5} style={{marginLeft:"2rem"}} /> */}
                                     </div>
                                 </div>
@@ -234,8 +250,8 @@ function ViewArtist() {
                                         </div>
 
                                         <div className='ml-2 content'>
-                                            <h7>Anushka Udana</h7>
-                                            <p>12 hrs</p>
+                                            <h7>{artistNameRef.current}</h7>
+                                            {/* <p>12 hrs</p> */}
                                         </div>
                                     </div>
                                     <div className='post-content'>

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import Topbar from '../../components/common/Topbar';
 import './ViewEventHistory.css';
 import SideMenuBarOrganizer from '../../components/common/SideMenuBar/SideMenuBarOrganizer';
@@ -15,6 +15,31 @@ import OrganizerEventDashboard from './OrganizerEventDashboard';
 import SearchBand from './SearchBand'
 
 function ViewEventHistory() {
+
+
+    const [historyevents, setHistoryevents] = useState([]);
+
+    const orgid = 1;
+
+    const extractloc = (location) => {
+
+        const parts = location.split(',');
+        const placeName = parts[0];
+        const town = parts[parts.length - 2];
+        return `${town}`;
+    }
+
+    useEffect(() => {
+        fetch(`http://localhost:8080/event/viewEventHistory/${orgid}`)
+            .then(res => res.json())
+            .then((result) => {
+                setHistoryevents(result);
+                console.log(result);
+            }
+            )
+    }, [])
+
+
     return (
 
         <>
@@ -67,14 +92,17 @@ function ViewEventHistory() {
                             <div className='event-date'>Date</div>
                         </div>
 
-                        <div className='history-data-row history-table-data-row d-flex'>
-                            <div className='event-name'>Kalagame Awurudu</div>
-                            <div className='event-type'>Awurudu function</div>
-                            <div className='event-location'>Colombo</div>
-                            <div className='event-date'>2023/07/14</div>
-                        </div>
+                        {historyevents.map(event => (
 
-                        <div className='history-data-row history-table-data-row d-flex'>
+                            <div className='history-data-row history-table-data-row d-flex'  key={event.eventid}>
+                                <div className='event-name'>{event.event_name}</div>
+                                <div className='event-type'>{event.event_type}</div>
+                                <div className='event-location'>{extractloc(event.location)}</div>
+                                <div className='event-date'>{event.date}</div>
+                            </div>
+                        ))}
+
+                        {/* <div className='history-data-row history-table-data-row d-flex'>
                             <div className='event-name'>Ameesha's Wedding</div>
                             <div className='event-type'>Wedding</div>
                             <div className='event-location'>Hambanthots</div>
@@ -105,7 +133,7 @@ function ViewEventHistory() {
                             <div className='event-type'>Musical Show</div>
                             <div className='event-location'>Dabulla</div>
                             <div className='event-date'>2023/05/11</div>
-                        </div>
+                        </div> */}
 
                     </div>
 
