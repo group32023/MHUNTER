@@ -93,61 +93,61 @@ function App() {
     <div className="App">
       <Router>
         <Routes>
-          <Route path='/' element={<Home/>}></Route>
-          <Route path='/event' element={<Event/>}></Route>
-          <Route path='/band' element={<Band/>}></Route>
-          <Route path='/artist' element={<Artist/>}></Route>
-          <Route path='/aboutUs' element={<AboutUs/>}></Route>
+          <Route path='/' element={<Home />}></Route>
+          <Route path='/event' element={<Event />}></Route>
+          <Route path='/band' element={<Band />}></Route>
+          <Route path='/artist' element={<Artist />}></Route>
+          <Route path='/aboutUs' element={<AboutUs />}></Route>
 
 
           {/* Artist Routes */}
-          <Route path='/artist/PendingRequests' element={<ArtistPendingRequests/>}></Route>
-          <Route path='/artist/Reports' element={<ArtistGenerateReports/>}></Route>
-          <Route path='/artist/Dashboard' element={<ArtistDashboard/>}></Route>
-          <Route path='/artist/Reports/:id' element={<ArtistGenerateReportsToday/>}></Route>
-          <Route path='/artist/Event' element={<ArtistEvent/>}></Route>
-          <Route path='/artist/EventSpecific/:id' element={<ArtistSpecificEvent/>}></Route>
-          <Route path='/artist/PendingRequestView/:id' element={<ArtistPendingRequestView/>}></Route>
-          <Route path='/artist/priorbooking/:id1/:id2/:id3' element={<ArtistPriorBooking/>}></Route>
-          <Route path='/artist/eventsOn/:mmid/:date/:eventId' element={<ArtistEventOn/>}></Route>
-          <Route path='/artist/invoice/:id' element={<ArtistInvoice/>}></Route> 
-          <Route path='/artist/RequestsLog' element={<RequestsLog/>}></Route> 
+          <Route path='/artist/PendingRequests' element={<ArtistPendingRequests />}></Route>
+          <Route path='/artist/Reports' element={<ArtistGenerateReports />}></Route>
+          <Route path='/artist/Dashboard' element={<ArtistDashboard />}></Route>
+          <Route path='/artist/Reports/:id' element={<ArtistGenerateReportsToday />}></Route>
+          <Route path='/artist/Event' element={<ArtistEvent />}></Route>
+          <Route path='/artist/EventSpecific/:id' element={<ArtistSpecificEvent />}></Route>
+          <Route path='/artist/PendingRequestView/:id' element={<ArtistPendingRequestView />}></Route>
+          <Route path='/artist/priorbooking/:id1/:id2/:id3' element={<ArtistPriorBooking />}></Route>
+          <Route path='/artist/eventsOn/:mmid/:date/:eventId' element={<ArtistEventOn />}></Route>
+          <Route path='/artist/invoice/:id' element={<ArtistInvoice />}></Route>
+          <Route path='/artist/RequestsLog' element={<RequestsLog />}></Route>
 
-          <Route path='/artist/MyFeed' element={<MyFeed/>}></Route>
-       
+          <Route path='/artist/MyFeed' element={<MyFeed />}></Route>
+
           {/* Band Routes */}
-          <Route path='/band/PendingRequests' element={<BandPendingRequests/>}></Route>
+          <Route path='/band/PendingRequests' element={<BandPendingRequests />}></Route>
           {/* <Route path='/artist/Reports' element={<ArtistGenerateReports/>}></Route>
           <Route path='/artist/Dashboard' element={<ArtistDashboard/>}></Route>
           <Route path='/artist/Reports/:id' element={<ArtistGenerateReportsToday/>}></Route>
           <Route path='/artist/Event' element={<ArtistEvent/>}></Route>
           <Route path='/artist/EventSpecific/:id' element={<ArtistSpecificEvent/>}></Route> */}
-          <Route path='/band/PendingRequestView/:id' element={<BandPendingRequestView/>}></Route>
+          <Route path='/band/PendingRequestView/:id' element={<BandPendingRequestView />}></Route>
           {/*<Route path='/artist/priorbooking/:id1/:id2/:id3' element={<ArtistPriorBooking/>}></Route> */}
           {/* <Route path='/artist/eventsOn/:mmid/:date/:eventId' element={<ArtistEventOn/>}></Route> */}
-          <Route path='/band/agreement' element={<BandAgreement/>}></Route>
-          <Route path='/band/invoice/:id' element={<BandInvoice/>}></Route> 
-          <Route path='/band/agreementPreview' element={<BandAgreementPreview/>}></Route> 
-          <Route path='/band/invoicePreview' element={<BandInvoicePreview/>}></Route> 
+          <Route path='/band/agreement' element={<BandAgreement />}></Route>
+          <Route path='/band/invoice/:id' element={<BandInvoice />}></Route>
+          <Route path='/band/agreementPreview' element={<BandAgreementPreview />}></Route>
+          <Route path='/band/invoicePreview' element={<BandInvoicePreview />}></Route>
 
-          
+
           {/* <Route path='/artist/MyFeed' element={<MyFeed/>}></Route> */}
-       
 
-      
+
+
           {/* Organizer Routes */}
           <Route path='/' element={<Home />}></Route>
 
           <Route path='/organizer/dashboard' element={<OrganizerDashboard />}></Route>
           <Route path='/organizer/event' element={<ViewEvents />}></Route>
-          <Route path='/organizer/event/eventdashboard' element={<OrganizerEventDashboard />}></Route>
+          <Route path='/organizer/event/eventdashboard/:eventid' element={<OrganizerEventDashboard />}></Route>
           <Route path='/organizer/event/CreateEvent' element={<CreateEvent />}></Route>
-          <Route path='/organizer/eventhistory' element={<ViewEventHistory/>}></Route>
+          <Route path='/organizer/eventhistory' element={<ViewEventHistory />}></Route>
           <Route path='/organizer/complaint' element={<OrganizerComplaint />}></Route>
           <Route path='/organizer/profile' element={<OrganizerProfile />}></Route>
           <Route path='/organizer/searchartist' element={<SearchArtist />} />
-          <Route path='/organizer/searchartist/viewartist' element={<ViewArtist />} />  
-          <Route path='/organizer/searchartist/viewartist/makeartistrequest' element={<MakeArtistRequest />} />  
+          <Route path='/organizer/searchartist/viewartist' element={<ViewArtist />} />
+          <Route path='/organizer/searchartist/viewartist/makeartistrequest' element={<MakeArtistRequest />} />
 
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
@@ -171,20 +171,20 @@ function App() {
           <Route path='/admin/report' element={<AdminReport />} />
           <Route path='/admin/settings' element={<AdminSettings />} />
           <Route path='/admin/event' element={<AdminEvents />} />
-          <Route path='/admin/event/eventDetails' element={<AdminEventDashboard/>} />
+          <Route path='/admin/event/eventDetails' element={<AdminEventDashboard />} />
 
           {/*moderator*/}
           <Route path='/moderator/moderatorDashoboardContent' element={<ModeratorDashoboardContent />}></Route>
-          <Route path='/moderator/registration' element={<ModeratorRegistration  />}></Route>
-          <Route path='/moderator/registration/ProofCheck' element={<ProofCheck/>} />
+          <Route path='/moderator/registration' element={<ModeratorRegistration />}></Route>
+          <Route path='/moderator/registration/ProofCheck' element={<ProofCheck />} />
           <Route path='/moderator/event' element={<ModeratorEvent />}></Route>
           <Route path='/moderator/complaints' element={<ModeratorComplaints />}></Route>
-          <Route path='/moderator/complaints/viewComplaints' element={<ViewComplaints/>} />
+          <Route path='/moderator/complaints/viewComplaints' element={<ViewComplaints />} />
           <Route path='/moderator/userDetails' element={<ModeratorUserDetails />}></Route>
-          <Route path='/moderator/event/eventDetails' element={<EventDetails/>}/>
-          <Route path='/moderator/registration/ProofCheck' element={<proofCheck/>}/>
-          <Route path='/moderator/registration/proofcheck/suspenduser' element={<Suspenduser/>}/>
-          
+          <Route path='/moderator/event/eventDetails' element={<EventDetails />} />
+          <Route path='/moderator/registration/ProofCheck' element={<proofCheck />} />
+          <Route path='/moderator/registration/proofcheck/suspenduser' element={<Suspenduser />} />
+
 
         </Routes>
       </Router>

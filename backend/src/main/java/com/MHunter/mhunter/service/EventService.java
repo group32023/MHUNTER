@@ -19,5 +19,7 @@ public interface EventService {
     public List<Event> getEventsByOrgID(Integer OrgID);
 
 
+    public List<Event> getEventsByeventid(Integer eventid);
+
 
 }

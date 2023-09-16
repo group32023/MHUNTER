@@ -17,6 +17,9 @@ public interface EventRepository extends JpaRepository<Event,Integer> {
     @Query(value = "SELECT * FROM event WHERE orgid = :OrgID ", nativeQuery = true)
     List<Event> findByOrgID(Integer OrgID);
 
+    @Query(value = "SELECT * FROM event WHERE eventid = :eventid ", nativeQuery = true)
+    List<Event> findByeventid(Integer eventid);
+
     @Query(value = "SELECT * FROM event WHERE date = :date ", nativeQuery = true)
     List<Event> findByDate(LocalDate date);
 }

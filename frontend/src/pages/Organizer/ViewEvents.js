@@ -69,7 +69,8 @@ function ViewEvents() {
                     <Topbar customProp="Events" />
                     {events.map(event => (
                         <div className='col-md-3 event-box' key={event.eventid}>
-                            <Link to="/organizer/event/eventdashboard" className='link1'>
+                            <Link to={`/organizer/event/eventdashboard/${event.eventid}`} className='link1'>
+
 
                                 <div className='image'>
                                     <img src={musical}>
@@ -116,7 +117,7 @@ function ViewEvents() {
                 <Routes>
                     <Route path='/organizer/dashboard' element={<OrganizerDashboard />}></Route>
 
-                    <Route path='/organizer/event/eventdashboard' element={<OrganizerEventDashboard />}></Route>
+                    <Route path='/organizer/event/eventdashboard/:eventid' element={<OrganizerEventDashboard />}></Route>
                     <Route path='/organizer/event/CreateEvent' element={<CreateEvent />}></Route>
                     <Route path='/organizer/eventhistory' element={<ViewEventHistory />}></Route>
                     <Route path='/organizer/complaint' element={<OrganizerComplaint />}></Route>

@@ -3,7 +3,8 @@ import { Routes, Route } from 'react-router-dom';
 import SideMenuBarOrganizer from '../../components/common/SideMenuBar/SideMenuBarOrganizer';
 import "../../assets/css/OrganizerEventDashboard.css"
 import Topbar from '../../components/common/Topbar';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
+
 
 import CreateEvent from './CreateEvent';
 import ViewEvents from './ViewEvents';
@@ -36,7 +37,11 @@ import PaymentArtist7 from '../../assets/images/paymentArtist7.jpg'
 import PaymentArtist8 from '../../assets/images/paymentArtist8.png'
 
 
+
+
 function OrganizerEventDashboard() {
+
+    const { eventid } = useParams();
     return (
         <>
             <SideMenuBarOrganizer>
@@ -45,7 +50,7 @@ function OrganizerEventDashboard() {
 
                     <div className="row">
                         <div className="horizontalLine col-md-12 py-2 fs-7">
-                            <span >Events / APE KALAWA</span>
+                            <span >Events / APE KALAWA/Event ID: {eventid}</span>
                         </div>
                     </div>
 

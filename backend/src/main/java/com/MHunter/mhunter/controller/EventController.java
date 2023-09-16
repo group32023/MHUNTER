@@ -101,4 +101,13 @@ public class EventController {
         return ResponseEntity.ok(events);
     }
 
+    @GetMapping("/byEventid/{eventid}")
+    public ResponseEntity<List<Event>> getEventsByEventid(@PathVariable Integer eventid) {
+        List<Event> events = eventService.getEventsByeventid(eventid);
+        if (events.isEmpty()) {
+            return ResponseEntity.notFound().build();
+        }
+        return ResponseEntity.ok(events);
+    }
+
 }
