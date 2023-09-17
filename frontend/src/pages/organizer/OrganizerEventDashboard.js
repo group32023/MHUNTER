@@ -16,6 +16,7 @@ import SearchArtist from './SearchArtist';
 import ViewArtist from './ViewArtist';
 import MakeArtistRequest from './MakeArtistRequest';
 import OrganizerDashboard from './OrganizerDashboard';
+import OrganizerEventLocation from '../../components/organizer/OrganizerEventLocation';
 
 
 import { BiSolidEdit } from "react-icons/bi";
@@ -44,6 +45,7 @@ function OrganizerEventDashboard() {
 
     const { eventid } = useParams();
     const [event, setEvent] = useState(null);
+    const zoom = 15;
 
 
     useEffect(() => {
@@ -129,15 +131,23 @@ function OrganizerEventDashboard() {
 
                         <div className="locationDescriptionDiv mt-3 col-md-4">
                             <div className="locationTypeDescriptionDiv">
-                                <img className='' src={locationDemo} alt='' ></img>
+                                <iframe
+                                    src={`https://maps.google.com/maps?q=${event.latitude},${event.longitude}&z=${zoom}&output=embed`}
+                                    width="600"
+                                    height="250"
+                                    loading="lazy"
+                                    referrerPolicy="no-referrer-when-downgrade"
+                                    title="google map"
+                                ></iframe>
+                                {/* <img className='' src={locationDemo} alt='' ></img> */}
                             </div>
                             <div className="eventTypeDescriptionDiv " style={{ fontFamily: 'MyCustomFont1' }}>
                                 <div className="p-3">
                                     <div className="row " style={{ marginLeft: '30px' }} >
                                         <BiSolidCalendarStar className='dateIcon fs-1 col-md-3 ' />
-                                        <div className='col-md-8' >
+                                        <div className=' col-md-8 mb-4' >
                                             <p className='fs-6' style={{ fontFamily: 'MyCustomFont' }}>Event Type<br></br>
-                                                <span className='fs-4' style={{ fontFamily: 'MyCustomFont1' }}>{event.event_type}</span>
+                                                <span className='fs-4' style={{ fontFamily: 'MyCustomFont1' }}>{event.event_type.toUpperCase()}</span>
                                             </p>
 
                                         </div>
@@ -251,7 +261,7 @@ function OrganizerEventDashboard() {
                                         <BiSolidUser className='timeIcon fs-1 col-md-3 ' />
                                         <div className='col-md-8'>
                                             <p className='fs-6' style={{ fontFamily: 'MyCustomFont' }}>Expected Crowd<br></br>
-                                                <span className='fs-3' style={{ fontFamily: 'MyCustomFont1' }}>{event.crowd}</span>
+                                                <span className='fs-4' style={{ fontFamily: 'MyCustomFont1' }}>{event.crowd}</span>
                                             </p>
 
                                         </div>
@@ -286,6 +296,9 @@ function OrganizerEventDashboard() {
                             </div>
                         </div>
                     </div>
+
+
+
 
                 </div>
 
