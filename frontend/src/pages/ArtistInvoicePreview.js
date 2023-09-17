@@ -101,9 +101,7 @@ export default function BandAgreementPreview(props) {
               <div className='invoiceDetailContainer'>
               <div className='descriptionColumn'>
               <label className='dColumn'>Description</label>
-              <label className='AFee'>Band Fee</label>
-              <label className='tFee'>Sound Fee</label>
-              <label className='tFee'>Instrument Fee</label>
+              <label className='AFee'>Artist Fee</label>
               <label className='tFee'>Transport Fee</label>
               <label className='oFee'>Others</label>
               <label className='totalFee'>Total Amount</label>
@@ -111,9 +109,7 @@ export default function BandAgreementPreview(props) {
               </div>
               <div className='amountColumn'>
               <label className='aColumn'>Amonut (Rs.)</label>
-              <label className='AFeeAmpunt'>{location.state.bandfee}</label>
-              <label className='SFeeAmpunt'>{location.state.soundfee}</label>
-              <label className='IFeeAmpunt'>{location.state.instrumentfee}</label>
+              <label className='AFeeAmpunt'>{location.state.artistfee}</label>
               <label className='tFeeAmpunt'>{location.state.transportfee}</label>
               <label className='oFeeAmpunt'>{location.state.other}</label>
               <label className='totalFeeAmpunt'>{location.state.totalAmount}</label>

@@ -1,5 +1,6 @@
 package com.MHunter.mhunter.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -19,25 +20,21 @@ public class BookedList {
     private int bookedId;
 
 
-    @OneToOne(fetch = FetchType.LAZY)
+    @OneToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "invoice_id")
     private Invoice invoice;
 
-    @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "agreement_id")
-    private BandAgreement bandAgreement;
 
-    @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "org_id")
-    private Organizer organizer;
+    private int agreement_id;
 
-    @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "eventid")
-    private Event event;
 
-    @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "mmid")
-    private MusicMember musicMember;
+    private int org_id;
+
+
+    private int eventid;
+
+
+    private int mmid;
 
     private String requestState="Confirmed";
 

@@ -1,6 +1,5 @@
 .containerForElements{
     position: absolute;
-    text-align: center;
 
 
 }
@@ -236,6 +235,19 @@
 }
 
 
+.containerForElements .wariningforurl{
+
+    position: absolute;
+    top: 757px ;
+    left: 461px;
+    width: 750px;
+    font-size: 15px;
+    color: red;
+    font-weight: 600;
+
+}
+
+
 .clearBtn{
     position: absolute;
     top: 99px;
@@ -248,6 +260,22 @@
     background-color: #2f363e;
     border-radius: 5px;
     border: 2px solid red;
+
+}
+
+.setUrl{
+
+    position: absolute;
+    top: 21px;
+    left: 361px;
+    width: 107px;
+    height: 40px;
+    font-size: 18px;
+    color: red !important;
+    font-weight: bold;
+    background-color: #2f363e;
+    border-radius: 5px;
+    border: 2px solid rgb(255, 0, 195);
 
 }
 

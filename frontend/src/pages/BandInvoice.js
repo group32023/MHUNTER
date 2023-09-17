@@ -78,10 +78,7 @@ export default function BandInvoice() {
     console.log(invoice)
 
     
-    // eslint-disable-next-line react-hooks/rules-of-hooks
-  // eslint-disable-next-line react-hooks/rules-of-hooks
-  
-
+ 
 
 
   if(artistFee===0.00 && bandFee===0.00 && transportFee===0.00 && soundFee===0.00 && instrumentFee===0.00 && others===0.00){
@@ -120,6 +117,13 @@ export default function BandInvoice() {
       }, [bandFee, soundFee, instrumentFee, transportFee, others]);
 
 
+
+let navigate = useNavigate();
+const loadInvoicePreview=(id,mmid)=>{
+
+    navigate(`/band/invoicePreview/${id}/${mmid}`,{state:{bandfee:bandFee, soundfee:soundFee, instrumentfee:instrumentFee, transportfee:transportFee, other:others, totalAmount:totalAmount}});
+
+}
 
       
  // eslint-disable-next-line no-restricted-globals
@@ -209,6 +213,7 @@ export default function BandInvoice() {
      
       
       <button className='backInvoice1'>Back</button>
+      <button className='previewInvoice1'onClick={()=>loadInvoicePreview(id,758463)}>Preview</button>
 
           
         </div>
