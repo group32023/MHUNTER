@@ -43,7 +43,7 @@ import ArtistSpecificEvent from './pages/ArtistSpecificEvent';
 import ArtistGenerateReportsToday from './pages/ArtistGenerateReportsToday'
 import ArtistInvoice from './pages/ArtistInvoice';
 import RequestsLog from './pages/RequestLog';
-
+import PaymentForm from './pages/organizer/paymentForm';
 
 
 
@@ -148,6 +148,7 @@ function App() {
           <Route path='/organizer/searchartist' element={<SearchArtist />} />
           <Route path='/organizer/searchartist/viewartist' element={<ViewArtist />} />  
           <Route path='/organizer/searchartist/viewartist/makeartistrequest' element={<MakeArtistRequest />} />  
+          <Route path='/organizer/paymentForm'element={<PaymentForm />} /> 
 
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
