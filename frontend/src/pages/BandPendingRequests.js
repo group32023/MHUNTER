@@ -51,7 +51,7 @@ export default function ArtistPendingRequests() {
   let navigate = useNavigate();
 
   const load=(id)=>{
-    navigate(`/artist/PendingRequestView/${id}`);
+    navigate(`/band/PendingRequestView/${id}`);
 
   }
 

@@ -3,6 +3,7 @@ package com.MHunter.mhunter.controller;
 import com.MHunter.mhunter.model.*;
 import com.MHunter.mhunter.service.*;
 import com.MHunter.mhunter.struct.EventOrganizer;
+import com.MHunter.mhunter.struct.UserMusicMember;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -30,6 +31,9 @@ public class RequestMusicMemberController {
 
     @Autowired
     private IncomeArtistService incomeArtistService;
+
+    @Autowired
+    private MusicMemberService musicMemberService;
 
     @PostMapping("/add")
     public String save(@RequestBody RequestMusicMember requestMusicMember){
@@ -334,4 +338,20 @@ public class RequestMusicMemberController {
 
     }
 
-}
+
+    @GetMapping("/musicMemberDetails/{mid}")
+    public UserMusicMember musicMemberDetails(@PathVariable int mid) {
+
+      MusicMember musicMember =  musicMemberService.findSpecificMusicMember(mid);
+        User user = userService.findSpecificUser(musicMember.getUser().getUserId());
+        UserMusicMember userMusicMember = new UserMusicMember();
+        userMusicMember.setUserName(musicMember.getName());
+        userMusicMember.setAddress(user.getAddress());
+        userMusicMember.setEmail(user.getEmail());
+
+
+        return userMusicMember;
+    }
+
+
+    }

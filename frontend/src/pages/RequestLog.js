@@ -31,7 +31,7 @@ export default function ArtistPendingRequests() {
   useEffect(() => {
     // Fetch the data from the Java backend
     const getPendingRequest = async () =>{
-      const res = await fetch('http://localhost:8080/requestMusicMember/pendingRequest/758463')
+      const res = await fetch('http://localhost:8080/requestsLog/viewLogs/758463')
 
       const data = await res.json();
         setEventList(data);
@@ -49,39 +49,35 @@ export default function ArtistPendingRequests() {
 
   let navigate = useNavigate();
 
-  const load=(id)=>{
-    navigate(`/artist/PendingRequestView/${id}`);
+  const Cancel=(id)=>{
+    navigate(`/`);
 
   }
 
-  console.log(eventList1);
+  
 
   const divCount = eventList1.length;
   const divElements = [];
  
 
-  //Using a for loop to generate the <div> tags
-  for (let i = 0; i < divCount; i++) {
 
-  console.log(eventList1[i]['eventName']);
-  
+  for (let i = 0; i < divCount; i++) {
     
     divElements.push(<div key={i} className="requestContainerlog">
       <img src={profileImage} className="profilelog"></img>
       <div className="eventDetailslog">
         <h5>{eventList1[i]['organizerName']}</h5>
-        
+       { console.log(eventList1[i]['organizerName'])}
         <p class="eventType"><FontAwesomeIcon icon={faCalendarDays} id="EventIconPendingRequest"/>{eventList1[i]['eventName']}</p>
       <p class="eventDate"><FontAwesomeIcon icon={faCalendarDays} id="CalenderIconPendingRequest"/>{eventList1[i]['date']}</p>
-        <p class="venue"><FontAwesomeIcon icon={faLocationDot} id="LocationIconPendingRequest"/> {eventList1[i]['place']}</p>
+        <p class="venue"><FontAwesomeIcon icon={faLocationDot} id="LocationIconPendingRequest"/> {eventList1[i]['requestState']}</p>
       </div>
-     
-   
-      <button className="cancelBtn" onClick={()=>load(eventList1[i]['eventId'])}>Cancel</button>
     
-      
+      <button className="agreementBtn" onClick={()=>Cancel}>Agrrement</button>
    
-  </div>
+      <button className="cancelBtn" onClick={()=>Cancel}>Cancel</button>
+    
+       </div>
 
   );
    

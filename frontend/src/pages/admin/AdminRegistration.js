@@ -17,7 +17,27 @@ import AdminReport from './AdminReport';
 import AdminSettings from './AdminSettings';
 import Topbar from '../../components/common/Topbar'
 
+import {useEffect } from 'react';
+import axios from 'axios';
+
 function AdminRegistration() {
+
+  const [userR, setUserR] = useState([]);
+
+  useEffect(() => {
+    const userId = localStorage.getItem('userId');
+    if (userId) {
+        axios.get(`http://localhost:8080/allUsers`)
+            .then(response => {
+                setUserR(response.data);
+            })
+            .catch(error => {
+                console.error(error);
+                alert(error);
+            });
+    }
+}, []);
+
     const [searchTerm, setSearchTerm] = useState('');
 
     const handleInputChange = (event) => {
@@ -54,8 +74,25 @@ function AdminRegistration() {
         </div>
     </div>
 
-
+    {userR.length > 0 && (
         <table style={{width:'80%'}} className='data-row-registration'>
+            {userR.map((row, index) => (
+                <tr key={index} className='data-row-registration-tr'>
+                    <td className='data-row-registration-td'>
+                    <img src={row.profilePicture} alt='band' className='profile-picture' />
+                    </td>
+                    <td className='data-row-registration-td'>{row.firstName}</td>
+                    <td className='data-row-registration-td'>{row.orgId}</td>
+                    <td className='data-row-registration-td'>{row.status}</td>
+                    <td className='data-row-registration-td'>
+                    <Link to={`/admin/registration/proofcheck/${row.id}`}>
+                        <span className='data-button'>
+                        <button type='button' className='btn btn-primary'>View</button>
+                        </span>
+                    </Link>
+                    </td>
+                </tr>
+                ))}
             
             <tr className='data-row-registration-tr'>
                 <td className='data-row-registration-td'><img src={band} alt='band'className='profile-picture'></img></td>
@@ -80,6 +117,7 @@ function AdminRegistration() {
                 </td>
             </tr>  
         </table>
+    )}
 
 
 

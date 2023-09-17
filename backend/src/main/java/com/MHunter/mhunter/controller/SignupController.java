@@ -6,11 +6,16 @@ import com.MHunter.mhunter.struct.LoginRequest;
 import com.MHunter.mhunter.struct.SignupRequest;
 import jakarta.annotation.Resource;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.io.ClassPathResource;
+import org.springframework.core.io.UrlResource;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
+
+import java.net.MalformedURLException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 @RestController
 @CrossOrigin
@@ -73,21 +78,38 @@ public class SignupController {
         }
     }
 
-    private static final String UPLOAD_DIR = "Uploads/Images";
+    private static String imagePath = System.getProperty("user.dir")+"/src/main/java/com/MHunter/mhunter/Uploads/Images";
 
     @GetMapping("/uploads/images/{imageName:.+}")
     public ResponseEntity<Resource> getImage(@PathVariable String imageName) {
-        String imagePath = "src/main/java/com/MHunter/mhunter/" + UPLOAD_DIR + "/" + imageName;
-        try {
-            ClassPathResource resource = new ClassPathResource(imagePath);
 
-            if (resource.exists() && resource.isReadable()) {
-                return ResponseEntity.ok().body((Resource) resource);
+        Path path = Paths.get(imagePath,imageName);
+        org.springframework.core.io.Resource resource;
+        try{
+            resource = new UrlResource(path.toUri());
+            String contentType = determineContentType(imageName);
+            if(resource.exists() || resource.isReadable()){
+                return ResponseEntity.ok().contentType(MediaType.parseMediaType(contentType)).body((Resource) resource); // Adjust content type if needed.
             } else {
-                return ResponseEntity.notFound().build();
+                throw new RuntimeException("Failed to read the file!");
             }
-        } catch (Exception e) {
-            return ResponseEntity.notFound().build();
+        } catch (MalformedURLException e) {
+            throw new RuntimeException("Error: " + e.getMessage());
+        }
+    }
+
+    private String determineContentType(String imageName) {
+        String extension =imageName.substring(imageName.lastIndexOf(".") + 1).toLowerCase();
+        switch (extension){
+            case "mp4": return "video/mp4";
+            case "mkv": return "video/x-matroska";
+            case "mp3": return "audio/mpeg";
+            case "wav": return "audio/wav";
+            case "jpg":
+            case "jpeg": return "image/jpeg";
+            case "png": return "image/png";
+            default: return "application/octet-stream";
+
         }
     }
 }
