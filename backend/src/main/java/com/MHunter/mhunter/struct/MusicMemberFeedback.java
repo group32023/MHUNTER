@@ -15,7 +15,7 @@ public class MusicMemberFeedback {
 
     private String firstName;
     private String lastName;
-    private MultipartFile Image;
+    private String Image;
     private String description;
     private int rate;
     private Date date;

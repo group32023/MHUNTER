@@ -30,7 +30,8 @@ align-items: center;
 
   .box-1 .content-box h5{
 
-     margin-left: 4rem;
+     /* margin-left: 4rem; */
+     text-align: center;
      margin-top: 1rem;
      color: white;
   }

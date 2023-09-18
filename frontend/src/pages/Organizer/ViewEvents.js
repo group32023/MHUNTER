@@ -28,6 +28,7 @@ library.add(fas);
 function ViewEvents() {
 
     const [events, setEvents] = useState([])
+    const BASE_URL = "http://localhost:8080";
 
     const extractloc = (location) => {
 
@@ -52,8 +53,10 @@ function ViewEvents() {
             .then(res => res.json())
             .then((result) => {
                 setEvents(result);
+                console.log(result);
             }
             )
+            
     }, [])
 
 
@@ -74,8 +77,7 @@ function ViewEvents() {
                             <Link to="/organizer/event/eventdashboard" className='link1'>
 
                                 <div className='image'>
-                                    <img src={musical}>
-                                    </img>
+                                    <img src={`${BASE_URL}/postData/uploads/image/${event.image}.jpg`} alt="Event Image" />
                                 </div>
 
                                 <div className='content'>

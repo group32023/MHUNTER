@@ -35,6 +35,7 @@ function CreateEvent() {
     description: '',
     latitude: '',
     longitude: '',
+    image:'',
 
   })
 
@@ -45,24 +46,15 @@ function CreateEvent() {
 
     const { name, value } = event.target;
 
-    if (name === 'crowd') {
+    if (name === 'event_type') {
 
-      if (value <= 0) {
-        setCrowdError('Expected crowd should be a positive integer');
-      }
-
-      else if (!Number.isInteger(value)) {
-        setCrowdError('Expected crowd should be a positive integer');
-      }
-
-      else {
-        setCrowdError('');
-        // Handle location selection
-        setFormData((prevFormData) => ({
-          ...prevFormData,
-          [name]: value,
-        }));
-      }
+      setFormData((prevFormData) => ({
+        ...prevFormData,
+        [name]: value,
+        image: value,
+        
+      }));
+      console.log(formData);
 
     } else {
       // Handle form input changes
@@ -70,6 +62,7 @@ function CreateEvent() {
         ...prevFormData,
         [name]: value,
       }));
+      console.log(formData);
     }
   };
 
@@ -108,11 +101,11 @@ function CreateEvent() {
               <label htmlFor="event_type" className="form-label">Event Type</label>
               <select className="form-select" onChange={onChangeHandler} name="event_type" >
 
-                <option value="musical">Musical Show</option>
-                <option value="party">Party</option>
-                <option value="awurudu">Awurudu Function</option>
-                <option value="get">Get Together</option>
-                <option value="other">Other</option>
+                <option value="Musical Show">Musical Show</option>
+                <option value="Party">Party</option>
+                <option value="Wedding">Wedding</option>
+                <option value="Get Together">Get Together</option>
+                <option value="Other">Other</option>
 
               </select>
 

@@ -102,7 +102,7 @@ function ViewArtist() {
             .then(res => res.json())
             .then((result) => {
                 setFeedbacks(result);
-                // console.log(result);
+                console.log(result);
             }
             )
     }, [])
@@ -178,7 +178,7 @@ function ViewArtist() {
                                         </img>
                                     </div>
 
-                                    <div className='content-box'>
+                                    <div className='content-box align-items-center'>
 
                                         <h5>{artistNameRef.current}</h5>
                                         {/* <StarRating rating={5} style={{marginLeft:"2rem"}} /> */}
@@ -197,7 +197,7 @@ function ViewArtist() {
 
                                             <div className='d-flex align-items-center'>
                                                 <div className='org-image'>
-                                                    <img src={`${BASE_URL}/postData/uploads/image/{feedback.image}`} alt="User's Image" />
+                                                    <img src={`${BASE_URL}/postData/uploads/image/${feedback.image}`} alt="User's Image" />
                                                 </div>
 
                                                 <div className='ml-2 content'>

@@ -85,7 +85,7 @@ function SearchArtist() {
                         <div className='col-md-3 artist-box' >
                             <Link to="/organizer/searchartist/viewartist" className='link1'>
                                 <div className='image'>
-                                    <img src={`${BASE_URL}/postData/uploads/image/dinesh-tharanga.jpg`} alt="post media" />
+                                    <img src={`${BASE_URL}/postData/uploads/image/${artist.user.imagePath}`} alt="post media" />
                                 </div>
 
                                 <div className='content'>

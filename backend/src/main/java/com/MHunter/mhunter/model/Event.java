@@ -43,8 +43,8 @@ public class Event {
 
 
 
-    //    @Column(name = "Image")
-//    private String Image;
+//        @Column(name = "Image")
+    private String image;
 //    @Column(name = "Crowd")
     private int Crowd;
 
@@ -163,4 +163,9 @@ public class Event {
     public void setCrowd(int crowd) {
         Crowd = crowd;
     }
+
+    public String getImage(){return image;}
+
+    public void setImage(String image){this.image = image;}
+
 }

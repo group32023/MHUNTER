@@ -56,7 +56,7 @@ public class FeedbackController {
 
                 musicMemberFeedback.setFirstName(user.getFirstName() );
                 musicMemberFeedback.setLastName(user.getLastName() );
-                musicMemberFeedback.setImage(user.getImage());
+                musicMemberFeedback.setImage(user.getImagePath());
                 musicMemberFeedback.setDescription(feedback.getDescription());
                 musicMemberFeedback.setRate(feedback.getRate());
                 musicMemberFeedback.setDate(feedback.getDate());
