@@ -37,7 +37,7 @@
 
 .Footer h5 {
   color: #7643D2;
-  margin-left: 12px;
+  margin-left: 110px;
 }
 
 .ft-2 ul {
@@ -91,14 +91,14 @@
 }
 .ft-1 .logoInFooter{
   position: absolute;
-  top: 590%;
+  top: 593%;
   left: 9%;
   width: 176px;
   height: 186px;
 }
 .ft-1  .introductionFooter{
   position: absolute;
-  top: 611%;
+  top: 613%;
   left: 10%;
   color: #fff;
   font-family: 'Roboto', sans-serif;
