@@ -25,5 +25,6 @@ public class RequestMusicMember {
     private LocalDateTime confirmationDate;
     private LocalTime arrivalTime;
     private LocalTime departureTime;
+    private String specialNotes;
 
 }

@@ -38,12 +38,12 @@ function MakeArtistRequest() {
     const [formData, setFormData] = useState({
 
 
-        MMID: mmid,
-        orgId: orgid,
-        eventId: eventid,
+        // MMID: mmid,
+        // orgId: orgid,
+        // eventId: eventid,
         arrivalTime: '',
         departureTime: '',
-        special_notes: '',
+        specialNotes: '',
 
 
     })
@@ -219,13 +219,13 @@ function MakeArtistRequest() {
                         <div className="form row">
 
                             <div className="form-group col-md-6">
-                                <label htmlFor="start_time" className="form-label" >Artist Arrival Time</label>
+                                <label htmlFor="start_time" className="form-label" >Arrival Time</label>
                                 <input type="time" className="form-control" name="arrivalTime" onChange={onChangeHandler}></input>
                             </div>
 
                             <div className="form-group col-md-6">
 
-                                <label htmlFor="end_time" className="form-label">Artist Departure Time</label>
+                                <label htmlFor="end_time" className="form-label">Departure Time</label>
                                 <input type="time" className="form-control" name="departureTime" onChange={onChangeHandler}></input>
 
                             </div>
@@ -236,14 +236,14 @@ function MakeArtistRequest() {
                         <div className="form-group">
 
                             <label htmlFor="description" className="form-label">Special Notes</label>
-                            <textarea type="text" className="form-control" name="description" onChange={onChangeHandler}></textarea>
+                            <textarea type="text" className="form-control" name="specialNotes" onChange={onChangeHandler}></textarea>
 
                         </div>
 
                         <div className="form-group">
                             <Link to="/organizer/event" className='link1'>
                                 <button class="btn " type="submit" onClick={(e) => {
-                                    e.preventDefault(); console.log(formData); fetch("http://localhost:8080/requestMusicMember/add", {
+                                    e.preventDefault(); console.log(formData); fetch(`http://localhost:8080/requestMusicMember/add/${mmid}/${eventid}/${orgid}`, {
                                         method: "POST",
                                         headers: { "Content-Type": "application/json" },
                                         body: JSON.stringify(formData)

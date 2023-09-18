@@ -31,8 +31,15 @@ public class RequestMusicMemberController {
     @Autowired
     private IncomeArtistService incomeArtistService;
 
-    @PostMapping("/add")
-    public String save(@RequestBody RequestMusicMember requestMusicMember){
+    @PostMapping("/add/{mmid}/{eventid}/{orgid}")
+    public String save(@RequestBody RequestMusicMember requestMusicMember,@PathVariable("mmid") int mmid,@PathVariable("eventid") int eventid , @PathVariable("orgid") int orgid  ){
+
+         RequestMusicMemberId requestMusicMemberId = new RequestMusicMemberId();
+         requestMusicMemberId.setMMID(mmid);
+         requestMusicMemberId.setEventId(eventid);
+
+         requestMusicMember.setRequestMusicMemberId(requestMusicMemberId);
+         requestMusicMember.setOrgId(orgid);
          requestMusicMember.setRequestDate(LocalDateTime.now());
          requestMusicMemberService.saveRequestMusicMember(requestMusicMember);
          return "added";
