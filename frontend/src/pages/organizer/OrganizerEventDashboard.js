@@ -141,19 +141,7 @@ function OrganizerEventDashboard() {
                                 ></iframe>
                                 {/* <img className='' src={locationDemo} alt='' ></img> */}
                             </div>
-                            <div className="eventTypeDescriptionDiv " style={{ fontFamily: 'MyCustomFont1' }}>
-                                <div className="p-3">
-                                    <div className="row " style={{ marginLeft: '30px' }} >
-                                        <BiSolidCalendarStar className='dateIcon fs-1 col-md-3 ' />
-                                        <div className=' col-md-8 mb-4' >
-                                            <p className='fs-6' style={{ fontFamily: 'MyCustomFont' }}>Event Type<br></br>
-                                                <span className='fs-4' style={{ fontFamily: 'MyCustomFont1' }}>{event.event_type.toUpperCase()}</span>
-                                            </p>
 
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
                     </div>
 
@@ -254,14 +242,31 @@ function OrganizerEventDashboard() {
                             </div>
                         </div>
 
+
+
                         <div className="locationDescriptionDiv mt-2 col-md-4">
+                            <div className="eventTypeDescriptionDiv " style={{ fontFamily: 'MyCustomFont1' }}>
+                                <div className="p-3">
+                                    <div className="row " style={{ marginLeft: '30px' }} >
+                                        <BiSolidCalendarStar className='dateEventTypeIcon fs-1 col-md-3 ' />
+                                        <div className=' col-md-8 mb-4' >
+                                            <p className='fs-6' style={{ fontFamily: 'MyCustomFont' }}>Event Type<br></br>
+                                                <span className='fs-5' style={{ fontFamily: 'MyCustomFont1' }}>{event.event_type.toUpperCase()}</span>
+                                            </p>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
                             <div className="crowdTypeDescriptionDiv " >
                                 <div className="p-3">
                                     <div className="row" style={{ marginLeft: '30px' }}>
-                                        <BiSolidUser className='timeIcon fs-1 col-md-3 ' />
+                                        <BiSolidUser className='timeCrowdIcon fs-1 col-md-3 ' />
                                         <div className='col-md-8'>
                                             <p className='fs-6' style={{ fontFamily: 'MyCustomFont' }}>Expected Crowd<br></br>
-                                                <span className='fs-4' style={{ fontFamily: 'MyCustomFont1' }}>{event.crowd}</span>
+                                                <span className='fs-5' style={{ fontFamily: 'MyCustomFont1' }}>{event.crowd}</span>
                                             </p>
 
                                         </div>
@@ -272,7 +277,7 @@ function OrganizerEventDashboard() {
                             <div className="addTypeDescriptionDiv p-2" style={{ fontFamily: 'MyCustomFont1' }}>
                                 <div className="row col-md-12 ">
                                     <Link to="/organizer/searchartist" style={{ color: 'white', textDecoration: 'none' }}>
-                                        <div className="addRow mt-2 p-2 text-center">Add Artist
+                                        <div className="addRow  p-2 text-center">Add Artist
                                             <BiSolidPlusCircle className='plusIcon mx-2 fs-3' />
                                         </div>
                                     </Link>
