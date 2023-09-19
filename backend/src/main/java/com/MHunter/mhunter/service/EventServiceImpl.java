@@ -52,5 +52,10 @@ public class EventServiceImpl implements EventService {
         return eventRepository.findByeventid(eventid);
     }
 
+@Override
+    public List<Event> getConfirmationStatusByEventIdOrgId(Integer eventid, Integer OrgID){
+        return eventRepository.findByOrgIdEventIdConfirmationStatus(eventid,OrgID);
+}
+
 
 }
