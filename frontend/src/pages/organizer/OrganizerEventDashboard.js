@@ -17,6 +17,7 @@ import ViewArtist from './ViewArtist';
 import MakeArtistRequest from './MakeArtistRequest';
 import OrganizerDashboard from './OrganizerDashboard';
 import OrganizerEventLocation from '../../components/organizer/OrganizerEventLocation';
+import SystemPreloader from '../../components/common/SystemPreloader';
 
 
 import { BiSolidEdit } from "react-icons/bi";
@@ -59,7 +60,7 @@ function OrganizerEventDashboard() {
     }, [eventid]);
 
     if (!event) {
-        return <div>Loading...</div>;
+        return <div><SystemPreloader /></div>;
     }
 
     return (
@@ -88,7 +89,7 @@ function OrganizerEventDashboard() {
                                     <span className="eventDescDivSpan">{event.event_name.toUpperCase()}</span>
                                     <div className="row" style={{ display: 'flex' }}>
                                         <div className="eventDescInnerDiv col-md-10 py-2 " >
-                                            <p style={{ textAlign: 'justify' }}>
+                                            <p style={{ textAlign: 'justify', fontSize: '14px' }}>
                                                 {event.description}
                                             </p>
                                         </div>
