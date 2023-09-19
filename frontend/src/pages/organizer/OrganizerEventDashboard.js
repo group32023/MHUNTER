@@ -18,6 +18,8 @@ import MakeArtistRequest from './MakeArtistRequest';
 import OrganizerDashboard from './OrganizerDashboard';
 import OrganizerEventLocation from '../../components/organizer/OrganizerEventLocation';
 import SystemPreloader from '../../components/common/SystemPreloader';
+import EventDashboardImagePopup from '../../components/organizer/EventDashboardImagePopup';
+import EventDashboardDescriptionEdit from '../../components/organizer/EventDashboardDescriptionEdit';
 
 
 import { BiSolidEdit } from "react-icons/bi";
@@ -43,12 +45,40 @@ import PaymentArtist8 from '../../assets/images/paymentArtist8.png'
 
 
 function OrganizerEventDashboard() {
+    //Event Banner Image Change
+    const [image, setImage] = useState(EventBanner4); // Set your default image here
+
+    const handleImageDelete = () => {
+        // Logic to delete the image (e.g., set it back to the default image)
+        setImage(EventBanner4);
+    };
+
+    const handleImageSave = (newImage) => {
+        // Logic to save the new image (e.g., update the state with the new image)
+        if (newImage) {
+            const reader = new FileReader();
+            reader.onload = () => {
+                setImage(reader.result);
+            };
+            reader.readAsDataURL(newImage);
+        }
+    };
+
+    //Event Description Change
+    const [showModal, setShowModal] = useState(false);
+    const [description, setDescription] = useState('');
+
+    const handleSaveDescription = (newDescription) => {
+        setDescription(newDescription);
+    };
+
+    //Location Loading
 
     const { eventid } = useParams();
     const [event, setEvent] = useState(null);
     const zoom = 15;
 
-
+    //Event Data Fetching
     useEffect(() => {
         axios.get(`http://localhost:8080/event/byEventid/${eventid}`)
             .then((response) => {
@@ -58,6 +88,8 @@ function OrganizerEventDashboard() {
                 console.error('Error fetching event data:', error);
             });
     }, [eventid]);
+
+    //Page Preloader
 
     if (!event) {
         return <div><SystemPreloader /></div>;
@@ -83,19 +115,35 @@ function OrganizerEventDashboard() {
                         <div className="eventDescriptionDiv  mt-3 col-md-7">
                             <div className="row p-2 ">
                                 <div className="eventImgDiv col-md-5 mt-2">
-                                    <img alt='' src={EventBanner4} width='385px' height='210px' />
+                                    <EventDashboardImagePopup currentImage={image} onDelete={handleImageDelete} onSave={handleImageSave} />
                                 </div>
                                 <div className="eventDescDiv col-md-7 mt-2"  >
                                     <span className="eventDescDivSpan">{event.event_name.toUpperCase()}</span>
                                     <div className="row" style={{ display: 'flex' }}>
                                         <div className="eventDescInnerDiv col-md-10 py-2 " >
-                                            <p style={{ textAlign: 'justify', fontSize: '14px' }}>
-                                                {event.description}
-                                            </p>
+
+                                            <div>
+                                                <p style={{ textAlign: 'justify', fontSize: '14px' }}>
+                                                    {event.description}
+                                                </p>
+                                                {/* <button >Edit Description</button> */}
+
+
+                                            </div>
+
                                         </div>
                                         <div className='' style={{ display: 'flex', flex: '1', padding: '0px', margin: '0px' }}>
-                                            <BiSolidEdit className='descriptionIcon fs-4 d-flex align-items-center justify-content-center ' />
-                                            <BiSolidBox className='descriptionIcon fs-4  d-flex align-items-center justify-content-center ' />
+                                            <BiSolidEdit className='descriptionIcon fs-4 d-flex align-items-center justify-content-center ' onClick={() => setShowModal(true)} />
+                                            {/* <BiSolidBox className='descriptionIcon fs-4  d-flex align-items-center justify-content-center ' /> */}
+
+
+                                            <EventDashboardDescriptionEdit
+                                                description={event.description}
+                                                show={showModal}
+                                                onHide={() => setShowModal(false)}
+                                                onSave={handleSaveDescription}
+                                            />
+
                                         </div>
 
                                     </div>
