@@ -47,13 +47,13 @@ public class BookedListController {
 
        bookedLists.forEach(res -> {
                    Event event = eventService.viewSpecificEvent(res.getEventid());
-                   Organizer organizer = organizerService.findSpecificOrganizer(res.getOrg_id());
+                   Organizer organizer = organizerService.findSpecificOrganizer(res.getOrgId());
                    User user = userService.findSpecificUser(organizer.getUser().getUserId());
                    RequestLogDetails requestLogDetails = new RequestLogDetails();
 
                    requestLogDetails.setOrganizerName(user.getFirstName() + " " + user.getLastName());
                    requestLogDetails.setEventName(event.getEvent_name());
-                   requestLogDetails.setAgreementId(res.getAgreement_id());
+                   requestLogDetails.setAgreementId(res.getAgreementId());
                    requestLogDetails.setDate(event.getDate());
                    requestLogDetails.setRequestState(res.getRequestState());
 

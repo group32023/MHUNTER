@@ -4,18 +4,11 @@ import com.MHunter.mhunter.model.User;
 import com.MHunter.mhunter.service.SignupService;
 import com.MHunter.mhunter.struct.LoginRequest;
 import com.MHunter.mhunter.struct.SignupRequest;
-import jakarta.annotation.Resource;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.io.UrlResource;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
-
-import java.net.MalformedURLException;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 
 @RestController
 @CrossOrigin
@@ -80,7 +73,7 @@ public class SignupController {
 
     private static String imagePath = System.getProperty("user.dir")+"/src/main/java/com/MHunter/mhunter/Uploads/Images";
 
-    @GetMapping("/uploads/images/{imageName:.+}")
+    /*@GetMapping("/uploads/images/{imageName:.+}")
     public ResponseEntity<Resource> getImage(@PathVariable String imageName) {
 
         Path path = Paths.get(imagePath,imageName);
@@ -111,5 +104,5 @@ public class SignupController {
             default: return "application/octet-stream";
 
         }
-    }
+    }*/
 }
