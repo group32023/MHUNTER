@@ -164,7 +164,7 @@ function App() {
           {/*Admin*/}
           <Route path='/admin/admindashboard' element={<AdminDashboard />} />
           <Route path='/admin/registration' element={<AdminRegistration />} />
-          <Route path='/admin/registration/proofcheck' element={<ProofCheck />} />
+          <Route path="/admin/registration/proofcheck/:id" element={<ProofCheck />} />
           <Route path='/admin/Alluserdetails' element={<UserDetails />} />
           <Route path='/admin/userdetails' element={<AllUserDetails />} />
           <Route path='/admin/userdetails/viewdetails' element={<ViewUserDetails />} />

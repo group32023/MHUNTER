@@ -4,7 +4,7 @@ import '../../assets/css/admin/adminDashboard.css'
 import notification from '../../assets/images/notification-a.png'
 import home from '../../assets/images/home-button-a.png'
 import logout from '../../assets/images/logout-a.png'
-import { Link,Routes, Route} from 'react-router-dom';
+import { Link,Routes, Route,useNavigate,useParams} from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import band from '../../assets/images/band.jpg'
@@ -20,14 +20,26 @@ import Topbar from '../../components/common/Topbar'
 import {useEffect } from 'react';
 import axios from 'axios';
 
+
 function AdminRegistration() {
 
   const [userR, setUserR] = useState([]);
+  let navigate = useNavigate();
+  const { id } = useParams(); 
+  const load=(id)=>{
+    if (id) {
+      navigate(`/admin/registration/proofcheck/${id}`);
+    } else {
+      // Handle the case where id is undefined or null
+      console.error("Invalid id:", id);
+    }
+
+  }
 
   useEffect(() => {
     const userId = localStorage.getItem('userId');
     if (userId) {
-        axios.get(`http://localhost:8080/allUsers`)
+        axios.get(`http://localhost:8080/view`)
             .then(response => {
                 setUserR(response.data);
             })
@@ -37,7 +49,6 @@ function AdminRegistration() {
             });
     }
 }, []);
-
     const [searchTerm, setSearchTerm] = useState('');
 
     const handleInputChange = (event) => {
@@ -51,8 +62,8 @@ function AdminRegistration() {
     <>
     <SideMenuBarAdmin>
     <Topbar/>
-    <div className='header-admin'>
-      <div className='header-title'>
+    <div className='header-admin' >
+      <div className='header-title' >
         <h1>Registration</h1>
       </div>
     </div>
@@ -81,41 +92,20 @@ function AdminRegistration() {
                     <td className='data-row-registration-td'>
                     <img src={row.profilePicture} alt='band' className='profile-picture' />
                     </td>
-                    <td className='data-row-registration-td'>{row.firstName}</td>
-                    <td className='data-row-registration-td'>{row.orgId}</td>
+                    <td className='data-row-registration-td'>{row.name}</td>
+                    <td className='data-row-registration-td'>{row.type}</td>
                     <td className='data-row-registration-td'>{row.status}</td>
                     <td className='data-row-registration-td'>
-                    <Link to={`/admin/registration/proofcheck/${row.id}`}>
-                        <span className='data-button'>
-                        <button type='button' className='btn btn-primary'>View</button>
-                        </span>
-                    </Link>
+                   
+                    <span className='data-button'>
+                        <button type='button' className='btn btn-primary' onClick={()=>load(row.id)}>View</button>
+                    </span>
+                    
                     </td>
                 </tr>
                 ))}
+                
             
-            <tr className='data-row-registration-tr'>
-                <td className='data-row-registration-td'><img src={band} alt='band'className='profile-picture'></img></td>
-                <td className='data-row-registration-td'>D.K.D.Anjalika</td>
-                <td className='data-row-registration-td'>Artist</td>
-                <td className='data-row-registration-td'>Pending</td>
-                <td className='data-row-registration-td'> 
-                    <Link to={"/admin/registration/proofcheck"}>
-                        <span className='data-button'><button type='button' className=' btn btn-primary'> View </button></span>
-                    </Link>
-                </td>
-            </tr>
-            <tr className='data-row-registration-tr'>
-                <td className='data-row-registration-td'><img src={band} alt='band'className='profile-picture'></img></td>
-                <td className='data-row-registration-td'>D.K.D.Anjaaaalika</td>
-                <td className='data-row-registration-td'>Artist</td>
-                <td className='data-row-registration-td'>Pending</td>
-                <td className='data-row-registration-td'> 
-                    <Link to={"/admin/registration/proofcheck"}>
-                        <span className='data-button'><button type='button' className=' btn btn-primary'> View </button></span>
-                    </Link>
-                </td>
-            </tr>  
         </table>
     )}
 
@@ -124,7 +114,7 @@ function AdminRegistration() {
     <Routes>
           
           <Route path='/admin/admindashobard' element={<AdminDashboard/>} />
-          <Route path='/admin/registration/proofcheck' element={<ProofCheck/>} />
+          <Route path="/admin/registration/proofcheck/:id" element={<ProofCheck />} />
           <Route path='/admin/userdetails' element={<AllUserDetails/>} />
           <Route path='/admin/userdetails/viewdetails' element={<ViewUserDetails/>} />
           <Route path='/admin/report' element={<AdminReport/>} />
