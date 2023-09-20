@@ -111,7 +111,7 @@ function App() {
           <Route path='/artist/priorbooking/:id1/:id2/:id3' element={<ArtistPriorBooking/>}></Route>
           <Route path='/artist/eventsOn/:mmid/:date/:eventId' element={<ArtistEventOn/>}></Route>
           <Route path='/artist/invoice/:id' element={<ArtistInvoice/>}></Route> 
-          <Route path='/artist/RequestsLog' element={<RequestsLog/>}></Route> 
+          <Route path='/requestsLog' element={<RequestsLog/>}></Route> 
 
           <Route path='/artist/MyFeed' element={<MyFeed/>}></Route>
        
@@ -125,10 +125,10 @@ function App() {
           <Route path='/band/PendingRequestView/:id' element={<BandPendingRequestView/>}></Route>
           {/*<Route path='/artist/priorbooking/:id1/:id2/:id3' element={<ArtistPriorBooking/>}></Route> */}
           {/* <Route path='/artist/eventsOn/:mmid/:date/:eventId' element={<ArtistEventOn/>}></Route> */}
-          <Route path='/band/agreement' element={<BandAgreement/>}></Route>
-          <Route path='/band/invoice/:id' element={<BandInvoice/>}></Route> 
-          <Route path='/band/agreementPreview' element={<BandAgreementPreview/>}></Route> 
-          <Route path='/band/invoicePreview' element={<BandInvoicePreview/>}></Route> 
+          <Route path='/band/agreement/:id/:mmid' element={<BandAgreement/>}></Route>
+          <Route path='/band/invoice/:id/:mmid' element={<BandInvoice/>}></Route> 
+          <Route path='/band/agreementPreview/:id/:mmid' element={<BandAgreementPreview/>}></Route> 
+          <Route path='/band/invoicePreview/:id/:mmid' element={<BandInvoicePreview/>}></Route> 
 
           
           {/* <Route path='/artist/MyFeed' element={<MyFeed/>}></Route> */}

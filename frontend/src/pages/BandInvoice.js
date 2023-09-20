@@ -58,6 +58,12 @@ export default function BandInvoice() {
   const [others,setOthers] = useState(0.00);
   const [totalAmount,setTotalAmount] = useState(0.00);
   const [paymentType, setpaymentType]=useState("Full")
+  const [eventId, setIdForEvent]=useState(0)
+  const [invoiceId,setInvoiceId] = useState(0);
+  const [mmid, setMmid]=useState(0)
+  const [orgId, setOrgId]=useState(0)
+  const [agreementId, setAgreementId]=useState(0)
+
 
  
 
@@ -75,13 +81,12 @@ export default function BandInvoice() {
   const addInvoice=(e)=>{
     e.preventDefault();
     const invoice = {bandFee,soundFee,instrumentFee,transportFee,others,totalAmount,paymentType}
-    console.log(invoice)
+    //console.log(invoice)
 
     
-    // eslint-disable-next-line react-hooks/rules-of-hooks
-  // eslint-disable-next-line react-hooks/rules-of-hooks
-  
 
+    
+ 
 
 
   if(artistFee===0.00 && bandFee===0.00 && transportFee===0.00 && soundFee===0.00 && instrumentFee===0.00 && others===0.00){
@@ -94,8 +99,8 @@ export default function BandInvoice() {
           headers:{"Content-Type" : "application/json"},
           body:JSON.stringify(invoice)
         }).then(()=>{
-    
-            alert("Confirm Request!");
+         
+         
             setBandFee(0.00);
             setArtistFee(0.00)
             setTransportFee(0.00)
@@ -103,7 +108,28 @@ export default function BandInvoice() {
             setInstrumentFee(0.00)
             setTotalAmount(0.00)
             setSoundFee(0.00)
-          })
+
+            setAgreementId(1)
+            setMmid(758463)
+            setIdForEvent(event['eventId'])
+            setOrgId(event['orgId'])
+            setInvoiceId(1)
+
+            console.log(event['eventId'])
+            const bookedList = {agreementId,invoiceId,eventId,mmid,orgId}
+            console.log(bookedList)
+
+                fetch("http://localhost:8080/requestsLog/save",{
+                  method:"POST",
+                  headers:{"Content-Type" : "application/json"},
+                  body:JSON.stringify(bookedList)
+                }).then(()=>{
+
+                  alert("Confirm Request!");
+                
+              })
+
+            })
           
   }
   
@@ -120,6 +146,13 @@ export default function BandInvoice() {
       }, [bandFee, soundFee, instrumentFee, transportFee, others]);
 
 
+
+let navigate = useNavigate();
+const loadInvoicePreview=(id,mmid)=>{
+
+    navigate(`/band/invoicePreview/${id}/${mmid}`,{state:{bandfee:bandFee, soundfee:soundFee, instrumentfee:instrumentFee, transportfee:transportFee, other:others, totalAmount:totalAmount}});
+
+}
 
       
  // eslint-disable-next-line no-restricted-globals
@@ -209,6 +242,7 @@ export default function BandInvoice() {
      
       
       <button className='backInvoice1'>Back</button>
+      <button className='previewInvoice1'onClick={()=>loadInvoicePreview(id,758463)}>Preview</button>
 
           
         </div>

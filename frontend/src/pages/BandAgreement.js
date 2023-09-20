@@ -25,8 +25,8 @@ import { Label } from '@mui/icons-material';
 
 
 
-export default function BandAgreem() {
-  const { id } = useParams();
+export default function BandAgreemnt() {
+  const { id, mmid } = useParams();
   const [event, setEvent] = useState([]);
   const [expand,setExpandedSideBar] = useState(true)
   const [rule1, setRule1]=useState("null")
@@ -36,17 +36,16 @@ export default function BandAgreem() {
   const [additionalRules, setAdditionalRules]=useState("")
   const [sign,setSign]= useState()
   const [url,setUrl] = useState()
+  const [isParagraphVisible,setIsParagraphVisible]=useState(false)
 
 
 
 
 
-  const addAgreement=(e)=>{
-    e.preventDefault();
-    const agreement = {rule1,rule2,rule3,rule4,additionalRules,url}
-    console.log(agreement.rule1)
-
-
+ 
+const addAgreement=(e)=>{   
+  e.preventDefault(); 
+    const  agreement = {rule1,rule2,rule3,rule4,additionalRules,url}
     if(rule1==="null" && rule2==="null" && rule3==="null" && rule4==="null" && additionalRules===""){
           console.log("cannot submit")
     }
@@ -68,6 +67,7 @@ export default function BandAgreem() {
   }
   
 
+   
  
      
       }
@@ -119,11 +119,25 @@ const handleCheckboxChangeRule4=()=>{
 
 
 let navigate = useNavigate();
-const loadPreview=(id)=>{
-  navigate(`/band/agreementPreview`);
+const loadPreview=(id,mmid)=>{
 
+  if(url===undefined){
+    console.log("hi, error of url");
+    setIsParagraphVisible(true)
+  }
+
+  else{
+    setIsParagraphVisible(false)
+    navigate(`/band/agreementPreview/${id}/${mmid}`,{state:{r1:rule1,r2:rule2,r3:rule3,r4:rule4,aR:additionalRules,u:url}});
+
+  }
+  
+ 
 }
 
+const loadInvoice=(id,mmid)=>{
+  navigate(`/band/invoice/${id}/${mmid}`);
+}
 
 
 
@@ -131,7 +145,7 @@ const loadPreview=(id)=>{
     
     <div >
        <SideMenuBarArtist>
-        <div>
+        <div className='mainC'>
             <p className='headerDashboard'>Pending Requests</p>
             <div className={expand ? 'notificationBg':'notificationBg-ex'}>
               <img src={notification} className='notificationIcon' alt='notification'></img>
@@ -182,16 +196,18 @@ const loadPreview=(id)=>{
               
                           <div className='canvasforSignature' style={{border:"2px solid #ffffff", background:"#D9D9D9", position:"absolute", top:"500px",left:"200px",width:300, height:150}}>
                             <SignatureCanvas canvasProps={{width:300, height:150, className:'sigCanvas'}}
-                            ref={data=>setSign(data)}/>
+                            ref={data=> setSign(data)} />
                        
                          
-                          
-                            <button className='clearBtn' onClick={clear}>Clear</button>
+                             <button  type='button' onClick={Generate} className='setUrl'>Set</button>                       
+                            <button  type='button' className='clearBtn' onClick={clear}>Clear</button>
                             {/* <button className='saveBtn' onClick={Generate}>Save</button> */}
                           </div>
 
-                          <button type='submit' className='submitAgreement' onClick={Generate}>Submit</button>
-                          <button type='button' className='previewAgreement' onClick={loadPreview} >Preview</button>
+
+
+                          <button type='submit' className='submitAgreement' onClick={()=>loadInvoice(id,mmid)}>Submit</button>
+                          <button type='button' className='previewAgreement' onClick={()=>loadPreview(id,mmid)} >Preview</button>
 
 
                        </form>
@@ -200,9 +216,9 @@ const loadPreview=(id)=>{
           </div>
 
           
-         
+          {isParagraphVisible && <p className="wariningforurl">Insert Your Signature. After inserting, press Set Button.</p>}
+
         </div>
-          
           
     
         </SideMenuBarArtist>

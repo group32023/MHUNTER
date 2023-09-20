@@ -50,8 +50,8 @@ export default function ArtistPendingRequests() {
 
   }, []);
 
-  const loadInvoice=(id)=>{
-    navigate(`/artist/invoice/${id}`);
+  const loadAgreement=(id,mmid)=>{
+    navigate(`/band/agreement/${id}/${mmid}`);
 
   }
 
@@ -66,7 +66,7 @@ export default function ArtistPendingRequests() {
   }
 
 const loadPendingRequest=()=>{
-  navigate('/artist/PendingRequests');
+  navigate('/band/PendingRequests');
 }
  
  //var eventID =event[0]['eventid'];
@@ -117,7 +117,7 @@ const loadPendingRequest=()=>{
 
             <button className="priorbookingsBtn" onClick={()=>loadPriorBooking(758463,event['orgId'],event['eventId'])}>Prior Bookings</button>
             <button className="myEventsBtn" onClick={()=>loadMyEventsOn(758463,event['date'],event['eventId'])}>My Events</button>
-            <button className="acceptBtn" onClick={()=>loadInvoice(event['eventId'])}>Accept</button>
+            <button className="acceptBtn" onClick={()=>loadAgreement(event['eventId'],758463)}>Accept</button>
             <button className="rejectBtn" onClick={()=>loadPendingRequest()}>Reject</button>
         </div>
 
