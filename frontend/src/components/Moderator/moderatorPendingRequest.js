@@ -17,7 +17,6 @@ export default function PendingRequest({ expand }) {
 
   return (
     <div>
-      <img className='pendingRequestImg' src={incomeImg} alt='' />
       <p className='pendingRequestP'>Pending Requests</p>
       <img className='wave01Img' src={wave01} alt='' />
       <p className='requestCount'>
