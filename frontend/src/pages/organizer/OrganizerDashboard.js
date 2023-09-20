@@ -80,9 +80,10 @@ export default function OrganizerDashboard() {
                       <div className='PaymentTBEventName d-flex align-items-center justify-content-center'><BsMusicNoteList className='' style={{ fontSize: '18px', marginRight: '7px', color: '#7643D2' }} />OBA NISA PERA BEATZ</div>
                       <div className='PaymentTBAmount d-flex align-items-center justify-content-center'>LKR 60 000.00</div>
                       <div className=' PaymentTBBtn d-flex align-items-center justify-content-center'>
-                        <Button className='paymentBtn shadow' variant="secondary" >
-                          Pay Now
-                        </Button>
+                      <Link to={`/organizer/paymentForm`} >
+                          <Button className='paymentBtn shadow' variant="secondary">Pay Now</Button>
+                        </Link>
+                     
                       </div>
 
                     </div>
