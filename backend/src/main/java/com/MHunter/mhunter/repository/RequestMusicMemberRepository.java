@@ -11,6 +11,8 @@ import java.util.List;
 
 @Repository
 public interface RequestMusicMemberRepository extends JpaRepository<RequestMusicMember, RequestMusicMemberId> {
+    List<RequestMusicMember> findByOrgIdAndEventId(Integer orgId, Integer eventId);
+
     @Query(value = "SELECT COUNT(*) FROM request_music_member WHERE mmid = :mmid AND confirmation_status = 0", nativeQuery = true)
     int countByMMID(@Param("mmid") int mmid);
 
