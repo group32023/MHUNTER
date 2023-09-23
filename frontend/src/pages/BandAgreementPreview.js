@@ -102,7 +102,7 @@ export default function BandAgreementPreview(props) {
               <p className='rulesLabel'>Rules & Regulations : </p>
               <p className='additionalRulesLabel'>Additional Rules : </p>
               <div className='rulesContainer'>
-             {location.state.r1 ?  <p>{location.state.r1}</p>: undefined}
+             {location.state.r1!=null ?  <p>{location.state.r1}</p>: " "}
                   <p>{location.state.r2}</p>
                   <p>{location.state.r3}</p>
                   <p>{location.state.r4}</p>

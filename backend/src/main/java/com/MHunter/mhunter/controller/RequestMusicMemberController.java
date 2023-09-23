@@ -138,7 +138,7 @@ public class RequestMusicMemberController {
             eventOrganizer.setIncome(incomeArtist.getIncome());
             eventOrganizer.setEventId((event.getEventID()));
             eventOrganizer.setOrgId(res.getOrgId());
-            eventOrganizer.setOrganizerName(user.getFirstName() + " " +  user.getFirstName());
+            eventOrganizer.setOrganizerName(user.getFirstName() + " " +  user.getLastName());
             eventOrganizer.setEventName(event.getEvent_name());
             eventOrganizer.setEventType(event.getEvent_type());
             eventOrganizer.setStartTime(event.getStart_time());

@@ -68,7 +68,7 @@ export default function ArtistPendingRequests() {
   
     
     divElements.push(<div key={i} className="requestContainer">
-      <img src={profileImage} className="profile"></img>
+      <img src={profileImage} className="profile1"></img>
       <div className="eventDetails">
         <h5>{eventList1[i]['organizerName']}</h5>
         
@@ -78,7 +78,7 @@ export default function ArtistPendingRequests() {
       </div>
      
    
-      <button className="viewBtn" onClick={()=>load(eventList1[i]['eventId'])}>View</button>
+      <button className="viewBtn1" onClick={()=>load(eventList1[i]['eventId'])}>View</button>
     
       
    

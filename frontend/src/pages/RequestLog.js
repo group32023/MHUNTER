@@ -58,7 +58,7 @@ export default function ArtistPendingRequests() {
 
   const divCount = eventList1.length;
   const divElements = [];
- 
+  console.log(eventList)
 
 
   for (let i = 0; i < divCount; i++) {
@@ -70,7 +70,7 @@ export default function ArtistPendingRequests() {
        { console.log(eventList1[i]['organizerName'])}
         <p class="eventType"><FontAwesomeIcon icon={faCalendarDays} id="EventIconPendingRequest"/>{eventList1[i]['eventName']}</p>
       <p class="eventDate"><FontAwesomeIcon icon={faCalendarDays} id="CalenderIconPendingRequest"/>{eventList1[i]['date']}</p>
-        <p class="venue"><FontAwesomeIcon icon={faLocationDot} id="LocationIconPendingRequest"/> {eventList1[i]['requestState']}</p>
+        <p class="venue">{eventList1[i]['requestState']}</p>
       </div>
     
       <button className="agreementBtn" onClick={()=>Cancel}>Agrrement</button>

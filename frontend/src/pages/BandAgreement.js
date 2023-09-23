@@ -167,13 +167,18 @@ const loadInvoice=(id,mmid)=>{
       
                   <h1>Agreement</h1>
 
+                  <div className='bandDetailsDiv'>
+                  <h5 className='h5forbandDetails'>Band Details</h5>
                   <div><p className='bandNameLable'>Band Name : </p> <p className='bandName'>FlashBack</p></div>
 
                   <div><p className='bandAddressLable'>Address : </p> <p className='bandAddress'>Colombo 05</p></div>
 
                   <div><p className='bandEmailLable'>E-mail : </p> <p className='bandEmail'>flashback@gmail.com</p></div>
+                  </div>
+                  
 
-                  <h5>Rules</h5>
+                  <h5 className='h5forRules'>Rules</h5>
+
                   <p className='commandRules'>* Select Rules, want to add into agreement.</p>
                   <form onSubmit={addAgreement}>
                         <div className='rulesForAgreement'>
@@ -186,15 +191,15 @@ const loadInvoice=(id,mmid)=>{
                         <input type="checkbox" id="advanced4" name="advanced" onChange={handleCheckboxChangeRule4}/> <label className='rule4'>Others Can not sing</label>
                         {/* <input type="checkbox" id="advanced5" name="advanced" onChange={handleCheckboxChangeRule5}/> <label className='rule5'>Others Can not sing</label>
                         <input type="checkbox" id="advanced6" name="advanced" onChange={handleCheckboxChangeRule6}/> <label className='rule6'>Others Can not sing</label> */}
-                        <lable className="otherRules">Addition Rules : </lable><input type='text' id="advanced7" name="advanced" value={additionalRules} onChange={(e)=>setAdditionalRules(e.target.value)}></input>
+                        <lable className="otherRules">Additional Rules : </lable><input type='text' id="advanced7" name="advanced" value={additionalRules} onChange={(e)=>setAdditionalRules(e.target.value)}></input>
 
                         </div>
                   
 
 
-                          <label className='signatureLable'>Signature : </label>
+                          <h5 className='signatureLable'>Signature </h5>
               
-                          <div className='canvasforSignature' style={{border:"2px solid #ffffff", background:"#D9D9D9", position:"absolute", top:"500px",left:"200px",width:300, height:150}}>
+                          <div className='canvasforSignature' style={{border:"2px solid #ffffff",position:"absolute", width:300, height:150}}>
                             <SignatureCanvas canvasProps={{width:300, height:150, className:'sigCanvas'}}
                             ref={data=> setSign(data)} />
                        
@@ -207,7 +212,8 @@ const loadInvoice=(id,mmid)=>{
 
 
                           <button type='submit' className='submitAgreement' onClick={()=>loadInvoice(id,mmid)}>Submit</button>
-                          <button type='button' className='previewAgreement' onClick={()=>loadPreview(id,mmid)} >Preview</button>
+                          <button type='submit' className='skipAgreement' onClick={()=>loadInvoice(id,mmid)}>Skip</button>
+                          <button type='button' className='previewAgreement1' onClick={()=>loadPreview(id,mmid)} >Preview</button>
 
 
                        </form>

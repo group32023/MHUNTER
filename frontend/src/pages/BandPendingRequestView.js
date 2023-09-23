@@ -56,12 +56,12 @@ export default function ArtistPendingRequests() {
   }
 
   const loadPriorBooking=(mmid, orgId, eventId)=>{
-    navigate(`/artist/priorbooking/${mmid}/${orgId}/${eventId}`);
+    navigate(`/band/priorbooking/${mmid}/${orgId}/${eventId}`);
 
   }
 
   const loadMyEventsOn=(mmid,date,eventId)=>{
-    navigate(`/artist/eventsOn/${mmid}/${date}/${eventId}`);
+    navigate(`/band/eventsOn/${mmid}/${date}/${eventId}`);
 
   }
 

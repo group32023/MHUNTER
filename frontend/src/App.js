@@ -36,6 +36,9 @@ import BandPendingRequestView from './pages/BandPendingRequestView';
 import BandAgreement from './pages/BandAgreement';
 import BandAgreementPreview from './pages/BandAgreementPreview';
 import BandInvoicePreview from './pages/BandInvoicePreview';
+import BandEventsOn from './pages/BandEventsOn';
+import BandPriorBooking from "./pages/BandPriorBooking"
+
 
 import BandInvoice from './pages/BandInvoice';
 import ArtistEventOn from './pages/ArtistEventOn';
@@ -123,8 +126,8 @@ function App() {
           <Route path='/artist/Event' element={<ArtistEvent/>}></Route>
           <Route path='/artist/EventSpecific/:id' element={<ArtistSpecificEvent/>}></Route> */}
           <Route path='/band/PendingRequestView/:id' element={<BandPendingRequestView/>}></Route>
-          {/*<Route path='/artist/priorbooking/:id1/:id2/:id3' element={<ArtistPriorBooking/>}></Route> */}
-          {/* <Route path='/artist/eventsOn/:mmid/:date/:eventId' element={<ArtistEventOn/>}></Route> */}
+          <Route path='/band/priorbooking/:id1/:id2/:id3' element={<BandPriorBooking/>}></Route>
+          <Route path='/band/eventsOn/:mmid/:date/:eventId' element={<BandEventsOn/>}></Route>
           <Route path='/band/agreement/:id/:mmid' element={<BandAgreement/>}></Route>
           <Route path='/band/invoice/:id/:mmid' element={<BandInvoice/>}></Route> 
           <Route path='/band/agreementPreview/:id/:mmid' element={<BandAgreementPreview/>}></Route> 

@@ -23,10 +23,7 @@
 }
 .MainContainer{
 
-    position: fixed;
-    height: 100%;
-    width: 100%;
-    background: #24292D;
+  
 
 }
 
@@ -181,14 +178,6 @@
      --bs-table-color: #ffffff;
 }
 
-.MainContainer{
-
-    position: fixed;
-    height: 100%;
-    width: 100%;
-    background: #24292D;
-
-}
 
 
 #ReportTable tbody{

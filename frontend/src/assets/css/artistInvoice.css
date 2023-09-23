@@ -26,7 +26,7 @@
 .currency-input1{
     position: relative;
     top: 111px;
-    left: 434px;
+    left: 370px;
     width: 242px;
     height: 28px;
     border-radius: 10px;
@@ -40,7 +40,7 @@
 .currency-input2{
     position: relative;
     top: 154px;
-    left: 192px;
+    left: 131px;
     width: 242px;
     height: 28px;
     border-radius: 10px;
@@ -83,7 +83,7 @@
 .currency-input5{
     position: relative;
     top: 199px;
-    left: -50px;
+    left: -110px;
     width: 242px;
     height: 28px;
     border-radius: 10px;
@@ -274,8 +274,8 @@
     color: white;
     border-radius: 10px;
     border: none !important;
-    left: 213px;
-    top: 470px;
+    left: 441px;
+    top: 485px;
 }
 
 .backInvoice{
@@ -287,8 +287,8 @@
     font-weight: bold;
     text-align: center;
     color: #000000;
-    left: 147px;
-    top: 387px;
+    left: 216px;
+    top: 401px;
     border-radius: 10px;
     border: 3px solid #FF0000 !important;
     background: none;
