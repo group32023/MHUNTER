@@ -14,11 +14,11 @@
     width: 55px;
     height: 55px;
     top: 21.5px;
-    left: 145px;
+    left: 82px;
 }
 
 .requestContainerForEvent{
-    background-color: #161414;;
+    background-color: #222121;;
     height: 8%;
     width: 70%;
     position: relative;
@@ -30,6 +30,39 @@
   
 }
 
+.requestContainerForEvent .eventType1{
+    position: absolute;
+    left: 32%;
+    top: -10%;
+}
+
+.requestContainerForEvent .eventDate1{
+    position: absolute;
+    left: 45%;
+    top: -10%;
+}
+.requestContainerForEvent .venue1{
+    position: absolute;
+    left: 56%;
+    top: -10%;
+}
+
+.requestContainerForEvent .eventType2{
+    position: absolute;
+    left: 66.5%;
+    top: -10%;
+}
+
+.requestContainerForEvent .eventDate2{
+    position: absolute;
+    left: 77%;
+    top: -10%;
+}
+.requestContainerForEvent .venue2{
+    position: absolute;
+    left: 85%;
+    top: -10%;
+}
 
 .requestContainerForEvent .eventDetails {
     position: relative;
@@ -37,7 +70,7 @@
     font-size: 15px;
     text-align: center;
     top: -10px;
-    left: 97px;
+    left: 8px;
 }
 
 #tableEvent{

@@ -7,7 +7,8 @@ import {Form, Container} from 'react-bootstrap';
 
 
 
-
+import Footer from '../components/common/Footer';
+import ArtistSlider from '../components/ArtistSlider';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {faPhone,faList} from '@fortawesome/free-solid-svg-icons'
 import { faTwitter, faFontAwesome,faFacebook,faGooglePlusG,faLinkedinIn } from '@fortawesome/free-brands-svg-icons'
@@ -65,27 +66,22 @@ h() {
              
                 <div className='eventcontainer'>
 
-                    <Form.Select aria-label="Default select example" align-items-center justify-content-center id="selectionMenu">
-                    <FontAwesomeIcon icon={faList} />
-                      <option>Status</option>
-                      <option value="name">Artist Name</option>
-                      
-                    </Form.Select>
 
                     <Container>
                       <Form.Control
                         className="smaller-input"
                         name="foo" id="statusInput"
-                        placeholder="Enter Artist Detail Here"
+                        placeholder="Search Here"
                       />
                     </Container>
                      
-                  
+                    <ArtistSlider></ArtistSlider>
+                    <Footer></Footer>
 
                 </div>
 
             </div>
-            
+           
 
       </div>
     </div>

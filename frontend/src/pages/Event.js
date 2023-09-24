@@ -5,18 +5,22 @@ import backgroundimage from '../assets/images/backgroundimage1.jpg';
 import eventimage from '../assets/images/slide_8.jpg';
 import { Table } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import {Form, Container} from 'react-bootstrap';
-import eventType from '../assets/images/eventtype.png'
-import Pagination from '../components/common/Pagination';
+import profileImage from '../assets/images/profilePhoto.jpeg';
+import crowd from '../assets/images/people.png';
+import duration from '../assets/images/hourglass.png';
+import eventtype from '../assets/images/eventtype.png';
 import notification from '../assets/images/notification.png'
 import home from '../assets/images/home-button.png'
 import logout from '../assets/images/logout.png'
-import eventtype from '../assets/images/eventtype.png';
-import profileImage from '../assets/images/profilePhoto.jpeg';
-import { useNavigate} from 'react-router-dom';
+import kpop from '../assets/images/kpop.png'
+import {Form, Container} from 'react-bootstrap';
+
+
+import Footer from '../components/common/Footer';
+
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import {faPhone,faLocationDot,faList,faCalendarDays} from '@fortawesome/free-solid-svg-icons'
+import {faPhone,faLocationDot,faList,faCalendarDays,faClock} from '@fortawesome/free-solid-svg-icons'
 import { faTwitter, faFontAwesome,faFacebook,faGooglePlusG,faLinkedinIn } from '@fortawesome/free-brands-svg-icons'
 
 
@@ -42,7 +46,7 @@ const [expand,setExpandedSideBar] = useState(true)
   useEffect(() => {
     // Fetch the data from the Java backend
     const getPendingRequest = async () =>{
-      const res = await fetch('http://localhost:8080/requestMusicMember/pendingRequest/758463')
+      const res = await fetch('http://localhost:8080/event/viewEventForHome')
 
       const data = await res.json();
         setEventList(data);
@@ -56,16 +60,11 @@ const [expand,setExpandedSideBar] = useState(true)
 
 
 
-  let navigate = useNavigate();
-
-  const load=(id)=>{
-    navigate(`/artist/PendingRequestView/${id}`);
-
-  }
 
 
   const divCount = eventList.length;
   const divElements = [];
+  console.log(eventList)
  
 
   //Using a for loop to generate the <div> tags
@@ -79,9 +78,12 @@ const [expand,setExpandedSideBar] = useState(true)
       <div className="eventDetails">
         <h5>{eventList[i]['organizerName']}</h5>
         
-        <p class="eventType"><img src={eventtype} className="EventIconPendingRequest1"></img>{eventList[i]['eventName']}</p>
-      <p class="eventDate"><FontAwesomeIcon icon={faCalendarDays} id="CalenderIconPendingRequest"/>{eventList[i]['date']}</p>
-        <p class="venue"><FontAwesomeIcon icon={faLocationDot} id="LocationIconPendingRequest"/> {eventList[i]['place']}</p>
+        <p class="eventType1"><img src={eventtype} className="EventIconPendingRequest1"></img>{eventList[i]['eventName']}</p>
+            <p class="eventDate1"><FontAwesomeIcon icon={faCalendarDays} id="CalenderIconPendingRequest1"/>{eventList[i]['date']}</p>
+            <p class="venue1"><FontAwesomeIcon icon={faClock} id="LocationIconPendingRequest1"/>{eventList[i]['startTime']}</p>
+            <p class="eventType2"><img src={duration} className="EventIconPendingRequest2"></img>{eventList[i]['duration']}</p>
+            <p class="eventDate2"><img src={crowd} className="CalenderIconPendingRequest2"></img>{eventList[i]['crowd']}</p>
+            <p class="venue2"><FontAwesomeIcon icon={faLocationDot} id="LocationIconPendingRequest2"/>{eventList[i]['place']}</p>
       </div>
      
    
@@ -156,6 +158,8 @@ const [expand,setExpandedSideBar] = useState(true)
                     </Container>
                     
                   {divElements}
+
+                  <Footer></Footer>
 
                 </div>
 
