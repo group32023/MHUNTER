@@ -51,7 +51,7 @@ h() {
 
             <div className='descriptionDiv1'>
                <div className='captionbackground'>
-                <p className='caption1'>Home {'>'} Bands</p>
+                <p className='caption1'>Home {'>'} Artists</p>
                 </div>
                 <section>
                     <p className='description1'>
