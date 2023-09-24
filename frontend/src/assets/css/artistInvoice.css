@@ -278,6 +278,36 @@
     top: 485px;
 }
 
+.complaint-add-success-popup-content .complaint-add-success-para_for_request_acception{
+    position: relative;
+    top: 50px;
+    font-size: 20px;
+    font-weight: bolder;
+    color: #ffffff;
+}
+
+.complaint-add-success-popup-content .RequestacceptBtn{
+    background-color: #1BD067 !important;
+    position: absolute;
+    font-size: 15px;
+    width: 24%;
+    left: 63px;
+    top: 127px;
+    border: none !important;
+
+}
+.complaint-add-success-popup-content .RequestCloseBtn{
+    border: 3px solid #FF0000 !important;
+    background: none;
+    position: absolute;
+    font-size: 15px;
+    width: 24%;
+    left: 203px;
+    top: 124px;
+
+
+}
+
 .backInvoice{
     
     position: relative;

@@ -39,4 +39,9 @@ public class EventServiceImpl implements EventService {
     public List<Event> getSpecificEventByDate(LocalDate date) {
         return eventRepository.findByDate(date);
     }
+
+    @Override
+    public List<Event> getEventsForHome() {
+        return eventRepository.findUpcomingEventsForEventHome();
+    }
 }

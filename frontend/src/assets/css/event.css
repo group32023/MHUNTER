@@ -8,6 +8,37 @@
     
   
 }
+.requestContainerForEvent .profile{
+
+    position: relative;
+    width: 55px;
+    height: 55px;
+    top: 21.5px;
+    left: 145px;
+}
+
+.requestContainerForEvent{
+    background-color: #161414;;
+    height: 8%;
+    width: 70%;
+    position: relative;
+    top: 187px;
+    left: 25%;
+    margin-bottom: 20px;
+    border-radius: 25px;
+    
+  
+}
+
+
+.requestContainerForEvent .eventDetails {
+    position: relative;
+    color: white;
+    font-size: 15px;
+    text-align: center;
+    top: -10px;
+    left: 97px;
+}
 
 #tableEvent{
     top: 14%;
@@ -174,8 +205,8 @@
     width: 94%;
     height:63%;
     position: absolute;
-    top: 24%;
-    left: 2%;
+    top: 14%;
+    left: -6%;
     z-index: 100;
 
 }

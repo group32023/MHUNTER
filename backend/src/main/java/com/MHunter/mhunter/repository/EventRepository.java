@@ -15,4 +15,7 @@ public interface EventRepository extends JpaRepository<Event,Integer> {
 
     @Query(value = "SELECT * FROM event WHERE date = :date ", nativeQuery = true)
     List<Event> findByDate(LocalDate date);
+
+    @Query(value = "SELECT * FROM event WHERE date > CURRENT_DATE ORDER BY date DESC LIMIT 5 ", nativeQuery = true)
+    List<Event> findUpcomingEventsForEventHome();
 }

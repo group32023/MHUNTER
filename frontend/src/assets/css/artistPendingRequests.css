@@ -39,7 +39,7 @@
 .eventDetails .eventDate{
     position: absolute;
     margin-top: -3.2%;
-    left: 52%;
+    left: 55%;
 }
 .eventDetails .eventType{
     position: absolute;
@@ -91,7 +91,7 @@
     width: 70%;
     position: relative;
     top: 187px;
-    left: 18%;
+    left: 14%;
     margin-bottom: 20px;
     border-radius: 25px;
   

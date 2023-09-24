@@ -19,6 +19,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {faPhone,faLocationDot,faList,faCalendarDays} from '@fortawesome/free-solid-svg-icons'
 import { faTwitter, faFontAwesome,faFacebook,faGooglePlusG,faLinkedinIn } from '@fortawesome/free-brands-svg-icons'
 
+import eventtype from '../assets/images/eventtype.png';
 
 
 export default function ArtistPendingRequests() {

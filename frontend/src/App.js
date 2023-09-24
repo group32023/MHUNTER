@@ -128,8 +128,8 @@ function App() {
           <Route path='/band/PendingRequestView/:id' element={<BandPendingRequestView/>}></Route>
           <Route path='/band/priorbooking/:id1/:id2/:id3' element={<BandPriorBooking/>}></Route>
           <Route path='/band/eventsOn/:mmid/:date/:eventId' element={<BandEventsOn/>}></Route>
-          <Route path='/band/agreement/:id/:mmid' element={<BandAgreement/>}></Route>
-          <Route path='/band/invoice/:id/:mmid' element={<BandInvoice/>}></Route> 
+          <Route path='/band/agreement/:id/:mid/:id1' element={<BandAgreement/>}></Route>
+          <Route path='/band/invoice/:id/:mid/:oid' element={<BandInvoice/>}></Route> 
           <Route path='/band/agreementPreview/:id/:mmid' element={<BandAgreementPreview/>}></Route> 
           <Route path='/band/invoicePreview/:id/:mmid' element={<BandInvoicePreview/>}></Route> 
 

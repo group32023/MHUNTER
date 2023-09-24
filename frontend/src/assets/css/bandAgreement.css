@@ -4,6 +4,22 @@
 
 }
 
+.complaint-add-success-popup-content .errordisplay{
+    position: relative;
+    font-size: 15px;
+    width: 20%;
+    height: 15%;
+    font-weight: bold;
+    text-align: center;
+    color: #ffffff;
+    left: 2px;
+    top: 80px;
+    border-radius: 10px;
+    border: 3px solid #FF0000 !important;
+    background: none;
+
+}
+
 
 #left{
     text-align: center;
@@ -33,6 +49,7 @@
     width: 30%;
     left: 13px;
     font-weight: bold;
+
 
 }
 #left .h5forRules{

@@ -1,5 +1,6 @@
 package com.MHunter.mhunter.controller;
 
+import com.MHunter.mhunter.exception.UserNotFoundException;
 import com.MHunter.mhunter.model.*;
 import com.MHunter.mhunter.service.*;
 import com.MHunter.mhunter.struct.EventOrganizer;
@@ -47,6 +48,8 @@ public class RequestMusicMemberController {
         return requestMusicMemberService.viewAll();
     }
 
+
+
     @GetMapping("/view/{mid}/{eventId}")
     public RequestMusicMember viewSpecific(@PathVariable int mid,@PathVariable int eventId){
         RequestMusicMemberId id = new RequestMusicMemberId();
@@ -57,9 +60,12 @@ public class RequestMusicMemberController {
 
     @PutMapping("/update/{mid}/{eventId}")
     public RequestMusicMember update(@RequestBody RequestMusicMember requestMusicMember, @PathVariable int mid,@PathVariable int eventId){
+        System.out.println(mid);
+        System.out.println(eventId);
         RequestMusicMemberId id = new RequestMusicMemberId();
         id.setMMID(mid);
         id.setEventId(eventId);
+        System.out.println("come here");
       return   requestMusicMemberService.updateRequestMusicMember(requestMusicMember,id);
     }
 
