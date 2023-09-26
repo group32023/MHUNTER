@@ -1,8 +1,10 @@
 package com.MHunter.mhunter.struct;
 
 import lombok.AllArgsConstructor;
+
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.web.multipart.MultipartFile;
 
 @Data
 @NoArgsConstructor
@@ -13,5 +15,6 @@ public class EventRequestStatus {
     private Integer confirmationStatus;
     private Integer eventId;
     private String fullName;
+
 
 }
