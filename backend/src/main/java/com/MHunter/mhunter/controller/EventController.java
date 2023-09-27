@@ -111,13 +111,13 @@ public class EventController {
     }
 
 
-    @GetMapping("/confirmationStatusByEventidOrgId/{eventid}/{OrgID}")
-    public ResponseEntity<List<Event>> getConfirmationStatusByEventidOrgId(@PathVariable Integer eventid, @PathVariable Integer OrgID) {
-        List<Event> confirmationArtists = eventService.getConfirmationStatusByEventIdOrgId(eventid, OrgID);
-        if (confirmationArtists.isEmpty()) {
-            return ResponseEntity.notFound().build();
-        }
-        return ResponseEntity.ok(confirmationArtists);
-    }
+//    @GetMapping("/confirmationStatusByEventidOrgId/{eventid}/{OrgID}")
+//    public ResponseEntity<List<Event>> getConfirmationStatusByEventidOrgId(@PathVariable Integer eventid, @PathVariable Integer OrgID) {
+//        List<Event> confirmationArtists = eventService.getConfirmationStatusByEventIdOrgId(eventid, OrgID);
+//        if (confirmationArtists.isEmpty()) {
+//            return ResponseEntity.notFound().build();
+//        }
+//        return ResponseEntity.ok(confirmationArtists);
+//    }
 
 }
