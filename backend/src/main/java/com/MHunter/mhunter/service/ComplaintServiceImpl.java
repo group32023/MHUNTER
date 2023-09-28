@@ -22,7 +22,7 @@ public class ComplaintServiceImpl implements ComplaintService{
 
         return complaintRepository.findByOrgId(orgId);
 
-        
+
     }
 
 
