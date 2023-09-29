@@ -16,7 +16,7 @@ import { Link, Routes, Route } from 'react-router-dom';
 import Topbar from '../../components/common/Topbar';
 
 import { BiSolidUserDetail } from "react-icons/bi";
-import ModeratorPendingRequest from '../../components/Moderator/moderatorPendingRequest'
+// import ModeratorPendingRequest from '../../components/Moderator/moderatorPendingRequest'
 
 import { BiSolidCalendarStar } from "react-icons/bi";
 

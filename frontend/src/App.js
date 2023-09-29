@@ -36,6 +36,9 @@ import BandPendingRequestView from './pages/BandPendingRequestView';
 import BandAgreement from './pages/BandAgreement';
 import BandAgreementPreview from './pages/BandAgreementPreview';
 import BandInvoicePreview from './pages/BandInvoicePreview';
+import BandEventsOn from './pages/BandEventsOn';
+import BandPriorBooking from "./pages/BandPriorBooking"
+
 
 import BandInvoice from './pages/BandInvoice';
 import ArtistEventOn from './pages/ArtistEventOn';
@@ -66,7 +69,7 @@ import MainSlider from './components/common/MainSlider';
 import BandSignup from './pages/BandSignup';
 import AdminDashboard from './pages/admin/AdminDashboard';
 import BandDashboard from './pages/band/BandDashboard';
-import ModeratorDashboard from './pages/moderator/ModeratorDashboard';
+// import ModeratorDashboard from './pages/moderator/ModeratorDashboard';
 import AdminRegistration from './pages/admin/AdminRegistration';
 import ProofCheck from './pages/admin/ProofCheck';
 import AllUserDetails from './pages/admin/AllUserDetails';
@@ -78,15 +81,15 @@ import UserDetails from './pages/admin/UserDetails';
 import AdminEvents from './pages/admin/AdminEvents';
 import AdminEventDashboard from './pages/admin/AdminEventDashboard';
 
-import ModeratorDashoboardContent from './pages/moderator/moderatorDashoboardContent';
-import ModeratorRegistration from './pages/moderator/registration';
-import ModeratorComplaints from './pages/moderator/complaints';
-import ModeratorUserDetails from './pages/moderator/userDetails';
-import ModeratorProofCheck from './pages/moderator/ProofCheck';
-import EventDetails from './pages/moderator/eventDetails';
-import ViewComplaints from './pages/moderator/viewComplaints';
-import ModeratorEvent from "./pages/moderator/event";
-import Suspenduser from './pages/moderator/suspenduser';
+// import ModeratorDashoboardContent from './pages/moderator/moderatorDashoboardContent';
+// import ModeratorRegistration from './pages/moderator/registration';
+// import ModeratorComplaints from './pages/moderator/complaints';
+// import ModeratorUserDetails from './pages/moderator/userDetails';
+// import ModeratorProofCheck from './pages/moderator/ProofCheck';
+// import EventDetails from './pages/moderator/eventDetails';
+// import ViewComplaints from './pages/moderator/viewComplaints';
+// import ModeratorEvent from "./pages/moderator/event";
+// import Suspenduser from './pages/moderator/suspenduser';
 function App() {
   return (
 
@@ -123,10 +126,10 @@ function App() {
           <Route path='/artist/Event' element={<ArtistEvent/>}></Route>
           <Route path='/artist/EventSpecific/:id' element={<ArtistSpecificEvent/>}></Route> */}
           <Route path='/band/PendingRequestView/:id' element={<BandPendingRequestView/>}></Route>
-          {/*<Route path='/artist/priorbooking/:id1/:id2/:id3' element={<ArtistPriorBooking/>}></Route> */}
-          {/* <Route path='/artist/eventsOn/:mmid/:date/:eventId' element={<ArtistEventOn/>}></Route> */}
-          <Route path='/band/agreement/:id/:mmid' element={<BandAgreement/>}></Route>
-          <Route path='/band/invoice/:id/:mmid' element={<BandInvoice/>}></Route> 
+          <Route path='/band/priorbooking/:id1/:id2/:id3' element={<BandPriorBooking/>}></Route>
+          <Route path='/band/eventsOn/:mmid/:date/:eventId' element={<BandEventsOn/>}></Route>
+          <Route path='/band/agreement/:id/:mid/:id1' element={<BandAgreement/>}></Route>
+          <Route path='/band/invoice/:id/:mid/:oid' element={<BandInvoice/>}></Route> 
           <Route path='/band/agreementPreview/:id/:mmid' element={<BandAgreementPreview/>}></Route> 
           <Route path='/band/invoicePreview/:id/:mmid' element={<BandInvoicePreview/>}></Route> 
 
@@ -157,7 +160,7 @@ function App() {
           <Route path='/organizersignup' element={<OrganizerSignup />} />
           <Route path='/artistdashboard' element={<ArtistDashboard />} />
           <Route path='/banddashboard' element={<BandDashboard />} />
-          <Route path='/moderatordashboard' element={<ModeratorDashboard />} />
+          {/* <Route path='/moderatordashboard' element={<ModeratorDashboard />} /> */}
           <Route path='/organizerdashboard' element={<OrganizerDashboard />} />
 
 
@@ -174,7 +177,7 @@ function App() {
           <Route path='/admin/event/eventDetails' element={<AdminEventDashboard/>} />
 
           {/*moderator*/}
-          <Route path='/moderator/moderatorDashoboardContent' element={<ModeratorDashoboardContent />}></Route>
+          {/* <Route path='/moderator/moderatorDashoboardContent' element={<ModeratorDashoboardContent />}></Route>
           <Route path='/moderator/registration' element={<ModeratorRegistration  />}></Route>
           <Route path='/moderator/registration/ProofCheck' element={<ProofCheck/>} />
           <Route path='/moderator/event' element={<ModeratorEvent />}></Route>
@@ -184,7 +187,7 @@ function App() {
           <Route path='/moderator/event/eventDetails' element={<EventDetails/>}/>
           <Route path='/moderator/registration/ProofCheck' element={<proofCheck/>}/>
           <Route path='/moderator/registration/proofcheck/suspenduser' element={<Suspenduser/>}/>
-          
+           */}
 
         </Routes>
       </Router>

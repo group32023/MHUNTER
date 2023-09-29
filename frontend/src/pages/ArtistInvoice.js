@@ -14,6 +14,10 @@ import home from '../assets/images/home-button.png'
 import logout from '../assets/images/logout.png'
 import kpop from '../assets/images/kpop.png'
 import CircularProgress from '@mui/material/CircularProgress';
+import Modal from 'react-bootstrap/Modal';
+import Button from 'react-bootstrap/Button';
+
+
 
 
 
@@ -61,6 +65,7 @@ export default function BandInvoice() {
   const [others,setOthers] = useState(0.00);
   const [totalAmount,setTotalAmount] = useState(0.00);
   const [paymentType, setpaymentType]=useState("Full")
+  const [showSuccessComplaintAddPopup, setShowSuccessComplaintAddPopup] = useState(false);
 
  
 
@@ -70,6 +75,20 @@ export default function BandInvoice() {
     setpaymentType("Advanced");
     
   }
+
+  const [showModal, setShowModal] = useState(false);
+
+  const handleShowModal = () => {
+      setShowModal(true);
+  };
+
+  const handleCloseModal = () => {
+      setShowModal(false);
+  };
+  const handleCloseModalAndAccept = () => {
+    setShowModal(false);
+    
+};
 
  
   const addInvoice=(e)=>{
@@ -199,7 +218,7 @@ export default function BandInvoice() {
            <input type="checkbox" id="advanced" name="advanced" onChange={handleCheckboxChange}/>
           <label for="advancedpayment" className='advancedpayment'>Advanced is required.</label>
 
-            <button type='submit' className='submitInvoice'>Submit</button>
+            <button type='submit' className='submitInvoice' onClick={handleShowModal}>Submit</button>
             </form>
             </div>
             </div>
@@ -214,6 +233,29 @@ export default function BandInvoice() {
 
     </div>   
         </div>
+ 
+
+                   
+                                {showModal && (
+                                    <div className="complaint-add-success-popup blur-background" style={{ fontFamily: 'MyCustomFont1' }}>
+
+                                        <div className="complaint-add-success-popup-content">
+                                           
+                                            <p className="complaint-add-success-para_for_request_acception">Do You Want to Accept the Request?</p>
+                                            <Button className='RequestacceptBtn' onClick={handleCloseModalAndAccept}>
+                                        Accept
+                                    </Button>
+                                            <Button className='RequestCloseBtn' onClick={handleCloseModal}>
+                                        Exit
+                                    </Button>
+                                        </div>
+
+
+                                    </div>
+                                )}
+
+
+                                
         </SideMenuBarArtist>
         
     </div>
