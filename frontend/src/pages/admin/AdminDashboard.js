@@ -16,22 +16,21 @@ import { Link, Routes, Route } from 'react-router-dom';
 import Topbar from '../../components/common/Topbar';
 
 import { BiSolidUserDetail } from "react-icons/bi";
-// import ModeratorPendingRequest from '../../components/Moderator/moderatorPendingRequest'
 
 import { BiSolidCalendarStar } from "react-icons/bi";
 
 import EventBanner1 from '../../assets/images/eventbanner1.jpeg'
 import EventBanner2 from '../../assets/images/eventbanner2.jpg'
 import EventBanner3 from '../../assets/images/eventbanner3.jpg'
-import EventBanner4 from '../../assets/images/eventbanner4.jpg'
 
 import { BsMusicNoteList } from "react-icons/bs";
+import {BiSolidUserPlus} from "react-icons/bi";
+
+import ReactApexChart from 'react-apexcharts';
 
 
 
 export default function AdminDashboard() {
-  //const location = useLocation();
-  //const userId = location.state.userId;
 
   const [banddataSource, setBandDataSource] = useState(Array.from({length:10}));
   const [artistdataSource, setArtistDataSource] = useState(Array.from({length:10}));
@@ -65,6 +64,41 @@ export default function AdminDashboard() {
   const onChange = date => {
     setDate(date);
   }
+
+  const seriesData = [{
+    name: "Desktops",
+    data: [10, 41, 35, 51, 49, 62, 69, 91, 148]
+  }];
+
+  const optionsData = {
+    chart: {
+      height: 350,
+      type: 'line',
+      zoom: {
+        enabled: false
+      }
+    },
+    dataLabels: {
+      enabled: false
+    },
+    stroke: {
+      curve: 'straight'
+    },
+    title: {
+      text: 'Product Trends by Month',
+      align: 'left'
+    },
+    grid: {
+      row: {
+        colors: ['#f3f3f3', 'transparent'],
+        opacity: 0.5
+      },
+    },
+    xaxis: {
+      categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep'],
+    }
+  };
+
   return (
     <>
     <SideMenuBarAdmin>
@@ -80,7 +114,7 @@ export default function AdminDashboard() {
       <div className="row">
         <div className="col-sm-4 ">
           <div className='top-band-list bgimage-admin'>
-            <h3 className='text-center'>Top 10 Bands</h3>
+            <h3 className='text-center' style={{color:'#ff8000'}}>Top 10 Bands</h3>
             <InfiniteScroll dataLength={banddataSource.length} className='text-center admin-list'>
               {banddataSource.map((item, index)=>{
                 return<div key={index}> {item} </div>
@@ -90,7 +124,7 @@ export default function AdminDashboard() {
         </div>
         <div className="col-sm-4">
           <div className='top-band-list bgimage-admin'>
-            <h3 className='text-center'>Top 10 Artists</h3>
+            <h3 className='text-center' style={{color:'#00ff00'}}>Top 10 Artists</h3>
             <InfiniteScroll dataLength={artistdataSource.length} className='text-center admin-list'>
               {artistdataSource.map((item, index)=>{
                 return<div key={index}> {item} </div>
@@ -110,21 +144,21 @@ export default function AdminDashboard() {
         <div className="col-sm-3">
             <div className="card card-userdetails">
             <div className="card-body text-center">
-              <span className='icon-name-container'><BiSolidUserDetail className='icon-dashboard'/><h3 className="card-title text-light">Artists 10</h3></span>
+              <span className='icon-name-container' style={{color:'#00ff00'}}><BiSolidUserDetail className='icon-dashboard'/><h4 className="card-title text-light" >Artists 10</h4></span>
             </div>
             </div>
         </div>
         <div className="col-sm-3">
             <div className="card card-userdetails">
             <div className="card-body text-center">
-            <span className='icon-name-container'><BiSolidUserDetail className='icon-dashboard'/><h3 className="card-title text-light">Bands 15</h3></span>
+            <span className='icon-name-container' style={{color:'#bf00ff'}}  ><BiSolidUserDetail className='icon-dashboard'/><h4 className="card-title text-light">Bands 15</h4></span>
             </div>
             </div>
         </div>
         <div className="col-sm-3">
             <div className="card card-userdetails">
             <div className="card-body text-center">
-            <span className='icon-name-container'><BiSolidUserDetail className='icon-dashboard'/><h3 className="card-title text-light">Organizer 6</h3></span>
+            <span className='icon-name-container'style={{color:'#ff8000'}}><BiSolidUserDetail className='icon-dashboard'/><h4 className="card-title text-light">Organizer 6</h4></span>
             </div>
             </div>
         </div>
@@ -132,11 +166,12 @@ export default function AdminDashboard() {
         <div className="card card-userdetails">
         
           <div className="card-body text-center">
-            <span className='icon-name-container'><BsMusicNoteList className='icon-dashboard'/><h3 className="card-title text-light">Pendding Request 5</h3></span>
+            <span className='icon-name-container' style={{color:'#0099ff'}}><BiSolidUserPlus className='icon-dashboard'/><h4 className="card-title text-light">Pendding Request 5</h4></span>
           </div>
         </div>
       </div>
     </div>
+
     <div className='row' style={{display:'flex', justifyContent:'center'}}>
       <div className='col-sm-8'>
         <div className='UpcominEventsDiv '>
@@ -218,8 +253,13 @@ export default function AdminDashboard() {
           </div>
         </div>
       </div>
-      
     </div>
+
+    <div className='row' style={{ marginTop: '10px' }}>
+        <ReactApexChart options={optionsData} series={seriesData} type="line" height={350} width={400} />
+      </div>
+
+
 
 
 

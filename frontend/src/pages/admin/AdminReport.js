@@ -15,6 +15,9 @@ import { useReactToPrint } from 'react-to-print';
 import axios from 'axios';
 import { Payment } from '@mui/icons-material';
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSearch } from '@fortawesome/free-solid-svg-icons';
+
 function AdminReport() {
 
   const conponentPDF = useRef();
@@ -36,7 +39,10 @@ function AdminReport() {
         });
 }, []);
 
-
+const totalPaymentForMhunter = reportData.reduce(
+  (total, currentRow) => total + currentRow[1],
+  0
+);
 
   return (
     <>
@@ -63,32 +69,37 @@ function AdminReport() {
           className="form-control"
           placeholder="End Date"
         />
-        <div className="input-group-append">
-          <button className="btn btn-primary" type="button" style={{backgroundColor:'purple'}}>
-            Search
-          </button>
-        </div>
+            <div className="input-group-append">
+            <button className="btn btn-primary search-button" type="button">
+                <FontAwesomeIcon icon={faSearch} />
+            </button>
+            </div>
       </div>
     </div>
 
     <div ref = {conponentPDF} style={{width:'90%'}}>
-    <table class="table table-striped table-dark" style={{padding:'10px', margin:'50px'}}>
+    <table class="table table-striped table-dark  rounded-table" style={{padding:'10px', margin:'50px'}}>
       <thead>
         <tr>
-          <th scope="col">Organizer Name</th>
-          <th scope="col">Event Name</th>
-          <th scope="col">Payment for MHunter</th>
+          <th scope="col"  style={{backgroundColor:'#7643d2'}} >Organizer Name</th>
+          <th scope="col" style={{backgroundColor:'#7643d2'}}>Event Name</th>
+          <th scope="col" style={{backgroundColor:'#7643d2'}}>Payment for MHunter</th>
         </tr>
       </thead>
       {reportData.length > 0 && (
       <tbody>
         {reportData.map((row, index) => (
         <tr key={index}>
-          <th scope="row">{row[2]}</th>
-          <td>{row[0]}</td>
-          <td>{row[1]}</td>
+          <td scope="row" style={{backgroundColor:'#2f363e'}}>{row[2]}</td>
+          <td style={{backgroundColor:'#2f363e'}}>{row[0]}</td>
+          <td style={{backgroundColor:'#2f363e'}}>{row[1]}</td>
         </tr>
         ))}
+        <tr>
+          <th>Total Payment</th>
+          <td></td>
+          <th>{totalPaymentForMhunter}</th>
+        </tr>
       </tbody>
       )}
     </table>
