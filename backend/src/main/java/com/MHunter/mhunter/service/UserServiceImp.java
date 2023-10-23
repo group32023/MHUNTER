@@ -1,13 +1,11 @@
 package com.MHunter.mhunter.service;
 
 import com.MHunter.mhunter.model.User;
-import com.MHunter.mhunter.repository.ArtistRepository;
 import com.MHunter.mhunter.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 @Service
 public class UserServiceImp implements UserService{
     @Autowired
@@ -53,5 +51,10 @@ public class UserServiceImp implements UserService{
     public boolean deleteUser(int id) {
         userRepository.deleteById(id);
         return true;
+    }
+
+    @Override
+    public List<Object[]> getAdminReportData(){
+        return userRepository.adminReport();
     }
 }

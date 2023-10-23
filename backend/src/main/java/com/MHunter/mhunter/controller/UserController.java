@@ -130,4 +130,9 @@ public class UserController {
         return musicMemberService.getCountOfBandAndArtist();
     }
 
+    @GetMapping("/getAdminReportData")
+    public List<Object[]> getAdminReportData(){
+        return userService.getAdminReportData();
+    }
+
 }

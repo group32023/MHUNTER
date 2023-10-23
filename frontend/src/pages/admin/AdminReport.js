@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useEffect, useRef,useState} from 'react'
 import SideMenuBarAdmin from '../../components/common/SideMenuBar/SideMenuBarAdmin'
 import '../../assets/css/admin/adminDashboard.css'
 import { Link, Route, Routes } from 'react-router-dom';
@@ -11,8 +11,33 @@ import ViewUserDetails from './ViewUserDetails';
 //import AdminReport from './AdminReport';
 import AdminSettings from './AdminSettings';
 import Topbar from '../../components/common/Topbar'
+import { useReactToPrint } from 'react-to-print';
+import axios from 'axios';
+import { Payment } from '@mui/icons-material';
 
 function AdminReport() {
+
+  const conponentPDF = useRef();
+  const generatePDF = useReactToPrint({
+    content: ()=> conponentPDF.current,
+    documentTitle: "Anual report",
+    onAfterPrint:() => alert("Data saved in PDF")
+  });
+
+  const [reportData, setReportData] = useState([]);
+  useEffect(() => {
+    axios.get(`http://localhost:8080/getAdminReportData`)
+        .then(response => {
+            setReportData(response.data);
+        })
+        .catch(error => {
+            console.error(error);
+            alert(error);
+        });
+}, []);
+
+
+
   return (
     <>
     <SideMenuBarAdmin>
@@ -25,6 +50,7 @@ function AdminReport() {
 
     <div className="container mt-3" style={{display:'flex', justifyContent:'center'}}>
       <div className="input-group" style={{width:'500px', padding:'10px'}}>
+
         <input
           type="text"
           id="start-datepicker"
@@ -38,46 +64,37 @@ function AdminReport() {
           placeholder="End Date"
         />
         <div className="input-group-append">
-          <button className="btn btn-primary" type="button">
+          <button className="btn btn-primary" type="button" style={{backgroundColor:'purple'}}>
             Search
           </button>
         </div>
       </div>
     </div>
 
-
+    <div ref = {conponentPDF} style={{width:'90%'}}>
     <table class="table table-striped table-dark" style={{padding:'10px', margin:'50px'}}>
       <thead>
         <tr>
-          <th scope="col">User Name</th>
-          <th scope="col">User Type</th>
-          <th scope="col">Payment</th>
-          <th scope="col">Payment Date</th>
+          <th scope="col">Organizer Name</th>
+          <th scope="col">Event Name</th>
+          <th scope="col">Payment for MHunter</th>
         </tr>
       </thead>
+      {reportData.length > 0 && (
       <tbody>
-        <tr>
-          <th scope="row">Theekshana Anuradha</th>
-          <td>Artist</td>
-          <td>100 000.00</td>
-          <td>2023-08-20</td>
+        {reportData.map((row, index) => (
+        <tr key={index}>
+          <th scope="row">{row[2]}</th>
+          <td>{row[0]}</td>
+          <td>{row[1]}</td>
         </tr>
-        <tr>
-          <th scope="row">shehan Mihiranga</th>
-          <td>Artist</td>
-          <td>100 000.00</td>
-          <td>2023-07-12</td>
-        </tr>
-        <tr>
-          <th scope="row">Daddy Band</th>
-          <td>Band</td>
-          <td>200 000.00</td>
-          <td>2023-09-23</td>
-        </tr>
+        ))}
       </tbody>
+      )}
     </table>
+    </div>
     <div style={{display:'flex', justifyContent:'center'}}>     
-      <button type="button" class="btn btn-outline-primary">Generate Report</button>
+      <button type="button" class="btn btn-outline-primary" onClick={generatePDF}>Generate Report</button>
     </div>
     <Routes>        
           <Route path='/admin/admindashobard' element={<AdminDashboard/>} />
