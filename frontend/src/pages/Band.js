@@ -6,6 +6,13 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import {Form, Container} from 'react-bootstrap';
 
 
+import Services from '../components/Services';
+import BandSlider from '../components/BandSlider';
+import EventTable from '../components/EventTable';
+import PerformanceView from '../components/PerformanceView';
+import EventSlider from '../components/EventSlider';
+import Footer from '../components/common/Footer';
+import ArtistSlider from '../components/ArtistSlider';
 
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -66,21 +73,16 @@ h() {
              
                 <div className='eventcontainer'>
 
-                    <Form.Select aria-label="Default select example" align-items-center justify-content-center id="selectionMenu">
-                    <FontAwesomeIcon icon={faList} />
-                      <option>Status</option>
-                      <option value="name">Band Name</option>
-                      
-                    </Form.Select>
 
                     <Container>
                       <Form.Control
                         className="smaller-input"
                         name="foo" id="statusInput"
-                        placeholder="Enter Band Detail Here"
+                        placeholder="Search Here"
                       />
                     </Container>
-                     
+                    <BandSlider></BandSlider>
+                    <Footer></Footer>
                   
 
                 </div>

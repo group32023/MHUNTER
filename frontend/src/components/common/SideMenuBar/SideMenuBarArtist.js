@@ -12,9 +12,27 @@ import { BiSolidCalendar } from "react-icons/bi";
 import { BiSolidFile } from "react-icons/bi";
 import { BiSolidReport } from "react-icons/bi";
 import React, { useState } from "react";
+import {useEffect } from 'react';
+import axios from 'axios';
 
 function SideMenuBarArtist({ children }) {
     const [isExpanded, setExpandState] = useState(false);
+    const [user, setUser] = useState(null);
+
+    useEffect(() => {
+        const userId = localStorage.getItem('userId');
+        if (userId) {
+            axios.get(`http://localhost:8080/user/user/${userId}`)
+                .then(response => {
+                    setUser(response.data);
+                })
+                .catch(error => {
+                    console.error(error);
+                    alert(error);
+                });
+        }
+    }, []);
+    console.log("Current user:", user); 
 
     return (
         <div className="full-container">
@@ -61,7 +79,7 @@ function SideMenuBarArtist({ children }) {
                     <div className="row">
                         {isExpanded && (
                             <div className="menu-profilePName col d-flex justify-content-center">
-                                <p >Tehani Imara</p>
+                                <p >{user?.firstName} {user?.lastName}</p>
                             </div>
                         )}
                     </div>
@@ -115,7 +133,7 @@ function SideMenuBarArtist({ children }) {
                         </li>
 
                         <li className={isExpanded ? "nav-item p-1" : "nav-item"}>
-                            <NavLink to="/" activeclassName="active" className={isExpanded ? "nav-link   d-flex align-items-center text-decoration-none" : "nav-link collapsed-nav-link   d-flex align-items-center text-decoration-none"}>
+                            <NavLink to="/requestsLog" activeclassName="active" className={isExpanded ? "nav-link   d-flex align-items-center text-decoration-none" : "nav-link collapsed-nav-link   d-flex align-items-center text-decoration-none"}>
                                 <BiSolidFile className={isExpanded ? "menu-icon mx-4" : "menu-icon"} />
                                 {isExpanded && (
                                     <span className="menu_link_name fs-6 ">Requests Log</span>

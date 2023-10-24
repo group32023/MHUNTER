@@ -54,10 +54,7 @@
 
 .MainContainer{
 
-    position: fixed;
-    height: 100%;
-    width: 100%;
-    background: #24292D;
+   
 
 }
 
@@ -267,7 +264,7 @@ border: none;
     position: relative;
     top: 20px;
     font-weight: 600;
-    left: 22%;
+    left: 30%;
     color: #11FE70;
 }
 

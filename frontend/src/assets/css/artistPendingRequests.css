@@ -4,7 +4,16 @@
     width: 55px;
     height: 55px;
     top: 36.5px;
-    left: -428px;
+    left: -458px;
+}
+
+.requestContainer .profile1{
+    position: relative;
+    border-radius: 50%;
+    width: 55px;
+    height: 55px;
+    top: 36.5px;
+    left: 71px;
 }
 .MainContainer{
 
@@ -24,13 +33,13 @@
     position: relative;
     top: -6px;
     width: 250px;
-    margin-left: 12.5%;
+    margin-left: 10.5%;
 }
 
 .eventDetails .eventDate{
     position: absolute;
     margin-top: -3.2%;
-    left: 52%;
+    left: 55%;
 }
 .eventDetails .eventType{
     position: absolute;
@@ -60,13 +69,29 @@
     /* box-shadow: 4px 7px 10px rgba(0, 0, 0, .4) !important; */
 }
 
+.viewBtn1{
+    background-color: #7643D2 !important;
+    position: relative;
+    font-size: 15px;
+    width: 8%;
+    height: 43px;
+    font-weight: bold;
+    text-align: center;
+    color: white;
+    left: 957px;
+    top: -48.8px;
+    border-radius: 10px;
+    border: none !important;
+    /* box-shadow: 4px 7px 10px rgba(0, 0, 0, .4) !important; */
+}
+
 .requestContainer{
     background-color: #3b444d;
     height: 15%;
     width: 70%;
     position: relative;
     top: 187px;
-    left: 18%;
+    left: 14%;
     margin-bottom: 20px;
     border-radius: 25px;
   
@@ -116,7 +141,7 @@
     width: 60%;
     position: absolute;
     top: 140px;
-    left: 18%;
+    left: 20%;
     border-radius: 25px;
     text-align: center;
 
@@ -213,7 +238,7 @@
 
 
 .requestViewContainer h4{
-    color: #FFFFFF;
+    color: #11fe70;
     position: relative;
     top: -12.2%;
     left: -10px;
@@ -320,10 +345,7 @@
 
 .MainContainer{
 
-    position: fixed;
-    height: 100%;
-    width: 100%;
-    background: #24292D;
+  
 
 }
 

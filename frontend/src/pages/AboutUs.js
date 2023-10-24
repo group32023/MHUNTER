@@ -8,6 +8,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import {Form, Container} from 'react-bootstrap';
 
 
+import Footer from '../components/common/Footer';
 
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -66,11 +67,20 @@ App() {
 
     const [showDiv1, setShowDiv1] = useState(false);
     const [showDiv2, setShowDiv2] = useState(false);
+    const [showDiv3, setShowDiv3] = useState(false);
+    const [showDiv4, setShowDiv4] = useState(false);
+    const [showDiv5, setShowDiv5] = useState(false);
+    const [showDiv6, setShowDiv6] = useState(false);
 
 
     // Initialize state to store the content of each button
     const [button1Content, setButton1Content] = useState('+');
     const [button2Content, setButton2Content] = useState('+');
+    const [button3Content, setButton3Content] = useState('+');
+    const [button4Content, setButton4Content] = useState('+');
+    const [button5Content, setButton5Content] = useState('+');
+    const [button6Content, setButton6Content] = useState('+');
+
     // Add more states for other buttons if you have more
   
     // Event handler for button clicks
@@ -96,6 +106,57 @@ App() {
         }else{
             setButton2Content('+');
             setShowDiv2(false)
+
+
+        }
+      }
+
+      else if (buttonNumber === "aboutUSviewbtn3") {
+        if(button3Content==="+"){
+            setButton3Content('-');
+            setShowDiv3(true)
+
+        }else{
+            setButton3Content('+');
+            setShowDiv3(false)
+
+
+        }
+      }
+
+      else if (buttonNumber === "aboutUSviewbtn4") {
+        if(button4Content==="+"){
+            setButton4Content('-');
+            setShowDiv4(true)
+
+        }else{
+            setButton4Content('+');
+            setShowDiv4(false)
+
+
+        }
+      }
+
+      else if (buttonNumber === "aboutUSviewbtn5") {
+        if(button5Content==="+"){
+            setButton5Content('-');
+            setShowDiv5(true)
+
+        }else{
+            setButton5Content('+');
+            setShowDiv5(false)
+
+
+        }
+      }
+      else if (buttonNumber === "aboutUSviewbtn6") {
+        if(button6Content==="+"){
+            setButton6Content('-');
+            setShowDiv6(true)
+
+        }else{
+            setButton6Content('+');
+            setShowDiv6(false)
 
 
         }
@@ -163,12 +224,12 @@ App() {
                             </tr>
                              <tr >
                              {                             
-                                showDiv1 && <div id="payments">hello welcome</div>
+                                showDiv1 && <div id="payments">hello welcome jikflfmnfgfgfb njbj jxclokdclvd cknjccpocfnm cnjxjvb jhcjkcbbkjv jcjkbckjbcvkbj jkbckjjxvbvb cxnbchkbjjvvb  jhckjbcjcjb kjbckjxcxknckn jnkkvkxjdvjv</div>
                              }
                              </tr>
                              
                              <tr>
-                                <td>PAYMENT OPTIONS
+                                <td>STATE OF THE TECHNOLOGY
                                 <button type="button" class="btn btn-default btn-circle" id="aboutUSviewbtn2" onClick={() => handleButtonClick("aboutUSviewbtn2")} >{button2Content}</button></td>
                                
                             </tr>
@@ -178,10 +239,58 @@ App() {
                              }
                              </tr>
 
+                             <tr>
+                                <td>CUSTOMER CARE SERVICE
+                                <button type="button" class="btn btn-default btn-circle" id="aboutUSviewbtn3" onClick={() => handleButtonClick("aboutUSviewbtn3")} >{button3Content}</button></td>
+                               
+                            </tr>
+                             <tr>
+                             {                             
+                                showDiv3 && <div>Hello world hi! </div>
+                             }
+                             </tr>
+
+                             <tr>
+                                <td>LOW RATES
+                                <button type="button" class="btn btn-default btn-circle" id="aboutUSviewbtn4" onClick={() => handleButtonClick("aboutUSviewbtn4")} >{button4Content}</button></td>
+                               
+                            </tr>
+                             <tr>
+                             {                             
+                                showDiv4 && <div>Hello world hi! </div>
+                             }
+                             </tr>
+
+                             <tr>
+                                <td>FREE PUBLICITY
+                                <button type="button" class="btn btn-default btn-circle" id="aboutUSviewbtn5" onClick={() => handleButtonClick("aboutUSviewbtn5")} >{button5Content}</button></td>
+                               
+                            </tr>
+                             <tr>
+                             {                             
+                                showDiv5 && <div>Hello world hi! </div>
+                             }
+                             </tr>
+
+                             <tr>
+                                <td>SECURITY
+                                <button type="button" class="btn btn-default btn-circle" id="aboutUSviewbtn6" onClick={() => handleButtonClick("aboutUSviewbtn6")} >{button6Content}</button></td>
+                               
+                            </tr>
+                             <tr>
+                             {                             
+                                showDiv6 && <div>Hello world hi! </div>
+                             }
+                             </tr>
+
+
+
+
                             </tbody>
                        
                       </Table>
                   
+                      {/* <Footer></Footer> */}
 
                 </div>
 

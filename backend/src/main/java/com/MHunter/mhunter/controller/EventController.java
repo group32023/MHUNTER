@@ -3,6 +3,7 @@ package com.MHunter.mhunter.controller;
 
 import com.MHunter.mhunter.model.Event;
 import com.MHunter.mhunter.model.Organizer;
+import com.MHunter.mhunter.model.RequestMusicMember;
 import com.MHunter.mhunter.model.User;
 import com.MHunter.mhunter.service.EventService;
 import com.MHunter.mhunter.service.OrganizerService;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.*;
 import java.time.Duration;
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.ArrayList;
 import java.util.List;
 
 @CrossOrigin (origins = "*")
@@ -90,4 +92,49 @@ public class EventController {
     public List<Event> getSpecificEventByDate(@PathVariable LocalDate date){
         return eventService.getSpecificEventByDate(date);
     }
+
+
+
+    @GetMapping("/viewEventForHome")
+    public List<EventOrganizer> viewEventForHome() {
+
+        List<Event> eventList = eventService.getEventsForHome();
+        List<EventOrganizer> eventOrganizerList = new ArrayList<>();
+
+        eventList.forEach(res ->{
+            Organizer organizer = organizerService.findSpecificOrganizer(res.getOrgID());
+            User user = userService.findSpecificUser(organizer.getUser().getUserId());
+
+            EventOrganizer eventOrganizer = new EventOrganizer();
+            eventOrganizer.setOrgId(res.getOrgID());
+            eventOrganizer.setEventId(res.getEventID());
+            eventOrganizer.setOrganizerName(user.getFirstName() + " " +  user.getLastName());
+            eventOrganizer.setEventName(res.getEvent_name());
+            eventOrganizer.setEventType(res.getEvent_type());
+            eventOrganizer.setStartTime(res.getStart_time());
+            eventOrganizer.setPlace(res.getTown());
+            eventOrganizer.setDate(res.getDate());
+            eventOrganizer.setCrowd(res.getCrowd());
+
+            Duration difference = Duration.between( res.getStart_time(),res.getEnd_time());
+            long hours = difference.toHours();
+            long minutes = difference.toMinutes() % 60;
+            if(minutes==0){
+                eventOrganizer.setDuration(hours + " hours ");
+
+            }
+            else{
+                eventOrganizer.setDuration(hours + " hours and " + minutes + " minutes");
+
+            }
+            eventOrganizerList.add(eventOrganizer);
+
+
+            //System.out.println(eventOrganizer);
+        });
+
+        return eventOrganizerList;
+    }
+
+
 }

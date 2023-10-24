@@ -24,4 +24,9 @@ public class InvoiceController {
         invoiceService.saveInvoice(data);
         return "added";
     }
+
+    @GetMapping("/findInvoice/{mmid}/{eventid}")
+    public int getInvoice(@PathVariable int mmid, @PathVariable int eventid){
+        return invoiceService.getInvoiceIdForEvent(mmid,eventid);
+    }
 }

@@ -22,4 +22,7 @@ public class RequestMusicMember {
     private int confirmationStatus;
 
     private LocalDateTime confirmationDate;
+    private int cancelStatus;
+    private String reason;
+    private LocalDateTime canceledDate;
 }

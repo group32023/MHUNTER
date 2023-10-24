@@ -16,6 +16,7 @@ import kpop from '../assets/images/kpop.png'
 import CircularProgress from '@mui/material/CircularProgress';
 import { Link } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import eventtype from '../assets/images/eventtype.png';
 import {faPhone,faLocationDot,faList,faCalendarDays} from '@fortawesome/free-solid-svg-icons'
 import { faTwitter, faFontAwesome,faFacebook,faGooglePlusG,faLinkedinIn } from '@fortawesome/free-brands-svg-icons'
 
@@ -71,7 +72,7 @@ export default function ArtistPendingRequests() {
       <div className="eventDetails">
         <h5>{eventList1[i]['organizerName']}</h5>
         
-        <p class="eventType"><FontAwesomeIcon icon={faCalendarDays} id="EventIconPendingRequest"/>{eventList1[i]['eventName']}</p>
+        <p class="eventType"><img src={eventtype} className="EventIconPendingRequest1"></img>{eventList1[i]['eventName']}</p>
       <p class="eventDate"><FontAwesomeIcon icon={faCalendarDays} id="CalenderIconPendingRequest"/>{eventList1[i]['date']}</p>
         <p class="venue"><FontAwesomeIcon icon={faLocationDot} id="LocationIconPendingRequest"/> {eventList1[i]['place']}</p>
       </div>
