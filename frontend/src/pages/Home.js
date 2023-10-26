@@ -45,7 +45,7 @@ h() {
                     </p>
                 </section>
 
-                <Link className='signupBtn' to={'/signup'}>SIGN UP</Link>
+                <Link className='signupBtn' to={'/signup'}><span>SIGN UP</span></Link>
                 
             </div>
             <label className='headingArtist'>ARTISTS</label>

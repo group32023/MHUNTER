@@ -23,5 +23,6 @@ public interface EventService {
 
 //    public List<Event> getConfirmationStatusByEventIdOrgId(Integer eventid, Integer OrgID);
 
+    public List<Event> getEventsForHome();
 
 }

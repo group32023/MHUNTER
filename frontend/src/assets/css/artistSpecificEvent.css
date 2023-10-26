@@ -58,6 +58,7 @@
     position: relative;
     top: -17%;
     left: 67.6%;
+    
   
 }
 
@@ -68,6 +69,7 @@
     font-style: normal;
     font-weight: 600;
     line-height: normal;
+    margin-left: 140px;
 }
 
 .countClock{
@@ -97,6 +99,7 @@
     font-style: normal;
     font-weight: 600;
     line-height: normal;
+    margin-left: 140px;
 }
 
 .countClock{
@@ -156,6 +159,7 @@
     font-style: normal;
     font-weight: 600;
     line-height: normal;
+    margin-left: 140px;
 }
 
 .specificDateDiv {
@@ -168,7 +172,7 @@
     left: 47px;
   }
 
-  .specificdateImage{
+.specificdateImage{
     width: 22px;
     height: 22px;
     flex-shrink: 0;
@@ -263,13 +267,13 @@
 }
 
 .specificEventLocation{
- width: 804px;
-height: 248px;
-border-radius: 15px;
-background: #3B444D;
-position: relative;
-top: -241px;
-left: 146px;
+    width: 804px;
+    height: 248px;
+    border-radius: 15px;
+    background: #3B444D;
+    position: relative;
+    top: -241px;
+    left: 146px;
 }
 
 .specificEventIncome{
@@ -289,6 +293,7 @@ left: 146px;
     font-style: normal;
     font-weight: 600;
     line-height: normal;
+    margin-left: 140px;
 }
 
 .specificTotal{

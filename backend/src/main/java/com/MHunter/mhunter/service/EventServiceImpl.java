@@ -57,4 +57,7 @@ public class EventServiceImpl implements EventService {
 //}
 
 
+    public List<Event> getEventsForHome() {
+        return eventRepository.findUpcomingEventsForEventHome();
+    }
 }

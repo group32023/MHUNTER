@@ -16,7 +16,7 @@ import { Link, Routes, Route } from 'react-router-dom';
 import Topbar from '../../components/common/Topbar';
 
 import { BiSolidUserDetail } from "react-icons/bi";
-import ModeratorPendingRequest from '../../components/Moderator/moderatorPendingRequest'
+// import ModeratorPendingRequest from '../../components/Moderator/moderatorPendingRequest'
 
 import { BiSolidCalendarStar } from "react-icons/bi";
 
@@ -128,19 +128,20 @@ export default function AdminDashboard() {
             </div>
             </div>
         </div>
-        <div className="col-sm-3">
-            <div className="card card-userdetails">
-            <div className="card-body text-center">
-            <span className='icon-name-container'><BiSolidUserDetail className='icon-dashboard'/><h3 className="card-title text-light">Moderator 2</h3></span>
-            </div>
-            </div>
+        <div className='col-sm-3'>
+        <div className="card card-userdetails">
+        
+          <div className="card-body text-center">
+            <span className='icon-name-container'><BsMusicNoteList className='icon-dashboard'/><h3 className="card-title text-light">Pendding Request 5</h3></span>
+          </div>
         </div>
+      </div>
     </div>
-    <div className='row'>
+    <div className='row' style={{display:'flex', justifyContent:'center'}}>
       <div className='col-sm-8'>
         <div className='UpcominEventsDiv '>
           <div className="p-3">
-            <p className='fs-5' style={{ fontFamily: 'MyCustomFont1' }}>Upcoming Events</p>
+            <p className='fs-5' style={{ fontFamily: 'MyCustomFont1' , color:'white'}}>Upcoming Events</p>
             <hr></hr>
             <div className="UpcomingTableDiv mt-4">
               <div className="row tableUpcomingContent">
@@ -155,15 +156,13 @@ export default function AdminDashboard() {
                   <span className='row eventTitle'>OBA NISA PERA BEATZ</span>
                   <div className='row eventDataRow1'>
                     <span className='row eventLocation'>University of Peradeniya, Gymnasium</span>
+                    <span className='row eventLocation' style={{color:'white'}}>Oba Nisa live in concert: A vibrant musical journey for university students, featuring a fusion of genres and unforgettable performances that celebrate youth.</span>
                     <div className='row eventDate'>
-                      <BiSolidCalendarStar className='fs-5' style={{ color: '#7643D2' }} />
-                      <span >2023-10-05</span>
+                      <BiSolidCalendarStar className='fs-5' style={{ color: 'white' }} />
+                      <span  style={{ color: 'white' }}  >2023-10-05</span>
                     </div>
 
                   </div>
-
-                  <span className='eventDescription row mt-1 '>Oba Nisa live in concert: A vibrant musical journey for university students, featuring a fusion of genres and unforgettable performances that celebrate youth.</span>
-
                 </div>
                 <hr className='mt-3 '></hr>
 
@@ -179,14 +178,13 @@ export default function AdminDashboard() {
                   <span className='row eventTitle'>DADDY LIVE IN CONCERT</span>
                   <div className='row eventDataRow1'>
                     <span className='row eventLocation'>Central Auditorium, Weligama,Matara</span>
+                    <span className='row eventLocation' style={{color:'white'}}>Daddy Band delivers an electrifying live concert experience, blending dynamic rock melodies with captivating stage presence.</span>
                     <div className='row eventDate'>
-                      <BiSolidCalendarStar className='fs-5' style={{ color: '#7643D2' }} />
-                      <span >2023-11-23</span>
+                      <BiSolidCalendarStar className='fs-5' style={{ color: 'white' }} />
+                      <span  style={{ color: 'white' }} >2023-11-23</span>
                     </div>
 
                   </div>
-
-                  <span className='eventDescription row mt-1 '>Daddy Band delivers an electrifying live concert experience, blending dynamic rock melodies with captivating stage presence.</span>
 
                 </div>
                 <hr className='mt-3 '></hr>
@@ -203,14 +201,13 @@ export default function AdminDashboard() {
                   <span className='row eventTitle'>B N S LIVE IN CONCERT</span>
                   <div className='row eventDataRow1'>
                     <span className='row eventLocation'> Air Force Grounds, Weerawila</span>
+                    <span className='row eventLocation' style={{ color: 'white' }} >BNS takes the stage in an unforgettable live concert, creating an immersive musical experience that resonates with fans of all ages.</span>
                     <div className='row eventDate'>
-                      <BiSolidCalendarStar className='fs-5' style={{ color: '#7643D2' }} />
-                      <span >2023-11-25</span>
+                      <BiSolidCalendarStar className='fs-5' style={{ color: 'white' }} />
+                      <span style={{ color: 'white' }} >2023-11-25</span>
                     </div>
 
                   </div>
-
-                  <span className='eventDescription row mt-1 '>BNS takes the stage in an unforgettable live concert, creating an immersive musical experience that resonates with fans of all ages.</span>
 
                 </div>
                 <hr className='mt-3 '></hr>
@@ -221,14 +218,7 @@ export default function AdminDashboard() {
           </div>
         </div>
       </div>
-      <div className='col-sm-3'>
-        <div className="card card-userdetails">
-        
-          <div className="card-body text-center">
-            <span className='icon-name-container'><BsMusicNoteList className='icon-dashboard'/><h3 className="card-title text-light">Pendding Request 5</h3></span>
-          </div>
-        </div>
-      </div>
+      
     </div>
 
 

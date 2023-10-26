@@ -1,7 +1,6 @@
 package com.MHunter.mhunter.service;
 
 
-import com.MHunter.mhunter.model.IncomeArtist;
 import com.MHunter.mhunter.model.Organizer;
 import com.MHunter.mhunter.repository.OrganizerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,5 +19,8 @@ public class OrganizerImp implements OrganizerService{
         return organizerRepository.findByOrgId(orgId);
     }
 
-
+    @Override
+    public List<Organizer> findAllOrganizer() {
+        return organizerRepository.findAll();
+    }
 }

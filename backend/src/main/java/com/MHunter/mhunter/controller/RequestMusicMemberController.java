@@ -1,8 +1,10 @@
 package com.MHunter.mhunter.controller;
 
+import com.MHunter.mhunter.exception.UserNotFoundException;
 import com.MHunter.mhunter.model.*;
 import com.MHunter.mhunter.service.*;
 import com.MHunter.mhunter.struct.EventOrganizer;
+import com.MHunter.mhunter.struct.UserMusicMember;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -31,6 +33,9 @@ public class RequestMusicMemberController {
     @Autowired
     private IncomeArtistService incomeArtistService;
 
+    @Autowired
+    private MusicMemberService musicMemberService;
+
     @PostMapping("/add")
     public String save(@RequestBody RequestMusicMember requestMusicMember){
          requestMusicMember.setRequestDate(LocalDateTime.now());
@@ -43,6 +48,8 @@ public class RequestMusicMemberController {
         return requestMusicMemberService.viewAll();
     }
 
+
+
     @GetMapping("/view/{mid}/{eventId}")
     public RequestMusicMember viewSpecific(@PathVariable int mid,@PathVariable int eventId){
         RequestMusicMemberId id = new RequestMusicMemberId();
@@ -53,9 +60,12 @@ public class RequestMusicMemberController {
 
     @PutMapping("/update/{mid}/{eventId}")
     public RequestMusicMember update(@RequestBody RequestMusicMember requestMusicMember, @PathVariable int mid,@PathVariable int eventId){
+        System.out.println(mid);
+        System.out.println(eventId);
         RequestMusicMemberId id = new RequestMusicMemberId();
         id.setMMID(mid);
         id.setEventId(eventId);
+        System.out.println("come here");
       return   requestMusicMemberService.updateRequestMusicMember(requestMusicMember,id);
     }
 
@@ -134,7 +144,7 @@ public class RequestMusicMemberController {
             eventOrganizer.setIncome(incomeArtist.getIncome());
             eventOrganizer.setEventId((event.getEventID()));
             eventOrganizer.setOrgId(res.getOrgId());
-            eventOrganizer.setOrganizerName(user.getFirstName() + " " +  user.getFirstName());
+            eventOrganizer.setOrganizerName(user.getFirstName() + " " +  user.getLastName());
             eventOrganizer.setEventName(event.getEvent_name());
             eventOrganizer.setEventType(event.getEvent_type());
             eventOrganizer.setStartTime(event.getStart_time());
@@ -334,4 +344,20 @@ public class RequestMusicMemberController {
 
     }
 
-}
+
+    @GetMapping("/musicMemberDetails/{mid}")
+    public UserMusicMember musicMemberDetails(@PathVariable int mid) {
+
+      MusicMember musicMember =  musicMemberService.findSpecificMusicMember(mid);
+        User user = userService.findSpecificUser(musicMember.getUser().getUserId());
+        UserMusicMember userMusicMember = new UserMusicMember();
+        userMusicMember.setUserName(musicMember.getName());
+        userMusicMember.setAddress(user.getAddress());
+        userMusicMember.setEmail(user.getEmail());
+
+
+        return userMusicMember;
+    }
+
+
+    }

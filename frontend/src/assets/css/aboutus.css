@@ -1,22 +1,32 @@
 #tableEvents{
-    top: 3%;
-    left: 5%;
+    top: 7%;
+    left: 26%;
     font-family: Dosis;
     position: absolute;
     --bs-table-bg: none !important;
     font-size: 22px;
-    width: 90%;
+    width: 60%;
     text-align: center !important;
 }
 #tableEvents tr{
     width: 10%;
     height: 40%;
-    text-align: left !important;
+    text-align: center !important;
     border-bottom: #7643D2 solid 3px !important;
+    justify-content: center;
     
 
     
 }
+
+
+.table-hover>tbody>tr:hover>* {
+    --bs-table-color-state: none !important;
+    --bs-table-bg-state: none !important;
+}
+
+
+
 #tableEvents td{
     position: relative;
     left: 5%;
@@ -31,8 +41,9 @@
     color: black;
     font-size: 22px;
     font-weight: bolder;
-    position: relative;
-    left: 70%;
+    position: absolute;
+    top: 5px;
+    left: 88%;    
     width: 50px;
     height: 50px;
     border-radius: 50%;
@@ -44,17 +55,72 @@
     color: black;
     font-size: 22px;
     font-weight: bolder;
-    position: relative;
-    left: 70%;
+    position: absolute;
+    top: 5px;
+    left: 88%; 
     width: 50px;
     height: 50px;
     border-radius: 50%;
     
 
 }
+#aboutUSviewbtn3{
+    background-color: aliceblue !important;
+    color: black;
+    font-size: 22px;
+    font-weight: bolder;
+    position: absolute;
+    top: 5px;
+    left: 88%; 
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    
+
+}
+#aboutUSviewbtn4{
+    background-color: aliceblue !important;
+    color: black;
+    font-size: 22px;
+    font-weight: bolder;
+    position: absolute;
+    top: 5px;
+    left: 88%; 
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    
+
+}#aboutUSviewbtn5{
+    background-color: aliceblue !important;
+    color: black;
+    font-size: 22px;
+    font-weight: bolder;
+    position: absolute;
+    top: 5px;
+    left: 88%; 
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    
+
+}#aboutUSviewbtn6{
+    background-color: aliceblue !important;
+    color: black;
+    font-size: 22px;
+    font-weight: bolder;
+    position: absolute;
+    top: 5px;
+    left: 88%; 
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    
+
+}
+
 #payments{
     position: relative;
     left: 8%;
-    background-color: rgb(140, 142, 143);
     width: 85%;
 }

@@ -23,8 +23,8 @@ export default function ArtistPriorBooking() {
   const componentPDF = useRef();
   const { id1,id2,id3 } = useParams();
 
-  console.log(id1);
-  console.log(id2);
+  // console.log(id1);
+  // console.log(id2);
 
   let navigate = useNavigate();
 
@@ -60,11 +60,10 @@ export default function ArtistPriorBooking() {
 
   
    
-
   
+  console.log(events)
   const divCount = events.length;
   const divElements = [];
- 
 
 //   // Using a for loop to generate the <div> tags
   for (let i = 0; i < divCount; i++) {

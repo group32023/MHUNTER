@@ -1,11 +1,4 @@
-.MainContainer {
-
-    position: fixed;
-    height: 100%;
-    width: 100%;
-    background: #24292D;
-
-}
+.MainContainer {}
 
 .InvoiceContainer {
     position: absolute;
@@ -24,14 +17,7 @@
     top: 10%;
 }
 
-.MainContainer {
-
-    position: fixed;
-    height: 100%;
-    width: 100%;
-    background: #24292D;
-
-}
+.MainContainer {}
 
 
 
@@ -291,7 +277,7 @@
     color: white;
     border-radius: 10px;
     border: none !important;
-    left: 202px;
+    left: 340px;
     top: 512px;
 }
 
@@ -309,6 +295,23 @@
     border-radius: 10px;
     border: 3px solid #FF0000 !important;
     background: none;
+}
+
+.previewInvoice1 {
+    position: absolute;
+    font-size: 15px;
+    width: 15%;
+    height: 7%;
+    border: none !important;
+    font-weight: bold;
+    text-align: center;
+    color: #000000;
+    left: 202px;
+    top: 512px;
+    border-radius: 10px;
+
+    background: #7643D2;
+
 }
 
 .profileInvoice {
