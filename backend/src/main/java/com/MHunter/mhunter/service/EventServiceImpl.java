@@ -21,8 +21,7 @@ public class EventServiceImpl implements EventService {
     public Event saveEvent(Event event) {
 
         System.out.println("Event before save: " + event);
-        Event savedEvent = eventRepository.save(event);
-        return savedEvent;
+        return eventRepository.save(event);
 
     }
 
@@ -52,10 +51,10 @@ public class EventServiceImpl implements EventService {
         return eventRepository.findByeventid(eventid);
     }
 
-@Override
-    public List<Event> getConfirmationStatusByEventIdOrgId(Integer eventid, Integer OrgID){
-        return eventRepository.findByOrgIdEventIdConfirmationStatus(eventid,OrgID);
-}
+//@Override
+//    public List<Event> getConfirmationStatusByEventIdOrgId(Integer eventid, Integer OrgID){
+//        return eventRepository.findByOrgIdEventIdConfirmationStatus(eventid,OrgID);
+//}
 
 
 }

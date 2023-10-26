@@ -14,7 +14,7 @@ const LocationInput = ({ onLocationSelect, setFormData }) => {
   };
 
   const handlePlaceSelect = () => {
-    if (searchBoxRef.current) { 
+    if (searchBoxRef.current) {
       const places = searchBoxRef.current.getPlaces();
       if (places.length > 0) {
         const place = places[0];
@@ -24,7 +24,7 @@ const LocationInput = ({ onLocationSelect, setFormData }) => {
           lat: place.geometry.location.lat(),
           lng: place.geometry.location.lng(),
           address: `${place.name}, ${place.formatted_address}`,
-        };    
+        };
 
         setSearchValue(newLocation.address);
         setSelectedLocation(newLocation);
@@ -36,7 +36,7 @@ const LocationInput = ({ onLocationSelect, setFormData }) => {
           location: newLocation.address,
           latitude: newLocation.lat,
           longitude: newLocation.lng,
-        })); 
+        }));
       }
     }
 
@@ -56,7 +56,7 @@ const LocationInput = ({ onLocationSelect, setFormData }) => {
       formattedAddress = data.results[0].formatted_address;
     }
 
-    return formattedAddress;     
+    return formattedAddress;
   };
 
 
@@ -69,9 +69,9 @@ const LocationInput = ({ onLocationSelect, setFormData }) => {
 
     // Fetch address using reverse geocoding
     const address = await fetchAddressFromLatLng(newLocation.lat, newLocation.lng);
-    newLocation.address = address;  
+    newLocation.address = address;
 
-    
+
     setSelectedLocation(newLocation);
     onLocationSelect(newLocation);
     // setSearchValue(newLocation.address); 
@@ -98,18 +98,18 @@ const LocationInput = ({ onLocationSelect, setFormData }) => {
     <LoadScript googleMapsApiKey="AIzaSyBHUE7QQ_cie9vWpTKHX7rOuqAoD8uxhCA" libraries={libraries}>
       <div>
 
-        <div className='searchbox' style={{color: 'white'}}>
+        <div className='searchbox' style={{ color: 'white' }}>
           <StandaloneSearchBox onLoad={(searchBox) => (searchBoxRef.current = searchBox)} onPlacesChanged={handlePlaceSelect} >
-            <input type="text" placeholder="Enter event location"  style={{
+            <input type="text" placeholder="Enter event location" style={{
 
               width: '100%',
               padding: "8px",
               border: '1px solid white',
-              backgroundColor:'#24292D',
+              backgroundColor: '#24292D',
               borderRadius: '12px',
               color: 'white'
-              
-            }}/>
+
+            }} />
           </StandaloneSearchBox>
         </div>
         {selectedLocation && (
@@ -118,7 +118,7 @@ const LocationInput = ({ onLocationSelect, setFormData }) => {
             onClick={handleMapClick} // Add the click event handler to the map
             center={selectedLocation}
             zoom={15}
-            mapContainerStyle={{ height: '200px', width: '80%' }}
+            mapContainerStyle={{ height: '200px', width: '100%' }}
           >
             <Marker position={selectedLocation} />
           </GoogleMap>

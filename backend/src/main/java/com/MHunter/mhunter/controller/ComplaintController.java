@@ -13,7 +13,6 @@ import java.util.List;
 @CrossOrigin
 public class ComplaintController {
     @Autowired
-
     private ComplaintService complaintService;
 
     @PostMapping("/add")
