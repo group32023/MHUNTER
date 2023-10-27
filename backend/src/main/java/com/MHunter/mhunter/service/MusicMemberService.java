@@ -10,4 +10,6 @@ public interface MusicMemberService {
     public MusicMember findSpecificMusicMember(int mmid);
 
     List<Object[]> getCountOfBandAndArtist();
+
+    public MusicMember findSpecificMusicMemberByUserID(int user_id);
 }

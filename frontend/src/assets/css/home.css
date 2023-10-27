@@ -261,6 +261,8 @@
 
 .signupBtn span{
     align-items: center;
+    display: grid;
+    justify-content: center;
 }
 
 

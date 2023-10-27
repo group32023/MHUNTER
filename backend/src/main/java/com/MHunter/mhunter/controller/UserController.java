@@ -100,6 +100,11 @@ public class UserController {
                 .orElseThrow(() -> new UserNotFoundException(userId));
     }
 
+    @GetMapping("/musicUser/{userId}")
+    MusicMember getMusicUserById(@PathVariable int userId) {
+        return musicMemberService.findSpecificMusicMemberByUserID(userId);
+    }
+
     @PutMapping("/user/{userId}")
     User updateUser(@RequestBody User newUser, @PathVariable int userId) {
         return userRepository.findById(userId)
