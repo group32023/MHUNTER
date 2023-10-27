@@ -89,6 +89,16 @@ function OrganizerEventDashboard() {
             });
     }, [eventid]);
 
+    useEffect(() => {
+
+        axios.get('http://localhost:3000/requestMusicMember/detailsByEventIdAndOrgId/26/9')
+            .then(res => res.json())
+            .then((result) => {
+                setConfirmationStatus(result);
+            }
+            )
+    }, [])
+
     //Page Preloader
 
     if (!event) {
@@ -227,7 +237,7 @@ function OrganizerEventDashboard() {
                                             </div>
                                         </div>
                                     </div>
-                                    <div className="row tableContent">
+                                    {/* <div className="row tableContent">
                                         <div className="column">
                                             <div className="content">
                                                 <img alt='' src={PaymentArtist5} width='45px' height='45px' className='mx-4' />
@@ -284,7 +294,7 @@ function OrganizerEventDashboard() {
                                                 Confirmed <BiSolidCircle className='mx-2' />
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> */}
 
 
                                 </div>

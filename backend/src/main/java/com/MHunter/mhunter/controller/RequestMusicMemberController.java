@@ -4,8 +4,11 @@ import com.MHunter.mhunter.exception.UserNotFoundException;
 import com.MHunter.mhunter.model.*;
 import com.MHunter.mhunter.service.*;
 import com.MHunter.mhunter.struct.EventOrganizer;
+import com.MHunter.mhunter.struct.EventRequestStatus;
 import com.MHunter.mhunter.struct.UserMusicMember;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.*;
@@ -358,6 +361,25 @@ public class RequestMusicMemberController {
 
         return userMusicMember;
     }
+
+//    @GetMapping("/customQuery/{orgId}/{eventId}")
+//    public ResponseEntity<List<EventRequestStatus>> executeCustomQuery(
+//            @RequestParam Integer orgId,
+//            @RequestParam Integer eventId) {
+//        List<EventRequestStatus> results = requestMusicMemberService.executeCustomQuery(orgId, eventId);
+//        return new ResponseEntity<>(results, HttpStatus.OK);
+//    }
+
+    @GetMapping("/detailsByEventIdAndOrgId/{eventId}/{orgId}")
+    public ResponseEntity<List<RequestMusicMember>> getDetailsByEventIdAndOrgId(@PathVariable Integer eventId,@PathVariable Integer orgId) {
+        List<RequestMusicMember> requestMusicMembers = requestMusicMemberService.getByEventIdAndOrgId(eventId,orgId);
+        if (requestMusicMembers.isEmpty()) {
+            return ResponseEntity.notFound().build();
+        }
+        return ResponseEntity.ok(requestMusicMembers);
+    }
+
+
 
 
     }

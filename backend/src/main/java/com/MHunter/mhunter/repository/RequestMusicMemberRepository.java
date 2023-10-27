@@ -30,8 +30,13 @@ public interface RequestMusicMemberRepository extends JpaRepository<RequestMusic
     @Query(value = "SELECT * FROM request_music_member WHERE mmid = :mmid AND org_id= :orgId AND confirmation_status = 1", nativeQuery = true)
     List<RequestMusicMember> findByMMIDListForAOrganizer(@Param("mmid") int mmid,@Param("orgId") int orgId);
 
-    List<EventRequestStatus> findByOrgIdAndEventId(Integer orgId, Integer eventId);
-    @Query("SELECT rmm.mmid, rmm.orgId, rmm.confirmationStatus, rmm.eventId, mm.userId, CONCAT(u.firstName, ' ', u.lastName) AS fullName FROM RequestMusicMember AS rmm JOIN MusicMember AS mm ON rmm.mmid = mm.mmid JOIN User AS u ON mm.userId = u.userId WHERE rmm.orgId = :orgId AND rmm.eventId = :eventId")
-    List<EventRequestStatus> customQuery(@Param("orgId") Long orgId, @Param("eventId") Long eventId);
+    @Query(value = "SELECT * FROM request_music_member WHERE event_id = :eventId AND org_id= :orgId", nativeQuery = true)
+    List<RequestMusicMember> findByEventIdAndOrgId(@Param("eventId") int mmid,@Param("orgId") int orgId);
+
+
+
+//    List<EventRequestStatus> findByOrgIdAndEventId(Integer orgId, Integer eventId);
+//    @Query("SELECT rmm.mmid, rmm.org_id, rmm.confirmation_status, rmm.event_id, mm.user_id, CONCAT(u.first_name, ' ', u.last_name) AS full_name FROM request_music_member AS rmm JOIN music_member AS mm ON rmm.mmid = mm.mmid JOIN user AS u ON mm.user_id = u.user_id WHERE rmm.org_id = :orgId AND rmm.event_id = :eventId")
+//    List<EventRequestStatus> customQuery(@Param("orgId") Integer orgId, @Param("eventId") Integer eventId);
 
 }

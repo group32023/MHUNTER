@@ -3,6 +3,7 @@ package com.MHunter.mhunter.service;
 import com.MHunter.mhunter.model.RequestMusicMember;
 import com.MHunter.mhunter.model.RequestMusicMemberId;
 import com.MHunter.mhunter.repository.RequestMusicMemberRepository;
+import com.MHunter.mhunter.struct.EventRequestStatus;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -76,4 +77,15 @@ public class RequestMusicMemberServiceImp implements RequestMusicMemberService{
         return requestMusicMemberRepository.findByMMIDListForAOrganizer(mmid,orgId);
 
     }
+
+    @Override
+    public List<RequestMusicMember> getByEventIdAndOrgId(int eventId, int orgId) {
+        return requestMusicMemberRepository.findByEventIdAndOrgId(eventId,orgId);
+
+    }
+
+//    @Override
+//    public List<EventRequestStatus> executeCustomQuery(Integer orgId, Integer eventId) {
+//        return requestMusicMemberRepository.customQuery(orgId, eventId);
+//    }
 }
