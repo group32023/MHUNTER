@@ -47,6 +47,10 @@ import PaymentArtist8 from '../../assets/images/paymentArtist8.png'
 function OrganizerEventDashboard() {
     //Event Banner Image Change
     const [image, setImage] = useState(EventBanner4); // Set your default image here
+    const [data, setData] = useState([]);
+    const [error, setError] = useState(null);
+
+
 
     const handleImageDelete = () => {
         // Logic to delete the image (e.g., set it back to the default image)
@@ -89,15 +93,28 @@ function OrganizerEventDashboard() {
             });
     }, [eventid]);
 
-    useEffect(() => {
+    //Confirmation Status
 
-        axios.get('http://localhost:3000/requestMusicMember/detailsByEventIdAndOrgId/26/9')
-            .then(res => res.json())
-            .then((result) => {
-                setConfirmationStatus(result);
-            }
-            )
-    }, [])
+    useEffect(() => {
+        const apiUrl = 'http://localhost:8080/requestMusicMember/detailsByEventIdAndOrgId/26/9';
+        fetch(apiUrl)
+            .then((response) => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error! Status: ${response.status}`);
+                }
+                return response.json();
+            })
+            .then((data) => {
+                setData(data);
+            })
+            .catch((error) => {
+                setError(error);
+            });
+    }, []);
+
+    if (error) {
+        return <div>Error: {error.message}</div>;
+    }
 
     //Page Preloader
 
@@ -224,19 +241,23 @@ function OrganizerEventDashboard() {
                                             </div>
                                         </div>
                                     </div>
-                                    <div className="row tableContent">
-                                        <div className="column">
-                                            <div className="content">
-                                                <img alt='' src={PaymentArtist4} width='45px' height='45px' className='mx-4' />
-                                                Dim3
+                                    {data.map((item) => (
+                                        <div className="row tableContent" key={item.id}>
+                                            <div className="column">
+                                                <div className="content">
+                                                    <img alt='' src={PaymentArtist4} width='45px' height='45px' className='mx-4' />
+                                                    {item.confirmation_status}
+                                                </div>
+                                            </div>
+                                            <div className="column">
+                                                <div className="content confirmed d-flex align-items-center justify-content-center mt-2" style={{ fontFamily: 'MyCustomFont2' }}>
+                                                    Confirmed <BiSolidCircle className='mx-2' />
+                                                </div>
                                             </div>
                                         </div>
-                                        <div className="column">
-                                            <div className="content confirmed d-flex align-items-center justify-content-center mt-2" style={{ fontFamily: 'MyCustomFont2' }}>
-                                                Confirmed <BiSolidCircle className='mx-2' />
-                                            </div>
-                                        </div>
-                                    </div>
+
+                                    ))}
+
                                     {/* <div className="row tableContent">
                                         <div className="column">
                                             <div className="content">

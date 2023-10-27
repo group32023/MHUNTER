@@ -350,6 +350,11 @@ public class RequestMusicMemberController {
 
     @GetMapping("/musicMemberDetails/{mid}")
     public UserMusicMember musicMemberDetails(@PathVariable int mid) {
+//        {
+//            "userName": "Dinesh Gamage",
+//                "address": "252 B/2 Lower Gd Flr Methodist Central Bldg Galle Road, 03",
+//                "email": "dinesh@gmail.com"
+//        }
 
       MusicMember musicMember =  musicMemberService.findSpecificMusicMember(mid);
         User user = userService.findSpecificUser(musicMember.getUser().getUserId());
@@ -362,6 +367,11 @@ public class RequestMusicMemberController {
         return userMusicMember;
     }
 
+    @GetMapping("/getRowsByEventId/{eventId}")
+    public List<RequestMusicMember> getRowsByEventId(@PathVariable int eventId) {
+        return requestMusicMemberService.getRowsByEventId(eventId);
+    }
+
 //    @GetMapping("/customQuery/{orgId}/{eventId}")
 //    public ResponseEntity<List<EventRequestStatus>> executeCustomQuery(
 //            @RequestParam Integer orgId,
@@ -370,14 +380,31 @@ public class RequestMusicMemberController {
 //        return new ResponseEntity<>(results, HttpStatus.OK);
 //    }
 
-    @GetMapping("/detailsByEventIdAndOrgId/{eventId}/{orgId}")
-    public ResponseEntity<List<RequestMusicMember>> getDetailsByEventIdAndOrgId(@PathVariable Integer eventId,@PathVariable Integer orgId) {
-        List<RequestMusicMember> requestMusicMembers = requestMusicMemberService.getByEventIdAndOrgId(eventId,orgId);
-        if (requestMusicMembers.isEmpty()) {
-            return ResponseEntity.notFound().build();
-        }
-        return ResponseEntity.ok(requestMusicMembers);
-    }
+//    @GetMapping("/custom-query/get-results")
+//    public List<Object[]> getCustomQueryResults(@RequestParam int orgId, @RequestParam int eventId) {
+//        List<RequestMusicMember> requestMusicMembers = requestMusicMemberService.getCustomQueryResults(orgId, eventId);
+//
+//        List<Object[]> results = new ArrayList<>();
+//
+//        for (RequestMusicMember requestMusicMember : requestMusicMembers) {
+//            Object[] result = new Object[5];
+//            result[0] = requestMusicMember.getRequestMusicMemberId().getMMID();
+//            result[1] = requestMusicMember.getOrgId();
+//            result[2] = requestMusicMember.getConfirmationStatus();
+//            result[3] = requestMusicMember.getRequestMusicMemberId().getEventId();
+//
+//            MusicMember musicMember =  musicMemberService.findSpecificMusicMember(requestMusicMember.getRequestMusicMemberId().getMMID());
+//            User user = userService.findSpecificUser(musicMember.getUser().getUserId());
+//            UserMusicMember userMusicMember = new UserMusicMember();
+//            userMusicMember.setUserName(musicMember.getName());
+//
+//            result[4] = musicMember;
+//
+//            results.add(result);
+//        }
+//
+//        return results;
+//    }
 
 
 

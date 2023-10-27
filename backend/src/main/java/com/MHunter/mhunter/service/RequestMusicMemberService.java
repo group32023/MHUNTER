@@ -26,7 +26,7 @@ public interface RequestMusicMemberService {
 
     public List<RequestMusicMember> findConformationEventsByMMIDForOrg(int mmid, int orgId);
 
-    public List<RequestMusicMember> getByEventIdAndOrgId(int eventId, int orgId);
+    public List<RequestMusicMember> getRowsByEventId(int eventId);
 
 //    public List<EventRequestStatus> executeCustomQuery(Integer orgId, Integer eventId);
 

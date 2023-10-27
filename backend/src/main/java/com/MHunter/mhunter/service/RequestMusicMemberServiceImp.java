@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -79,11 +80,9 @@ public class RequestMusicMemberServiceImp implements RequestMusicMemberService{
     }
 
     @Override
-    public List<RequestMusicMember> getByEventIdAndOrgId(int eventId, int orgId) {
-        return requestMusicMemberRepository.findByEventIdAndOrgId(eventId,orgId);
-
+    public List<RequestMusicMember> getRowsByEventId(int eventId) {
+        return requestMusicMemberRepository.findByRequestMusicMemberIdEventId(eventId);
     }
-
 //    @Override
 //    public List<EventRequestStatus> executeCustomQuery(Integer orgId, Integer eventId) {
 //        return requestMusicMemberRepository.customQuery(orgId, eventId);
