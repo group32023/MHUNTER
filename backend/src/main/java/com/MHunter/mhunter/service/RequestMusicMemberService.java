@@ -10,7 +10,7 @@ public interface RequestMusicMemberService {
 
     public List<RequestMusicMember> viewAll();
 
-    public RequestMusicMember updateRequestMusicMember(RequestMusicMember requestMusicMember, RequestMusicMemberId id);
+    public RequestMusicMember updateRequestMusicMember(RequestMusicMemberId id);
 
     public boolean deleteRequestMusicMember(RequestMusicMemberId requestMusicMemberId);
 

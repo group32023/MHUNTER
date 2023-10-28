@@ -38,10 +38,9 @@ export default function BandInvoice() {
   const [others,setOthers] = useState(0.00);
   const [totalAmount,setTotalAmount] = useState(0.00);
   const [paymentType, setpaymentType]=useState("Full")
-  const [eventid, setEventid]=useState(0)
   const [invoiceId,setInvoiceId] = useState(0);
-  const [mmid, setMmid]=useState(0)
-  const [orgId, setOrgId]=useState(0)
+  const mmid=mid;
+  const eventid=id;
   const [agreementId, setAgreementId]=useState(0)
 
 
@@ -68,6 +67,7 @@ export default function BandInvoice() {
 
 
 
+
       fetch(`http://localhost:8080/bandAgreement/findAgreement/${mid}/${id}`)
       .then((response) => {
         if (!response.ok) {
@@ -88,18 +88,6 @@ export default function BandInvoice() {
 
   }, []);
 
-
-
-
-
-  useEffect(() => {
-    // Set initial values when the component mounts
-
-    setMmid(mid)
-    setEventid(parseInt(id))
-    setOrgId(parseInt(oid))
-  }, []);
-
   // Event handler for checkbox change
   const handleCheckboxChange = () => {
     
@@ -108,116 +96,74 @@ export default function BandInvoice() {
   }
 
   const [showModal, setShowModal] = useState(false);
+  const [showAcceptRequestModal, setShowAcceptRequestModal] = useState(false);
+  const orgId=event['orgId'];
 
   const handleShowModal = () => {
-      setShowModal(true);
-  };
-
-  const handleCloseModal = () => {
-    setBandFee(0.00);
-    setArtistFee(0.00)
-    setTransportFee(0.00)
-    setOthers(0.00)
-    setInstrumentFee(0.00)
-    setTotalAmount(0.00)
-    setSoundFee(0.00)
-    setShowModal(false);
-  };
-  const handleCloseModalAndAccept = (e) => {
-            setShowModal(false);
-
-           
-      
-
-            
-
-            console.log(eventid)
-            const bookedList = {agreementId,invoiceId,eventid,mmid,orgId}
-            console.log(bookedList)
-
-                fetch("http://localhost:8080/requestsLog/save",{
-                  method:"POST",
-                  headers:{"Content-Type" : "application/json"},
-                  body:JSON.stringify(bookedList)
-                  
-                }).then(()=>{
-
-                  setBandFee(0.00);
-                  setArtistFee(0.00)
-                  setTransportFee(0.00)
-                  setOthers(0.00)
-                  setInstrumentFee(0.00)
-                  setTotalAmount(0.00)
-                  setSoundFee(0.00)
-                  setShowModal(false);
- 
-                              
-              })
-
-              update();
-
-            
-    
+    setShowModal(true);
 };
 
-  // var totalAmountofInvoice = bandFee+soundFee+instrumentFee+transportFee+others;
+const handleCloseModal = () => {
+    setShowModal(false);
+};
+const handleCloseModalAndAccept = () => {
+  setShowModal(false);
+  setShowAcceptRequestModal(true);
+ 
+
   
-  // setTotalAmount(totalAmountofInvoice);
-
-  const loadPendingRequest=()=>{
-    navigate('/band/PendingRequests');
-  }
-
-  const update=()=>{
+};
 
 
+const handleCloseAcceptRequestModal=()=>{
+setShowAcceptRequestModal(false);
 
-// Make a PUT request using fetch
-fetch(`http://localhost:8080/requestMusicMember/update/${mid}/${id}`, {
-  method: 'PUT',
-  headers: {
-    'Content-Type': 'application/json', // Specify the content type of the request
-  },
-})
+const bookedlist = {agreementId,orgId,eventid,mmid,invoiceId};
+
+console.log(bookedlist);
+
+fetch("http://localhost:8080/requestsLog/save",{
+  method:"POST",
+  headers:{"Content-Type" : "application/json"},
+  body:JSON.stringify(bookedlist)
+  
+}).then(()=>{
+
+  fetch(`http://localhost:8080/requestMusicMember/update/${mmid}/${id}`,{
+    method:"PUT"
+  })
   .then((response) => {
-    if (!response.ok) {
-      throw new Error('Network response was not ok');
-    }
-    return response.json(); // Parse the response JSON if needed
-  })
-  .then((data) => {
-    // Handle a successful response here
-    console.log('User status updated successfully', data);
-  })
-  .catch((error) => {
-    // Handle errors here
-    console.error('Error updating user status', error);
-  });
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      return response.json(); // Parse the response JSON if needed
+    })
+    .then((data) => {
+      // Handle a successful response here
+      console.log('User status updated successfully', data);
+    })
+    .catch((error) => {
+      // Handle errors here
+      console.error('Error updating user status', error);
+    });
+});
 
 
 
 
-    // fetch(`http://localhost:8080/requestMusicMember/update/${mid}/${id}`)
-    // .then((response) => {
-    //   if (!response.ok) {
-    //     throw new Error('Network response was not ok');
-    //   }
-    //   return response.json();
-    // })
-     
-    //   .then((data) => {
-    //     setUpdateRequest(data);
-    //     console.log("hii updated")
 
-    //   })
-    //   .catch((error) => {
-    //     console.log('Error fetching data :', error);
-    //   });
+setBandFee(0.00);
+setArtistFee(0.00)
+setTransportFee(0.00)
+setOthers(0.00)
+setInstrumentFee(0.00)
+setTotalAmount(0.00)
+setSoundFee(0.00)
+navigate('/band/PendingRequests');
 
 
-      loadPendingRequest()
+};
 
-  }
 
   const addInvoice=(e)=>{
     e.preventDefault();
@@ -260,7 +206,7 @@ fetch(`http://localhost:8080/requestMusicMember/update/${mid}/${id}`, {
               console.log('Error fetching data :', error);
             });
 
-          handleShowModal()
+            handleShowModal()
 
            
 
@@ -383,6 +329,7 @@ const loadInvoicePreview=(id,mmid)=>{
           
         </div>
         
+       
         {showModal && (
                                     <div className="complaint-add-success-popup blur-background" style={{ fontFamily: 'MyCustomFont1' }}>
 
@@ -393,6 +340,24 @@ const loadInvoicePreview=(id,mmid)=>{
                                         Accept
                                     </Button>
                                             <Button className='RequestCloseBtn' onClick={handleCloseModal}>
+                                        Exit
+                                    </Button>
+                                        </div>
+
+
+                                    </div>
+                                )}
+
+
+                                
+                                {showAcceptRequestModal && (
+                                    <div className="complaint-add-success-popup blur-background" style={{ fontFamily: 'MyCustomFont1' }}>
+
+                                        <div className="complaint-add-success-popup-content">
+                                           
+                                            <p className="complaint-add-success-para_for_request_acception">Request Accept successfully!</p>
+                                          
+                                            <Button className='RequestCloseBtn' onClick={handleCloseAcceptRequestModal}>
                                         Exit
                                     </Button>
                                         </div>

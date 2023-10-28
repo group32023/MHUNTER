@@ -69,7 +69,7 @@ export default function BandInvoice() {
   const [paymentType, setpaymentType]=useState("Full")
   const [showSuccessComplaintAddPopup, setShowSuccessComplaintAddPopup] = useState(false);
 
- 
+  const orgId= event['orgId'];
 
   // Event handler for checkbox change
   const handleCheckboxChange = () => {
@@ -100,6 +100,41 @@ export default function BandInvoice() {
 
 const handleCloseAcceptRequestModal=()=>{
   setShowAcceptRequestModal(false);
+
+  const bookedlist = {orgId,eventid,mmid,invoiceId};
+
+  console.log(bookedlist);
+
+  fetch("http://localhost:8080/requestsLog/save",{
+    method:"POST",
+    headers:{"Content-Type" : "application/json"},
+    body:JSON.stringify(bookedlist)
+    
+  }).then(()=>{
+
+    fetch(`http://localhost:8080/requestMusicMember/update/${mmid}/${id}`,{
+      method:"PUT"
+    })
+    .then((response) => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.json(); // Parse the response JSON if needed
+      })
+      .then((data) => {
+        // Handle a successful response here
+        console.log('User status updated successfully', data);
+      })
+      .catch((error) => {
+        // Handle errors here
+        console.error('Error updating user status', error);
+      });
+  });
+
+
+
+
+
   setBandFee(0.00);
   setArtistFee(0.00)
   setTransportFee(0.00)
@@ -115,9 +150,7 @@ const handleCloseAcceptRequestModal=()=>{
  
   const addInvoice=(e)=>{
     e.preventDefault();
-    const invoice = {artistFee,bandFee,soundFee,instrumentFee,transportFee,others,totalAmount,paymentType,eventid,mmid}
-    console.log(invoice)
- 
+    const invoice = {artistFee,bandFee,soundFee,instrumentFee,transportFee,others,totalAmount,paymentType,eventid,mmid} 
 
     if(artistFee===0.00 && bandFee===0.00 && transportFee===0.00 && soundFee===0.00 && instrumentFee===0.00 && others===0.00){
 
@@ -138,7 +171,6 @@ const handleCloseAcceptRequestModal=()=>{
           })
            
             .then((data) => {
-              console.log(data)
               setInvoiceId(data);
               
       
@@ -149,7 +181,8 @@ const handleCloseAcceptRequestModal=()=>{
 
           handleShowModal()
 
-           console.log(invoiceId);
+
+
 
             })
     }

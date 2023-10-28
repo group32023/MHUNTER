@@ -27,30 +27,41 @@ export default function ArtistPendingRequests() {
   const [expand,setExpandedSideBar] = useState(true)
 
   const [eventList, setEventList] = useState([]);
-  const [currentPage, setCurrentPage] =useState(1);
-  const [linePerPage, setLinePerPage] = useState(4);
+ 
 
   useEffect(() => {
     const mmId = localStorage.getItem('mmid');
-    if(mmId){
-    // Fetch the data from the Java backend
-    const getPendingRequest = async () =>{
-      const res = await fetch(`http://localhost:8080/requestMusicMember/pendingRequest/${mmId}`)
+    // if(mmId){
+    // // Fetch the data from the Java backend
+    // const getPendingRequest = async () =>{
+    //   const res = await fetch(`http://localhost:8080/requestMusicMember/pendingRequest/${mmId}`)
 
-      const data = await res.json();
+    //   const data = await res.json();
+    //     setEventList(data);
+    //   };
+    //  getPendingRequest();
+
+
+    // }
+
+    fetch(`http://localhost:8080/requestMusicMember/pendingRequest/${mmId}`)
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      return response.json();
+    })
+     
+      .then((data) => {
         setEventList(data);
-      };
-     getPendingRequest();
-
-
-    }
+      })
+      .catch((error) => {
+        console.log('Error fetching data:', error);
+      });
 
   }, []);
   
 
-  const lastLineIndex = currentPage * linePerPage;
-  const firstLineIndex = lastLineIndex - linePerPage;
-  const eventList1 = eventList.slice(firstLineIndex,lastLineIndex)
 
   let navigate = useNavigate();
 
@@ -60,28 +71,28 @@ export default function ArtistPendingRequests() {
   }
 
 
-  const divCount = eventList1.length;
+  const divCount = eventList.length;
   const divElements = [];
  
 
   //Using a for loop to generate the <div> tags
   for (let i = 0; i < divCount; i++) {
 
-  console.log(eventList1[i]['eventName']);
+  console.log(eventList[i]['eventName']);
   
     
     divElements.push(<div key={i} className="requestContainer">
       <img src={profileImage} className="profile"></img>
       <div className="eventDetails">
-        <h5>{eventList1[i]['organizerName']}</h5>
+        <h5>{eventList[i]['organizerName']}</h5>
         
-        <p class="eventType"><img src={eventtype} className="EventIconPendingRequest1"></img>{eventList1[i]['eventName']}</p>
-      <p class="eventDate"><FontAwesomeIcon icon={faCalendarDays} id="CalenderIconPendingRequest"/>{eventList1[i]['date']}</p>
-        <p class="venue"><FontAwesomeIcon icon={faLocationDot} id="LocationIconPendingRequest"/> {eventList1[i]['place']}</p>
+        <p class="eventType"><img src={eventtype} className="EventIconPendingRequest1"></img>{eventList[i]['eventName']}</p>
+      <p class="eventDate"><FontAwesomeIcon icon={faCalendarDays} id="CalenderIconPendingRequest"/>{eventList[i]['date']}</p>
+        <p class="venue"><FontAwesomeIcon icon={faLocationDot} id="LocationIconPendingRequest"/> {eventList[i]['place']}</p>
       </div>
      
    
-      <button className="viewBtn" onClick={()=>load(eventList1[i]['eventId'])}>View</button>
+      <button className="viewBtn" onClick={()=>load(eventList[i]['eventId'])}>View</button>
     
       
    
@@ -127,13 +138,7 @@ export default function ArtistPendingRequests() {
         </div>
         
 
-      {/* <div className='pagination'>
-      <Pagination 
-                totalLines={eventList.length}
-                linesPerPage={linePerPage}
-                setCurrentPage={setCurrentPage}
-              />
-      </div> */}
+     
             
       
       </SideMenuBarArtist>

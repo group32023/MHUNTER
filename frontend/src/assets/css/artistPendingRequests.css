@@ -78,7 +78,7 @@
     font-weight: bold;
     text-align: center;
     color: white;
-    left: 957px;
+    left: 379px;
     top: -48.8px;
     border-radius: 10px;
     border: none !important;
@@ -87,10 +87,10 @@
 
 .requestContainer{
     background-color: #3b444d;
-    height: 15%;
+    height: 10% !important;
     width: 70%;
     position: relative;
-    top: 187px;
+    top: 122px;
     left: 14%;
     margin-bottom: 20px;
     border-radius: 25px;
