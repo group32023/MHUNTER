@@ -21,7 +21,6 @@ import Button from 'react-bootstrap/Button';
 
 
 
-
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {faPhone,faLocationDot,faList,faCalendarDays,faClock} from '@fortawesome/free-solid-svg-icons'
 import { faTwitter, faFontAwesome,faFacebook,faGooglePlusG,faLinkedinIn } from '@fortawesome/free-brands-svg-icons'
