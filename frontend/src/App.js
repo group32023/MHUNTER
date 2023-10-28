@@ -113,7 +113,7 @@ function App() {
           <Route path='/artist/PendingRequestView/:id' element={<ArtistPendingRequestView/>}></Route>
           <Route path='/artist/priorbooking/:id1/:id2/:id3' element={<ArtistPriorBooking/>}></Route>
           <Route path='/artist/eventsOn/:mmid/:date/:eventId' element={<ArtistEventOn/>}></Route>
-          <Route path='/artist/invoice/:id' element={<ArtistInvoice/>}></Route> 
+          <Route path='/artist/invoice/:id/:mmid' element={<ArtistInvoice/>}></Route> 
           <Route path='/requestsLog' element={<RequestsLog/>}></Route> 
 
           <Route path='/artist/MyFeed' element={<MyFeed/>}></Route>
