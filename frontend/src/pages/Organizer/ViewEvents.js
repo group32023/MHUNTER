@@ -20,12 +20,15 @@ import SearchArtist from './SearchArtist';
 import ViewArtist from './ViewArtist';
 import MakeArtistRequest from './MakeArtistRequest';
 import OrganizerEventDashboard from './OrganizerEventDashboard';
+import SearchBand from './SearchBand'
+
 import SideMenuBarOrganizer from '../../components/common/SideMenuBar/SideMenuBarOrganizer';
 library.add(fas);
 
 function ViewEvents() {
 
     const [events, setEvents] = useState([])
+    const BASE_URL = "http://localhost:8080";
 
     const extractloc = (location) => {
 
@@ -50,8 +53,10 @@ function ViewEvents() {
             .then(res => res.json())
             .then((result) => {
                 setEvents(result);
+                console.log(result);
             }
             )
+            
     }, [])
 
 
@@ -73,8 +78,7 @@ function ViewEvents() {
 
 
                                 <div className='image'>
-                                    <img src={musical}>
-                                    </img>
+                                    <img src={`${BASE_URL}/postData/uploads/image/${event.image}.jpg`} alt="Event Image" />
                                 </div>
 
                                 <div className='content'>
@@ -125,6 +129,7 @@ function ViewEvents() {
                     <Route path='/organizer/searchartist' element={<SearchArtist />} />
                     <Route path='/organizer/searchartist/viewartist' element={<ViewArtist />} />
                     <Route path='/organizer/searchartist/viewartist/makeartistrequest' element={<MakeArtistRequest />} />
+                    <Route path='/organizer/searchband' element={<SearchBand />} />
                 </Routes>
             </SideMenuBarOrganizer>
         </>

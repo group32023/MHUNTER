@@ -6,6 +6,7 @@ import com.MHunter.mhunter.model.Event;
 import com.MHunter.mhunter.model.IncomeArtist;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import java.time.LocalDate;
@@ -25,4 +26,10 @@ public interface EventRepository extends JpaRepository<Event,Integer> {
 
     @Query(value = "SELECT * FROM event WHERE date > CURRENT_DATE ORDER BY date DESC LIMIT 5 ", nativeQuery = true)
     List<Event> findUpcomingEventsForEventHome();
+    
+    @Query(value = "SELECT * FROM event WHERE orgid = :orgid AND date<CURDATE() ORDER BY date DESC",nativeQuery = true)
+    List<Event>viewPastEvents(@Param("orgid") int orgid);
+
+    @Query(value = "SELECT * FROM event e INNER JOIN request_music_member rmm on e.eventid = rmm.event_id WHERE e.date = :date AND rmm.mmid = :mmid  ",nativeQuery = true)
+    List<Event> viewMusicMemberEventsOnDate(@Param("mmid") Integer mmid, @Param("date") LocalDate date);
 }

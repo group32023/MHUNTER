@@ -86,7 +86,7 @@
 }
 
 .cancelBtn{
-    background-color: #FF0303 !important;
+    /* background-color: #FF0303 !important;
     position: relative;
     font-size: 15px;
     width: 8%;
@@ -113,7 +113,7 @@
     left: 75%;
     top: -48.8px;
     border-radius: 10px;
-    border: none !important;
+    border: none !important; */
     /* box-shadow: 4px 7px 10px rgba(0, 0, 0, .4) !important; */
 }
 

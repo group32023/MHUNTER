@@ -12,6 +12,8 @@ public interface EventService {
     public Event saveEvent(Event event);
     public List<Event> getAllEvents();
 
+    public List<Event>viewPastEvents(int orgid);
+
     public Event viewSpecificEvent(int eventid);
 
     public List<Event> getSpecificEventByDate(LocalDate date);
@@ -25,4 +27,5 @@ public interface EventService {
 
     public List<Event> getEventsForHome();
 
+    public List<Event> viewMusicMemberEventsOnDate(int mmid,LocalDate date);
 }

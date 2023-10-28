@@ -15,7 +15,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Collectors;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = "*")
 
 @RequestMapping("/requestMusicMember")
 public class RequestMusicMemberController {
@@ -38,6 +38,16 @@ public class RequestMusicMemberController {
 
     @PostMapping("/add")
     public String save(@RequestBody RequestMusicMember requestMusicMember){
+        
+    @PostMapping("/add/{mmid}/{eventid}/{orgid}")
+    public String save(@RequestBody RequestMusicMember requestMusicMember,@PathVariable("mmid") int mmid,@PathVariable("eventid") int eventid , @PathVariable("orgid") int orgid  ){
+
+         RequestMusicMemberId requestMusicMemberId = new RequestMusicMemberId();
+         requestMusicMemberId.setMMID(mmid);
+         requestMusicMemberId.setEventId(eventid);
+
+         requestMusicMember.setRequestMusicMemberId(requestMusicMemberId);
+         requestMusicMember.setOrgId(orgid);
          requestMusicMember.setRequestDate(LocalDateTime.now());
          requestMusicMemberService.saveRequestMusicMember(requestMusicMember);
          return "added";
@@ -132,6 +142,9 @@ public class RequestMusicMemberController {
     public List<EventOrganizer> priorBooking(@PathVariable int mid, @PathVariable int orgId){
 
         List<RequestMusicMember> eventList = requestMusicMemberService.findConformationEventsByMMIDForOrg(mid,orgId);
+
+
+
         List<EventOrganizer> eventOrganizerList = new ArrayList<>();
 
         eventList.forEach(res ->{
@@ -179,6 +192,7 @@ public class RequestMusicMemberController {
         List<EventOrganizer> eventOrganizerList = new ArrayList<>();
         requestMusicMembersList.forEach(res ->{
             Event event = eventService.viewSpecificEvent(res.getRequestMusicMemberId().getEventId());
+
 
             if(date.equals(event.getDate()) ){
 
