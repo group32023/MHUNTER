@@ -20,13 +20,15 @@ public class BookedList {
     private int bookedId;
 
 
-    private int invoiceId;
+    @OneToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "invoice_id")
+    private Invoice invoice;
 
 
-    private int agreementId;
+    private int agreement_id;
 
 
-    private int orgId;
+    private int org_id;
 
 
     private int eventid;
@@ -34,7 +36,7 @@ public class BookedList {
 
     private int mmid;
 
-    private String requestState="Processing";
+    private String requestState="Confirmed";
 
     @Column(columnDefinition = "DATETIME DEFAULT CURRENT_TIMESTAMP")
     private LocalDateTime date;

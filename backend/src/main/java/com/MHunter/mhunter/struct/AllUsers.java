@@ -11,10 +11,9 @@ public class AllUsers {
     String firstName;
     String lastName;
     String imagePath;
-    int Id;
+    int orgId;
     String type;
     String name;
     String jobRoll;
-    String status;
 
 }

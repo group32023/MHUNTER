@@ -44,6 +44,7 @@ import ArtistGenerateReportsToday from './pages/ArtistGenerateReportsToday'
 import ArtistInvoice from './pages/ArtistInvoice';
 import RequestsLog from './pages/RequestLog';
 import PaymentForm from './pages/organizer/paymentForm';
+import StripePaymentForm from './pages/organizer/StripePaymentForm';
 
 
 
@@ -87,6 +88,8 @@ import EventDetails from './pages/moderator/eventDetails';
 import ViewComplaints from './pages/moderator/viewComplaints';
 import ModeratorEvent from "./pages/moderator/event";
 import Suspenduser from './pages/moderator/suspenduser';
+import StripeClient from './pages/organizer/StripeClient';
+import TestButton from './pages/organizer/TestButton';
 function App() {
   return (
 
@@ -148,7 +151,9 @@ function App() {
           <Route path='/organizer/searchartist' element={<SearchArtist />} />
           <Route path='/organizer/searchartist/viewartist' element={<ViewArtist />} />  
           <Route path='/organizer/searchartist/viewartist/makeartistrequest' element={<MakeArtistRequest />} />  
-          <Route path='/organizer/paymentForm'element={<PaymentForm />} /> 
+          <Route path='/organizer/paymentForm/:artistId'element={<PaymentForm />} /> 
+          <Route path='/organizer/paymentForm/stripePayment'element={<StripeClient />} /> 
+          <Route path='/organizer/test-button'element={<TestButton />} /> 
 
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
