@@ -164,82 +164,9 @@ const [expand,setExpandedSideBar] = useState(true)
                         placeholder="Enter Event Detail Here"
                       />
                     </Container>
-                      <Table className='table table-hover table-dark' id="tableEvent" >
-                        <tbody>
-                          <tr>
-                                <td>14 JULY</td>
-                                <td><img src={eventimage} id="eventImage"></img></td>
-                                <td>BEZA</td>
-                                <td><FontAwesomeIcon icon={faLocationDot} id="LocationIcon"/>MATARA</td>
-                                <td>17.00</td>
-                          </tr>
-                          <tr>
-                                <td>14 JULY</td>
-                                <td><img src={eventimage} id="eventImage"></img></td>
-                                <td>BEZA</td>
-                                <td><FontAwesomeIcon icon={faLocationDot} id="LocationIcon"/>MATARA</td>
-                                <td>17.00</td>
-                          </tr>
-                          <tr>
-                                <td>14 JULY</td>
-                                <td><img src={eventimage} id="eventImage"></img></td>
-                                <td>BEZA</td>
-                                <td><FontAwesomeIcon icon={faLocationDot} id="LocationIcon"/>MATARA</td>
-                                <td>17.00</td>
-                          </tr>
-                          <tr>
-                                <td>14 JULY</td>
-                                <td><img src={eventimage} id="eventImage"></img></td>
-                                <td>BEZA</td>
-                                <td><FontAwesomeIcon icon={faLocationDot} id="LocationIcon"/>MATARA</td>
-                                <td>17.00</td>
-                          </tr>
-                          <tr>
-                                <td>14 JULY</td>
-                                <td><img src={eventimage} id="eventImage"></img></td>
-                                <td>BEZA</td>
-                                <td><FontAwesomeIcon icon={faLocationDot} id="LocationIcon"/>MATARA</td>
-                                <td>17.00</td>
-                          </tr>
-                          <tr>
-                                <td>14 JULY</td>
-                                <td><img src={eventimage} id="eventImage"></img></td>
-                                <td>BEZA</td>
-                                <td><FontAwesomeIcon icon={faLocationDot} id="LocationIcon"/>MATARA</td>
-                                <td>17.00</td>
-                          </tr>
-                          <tr>
-                                <td>14 JULY</td>
-                                <td><img src={eventimage} id="eventImage"></img></td>
-                                <td>BEZA</td>
-                                <td><FontAwesomeIcon icon={faLocationDot} id="LocationIcon"/>MATARA</td>
-                                <td>17.00</td>
-                          </tr>
-                          <tr>
-                                <td>14 JULY</td>
-                                <td><img src={eventimage} id="eventImage"></img></td>
-                                <td>BEZA</td>
-                                <td><FontAwesomeIcon icon={faLocationDot} id="LocationIcon"/>MATARA</td>
-                                <td>17.00</td>
-                          </tr>
-                          <tr>
-                                <td>14 JULY</td>
-                                <td><img src={eventimage} id="eventImage"></img></td>
-                                <td>BEZA</td>
-                                <td><FontAwesomeIcon icon={faLocationDot} id="LocationIcon"/>MATARA</td>
-                                <td>17.00</td>
-                          </tr>
-                          <tr>
-                                <td>14 JULY</td>
-                                <td><img src={eventimage} id="eventImage"></img></td>
-                                <td>BEZA</td>
-                                <td><FontAwesomeIcon icon={faLocationDot} id="LocationIcon"/>MATARA</td>
-                                <td>17.00</td>
-                          </tr>
-                         
-                          
-                        </tbody>
-                      </Table>
+                     <div className='eventTableContainerView'>
+                     {divElements}
+                     </div>
                   
 
                 </div>

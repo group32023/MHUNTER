@@ -245,3 +245,12 @@
 }
 
 
+.requestContainerForEvent{
+    width: 94%;
+    height:63%;
+    position: absolute;
+    top: 14%;
+    left: -6%;
+
+}
+
