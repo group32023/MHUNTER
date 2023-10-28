@@ -59,14 +59,11 @@ public class RequestMusicMemberController {
     }
 
     @PutMapping("/update/{mid}/{eventId}")
-    public RequestMusicMember update(@RequestBody RequestMusicMember requestMusicMember, @PathVariable int mid,@PathVariable int eventId){
-        System.out.println(mid);
-        System.out.println(eventId);
+    public RequestMusicMember update(@PathVariable int mid,@PathVariable int eventId){
         RequestMusicMemberId id = new RequestMusicMemberId();
         id.setMMID(mid);
         id.setEventId(eventId);
-        System.out.println("come here");
-      return   requestMusicMemberService.updateRequestMusicMember(requestMusicMember,id);
+      return requestMusicMemberService.updateRequestMusicMember(id);
     }
 
     @DeleteMapping("/delete/{mid}/{eventId}")

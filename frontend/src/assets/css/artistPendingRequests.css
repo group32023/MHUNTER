@@ -87,10 +87,10 @@
 
 .requestContainer{
     background-color: #3b444d;
-    height: 15%;
+    height: 10% !important;
     width: 70%;
     position: relative;
-    top: 187px;
+    top: 122px;
     left: 14%;
     margin-bottom: 20px;
     border-radius: 25px;

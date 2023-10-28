@@ -27,8 +27,7 @@ export default function ArtistPendingRequests() {
   const [expand,setExpandedSideBar] = useState(true)
 
   const [eventList, setEventList] = useState([]);
-  const [currentPage, setCurrentPage] =useState(1);
-  const [linePerPage, setLinePerPage] = useState(4);
+ 
 
   useEffect(() => {
     // Fetch the data from the Java backend
@@ -45,9 +44,6 @@ export default function ArtistPendingRequests() {
   }, []);
   
 
-  const lastLineIndex = currentPage * linePerPage;
-  const firstLineIndex = lastLineIndex - linePerPage;
-  const eventList1 = eventList.slice(firstLineIndex,lastLineIndex)
 
   let navigate = useNavigate();
 
@@ -57,28 +53,28 @@ export default function ArtistPendingRequests() {
   }
 
 
-  const divCount = eventList1.length;
+  const divCount = eventList.length;
   const divElements = [];
  
 
   //Using a for loop to generate the <div> tags
   for (let i = 0; i < divCount; i++) {
 
-  console.log(eventList1[i]['eventName']);
+  console.log(eventList[i]['eventName']);
   
     
     divElements.push(<div key={i} className="requestContainer">
       <img src={profileImage} className="profile"></img>
       <div className="eventDetails">
-        <h5>{eventList1[i]['organizerName']}</h5>
+        <h5>{eventList[i]['organizerName']}</h5>
         
-        <p class="eventType"><img src={eventtype} className="EventIconPendingRequest1"></img>{eventList1[i]['eventName']}</p>
-      <p class="eventDate"><FontAwesomeIcon icon={faCalendarDays} id="CalenderIconPendingRequest"/>{eventList1[i]['date']}</p>
-        <p class="venue"><FontAwesomeIcon icon={faLocationDot} id="LocationIconPendingRequest"/> {eventList1[i]['place']}</p>
+        <p class="eventType"><img src={eventtype} className="EventIconPendingRequest1"></img>{eventList[i]['eventName']}</p>
+      <p class="eventDate"><FontAwesomeIcon icon={faCalendarDays} id="CalenderIconPendingRequest"/>{eventList[i]['date']}</p>
+        <p class="venue"><FontAwesomeIcon icon={faLocationDot} id="LocationIconPendingRequest"/> {eventList[i]['place']}</p>
       </div>
      
    
-      <button className="viewBtn" onClick={()=>load(eventList1[i]['eventId'])}>View</button>
+      <button className="viewBtn" onClick={()=>load(eventList[i]['eventId'])}>View</button>
     
       
    
@@ -124,13 +120,7 @@ export default function ArtistPendingRequests() {
         </div>
         
 
-      {/* <div className='pagination'>
-      <Pagination 
-                totalLines={eventList.length}
-                linesPerPage={linePerPage}
-                setCurrentPage={setCurrentPage}
-              />
-      </div> */}
+     
             
       
       </SideMenuBarArtist>

@@ -36,7 +36,7 @@ public class BookedListController {
 
    @PostMapping("/save")
    public String save(@RequestBody BookedList data){
-       System.out.println(data);
+       System.out.println("hi");
        data.setDate(LocalDateTime.now());
        bookedListService.saveBooking(data);
        return "added";
