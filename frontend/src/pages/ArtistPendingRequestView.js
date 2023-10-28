@@ -51,8 +51,8 @@ export default function ArtistPendingRequests() {
 
   }, []);
 
-  const loadInvoice=(id)=>{
-    navigate(`/artist/invoice/${id}`);
+  const loadInvoice=(id,mmid)=>{
+    navigate(`/artist/invoice/${id}/${mmid}`);
 
   }
 
@@ -117,7 +117,7 @@ const loadPendingRequest=()=>{
 
             <button className="priorbookingsBtn" onClick={()=>loadPriorBooking(758463,event['orgId'],event['eventId'])}>Prior Bookings</button>
             <button className="myEventsBtn" onClick={()=>loadMyEventsOn(758463,event['date'],event['eventId'])}>My Events</button>
-            <button className="acceptBtn" onClick={()=>loadInvoice(event['eventId'],event['orgId'])}>Accept</button>
+            <button className="acceptBtn" onClick={()=>loadInvoice(event['eventId'],758463)}>Accept</button>
             <button className="rejectBtn" onClick={()=>loadPendingRequest()}>Reject</button>
         </div>
 

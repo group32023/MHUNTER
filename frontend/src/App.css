@@ -1,3 +1,8 @@
+.App {
+  text-align: center;
+  background-color: #24292D !important;
+  max-width: 1536px;
+  
 .progressBar{
     position: absolute;
     top: 350px;
@@ -15,5 +20,19 @@
     position: absolute;
   top: 450px;
   color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
   left: 48.9%;
 }

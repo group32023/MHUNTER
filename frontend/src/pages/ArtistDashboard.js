@@ -21,6 +21,8 @@ export default function ArtistDashboard() {
   const [expand,setExpandedSideBar] = useState(true)
 
   return (
+
+    
     <div>
       <SideMenuBarArtist>
         

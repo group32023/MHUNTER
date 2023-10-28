@@ -18,7 +18,6 @@ public class Organizer {
     private User user;
 
    
-
     public int getOrgId() {
         return orgId;
     }
