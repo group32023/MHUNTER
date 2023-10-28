@@ -28,4 +28,5 @@ public interface RequestMusicMemberRepository extends JpaRepository<RequestMusic
     List<RequestMusicMember> findByMMIDListForAOrganizer(@Param("mmid") int mmid,@Param("orgId") int orgId);
 
 
+
 }

@@ -17,8 +17,7 @@ export default function PendingRequest({expand}) {
     const mmId = localStorage.getItem('mmid');
     if(mmId){
       fetch(`http://localhost:8080/requestMusicMember/monthlyGrowth/${mmId}`).then((res)=>res.json()).then((result)=>inc=result)
-    console.log(inc)
-    fetch(`http://localhost:8080/requestMusicMember/noOfPendingRequest/${mmId}`).then((res)=>res.json()).then((result)=>setRequests({requests:result,increase:inc})) 
+      fetch(`http://localhost:8080/requestMusicMember/noOfPendingRequest/${mmId}`).then((res)=>res.json()).then((result)=>setRequests({requests:result,increase:inc})) 
     }
     
   },[])
