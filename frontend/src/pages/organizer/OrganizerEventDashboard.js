@@ -94,27 +94,33 @@ function OrganizerEventDashboard() {
     }, [eventid]);
 
     //Confirmation Status
+    const [details, setDetails] = useState([]);
+    const eventId = eventid;
 
-    // useEffect(() => {
-    //     const apiUrl = 'http://localhost:8080/requestMusicMember/detailsByEventIdAndOrgId/26/9';
-    //     fetch(apiUrl)
-    //         .then((response) => {
-    //             if (!response.ok) {
-    //                 throw new Error(`HTTP error! Status: ${response.status}`);
-    //             }
-    //             return response.json();
-    //         })
-    //         .then((data) => {
-    //             setData(data);
-    //         })
-    //         .catch((error) => {
-    //             setError(error);
-    //         });
-    // }, []);
+    useEffect(() => {
+        // Make an HTTP GET request to fetch data from the Spring Boot API
+        axios.get(`http://localhost:8080/requestMusicMember/getRowsByEventId/${eventId}`)
+            .then(response => {
+                setDetails(response.data);
+            })
+            .catch(error => {
+                console.error('Error fetching data:', error);
+            });
+    }, [eventId]);
 
-    // if (error) {
-    //     return <div>Error: {error.message}</div>;
-    // }
+    //Hoverable Div
+
+    const [hoveredIndex, setHoveredIndex] = useState(null);
+
+    const handleMouseEnter = (index) => {
+        setHoveredIndex(index);
+    };
+
+    const handleMouseLeave = () => {
+        setHoveredIndex(null);
+    };
+
+
 
     //Page Preloader
 
@@ -241,12 +247,33 @@ function OrganizerEventDashboard() {
                                             </div>
                                         </div>
                                     </div>
-                                    {data.map((item) => (
-                                        <div className="row tableContent" key={item.id}>
+                                    {details.map((detail, index) => (
+                                        <div className="row tableContent" key={index}
+                                            onMouseEnter={() => handleMouseEnter(index)}
+                                            onMouseLeave={handleMouseLeave}
+                                        >
+
+                                            {hoveredIndex === index && (
+                                                <div
+                                                    style={{
+                                                        position: 'absolute',
+                                                        left: '25%',
+                                                        transform: 'translate(-50%, -50%)',
+                                                        backgroundColor: 'rgba(0, 0, 0, 0.7)',
+                                                        color: 'white',
+                                                        width: '200px',
+                                                        padding: '10px',
+                                                        borderRadius: '10px',
+                                                    }}
+                                                >
+                                                    Click to see artist/band invoice and agreements
+                                                </div>
+                                            )}
+
                                             <div className="column">
                                                 <div className="content">
                                                     <img alt='' src={PaymentArtist4} width='45px' height='45px' className='mx-4' />
-                                                    {item.confirmation_status}
+                                                    {detail[4]}
                                                 </div>
                                             </div>
                                             <div className="column">
@@ -257,66 +284,6 @@ function OrganizerEventDashboard() {
                                         </div>
 
                                     ))}
-
-                                    {/* <div className="row tableContent">
-                                        <div className="column">
-                                            <div className="content">
-                                                <img alt='' src={PaymentArtist5} width='45px' height='45px' className='mx-4' />
-                                                Ravi Royster
-                                            </div>
-                                        </div>
-                                        <div className="column">
-                                            <div className="content d-flex align-items-center justify-content-center mt-2" style={{ color: 'orange', fontFamily: 'MyCustomFont2' }}>
-                                                Pending <BiSolidCircle className='mx-2' style={{ color: 'orange' }} />
-                                            </div>
-                                        </div>
-
-                                    </div>
-
-                                    <div className="row tableContent">
-                                        <div className="column">
-                                            <div className="content">
-                                                <img alt='' src={PaymentArtist6} width='45px' height='45px' className='mx-4' />
-                                                MidLane
-                                            </div>
-                                        </div>
-                                        <div className="column">
-                                            <div className="content d-flex align-items-center justify-content-center mt-2" style={{ color: 'red', fontFamily: 'MyCustomFont2' }} >
-                                                Rejected<BiSolidCircle className='mx-2' style={{ color: 'red' }} />
-                                            </div>
-                                        </div>
-
-                                    </div>
-
-                                    <div className="row tableContent">
-                                        <div className="column">
-                                            <div className="content">
-                                                <img alt='' src={PaymentArtist5} width='45px' height='45px' className='mx-4' />
-                                                B N S
-                                            </div>
-                                        </div>
-                                        <div className="column">
-                                            <div className="content d-flex align-items-center justify-content-center mt-2" style={{ color: 'orange', fontFamily: 'MyCustomFont2' }}>
-                                                Pending <BiSolidCircle className='mx-2' style={{ color: 'orange' }} />
-                                            </div>
-                                        </div>
-
-                                    </div>
-
-                                    <div className="row tableContent">
-                                        <div className="column">
-                                            <div className="content">
-                                                <img alt='' src={PaymentArtist8} width='45px' height='45px' className='mx-4' />
-                                                Dinesh Gamage
-                                            </div>
-                                        </div>
-                                        <div className="column">
-                                            <div className="content confirmed d-flex align-items-center justify-content-center mt-2" style={{ fontFamily: 'MyCustomFont2' }}>
-                                                Confirmed <BiSolidCircle className='mx-2' />
-                                            </div>
-                                        </div>
-                                    </div> */}
-
 
                                 </div>
                             </div>
