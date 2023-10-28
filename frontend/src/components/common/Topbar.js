@@ -1,6 +1,8 @@
+
 import React, { useState } from "react";
 import { AiOutlineLogout, AiOutlineBell, AiOutlineUser } from 'react-icons/ai';
 import styled, { css } from 'styled-components';
+import { Link, useNavigate } from 'react-router-dom';
 
 
 const TopbarContainer = styled.div`
@@ -44,9 +46,12 @@ const Topbar = () => {
   const [notificationsActive, setnotificationsActive] = useState(false);
   const [profileActive, setProfileActive] = useState(false);
 
+  const navigate = useNavigate(); 
+
   const handleLogout = () => {
-    console.log('Logged out');
-  }
+    localStorage.removeItem('userId');
+    navigate('/'); 
+};
 
   const handleNotifications = () => {
     setnotificationsActive((prevState) => !prevState);
@@ -60,6 +65,8 @@ const Topbar = () => {
 
   return (
 
+
+
     <TopbarContainer>
 
       <IconContainer onClick={handleNotifications} active={notificationsActive} >
@@ -68,10 +75,14 @@ const Topbar = () => {
       <IconContainer onClick={handleProfile} active={profileActive}>
         <AiOutlineUser size={30}></AiOutlineUser>
       </IconContainer>
+     
       <IconContainer onClick={handleLogout} active={false} >
         <AiOutlineLogout size={30}></AiOutlineLogout>
       </IconContainer>
+      
     </TopbarContainer>
+
+
   );
 
 };

@@ -10,7 +10,10 @@ import ArtistIncome from '../components/ArtistIncome'
 import ArtistCalendar from '../components/ArtistCalendar'
 import ArtistEarningOverview from '../components/ArtistEarningOverview'
 import ArtistUpcommingEvent from '../components/ArtistUpcommingEvent'
-
+import CalendarEventPopup from '../components/common/CalendarEventPopup'
+import DashboardCarousel from '../components/organizer/dashboardCarousel'
+import ArtistDashboardCarousel from '../components/ArtistDashboardCarousel'
+import { Link, useNavigate } from 'react-router-dom'
 
 export default function ArtistDashboard() {
   
@@ -21,15 +24,17 @@ export default function ArtistDashboard() {
 
     
     <div>
-      <div className='mainArtistDashboard'>
-        <SideMenuBarArtist setExpandedSideBar={setExpandedSideBar}></SideMenuBarArtist>
-        <div className='artistSideBarOne' id='artistSideBarOne'>
+      <SideMenuBarArtist>
+        
+        <div >
             <p className='headerDashboard'>Dashboard</p>
             <div className={expand ? 'notificationBg':'notificationBg-ex'}>
               <img src={notification} className='notificationIcon' alt='notification'></img>
             </div>
             <div className={expand ? 'homeBg':'homeBg-ex'}>
-              <img src={home} alt='homebtn' className='homeIcon'></img>
+            <Link to={'/'}>
+                <img src={home} alt='homebtn' className='homeIcon'></img>
+              </Link>
             </div>
             <div className={expand ? 'logoutBg':'logoutBg-ex'}>
               <img src={logout} alt='logout'className='logout'></img>
@@ -37,11 +42,7 @@ export default function ArtistDashboard() {
             </div>
 
             {/* web post */}
-            <div className={expand ? 'artistWebPoster':'artistWebPoster-exp'}>
-              <p>Welcome</p>
-              <span>welcome to one and only music event management system</span>
-              <img src={kpop} alt='' className='webPostImage'></img>
-            </div>
+            <ArtistDashboardCarousel/>
 
             {/* pending request */}
             <div className={expand ? 'pendingRequestDiv':'pendingRequestDiv-exp'}>
@@ -64,10 +65,14 @@ export default function ArtistDashboard() {
             <div className={expand ? 'artistUpcommingEvent':'artistUpcommingEvent-ex'}>
               <ArtistUpcommingEvent/>
             </div>
+            <div className='he'>
+            
+            </div>
+            
 
         </div>
         
-      </div>
+        </SideMenuBarArtist>
     </div>
   )
 }

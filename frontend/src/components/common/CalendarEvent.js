@@ -8,27 +8,44 @@ import { DateCalendar } from '@mui/x-date-pickers/DateCalendar';
 import { DayCalendarSkeleton } from '@mui/x-date-pickers/DayCalendarSkeleton';
 import '../../assets/css/calendarEvent.css'
 import { Prev } from 'react-bootstrap/esm/PageItem';
+import CalendarEventPopup from './CalendarEventPopup';
+import reward from '../../assets/images/quality.png'
 
 // show the actual date of upcomming date
 const currentDate = new Date();
 const initialValue = dayjs(currentDate.toLocaleDateString());
 
+
+
+
+
 function ServerDay(props) {
-  const { highlightedDays = [], day, outsideCurrentMonth, ...other } = props;
+  const { highlightedDays = [], day, outsideCurrentMonth,setHoverDate,setPopupVisible,isPopupVisible ,...other } = props;
 
   const isSelected =
     !props.outsideCurrentMonth && highlightedDays.includes(day.format('YYYY-MM-DD'));
 
 
+    function handleHover(date){
+      setHoverDate(date)
+      setPopupVisible(!isPopupVisible)
+      
+    }
+    
+    function leaveHover(){
+      // setPopupVisible(false)
+      
+    }
   return (
     <Badge
       key={props.day.toString()}
       overlap="circular"
-      badgeContent={isSelected ? '🌚' : undefined}
-    >
+      badgeContent={isSelected ? <img src={reward} alt='reward' onClick={(e)=>handleHover(props.day.toString())} className='calendarEventReward'></img> : undefined} 
+     >
       <PickersDay {...other} outsideCurrentMonth={outsideCurrentMonth} day={day} />
     </Badge>
   );
+  
 }
 
 export default function CalendarEvent() {
@@ -37,6 +54,8 @@ export default function CalendarEvent() {
   const [highlightedDays, setHighlightedDays] = React.useState([]);
 
   const [upCommingEvent,setUpCommingEvents] = useState([])
+  const [getHoverDate,setHoverDate] = useState(null)
+const [isPopupVisible,setPopupVisible] = useState(false)
 
   const fetchHighlightedDays = (date) => {
     const controller = new AbortController();
@@ -80,10 +99,15 @@ export default function CalendarEvent() {
     setIsLoading(true);
     setHighlightedDays([]);
     fetchHighlightedDays(date);
+
+    
+
   };
 
+
+
   return (
-    
+    <>
     <LocalizationProvider dateAdapter={AdapterDayjs}>
       <DateCalendar
         defaultValue={initialValue}
@@ -91,7 +115,15 @@ export default function CalendarEvent() {
         onMonthChange={handleMonthChange}
         renderLoading={() => <DayCalendarSkeleton />}
         slots={{
-          day: ServerDay,
+          day: (dayProps)=>(
+            <ServerDay 
+            {...dayProps}
+            setHoverDate={setHoverDate}
+            setPopupVisible={setPopupVisible}
+            isPopupVisible={isPopupVisible}
+            />
+                         
+          ),
         }}
         slotProps={{
           day: {
@@ -99,7 +131,10 @@ export default function CalendarEvent() {
           },
         }}
       />
+      
     </LocalizationProvider>
+    {isPopupVisible ?  <CalendarEventPopup date={getHoverDate}/>:undefined}
+    </>
   );
 }
 

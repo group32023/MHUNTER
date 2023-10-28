@@ -15,6 +15,11 @@ public class EventOrganizer {
     private int orgId;
     private int eventId;
     private String organizerName;
+    private String description;
+    private double latitude;
+    private double longitude;
+    private String town;
+    private LocalTime endTime;
     private LocalDate date;
     private String eventType;
     private String eventName;
@@ -23,4 +28,5 @@ public class EventOrganizer {
     private int crowd;
     private String duration;
     private Double income;
+    private String eventImage;
 }

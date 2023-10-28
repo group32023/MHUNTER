@@ -11,10 +11,12 @@ import org.springframework.web.bind.annotation.*;
 import com.MHunter.mhunter.model.Event;
 import com.MHunter.mhunter.model.Organizer;
 import com.MHunter.mhunter.model.User;
+
+import java.lang.reflect.Array;
 import java.time.*;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
-import java.util.Map;
 
 @RestController
 @CrossOrigin
@@ -58,12 +60,12 @@ public class IncomeArtistController {
           incomeList.forEach((res->{
               Event event = eventService.viewSpecificEvent(res.getId().getEventId());
               Organizer organizer = organizerService.findSpecificOrganizer(event.getOrgID());
-              User user = userService.findSpecificUser(organizer.getUserId());
+              User user = userService.findSpecificUser(organizer.getUser().getUserId());
               EventOrganizer eventOrganizer = new EventOrganizer();
               eventOrganizer.setIncome(res.getIncome());
               eventOrganizer.setOrgId(event.getOrgID());
               eventOrganizer.setEventId((event.getEventID()));
-              eventOrganizer.setOrganizerName(user.getFname() + " " +  user.getLname());
+              eventOrganizer.setOrganizerName(user.getFirstName() + " " +  user.getLastName());
               eventOrganizer.setEventName(event.getEvent_name());
               eventOrganizer.setEventType(event.getEvent_type());
               eventOrganizer.setStartTime(event.getStart_time());
@@ -217,5 +219,24 @@ public class IncomeArtistController {
 
         return monthlyGrowthAndIncome;
     }
+
+    @GetMapping("/monthlyOvercome/{mmid}")
+    public double[] monthlyOvercome(@PathVariable int mmid){
+       double[] monthlyEarning = {0,0,0,0,0,0,0,0,0,0,0,0};
+       List<IncomeArtist> incomeArtistList = incomeArtistService.viewListOfArtistIncomes(mmid);
+       int currentYear = LocalDate.now().getYear();
+       if(incomeArtistList.size() >0) {
+           incomeArtistList.forEach(item -> {
+               LocalDateTime dateTime = LocalDateTime.parse(item.getDate().toString());
+               if (currentYear == dateTime.getYear()) {
+                   int month = dateTime.getMonth().getValue();
+                   monthlyEarning[month - 1] = monthlyEarning[month - 1] + item.getIncome();
+               }
+           });
+       }
+        System.out.println(monthlyEarning[0]);
+       return monthlyEarning;
+    }
+
 
 }

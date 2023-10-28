@@ -69,10 +69,8 @@ const SideMenuBarArtist = ({setExpandedSideBar}) => {
         if(item.tag === key){
             item.active = true
         }
-        else{
-            item.active = false
-        }
-    })
+    }, []);
+    console.log("Current user:", user); 
 
     const handle=()=>{
         setExpandedSideBar(isExpanded)

@@ -7,7 +7,8 @@ import {Form, Container} from 'react-bootstrap';
 
 
 
-
+import Footer from '../components/common/Footer';
+import ArtistSlider from '../components/ArtistSlider';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {faPhone,faList} from '@fortawesome/free-solid-svg-icons'
 import { faTwitter, faFontAwesome,faFacebook,faGooglePlusG,faLinkedinIn } from '@fortawesome/free-brands-svg-icons'
@@ -50,7 +51,7 @@ h() {
 
             <div className='descriptionDiv1'>
                <div className='captionbackground'>
-                <p className='caption1'>Home {'>'} Bands</p>
+                <p className='caption1'>Home {'>'} Artists</p>
                 </div>
                 <section>
                     <p className='description1'>
@@ -76,16 +77,17 @@ h() {
                       <Form.Control
                         className="smaller-input"
                         name="foo" id="statusInput"
-                        placeholder="Enter Artist Detail Here"
+                        placeholder="Search Here"
                       />
                     </Container>
                      
-                  
+                    <ArtistSlider></ArtistSlider>
+                    <Footer></Footer>
 
                 </div>
 
             </div>
-            
+           
 
       </div>
     </div>

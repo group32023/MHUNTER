@@ -1,0 +1,406 @@
+.containerForElements{
+    position: absolute;
+
+
+}
+
+.complaint-add-success-popup-content .errordisplay{
+    position: relative;
+    font-size: 15px;
+    width: 20%;
+    height: 15%;
+    font-weight: bold;
+    text-align: center;
+    color: #ffffff;
+    left: 2px;
+    top: 80px;
+    border-radius: 10px;
+    border: 3px solid #FF0000 !important;
+    background: none;
+
+}
+
+
+#left{
+    text-align: center;
+    position: absolute;
+    top: 132px;
+    left: 251px;
+    width: 1120px;
+    height: 680px;
+    height: 600px;
+    color: #ffffff;
+    /* border: 2px dashed #ffff; */
+    background-color: #2f363e;
+    border-radius: 25px;
+}
+
+#left h1{
+    position: absolute;
+    top: 30px;
+    left: 456px;
+    
+}
+.h5forbandDetails{
+    position: absolute;
+    background-color: #D9D9D9;
+    color: #000000;
+    top: 116px;
+    width: 30%;
+    left: 13px;
+    font-weight: bold;
+
+
+}
+#left .h5forRules{
+    position: absolute;
+    background-color: #D9D9D9;
+    color: #000000;
+    top: 116px;
+    width: 60%;
+    left: 429px;
+
+    font-weight: bold;
+}
+.commandRules{
+    position: absolute;
+    font-size: 18px;
+    color: red;
+    left: 159px;
+    top: 153px;
+    width: 100%;
+    font-weight: bold;
+
+
+}
+.bandNameLable{
+
+    position: absolute;
+    top: 162px;
+    left:100px;
+    font-size: 18px;
+}
+.bandName{
+    position: absolute;
+    top: 162px;
+    left: 215px;
+    font-size: 18px;
+    color: #1BD067;
+
+}
+.bandAddressLable{
+    position: absolute;
+    top: 192px;
+    left: 100px;
+    font-size: 18px;
+
+}
+.bandAddress{
+
+    position: absolute;
+    top:192px;
+    left:185px;
+    font-size: 18px;
+    color: #1BD067;
+
+}
+
+.bandEmailLable{
+    position: absolute;
+    font-size: 18px;
+    top:222px;
+    left:100px;
+
+}
+
+.bandEmail{
+    position: absolute;
+    top:222px;
+    font-size: 18px;
+    left:170px;
+    color: #1BD067;
+
+
+}
+
+
+
+.containerForElements #backAgreement{
+    
+    position: relative;
+    font-size: 15px;
+    width: 15%;
+    height: 7%;
+    font-weight: bold;
+    text-align: center;
+    color: #ffffff;
+    left: 132px;
+    top: 400px;
+    border-radius: 10px;
+    border: 3px solid #FF0000 !important;
+    background: none;
+}
+
+.canvasforSignature{
+    border-radius: 10px;
+    background-color: #2f363e;
+    top: 368px;
+    left: 42px;
+}
+.rulesForAgreement{
+    position: relative;
+    top: -103px;
+    left: 374px;
+}
+
+.rulesForAgreement #advanced1{
+    position: absolute;
+    top: 311px;
+    left: 84px;
+    width: 20px;
+    height: 20px;
+    background-color: #D9D9D9;
+
+
+}
+.rulesForAgreement .rule1{
+    position: absolute;
+    top: 307px;
+    left: 88px;
+    width: 250px;
+    height: 40px;
+    font-size: 18px;
+    color: #ffffff;
+
+}
+
+.rulesForAgreement #advanced2{
+    position: absolute;
+    top: 311px;
+    left: 484px;
+    width: 20px;
+    height: 20px;
+    background-color: #D9D9D9;
+
+
+}
+
+.rulesForAgreement .rule2{
+    position: absolute;
+    top: 307px;
+    left: 488px;
+    width: 250px;
+    height: 40px;
+    font-size: 18px;
+    color: #ffffff;
+
+}
+
+
+
+.rulesForAgreement #advanced3{
+    position: absolute;
+    top: 368px;
+    left: 84px;
+    width: 20px;
+    height: 20px;
+    background-color: #D9D9D9;
+
+
+}
+.rulesForAgreement .rule3{
+    position: absolute;
+    top: 366px;
+    left: 88px;
+    width: 250px;
+    height: 40px;
+    font-size: 18px;
+    color: #ffffff;
+
+}
+.rulesForAgreement #advanced4{
+    position: absolute;
+    top: 368px;
+    left: 484px;
+    width: 20px;
+    height: 20px;
+    background-color: #D9D9D9;
+
+
+}
+
+.rulesForAgreement .rule4{
+    position: absolute;
+    top: 366px;
+    left: 488px;
+    width: 250px;
+    height: 40px;
+    font-size: 18px;
+    color: #ffffff;
+}
+
+.rulesForAgreement .otherRules{
+    position: absolute;
+    top: 449px;
+    left: 23px;
+    width: 250px;
+    height: 40px;
+    font-size: 18px;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+
+.rulesForAgreement #advanced7{
+    position: absolute;
+    top: 428px;
+    left: 231px;
+    width: 300px;
+    height: 40px;
+    background-color: #2f363e;
+    color: #fff;
+    width: 42%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: none;
+    border-bottom: 2px solid #fff !important;
+
+
+}
+ .signatureLable{
+    
+    position: absolute;
+    background-color: #D9D9D9;
+    color: #000000;
+    left: 15px;
+    top: 303px;
+    width: 30%;
+    font-weight: bold;
+}
+
+
+.containerForElements .wariningforurl{
+
+    position: absolute;
+    top: 757px ;
+    left: 461px;
+    width: 750px;
+    font-size: 15px;
+    color: red;
+    font-weight: 600;
+
+}
+
+
+.clearBtn{
+    position: absolute;
+    top: 179px;
+    left: 182px;
+    width: 107px;
+    height: 40px;
+    font-size: 18px;
+    color: red !important;
+    font-weight: bold;
+    background-color: #2f363e;
+    border-radius: 5px;
+    border: 2px solid red;
+
+}
+
+.setUrl{
+
+    position: relative;
+    top: 21px;
+    left: -70px;
+    width: 107px;
+    height: 40px;
+    font-size: 18px;
+    color: #9a1bd0 !important;
+    font-weight: bold;
+    background-color: #2f363e;
+    border-radius: 5px;
+    border: 2px solid #9a1bd0;
+
+}
+
+.saveBtn{
+    position: absolute;
+    top: 19px;
+    left: 361px;
+    width: 107px;
+    height: 40px;
+    font-size: 18px;
+    color: green !important;
+    font-weight: bold;
+    background-color: #2f363e;
+    border-radius: 5px;
+    border: 2px solid green;
+
+}
+
+
+.submitAgreement{
+
+    background-color: #1BD067 !important;
+    position: absolute;
+    font-size: 15px;
+    width: 10%;
+    height: 7%;
+    font-weight: bold;
+    text-align: center;
+    color: white;
+    border-radius: 10px;
+    border: none !important;
+    left: 828px;
+    top: 495px;
+
+}
+
+
+.skipAgreement{
+
+    background-color: #9a1bd0 !important;
+    position: absolute;
+    font-size: 15px;
+    width: 10%;
+    height: 7%;
+    font-weight: bold;
+    text-align: center;
+    color: white;
+    border-radius: 10px;
+    border: none !important;
+    left: 954px;
+    top: 495px;
+
+}
+
+.previewAgreement{
+    background-color: #7643D2 !important;
+    position: absolute;
+    font-size: 15px;
+    width: 15%;
+    height: 7%;
+    font-weight: bold;
+    text-align: center;
+    color: white;
+    border-radius: 10px;
+    border: none !important;
+    left: 303px;
+    top: 484px;
+}
+
+.previewAgreement1{
+    background-color: #7643D2 !important;
+    position: absolute;
+    font-size: 15px;
+    width: 10%;
+    height: 7%;
+    font-weight: bold;
+    text-align: center;
+    color: white;
+    border-radius: 10px;
+    border: none !important;
+    left: 703px;
+    top: 495px;
+}

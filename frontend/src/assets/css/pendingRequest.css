@@ -1,23 +1,23 @@
 .pendingRequestImg{
     width: 40px;
     height: 40px;
-    margin-left: -223px;
+    margin-left: 6px;
     margin-top: 13px;
 }
 
 .pendingRequestP{
     color: #FFF;
     font-family: Dosis;
-    font-size: 24px;
+    font-size: 20px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
     position: absolute;
     top: 10%;
-    left: 33%;
+    left: 25%;
 }
 .wave01Img{
-    width: 138px;
+    width: 80px;
     height: 64px;
     flex-shrink: 0;
     position: absolute;
@@ -28,13 +28,13 @@
 .requestCount{
     color: #FFF;
     font-family: 'Dosis', sans-serif;
-    font-size: 40px;
+    font-size: 35px;
     font-style: normal;
     font-weight: 800;
     line-height: normal;
     position: absolute;
     top: 44%;
-    left: 53%;
+    left: 48%;
 }
 
 .monthlyRequestPersontage{

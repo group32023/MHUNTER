@@ -44,7 +44,6 @@
     margin-left: 5px; 
     font-size: 20px;
     color: #FAECFA;
-    padding-top: 10px;
     padding-right: 10px;
     text-decoration: none;
   }
@@ -67,7 +66,7 @@
   }
   .admin-list{
     padding-top: 2px;
-    font-size: 30px;
+    font-size: 25px;
   }
 
 /* Calendar */
@@ -139,34 +138,28 @@
 /* /search bar*/
 
 /* Table */
-.data-row{
-  background-color: #2f363e;
-  color: #FAECFA;
-  border-radius: 10px;
+.data-row-registration{
   padding: 10px 30px 10px;
   margin: 20px 150px 5px;
+}
+
+.data-row-registration-tr{
+  margin: 20px 150px 5px;
+  background-color: #2f363e;
+  border: 10px solid #212529;
+}
+
+.data-row-registration-td{
+  padding: 10px;
+  text-align: left;
+  color: white;
+  font-size: larger;
 }
 .profile-picture{
   width: 50px;
   height: 50px;
   border-radius: 50%;
   margin-right: 15%;
-}
-.data-name{
-  margin-right: 15%;
-  font-size: larger;
-}
-.data-memberType{
-  margin-right: 15%;
-  font-size: larger;
-}
-.data-email{
-  margin-right: 6%;
-  font-size: larger;
-}
-.data-status{
-  font-size: larger;
-
 }
 .data-button .btn-primary{
   background-color: #7643d2;
@@ -179,24 +172,10 @@
   .search-bar{
     width: 50%;
   }
-  .data-row{
-    margin: 10px 20px 5px;
-  }
   .data-button .btn-primary{
     width: 60px;
   }
-  .data-name{
-    margin-right: 10%;
-    font-size: larger;
-  }
-  .data-memberType{
-    margin-right: 10%;
-    font-size: larger;
-  }
-  .data-Email{
-    margin-right: 10%;
-    font-size: larger;
-  }
+
 }
 /* /Registration */
 
@@ -280,7 +259,85 @@
 }
 /* /View Detail- Proof Check */
 
+/*View All Details with Card */
+.row-userdetails{
+  margin: 40px;
+  margin-top: 5px;
+}
+.col-userdetails{
+  margin-bottom: 10px;
+}
+.card-userdetails{
+  background-color: #2f363e;
+}
+.button-userdetails{
+  display: flex;
+  justify-content: center;
+}
+.button-userdetails button{
+  width: 40%;
+  background-color: #7643d2;
+  color: #FAECFA;
+}
+.button-userdetails button:hover{
+  background-color: #24292D;
+}
+.card-userdetails span {
+  text-decoration: none;
+}
 
 
+.icon-name-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #7643d2;
+}
+.icon-dashboard{
+  font-size: 45px;
+  padding-right: 10px;
+}
 
+/*event-dashboard*/
+.admin-event-dashboard-artist-details{
+  display: flex;
+  align-items: center; 
+  margin: 5px;
+  padding: 0px;
+
+}
+
+.artist-details-in-dashboard {
+  flex: 1; 
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}
+
+
+.artist-details-in-dashboard input[type=text] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #24292D;
+  border-radius: 4px;
+  resize: vertical;
+  background-color: #24292D;
+}
+
+.artist-details-in-dashboard label {
+  padding: 12px 12px 12px 0;
+  display: inline-block;
+}
+
+.col-25 {
+  float: left;
+  width: 25%;
+  margin-top: 6px;
+}
+
+.col-75 {
+  float: left;
+  width: 75%;
+  margin-top: 6px;
+}
   

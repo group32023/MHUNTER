@@ -1,10 +1,16 @@
+
+.MainContainer body{
+
+    text-align: center;
+
+}
 #dateFrom{
   
         background-color: #ffffff !important;
         position: absolute;
         font-size: 15px;
-        width: 8%;
-        height: 5%;
+        width: 7%;
+        height: 6%;
         font-weight: bold;
         text-align: center;
         color: #000000 !important;
@@ -15,19 +21,48 @@
 
     
 }
+.MainContainer{
+
+  
+
+}
+
+
+#fromdate{
+
+   
+    position: absolute;
+    width: 11%;
+    height: 6%;
+    left: 20%;
+    top: 127px;
+
+}
+
+#todate{
+
+   
+    position: absolute;
+    width: 11%;
+    height: 6%;
+    left: 48%;
+    top: 127px;
+
+
+}
 
 #Today{
         background-color: #ffffff !important;
         position: absolute;
         font-size: 15px;
-        width: 8%;
-        height: 5%;
+        width: 7%;
+        height: 6%;
         font-weight: bold;
         text-align: center;
         color: #000000 !important;
         border-radius: 10px;
         border: none !important;
-        left: 22%;
+        left: 40%;
         top: 127px;
 
 }
@@ -37,14 +72,14 @@
         background: #ffffff !important;
         position: absolute;
         font-size: 15px;
-        width: 8%;
-        height: 5%;
+        width: 6%;
+        height: 6%;
         font-weight: bold;
         text-align: center;
         color: #000000 !important;
         border-radius: 10px;
         border: none !important;
-        left: 32%;
+        left: 52%;
         top: 127px;
         --bs-btn-active-color: #7643D2 !important;
     
@@ -55,9 +90,9 @@
 #selector{
     position: absolute;
     font-size: 15px;
-    width: 6%;
-    height: 5%;
-    left: 32%;
+    width: 11%;
+    height: 6%;
+    left: 65%;
     top: 127px;
     font-weight: bold;
     border-radius: 10px;
@@ -67,7 +102,7 @@
 
 .download{
     background-color: #7643D2 !important;
-    position: relative;
+    position: absolute;
     font-size: 15px;
     width: 8%;
     height: 5%;
@@ -76,8 +111,8 @@
     color: #ffffff;
     border-radius: 10px;
     border: none !important;
-    left:25%;
-    top: 90%;
+    left: 80%;
+    top: 70%;
  
 
 
@@ -143,14 +178,6 @@
      --bs-table-color: #ffffff;
 }
 
-.MainContainer{
-
-    position: fixed;
-    height: 100%;
-    width: 100%;
-    background: #24292D;
-
-}
 
 
 #ReportTable tbody{

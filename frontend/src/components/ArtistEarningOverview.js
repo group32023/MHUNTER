@@ -11,7 +11,7 @@ export default function ArtistEarningOverview() {
         id: "basic-bar"
       },
       xaxis: {
-        categories: [1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998, 1999],
+        categories: ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Des"],
         labels: {
           style: {
             colors: 'white', 
@@ -57,12 +57,26 @@ export default function ArtistEarningOverview() {
     series: [
       {
         name: "Income",
-        data: [30, 40, 45, 50, 49, 60, 70, 91]
+        data: [0,0,0,0,0,0,0,0]
       }
     ]
   }
   )
 
+  // update the data array of series
+  const updateSeriesData = (newData)=>{
+    setState(prevState=>({
+      ...prevState,
+      series:[{
+        ...prevState.series[0],
+        data:newData
+      }]
+    }))
+  }
+
+  fetch(`http://localhost:8080/artistIncome/monthlyOvercome/758463`).then((res)=>res.json()).then((result)=>updateSeriesData(result))
+
+ 
     
   return (
     <div>

@@ -9,14 +9,22 @@ import '../assets/css/artistPendingRequests.css'
 import profileImage from '../assets/images/profilePhoto.jpeg';
 import eventType from '../assets/images/eventtype.png'
 import Pagination from '../components/common/Pagination';
-
+import notification from '../assets/images/notification.png'
+import home from '../assets/images/home-button.png'
+import logout from '../assets/images/logout.png'
+import kpop from '../assets/images/kpop.png'
+import CircularProgress from '@mui/material/CircularProgress';
+import { Link } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import eventtype from '../assets/images/eventtype.png';
 import {faPhone,faLocationDot,faList,faCalendarDays} from '@fortawesome/free-solid-svg-icons'
 import { faTwitter, faFontAwesome,faFacebook,faGooglePlusG,faLinkedinIn } from '@fortawesome/free-brands-svg-icons'
 
 
 
 export default function ArtistPendingRequests() {
+
+  const [expand,setExpandedSideBar] = useState(true)
 
   const [eventList, setEventList] = useState([]);
   const [currentPage, setCurrentPage] =useState(1);
@@ -25,7 +33,7 @@ export default function ArtistPendingRequests() {
   useEffect(() => {
     // Fetch the data from the Java backend
     const getPendingRequest = async () =>{
-      const res = await fetch('http://localhost:8080/requestMusicMember/pendingRequest/101')
+      const res = await fetch('http://localhost:8080/requestMusicMember/pendingRequest/758463')
 
       const data = await res.json();
         setEventList(data);
@@ -35,7 +43,7 @@ export default function ArtistPendingRequests() {
      
 
   }, []);
-  console.log(eventList);
+  
 
   const lastLineIndex = currentPage * linePerPage;
   const firstLineIndex = lastLineIndex - linePerPage;
@@ -56,23 +64,26 @@ export default function ArtistPendingRequests() {
   //Using a for loop to generate the <div> tags
   for (let i = 0; i < divCount; i++) {
 
-    var eventID=eventList1[i]['eventId'];
+  console.log(eventList1[i]['eventName']);
+  
     
     divElements.push(<div key={i} className="requestContainer">
       <img src={profileImage} className="profile"></img>
       <div className="eventDetails">
-        <h4>{eventList1[i]['organizerName']}</h4>
-        <p class="eventType"><FontAwesomeIcon icon={faCalendarDays} id="EventIconPendingRequest"/>{eventList1[i]['eventName']}</p>
+        <h5>{eventList1[i]['organizerName']}</h5>
+        
+        <p class="eventType"><img src={eventtype} className="EventIconPendingRequest1"></img>{eventList1[i]['eventName']}</p>
       <p class="eventDate"><FontAwesomeIcon icon={faCalendarDays} id="CalenderIconPendingRequest"/>{eventList1[i]['date']}</p>
         <p class="venue"><FontAwesomeIcon icon={faLocationDot} id="LocationIconPendingRequest"/> {eventList1[i]['place']}</p>
       </div>
      
    
-      <button className="viewBtn" onClick={()=>load(eventID)}>View</button>
+      <button className="viewBtn" onClick={()=>load(eventList1[i]['eventId'])}>View</button>
     
       
    
   </div>
+
   );
    
   }
@@ -82,38 +93,47 @@ export default function ArtistPendingRequests() {
   }
 
   
- if(eventList.length===0) return <div>Loading....................</div>
+ if(eventList.length===0) return <div className='progressBar'><CircularProgress color="secondary" /></div>
 
   return (
 
    
     
+    <div >
+    <SideMenuBarArtist >
     <div className='MainContainer'>
     
-    
-        <div className='artistSideBar'>
-            <SideMenuBarArtist></SideMenuBarArtist>
-            <h3 className='headerDashboard'>Pending Requests</h3>
-            <div className='notificationBg'></div>
-            <div className='homeBg'></div>
-            <div className='logoutBg'></div>
-        </div>
+            <p className='headerDashboard'>Pending Requests</p>
+            <div className={expand ? 'notificationBg':'notificationBg-ex'}>
+              <img src={notification} className='notificationIcon' alt='notification'></img>
+            </div>
+            <div className={expand ? 'homeBg':'homeBg-ex'}>
+            <Link to={'/'}>
+                <img src={home} alt='homebtn' className='homeIcon'></img>
+              </Link>
+            </div>
+            <div className={expand ? 'logoutBg':'logoutBg-ex'}>
+              <img src={logout} alt='logout'className='logout'></img>
+              <p className='logoutbtn'>Logout</p>
+          </div>
 
      
       
+       
+        {divElements}
+        </div>
         
-        <div>{divElements}</div>;
 
-      <div className='pagination'>
+      {/* <div className='pagination'>
       <Pagination 
                 totalLines={eventList.length}
                 linesPerPage={linePerPage}
                 setCurrentPage={setCurrentPage}
               />
-      </div>
+      </div> */}
             
-        
-        
+      
+      </SideMenuBarArtist>
     </div>
   )
 }

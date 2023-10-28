@@ -1,11 +1,16 @@
 import React,{useState, useEffect,useRef} from 'react';
 import {Button, Table} from 'react-bootstrap';
-import { useNavigate,useParams} from 'react-router-dom';
+import { Link,useNavigate,useParams} from 'react-router-dom';
 import SideMenuBarArtist from '../components/common/SideMenuBar/SideMenuBarArtist'
 import '../assets/css/priorbooking.css'
 import { MDBBtn } from 'mdb-react-ui-kit';
 import { useReactToPrint } from 'react-to-print'
+import notification from '../assets/images/notification.png'
+import home from '../assets/images/home-button.png'
+import logout from '../assets/images/logout.png'
+import kpop from '../assets/images/kpop.png'
 
+import CircularProgress from '@mui/material/CircularProgress';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {faPhone,faLocationDot,faList,faCalendarDays} from '@fortawesome/free-solid-svg-icons'
@@ -14,12 +19,19 @@ import { faTwitter, faFontAwesome,faFacebook,faGooglePlusG,faLinkedinIn } from '
 
 
 export default function ArtistPriorBooking() {
-
+  const [expand,setExpandedSideBar] = useState(true)
   const componentPDF = useRef();
-  const { id1,id2 } = useParams();
+  const { id1,id2,id3 } = useParams();
 
-  console.log(id1);
-  console.log(id2);
+  // console.log(id1);
+  // console.log(id2);
+
+  let navigate = useNavigate();
+
+  const load=(id)=>{
+    navigate(`/artist/PendingRequestView/${id}`);
+
+  }
 
 
   const [events, setEvents] = useState([]);
@@ -48,11 +60,10 @@ export default function ArtistPriorBooking() {
 
   
    
-
   
+  console.log(events)
   const divCount = events.length;
   const divElements = [];
- 
 
 //   // Using a for loop to generate the <div> tags
   for (let i = 0; i < divCount; i++) {
@@ -63,7 +74,7 @@ export default function ArtistPriorBooking() {
       <tr>
       <td>{events[i]['eventName']}</td>
       <td>{events[i]['eventType']}</td>
-      <td><FontAwesomeIcon icon={faLocationDot} id="LocationIcon"/>{events[i]['place']}</td>
+      <td><FontAwesomeIcon icon={faLocationDot} id="LocationIcon1"/>{events[i]['place']}</td>
       <td>{events[i]['duration']}</td>
       <td>{events[i]['crowd']}</td>
       <td>{events[i]['income']}</td>
@@ -75,18 +86,29 @@ export default function ArtistPriorBooking() {
   }
 
   
-  if(events.length===0) return <div>Loading....................</div>
+  if(events.length===0) return <div><CircularProgress color="secondary" /></div>
 
 
     return (
   
-      <div className='artistContainer'>
-          <div className='artistSideBar'>
-              <SideMenuBarArtist></SideMenuBarArtist>
-              <h3 className='headerDashboard'>Pending Requests</h3>
-              <div className='notificationBg'></div>
-              <div className='homeBg'></div>
-              <div className='logoutBg'></div>
+      <div>
+          
+
+          <SideMenuBarArtist >
+        <div>
+            <p className='headerDashboard'>Pending Requests</p>
+            <div className={expand ? 'notificationBg':'notificationBg-ex'}>
+              <img src={notification} className='notificationIcon' alt='notification'></img>
+            </div>
+            <div className={expand ? 'homeBg':'homeBg-ex'}>
+            <Link to={'/'}>
+                <img src={home} alt='homebtn' className='homeIcon'></img>
+              </Link>
+            </div>
+            <div className={expand ? 'logoutBg':'logoutBg-ex'}>
+              <img src={logout} alt='logout'className='logout'></img>
+              <p className='logoutbtn'>Logout</p>
+            </div>
           </div>
 
           <div className='addressDiv'>
@@ -123,19 +145,19 @@ export default function ArtistPriorBooking() {
                         <tbody>
                          
                        
-                         {divElements
-                         }
+                         {divElements }
                           
-                         
+                    
                           
                         </tbody>
                       </Table>
                   
           </div>     
-          <Button className="download">Back</Button>
-           </div>
+          <Button className="back" onClick={()=>load(id3)}>Back</Button>
+           
+           </SideMenuBarArtist>
           
-          
+          </div>
           
   
     )

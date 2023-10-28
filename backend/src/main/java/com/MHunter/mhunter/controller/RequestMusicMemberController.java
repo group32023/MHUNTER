@@ -1,8 +1,10 @@
 package com.MHunter.mhunter.controller;
 
+import com.MHunter.mhunter.exception.UserNotFoundException;
 import com.MHunter.mhunter.model.*;
 import com.MHunter.mhunter.service.*;
 import com.MHunter.mhunter.struct.EventOrganizer;
+import com.MHunter.mhunter.struct.UserMusicMember;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -10,9 +12,11 @@ import java.time.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
+import java.util.stream.Collectors;
 
 @RestController
-@CrossOrigin
+@CrossOrigin(origins = "http://localhost:3000")
+
 @RequestMapping("/requestMusicMember")
 public class RequestMusicMemberController {
     @Autowired
@@ -29,6 +33,9 @@ public class RequestMusicMemberController {
     @Autowired
     private IncomeArtistService incomeArtistService;
 
+    @Autowired
+    private MusicMemberService musicMemberService;
+
     @PostMapping("/add")
     public String save(@RequestBody RequestMusicMember requestMusicMember){
          requestMusicMember.setRequestDate(LocalDateTime.now());
@@ -41,6 +48,8 @@ public class RequestMusicMemberController {
         return requestMusicMemberService.viewAll();
     }
 
+
+
     @GetMapping("/view/{mid}/{eventId}")
     public RequestMusicMember viewSpecific(@PathVariable int mid,@PathVariable int eventId){
         RequestMusicMemberId id = new RequestMusicMemberId();
@@ -51,9 +60,12 @@ public class RequestMusicMemberController {
 
     @PutMapping("/update/{mid}/{eventId}")
     public RequestMusicMember update(@RequestBody RequestMusicMember requestMusicMember, @PathVariable int mid,@PathVariable int eventId){
+        System.out.println(mid);
+        System.out.println(eventId);
         RequestMusicMemberId id = new RequestMusicMemberId();
         id.setMMID(mid);
         id.setEventId(eventId);
+        System.out.println("come here");
       return   requestMusicMemberService.updateRequestMusicMember(requestMusicMember,id);
     }
 
@@ -82,12 +94,12 @@ public class RequestMusicMemberController {
         eventList.forEach(res ->{
             Event event = eventService.viewSpecificEvent(res.getRequestMusicMemberId().getEventId());
             Organizer organizer = organizerService.findSpecificOrganizer(res.getOrgId());
-            User user = userService.findSpecificUser(organizer.getUserId());
+            User user = userService.findSpecificUser(organizer.getUser().getUserId());
 
             EventOrganizer eventOrganizer = new EventOrganizer();
             eventOrganizer.setOrgId(res.getOrgId());
             eventOrganizer.setEventId((event.getEventID()));
-            eventOrganizer.setOrganizerName(user.getFname() + " " +  user.getLname());
+            eventOrganizer.setOrganizerName(user.getFirstName() + " " +  user.getLastName());
             eventOrganizer.setEventName(event.getEvent_name());
             eventOrganizer.setEventType(event.getEvent_type());
             eventOrganizer.setStartTime(event.getStart_time());
@@ -125,14 +137,14 @@ public class RequestMusicMemberController {
         eventList.forEach(res ->{
             Event event = eventService.viewSpecificEvent(res.getRequestMusicMemberId().getEventId());
             Organizer organizer = organizerService.findSpecificOrganizer(res.getOrgId());
-            User user = userService.findSpecificUser(organizer.getUserId());
+            User user = userService.findSpecificUser(organizer.getUser().getUserId());
             EventOrganizer eventOrganizer = new EventOrganizer();
             IncomeArtistId id = new IncomeArtistId(mid,res.getRequestMusicMemberId().getEventId());
             IncomeArtist incomeArtist = incomeArtistService.viewSpecificIncome(id);
             eventOrganizer.setIncome(incomeArtist.getIncome());
             eventOrganizer.setEventId((event.getEventID()));
             eventOrganizer.setOrgId(res.getOrgId());
-            eventOrganizer.setOrganizerName(user.getFname() + " " +  user.getLname());
+            eventOrganizer.setOrganizerName(user.getFirstName() + " " +  user.getLastName());
             eventOrganizer.setEventName(event.getEvent_name());
             eventOrganizer.setEventType(event.getEvent_type());
             eventOrganizer.setStartTime(event.getStart_time());
@@ -171,14 +183,14 @@ public class RequestMusicMemberController {
             if(date.equals(event.getDate()) ){
 
                 Organizer organizer = organizerService.findSpecificOrganizer(res.getOrgId());
-                User user = userService.findSpecificUser(organizer.getUserId());
+                User user = userService.findSpecificUser(organizer.getUser().getUserId());
                 EventOrganizer eventOrganizer = new EventOrganizer();
                 IncomeArtistId id = new IncomeArtistId(mid,res.getRequestMusicMemberId().getEventId());
                 IncomeArtist incomeArtist = incomeArtistService.viewSpecificIncome(id);
                 eventOrganizer.setIncome(incomeArtist.getIncome());
                 eventOrganizer.setEventId((event.getEventID()));
                 eventOrganizer.setOrgId(res.getOrgId());
-                eventOrganizer.setOrganizerName(user.getFname() + " " +  user.getLname());
+                eventOrganizer.setOrganizerName(user.getFirstName() + " " +  user.getLastName());
                 eventOrganizer.setEventName(event.getEvent_name());
                 eventOrganizer.setEventType(event.getEvent_type());
                 eventOrganizer.setStartTime(event.getStart_time());
@@ -288,22 +300,22 @@ public class RequestMusicMemberController {
     }
 
     @GetMapping("/viewAllEvents/{mid}")
-    public List<EventOrganizer> viewAllEvents(@PathVariable int mid){
+    public List<EventOrganizer> viewAllEvents(@PathVariable int mid, @RequestParam(required = false,defaultValue = "") String filterValue){
         List<RequestMusicMember> requestMusicMembersList = requestMusicMemberService.findConformationEventsByMMID(mid);
         List<EventOrganizer> eventOrganizerList = new ArrayList<>();
 
-
         requestMusicMembersList.forEach(res ->{
             Event event = eventService.viewSpecificEvent(res.getRequestMusicMemberId().getEventId());
-
             Organizer organizer = organizerService.findSpecificOrganizer(res.getOrgId());
-            User user = userService.findSpecificUser(organizer.getUserId());
+            User user = userService.findSpecificUser(organizer.getUser().getUserId());
             EventOrganizer eventOrganizer = new EventOrganizer();
-            eventOrganizer.setOrganizerName(user.getFname() + " " +  user.getLname());
+            eventOrganizer.setOrganizerName(user.getFirstName() + " " +  user.getLastName());
             eventOrganizer.setEventType(event.getEvent_type());
             eventOrganizer.setPlace(event.getTown());
             eventOrganizer.setDate(event.getDate());
             eventOrganizer.setCrowd(event.getCrowd());
+            eventOrganizer.setEventId(res.getRequestMusicMemberId().getEventId());
+            eventOrganizer.setOrgId(res.getOrgId());
             Duration difference = Duration.between( event.getStart_time(),event.getEnd_time());
             long hours = difference.toHours();
             long minutes = difference.toMinutes() % 60;
@@ -313,15 +325,39 @@ public class RequestMusicMemberController {
             }
             else{
                 eventOrganizer.setDuration(hours + " hours and " + minutes + " minutes");
-
             }
             eventOrganizerList.add(eventOrganizer);
-
-
-            //System.out.println(eventOrganizer);
         });
+        if(filterValue.equals("")){
+            return eventOrganizerList;
+        }
+        else{
+            System.out.println(filterValue.length());
+            List<EventOrganizer> newList =eventOrganizerList.stream()
+                    .filter(member ->member.getOrganizerName().toLowerCase().contains(filterValue.toLowerCase())
+                            || member.getEventType().toLowerCase().contains(filterValue.toLowerCase())
+                            || member.getDate().toString().contains(filterValue)
+                            || member.getPlace().toLowerCase().contains(filterValue.toLowerCase())
+                    ).collect(Collectors.toList());
+            return newList;
+        }
 
-        return eventOrganizerList;
     }
 
-}
+
+    @GetMapping("/musicMemberDetails/{mid}")
+    public UserMusicMember musicMemberDetails(@PathVariable int mid) {
+
+      MusicMember musicMember =  musicMemberService.findSpecificMusicMember(mid);
+        User user = userService.findSpecificUser(musicMember.getUser().getUserId());
+        UserMusicMember userMusicMember = new UserMusicMember();
+        userMusicMember.setUserName(musicMember.getName());
+        userMusicMember.setAddress(user.getAddress());
+        userMusicMember.setEmail(user.getEmail());
+
+
+        return userMusicMember;
+    }
+
+
+    }

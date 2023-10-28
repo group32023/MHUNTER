@@ -11,7 +11,7 @@
     border-radius: 15px;
     background: #3B444D;
     position: relative;
-    top: 10%;
+    top: 14%;
     left: 10%;
 }
 .specificEventImg{
@@ -56,8 +56,9 @@
     border-radius: 15px;
     background: #3B444D;
     position: relative;
-    top: -21%;
+    top: -17%;
     left: 67.6%;
+    
   
 }
 
@@ -68,6 +69,7 @@
     font-style: normal;
     font-weight: 600;
     line-height: normal;
+    margin-left: 140px;
 }
 
 .countClock{
@@ -85,7 +87,7 @@
     border-radius: 15px;
     background: #3B444D;
     position: relative;
-    top: -20%;
+    top: -16%;
     left: 67.6%;
   
 }
@@ -97,6 +99,7 @@
     font-style: normal;
     font-weight: 600;
     line-height: normal;
+    margin-left: 140px;
 }
 
 .countClock{
@@ -136,7 +139,7 @@
     line-height: normal;
     position: absolute;
     top: 37px;
-    left: 145px;
+    left: 125px;
 }
 
 .specificEventDate{
@@ -145,7 +148,7 @@
     border-radius: 15px;
     background: #3B444D;
     position: relative;
-    top: -130px;
+    top: -94px;
     left: 148px;
 }
 
@@ -156,6 +159,7 @@
     font-style: normal;
     font-weight: 600;
     line-height: normal;
+    margin-left: 140px;
 }
 
 .specificDateDiv {
@@ -168,7 +172,7 @@
     left: 47px;
   }
 
-  .specificdateImage{
+.specificdateImage{
     width: 22px;
     height: 22px;
     flex-shrink: 0;
@@ -195,7 +199,7 @@
     border-radius: 15px;
     background: #3B444D;
     position: relative;
-    top: -213px;
+    top: -178px;
     left: 578px;
   
 }
@@ -226,7 +230,7 @@
     border-radius: 15px;
     background: #3B444D;
     position: relative;
-    top: -295px;
+    top: -261px;
     left: 1040px;
 }
 
@@ -239,7 +243,7 @@
     line-height: normal;
     position: absolute;
     top: 1px;
-    left: 132px;
+    left: 118px;
 }
 
 .specificCrowdImage{
@@ -264,11 +268,11 @@
 
 .specificEventLocation{
     width: 804px;
-    height: 246px;
+    height: 248px;
     border-radius: 15px;
     background: #3B444D;
     position: relative;
-    top: -289px;
+    top: -241px;
     left: 146px;
 }
 
@@ -278,7 +282,7 @@
     border-radius: 15px;
     background: linear-gradient(180deg, #7643D2 17.71%, rgba(118, 67, 210, 0.34) 100%);
     position: relative;
-    top: -536px;
+    top: -483px;
     left: 1040px;
 }
 
@@ -289,6 +293,7 @@
     font-style: normal;
     font-weight: 600;
     line-height: normal;
+    margin-left: 140px;
 }
 
 .specificTotal{

@@ -19,12 +19,12 @@ public class Artist {
     public Artist() {
     }
 
-    public int getArtistId() {
+    public int getArtist_id() {
         return artist_id;
     }
 
-    public void setArtistId(int artistId) {
-        this.artist_id = artistId;
+    public void setArtist_id(int artist_id) {
+        this.artist_id = artist_id;
     }
 
     public MusicMember getMusicMember() {

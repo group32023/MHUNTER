@@ -5,6 +5,12 @@ import SideMenuBarArtist from '../components/common/SideMenuBar/SideMenuBarArtis
 import '../assets/css/priorbooking.css'
 import { MDBBtn } from 'mdb-react-ui-kit';
 import { useReactToPrint } from 'react-to-print'
+import notification from '../assets/images/notification.png'
+import home from '../assets/images/home-button.png'
+import logout from '../assets/images/logout.png'
+import kpop from '../assets/images/kpop.png'
+import CircularProgress from '@mui/material/CircularProgress';
+import { Link } from 'react-router-dom'
 
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -15,8 +21,8 @@ import { faTwitter, faFontAwesome,faFacebook,faGooglePlusG,faLinkedinIn } from '
 
 export default function ArtistEventOn() {
 
-
-  const { mmid, date } = useParams();
+  const [expand,setExpandedSideBar] = useState(true)
+  const { mmid, date, eventId } = useParams();
   const componentPDF = useRef();
   const [eventList, setEventList] = useState([]);
 
@@ -41,6 +47,8 @@ export default function ArtistEventOn() {
   }, []);
 
 
+  let navigate = useNavigate();
+
 
    
   
@@ -58,7 +66,7 @@ export default function ArtistEventOn() {
       <td>{eventList[i]['eventName']}</td>
       <td>{eventList[i]['organizerName']}</td>
       <td>{eventList[i]['eventType']}</td>
-      <td><FontAwesomeIcon icon={faLocationDot} id="LocationIcon"/>{eventList[i]['place']}</td>
+      <td><FontAwesomeIcon icon={faLocationDot} id="LocationIcon1"/>{eventList[i]['place']}</td>
       <td>{eventList[i]['crowd']}</td>
       <td>{eventList[i]['income']}</td>
       
@@ -67,38 +75,47 @@ export default function ArtistEventOn() {
    
   }
 
-  
+  const load=(id)=>{
+    navigate(`/artist/PendingRequestView/${id}`);
 
-  if(eventList.length===0) return <div>Loading....................</div>
+  }
+
+  if(eventList.length===0) return <div className='progressBar'><CircularProgress color="secondary" /></div>
 
     return (
   
-      <div className='artistContainer'>
-          <div className='artistSideBar'>
-              <SideMenuBarArtist></SideMenuBarArtist>
-              <h3 className='headerDashboard'>Pending Requests</h3>
-              <div className='notificationBg'></div>
-              <div className='homeBg'></div>
-              <div className='logoutBg'></div>
+      <div >
+      
+         <SideMenuBarArtist>
+        <div>
+            <p className='headerDashboard'>Pending Requests</p>
+            <div className={expand ? 'notificationBg':'notificationBg-ex'}>
+              <img src={notification} className='notificationIcon' alt='notification'></img>
+            </div>
+            <div className={expand ? 'homeBg':'homeBg-ex'}>
+            <Link to={'/'}>
+                <img src={home} alt='homebtn' className='homeIcon'></img>
+              </Link>
+            </div>
+            <div className={expand ? 'logoutBg':'logoutBg-ex'}>
+              <img src={logout} alt='logout'className='logout'></img>
+              <p className='logoutbtn'>Logout</p>
+            </div>
           </div>
 
           <div className='addressDiv'>
-          <h3>Prior Booking </h3>
-          <h4 className="organizer_tag">Organizer :  </h4>
-          <h4 className="organizerName">{eventList[0]['organizerName']}</h4>
+          <h3 className='eventsOnDate'>Envents On : {date} </h3>
+          
           </div>
         
-              <Button className="date"><FontAwesomeIcon icon={faCalendarDays} id="CalenderReport"/>Date</Button> 
-              <Button className="event_type"><FontAwesomeIcon icon={faCalendarDays} id="CalenderReport"/>Event Type</Button> 
-              <Button className="filter">Filter</Button>
               
 
             <div className='reportContainer' >
-            <div ref={componentPDF}>
+            <div >
 
               <p>Income</p>
           
-             <Table id="PriorBookingTable" className='table table-hover table-dark table-condensed table-resposive'  >
+             <Table id="PriorBookingTable1" className='table table-hover table-dark table-condensed table-resposive'  >
                         <thead>
                         <tr>
                           <th>Event Name</th>
@@ -122,11 +139,11 @@ export default function ArtistEventOn() {
                       </Table>
                   
           </div>     
-          <Button className="download">Back</Button>
+          <Button className="back" onClick={()=>load(eventId)}>Back</Button>
            </div>
           
-          
-          
+       
+           </SideMenuBarArtist>
       </div>
     )
 }

@@ -1,0 +1,371 @@
+.previewContainer{
+
+    position: absolute;
+    top: 43px;
+    left: 550px;
+    width: 600px;
+    height: 700px;
+    background-color: #ffffff;
+    border: 2px solid #000000;
+    
+
+}
+
+/* .previewContainerBody .previousGo{
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    border-radius: 2px;
+    background-color: #ffffff;
+    color: #92454500 !important;
+    font-size: 18px;
+    text-align: center;
+
+} */
+
+
+.previewContainerBody .previousGo{
+    background-color: #ffffff !important;
+    position: absolute;
+    font-size: 25px;
+    width: 40px;
+    height: 40px;
+    font-weight: 750;
+    text-align: center;
+    color: #7643D2;
+    border-radius: 50%;
+    border: none !important;
+    left: 406px;
+    top: 34px;
+}
+
+.previewContainerBody{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #1c2126;;
+}
+
+.previewContainer .logo{
+    position: absolute;
+    top: 80px;
+    left: 10px;
+    opacity: 0.4;
+
+}
+
+.previewContainer .bandName{
+    position: absolute;
+    top: 20px;
+    line-height: 5px;
+    font-size: 15px;
+    left: 20px;
+    color: blue;
+    font-weight: bold;
+
+}
+
+.previewContainer .bandAddress{
+    position: absolute;
+    top: 40px;
+    line-height: 5px;
+    left: 20px;
+    color: blue;
+    font-size: 15px;
+    font-weight: bold;
+
+
+
+}
+.previewContainer .bandEmail{
+    font-weight: bold;
+
+    position: absolute;
+    left: 20px;
+    top: 60px;
+    font-size: 15px;
+    line-height: 5px;
+    color: blue;
+
+}
+
+
+.previewContainer .agreementHr{
+    position: absolute;
+    top: 80px;
+    height: 8px;
+    width: 90%;
+    left: 5%;
+    background: #000000 !important;
+    color: #000000;
+}
+
+.previewContainer h3{
+    position: absolute;
+    top: 120px;
+    font-weight: bolder;
+    left: 40%;
+}
+
+.agreementContent{
+    position: absolute;
+    top: 180px;
+    text-align: center;
+}
+
+.verifyContent{
+     position: absolute;
+    top: 580px;
+    text-align: center;
+
+}
+
+.agreementContent .organizerNamelabel{
+
+    position: absolute;
+    left: 20px;
+    top: 0px;
+    /* font-weight: 650; */
+    font-size: 15px;
+    line-height: 5px;
+    
+}
+
+.agreementContent .organizerName{
+
+    position: absolute;
+    left: 80px;
+    top: 0px;
+    font-weight: 650;
+    font-size: 15px;
+    line-height: 5px;
+    
+}
+
+
+.agreementContent .eventNamelabel{
+
+    position: absolute;
+    left: 20px;
+    top: 20px;
+    /* font-weight: 650; */
+    font-size: 15px;
+    line-height: 5px;
+    
+}
+
+.agreementContent .eventName{
+
+    position: absolute;
+    left: 6px;
+    top: 20px;
+    font-weight: 650;
+    font-size: 15px;
+    line-height: 5px;
+    width: 250px;
+}
+
+
+.agreementContent .eventDatelabel{
+
+    position: absolute;
+    left: 20px;
+    top: 40px;
+    /* font-weight: 650; */
+    font-size: 15px;
+    line-height: 5px;
+    
+}
+
+.agreementContent .eventDate{
+
+    position: absolute;
+    left: -7px;
+    top: 40px;
+    font-weight: 650;
+    font-size: 15px;
+    line-height: 5px;
+    width: 250px;
+    
+}
+
+
+
+.agreementContent .placelabel{
+
+    position: absolute;
+    left: 20px;
+    top: 60px;
+    /* font-weight: 650; */
+    font-size: 15px;
+    line-height: 5px;
+    
+}
+
+.agreementContent .place{
+
+    position: absolute;
+    left: 80px;
+    top: 60px;
+    font-weight: 650;
+    font-size: 15px;
+    line-height: 5px;
+    
+}
+
+
+
+.agreementContent .timelabel{
+
+    position: absolute;
+    left: 20px;
+    top: 80px;
+    /* font-weight: 650; */
+    font-size: 15px;
+    line-height: 5px;
+    
+}
+
+.agreementContent .time{
+
+    position: absolute;
+    left: 80px;
+    top: 80px;
+    font-weight: 650;
+    font-size: 15px;
+    line-height: 5px;
+    
+}
+
+
+.agreementContent .paraContent{
+
+    position: absolute;
+    left: 50px;
+    top: 120px;
+    font-size: 15px;
+    line-height: 18px;
+    width: 500px;
+    text-align: justify;
+    
+}
+
+
+.agreementContent .rulesLabel{
+
+    position: absolute;
+    left: 50px;
+    top: 185px;
+    font-size: 15px;
+    line-height: 25px;
+    width: 500px;
+    text-align: justify;
+    font-weight: 650;
+    
+}
+
+
+.agreementContent .additionalRulesLabel{
+
+    position: absolute;
+    left: 50px;
+    top: 280px;
+    font-size: 15px;
+    line-height: 25px;
+    width: 500px;
+    text-align: justify;
+    font-weight: 650;
+
+    
+}
+
+.agreementContent .additionalRules{
+
+    position: absolute;
+    left: 50px;
+    top: 300px;
+    font-size: 15px;
+    line-height: 25px;
+    width: 500px;
+    text-align: justify;
+    
+}
+
+
+.verifyContent .dateLabel{
+
+    position: absolute;
+    left: 171px;
+    top: 40px;
+    font-size: 15px;
+    line-height: 25px;
+    width: 500px;
+    text-align: justify;
+    font-weight: 650;
+
+    
+}
+
+.verifyContent .spaceDate{
+
+    position: absolute;
+    left: 120px;
+    top: 10px;
+    font-size: 15px;
+    line-height: 25px;
+    width: 500px;
+    text-align: justify;
+    font-weight: 650;
+
+    
+}
+
+.verifyContent .today{
+
+    position: absolute;
+    left: 152px;
+    top: 7px;
+    font-size: 15px;
+    line-height: 25px;
+    width: 500px;
+    text-align: justify;
+    font-weight: 650;
+
+    
+}
+
+.verifyContent .signature{
+
+    position: absolute;
+    left: 354px;
+    top: 40px;
+    font-size: 15px;
+    line-height: 25px;
+    width: 500px;
+    text-align: justify;
+    font-weight: 650;
+
+    
+}
+
+.verifyContent .spaceSignature{
+
+    position: absolute;
+    left: 320px;
+    top: 10px;
+    font-size: 15px;
+    line-height: 25px;
+    width: 500px;
+    text-align: justify;
+    font-weight: 650;
+
+    
+}
+
+
+.invoiceDetailContainer{
+    position: absolute;
+    top: 150px;
+    left: 0;
+}
+

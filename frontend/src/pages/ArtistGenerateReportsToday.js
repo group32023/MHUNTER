@@ -7,6 +7,10 @@ import SideMenuBarArtist from '../components/common/SideMenuBar/SideMenuBarArtis
 import '../assets/css/artistReport.css'
 import { MDBBtn } from 'mdb-react-ui-kit';
 import { useReactToPrint } from 'react-to-print'
+import notification from '../assets/images/notification.png'
+import home from '../assets/images/home-button.png'
+import logout from '../assets/images/logout.png'
+import kpop from '../assets/images/kpop.png'
 
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -17,6 +21,7 @@ import { faTwitter, faFontAwesome,faFacebook,faGooglePlusG,faLinkedinIn } from '
 
 export default function ArtistGenerateReports() {
 
+  const [expand,setExpandedSideBar] = useState(true)
 
   const navigate = useNavigate();
   const componentPDF = useRef();
@@ -50,7 +55,9 @@ export default function ArtistGenerateReports() {
     // Fetch the data from the Java backend
     const fromDateObject = new Date(fromDate);
     const toDateObject = new Date(toDate);
-    fetch(`http://localhost:8080/artistIncome/specificArtistIncomeDetailsOntoday/${selectedOption}/${fromDateObject.getDate}/${toDateObject.getDate}/101`)
+    // fetch(`http://localhost:8080/artistIncome/specificArtistIncomeDetailsOntoday/${selectedOption}/${fromDateObject.getDate}/${toDateObject.getDate}/101`)
+    fetch(`http://localhost:8080/artistIncome/specificArtistIncomeDetails/758463`)
+
     .then((response) => {
       if (!response.ok) {
         throw new Error('Network response was not ok');
@@ -94,7 +101,7 @@ export default function ArtistGenerateReports() {
       <td><FontAwesomeIcon icon={faLocationDot} id="LocationIcon"/>{eventList[i]['place']}</td>
       <td>{eventList[i]['date']}</td>
       <td>{eventList[i]['income']}</td>
-      <td>{}</td>
+      
 </tr>
   );
    
@@ -110,18 +117,29 @@ export default function ArtistGenerateReports() {
 
     return (
   
-      <div className='artistContainer'>
-          <div className='artistSideBar'>
-              <SideMenuBarArtist></SideMenuBarArtist>
-              <h3 className='headerDashboard'>Reports</h3>
-              <div className='notificationBg'></div>
-              <div className='homeBg'></div>
-              <div className='logoutBg'></div>
+      <div >
+       <SideMenuBarArtist>
+      
+          
+        <div>
+            <p className='headerDashboard'>Reports</p>
+            <div className={expand ? 'notificationBg':'notificationBg-ex'}>
+              <img src={notification} className='notificationIcon' alt='notification'></img>
+            </div>
+            <div className={expand ? 'homeBg':'homeBg-ex'}>
+            <Link to={'/'}>
+                <img src={home} alt='homebtn' className='homeIcon'></img>
+              </Link>
+            </div>
+            <div className={expand ? 'logoutBg':'logoutBg-ex'}>
+              <img src={logout} alt='logout'className='logout'></img>
+              <p className='logoutbtn'>Logout</p>
+            </div>
           </div>
-             <lable className='col-sm-2 col-form-label' id="dateFrom">From Date: <input type='date' className='form-control' id="fromdate" name='fromdate' placeholder='dd-mm-yyyy'  value={fromDate} onChange={(e)=>handleDateChangeFromDate(e.target.value)}></input></lable>
+             <lable className='col-sm-2 col-form-label' id="dateFrom">From Date:</lable> <input type='date' className='form-control' id="fromdate" name='fromdate' placeholder='dd-mm-yyyy'  value={fromDate} onChange={(e)=>handleDateChangeFromDate(e.target.value)}></input>
              
+             <lable className='col-sm-2 col-form-label' id="Today"><FontAwesomeIcon icon={faCalendarDays} id="CalenderReport"/>To Date :</lable><input type='date' className='form-control' id="todate" name='todate' placeholder='dd-mm-yyyy' value={toDate} onChange={(e)=>handleDateChangeToDate(e.target.value)}></input>
 
-             <lable className='col-sm-2 col-form-label' id="Today"><FontAwesomeIcon icon={faCalendarDays} id="CalenderReport"/>To Date :<input type='date' className='form-control' id="todate" name='todate' placeholder='dd-mm-yyyy' value={toDate} onChange={(e)=>handleDateChangeToDate(e.target.value)}></input></lable>
         
               {/* <Button className="dateFrom"><FontAwesomeIcon icon={faCalendarDays} id="CalenderReport"/>Date From</Button> 
               <Button className="Today" onClick={()=>todayIncome(101)}><FontAwesomeIcon icon={faCalendarDays} id="CalenderReport"/>Today</Button> 
@@ -166,8 +184,8 @@ export default function ArtistGenerateReports() {
           <Button className="download" onClick={generatePDF}>Download</Button>
            </div>
           
-          
-          
+           </SideMenuBarArtist> 
+           
       </div>
     )
 }

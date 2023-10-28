@@ -1,631 +1,184 @@
-.main-content-container {
+@font-face {
+    font-family: 'MyCustomFont';
+    src: url('../fonts/Dosis-Regular.ttf') format('truetype');
+    /* src: url('../../../assets/icons/dashboard.png') format('truetype'); */
+    /* Add other font file formats and their paths here */
+}
+
+@font-face {
+    font-family: 'MyCustomFont1';
+    src: url('../fonts/Dosis-Bold.ttf') format('truetype');
+    /* src: url('../../../assets/icons/dashboard.png') format('truetype'); */
+    /* Add other font file formats and their paths here */
+}
+
+@font-face {
+    font-family: 'MyCustomFont2';
+    src: url('../fonts/Dosis-ExtraBold.ttf') format('truetype');
+    /* src: url('../../../assets/icons/dashboard.png') format('truetype'); */
+    /* Add other font file formats and their paths here */
+}
+
+.OrganizerDashboardMainContainer {
+    color: white;
+}
+
+.PaymentsTBDiv {
+    background-color: #2f363e;
+    height: auto;
+    border-radius: 10px;
     flex: 1;
+}
+
+.DashboardCalenderDiv {
+    background-color: #2f363e;
+    height: 300px;
+    border-radius: 10px;
+    width: 355px;
+    transition: all .5s ease;
+    margin-left: 5px;
+
+}
+
+.mainContainer-NX .DashboardCalenderDiv {
+    width: 412px;
+    transition: all .5s ease;
+}
+
+.UpcominEventsDiv {
+    background-color: #2f363e;
+    height: auto;
+    flex: 1;
+    margin-left: 10px;
+    border-radius: 10px;
+}
+
+.Dashboard-custom-flex-row {
+    display: flex;
+    margin-right: 40px;
+}
+
+.innertablePaymentTBContent {
     display: flex;
 }
 
-.main-content {
+.tableUpcomingContent {
+    display: flex;
+    cursor: pointer;
+}
+
+.tableUpcomingContent:hover {
+    transform: scaleX(1.05);
+}
+
+.upcomingDivEventImage {
     flex: 1;
-    padding: 20px;
-    transition: margin-left 0.3s;
 }
 
-.main-content.expanded {
-    margin-left: 50px;
-    /* Adjust the margin to show the expanded main content */
+/* .upcomingDivEventImage img {
+    border-radius: 10px;
+} */
+
+.PaymentTBDivData,
+.upcomingDivEventData {
+    flex: 2;
+    padding-left: 20px;
 }
 
-.artistSideBarOne {
-    margin-left: -1.9rem;
-    background: #24292D;
-    width: 1455px;
-    height: 728px;
-    flex: 3;
+.upcomingDivEventData .eventTitle {
+    font-weight: bold;
 }
 
-
-.headerDashboard {
-    color: #FFF;
-    font-family: Dosis;
-    font-size: 35px;
-    font-style: normal;
-    font-weight: 800;
-    line-height: normal;
-    position: relative;
-    top: 6%;
-    left: 6%;
-    width: 165px;
-
-}
-
-.notificationBg {
-    width: 58px;
-    height: 49px;
-    border-radius: 25px;
-    background: #3B444D;
-    position: absolute;
-    top: 5%;
-    left: 74%;
-}
-
-.homeBg {
-    width: 58px;
-    height: 49px;
-    border-radius: 25px;
-    background: #3B444D;
-    position: absolute;
-    top: 5%;
-    left: 81%;
-}
-
-.logoutBg {
-    width: 170px;
-    height: 48px;
-    border-radius: 25px;
-    background: #3B444D;
-    position: absolute;
-    top: 5%;
-    left: 88%;
-}
-
-.notificationIcon {
-    width: 38px;
-    height: 35px;
-    position: absolute;
-    top: 6px;
-    left: 9px;
-}
-
-.homeIcon {
-    width: 38px;
-    height: 35px;
-    position: absolute;
-    top: 8px;
-    left: 11px;
-}
-
-.logout {
-    width: 38px;
-    height: 35px;
-    position: absolute;
-    top: 7px;
-    left: 8px;
-}
-
-.logoutbtn {
-    color: #FFF;
-    font-family: Dosis;
-    font-size: 22px;
-    font-style: normal;
-    font-weight: 800;
-    line-height: normal;
-    position: absolute;
-    top: 9px;
-    left: 66px;
-}
-
-.artistWebPoster {
-    width: 529px;
-    height: 301px;
-    border-radius: 15px;
-    background: linear-gradient(180deg, #7643D2 5.21%, rgba(118, 67, 210, 0.19) 100%);
-    position: relative;
-    top: 43px;
-    left: 81px;
-}
-
-.artistWebPoster-exp{
-    width: 389px;
-    height: 264px;
-    border-radius: 15px;
-    background: linear-gradient(180deg, #7643D2 5.21%, rgba(118, 67, 210, 0.19) 100%);
-    position: relative;
-    top: 56px;
-    left: 81px;
-}
-
-.artistWebPoster p {
-    color: #FFF;
-    font-family: Inter;
-    font-size: 41px;
-    font-style: normal;
-    font-weight: 800;
-    line-height: normal;
-}
-
-.artistWebPoster span {
-    width: 247px;
-    height: 204px;
-    color: #FFF;
-    font-family: 'Lobster Two', cursive;
-    font-size: 32px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    display: inline-block;
-    margin-left: -228px;
-    margin-top: 21px;
-}
-
-.webPostImage {
-    width: 189px;
-    height: 204px;
-    margin-top: -78px;
-    margin-right: -214px;
-}
-
-.pendingRequestDiv {
-    width: 366px;
-    height: 139px;
-    border-radius: 15px;
-    background: #3B444D;
-    position: relative;
-    top: -2.6%;
-    left: 48%;
-    margin-top: -240px;
-    margin-left: -43px;
-}
-
-.artistIncomeDiv {
-    width: 366px;
-    height: 139px;
-    border-radius: 15px;
-    background: #3B444D;
-    position: relative;
-    top: -2.7%;
-    left: 48%;
-    margin-top: 1.2%;
-    margin-left: -41px;
-}
-
-.artistIncomeDiv-exp{
-    width: 366px;
-    height: 110px;
-    border-radius: 15px;
-    background: #3B444D;
-    position: relative;
-    top: 8%;
-    left: 43.7%;
-    margin-top: 1.2%;
-    margin-left: -133px;
-}
-
-.artistIncomeDiv-exp .monthlyRequestPersontage{
+.upcomingDivEventData .eventLocation {
     color: #11FE70;
-    font-family: 'Dosis', sans-serif;
-    font-size: 20px;
-    font-style: normal;
-    font-weight: 800;
-    line-height: normal;
-    position: absolute;
-    top: 58%;
-    left: 80%;
- }
-
- .artistIncomeDiv-exp .monthlyRequestPersontageMinus {
-    color: #FF0000;
-    font-family: 'Dosis', sans-serif;
-    font-size: 20px;
-    font-style: normal;
-    font-weight: 800;
-    line-height: normal;
-    position: absolute;
-    top: 58%;
-    left: 80%;
-}
-
-.artistCalanderDiv {
-    width: 344px;
-    height: 302.5px;
-    border-radius: 15px;
-    background: #3B444D;
-    position: relative;
-    top: -1.2%;
-    left: 75%;
+    margin-top: 5px;
+    flex: 1;
 
 }
 
-.artistEarningOverview {
-    width: 658px;
-    height: 281px;
-    border-radius: 15px;
-    background: #3B444D;
-    position: relative;
-    top: -3%;
-    left: 5.7%;
-    margin-top: 27.5px;
-}
-
-.artistEarningOverview-exp{
-    width: 579px;
-    height: 281px;
-    border-radius: 15px;
-    background: #3B444D;
-    position: relative;
-    top: 3%;
-    left: 5.5%;
-    margin-top: 117.5px;
-}
-
-.artistEarningOverview-exp .apexcharts-svg.apexcharts-zoomable.hovering-pan{
-    width: 535px !important;
-}
-
-.artistEarningOverview .apexcharts-svg.apexcharts-zoomable.hovering-zoom{
-    width: 535px !important;
-    margin-left: -2px !important;
-}
-
-.artistEarningOverview-exp .apexcharts-canvas{
-    width: 535px !important;
-
-}
-
- .artistEarningOverview-exp .apexchartsbasic-bar{
-    width: 535px !important;
-
-}
-
-.artistEarningOverview-exp .apexcharts-theme-light{
-    width: 535px !important;
-
-}
-
-.artistEarningOverview-exp .apexcharts-svg{
-    width: 535px !important;
-}
-
-.artistEarningOverview-exp .apexcharts-zoomable {
-    width: 535px !important;
-}
-
-.artistEarningOverview-exp .hovering-zoom{
-    width: 535px !important;
-}
-
-.artistUpcommingEvent {
-    width: 658px;
-    height: 281px;
-    border-radius: 15px;
-    background: #3B444D;
-    position: relative;
-    top: -2.1%;
-    left: 54.8%;
-    margin-top: -19.3%;
-    margin-left: -2.4%;
-}
-
-.artistUpcommingEvent-ex{
-    width: 581px;
-    height: 281px;
-    border-radius: 15px;
-    background: #3B444D;
-    position: relative;
-    top: 3%;
-    left: 48.3%;
-    margin-top: -19.3%;
-    margin-left: -2.4%;
-}
-
-.artistUpcommingEvent-ex .eventDescripition{
-    width: 413px;
-    height: 52px;
-    color: #FFF;
-    font-family: 'Blinker', sans-serif;
+.upcomingDivEventData .eventDataRow1 {
+    display: flex;
     font-size: 13px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: normal;
-    position: absolute;
-    top: 39%;
-    left: 28%;
     text-align: left;
 }
 
-.artistUpcommingEvent-ex .line {
-    width: 550px;
-    height: 2px;
-    flex-shrink: 0;
-    background: #FFF;
-    position: absolute;
-    top: 55%;
-    left: 3%;
-  }
+.upcomingDivEventData .eventDate {
+    flex: 1;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: center;
+    font-weight: bold;
+}
+
+.upcomingDivEventData .eventDescription {
+    font-size: 12px;
+    text-align: justify;
+    padding-right: 10px;
+    opacity: 0.8;
+}
+
+.PaymentTBImage {
+    width: 10%;
+}
+
+.PaymentTBImage img {
+    border-radius: 50%;
+}
+
+.PaymentTBTitle {
+    flex: 1;
+    text-align: center;
+    font-weight: bold;
+    font-size: 13px;
+    /* color: #7643D2; */
+}
+
+.PaymentTBAmount {
+    flex: 1;
+    text-align: center;
+    /* color: red; */
+    /* opacity: 0.8; */
+    color: #11FE70;
+}
+
+.PaymentTBBtn {
+    flex: 1;
+    text-align: center;
+}
+
+.PaymentTBBtn .paymentBtn {
+    font-size: 13px;
+    font-weight: 600;
+    background-color: transparent;
+    border: 1px solid red;
+    color: red;
+    opacity: 0.8;
+}
+
+.PaymentTBBtn .paymentBtn:hover {
+    /* background-color: #91040D; */
+    background-color: red;
+    color: white;
+    font-weight: normal;
+    transform: scaleX(1.1);
 
 
-@media screen and (max-width: 600px) {
-    .artistSideBarOne {
-        margin-left: -1.9rem;
-        background: #24292D;
-        width: 1455px;
-        height: 1625px;
-        flex: 3 1;
-      }
-     .artistWebPoster{
-        width: 393px;
-        height: 245px;
-    }
+}
 
-    .artistWebPoster-exp{
-        width: 389px;
-        height: 264px;
-        border-radius: 15px;
-        background: linear-gradient(180deg, #7643D2 5.21%, rgba(118, 67, 210, 0.19) 100%);
-        position: relative;
-        top: 56px;
-        left: 81px;
-    }
-    
-    .artistWebPoster p{
-        color: #FFF;
-        font-family: Inter;
-        font-size: 41px;
-        font-style: normal;
-        font-weight: 800;
-        line-height: normal;
-    }
-    
-    .artistWebPoster-exp p{
-        color: #FFF;
-    font-family: Inter;
-    font-size: 41px;
-    font-style: normal;
-    font-weight: 800;
-    line-height: normal;
-    }
-    
-    
-    .artistWebPoster span{
-        width: 194px;
-        height: 186px;
-        color: #FFF;
-        font-family: 'Lobster Two', cursive;
-        font-size: 22px;
-        font-style: normal;
-        font-weight: 400;
-        line-height: normal;
-        display: inline-block;
-        margin-left: -228px;
-        margin-top: 21px;
-    }
-    
-    .artistWebPoster-exp span{
-        width: 247px;
-        height: 204px;
-        color: #FFF;
-        font-family: 'Lobster Two', cursive;
-        font-size: 23px;
-        font-style: normal;
-        font-weight: 400;
-        line-height: normal;
-        display: inline-block;
-        margin-left: -228px;
-        margin-top: 36px;
-        }
-    
-    .webPostImage{
-        width: 145px;
-        height: 156px;
-        margin-top: -64px;
-        margin-right: -227px;
-    }
-    
-    .artistWebPoster-exp .webPostImage{
-        width: 143px;
-        height: 178px;
-        margin-top: -57px;
-        margin-right: -214px;
-      
-    }
-    .notificationBg{
-        width: 58px;
-        height: 49px;
-        border-radius: 25px;
-        background: #3B444D;
-        position: absolute;
-        top: 2%;
-        left: 24%;
-    }
-    
-    .notificationBg-ex{
-        width: 58px;
-        height: 49px;
-        border-radius: 25px;
-        background: #3B444D;
-        position: absolute;
-        top: 5%;
-        left: 67%;
-    }
-    .homeBg{
-        width: 58px;
-        height: 49px;
-        border-radius: 25px;
-        background: #3B444D;
-        position: absolute;
-        top: 2%;
-        left: 28%;
-    }
-    .homeBg-ex{
-        width: 58px;
-        height: 49px;
-        border-radius: 25px;
-        background: #3B444D;
-        position: absolute;
-        top: 5%;
-        left: 72.5%;
-    }
-    .logoutBg{
-        width: 53px;
-        height: 48px;
-        border-radius: 25px;
-        background: #3B444D;
-        position: absolute;
-        top: 2%;
-        left: 32%;
-    }
-    
-    .logoutBg-ex{
-        width: 170px;
-        height: 48px;
-        border-radius: 25px;
-        background: #3B444D;
-        position: absolute;
-        top: 5%;
-        left: 78%;
-    }
+.PaymentTBEventName {
+    flex: 2;
+    text-align: center;
+    /* color: #7643D2; */
+}
 
-    .logoutbtn {
-       display: none;
-      }
+.innertablePaymentTBContent {
+    width: 90%;
+    font-size: 12px;
+}
 
-      .artistEarningOverviewHeader {
-        color: #FFF;
-        font-family: Dosis;
-        font-size: 24px;
-        font-style: normal;
-        font-weight: 400;
-        line-height: normal;
-        margin-top: 2%;
-        margin-left: -62%;
-      }
-
-      .pendingRequestDiv {
-        width: 366px;
-        height: 139px;
-        border-radius: 15px;
-        background: #3B444D;
-        position: relative;
-        top: 18.4%;
-        left: 9.5%;
-        margin-top: -240px;
-        margin-left: -43px;
-      }
-
-      .artistEarningOverview{
-        width: 370px;
-        height: 281px;
-        border-radius: 15px;
-        background: #3B444D;
-        position: relative;
-        top: 37.4%;
-        left: 6.5%;
-        margin-top: 27.5px;
-    }
-
-    .artistEarningOverview   .artistEarningOverviewHeader {
-        color: #FFF;
-        font-family: Dosis;
-        font-size: 24px;
-        font-style: normal;
-        font-weight: 400;
-        line-height: normal;
-        margin-top: 2%;
-        margin-left: -43%;
-      }
-
-    .artistEarningOverview {
-        width: 370px;
-        height: 281px;
-        border-radius: 15px;
-        background: #3B444D;
-        position: relative;
-        top: 38.1%;
-        left: 6.5%;
-        margin-top: 27.5px;
-    }
-    
-    .artistEarningOverview-exp{
-        width: 579px;
-        height: 281px;
-        border-radius: 15px;
-        background: #3B444D;
-        position: relative;
-        top: 3%;
-        left: 5.5%;
-        margin-top: 117.5px;
-    }
-    
-    .artistEarningOverview-exp .apexcharts-svg.apexcharts-zoomable.hovering-pan{
-        width: 370px !important;
-    }
-    
-    .artistEarningOverview .apexcharts-svg.apexcharts-zoomable.hovering-zoom{
-        width: 370px !important;
-        margin-left: -312px !important;
-    }
-    
-    .artistEarningOverview-exp .apexcharts-canvas{
-        width: 370px !important;
-    }
-    
-     .artistEarningOverview-exp .apexchartsbasic-bar{
-        width: 370px !important;
-    }
-    
-    .artistEarningOverview-exp .apexcharts-theme-light{
-        width: 370px !important;
-    
-    }
-    
-    .artistEarningOverview-exp .apexcharts-svg{
-        width: 370px !important;
-    }
-    
-    .artistEarningOverview-exp .apexcharts-zoomable {
-        width: 370px !important;
-    }
-    
-    .artistEarningOverview-exp .hovering-zoom{
-        width: 370px !important;
-    }
-
-    .artistIncomeDiv {
-        width: 366px;
-        height: 139px;
-        border-radius: 15px;
-        background: #3B444D;
-        position: relative;
-        top: 18.3%;
-        left: 9.3%;
-        margin-top: 1.2%;
-        margin-left: -41px;
-      }
-
-      .artistCalanderDiv {
-        width: 344px;
-        height: 302.5px;
-        border-radius: 15px;
-        background: #3B444D;
-        position: relative;
-        top: 38.3%;
-        left: 8.2%;
-        margin-top: -21%;
-        margin-left: -1%;
-      }
-
-      .artistUpcommingEvent {
-        width: 386px;
-        height: 383px;
-        border-radius: 15px;
-        background: #3B444D;
-        position: relative;
-        top: 131%;
-        left: 7.9%;
-        margin-top: -19.3%;
-        margin-left: -2.4%;
-      }
-
-      .headerDashboard {
-        color: #FFF;
-        font-family: Dosis;
-        font-size: 35px;
-        font-style: normal;
-        font-weight: 800;
-        line-height: normal;
-        position: relative;
-        top: 2%;
-        left: 6%;
-        width: 165px;
-      }
-    
-  }
-  
+.tablePaymentTBContent {
+    background-color: #1c2126;
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}

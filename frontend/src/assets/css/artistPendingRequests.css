@@ -1,12 +1,25 @@
-.profile{
+ .requestContainer .profile{
     position: relative;
     border-radius: 50%;
     width: 55px;
     height: 55px;
-    top: 32.5px;
-    left: -482px;
+    top: 36.5px;
+    left: -458px;
 }
 
+.requestContainer .profile1{
+    position: relative;
+    border-radius: 50%;
+    width: 55px;
+    height: 55px;
+    top: 36.5px;
+    left: 71px;
+}
+.MainContainer{
+
+    text-align: center;
+
+}
 
 
 .eventDetails{
@@ -16,29 +29,27 @@
     text-align: center;
 }
 
-.eventDetails h4{
-       position: relative;
-    /* margin-top: -40px; */
-    top: -15px;
+.eventDetails h5{
+    position: relative;
+    top: -6px;
     width: 250px;
-    margin-left: 15%;
-
+    margin-left: 10.5%;
 }
 
 .eventDetails .eventDate{
-    position: relative;
+    position: absolute;
     margin-top: -3.2%;
-    left: 12%;
+    left: 55%;
 }
 .eventDetails .eventType{
-    position: relative;
-    margin-top: -4%;
-    left: -3%;
+    position: absolute;
+    margin-top: -3.2%;
+    left: 35%;
 }
 .eventDetails .venue{
-    position: relative;
+    position: absolute;
     margin-top: -3.2%;
-    left: 27%;
+    left: 70%;
     
 }
 
@@ -46,13 +57,29 @@
     background-color: #7643D2 !important;
     position: relative;
     font-size: 15px;
-    width: 7%;
-    height: 95%;
+    width: 8%;
+    height: 43px;
     font-weight: bold;
     text-align: center;
     color: white;
-    left: 42%;
-    top: -40.8px;
+    left: 40%;
+    top: -48.8px;
+    border-radius: 10px;
+    border: none !important;
+    /* box-shadow: 4px 7px 10px rgba(0, 0, 0, .4) !important; */
+}
+
+.viewBtn1{
+    background-color: #7643D2 !important;
+    position: relative;
+    font-size: 15px;
+    width: 8%;
+    height: 43px;
+    font-weight: bold;
+    text-align: center;
+    color: white;
+    left: 957px;
+    top: -48.8px;
     border-radius: 10px;
     border: none !important;
     /* box-shadow: 4px 7px 10px rgba(0, 0, 0, .4) !important; */
@@ -60,12 +87,14 @@
 
 .requestContainer{
     background-color: #3b444d;
-    height: 10%;
+    height: 15%;
     width: 70%;
     position: relative;
-    top: -597px;
-    left: 18%;
+    top: 187px;
+    left: 14%;
     margin-bottom: 20px;
+    border-radius: 25px;
+  
 }
 
 #LocationIconPendingRequest{
@@ -75,6 +104,8 @@
     padding-right: 5px;
 
 }
+
+
 
 #EventIconPendingRequest{
     position: relative;
@@ -110,7 +141,9 @@
     width: 60%;
     position: absolute;
     top: 140px;
-    left: 23%;
+    left: 20%;
+    border-radius: 25px;
+    text-align: center;
 
 }
 
@@ -136,7 +169,7 @@
     text-align: center;
     color: white;
     left: 45%;
-    top: -250px;
+    top: -277px;
     border-radius: 10px;
     border: none !important;
 
@@ -150,9 +183,9 @@
     height: 8%;
     font-weight: bold;
     text-align: center;
-    color: #000000;
+    color: #000000 !important;
     left: 30%;
-    top: -150px;
+    top: -187px;
     border-radius: 10px;
     border: none !important;
 
@@ -182,7 +215,7 @@
     height: 8%;
     font-weight: bold;
     text-align: center;
-    color: #000000;
+   background-color: #3b444d !important;
     left: -22%;
     top: -17px;
     border-radius: 10px;
@@ -205,10 +238,38 @@
 
 
 .requestViewContainer h4{
-    color: #FFFFFF;
+    color: #11fe70;
     position: relative;
-    top: -13.5%;
-    left: -1%;
+    top: -12.2%;
+    left: -10px;
+
+}
+
+
+.EventIconPendingRequest1{
+    position: relative;
+    width: 20px;
+    height: 20px;
+    left: -1px;
+    padding-right: 7px;
+    top: -2px;
+
+}
+.CalenderIconPendingRequest2{
+    position: relative;
+    width: 20px;
+    height: 20px;
+    left: -3px;
+    padding-right: 6px;
+    top: -2px;
+}
+.EventIconPendingRequest2{
+    position: relative;
+    width: 20px;
+    height: 20px;
+    left: -6px;
+    padding-right: 2px;
+    top: -2px;
 
 }
 
@@ -220,11 +281,6 @@
 
 }
 
-#EventIconPendingRequest1{
-    position: relative;
-    left: -1%;
-    padding-right: 10px;
-}
 
 #CalenderIconPendingRequest1{
     position: relative;
@@ -241,7 +297,7 @@
 
 }
 
-#EventIconPendingRequest2{
+/* #EventIconPendingRequest2{
     position: relative;
     left: -1%;
     padding-right: 10px;
@@ -252,47 +308,44 @@
     left: -1%;
     padding-right: 10px;
 
-}
+} */
 
 .eventDate1{
-    position: relative;
-    left: -5%;
-    top: 8%;
+    position: absolute;
+    left: 20%;
+    top: 30%;
 }
 .eventType1{
-    position: relative;
-    left: -3%;
-    top: 7%;
+    position: absolute;
+    left: 20%;
+    top: 20%;
 }
 .venue1{
-    position: relative;
-    top: 9%;
-    left: -4%;
+    position: absolute;
+    top: 40%;
+    left: 20%;
     
 }
 .eventDate2{
-    position: relative;
-    top: 13%;
-    left: -5%;
+    position: absolute;
+    top: 50%;
+    left: 20%;
 }
 .eventType2{
-    position: relative;
-    top: 11%;
-    left: -3%;
+    position: absolute;
+    top: 60%;
+    left: 20%;
 }
 .venue2{
-    position: relative;
-    top: 15%;
-    left: -4%;
+    position: absolute;
+    top: 70%;
+    left: 20%;
     
 }
 
 .MainContainer{
 
-    position: fixed;
-    height: 100%;
-    width: 100%;
-    background: #24292D;
+  
 
 }
 

@@ -8,7 +8,7 @@ export default function ArtistIncome() {
 
   useEffect(()=>{
 
-    fetch("http://localhost:8080/artistIncome/incomeAndMonthlyGrowth/3001").then(res=>res.json()).then((result)=>setIncome(result))
+    fetch("http://localhost:8080/artistIncome/incomeAndMonthlyGrowth/758463").then(res=>res.json()).then((result)=>setIncome(result))
     
   },[])
 
@@ -20,7 +20,7 @@ export default function ArtistIncome() {
             <p className='incomeP'>Income</p>
             <img className='wave02Img' src={wave02} alt=''></img>
             <p className='incomeCount'>{income[0]}</p>
-            <p className={`${income[1]>=0 ? "monthlyRequestPersontage":"monthlyRequestPersontageMinus"}`}>{ income[1]>=0 ?  "+"+income[1] :income[1]}%</p>
+            <p className={`${income[1]>=0 ? "monthlyRequestPersontage":"monthlyRequestPersontageMinus"}`}>{ income[1]>=0 ?  "+"+income[1] :income[1] }%</p>
             <p className='thisMonthRequest'>This Month</p>
     </div>
   )

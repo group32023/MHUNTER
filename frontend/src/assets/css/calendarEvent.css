@@ -58,3 +58,9 @@
     color: white;
     font-weight: 800 !important;
 }
+
+.calendarEventReward{
+    width: 15px;
+    height: 15px;
+    cursor: pointer;
+}

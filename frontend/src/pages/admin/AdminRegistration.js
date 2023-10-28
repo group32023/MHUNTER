@@ -4,12 +4,51 @@ import '../../assets/css/admin/adminDashboard.css'
 import notification from '../../assets/images/notification-a.png'
 import home from '../../assets/images/home-button-a.png'
 import logout from '../../assets/images/logout-a.png'
-import { Link } from 'react-router-dom';
+import { Link,Routes, Route,useNavigate,useParams} from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import band from '../../assets/images/band.jpg'
 
+import AdminDashboard from './AdminDashboard'
+import ProofCheck from './ProofCheck';
+import AllUserDetails from './AllUserDetails';
+import ViewUserDetails from './ViewUserDetails';
+import AdminReport from './AdminReport';
+import AdminSettings from './AdminSettings';
+import Topbar from '../../components/common/Topbar'
+
+import {useEffect } from 'react';
+import axios from 'axios';
+
+
 function AdminRegistration() {
+
+  const [userR, setUserR] = useState([]);
+  let navigate = useNavigate();
+  const { id } = useParams(); 
+  const load=(id)=>{
+    if (id) {
+      navigate(`/admin/registration/proofcheck/${id}`);
+    } else {
+      // Handle the case where id is undefined or null
+      console.error("Invalid id:", id);
+    }
+
+  }
+
+  useEffect(() => {
+    const userId = localStorage.getItem('userId');
+    if (userId) {
+        axios.get(`http://localhost:8080/view`)
+            .then(response => {
+                setUserR(response.data);
+            })
+            .catch(error => {
+                console.error(error);
+                alert(error);
+            });
+    }
+}, []);
     const [searchTerm, setSearchTerm] = useState('');
 
     const handleInputChange = (event) => {
@@ -20,94 +59,69 @@ function AdminRegistration() {
       console.log('Searching for:', searchTerm);
     };
   return (
-    <div className='main-container'>
-        <div className='side-bar'>
-            <SideMenuBarAdmin />
-        </div>
-        <div className='body-container'>
-            {/*header icon*/}
-            <div className='header-admin'>
-
-                <div className='header-title'>
-                    <h1>Registration</h1>
-                </div>
-
-                <div className='header-icon'>
-                    <img src={notification} className='notificationIcon' alt='notification'></img>
-                    <img src={home} alt='homebtn' className='homeIcon'></img>
-                    <img src={logout} alt='logout'className='logout'></img>
-                    <Link to={"/"} className='logoutbtn'>
-                    <p>Logout</p>
-                    </Link>
-                </div>
-
-            </div>
-            {/*search bar*/}
-            <div className="container mt-3 search-bar">
-                <div className="input-group mb-3">
-                    <input
-                    type="text"
-                    className="form-control "
-                    placeholder="Search..."
-                    value={searchTerm}
-                    onChange={handleInputChange}
-                    />
-                    <div className="input-group-append">
-                    <button className="btn btn-primary search-button" type="button" onClick={handleSearch}>
-                        <FontAwesomeIcon icon={faSearch} />
-                    </button>
-                    </div>
-                </div>
-            </div>
-            {/*table*/}
-            <div className='data-row'>
-                <span><img src={band} alt='band'className='profile-picture'></img></span>
-                <span className='data-name'>D.K.D.Anjalika</span>
-                <span className='data-memberType'>Artist</span>
-                <span className='data-status'>Pending</span>
-                <Link to={"/admin/registration/proofcheck"}>
-                    <span className='data-button'><button type='button' className=' btn btn-primary'> View </button></span>
-                </Link>
-            </div>
-            <div className='data-row'>
-                <span><img src={band} alt='band'className='profile-picture'></img></span>
-                <span className='data-name'>D.K.D.Anjalika</span>
-                <span className='data-memberType'>Artist</span>
-                <span className='data-status'>Pending</span>
-                <Link to={"/admin/registration/proofcheck"}>
-                    <span className='data-button'><button type='button' className=' btn btn-primary'> View </button></span>
-                </Link>
-            </div>
-            <div className='data-row'>
-                <span><img src={band} alt='band'className='profile-picture'></img></span>
-                <span className='data-name'>D.K.D.Anjalika</span>
-                <span className='data-memberType'>Artist</span>
-                <span className='data-status'>Pending</span>
-                <Link to={"/admin/registration/proofcheck"}>
-                    <span className='data-button'><button type='button' className=' btn btn-primary'> View </button></span>
-                </Link>
-            </div>
-            <div className='data-row'>
-                <span><img src={band} alt='band'className='profile-picture'></img></span>
-                <span className='data-name'>D.K.D.Anjalika</span>
-                <span className='data-memberType'>Artist</span>
-                <span className='data-status'>Pending</span>
-                <Link to={"/admin/registration/proofcheck"}>
-                    <span className='data-button'><button type='button' className=' btn btn-primary'> View </button></span>
-                </Link>
-            </div>
-            <div className='data-row'>
-                <span><img src={band} alt='band'className='profile-picture'></img></span>
-                <span className='data-name'>D.K.D.Anjalika</span>
-                <span className='data-memberType'>Artist</span>
-                <span className='data-status'>Pending</span>
-                <Link to={"/admin/registration/proofcheck"}>
-                    <span className='data-button'><button type='button' className=' btn btn-primary'> View </button></span>
-                </Link>
-            </div>
-
-        </div> 
+    <>
+    <SideMenuBarAdmin>
+    <Topbar/>
+    <div className='header-admin' >
+      <div className='header-title' >
+        <h1>Registration</h1>
+      </div>
     </div>
+            {/*search bar*/}
+    <div className="container mt-3 search-bar">
+        <div className="input-group mb-3">
+            <input
+            type="text"
+            className="form-control "
+            placeholder="Search..."
+            value={searchTerm}
+            onChange={handleInputChange}
+            />
+            <div className="input-group-append">
+            <button className="btn btn-primary search-button" type="button" onClick={handleSearch}>
+                <FontAwesomeIcon icon={faSearch} />
+            </button>
+            </div>
+        </div>
+    </div>
+
+    {userR.length > 0 && (
+        <table style={{width:'80%'}} className='data-row-registration'>
+            {userR.map((row, index) => (
+                <tr key={index} className='data-row-registration-tr'>
+                    <td className='data-row-registration-td'>
+                    <img src={row.profilePicture} alt='band' className='profile-picture' />
+                    </td>
+                    <td className='data-row-registration-td'>{row.name}</td>
+                    <td className='data-row-registration-td'>{row.type}</td>
+                    <td className='data-row-registration-td'>{row.status}</td>
+                    <td className='data-row-registration-td'>
+                   
+                    <span className='data-button'>
+                        <button type='button' className='btn btn-primary' onClick={()=>load(row.id)}>View</button>
+                    </span>
+                    
+                    </td>
+                </tr>
+                ))}
+                
+            
+        </table>
+    )}
+
+
+
+    <Routes>
+          
+          <Route path='/admin/admindashobard' element={<AdminDashboard/>} />
+          <Route path="/admin/registration/proofcheck/:id" element={<ProofCheck />} />
+          <Route path='/admin/userdetails' element={<AllUserDetails/>} />
+          <Route path='/admin/userdetails/viewdetails' element={<ViewUserDetails/>} />
+          <Route path='/admin/report' element={<AdminReport/>} />
+          <Route path='/admin/settings' element={<AdminSettings/>} />
+    </Routes>
+    </SideMenuBarAdmin>
+    </>
   )
 }
 

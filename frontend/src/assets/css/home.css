@@ -29,7 +29,7 @@
     color: #FEFEFE;
     position: absolute;
     top: 2.9%;
-    left: 3.5%;
+    left: 1.25%;
     z-index: 100;
 }
 .facebookIcon{
@@ -42,6 +42,9 @@
     left: 80.5%;
     z-index: 100;
     cursor: pointer;
+}
+.facebookIcon:hover{
+    transform: scale(1.5,1.5);
 }
 
 .twitterIcon{
@@ -56,6 +59,9 @@
     cursor: pointer;
     
 }
+.twitterIcon:hover{
+    transform: scale(1.5,1.5);
+}
 .googlePlusIcon{
     width: 25.087px;
     height: 23.997px;
@@ -67,6 +73,9 @@
     z-index: 100;
     cursor: pointer;
 }
+.googlePlusIcon:hover{
+    transform: scale(1.5,1.5);
+}
 .linkedInIcon{
     width: 25.087px;
     height: 23.997px;
@@ -77,6 +86,9 @@
     left: 92.5%;
     z-index: 100;
     cursor: pointer;
+}
+.linkedInIcon:hover{
+    transform: scale(1.5,1.5);
 }
 .caption{
     color: #ffffff;
@@ -130,6 +142,7 @@
     letter-spacing: 0;
     line-height: normal;
     cursor: pointer;
+    text-decoration: none;
    
 }
 .signupBtn:hover{
@@ -242,5 +255,9 @@
     z-index: 100;
 
 }
+.css-1vooibu-MuiSvgIcon-root{
+    color: rgb(189, 189, 3) !important;
+}
+
 
 
