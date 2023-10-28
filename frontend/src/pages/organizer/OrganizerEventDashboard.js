@@ -262,7 +262,7 @@ function OrganizerEventDashboard() {
                     </div>
 
                 </div>
-
+ 
                 <Routes>
                     {/* Nested routes for the Organizer Dashboard */}
                     <Route path='/organizer/dashboard' element={<OrganizerDashboard />}></Route>
