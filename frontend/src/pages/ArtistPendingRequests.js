@@ -31,16 +31,19 @@ export default function ArtistPendingRequests() {
   const [linePerPage, setLinePerPage] = useState(4);
 
   useEffect(() => {
+    const mmId = localStorage.getItem('mmid');
+    if(mmId){
     // Fetch the data from the Java backend
     const getPendingRequest = async () =>{
-      const res = await fetch('http://localhost:8080/requestMusicMember/pendingRequest/758463')
+      const res = await fetch(`http://localhost:8080/requestMusicMember/pendingRequest/${mmId}`)
 
       const data = await res.json();
         setEventList(data);
       };
      getPendingRequest();
 
-     
+
+    }
 
   }, []);
   

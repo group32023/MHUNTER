@@ -27,8 +27,10 @@ export default function ArtistEventOn() {
   const [eventList, setEventList] = useState([]);
 
   useEffect(() => {
+    const mmId = localStorage.getItem('mmid');
     // Fetch the data from the Java backend
-    fetch(`http://localhost:8080/requestMusicMember/eventsOn/${mmid}/${date}`)
+    if(mmId){
+    fetch(`http://localhost:8080/requestMusicMember/eventsOn/${mmId}/${date}`)
     .then((response) => {
       if (!response.ok) {
         throw new Error('Network response was not ok');
@@ -43,6 +45,7 @@ export default function ArtistEventOn() {
         console.log('Error fetching data:', error);
       });
       console.log(eventList);
+    }
 
   }, []);
 

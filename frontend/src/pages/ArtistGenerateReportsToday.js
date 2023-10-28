@@ -77,7 +77,6 @@ export default function ArtistGenerateReports() {
           console.log('Error fetching data:', error);
         });
     }
-    console.log(mmId);
      
   }, [selectedOption, fromDate, toDate]);
 
