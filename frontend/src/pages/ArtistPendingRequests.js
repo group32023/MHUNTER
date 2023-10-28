@@ -31,18 +31,33 @@ export default function ArtistPendingRequests() {
 
   useEffect(() => {
     const mmId = localStorage.getItem('mmid');
-    if(mmId){
-    // Fetch the data from the Java backend
-    const getPendingRequest = async () =>{
-      const res = await fetch(`http://localhost:8080/requestMusicMember/pendingRequest/${mmId}`)
+    // if(mmId){
+    // // Fetch the data from the Java backend
+    // const getPendingRequest = async () =>{
+    //   const res = await fetch(`http://localhost:8080/requestMusicMember/pendingRequest/${mmId}`)
 
-      const data = await res.json();
+    //   const data = await res.json();
+    //     setEventList(data);
+    //   };
+    //  getPendingRequest();
+
+
+    // }
+
+    fetch(`http://localhost:8080/requestMusicMember/pendingRequest/${mmId}`)
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      return response.json();
+    })
+     
+      .then((data) => {
         setEventList(data);
-      };
-     getPendingRequest();
-
-
-    }
+      })
+      .catch((error) => {
+        console.log('Error fetching data:', error);
+      });
 
   }, []);
   

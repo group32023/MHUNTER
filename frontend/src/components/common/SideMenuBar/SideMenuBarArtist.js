@@ -171,7 +171,6 @@ function SideMenuBarArtist({ children }) {
                         </li>
                     </ul>
 
-
                 </div>
             </div>
 
