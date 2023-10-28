@@ -79,12 +79,21 @@ public class RequestMusicMemberServiceImp implements RequestMusicMemberService{
 
     }
 
+
+
+//    @Override
+//    public List<RequestMusicMember> getRowsByEventId(int eventId) {
+//        return requestMusicMemberRepository.findMMIDsByEventId(eventId);
+//    }
+//    @Override
+//    public RequestMusicMember getRowsByEventId(RequestMusicMemberId requestMusicMemberId) {
+//        Optional<RequestMusicMember> data = requestMusicMemberRepository.findById(requestMusicMemberId);
+//        return data.orElse(null);
+//    }
+
     @Override
     public List<RequestMusicMember> getRowsByEventId(int eventId) {
-        return requestMusicMemberRepository.findByRequestMusicMemberIdEventId(eventId);
+        return requestMusicMemberRepository.findByEventId(eventId);
     }
-//    @Override
-//    public List<EventRequestStatus> executeCustomQuery(Integer orgId, Integer eventId) {
-//        return requestMusicMemberRepository.customQuery(orgId, eventId);
-//    }
+
 }

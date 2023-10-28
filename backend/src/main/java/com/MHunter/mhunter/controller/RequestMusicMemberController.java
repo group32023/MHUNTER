@@ -368,43 +368,26 @@ public class RequestMusicMemberController {
     }
 
     @GetMapping("/getRowsByEventId/{eventId}")
-    public List<RequestMusicMember> getRowsByEventId(@PathVariable int eventId) {
-        return requestMusicMemberService.getRowsByEventId(eventId);
+    public List<Object[]> getRowsByEventId(@PathVariable int eventId){
+        List<RequestMusicMember> requestMusicMembersList = requestMusicMemberService.getRowsByEventId(eventId);
+        List<Object[]> results = new ArrayList<>();
+
+        for (RequestMusicMember requestMusicMember : requestMusicMembersList) {
+            Object[] result = new Object[5];
+            result[0] = requestMusicMember.getRequestMusicMemberId().getMMID();
+            result[1] = requestMusicMember.getOrgId();
+            result[2] = requestMusicMember.getConfirmationStatus();
+            result[3] = requestMusicMember.getRequestMusicMemberId().getEventId();
+
+            MusicMember musicMember =  musicMemberService.findSpecificMusicMember(requestMusicMember.getRequestMusicMemberId().getMMID());
+
+            result[4] = musicMember.getName();
+
+            results.add(result);
+        }
+        return results;
+
     }
-
-//    @GetMapping("/customQuery/{orgId}/{eventId}")
-//    public ResponseEntity<List<EventRequestStatus>> executeCustomQuery(
-//            @RequestParam Integer orgId,
-//            @RequestParam Integer eventId) {
-//        List<EventRequestStatus> results = requestMusicMemberService.executeCustomQuery(orgId, eventId);
-//        return new ResponseEntity<>(results, HttpStatus.OK);
-//    }
-
-//    @GetMapping("/custom-query/get-results")
-//    public List<Object[]> getCustomQueryResults(@RequestParam int orgId, @RequestParam int eventId) {
-//        List<RequestMusicMember> requestMusicMembers = requestMusicMemberService.getCustomQueryResults(orgId, eventId);
-//
-//        List<Object[]> results = new ArrayList<>();
-//
-//        for (RequestMusicMember requestMusicMember : requestMusicMembers) {
-//            Object[] result = new Object[5];
-//            result[0] = requestMusicMember.getRequestMusicMemberId().getMMID();
-//            result[1] = requestMusicMember.getOrgId();
-//            result[2] = requestMusicMember.getConfirmationStatus();
-//            result[3] = requestMusicMember.getRequestMusicMemberId().getEventId();
-//
-//            MusicMember musicMember =  musicMemberService.findSpecificMusicMember(requestMusicMember.getRequestMusicMemberId().getMMID());
-//            User user = userService.findSpecificUser(musicMember.getUser().getUserId());
-//            UserMusicMember userMusicMember = new UserMusicMember();
-//            userMusicMember.setUserName(musicMember.getName());
-//
-//            result[4] = musicMember;
-//
-//            results.add(result);
-//        }
-//
-//        return results;
-//    }
 
 
 

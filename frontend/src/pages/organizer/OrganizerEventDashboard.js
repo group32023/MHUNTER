@@ -95,26 +95,26 @@ function OrganizerEventDashboard() {
 
     //Confirmation Status
 
-    useEffect(() => {
-        const apiUrl = 'http://localhost:8080/requestMusicMember/detailsByEventIdAndOrgId/26/9';
-        fetch(apiUrl)
-            .then((response) => {
-                if (!response.ok) {
-                    throw new Error(`HTTP error! Status: ${response.status}`);
-                }
-                return response.json();
-            })
-            .then((data) => {
-                setData(data);
-            })
-            .catch((error) => {
-                setError(error);
-            });
-    }, []);
+    // useEffect(() => {
+    //     const apiUrl = 'http://localhost:8080/requestMusicMember/detailsByEventIdAndOrgId/26/9';
+    //     fetch(apiUrl)
+    //         .then((response) => {
+    //             if (!response.ok) {
+    //                 throw new Error(`HTTP error! Status: ${response.status}`);
+    //             }
+    //             return response.json();
+    //         })
+    //         .then((data) => {
+    //             setData(data);
+    //         })
+    //         .catch((error) => {
+    //             setError(error);
+    //         });
+    // }, []);
 
-    if (error) {
-        return <div>Error: {error.message}</div>;
-    }
+    // if (error) {
+    //     return <div>Error: {error.message}</div>;
+    // }
 
     //Page Preloader
 
