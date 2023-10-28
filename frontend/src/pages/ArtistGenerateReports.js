@@ -23,7 +23,9 @@ export default function ArtistGenerateReports() {
 
   useEffect(() => {
     // Fetch the data from the Java backend
-    fetch('http://localhost:8080/artistIncome/specificArtistIncomeDetails/758463')
+    const mmId = localStorage.getItem('mmid');
+    if(mmId){
+    fetch(`http://localhost:8080/artistIncome/specificArtistIncomeDetails/${mmId}`)
     .then((response) => {
       if (!response.ok) {
         throw new Error('Network response was not ok');
@@ -38,6 +40,7 @@ export default function ArtistGenerateReports() {
         console.log('Error fetching data:', error);
       });
       console.log(eventList);
+    }
 
   }, []);
 

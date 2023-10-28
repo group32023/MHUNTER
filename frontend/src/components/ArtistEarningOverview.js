@@ -74,8 +74,11 @@ export default function ArtistEarningOverview() {
     }))
   }
 
-  fetch(`http://localhost:8080/artistIncome/monthlyOvercome/758463`).then((res)=>res.json()).then((result)=>updateSeriesData(result))
+  const mmId = localStorage.getItem('mmid');
+  if(mmId){
 
+  fetch(`http://localhost:8080/artistIncome/monthlyOvercome/${mmId}`).then((res)=>res.json()).then((result)=>updateSeriesData(result))
+  }
  
     
   return (

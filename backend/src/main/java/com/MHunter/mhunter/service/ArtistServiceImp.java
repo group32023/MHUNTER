@@ -39,6 +39,8 @@ public class ArtistServiceImp implements ArtistService{
             artist1.setArtist_id(artist.getArtist_id());
             artist1.getMusicMember().setMMID(artist.getMusicMember().getMMID());
             artist1.getUser().setUserId(artist.getUser().getUserId());
+            artist1.getMusicMember().setMMID(artist.getMusicMember().getMMID());
+            artist1.getUser().setUserId(artist.getUser().getUserId());
             return artistRepository.save(artist1);
         }).orElse(null);
     }

@@ -66,6 +66,12 @@ h() {
              
                 <div className='eventcontainer'>
 
+                    <Form.Select aria-label="Default select example" align-items-center justify-content-center id="selectionMenu">
+                    <FontAwesomeIcon icon={faList} />
+                      <option>Status</option>
+                      <option value="name">Artist Name</option>
+                      
+                    </Form.Select>
 
                     <Container>
                       <Form.Control

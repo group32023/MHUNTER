@@ -18,4 +18,14 @@ public class MusicMemberServiceImp implements MusicMemberService{
     public MusicMember findSpecificMusicMember(int mmid) {
         return musicMemberRepository.findById(mmid).orElse(null);
     }
+
+    @Override
+    public MusicMember findSpecificMusicMemberByUserID(int user_id) {
+        return musicMemberRepository.findUserByUser_Id(user_id);
+    }
+
+    @Override
+    public List<Object[]> getCountOfBandAndArtist() {
+        return musicMemberRepository.countBandArtist();
+    }
 }

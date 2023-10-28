@@ -100,6 +100,11 @@ public class UserController {
                 .orElseThrow(() -> new UserNotFoundException(userId));
     }
 
+    @GetMapping("/musicUser/{userId}")
+    MusicMember getMusicUserById(@PathVariable int userId) {
+        return musicMemberService.findSpecificMusicMemberByUserID(userId);
+    }
+
     @PutMapping("/user/{userId}")
     User updateUser(@RequestBody User newUser, @PathVariable int userId) {
         return userRepository.findById(userId)
@@ -123,6 +128,11 @@ public class UserController {
     public User viewSpecificUser(@PathVariable int id){
         return userService.findSpecificUser(id);
 
+    }
+
+    @GetMapping("/countBandAndArtist")
+    public List<Object[]> getCountOfBandAndArtist() {
+        return musicMemberService.getCountOfBandAndArtist();
     }
 
 }

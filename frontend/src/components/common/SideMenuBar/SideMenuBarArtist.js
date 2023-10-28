@@ -21,6 +21,21 @@ function SideMenuBarArtist({ children }) {
 
     useEffect(() => {
         const userId = localStorage.getItem('userId');
+        
+        fetch(`http://localhost:8080/musicUser/${userId}`)
+        .then((response)=>{
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+              }
+              return response.json();
+        })
+        .then((data)=>{
+            localStorage.setItem("mmid",data['mmid']);
+        })
+        .catch((error)=>{
+            console.log("Error fetching data:", error)
+        })
+
         if (userId) {
             axios.get(`http://localhost:8080/user/user/${userId}`)
                 .then(response => {
@@ -166,4 +181,3 @@ function SideMenuBarArtist({ children }) {
 };
 
 export default SideMenuBarArtist;
-

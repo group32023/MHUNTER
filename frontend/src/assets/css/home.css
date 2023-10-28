@@ -259,5 +259,11 @@
     color: rgb(189, 189, 3) !important;
 }
 
+.signupBtn span{
+    align-items: center;
+    display: grid;
+    justify-content: center;
+}
+
 
 

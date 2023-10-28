@@ -7,9 +7,10 @@ export default function ArtistIncome() {
   const [income,setIncome] = useState([])
 
   useEffect(()=>{
-
-    fetch("http://localhost:8080/artistIncome/incomeAndMonthlyGrowth/758463").then(res=>res.json()).then((result)=>setIncome(result))
-    
+    const mmId = localStorage.getItem('mmid');
+    if(mmId){
+      fetch(`http://localhost:8080/artistIncome/incomeAndMonthlyGrowth/${mmId}`).then(res=>res.json()).then((result)=>setIncome(result))
+    }
   },[])
 
   
