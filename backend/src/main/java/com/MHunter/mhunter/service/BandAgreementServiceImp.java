@@ -16,4 +16,9 @@ public class BandAgreementServiceImp implements BandAgreementService{
        return bandAgreementRepository.save(bandAgreement);
 
     }
+
+    @Override
+    public int getAgreementForEvent(int mmid, int eventid) {
+        return bandAgreementRepository.getAgreementId(mmid,eventid);
+    }
 }

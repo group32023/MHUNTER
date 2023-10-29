@@ -1,12 +1,6 @@
-.MainContainer{
+.MainContainer {}
 
-    position: fixed;
-    height: 100%;
-    width: 100%;
-    background: #24292D;
-
-}
-.InvoiceContainer{
+.InvoiceContainer {
     position: absolute;
     width: 50%;
     left: 12.5%;
@@ -17,101 +11,96 @@
     border-radius: 25px;
 }
 
-.InvoiceContainer h1{
+.InvoiceContainer h1 {
     position: relative;
     font-weight: 500;
     top: 10%;
 }
-.MainContainer{
 
-    position: fixed;
-    height: 100%;
-    width: 100%;
-    background: #24292D;
-
-}
+.MainContainer {}
 
 
 
-.currency-input11{
+.currency-input11 {
     position: relative;
     top: 97px;
     left: 393px;
-    
+
     width: 242px;
     height: 28px;
     border-radius: 10px;
-   
-    background:  #D9D9D9;
-    border:  #D9D9D9;
-    color: #000000;
-    font-weight: 700;
-    text-align: center;
-}
 
-.currency-input12{
-    position: relative;
-    top: 139px;
-    left: 152px;
-    width: 242px;    
-    height: 28px;  
-    border-radius: 10px;
-    
-    background:  #D9D9D9;
+    background: #D9D9D9;
     border: #D9D9D9;
     color: #000000;
     font-weight: 700;
     text-align: center;
 }
 
-.currency-input13{
+.currency-input12 {
     position: relative;
-    top: 180px;
-    left: -88px;
-    width: 242px;    
+    top: 139px;
+    left: 152px;
+    width: 242px;
     height: 28px;
     border-radius: 10px;
-    
-    background:  #D9D9D9;
-    border:  #D9D9D9;
+
+    background: #D9D9D9;
+    border: #D9D9D9;
     color: #000000;
     font-weight: 700;
     text-align: center;
 }
-.currency-input14{
+
+.currency-input13 {
+    position: relative;
+    top: 180px;
+    left: -88px;
+    width: 242px;
+    height: 28px;
+    border-radius: 10px;
+
+    background: #D9D9D9;
+    border: #D9D9D9;
+    color: #000000;
+    font-weight: 700;
+    text-align: center;
+}
+
+.currency-input14 {
     position: relative;
     top: 195px;
     left: 276px;
     width: 242px;
     height: 28px;
     border-radius: 10px;
-    
-    background:  #D9D9D9;
-    border:  #D9D9D9;
+
+    background: #D9D9D9;
+    border: #D9D9D9;
     color: #000000;
     font-weight: 700;
     text-align: center;
 }
 
-.currency-input15{
+.currency-input15 {
     position: relative;
     top: 237px;
     left: 35px;
     width: 242px;
     height: 28px;
     border-radius: 10px;
-    
-    background:  #D9D9D9;
-    border:  #D9D9D9;
+
+    background: #D9D9D9;
+    border: #D9D9D9;
     color: #000000;
     font-weight: 700;
     text-align: center;
 }
 
-.DescriptionLable .label11{
+.DescriptionLable .label11 {
     position: absolute;
     top: 101px;
-    left: 96px;  
+    left: 96px;
     width: 249px;
     height: 33px;
     font-size: 18px;
@@ -121,7 +110,7 @@
     border-radius: 10px;
 }
 
-.AmountLabel .label17{
+.AmountLabel .label17 {
     position: absolute;
     top: 101px;
     left: 434px;
@@ -134,7 +123,7 @@
     border-radius: 10px;
 }
 
-.DescriptionLable .label12{
+.DescriptionLable .label12 {
     position: absolute;
     top: 153px;
     left: 97px;
@@ -148,11 +137,11 @@
 
 }
 
-.headerDashboard{
+.headerDashboard {
     width: 280px;
 }
 
-.label13{
+.label13 {
     position: absolute;
     top: 195px;
     left: 97px;
@@ -165,64 +154,65 @@
     border-radius: 10px;
 
 }
-.DescriptionLable .label14{
+
+.DescriptionLable .label14 {
     position: absolute;
     top: 236px;
-    left: 98px; 
+    left: 98px;
     width: 249px;
     height: 28px;
     font-size: 18px;
     font-weight: 700;
     color: black;
     border-radius: 10px;
-    background:  #D9D9D9;
+    background: #D9D9D9;
 
 }
 
-.DescriptionLable .label15{
+.DescriptionLable .label15 {
     position: absolute;
     top: 279px;
-    left: 100px;   
+    left: 100px;
     width: 249px;
     height: 28px;
     font-size: 18px;
     font-weight: 700;
     color: black;
-    background:  #D9D9D9;
+    background: #D9D9D9;
     border-radius: 10px;
 
 
 }
 
-.DescriptionLable .label16{
+.DescriptionLable .label16 {
     position: absolute;
     top: 321px;
-    left: 101px; 
+    left: 101px;
     width: 249px;
     height: 28px;
     font-size: 18px;
     font-weight: 700;
     color: black;
-    background:  #D9D9D9;
+    background: #D9D9D9;
     border-radius: 10px;
 
 
 }
 
-.HrTag1{
+.HrTag1 {
     position: absolute;
     height: 2px;
     width: 699px;
     top: 365px;
     left: 17px;
-    background:  #ffffff;
+    background: #ffffff;
     color: #ffffff;
 }
 
-.totalAmount1{
+.totalAmount1 {
     position: absolute;
     top: 398px;
-    left: 103px;   
+    left: 103px;
     width: 249px;
     height: 33px;
     font-size: 18px;
@@ -233,7 +223,7 @@
 
 }
 
-.displayTotalAmount1{
+.displayTotalAmount1 {
     position: absolute;
     top: 398px;
     left: 444px;
@@ -248,7 +238,7 @@
     justify-content: center;
 }
 
-#advanced1{
+#advanced1 {
     position: absolute;
     top: 456px;
     left: -25px;
@@ -256,7 +246,7 @@
     height: 24px;
     font-size: 18px;
     font-weight: 700;
-     color: #7643D2;
+    color: #7643D2;
     /*background: #1BD067;
     border-radius: 10px;
     text-align: center;
@@ -264,7 +254,7 @@
 
 }
 
-.advancedpayment1{
+.advancedpayment1 {
     position: absolute;
     top: 454px;
     left: 85px;
@@ -276,8 +266,7 @@
 
 }
 
-
-.submitInvoice1{
+.submitInvoice1 {
     background-color: #1BD067 !important;
     position: absolute;
     font-size: 15px;
@@ -288,12 +277,12 @@
     color: white;
     border-radius: 10px;
     border: none !important;
-    left: 202px;
+    left: 340px;
     top: 512px;
 }
 
-.backInvoice1{
-    
+.backInvoice1 {
+
     position: relative;
     font-size: 15px;
     width: 15%;
@@ -308,23 +297,24 @@
     background: none;
 }
 
-.previewInvoice1{
-    position: relative;
+.previewInvoice1 {
+    position: absolute;
     font-size: 15px;
     width: 15%;
     height: 7%;
+    border: none !important;
     font-weight: bold;
     text-align: center;
     color: #000000;
-    left: 232px;
-    top: 400px;
+    left: 202px;
+    top: 512px;
     border-radius: 10px;
-    border: 3px solid #FF0000 !important;
-    background: none;
+
+    background: #7643D2;
 
 }
 
-.profileInvoice{
+.profileInvoice {
     position: relative;
     border-radius: 50%;
     width: 100px;
@@ -335,7 +325,7 @@
 }
 
 
- .eventDetailsDisplayContainer{
+.eventDetailsDisplayContainer {
     position: absolute;
     top: 25%;
     left: 68%;
@@ -344,9 +334,9 @@
     background: #2F363E;
     border-radius: 25px;
 
- }
+}
 
- .eventDetailsDisplayInnerContainer1{
+.eventDetailsDisplayInnerContainer1 {
 
     position: absolute;
     top: 10%;
@@ -357,48 +347,53 @@
     background: #4b525b;
     border-radius: 25px;
 
- }
- .eventDetailsDisplayInnerContainer1 #bandOrganizer{
+}
+
+.eventDetailsDisplayInnerContainer1 #bandOrganizer {
     position: absolute;
     top: 24px;
     left: 30%;
 
- }
+}
 
 
- .eventDetailsDisplayInnerContainer1 .eventType1{
+.eventDetailsDisplayInnerContainer1 .eventType1 {
     position: absolute;
     left: 20%;
     top: 30%;
- }
+}
 
- .eventDetailsDisplayInnerContainer1 .eventDate1{
+.eventDetailsDisplayInnerContainer1 .eventDate1 {
     position: absolute;
     left: 20%;
     top: 40%;
- }
- .eventDetailsDisplayInnerContainer1 .venue1{
+}
+
+.eventDetailsDisplayInnerContainer1 .venue1 {
     position: absolute;
     left: 20%;
     top: 50%;
- }
- .eventDetailsDisplayInnerContainer1 .eventType2{
+}
+
+.eventDetailsDisplayInnerContainer1 .eventType2 {
     position: absolute;
     left: 20%;
     top: 60%;
- }
- .eventDetailsDisplayInnerContainer1 .eventDate2{
+}
+
+.eventDetailsDisplayInnerContainer1 .eventDate2 {
     position: absolute;
     left: 20%;
     top: 70%;
- }
- .eventDetailsDisplayInnerContainer1 .venue2{
+}
+
+.eventDetailsDisplayInnerContainer1 .venue2 {
     position: absolute;
     left: 20%;
     top: 80%;
- }
+}
 
- /* .eventDetailsDisplayInnerContainer1 #EventIconPendingRequest1{
+/* .eventDetailsDisplayInnerContainer1 #EventIconPendingRequest1{
     position: relative;
     margin-right: 5px;
  } */

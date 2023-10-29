@@ -1,11 +1,17 @@
+.MainContainer {
 
-.MainContainer{
-    text-align: center;
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    background: #24292D;
 
 }
-.InvoiceContainer{
+/* body{
+
     text-align: center;
 
+} */
+.InvoiceContainer {
     position: absolute;
     width: 50%;
     left: 40%;
@@ -16,17 +22,17 @@
     border-radius: 50px;
 }
 
-.InvoiceContainer h1{
+.InvoiceContainer h1 {
     position: relative;
     font-weight: 500;
     top: 3%;
 }
 
 
-.currency-input1{
+.currency-input1 {
     position: relative;
     top: 111px;
-    left: 434px;
+    left: 370px;
     width: 242px;
     height: 28px;
     border-radius: 10px;
@@ -37,10 +43,10 @@
     text-align: center;
 }
 
-.currency-input2{
+.currency-input2 {
     position: relative;
     top: 154px;
-    left: 192px;
+    left: 131px;
     width: 242px;
     height: 28px;
     border-radius: 10px;
@@ -51,54 +57,55 @@
     text-align: center;
 }
 
-.currency-input3{
+.currency-input3 {
     position: relative;
     top: 258px;
     left: -48px;
-    width: 242px;    
+    width: 242px;
     height: 28px;
     border-radius: 10px;
-    
-    background:  #D9D9D9;
-    border:  #D9D9D9;
+
+    background: #D9D9D9;
+    border: #D9D9D9;
     color: #000000;
     font-weight: 700;
     text-align: center;
 }
-.currency-input4{
+
+.currency-input4 {
     position: relative;
     top: 284px;
     left: 322px;
     width: 242px;
     height: 28px;
     border-radius: 10px;
-    
-    background:  #D9D9D9;
-    border:  #D9D9D9;
+
+    background: #D9D9D9;
+    border: #D9D9D9;
     color: #000000;
     font-weight: 700;
     text-align: center;
 }
 
-.currency-input5{
+.currency-input5 {
     position: relative;
     top: 199px;
-    left: -50px;
+    left: -110px;
     width: 242px;
     height: 28px;
     border-radius: 10px;
-    
-    background:  #D9D9D9;
-    border:  #D9D9D9;
+
+    background: #D9D9D9;
+    border: #D9D9D9;
     color: #000000;
     font-weight: 700;
     text-align: center;
 }
 
-.DescriptionLable .label1{
+.DescriptionLable .label1 {
     position: absolute;
     top: 118px;
-    left: 117px;  
+    left: 117px;
     width: 249px;
     height: 33px;
     font-size: 18px;
@@ -108,7 +115,7 @@
     border-radius: 10px;
 }
 
-.AmountLabel .label7{
+.AmountLabel .label7 {
     position: absolute;
     top: 118px;
     left: 431px;
@@ -121,10 +128,10 @@
     border-radius: 10px;
 }
 
-.DescriptionLable .label2{
+.DescriptionLable .label2 {
     position: absolute;
     top: 168px;
-    left: 117px; 
+    left: 117px;
     width: 249px;
     height: 28px;
     font-size: 18px;
@@ -135,14 +142,14 @@
 
 }
 
-.headerDashboard{
+.headerDashboard {
     width: 280px;
 }
 
-.label3{
+.label3 {
     position: absolute;
     top: 212px;
-    left: 117px;   
+    left: 117px;
     width: 249px;
     height: 28px;
     font-size: 18px;
@@ -152,64 +159,65 @@
     border-radius: 10px;
 
 }
-.DescriptionLable .label4{
+
+.DescriptionLable .label4 {
     position: absolute;
     top: 300px;
-    left: 117px;    
+    left: 117px;
     width: 249px;
     height: 28px;
     font-size: 18px;
     font-weight: 700;
     color: black;
     border-radius: 10px;
-    background:  #D9D9D9;
+    background: #D9D9D9;
 
 }
 
-.DescriptionLable .label5{
+.DescriptionLable .label5 {
     position: absolute;
     top: 353px;
-    left: 117px;    
+    left: 117px;
     width: 249px;
     height: 28px;
     font-size: 18px;
     font-weight: 700;
     color: black;
-    background:  #D9D9D9;
+    background: #D9D9D9;
     border-radius: 10px;
 
 
 }
 
-.DescriptionLable .label6{
+.DescriptionLable .label6 {
     position: absolute;
     top: 257px;
-    left: 117px;  
+    left: 117px;
     width: 249px;
     height: 28px;
     font-size: 18px;
     font-weight: 700;
     color: black;
-    background:  #D9D9D9;
+    background: #D9D9D9;
     border-radius: 10px;
 
 
 }
 
-.HrTag{
+.HrTag {
     position: absolute;
     height: 2px;
     width: 699px;
     top: 305px;
     left: 87px;
-    background:  #ffffff;
+    background: #ffffff;
     color: #ffffff;
 }
 
-.totalAmount{
+.totalAmount {
     position: absolute;
     top: 348px;
-    left: 117px;   
+    left: 117px;
     width: 249px;
     height: 33px;
     font-size: 18px;
@@ -220,7 +228,7 @@
 
 }
 
-.displayTotalAmount{
+.displayTotalAmount {
     position: absolute;
     top: 348px;
     left: 432px;
@@ -235,7 +243,7 @@
     justify-content: center;
 }
 
-#advanced{
+#advanced {
     position: absolute;
     top: 417px;
     left: 16px;
@@ -243,7 +251,7 @@
     height: 24px;
     font-size: 18px;
     font-weight: 700;
-     color: #7643D2;
+    color: #7643D2;
     /*background: #1BD067;
     border-radius: 10px;
     text-align: center;
@@ -251,7 +259,7 @@
 
 }
 
-.advancedpayment{
+.advancedpayment {
     position: absolute;
     top: 416px;
     left: 133px;
@@ -263,7 +271,7 @@
 
 }
 
-.submitInvoice{
+.submitInvoice {
     background-color: #1BD067 !important;
     position: absolute;
     font-size: 15px;
@@ -274,12 +282,42 @@
     color: white;
     border-radius: 10px;
     border: none !important;
-    left: 213px;
-    top: 470px;
+    left: 441px;
+    top: 485px;
 }
 
-.backInvoice{
-    
+.complaint-add-success-popup-content .complaint-add-success-para_for_request_acception{
+    position: relative;
+    top: 50px;
+    font-size: 20px;
+    font-weight: bolder;
+    color: #ffffff;
+}
+
+.complaint-add-success-popup-content .RequestacceptBtn{
+    background-color: #1BD067 !important;
+    position: absolute;
+    font-size: 15px;
+    width: 24%;
+    left: 63px;
+    top: 127px;
+    border: none !important;
+
+}
+.complaint-add-success-popup-content .RequestCloseBtn{
+    border: 3px solid #FF0000 !important;
+    background: none;
+    position: absolute;
+    font-size: 15px;
+    width: 24%;
+    left: 203px;
+    top: 124px;
+
+
+}
+
+.backInvoice {
+
     position: relative;
     font-size: 15px;
     width: 14%;
@@ -287,15 +325,15 @@
     font-weight: bold;
     text-align: center;
     color: #000000;
-    left: 147px;
-    top: 387px;
+    left: 216px;
+    top: 401px;
     border-radius: 10px;
     border: 3px solid #FF0000 !important;
     background: none;
-    
+
 }
 
-.profileInvoice{
+.profileInvoice {
     position: relative;
     border-radius: 50%;
     width: 100px;
@@ -305,7 +343,7 @@
 
 }
 
-.EventIconPendingRequest3{
+.EventIconPendingRequest3 {
     position: relative;
     width: 20px;
     height: 20px;
@@ -314,7 +352,8 @@
     top: -2px;
 
 }
-.CalenderIconPendingRequest4{
+
+.CalenderIconPendingRequest4 {
     position: relative;
     width: 20px;
     height: 20px;
@@ -322,7 +361,8 @@
     padding-right: 6px;
     top: -2px;
 }
-.EventIconPendingRequest4{
+
+.EventIconPendingRequest4 {
     position: relative;
     width: 20px;
     height: 20px;
@@ -333,7 +373,7 @@
 }
 
 
- .eventDetailsDisplayContainer{
+.eventDetailsDisplayContainer {
     position: absolute;
     top: 22%;
     left: 10%;
@@ -344,9 +384,9 @@
     text-align: center;
 
 
- }
+}
 
- .eventDetailsDisplayInnerContainer{
+.eventDetailsDisplayInnerContainer {
 
     position: absolute;
     top: 10%;
@@ -357,17 +397,17 @@
     color: #ffffff;
     border-radius: 25px;
 
- }
+}
 
- .eventDetailsDisplayInnerContainer h4{
+.eventDetailsDisplayInnerContainer h4 {
     position: absolute;
     top: 8%;
     left: 30%;
 
- }
+}
 
- 
-#LocationIconPendingRequest3{
+
+#LocationIconPendingRequest3 {
 
     position: relative;
     left: -1%;
@@ -381,14 +421,14 @@
     padding-right: 10px;
 } */
 
-#CalenderIconPendingRequest3{
+#CalenderIconPendingRequest3 {
     position: relative;
     left: -1%;
     padding-right: 10px;
 
 }
 
-#LocationIconPendingRequest4{
+#LocationIconPendingRequest4 {
 
     position: relative;
     left: -1%;
@@ -409,35 +449,40 @@
 
 } */
 
-.eventDate3{
+.eventDate3 {
     position: absolute;
     left: 20%;
     top: 40%;
 }
-.eventType3{
+
+.eventType3 {
     position: absolute;
     left: 20%;
     top: 30%;
 }
-.venue3{
+
+.venue3 {
     position: absolute;
     top: 50%;
     left: 20%;
-    
+
 }
-.eventDate4{
+
+.eventDate4 {
     position: absolute;
     top: 60%;
     left: 20%;
 }
-.eventType4{
+
+.eventType4 {
     position: absolute;
     top: 70%;
     left: 20%;
 }
-.venue4{
+
+.venue4 {
     position: absolute;
     top: 80%;
     left: 20%;
-    
+
 }

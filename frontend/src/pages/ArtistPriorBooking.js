@@ -61,7 +61,7 @@ export default function ArtistPriorBooking() {
   
    
   
-  
+  console.log(events)
   const divCount = events.length;
   const divElements = [];
 

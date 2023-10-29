@@ -7,6 +7,7 @@ import jakarta.persistence.Tuple;
 import org.hibernate.annotations.NamedNativeQuery;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -19,4 +20,7 @@ public interface InvoiceRepository extends JpaRepository<Invoice, Integer> {
     @Query(value = "SELECT artist.artist_id , invoice.artist_fee ,invoice.payment_type, booked_list.org_Id, invoice.invoice_id FROM artist INNER JOIN booked_list ON artist.mmid = booked_list.mmid INNER JOIN invoice ON booked_list.invoice_id = invoice.invoice_id WHERE artist.artist_id=:artistId", nativeQuery = true)
     List<Object[]> findByArtistId(Integer artistId);
 
+
+    @Query(value = "SELECT invoice_id FROM invoice WHERE mmid = :mmid and eventid= :eventid", nativeQuery = true)
+    int getInvoiceId(@Param("mmid") int mmid, @Param("eventid") int eventid);
 }

@@ -13,4 +13,6 @@ public interface BookedListRepository extends JpaRepository<BookedList, Integer>
     @Query(value = "SELECT * FROM booked_list WHERE mmid = :mmid", nativeQuery = true)
     List<BookedList> findByRequestsLogList( @Param("mmid") int mmid);
 
+
+
 }

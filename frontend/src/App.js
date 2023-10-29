@@ -12,7 +12,7 @@ import SearchArtist from './pages/organizer/SearchArtist';
 import ViewEventHistory from './pages/organizer/ViewEventHistory';
 import ViewArtist from './pages/organizer/ViewArtist';
 import MakeArtistRequest from './pages/organizer/MakeArtistRequest';
-
+import SearchBand from './pages/organizer/SearchBand';
 
 import "./index.css"
 
@@ -36,6 +36,9 @@ import BandPendingRequestView from './pages/BandPendingRequestView';
 import BandAgreement from './pages/BandAgreement';
 import BandAgreementPreview from './pages/BandAgreementPreview';
 import BandInvoicePreview from './pages/BandInvoicePreview';
+import BandEventsOn from './pages/BandEventsOn';
+import BandPriorBooking from "./pages/BandPriorBooking"
+
 
 import BandInvoice from './pages/BandInvoice';
 import ArtistEventOn from './pages/ArtistEventOn';
@@ -67,7 +70,7 @@ import MainSlider from './components/common/MainSlider';
 import BandSignup from './pages/BandSignup';
 import AdminDashboard from './pages/admin/AdminDashboard';
 import BandDashboard from './pages/band/BandDashboard';
-import ModeratorDashboard from './pages/moderator/ModeratorDashboard';
+// import ModeratorDashboard from './pages/moderator/ModeratorDashboard';
 import AdminRegistration from './pages/admin/AdminRegistration';
 import ProofCheck from './pages/admin/ProofCheck';
 import AllUserDetails from './pages/admin/AllUserDetails';
@@ -96,56 +99,53 @@ function App() {
     <div className="App">
       <Router>
         <Routes>
-          <Route path='/' element={<Home/>}></Route>
-          <Route path='/event' element={<Event/>}></Route>
-          <Route path='/band' element={<Band/>}></Route>
-          <Route path='/artist' element={<Artist/>}></Route>
-          <Route path='/aboutUs' element={<AboutUs/>}></Route>
+          <Route path='/' element={<Home />}></Route>
+          <Route path='/event' element={<Event />}></Route>
+          <Route path='/band' element={<Band />}></Route>
+          <Route path='/artist' element={<Artist />}></Route>
+          <Route path='/aboutUs' element={<AboutUs />}></Route>
 
 
           {/* Artist Routes */}
-          <Route path='/artist/PendingRequests' element={<ArtistPendingRequests/>}></Route>
-          <Route path='/artist/Reports' element={<ArtistGenerateReports/>}></Route>
-          <Route path='/artist/Dashboard' element={<ArtistDashboard/>}></Route>
-          <Route path='/artist/Reports/:id' element={<ArtistGenerateReportsToday/>}></Route>
-          <Route path='/artist/Event' element={<ArtistEvent/>}></Route>
-          <Route path='/artist/EventSpecific/:id' element={<ArtistSpecificEvent/>}></Route>
-          <Route path='/artist/PendingRequestView/:id' element={<ArtistPendingRequestView/>}></Route>
-          <Route path='/artist/priorbooking/:id1/:id2/:id3' element={<ArtistPriorBooking/>}></Route>
-          <Route path='/artist/eventsOn/:mmid/:date/:eventId' element={<ArtistEventOn/>}></Route>
-          <Route path='/artist/invoice/:id' element={<ArtistInvoice/>}></Route> 
-          <Route path='/requestsLog' element={<RequestsLog/>}></Route> 
+          <Route path='/artist/PendingRequests' element={<ArtistPendingRequests />}></Route>
+          <Route path='/artist/Reports' element={<ArtistGenerateReports />}></Route>
+          <Route path='/artist/Dashboard' element={<ArtistDashboard />}></Route>
+          <Route path='/artist/Reports/:id' element={<ArtistGenerateReportsToday />}></Route>
+          <Route path='/artist/Event' element={<ArtistEvent />}></Route>
+          <Route path='/artist/EventSpecific/:id' element={<ArtistSpecificEvent />}></Route>
+          <Route path='/artist/PendingRequestView/:id' element={<ArtistPendingRequestView />}></Route>
+          <Route path='/artist/priorbooking/:id1/:id2/:id3' element={<ArtistPriorBooking />}></Route>
+          <Route path='/artist/eventsOn/:mmid/:date/:eventId' element={<ArtistEventOn />}></Route>
+          <Route path='/artist/invoice/:id' element={<ArtistInvoice />}></Route>
+          <Route path='/requestsLog' element={<RequestsLog />}></Route>
 
-          <Route path='/artist/MyFeed' element={<MyFeed/>}></Route>
-       
           {/* Band Routes */}
-          <Route path='/band/PendingRequests' element={<BandPendingRequests/>}></Route>
+          <Route path='/band/PendingRequests' element={<BandPendingRequests />}></Route>
           {/* <Route path='/artist/Reports' element={<ArtistGenerateReports/>}></Route>
           <Route path='/artist/Dashboard' element={<ArtistDashboard/>}></Route>
           <Route path='/artist/Reports/:id' element={<ArtistGenerateReportsToday/>}></Route>
           <Route path='/artist/Event' element={<ArtistEvent/>}></Route>
           <Route path='/artist/EventSpecific/:id' element={<ArtistSpecificEvent/>}></Route> */}
-          <Route path='/band/PendingRequestView/:id' element={<BandPendingRequestView/>}></Route>
-          {/*<Route path='/artist/priorbooking/:id1/:id2/:id3' element={<ArtistPriorBooking/>}></Route> */}
-          {/* <Route path='/artist/eventsOn/:mmid/:date/:eventId' element={<ArtistEventOn/>}></Route> */}
-          <Route path='/band/agreement/:id/:mmid' element={<BandAgreement/>}></Route>
-          <Route path='/band/invoice/:id/:mmid' element={<BandInvoice/>}></Route> 
-          <Route path='/band/agreementPreview/:id/:mmid' element={<BandAgreementPreview/>}></Route> 
-          <Route path='/band/invoicePreview/:id/:mmid' element={<BandInvoicePreview/>}></Route> 
+          <Route path='/band/PendingRequestView/:id' element={<BandPendingRequestView />}></Route>
+          <Route path='/band/priorbooking/:id1/:id2/:id3' element={<BandPriorBooking />}></Route>
+          <Route path='/band/eventsOn/:mmid/:date/:eventId' element={<BandEventsOn />}></Route>
+          <Route path='/band/agreement/:id/:mid/:id1' element={<BandAgreement />}></Route>
+          <Route path='/band/invoice/:id/:mid/:oid' element={<BandInvoice />}></Route>
+          <Route path='/band/agreementPreview/:id/:mmid' element={<BandAgreementPreview />}></Route>
+          <Route path='/band/invoicePreview/:id/:mmid' element={<BandInvoicePreview />}></Route>
 
-          
           {/* <Route path='/artist/MyFeed' element={<MyFeed/>}></Route> */}
-       
 
-      
+
+
           {/* Organizer Routes */}
           <Route path='/' element={<Home />}></Route>
 
           <Route path='/organizer/dashboard' element={<OrganizerDashboard />}></Route>
           <Route path='/organizer/event' element={<ViewEvents />}></Route>
-          <Route path='/organizer/event/eventdashboard' element={<OrganizerEventDashboard />}></Route>
+          <Route path='/organizer/event/eventdashboard/:eventid' element={<OrganizerEventDashboard />}></Route>
           <Route path='/organizer/event/CreateEvent' element={<CreateEvent />}></Route>
-          <Route path='/organizer/eventhistory' element={<ViewEventHistory/>}></Route>
+          <Route path='/organizer/eventhistory' element={<ViewEventHistory />}></Route>
           <Route path='/organizer/complaint' element={<OrganizerComplaint />}></Route>
           <Route path='/organizer/profile' element={<OrganizerProfile />}></Route>
           <Route path='/organizer/searchartist' element={<SearchArtist />} />
@@ -154,6 +154,7 @@ function App() {
           <Route path='/organizer/paymentForm/:artistId'element={<PaymentForm />} /> 
           <Route path='/organizer/paymentForm/stripePayment'element={<StripeClient />} /> 
           <Route path='/organizer/test-button'element={<TestButton />} /> 
+          <Route path='/organizer/searchband' element={<SearchBand />} />
 
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
@@ -163,7 +164,7 @@ function App() {
           <Route path='/organizersignup' element={<OrganizerSignup />} />
           <Route path='/artistdashboard' element={<ArtistDashboard />} />
           <Route path='/banddashboard' element={<BandDashboard />} />
-          <Route path='/moderatordashboard' element={<ModeratorDashboard />} />
+          {/* <Route path='/moderatordashboard' element={<ModeratorDashboard />} /> */}
           <Route path='/organizerdashboard' element={<OrganizerDashboard />} />
 
 
@@ -177,20 +178,20 @@ function App() {
           <Route path='/admin/report' element={<AdminReport />} />
           <Route path='/admin/settings' element={<AdminSettings />} />
           <Route path='/admin/event' element={<AdminEvents />} />
-          <Route path='/admin/event/eventDetails' element={<AdminEventDashboard/>} />
+          <Route path='/admin/event/eventDetails' element={<AdminEventDashboard />} />
 
           {/*moderator*/}
-          <Route path='/moderator/moderatorDashoboardContent' element={<ModeratorDashoboardContent />}></Route>
+          {/* <Route path='/moderator/moderatorDashoboardContent' element={<ModeratorDashoboardContent />}></Route>
           <Route path='/moderator/registration' element={<ModeratorRegistration  />}></Route>
           <Route path='/moderator/registration/ProofCheck' element={<ProofCheck/>} />
           <Route path='/moderator/event' element={<ModeratorEvent />}></Route>
           <Route path='/moderator/complaints' element={<ModeratorComplaints />}></Route>
-          <Route path='/moderator/complaints/viewComplaints' element={<ViewComplaints/>} />
+          <Route path='/moderator/complaints/viewComplaints' element={<ViewComplaints />} />
           <Route path='/moderator/userDetails' element={<ModeratorUserDetails />}></Route>
           <Route path='/moderator/event/eventDetails' element={<EventDetails/>}/>
           <Route path='/moderator/registration/ProofCheck' element={<proofCheck/>}/>
           <Route path='/moderator/registration/proofcheck/suspenduser' element={<Suspenduser/>}/>
-          
+           */}
 
         </Routes>
       </Router>

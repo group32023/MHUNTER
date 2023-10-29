@@ -133,6 +133,7 @@ export default function ArtistEvent() {
             <FontAwesomeIcon icon="fa-solid fa-circle-xmark" className='artistEventSearchBarIcon' onClick={clearState}/>
             :<FontAwesomeIcon icon="fa-solid fa-magnifying-glass" className='artistEventSearchBarIcon'/>}
 
+{/* pagination */}
             <div>{setPagination().map((item) => item)}</div>
             {(data.length ==0)?<><img src={empty} className='empty'></img><span className='emptyContent'>it's empty in here.</span></>:undefined}
 

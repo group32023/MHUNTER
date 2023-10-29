@@ -45,5 +45,8 @@ public class InvoiceController {
         List<InvoiceDataDTO> invoice = invoiceService.findSpecificInvoiceByArtistId(id);
 
         return invoice;
+    @GetMapping("/findInvoice/{mmid}/{eventid}")
+    public int getInvoice(@PathVariable int mmid, @PathVariable int eventid){
+        return invoiceService.getInvoiceIdForEvent(mmid,eventid);
     }
 }

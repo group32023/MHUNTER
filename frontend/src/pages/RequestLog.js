@@ -13,6 +13,8 @@ import notification from '../assets/images/notification.png'
 import home from '../assets/images/home-button.png'
 import logout from '../assets/images/logout.png'
 import kpop from '../assets/images/kpop.png'
+import Button from 'react-bootstrap/Button';
+
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {faPhone,faLocationDot,faList,faCalendarDays} from '@fortawesome/free-solid-svg-icons'
@@ -27,6 +29,35 @@ export default function ArtistPendingRequests() {
   const [eventList, setEventList] = useState([]);
   const [currentPage, setCurrentPage] =useState(1);
   const [linePerPage, setLinePerPage] = useState(4);
+  const [showModal, setShowModal] = useState(false);
+  const [id1,setId1]=useState(0)
+  const [cancelState,setCancelState]=useState(false)
+  const [reason,setReason]=useState(" ")
+
+
+  const handleShowModal = (id) => {
+      setShowModal(true);
+      setId1(id)
+  };
+  const handleCloseModalCancelRequest=()=>{
+    setShowModal(false);
+    setCancelState(true)
+
+  }
+
+  const handleCloseModal = (id) => {
+        setShowModal(false);
+  };
+  const handleCloseModalCancelRequest1=()=>{
+    setCancelState(false)
+    console.log(reason);
+
+  }
+
+  const handleCloseModal1 = () => {
+    setCancelState(false)
+
+  };
 
   useEffect(() => {
     // Fetch the data from the Java backend
@@ -43,9 +74,9 @@ export default function ArtistPendingRequests() {
   }, []);
   
 
-  const lastLineIndex = currentPage * linePerPage;
-  const firstLineIndex = lastLineIndex - linePerPage;
-  const eventList1 = eventList.slice(firstLineIndex,lastLineIndex)
+  // const lastLineIndex = currentPage * linePerPage;
+  // const firstLineIndex = lastLineIndex - linePerPage;
+  // const eventList1 = eventList.slice(firstLineIndex,lastLineIndex)
 
   let navigate = useNavigate();
 
@@ -56,9 +87,9 @@ export default function ArtistPendingRequests() {
 
   
 
-  const divCount = eventList1.length;
+  const divCount = eventList.length;
   const divElements = [];
- 
+  console.log(eventList)
 
 
   for (let i = 0; i < divCount; i++) {
@@ -66,16 +97,16 @@ export default function ArtistPendingRequests() {
     divElements.push(<div key={i} className="requestContainerlog">
       <img src={profileImage} className="profilelog"></img>
       <div className="eventDetailslog">
-        <h5>{eventList1[i]['organizerName']}</h5>
-       { console.log(eventList1[i]['organizerName'])}
-        <p class="eventType"><FontAwesomeIcon icon={faCalendarDays} id="EventIconPendingRequest"/>{eventList1[i]['eventName']}</p>
-      <p class="eventDate"><FontAwesomeIcon icon={faCalendarDays} id="CalenderIconPendingRequest"/>{eventList1[i]['date']}</p>
-        <p class="venue"><FontAwesomeIcon icon={faLocationDot} id="LocationIconPendingRequest"/> {eventList1[i]['requestState']}</p>
+        <h5>{eventList[i]['organizerName']}</h5>
+       { console.log(eventList[i]['organizerName'])}
+        <p class="eventType"><FontAwesomeIcon icon={faCalendarDays} id="EventIconPendingRequest"/>{eventList[i]['eventName']}</p>
+      <p class="eventDate"><FontAwesomeIcon icon={faCalendarDays} id="CalenderIconPendingRequest"/>{eventList[i]['date']}</p>
+        <p class="venue">{eventList[i]['requestState']}</p>
       </div>
     
-      <button className="agreementBtn" onClick={()=>Cancel}>Agrrement</button>
+      <button className="agreementBtn">Agreement</button>
    
-      <button className="cancelBtn" onClick={()=>Cancel}>Cancel</button>
+      <button className="cancelBtn" onClick={()=>handleShowModal(eventList[i]['eventId'])}>Cancel</button>
     
        </div>
 
@@ -115,14 +146,44 @@ export default function ArtistPendingRequests() {
         
         {divElements}
 
-      {/* <div className='pagination'>
-      <Pagination 
-                totalLines={eventList.length}
-                linesPerPage={linePerPage}
-                setCurrentPage={setCurrentPage}
-              />
-      </div> */}
-            
+        {showModal && (
+                                    <div className="complaint-add-success-popup blur-background" style={{ fontFamily: 'MyCustomFont1' }}>
+
+                                        <div className="complaint-add-success-popup-content">
+                                           
+                                            <p className="complaint-add-success-para_for_request_acception">Do You Want to Cancel this Request?</p>
+                                            <Button className='RequestacceptBtn' onClick={handleCloseModalCancelRequest}>
+                                        Yes
+                                    </Button>
+                                            <Button className='RequestCloseBtn' onClick={handleCloseModal}>
+                                        Exit
+                                    </Button>
+                                        </div>
+
+
+                                    </div>
+                                )}
+
+
+       {cancelState && (
+                                        <div className="complaint-add-success-popup blur-background" style={{ fontFamily: 'MyCustomFont1' }}>
+
+                                            <div className="complaint-add-success-popup-content">
+                                              
+                                                <p className="complaint-add-success-para_for_request_cancel">Enter Reason  </p>
+                                                <input type='text' className='reasonforCancalation' value={reason} onChange={(e)=>setReason((e.target.value))}/>
+                                                <Button className='reasonSubmit' onClick={handleCloseModalCancelRequest1}>
+                                            Submit
+                                        </Button>
+                                                <Button className='reasonCancel' onClick={handleCloseModal1}>
+                                            Cancel
+                                        </Button>
+                                            </div>
+
+
+                                        </div>
+                                    )}
+                
       
       </SideMenuBarArtist>
     </div>
