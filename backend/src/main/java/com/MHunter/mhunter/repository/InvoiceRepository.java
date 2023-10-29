@@ -11,4 +11,7 @@ public interface InvoiceRepository extends JpaRepository<Invoice, Integer> {
 
     @Query(value = "SELECT invoice_id FROM invoice WHERE mmid = :mmid and eventid= :eventid", nativeQuery = true)
     int getInvoiceId(@Param("mmid") int mmid, @Param("eventid") int eventid);
+
+
+    Invoice findByMmidAndEventid(int mmid, int eventid);
 }

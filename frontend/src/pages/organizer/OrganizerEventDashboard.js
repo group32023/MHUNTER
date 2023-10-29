@@ -5,6 +5,7 @@ import "../../assets/css/OrganizerEventDashboard.css"
 import Topbar from '../../components/common/Topbar';
 import { Link, useParams } from 'react-router-dom';
 import axios from 'axios';
+import { Button } from 'react-bootstrap';
 
 
 import CreateEvent from './CreateEvent';
@@ -150,7 +151,9 @@ function OrganizerEventDashboard() {
                             <div className="row p-2 ">
                                 <div className="eventImgDiv col-md-5 mt-2">
                                     <EventDashboardImagePopup currentImage={image} onDelete={handleImageDelete} onSave={handleImageSave} />
+
                                 </div>
+
                                 <div className="eventDescDiv col-md-7 mt-2"  >
                                     <span className="eventDescDivSpan">{event.event_name.toUpperCase()}</span>
                                     <div className="row" style={{ display: 'flex' }}>
@@ -232,7 +235,7 @@ function OrganizerEventDashboard() {
                     <div className="row">
                         <div className="requestTypeDescriptionDiv  mt-2 col-md-7" id='scrollbarStyle-1' style={{ fontFamily: 'MyCustomFont' }}>
                             <div className="p-3">
-                                <p className='fs-5' style={{ fontFamily: 'MyCustomFont1' }}>Requests</p>
+                                <p className='fs-5' style={{ fontFamily: 'MyCustomFont1' }}>Requests</p><Button style={{ width: '10%', height: '5%' }}>Rate Artist</Button>
                                 <hr></hr>
                                 <div className="requestTableDiv d-flex justify-content-center align-items-center">
 
@@ -354,7 +357,7 @@ function OrganizerEventDashboard() {
 
 
                 </div>
- 
+
                 <Routes>
                     {/* Nested routes for the Organizer Dashboard */}
                     <Route path='/organizer/dashboard' element={<OrganizerDashboard />}></Route>

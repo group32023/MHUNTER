@@ -29,4 +29,9 @@ public class BandAgreementController {
     public int getAgreement(@PathVariable int mmid, @PathVariable int eventid){
         return bandAgreementService.getAgreementForEvent(mmid,eventid);
     }
+
+    @GetMapping("/findAllInAgreement/{mmid}/{eventid}")
+    public BandAgreement getAllInAgreement(@PathVariable int mmid, @PathVariable int eventid){
+        return bandAgreementService.getAllInAgreementForEvent(mmid,eventid);
+    }
 }

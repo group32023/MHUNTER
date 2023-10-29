@@ -8,4 +8,6 @@ public interface InvoiceService {
 
     public int getInvoiceIdForEvent(int mmid, int eventid);
 
+    public Invoice getAllInInvoice(int mmid, int eventid);
+
 }

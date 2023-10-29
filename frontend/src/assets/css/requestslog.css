@@ -1,4 +1,4 @@
-.requestContainerlog .profilelog{
+.requestContainerlog .profilelog {
     position: relative;
     border-radius: 50%;
     width: 55px;
@@ -6,28 +6,29 @@
     top: 36.5px;
     left: 31px;
 }
-.requestContainerlog body{
+
+.requestContainerlog body {
 
     text-align: center;
 
 }
 
 
-.eventDetailslog{
+.eventDetailslog {
     position: relative;
     color: white;
     font-size: 15px;
     text-align: center;
 }
 
-.eventDetailslog h5{
+.eventDetailslog h5 {
     position: relative;
     top: -6px;
     width: 250px;
     margin-left: 6.5%;
 }
 
-.complaint-add-success-para_for_request_cancel{
+.complaint-add-success-para_for_request_cancel {
     position: relative;
     top: 34px;
     left: 0px;
@@ -36,7 +37,7 @@
     color: #ffffff;
 }
 
-.reasonSubmit{
+.reasonSubmit {
     background-color: #1BD067 !important;
     position: absolute;
     font-size: 15px;
@@ -46,7 +47,8 @@
     border: none !important;
 
 }
-.reasonCancel{
+
+.reasonCancel {
     border: 3px solid #FF0000 !important;
     background: none;
     position: absolute;
@@ -57,7 +59,7 @@
 
 }
 
-.reasonforCancalation{
+.reasonforCancalation {
     position: relative;
     top: 36px;
     left: 0px;
@@ -65,27 +67,29 @@
 
 }
 
-.eventDetailslog .eventDate{
+.eventDetailslog .eventDate {
     position: absolute;
     margin-top: -3.2%;
     left: 50%;
 }
-.eventDetailslog .eventType{
+
+.eventDetailslog .eventType {
     position: absolute;
     margin-top: -3.2%;
     left: 325px;
 }
-.eventDetailslog .venue{
+
+.eventDetailslog .venue {
     position: absolute;
     margin-top: -3.6%;
     left: 62%;
     color: rgb(40, 220, 40);
     font-weight: bold;
     font-size: 18px;
-    
+
 }
 
-.cancelBtn{
+/* .cancelBtn {
     /* background-color: #FF0303 !important;
     position: relative;
     font-size: 15px;
@@ -99,9 +103,9 @@
     border-radius: 10px;
     border: none !important;
     /* box-shadow: 4px 7px 10px rgba(0, 0, 0, .4) !important; */
-}
 
-.agreementBtn{
+
+.agreementBtn {
     background-color: #03ff70 !important;
     position: relative;
     font-size: 15px;
@@ -113,11 +117,11 @@
     left: 75%;
     top: -48.8px;
     border-radius: 10px;
-    border: none !important; */
+    border: none !important;
     /* box-shadow: 4px 7px 10px rgba(0, 0, 0, .4) !important; */
 }
 
-.requestContainerlog{
+.requestContainerlog {
     background-color: #3b444d;
     height: 15%;
     width: 70%;
@@ -126,10 +130,10 @@
     left: 13%;
     margin-bottom: 20px;
     border-radius: 25px;
-  
+
 }
 
-#LocationIconPendingRequest{
+#LocationIconPendingRequest {
 
     position: relative;
     left: -1%;
@@ -139,13 +143,13 @@
 
 
 
-#EventIconPendingRequest{
+#EventIconPendingRequest {
     position: relative;
     left: -1%;
     padding-right: 10px;
 }
 
-#CalenderIconPendingRequest{
+#CalenderIconPendingRequest {
     position: relative;
     left: -1%;
     padding-right: 10px;
@@ -155,11 +159,11 @@
 
 
 
-.pagination{
-    
+.pagination {
+
     position: absolute;
     top: 90%;
     left: 10%;
-   
+
 
 }

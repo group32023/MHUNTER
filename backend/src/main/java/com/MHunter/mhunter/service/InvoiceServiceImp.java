@@ -19,4 +19,9 @@ public class InvoiceServiceImp implements InvoiceService {
     public int getInvoiceIdForEvent(int mmid, int eventid) {
         return invoiceRepository.getInvoiceId(mmid,eventid);
     }
+
+    @Override
+    public Invoice getAllInInvoice(int mmid, int eventid) {
+        return invoiceRepository.findByMmidAndEventid(mmid,eventid);
+    }
 }

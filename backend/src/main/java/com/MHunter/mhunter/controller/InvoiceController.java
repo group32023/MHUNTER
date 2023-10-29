@@ -29,4 +29,9 @@ public class InvoiceController {
     public int getInvoice(@PathVariable int mmid, @PathVariable int eventid){
         return invoiceService.getInvoiceIdForEvent(mmid,eventid);
     }
+
+    @GetMapping("/findAllInInvoice/{mmid}/{eventid}")
+    public Invoice getAllInInvoice(@PathVariable int mmid, @PathVariable int eventid){
+        return invoiceService.getAllInInvoice(mmid,eventid);
+    }
 }
