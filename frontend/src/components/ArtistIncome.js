@@ -9,7 +9,7 @@ export default function ArtistIncome() {
   useEffect(()=>{
     const mmId = localStorage.getItem('mmid');
     if(mmId){
-      fetch(`http://localhost:8080/artistIncome/incomeAndMonthlyGrowth/${mmId}`).then(res=>res.json()).then((result)=>setIncome(result))
+      fetch(`http://localhost:8080/artistIncome/incomeAndMonthlyGrowth/${mmId}`).then(res=>res.json()).then((result)=>{console.log(result);setIncome(result)})
     }
   },[])
 

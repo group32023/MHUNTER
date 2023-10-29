@@ -39,6 +39,7 @@ export default function ArtistEventOn() {
     })
      
       .then((data) => {
+        console.log(data);
         setEventList(data);
       })
       .catch((error) => {
