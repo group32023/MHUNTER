@@ -40,8 +40,16 @@ function ProofCheck() {
 
 
   const handleSubmit = (event) => {
-    event.preventDefault();
-    console.log(formData);
+
+    axios.put(`http://localhost:8080/user/${id}`, { is_verified: 1 })
+    .then(response => {
+      console.log('User updated successfully');
+      // Handle success, if needed
+    })
+    .catch(error => {
+      console.error('Error updating user:', error);
+      // Handle error, if needed
+    });
   };
 
   const inputRef = useRef(null);

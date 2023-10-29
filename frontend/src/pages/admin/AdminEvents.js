@@ -62,26 +62,26 @@ function AdminEvents() {
     </div>
     <div className="row">
         {events.map(event => (
-        <div className="col-md-4" key={event.eventid}>
-            <Link to={'/admin/event/eventDetails'} className="event-link">
+        <div className="col-md" key={event.eventid}>
+            <Link to={'/admin/event/eventDetails'} className="event-link-admin">
 
-            <div className="event-card">
-                <img
+                <div className="event-card-admin">
+                    <img
                     src={event.image}
                     alt={`Event ${event.eventid}`}
-                    style={{ width: '450px', height: '150px', marginBottom: '20px', borderRadius: '30px' }}
-    />          <div className="event-details">
-                    <div><h3>{event.event_name}</h3>
-                        <p>{event.location}</p>
+                    style={{ height: '150px', marginBottom: '20px', borderRadius: '30px' }} />
+
+                    <div className="event-details">
+                        <div><h3>{event.event_name}</h3>
+                        <p>{event.location}</p></div>
                         <div className="start-time">Start Time {event.start_time}</div>
                     </div>
 
                     <div className='date-container'>
-                        <FontAwesomeIcon icon="calendar" style={{ color: "#7643D2", fontSize: '28px' }} />
-                        <div className="start-date">   {event.date}</div>
-                    </div>
+                        <FontAwesomeIcon icon="calendar" style={{ color: "#7643D2", fontSize: '28px' }} /> {event.date}
+                    </div>  
                 </div>
-            </div>
+
             </Link>
         </div>
         ))}
