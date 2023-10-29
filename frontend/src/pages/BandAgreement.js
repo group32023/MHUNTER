@@ -253,11 +253,14 @@ const loadInvoice=(id,mmid)=>{
                           <button type='submit' className='submitAgreement' onClick={handleShowModal1} >Submit</button>
                           <button type='button' className='skipAgreement' onClick={()=>loadInvoice(id,mmid,skip)}>Skip</button>
                           <button type='button' className='previewAgreement1' onClick={()=>loadPreview(id,mmid)} >Preview</button>
+                          </div>   
+                        </form>
+                     
                           <button className='backInvoice1'>Back</button> 
-                      </div>
+                    
 
 
-                       </form>
+                   
 
                        {/* <img src={url} /> */}
           </div>

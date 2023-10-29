@@ -88,6 +88,8 @@ export default function BandInvoice() {
 
   const handleCloseModal = () => {
       setShowModal(false);
+      navigate('/artist/PendingRequests');
+
   };
   const handleCloseModalAndAccept = () => {
     setShowModal(false);
@@ -269,7 +271,7 @@ const handleCloseAcceptRequestModal=()=>{
             </div>
             
             <div className='AmountLabel'>
-            <label for='amount' className='label7'>Amount(Rs.)</label>
+            <label for='amount' className='label7'>Amount (Rs.)</label>
 
 
             <form onSubmit={addInvoice}>
@@ -296,7 +298,6 @@ const handleCloseAcceptRequestModal=()=>{
 
      
       
-      <button className='backInvoice' onClick={()=>load(101)}>Back</button>
       <button type='button' className='previewAgreement' onClick={loadInvoicePreview} >Preview</button>
 
     </div>   

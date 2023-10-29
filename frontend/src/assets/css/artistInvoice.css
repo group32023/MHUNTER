@@ -11,7 +11,7 @@
     left: 40%;
     height: 75%;
     top: 15%;
-    background: #2F363E;
+    background: #292d31;
     color: #ffffff;
     border-radius: 50px;
 }
@@ -26,7 +26,7 @@
 .currency-input1{
     position: relative;
     top: 111px;
-    left: 370px;
+    left: 383px;
     width: 242px;
     height: 28px;
     border-radius: 10px;
@@ -40,7 +40,7 @@
 .currency-input2{
     position: relative;
     top: 154px;
-    left: 131px;
+    left: 142px;
     width: 242px;
     height: 28px;
     border-radius: 10px;
@@ -83,7 +83,7 @@
 .currency-input5{
     position: relative;
     top: 199px;
-    left: -110px;
+    left: -99px;
     width: 242px;
     height: 28px;
     border-radius: 10px;
@@ -97,8 +97,8 @@
 
 .DescriptionLable .label1{
     position: absolute;
-    top: 118px;
-    left: 117px;  
+    top: 57px;
+    left: 87px; 
     width: 249px;
     height: 33px;
     font-size: 18px;
@@ -110,8 +110,8 @@
 
 .AmountLabel .label7{
     position: absolute;
-    top: 118px;
-    left: 431px;
+    top: 57px;
+    left: 381px;
     width: 249px;
     height: 33px;
     font-size: 18px;
@@ -123,8 +123,8 @@
 
 .DescriptionLable .label2{
     position: absolute;
-    top: 168px;
-    left: 117px; 
+    top: 112px;
+    left: 87px;
     width: 249px;
     height: 28px;
     font-size: 18px;
@@ -141,8 +141,8 @@
 
 .label3{
     position: absolute;
-    top: 212px;
-    left: 117px;   
+    top: 155px;
+    left: 89px;  
     width: 249px;
     height: 28px;
     font-size: 18px;
@@ -183,8 +183,8 @@
 
 .DescriptionLable .label6{
     position: absolute;
-    top: 257px;
-    left: 117px;  
+    top: 198px;
+    left: 92px;
     width: 249px;
     height: 28px;
     font-size: 18px;
@@ -200,19 +200,20 @@
     position: absolute;
     height: 2px;
     width: 699px;
-    top: 305px;
-    left: 87px;
+    top: 245px;
+    left: 13px;
     background:  #ffffff;
     color: #ffffff;
 }
 
 .totalAmount{
     position: absolute;
-    top: 348px;
-    left: 117px;   
+    top: 281px;
+    left: 95px;  
     width: 249px;
     height: 33px;
     font-size: 18px;
+    padding: 3px;
     font-weight: 700;
     background: black;
     color: #ffffff;
@@ -222,8 +223,8 @@
 
 .displayTotalAmount{
     position: absolute;
-    top: 348px;
-    left: 432px;
+    top: 282px;
+    left: 386px;
     width: 249px;
     height: 33px;
     font-size: 18px;
@@ -233,11 +234,12 @@
     border-radius: 10px;
     text-align: center;
     justify-content: center;
+    padding: 3px;
 }
 
 #advanced{
     position: absolute;
-    top: 417px;
+    top: 354px;
     left: 16px;
     width: 240px;
     height: 24px;
@@ -253,7 +255,7 @@
 
 .advancedpayment{
     position: absolute;
-    top: 416px;
+    top: 354px;
     left: 133px;
     width: 249px;
     height: 33px;
@@ -274,8 +276,8 @@
     color: white;
     border-radius: 10px;
     border: none !important;
-    left: 441px;
-    top: 485px;
+    left: 435px;
+    top: 432px;
 }
 
 .complaint-add-success-popup-content .complaint-add-success-para_for_request_acception{
@@ -330,9 +332,8 @@
     border-radius: 50%;
     width: 100px;
     height: 100px;
-    top: -12.5px;
-    left: -125px;
-
+    top: -30.5px;
+    left: -151px;
 }
 
 .EventIconPendingRequest3{
@@ -369,7 +370,6 @@
     left: 10%;
     width: 25%;
     height: 60%;
-    background: #2F363E;
     border-radius: 25px;
     text-align: center;
 
@@ -383,7 +383,7 @@
     left: 10%;
     width: 80%;
     height: 80%;
-    background: #4b525b;
+    background: #292d31;
     color: #ffffff;
     border-radius: 25px;
 
@@ -392,7 +392,10 @@
  .eventDetailsDisplayInnerContainer h4{
     position: absolute;
     top: 8%;
-    left: 30%;
+    left: 19.5%;
+    font-weight: bold;
+    font-size: 20px;
+
 
  }
 

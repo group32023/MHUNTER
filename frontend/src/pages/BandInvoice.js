@@ -112,6 +112,8 @@ export default function BandInvoice() {
 
 const handleCloseModal = () => {
     setShowModal(false);
+    navigate('/band/PendingRequests');
+
 };
 const handleCloseModalAndAccept = () => {
   setShowModal(false);
@@ -301,7 +303,7 @@ const loadInvoicePreview=(id,mmid)=>{
             </div>
             
             <div className='AmountLabel'>
-            <label for='amount' className='label17'>Amount(Rs.)</label>
+            <label for='amount' className='label17'>Amount (Rs.)</label>
 
 
             <form onSubmit={addInvoice}>

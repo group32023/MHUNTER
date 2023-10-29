@@ -46,7 +46,7 @@ const [expand,setExpandedSideBar] = useState(true)
   useEffect(() => {
     // Fetch the data from the Java backend
     const getPendingRequest = async () =>{
-      const res = await fetch('http://localhost:8080/event/viewEventForHome')
+      const res = await fetch('http://localhost:8080/event/getAll')
 
       const data = await res.json();
         setEventList(data);
@@ -64,7 +64,6 @@ const [expand,setExpandedSideBar] = useState(true)
 
   const divCount = eventList.length;
   const divElements = [];
-  console.log(eventList)
  
 
   //Using a for loop to generate the <div> tags
@@ -149,13 +148,7 @@ const [expand,setExpandedSideBar] = useState(true)
              
                 <div className='eventcontainer'>
 
-                    <Form.Select aria-label="Default select example" align-items-center justify-content-center id="selectionMenu">
-                    <FontAwesomeIcon icon={faList} />
-                      <option>Status</option>
-                      <option value="name">Event Name</option>
-                      <option value="date">Date</option>
-                      <option value="location">Location</option>
-                    </Form.Select>
+                 
 
                     <Container>
                       <Form.Control
