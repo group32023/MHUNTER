@@ -37,6 +37,12 @@ public class EventServiceImpl implements EventService {
     }
 
     @Override
+    public List<Event> viewPastEvents(int orgid){
+
+        return eventRepository.viewPastEvents(orgid);
+    }
+
+    @Override
     public List<Event> getSpecificEventByDate(LocalDate date) {
         return eventRepository.findByDate(date);
     }
@@ -60,4 +66,12 @@ public class EventServiceImpl implements EventService {
     public List<Event> getEventsForHome() {
         return eventRepository.findUpcomingEventsForEventHome();
     }
+    public List<Event> viewMusicMemberEventsOnDate(int mmid,LocalDate date){
+
+        return  eventRepository.viewMusicMemberEventsOnDate(mmid,date);
+
+    }
+
+
+
 }

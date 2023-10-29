@@ -25,10 +25,33 @@ import CreateEvent from './CreateEvent';
 import ViewArtist from './ViewArtist';
 import MakeArtistRequest from './MakeArtistRequest';
 import OrganizerEventDashboard from './OrganizerEventDashboard';
+import SearchBand from './SearchBand'
 import SideMenuBarOrganizer from '../../components/common/SideMenuBar/SideMenuBarOrganizer';
 library.add(fas);
 
 function SearchArtist() {
+
+    const [artist, setArtists] = useState([])
+    const [searchInput, setSearchInput] = useState('');
+
+    const imageExtention = ["jpg", "png", "jpeg"]
+    const BASE_URL = "http://localhost:8080";
+
+
+    useEffect(() => {
+        fetch("http://localhost:8080/artist/getAll")
+            .then(res => res.json())
+            .then((result) => {
+                setArtists(result);
+                console.log(result);
+            }
+            )
+    }, [])
+
+    const filteredArtists = artist.filter((artist) =>
+    artist.user.firstName.toLowerCase().includes(searchInput.toLowerCase()) ||
+    artist.user.lastName.toLowerCase().includes(searchInput.toLowerCase())
+    );
 
     return (
         <>
@@ -44,6 +67,8 @@ function SearchArtist() {
                                 type="search"
                                 placeholder="Search An Artist"
                                 aria-label="Search"
+                                value={searchInput}
+                                onChange={(e) => setSearchInput(e.target.value)}
                             />
 
                         </div>
@@ -54,22 +79,28 @@ function SearchArtist() {
                         </div>
                     </div>
 
-                    <div className='col-md-3 artist-box' >
-                        <Link to="/organizer/searchartist/viewartist" className='link1'>
-                            <div className='image'>
-                                <img src={anushka} alt='image1'>
-                                </img>
-                            </div>
+                    {filteredArtists.map(artist => (
 
-                            <div className='content'>
+            
+                        <div className='col-md-3 artist-box' >
+                            <Link to="/organizer/searchartist/viewartist" className='link1'>
+                                <div className='image'>
+                                    <img src={`${BASE_URL}/postData/uploads/image/${artist.user.imagePath}`} alt="post media" />
+                                </div>
 
-                                <h5>Anushka Udana</h5>
-                                <StarRating rating={5} ></StarRating>
+                                <div className='content'>
 
-                            </div>
-                        </Link>
-                    </div>
+                                    <h5>{artist.user.firstName} {artist.user.lastName}</h5>
+                                    <StarRating rating={5} ></StarRating>
 
+                                </div>
+                            </Link>
+                        </div>
+                    
+
+                    ))}
+
+                    {/* 
                     <div className='col-md-3 artist-box' >
                         <Link to="/organizer/searchartist/viewartist" className='link1'>
                             <div className='image'>
@@ -116,7 +147,7 @@ function SearchArtist() {
 
                             </div>
                         </Link>
-                    </div>
+                    </div> */}
 
 
 
@@ -133,6 +164,7 @@ function SearchArtist() {
                     <Route path='/organizer/profile' element={<OrganizerProfile />}></Route>
                     <Route path='/organizer/searchartist/viewartist' element={<ViewArtist />} />
                     <Route path='/organizer/searchartist/viewartist/makeartistrequest' element={<MakeArtistRequest />} />
+                    <Route path='/organizer/searchband' element={<SearchBand />} />
                 </Routes>
             </SideMenuBarOrganizer>
         </>

@@ -20,6 +20,7 @@ import ViewArtist from './ViewArtist';
 import MakeArtistRequest from './MakeArtistRequest';
 import SystemPreloader from '../../components/common/SystemPreloader';
 
+import SearchBand from './SearchBand'
 
 
 
@@ -280,7 +281,7 @@ function OrganizerComplaint() {
                     <Route path='/organizer/searchartist' element={<SearchArtist />} />
                     <Route path='/organizer/searchartist/viewartist' element={<ViewArtist />} />
                     <Route path='/organizer/searchartist/viewartist/makeartistrequest' element={<MakeArtistRequest />} />
-
+                    <Route path='/organizer/searchband' element={<SearchBand />} />
                 </Routes>
 
             </SideMenuBarOrganizer>

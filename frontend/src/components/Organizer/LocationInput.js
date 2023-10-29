@@ -43,7 +43,7 @@ const LocationInput = ({ onLocationSelect, setFormData }) => {
   };
 
   const fetchAddressFromLatLng = async (lat, lng) => {
-    const apiKey = 'AIzaSyBHUE7QQ_cie9vWpTKHX7rOuqAoD8uxhCA'; // Replace with your actual API key
+    const apiKey = 'IzaSyAACzqsnjXPXtYYNMYQzpz2Ev9JMouqjfk'; 
     const response = await fetch(
       `https://maps.googleapis.com/maps/api/geocode/json?latlng=${lat},${lng}&key=${apiKey}`
     );
@@ -95,7 +95,7 @@ const LocationInput = ({ onLocationSelect, setFormData }) => {
 
 
   return (
-    <LoadScript googleMapsApiKey="AIzaSyBHUE7QQ_cie9vWpTKHX7rOuqAoD8uxhCA" libraries={libraries}>
+    <LoadScript googleMapsApiKey="AIzaSyAACzqsnjXPXtYYNMYQzpz2Ev9JMouqjfk" libraries={libraries}>
       <div>
 
         <div className='searchbox' style={{ color: 'white' }}>

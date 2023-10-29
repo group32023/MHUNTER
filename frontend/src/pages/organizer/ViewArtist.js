@@ -1,5 +1,5 @@
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState ,useRef } from 'react';
 import { Link } from 'react-router-dom';
 import Topbar from '../../components/common/Topbar';
 import './ViewArtist.css';
@@ -25,13 +25,24 @@ import SearchArtist from './SearchArtist';
 import CreateEvent from './CreateEvent';
 import MakeArtistRequest from './MakeArtistRequest';
 import OrganizerEventDashboard from './OrganizerEventDashboard';
-
+import SearchBand from './SearchBand'
 
 library.add(fas);
 
 function ViewArtist() {
 
+    const [feedback, setFeedbacks] = useState([]);
+    const [post, setPosts] = useState([]);
+    const [eventondate, setEventondate] = useState([]);
+    const [event, setEvents] = useState([]);
+    const [artist, setArtists] = useState([]);
     const [showModal, setShowModal] = useState(false);
+
+
+    const imageExtention = ["jpg", "png", "jpeg"]
+    const videoExtention = ["mp4", "mkv"]
+    const audioExtenstion = ["mp3", "pcm", "wav"]
+    const BASE_URL = "http://localhost:8080";
 
     const handleShowModal = () => {
         setShowModal(true);
@@ -40,6 +51,114 @@ function ViewArtist() {
     const handleCloseModal = () => {
         setShowModal(false);
     };
+
+
+    const extractloc = (location) => {
+
+        const parts = location.split(',');
+        const placeName = parts[0];
+        const town = parts[parts.length - 2];
+        return `${town}`;
+    }
+
+    const formatTime = (time) => {
+        const [hours, minutes] = time.split(':');
+        const hour = parseInt(hours, 10);
+        const minute = parseInt(minutes, 10);
+        const period = hour >= 12 ? 'pm' : 'am';
+        const formattedHour = hour % 12 || 12;
+        const formattedMinute = minute.toString().padStart(2, '0');
+        return `${formattedHour}:${formattedMinute} ${period}`;
+    };
+
+
+    const mmid = 100;
+    const mmid1 = 758463;
+    const eventid = 3;
+    let formattedDate;
+    let formattedDate1;
+    let formattedDateString;
+    let options;
+    let artistName;
+    const formattedDateStringRef = useRef(null) ;
+    const artistNameRef = useRef(null) ;
+
+    useEffect(() => {
+        fetch(`http://localhost:8080/artist/viewSpecificArtist/${mmid}`)
+            .then(res => res.json())
+            .then((result) => {
+                setArtists(result);
+                artistName = result.musicMember.user.firstName + ' ' + result.musicMember.user.lastName  ;
+                artistNameRef.current = artistName;
+                console.log(artistName);
+
+            }
+            )
+    }, [])
+
+    
+    useEffect(() => {
+        fetch(`http://localhost:8080/feedback/viewMusicMemberFeedback/${mmid}`)
+            .then(res => res.json())
+            .then((result) => {
+                setFeedbacks(result);
+                console.log(result);
+            }
+            )
+    }, [])
+
+
+    useEffect(() => {
+
+        fetch(`http://localhost:8080/postData/postDetails/${mmid1}`)
+            .then(res => res.json())
+            .then((result) => {
+                setPosts(result);
+                // console.log(result);
+            }
+            )
+
+    }, [])
+
+
+    useEffect(() => {
+        fetch(`http://localhost:8080/event/viewSpecificEvent/${eventid}`)
+            .then(res => res.json())
+            .then((result) => {
+                formattedDate = result.date;
+                setEvents(result);
+                formattedDate1 = new Date(result.date);
+                options = { month: 'short', day: '2-digit' };
+                formattedDateString = formattedDate1.toLocaleDateString('en-US', options);
+                formattedDateStringRef.current = formattedDateString;
+                // console.log(result);
+                // console.log(formattedDateString );
+
+                fetch(`http://localhost:8080/event/musicMemberEventsOnDate/${mmid}/${formattedDate}`)
+                    .then(res => res.json())
+                    .then((result) => {
+                        setEventondate(result);
+                        // console.log(result);
+                    }
+                    )
+
+            }
+            )
+
+    }, [])
+
+    
+    // useEffect(() => {
+
+    //     fetch(`http://localhost:8080/event/musicMemberEventsOnDate/${mmid}/${formattedDate}`)
+    //         .then(res => res.json())
+    //         .then((result) => {
+    //             setEventondate(result);
+    //             console.log(result);
+    //         }
+    //         )
+
+    // }, [])
 
 
     return (
@@ -59,37 +178,44 @@ function ViewArtist() {
                                         </img>
                                     </div>
 
-                                    <div className='content-box'>
+                                    <div className='content-box align-items-center'>
 
-                                        <h5>Anushka Udana</h5>
+                                        <h5>{artistNameRef.current}</h5>
                                         {/* <StarRating rating={5} style={{marginLeft:"2rem"}} /> */}
                                     </div>
                                 </div>
 
+
+
                                 <div className='d-flex flex-column feedback-log align-items-center'>
 
                                     <h5>Feedbacks</h5>
-                                    <div className='feedback'>
 
-                                        <div className='d-flex align-items-center'>
-                                            <div className='org-image'>
-                                                <img src={anushka} alt="User's Image" />
+                                    {feedback.map(feedback => (
+
+                                        <div className='feedback'>
+
+                                            <div className='d-flex align-items-center'>
+                                                <div className='org-image'>
+                                                    <img src={`${BASE_URL}/postData/uploads/image/${feedback.image}`} alt="User's Image" />
+                                                </div>
+
+                                                <div className='ml-2 content'>
+                                                    <h7>{feedback.firstName}      {feedback.lastName}</h7>
+                                                    <StarRating rating={feedback.rate} />
+                                                </div>
+                                            </div>
+                                            <div className='summary'>
+
+                                                <p>{feedback.description}
+                                                </p>
                                             </div>
 
-                                            <div className='ml-2 content'>
-                                                <h7>Saman Vidyarathna</h7>
-                                                <StarRating rating={5} />
-                                            </div>
-                                        </div>
-                                        <div className='summary'>
-
-                                            <p>The Confidential were amazing! They have been worth every penny, totally made the evening special very professional and talented.
-                                            </p>
                                         </div>
 
-                                    </div>
+                                    ))}
 
-                                    <div className='feedback'>
+                                    {/* <div className='feedback'>
 
                                         <div className='d-flex align-items-center'>
                                             <div className='org-image'>
@@ -107,7 +233,7 @@ function ViewArtist() {
                                             </p>
                                         </div>
 
-                                    </div>
+                                    </div> */}
 
                                 </div>
                             </div>
@@ -115,31 +241,40 @@ function ViewArtist() {
                         </div>
                         <div className='col-md-8 box-2 d-flex flex-column '>
 
-                            <div className='feed-post'>
+                            {post.map(post => (
+                                <div className='feed-post'>
 
-                                <div className='d-flex align-items-center'>
-                                    <div className='artist-image'>
-                                        <img src={anushka} alt="User's Image" />
+                                    <div className='d-flex align-items-center'>
+                                        <div className='artist-image'>
+                                            <img src={anushka} alt="User's Image" />
+                                        </div>
+
+                                        <div className='ml-2 content'>
+                                            <h7>{artistNameRef.current}</h7>
+                                            {/* <p>12 hrs</p> */}
+                                        </div>
                                     </div>
+                                    <div className='post-content'>
+                                        <div className='post-caption'>
+                                            <p>{post.description}</p>
+                                        </div>
 
-                                    <div className='ml-2 content'>
-                                        <h7>Anushka Udana</h7>
-                                        <p>12 hrs</p>
+                                        <div className='post-image'>
+                                            {
+                                                (imageExtention.includes(post.fileType))
+                                                    ? <img src={`${BASE_URL}/postData/uploads/image/${post.fileName}`} alt="post media" />
+                                                    : (videoExtention.includes(post.fileType))
+                                                        ? <video controls width="640" height="360"><source src={`${BASE_URL}/postData/uploads/video/${post.fileName}`} type={`video/${post.fileType}`} /></video>
+                                                        : <audio controls><source src={`${BASE_URL}/postData/uploads/audio/${post.fileName}`} type={`audio/${post.fileType}`} /></audio>
+                                            }
+                                        </div>
                                     </div>
                                 </div>
-                                <div className='post-content'>
-                                    <div className='post-caption'>
-                                        <p>Stepping onto the stage to share my soul through music. Get ready to be swept away by the rhythm and emotions. 🎶✨ #LivePerformance #yunpluggedstudio
-                                        </p>
-                                    </div>
 
-                                    <div className='post-image'>
-                                        <img src={anushkashow3} alt="post Image" />
-                                    </div>
-                                </div>
-                            </div>
 
-                            <div className='feed-post'>
+                            ))}
+
+                            {/* <div className='feed-post'>
 
                                 <div className='d-flex align-items-center'>
                                     <div className='artist-image'>
@@ -161,7 +296,7 @@ function ViewArtist() {
                                         <img src={anushkashow2} alt="post Image" />
                                     </div>
                                 </div>
-                            </div>
+                            </div> */}
                         </div>
 
                     </div>
@@ -169,7 +304,8 @@ function ViewArtist() {
 
                     <div className='click-btns'>
 
-                        <button type="button" class="btn btn-lg" onClick={handleShowModal}>Events On 25</button>
+
+                        <button type="button" class="btn btn-lg" onClick={handleShowModal}>Events On {formattedDateStringRef.current}</button>
                         <Link to="/organizer/searchartist/viewartist/MakeArtistRequest">
                             <button type="button" class="btn btn-lg">Make a Request</button>
                         </Link>
@@ -179,7 +315,7 @@ function ViewArtist() {
                         <div className="overlay">
                             <Modal show={showModal} onHide={handleCloseModal} className='modal-class-new' centered>
                                 <Modal.Header closeButton>
-                                    <Modal.Title className='events-view-modal-title'>Events on August 25</Modal.Title>
+                                    <Modal.Title className='events-view-modal-title'>Events on {formattedDateStringRef.current}</Modal.Title>
                                 </Modal.Header>
                                 <Modal.Body>
                                     <div className='view-music-events-table d-flex flex-column '>
@@ -188,32 +324,30 @@ function ViewArtist() {
 
                                             <div className='event-type'>Event Type</div>
                                             <div className='event-location'>Location</div>
-                                            {/* <div className='event-date'>Date</div> */}
                                             <div className='event-time'>Time</div>
-                                        </div>
+                                        </div> 
 
+                                        {eventondate.map(event => (
+                                            <div className='datanew-row music-events-table-data-row d-flex'>
 
-                                        <div className='datanew-row music-events-table-data-row d-flex'>
+                                                <div className='event-type'>{event.event_type}</div>
+                                                <div className='event-location'>{extractloc(event.location)}</div>
+                                                <div className='event-time'>{formatTime(event.start_time)}</div>
+                                            </div>
 
-                                            <div className='event-type'>Musical Show</div>
-                                            <div className='event-location'>Galle</div>
-                                            {/* <div className='event-date'>2023/01/09</div> */}
-                                            <div className='event-time'>12.00</div>
-                                        </div>
-                                        <div className='datanew-row music-events-table-data-row d-flex'>
+                                        ))}
+                                        {/* <div className='datanew-row music-events-table-data-row d-flex'>
 
                                             <div className='event-type'>Musical Show</div>
                                             <div className='event-location'>Mathara</div>
-                                            {/* <div className='event-date'>2023/03/19</div> */}
                                             <div className='event-time'>8.00</div>
                                         </div>
                                         <div className='datanew-row music-events-table-data-row d-flex'>
 
                                             <div className='event-type'>Musical Show</div>
                                             <div className='event-location'>Dabulla</div>
-                                            {/* <div className='event-date'>2023/05/11</div> */}
                                             <div className='event-time'>10.00</div>
-                                        </div>
+                                        </div> */}
 
                                     </div>
                                 </Modal.Body>
@@ -237,6 +371,7 @@ function ViewArtist() {
                     <Route path='/organizer/profile' element={<OrganizerProfile />}></Route>
                     <Route path='/organizer/searchartist' element={<SearchArtist />} />
                     <Route path='/organizer/searchartist/viewartist/makeartistrequest' element={<MakeArtistRequest />} />
+                    <Route path='/organizer/searchband' element={<SearchBand />} />
                 </Routes>
 
             </SideMenuBarOrganizer>

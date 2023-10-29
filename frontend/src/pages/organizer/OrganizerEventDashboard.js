@@ -21,6 +21,7 @@ import SystemPreloader from '../../components/common/SystemPreloader';
 import EventDashboardImagePopup from '../../components/organizer/EventDashboardImagePopup';
 import EventDashboardDescriptionEdit from '../../components/organizer/EventDashboardDescriptionEdit';
 
+import SearchBand from './SearchBand'
 
 import { BiSolidEdit } from "react-icons/bi";
 import { BiSolidBox } from "react-icons/bi";
@@ -353,7 +354,7 @@ function OrganizerEventDashboard() {
 
 
                 </div>
-
+ 
                 <Routes>
                     {/* Nested routes for the Organizer Dashboard */}
                     <Route path='/organizer/dashboard' element={<OrganizerDashboard />}></Route>
@@ -365,7 +366,7 @@ function OrganizerEventDashboard() {
                     <Route path='/organizer/searchartist' element={<SearchArtist />} />
                     <Route path='/organizer/searchartist/viewartist' element={<ViewArtist />} />
                     <Route path='/organizer/searchartist/viewartist/makeartistrequest' element={<MakeArtistRequest />} />
-
+                    <Route path='/organizer/searchband' element={<SearchBand />} />
                 </Routes>
 
             </SideMenuBarOrganizer>
