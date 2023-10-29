@@ -2,6 +2,9 @@ package com.MHunter.mhunter.model;
 
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -9,6 +12,8 @@ import java.time.temporal.Temporal;
 
 
 @Entity
+@Data
+
 public class Event {
 
     @Id
@@ -39,12 +44,14 @@ public class Event {
     //    @Column(name = "end_time")
     private LocalTime end_time;
 
+    private String eventImage;
 
 
 
 
-//        @Column(name = "Image")
-    private String image;
+
+    //    @Column(name = "Image")
+//    private String Image;
 //    @Column(name = "Crowd")
     private int Crowd;
 
@@ -163,9 +170,4 @@ public class Event {
     public void setCrowd(int crowd) {
         Crowd = crowd;
     }
-
-    public String getImage(){return image;}
-
-    public void setImage(String image){this.image = image;}
-
 }

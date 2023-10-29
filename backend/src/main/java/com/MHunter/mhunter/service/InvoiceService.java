@@ -10,7 +10,4 @@ public interface InvoiceService {
     public Invoice findSpecificInvoice(int id);
     public List<InvoiceDataDTO> findSpecificInvoiceByArtistId(int id);
     public  Invoice updatePaidAmount(int id, Long newPaidAmount);
-
-    public int getInvoiceIdForEvent(int mmid, int eventid);
-
 }

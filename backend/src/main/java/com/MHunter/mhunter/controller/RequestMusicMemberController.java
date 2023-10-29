@@ -1,6 +1,5 @@
 package com.MHunter.mhunter.controller;
 
-import com.MHunter.mhunter.exception.UserNotFoundException;
 import com.MHunter.mhunter.model.*;
 import com.MHunter.mhunter.service.*;
 import com.MHunter.mhunter.struct.EventOrganizer;
@@ -15,7 +14,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Collectors;
 
 @RestController
-@CrossOrigin(origins = "*")
+@CrossOrigin(origins = "http://localhost:3000")
 
 @RequestMapping("/requestMusicMember")
 public class RequestMusicMemberController {
@@ -38,16 +37,6 @@ public class RequestMusicMemberController {
 
     @PostMapping("/add")
     public String save(@RequestBody RequestMusicMember requestMusicMember){
-        
-    @PostMapping("/add/{mmid}/{eventid}/{orgid}")
-    public String save(@RequestBody RequestMusicMember requestMusicMember,@PathVariable("mmid") int mmid,@PathVariable("eventid") int eventid , @PathVariable("orgid") int orgid  ){
-
-         RequestMusicMemberId requestMusicMemberId = new RequestMusicMemberId();
-         requestMusicMemberId.setMMID(mmid);
-         requestMusicMemberId.setEventId(eventid);
-
-         requestMusicMember.setRequestMusicMemberId(requestMusicMemberId);
-         requestMusicMember.setOrgId(orgid);
          requestMusicMember.setRequestDate(LocalDateTime.now());
          requestMusicMemberService.saveRequestMusicMember(requestMusicMember);
          return "added";
@@ -57,8 +46,6 @@ public class RequestMusicMemberController {
     public List<RequestMusicMember> viewAll(){
         return requestMusicMemberService.viewAll();
     }
-
-
 
     @GetMapping("/view/{mid}/{eventId}")
     public RequestMusicMember viewSpecific(@PathVariable int mid,@PathVariable int eventId){
@@ -70,12 +57,9 @@ public class RequestMusicMemberController {
 
     @PutMapping("/update/{mid}/{eventId}")
     public RequestMusicMember update(@RequestBody RequestMusicMember requestMusicMember, @PathVariable int mid,@PathVariable int eventId){
-        System.out.println(mid);
-        System.out.println(eventId);
         RequestMusicMemberId id = new RequestMusicMemberId();
         id.setMMID(mid);
         id.setEventId(eventId);
-        System.out.println("come here");
       return   requestMusicMemberService.updateRequestMusicMember(requestMusicMember,id);
     }
 
@@ -142,9 +126,6 @@ public class RequestMusicMemberController {
     public List<EventOrganizer> priorBooking(@PathVariable int mid, @PathVariable int orgId){
 
         List<RequestMusicMember> eventList = requestMusicMemberService.findConformationEventsByMMIDForOrg(mid,orgId);
-
-
-
         List<EventOrganizer> eventOrganizerList = new ArrayList<>();
 
         eventList.forEach(res ->{
@@ -157,7 +138,7 @@ public class RequestMusicMemberController {
             eventOrganizer.setIncome(incomeArtist.getIncome());
             eventOrganizer.setEventId((event.getEventID()));
             eventOrganizer.setOrgId(res.getOrgId());
-            eventOrganizer.setOrganizerName(user.getFirstName() + " " +  user.getLastName());
+            eventOrganizer.setOrganizerName(user.getFirstName() + " " +  user.getFirstName());
             eventOrganizer.setEventName(event.getEvent_name());
             eventOrganizer.setEventType(event.getEvent_type());
             eventOrganizer.setStartTime(event.getStart_time());
@@ -192,7 +173,6 @@ public class RequestMusicMemberController {
         List<EventOrganizer> eventOrganizerList = new ArrayList<>();
         requestMusicMembersList.forEach(res ->{
             Event event = eventService.viewSpecificEvent(res.getRequestMusicMemberId().getEventId());
-
 
             if(date.equals(event.getDate()) ){
 

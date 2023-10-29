@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.time.Duration;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.time.Month;
 import java.util.ArrayList;
 import java.util.List;
@@ -37,19 +36,11 @@ public class BookedListController {
    @PostMapping("/save")
    public String save(@RequestBody BookedList data){
        System.out.println(data);
-       data.setDate(LocalDateTime.now());
        bookedListService.saveBooking(data);
        return "added";
    }
 
-    @GetMapping("/getAll")
-    public List<BookedList> getAllRequestLogs(){
-
-        return bookedListService.getAllRequestLogs();
-    }
-
-
-    @GetMapping("/viewLogs/{mmid}")
+   @GetMapping("/viewLogs/{mmid}")
     public List<RequestLogDetails> viewRequestsLogDetails(@PathVariable int mmid){
        List<BookedList> bookedLists = bookedListService.viewRequestsLog(mmid);;
        List<RequestLogDetails> events = new ArrayList<>();

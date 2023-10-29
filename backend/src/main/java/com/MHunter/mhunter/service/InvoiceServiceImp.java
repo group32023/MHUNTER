@@ -57,7 +57,4 @@ public class InvoiceServiceImp implements InvoiceService {
     }
 
 
-    public int getInvoiceIdForEvent(int mmid, int eventid) {
-        return invoiceRepository.getInvoiceId(mmid,eventid);
-    }
 }

@@ -9,6 +9,4 @@ public interface OrganizerService {
     public Organizer findSpecificOrganizer(int orgId);
     public List<Organizer> findAllOrganizer();
 
-
-
 }

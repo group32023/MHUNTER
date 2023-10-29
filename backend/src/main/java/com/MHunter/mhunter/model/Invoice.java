@@ -16,8 +16,6 @@ public class Invoice {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int invoiceId;
-    private int mmid;
-    private int eventid;
     private Double totalAmount;
     private Double bandFee;
     private Double soundFee;
@@ -27,7 +25,7 @@ public class Invoice {
     private String paymentType;
     private Long paidAmount;
     private Double artistFee;
-
+    private Double discount;
 
     //@Column(columnDefinition = "byte default 0")
     private byte isPaid;

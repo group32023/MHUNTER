@@ -6,7 +6,6 @@ import com.MHunter.mhunter.repository.RequestMusicMemberRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -31,9 +30,9 @@ public class RequestMusicMemberServiceImp implements RequestMusicMemberService{
         return requestMusicMemberRepository.findById(id).map(requestMusicMember1 -> {
 //            requestMusicMember1.setRequestMusicMemberId(requestMusicMember.getRequestMusicMemberId());
 //            requestMusicMember1.setOrgId(requestMusicMember.getOrgId());
-            requestMusicMember1.setConfirmationStatus(1);
+            requestMusicMember1.setConfirmationStatus(requestMusicMember.getConfirmationStatus());
 //            requestMusicMember1.setRequestDate(requestMusicMember.getRequestDate());
-            requestMusicMember1.setConfirmationDate(LocalDateTime.now());
+            requestMusicMember1.setConfirmationDate(requestMusicMember.getConfirmationDate());
             return requestMusicMemberRepository.save(requestMusicMember1);
         }).orElse(null);
     }

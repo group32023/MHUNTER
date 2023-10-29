@@ -19,7 +19,4 @@ public class OrganizerController {
     public Organizer viewSpecificOrganizer(@PathVariable int orgId){
         return organizerService.findSpecificOrganizer(orgId);
     }
-
-
-
 }

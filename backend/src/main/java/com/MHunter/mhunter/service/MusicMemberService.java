@@ -8,6 +8,4 @@ public interface MusicMemberService {
     public List<MusicMember> viewMusicMembers();
 
     public MusicMember findSpecificMusicMember(int mmid);
-
-    List<Object[]> getCountOfBandAndArtist();
 }
