@@ -224,7 +224,7 @@ const handleCloseAcceptRequestModal=()=>{
     
         <SideMenuBarArtist>
         <div>
-            <p className='headerDashboard'>Pending Requests</p>
+            <p className='headerDashboard'>Invoice</p>
             <div className={expand ? 'notificationBg':'notificationBg-ex'}>
               <img src={notification} className='notificationIcon' alt='notification'></img>
             </div>
@@ -257,7 +257,7 @@ const handleCloseAcceptRequestModal=()=>{
         </div>
 
         <div className='InvoiceContainer'>
-            <h1>Invoice</h1>
+           
            
            <div className='invoiceFees'>
             

@@ -3,8 +3,8 @@
     border-radius: 50%;
     width: 55px;
     height: 55px;
-    top: 36.5px;
-    left: -458px;
+    top: 19.5px;
+    left: -425px;
 }
 
 .requestContainer .profile1{
@@ -26,6 +26,7 @@
     position: relative;
     color: white;
     font-size: 15px;
+    top:-16px;
     text-align: center;
 }
 
@@ -63,7 +64,7 @@
     text-align: center;
     color: white;
     left: 40%;
-    top: -48.8px;
+    top: -60.8px;
     border-radius: 10px;
     border: none !important;
     /* box-shadow: 4px 7px 10px rgba(0, 0, 0, .4) !important; */
@@ -87,7 +88,7 @@
 
 .requestContainer{
     background-color: #3b444d;
-    height: 10% !important;
+    height: 94px;
     width: 70%;
     position: relative;
     top: 122px;
@@ -164,7 +165,7 @@
     position: relative;
     font-size: 15px;
     width: 15%;
-    height: 8%;
+    height: 12%;
     font-weight: bold;
     text-align: center;
     color: white;
@@ -180,7 +181,7 @@
     position: relative;
     font-size: 15px;
     width: 15%;
-    height: 8%;
+    height: 12%;
     font-weight: bold;
     text-align: center;
     color: #000000 !important;
@@ -233,15 +234,16 @@
     color: #FFFFFF;
     position: relative;
     top: -4%;
-    left: -20%;
+    left: -22%;
 }
 
 
 .requestViewContainer h4{
     color: #11fe70;
     position: relative;
-    top: -12.2%;
-    left: -10px;
+    top: -13.2%;
+    left: 4px;
+    font-weight: 700;
 
 }
 
