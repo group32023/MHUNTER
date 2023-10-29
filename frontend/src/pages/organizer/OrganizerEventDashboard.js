@@ -77,6 +77,7 @@ function OrganizerEventDashboard() {
 
     const { eventid } = useParams();
     const [event, setEvent] = useState(null);
+    const [mmids, setMmmids] = useState(null);
     const zoom = 15;
 
     //Event Data Fetching
@@ -89,6 +90,18 @@ function OrganizerEventDashboard() {
                 console.error('Error fetching event data:', error);
             });
     }, [eventid]);
+
+
+    useEffect(() => {
+        fetch(`http://localhost:8080/requestsLog/getmmids/${eventid}`)
+            .then(res => res.json())
+            .then((result) => {
+                setMmmids(result);
+                console.log(result);
+            }
+            )
+            
+    }, []) 
 
     //Page Preloader
 
@@ -342,7 +355,7 @@ function OrganizerEventDashboard() {
                             </div>
 
                             <div className="row btnTypeDescriptionDiv " style={{ fontFamily: 'MyCustomFont1' }}>
-                                <button className="eventDashboardCancelBtn col-md-5" >
+                                <button className="eventDashboardCancelBtn col-md-5"   >
                                     Cancel Event
                                 </button>
                                 <button className="resheduleBtn col-md-5" >

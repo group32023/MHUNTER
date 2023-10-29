@@ -42,6 +42,18 @@ public class BookedListController {
        return "added";
    }
 
+   @GetMapping("/getmmids/{eventid}")
+   public List<Integer> getMmidsByEventId(@PathVariable Integer eventid) {
+       return bookedListService.getMmidsByEventId(eventid);
+
+//       if (mmids.isEmpty()) {
+//           return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+//       }
+//
+//       return new ResponseEntity<>(mmids, HttpStatus.OK);
+   }
+
+
     @GetMapping("/getAll")
     public List<BookedList> getAllRequestLogs(){
 

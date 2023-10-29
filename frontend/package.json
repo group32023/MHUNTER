@@ -29,6 +29,7 @@
     "google-map-react": "^2.2.1",
     "http": "^0.0.1-security",
     "https": "^1.0.0",
+    "is-async-function": "^2.0.0",
     "leaflet": "^1.9.4",
     "mdb-react-ui-kit": "^6.1.0",
     "mdbreact": "^5.2.0",

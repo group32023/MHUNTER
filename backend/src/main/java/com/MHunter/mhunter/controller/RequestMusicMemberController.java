@@ -36,9 +36,9 @@ public class RequestMusicMemberController {
     @Autowired
     private MusicMemberService musicMemberService;
 
-    @PostMapping("/add")
-    public String save(@RequestBody RequestMusicMember requestMusicMember){
-        
+//    @PostMapping("/add")
+//    public String save(@RequestBody RequestMusicMember requestMusicMember) {
+//    }
     @PostMapping("/add/{mmid}/{eventid}/{orgid}")
     public String save(@RequestBody RequestMusicMember requestMusicMember,@PathVariable("mmid") int mmid,@PathVariable("eventid") int eventid , @PathVariable("orgid") int orgid  ){
 
