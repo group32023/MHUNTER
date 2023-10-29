@@ -1,19 +1,16 @@
 #tableEvents{
     top: 7%;
-    left: 26%;
+    left: 250px;
     font-family: Dosis;
     position: absolute;
     --bs-table-bg: none !important;
     font-size: 22px;
     width: 60%;
-    text-align: center !important;
 }
 #tableEvents tr{
     width: 10%;
     height: 40%;
-    text-align: center !important;
     border-bottom: #7643D2 solid 3px !important;
-    justify-content: center;
     
 
     
@@ -29,8 +26,9 @@
 
 #tableEvents td{
     position: relative;
-    left: 5%;
+    left: 19px;
     width: 50%;
+    text-align: left !important;
 }
 #tableEvents tr:hover{
     background-color: unset !important;
