@@ -5,6 +5,8 @@ import com.MHunter.mhunter.repository.InvoiceRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 public class InvoiceServiceImp implements InvoiceService {
     @Autowired
@@ -23,5 +25,10 @@ public class InvoiceServiceImp implements InvoiceService {
     @Override
     public Invoice getAllInInvoice(int mmid, int eventid) {
         return invoiceRepository.findByMmidAndEventid(mmid,eventid);
+    }
+
+    @Override
+    public Invoice getAllInInvoiceById(int invoiceId) {
+        return invoiceRepository.findByInvoiceId(invoiceId);
     }
 }
