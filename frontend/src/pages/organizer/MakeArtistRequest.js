@@ -2,7 +2,7 @@ import './MakeArtistRequest.css';
 import { useState, useEffect } from 'react';
 import React from 'react';
 import { GoogleMap, Marker, LoadScript } from '@react-google-maps/api';
-import { Link,useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { format } from 'date-fns'
 import Topbar from '../../components/common/Topbar';
 import LocationInput from '../../components/organizer/LocationInput';
@@ -18,6 +18,8 @@ import OrganizerProfile from './OrganizerProfile';
 import SearchArtist from './SearchArtist';
 import ViewArtist from './ViewArtist';
 import SearchBand from './SearchBand'
+import Modal from 'react-bootstrap/Modal';
+import Button from 'react-bootstrap/Button';
 
 import SideMenuBarOrganizer from '../../components/common/SideMenuBar/SideMenuBarOrganizer';
 
@@ -25,8 +27,21 @@ import SideMenuBarOrganizer from '../../components/common/SideMenuBar/SideMenuBa
 function MakeArtistRequest() {
 
 
+
+
+    const [showModal, setShowModal] = useState(false);
+
+    const handleShowModal = () => {
+        setShowModal(true);
+    };
+
+    const handleCloseModal = () => {
+        setShowModal(false);
+    };
+
+
     const [event, setEvents] = useState([]);
-    
+
     const orgid = 1;
     const { mmid, eventid } = useParams();
 
@@ -71,66 +86,7 @@ function MakeArtistRequest() {
 
     }, [])
 
-    // const [formData, setFormData] = useState({
-
-    //     event_name: '',
-    //     event_type: '',
-    //     date: '',
-    //     crowd: '',
-    //     start_time: '',
-    //     end_time: '',
-    //     location: '',
-    //     description: '',
-    //     latitude: '',
-    //     longitude: '',
-
-    // })
-
-    // const [crowdError, setCrowdError] = useState('');
-
-    // const onChangeHandler = (event) => {
-    //     if (!event.target) return; // Check if event.target exists
-
-    //     const { name, value } = event.target;
-
-    //     if (name === 'crowd') {
-
-    //         if (value <= 0) {
-    //             setCrowdError('Expected crowd should be a positive integer');
-    //         }
-
-    //         else if (!Number.isInteger(value)) {
-    //             setCrowdError('Expected crowd should be a positive integer');
-    //         }
-
-    //         else {
-    //             setCrowdError('');
-    //             // Handle location selection
-    //             setFormData((prevFormData) => ({
-    //                 ...prevFormData,
-    //                 [name]: value,
-    //             }));
-    //         }
-
-    //     } else {
-    //         // Handle form input changes
-    //         setFormData((prevFormData) => ({
-    //             ...prevFormData,
-    //             [name]: value,
-    //         }));
-    //     }
-    // };
-
-    // const handleLocationSelect = (selectedLocation) => {
-    //     // Update the location property in the formData state with the selected location data
-    //     setFormData((prevFormData) => ({
-    //         ...prevFormData,
-    //         location: selectedLocation.address,
-    //     }));
-
-    //     // Print the location value in the console
-    //     console.log(selectedLocation.address);
-    // };
+    
 
     return (
 
@@ -242,7 +198,7 @@ function MakeArtistRequest() {
                                         headers: { "Content-Type": "application/json" },
                                         body: JSON.stringify(formData)
                                     }).then(() => {
-                                        window.location.href = "/organizer/event";
+                                        window.location.href = `/organizer/event/eventdashboard/${eventid}`;
                                     })
                                 }} >Submit</button>
                             </Link>
