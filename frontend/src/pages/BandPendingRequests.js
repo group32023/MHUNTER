@@ -30,10 +30,11 @@ export default function ArtistPendingRequests() {
   const [currentPage, setCurrentPage] =useState(1);
   const [linePerPage, setLinePerPage] = useState(4);
 
+  const mmid=localStorage.getItem('mmid');
   useEffect(() => {
     // Fetch the data from the Java backend
     const getPendingRequest = async () =>{
-      const res = await fetch('http://localhost:8080/requestMusicMember/pendingRequest/758464')
+      const res = await fetch(`http://localhost:8080/requestMusicMember/pendingRequest/${mmid}`)
 
       const data = await res.json();
         setEventList(data);

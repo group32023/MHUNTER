@@ -27,7 +27,7 @@ export default function ArtistPendingRequests() {
   const { id } = useParams();
 
   const [event, setEvent] = useState([]);
-  const mmid=758464;
+  const mmid=localStorage.getItem('mmid');
 
   const [expand,setExpandedSideBar] = useState(true)
   let navigate = useNavigate();
@@ -155,9 +155,9 @@ const loadPendingRequest=()=>{
             </div>
             
 
-            <button className="priorbookingsBtn" onClick={()=>loadPriorBooking(758463,event['orgId'],event['eventId'])}>Prior Bookings</button>
-            <button className="myEventsBtn" onClick={()=>loadMyEventsOn(758463,event['date'],event['eventId'])}>My Events</button>
-            <button className="acceptBtn" onClick={()=>loadInvoice(event['eventId'],758463)}>Accept</button>
+            <button className="priorbookingsBtn" onClick={()=>loadPriorBooking(mmid,event['orgId'],event['eventId'])}>Prior Bookings</button>
+            <button className="myEventsBtn" onClick={()=>loadMyEventsOn(mmid,event['date'],event['eventId'])}>My Events</button>
+            <button className="acceptBtn" onClick={()=>loadInvoice(event['eventId'],mmid)}>Accept</button>
             <button className="rejectBtn" onClick={()=>handleReject()}>Reject</button>
         </div>
 
