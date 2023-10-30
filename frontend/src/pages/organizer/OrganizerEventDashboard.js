@@ -83,8 +83,11 @@ function OrganizerEventDashboard() {
     const initialFormData = {
         title: 'Event Cancellation',
         message: '',
-        mmids: mmids,
+        mmids: '',
     };
+
+    const [formData, setFormData] = useState(initialFormData);
+
 
     //Event Data Fetching
     useEffect(() => {
@@ -93,7 +96,7 @@ function OrganizerEventDashboard() {
                 setEvent(response.data[0]);
                 const updatedFormData = {
                     ...initialFormData,
-                    message: `The ${response.data[0].event_name} scheduled for ${response.data[0].date} has been canceled.\n\nEvent Details:\nEvent Name: ${response.data[0].event_name}\nEvent Date: ${response.data[0].date}\nEvent Location: ${response.data[0].location}`,
+                    message: `The ${response.data[0].event_name} scheduled for ${response.data[0].date} has been canceled.`,
                 };
                 setFormData(updatedFormData);
             })
@@ -102,18 +105,18 @@ function OrganizerEventDashboard() {
             });
     }, [eventid]);
 
-    const [formData, setFormData] = useState(initialFormData);
-
+    
     useEffect(() => {
         fetch(`http://localhost:8080/requestsLog/getmmids/${eventid}`)
             .then(res => res.json())
             .then((result) => {
                 setMmids(result);
-                console.log(mmids);
+                console.log(result);
                 setFormData((prevData) => ({
                     ...prevData,
                     mmids: result,
                 }));
+        
             }
             )
 
@@ -395,7 +398,7 @@ function OrganizerEventDashboard() {
                                             }
                                         })
                                         .then((data) => {
-                                            console.log('Event created successfully:', data);
+                                            console.log('Notification sent successfully:', data);
                                             // After successful creation, you can redirect the user or perform other actions.
                                             window.location.href = "/organizer/event";
                                         })
