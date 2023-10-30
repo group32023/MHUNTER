@@ -189,19 +189,20 @@ const [expand,setExpandedSideBar] = useState(true)
 
                 </div>
 
+                <div className='artistEventPagination'>
+                <Stack spacing={2}>
+                  <Pagination count={(Math.round(divElements.length/noOfLinePerPage))} color="secondary" page={page} onChange={handleChange} />
+                </Stack>
+              </div>
+              {(divElements.length ===0)?<><img src={empty} className='empty-img'></img><span className='emptyContent-report'>it's empty in here.</span></>:undefined}
+
             </div>
             
       
            {/* pagination */}
            
-           {(divElements.length ===0)?<><img src={empty} className='empty-img'></img><span className='emptyContent-report'>it's empty in here.</span></>:undefined}
 
-              <div className='artistEventPagination'>
-                <Stack spacing={2}>
-                  <Pagination count={(Math.round(divElements.length/noOfLinePerPage))} color="secondary" page={page} onChange={handleChange} />
-                </Stack>
-              </div>
-
+              
                  
          <div className='footerForHomeevent'>
 

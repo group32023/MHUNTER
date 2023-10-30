@@ -114,9 +114,12 @@ export default function ArtistPriorBooking() {
 
           <div className='addressDiv'>
           <h3>Prior Booking </h3>
+
+          {(divElements.length ===0)?<><img src={empty} className='empty-img'></img><span className='emptyContent-report'>it's empty in here.</span></>:undefined}
+
       
           <h4 className="organizer_tag">Organizer :  </h4>
-          <h4 className="organizerName">{events[0]['organizerName']}</h4>
+          <h4 className="organizerName">{events.length===0 ? undefined:events[0]['organizerName']}</h4>
           </div>
         
               {/* <Button className="date"><FontAwesomeIcon icon={faCalendarDays} id="CalenderReport"/>Date</Button> 
@@ -148,7 +151,6 @@ export default function ArtistPriorBooking() {
                        
                          {divElements }
                           
-                         {(divElements.length ===0)?<><img src={empty} className='empty-img'></img><span className='emptyContent-report'>it's empty in here.</span></>:undefined}
 
                           
                         </tbody>

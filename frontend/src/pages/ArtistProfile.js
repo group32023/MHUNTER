@@ -1,14 +1,8 @@
-import "../../assets/css/admin/adminProfile.css"
-import band from '../../assets/images/band.jpg';
+import "../assets/css/admin/adminProfile.css"
+import band from '../assets/images/band.jpg';
 
-import AdminDashboard from './AdminDashboard';
-import AdminRegistration from './AdminRegistration';
-import AllUserDetails from './AllUserDetails';
-import ViewUserDetails from './ViewUserDetails';
-import AdminReport from './AdminReport';
-import AdminSettings from './AdminSettings';
-import Topbar from '../../components/common/Topbar';
-import SideMenuBarArtist from '../../components/common/SideMenuBar/SideMenuBarArtist';
+
+import SideMenuBarArtist from '../components/common/SideMenuBar/SideMenuBarArtist';
 import { Link, Route, Routes} from 'react-router-dom';
 
 import React, { useState, useEffect } from 'react';
@@ -163,7 +157,7 @@ export default function AdminProfile() {
 
     <Modal show={show} onHide={handleClose} animation={false}>
         <Modal.Header closeButton  style={{backgroundColor:'#24292D', color:'white'}}>
-          <Modal.Title>Hi Admin</Modal.Title>
+          <Modal.Title>Hi Artist</Modal.Title>
         </Modal.Header>
         <Modal.Body  style={{backgroundColor:'black', color:'white'}}>Your Details are Updated Successfully</Modal.Body>
         <Modal.Footer  style={{backgroundColor:'black',color:'white'}}>

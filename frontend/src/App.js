@@ -49,6 +49,7 @@ import ArtistGenerateReportsToday from './pages/ArtistGenerateReportsToday'
 import ArtistInvoice from './pages/ArtistInvoice';
 import RequestsLog from './pages/RequestLog';
 
+import ArtistProfile from './pages/ArtistProfile';
 
 
 
@@ -120,6 +121,8 @@ function App() {
           <Route path='/artist/eventsOn/:mmid/:date/:eventId' element={<ArtistEventOn/>}></Route>
           <Route path='/artist/invoice/:id/:mmid' element={<ArtistInvoice/>}></Route> 
           <Route path='/requestsLog' element={<RequestsLog/>}></Route> 
+          <Route path='/artist/profile/:id' element={<ArtistProfile/>} />
+
 
           {/* Band Routes */}
           <Route path='/band/PendingRequests' element={<BandPendingRequests />}></Route>
