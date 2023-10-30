@@ -28,7 +28,6 @@ export default function ArtistPendingRequests() {
 
   const [event, setEvent] = useState([]);
   const mmid=758464;
-  console.log(id);
 
   const [expand,setExpandedSideBar] = useState(true)
   let navigate = useNavigate();

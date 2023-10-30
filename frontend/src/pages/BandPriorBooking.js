@@ -1,7 +1,7 @@
 import React,{useState, useEffect,useRef} from 'react';
 import {Button, Table} from 'react-bootstrap';
 import { Link,useNavigate,useParams} from 'react-router-dom';
-import SideMenuBarArtist from '../components/common/SideMenuBar/SideMenuBarArtist'
+import SideMenuBarBand from '../components/common/SideMenuBar/SideMenuBarBand'
 import '../assets/css/priorbooking.css'
 import { MDBBtn } from 'mdb-react-ui-kit';
 import { useReactToPrint } from 'react-to-print'
@@ -94,7 +94,7 @@ export default function ArtistPriorBooking() {
       <div>
           
 
-          <SideMenuBarArtist >
+          <SideMenuBarBand >
         <div>
             <p className='headerDashboard'>Pending Requests</p>
             <div className={expand ? 'notificationBg':'notificationBg-ex'}>
@@ -155,7 +155,7 @@ export default function ArtistPriorBooking() {
           </div>     
           <Button className="back" onClick={()=>load(id3)}>Back</Button>
            
-           </SideMenuBarArtist>
+           </SideMenuBarBand>
           
           </div>
           

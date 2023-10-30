@@ -4,6 +4,8 @@ import SignatureCanvas from 'react-signature-canvas';
 import { Link,useNavigate,useParams } from 'react-router-dom';
 import SideMenuBarArtist from '../components/common/SideMenuBar/SideMenuBarArtist'
 import '../assets/css/bandAgreement.css'
+import SideMenuBarBand from '../components/common/SideMenuBar/SideMenuBarBand'
+
 // import { MDBBtn } from 'mdb-react-ui-kit';
 import profileImage from '../assets/images/profilePhoto.jpeg';
 import CurrencyInput from 'react-currency-input-field';
@@ -177,7 +179,7 @@ const loadInvoice=(id,mmid)=>{
   return ( 
     
     <div >
-       <SideMenuBarArtist>
+       <SideMenuBarBand>
         <div className='mainC'>
             <p className='headerDashboard'>Agreement</p>
             <div className={expand ? 'notificationBg':'notificationBg-ex'}>
@@ -305,7 +307,7 @@ const loadInvoice=(id,mmid)=>{
                                 )}
           
     
-        </SideMenuBarArtist>
+        </SideMenuBarBand>
         
     </div>
   )

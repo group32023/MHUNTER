@@ -1,7 +1,7 @@
 /* eslint-disable react/jsx-no-undef */
 import React,{useState, useEffect,useRef,Lable} from 'react';
 import { Link,useNavigate,useParams } from 'react-router-dom';
-import SideMenuBarArtist from '../components/common/SideMenuBar/SideMenuBarArtist'
+import SideMenuBarBand from '../components/common/SideMenuBar/SideMenuBarBand'
 import '../assets/css/bandInvoice.css'
 // import { MDBBtn } from 'mdb-react-ui-kit';
 import profileImage from '../assets/images/profilePhoto.jpeg';
@@ -256,7 +256,7 @@ const loadInvoicePreview=(id,mmid)=>{
    
     
     <div >
-       <SideMenuBarArtist>
+       <SideMenuBarBand>
         <div>
             <p className='headerDashboard'>Invoice</p>
             <div className={expand ? 'notificationBg':'notificationBg-ex'}>
@@ -374,7 +374,7 @@ const loadInvoicePreview=(id,mmid)=>{
 
                                     </div>
                                 )}
-        </SideMenuBarArtist>
+        </SideMenuBarBand>
         
     </div>
   )
