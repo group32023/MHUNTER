@@ -282,6 +282,29 @@
     opacity: 0.86;
 }
 
+.requestTableDiv .tableContent .artistNameImgColumn {
+    display: flex;
+}
+
+.requestTableDiv .tableContent .artistStateColumn {
+    display: flex;
+}
+
+.requestTableDiv .tableContent .artistStateColumn .contentImg,
+.requestTableDiv .tableContent .artistStateColumn .content {
+    flex: 1;
+}
+
+.requestTableDiv .tableContent .artistNameImgColumn .contentImg {
+    flex: 1;
+}
+
+.requestTableDiv .tableContent .artistNameImgColumn .content {
+    flex: 2;
+    align-items: center;
+    justify-content: center;
+}
+
 .requestTableDiv .tableContent:hover {
     opacity: 1;
 }

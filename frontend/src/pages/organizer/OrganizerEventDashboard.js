@@ -262,6 +262,7 @@ function OrganizerEventDashboard() {
                                                     style={{
                                                         position: 'absolute',
                                                         left: '25%',
+                                                        zIndex: 1000,
                                                         transform: 'translate(-50%, -50%)',
                                                         backgroundColor: 'rgba(0, 0, 0, 0.7)',
                                                         color: 'white',
@@ -274,16 +275,48 @@ function OrganizerEventDashboard() {
                                                 </div>
                                             )}
 
-                                            <div className="column">
+                                            <div className="artistNameImgColumn column">
+                                                <div className="contentImg">
+                                                    <img alt='' src={PaymentArtist4} width='45px' height='45px' style={{ marginLeft: '100px' }} />
+                                                </div>
                                                 <div className="content">
-                                                    <img alt='' src={PaymentArtist4} width='45px' height='45px' className='mx-4' />
                                                     {detail[4]}
                                                 </div>
                                             </div>
-                                            <div className="column">
+                                            <div className="artistStateColumn column">
+
+
                                                 <div className="content confirmed d-flex align-items-center justify-content-center mt-2" style={{ fontFamily: 'MyCustomFont2' }}>
-                                                    Confirmed <BiSolidCircle className='mx-2' />
+                                                    {detail[3] === 0 && (
+                                                        <>
+                                                            <BiSolidCircle style={{ color: 'red' }} className='mx-2' />
+                                                            <span style={{ color: 'red' }}>PENDING</span>
+                                                        </>
+                                                    )}
+                                                    {detail[3] === 'ACCEPTED' && (
+                                                        <>
+                                                            <BiSolidCircle style={{ color: 'orange' }} className='mx-2' />
+                                                            <span style={{ color: 'orange' }}>ACCEPTED</span>
+                                                        </>
+                                                    )}
+                                                    {detail[3] === 'BOOKED' && (
+                                                        <>
+                                                            <BiSolidCircle style={{ color: 'yellow' }} className='mx-2' />
+                                                            <span style={{ color: 'yellow' }}>BOOKED</span>
+                                                        </>
+                                                    )}
+                                                    {detail[3] === 'CONFIRMED' && (
+                                                        <>
+                                                            <BiSolidCircle style={{ color: 'green' }} className='mx-2' />
+                                                            <span style={{ color: 'green' }}>CONFIRMED</span>
+                                                        </>
+                                                    )}
                                                 </div>
+
+                                                <div className="contentImg">
+                                                    <Button>View Details</Button>
+                                                </div>
+
                                             </div>
                                         </div>
 
