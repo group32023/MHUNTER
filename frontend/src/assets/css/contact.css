@@ -106,6 +106,17 @@
 
 }
 
+.descriptionDiv7{
+    /* background-color:rgba(3, 3, 3, 0.4); */
+    width: 100%;
+    height: 120%;
+    top: 88.5%;
+    z-index: 10;
+    position: absolute;
+
+
+}
+
 .captionbackground{
     background-color:rgba(3, 3, 3, 0.50);
     width: 100%;
@@ -180,16 +191,30 @@
 
 .eventcontainer{
 
-    background-color:rgba(3, 3, 3, 0.60);
-    width: 94%;
-    height:63%;
+    width: 90%;
+    height: 80%;
     position: absolute;
-    top: 30%;
-    left: 2%;
+    top: 40%;
+    left: 7%;
     z-index: 100;
 
 }
 
+.eventcontainer .search-artist-container .search-container {
+
+    
+    /* position: relative;
+    width: 150px;
+    top: 0px;
+    left: 0px;
+    display: flex;
+    align-items: center;*/
+    background-color: #000000;
+    /* border-radius: 10px;
+    padding: 0.5rem; */ 
+
+    
+}
 .eventOptioncontainer{
 
     width: 94%;

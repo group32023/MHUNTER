@@ -32,7 +32,7 @@ export default function
 
 
   useEffect(() => {
-      fetch("http://localhost:8080/artist/view")
+      fetch("http://localhost:8080/artist/getAll")
           .then(res => res.json())
           .then((result) => {
               setArtists(result);
