@@ -299,6 +299,8 @@ const handleCloseAcceptRequestModal=()=>{
      
       
       <button type='button' className='previewAgreement' onClick={loadInvoicePreview} >Preview</button>
+      <button className='backInvoice'>Back</button>
+
 
     </div>   
         </div>
