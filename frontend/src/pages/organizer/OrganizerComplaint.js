@@ -2,10 +2,12 @@ import React, { useState, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import SideMenuBarOrganizer from '../../components/common/SideMenuBar/SideMenuBarOrganizer';
 import { BiSolidCheckCircle } from "react-icons/bi";
+// import { BiX } from "react-icons/bi";
 import "../../assets/css/OrganizerComplaint.css"
 import Topbar from '../../components/common/Topbar';
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
+import axios from 'axios';
 
 import OrganizerDashboard from './OrganizerDashboard';
 import OrganizerEventDashboard from './OrganizerEventDashboard';
@@ -16,7 +18,9 @@ import OrganizerProfile from './OrganizerProfile';
 import SearchArtist from './SearchArtist';
 import ViewArtist from './ViewArtist';
 import MakeArtistRequest from './MakeArtistRequest';
+import SystemPreloader from '../../components/common/SystemPreloader';
 
+import SearchBand from './SearchBand'
 
 
 
@@ -24,8 +28,13 @@ function OrganizerComplaint() {
     const [showModal, setShowModal] = useState(false);
     const [title, setTitle] = useState('');
     const [showSuccessComplaintAddPopup, setShowSuccessComplaintAddPopup] = useState(false);
+    const [events, setEvents] = useState([]);
+    const [selectedEvent, setSelectedEvent] = useState(null);
+    // const [submittedEvent, setSubmittedEvent] = useState(null);
     const [description, setDescription] = useState('');
     const [complaints, setComplaints] = useState([]);
+    const [selectedComplaint, setSelectedComplaint] = useState(null);
+
 
 
 
@@ -38,7 +47,7 @@ function OrganizerComplaint() {
 
     const handleClick = (e) => {
         e.preventDefault()
-        const complaint = { title, description, date, status: "PENDING" }
+        const complaint = { title, description, date, status: "PENDING", orgId: 9, eventId: selectedEvent };
         console.log(complaint)
         fetch("http://localhost:8080/complaint/add", {
             method: "POST",
@@ -46,15 +55,20 @@ function OrganizerComplaint() {
             body: JSON.stringify(complaint)
         }).then(() => {
             console.log("New Complaint Added");
+
             setShowSuccessComplaintAddPopup(true); // Show success popup
             setTimeout(() => {
                 setShowSuccessComplaintAddPopup(false); // Hide success popup after a timeout
-            }, 2000);
+
+            }, 3000);
+
+            // window.location.reload();
         })
     }
 
+
     useEffect(() => {
-        fetch("http://localhost:8080/complaint/getAll")
+        fetch("http://localhost:8080/complaint/complaintByOrgId/9")
             .then(res => res.json())
             .then((result) => {
                 setComplaints(result);
@@ -62,11 +76,37 @@ function OrganizerComplaint() {
             )
     }, [])
 
-    const handleShowModal = () => {
+
+
+    const handleEventChange = (event) => {
+        const selectedEventId = event.target.value;
+        setSelectedEvent(selectedEventId);
+    };
+
+
+
+    useEffect(() => {
+
+        axios.get('http://localhost:8080/event/byOrgID/9')
+            .then((response) => {
+                // Assuming your API returns an array of events
+                setEvents(response.data);
+            })
+            .catch((error) => {
+                console.error('Error fetching data:', error);
+            });
+    }, []);
+
+
+
+
+    const handleShowModal = (complaint) => {
+        setSelectedComplaint(complaint);
         setShowModal(true);
     };
 
     const handleCloseModal = () => {
+        setSelectedComplaint(null);
         setShowModal(false);
     };
 
@@ -74,7 +114,7 @@ function OrganizerComplaint() {
         <>
             <SideMenuBarOrganizer>
                 <div className='complaint_content_container'>
-                    <Topbar />
+                    <Topbar customProp="Complaint" />
 
                     <div className='complaint_content_container_main_row row mt-2 p-3'>
                         <div className='complaintForm col-md-4 p-3 mx-4'>
@@ -82,14 +122,26 @@ function OrganizerComplaint() {
                                 <p className='fs-5 text-center' style={{ fontFamily: 'MyCustomFont1' }}>Complaint Form</p>
                                 <hr></hr>
                                 <form className='complaintFormForm ' style={{ fontFamily: 'MyCustomFont' }}>
-                                    <div className="mb-3 mt-3">
-                                        <label for="title" className="form-label mt-4 fs-6 mx-3">Title</label>
+                                    <div className="mb-1">
+                                        <label className='mt-3 mb-2 fs-6 mx-3'>Select an event:</label>
+                                        <select className='complaintSelectEventByName fs-6 ' value={selectedEvent} onChange={handleEventChange} required>
+                                            <option value="">Select an event</option>
+                                            {events.map((event) => (
+                                                <option key={event.eventid} value={event.eventid}>
+                                                    {event.event_name}
+                                                </option>
+                                            ))}
+                                        </select>
+                                        {/* {selectedEvent && <p>You selected: {selectedEvent}</p>} */}
+                                    </div>
+                                    <div className="mb-1 ">
+                                        <label for="title" className="form-label mt-2 fs-6 mx-3">Title</label>
                                         <input type="text" className="form-control text-white" id="title" name="title" required
                                             value={title} onChange={(e) => setTitle(e.target.value)} />
                                     </div>
-                                    <div className="mb-3">
-                                        <label for="description" className="form-label mt-3 fs-6 mx-3">Description</label>
-                                        <textarea className="form-control mb-5 text-white" id='scrollbarStyle-1' name="description" rows="4" required
+                                    <div className="mb-1">
+                                        <label for="description" className="form-label mt-2 fs-6 mx-3">Description</label>
+                                        <textarea className="form-control mb-4 text-white" id='scrollbarStyle-1' name="description" rows="4" required
                                             value={description} onChange={(e) => setDescription(e.target.value)}></textarea>
                                     </div>
 
@@ -105,58 +157,112 @@ function OrganizerComplaint() {
 
 
                         <div className='complaintTableDiv col-md-7 p-2 mx-4' id='scrollbarStyle-1'>
-                            <div className="organizer-complaint-data-table d-flex justify-content-center text-center fs-6" style={{ fontFamily: 'MyCustomFont' }}>
-                                <div className="table-title complaintTableDataRow mb-4" style={{ fontFamily: 'MyCustomFont1' }}>
-                                    <div className="complaint-title">Complaint Title</div>
-                                    <div className="date">Date</div>
-                                    <div className="status">Status</div>
+                            {complaints.length === 0 ? ( // Check if complaints are loading
+
+                                <SystemPreloader />
+
+                            ) : (
+
+                                <div className="organizer-complaint-data-table d-flex justify-content-center text-center fs-6" style={{ fontFamily: 'MyCustomFont' }}>
+                                    <div className="table-title complaintTableDataRow mb-4" style={{ fontFamily: 'MyCustomFont1' }}>
+                                        <div className="complaint-title">Complaint Title</div>
+                                        <div className="date">Date</div>
+                                        <div className="status">Status</div>
+                                    </div>
+                                    {complaints.map((complaint, index) => (
+                                        <div className="content-data-row complaintTableDataRow" onClick={() => handleShowModal(complaint)} key={index}>
+                                            <div className="complaint-title">{complaint.title}</div>
+                                            <div className="date">{complaint.date}</div>
+                                            <div className={`status ${complaint.status === "PENDING"
+                                                ? "status-text-green"
+                                                : complaint.status === "ON-PROGRESS"
+                                                    ? "status-text-orange"
+                                                    : complaint.status === "CLOSED"
+                                                        ? "status-text-red"
+                                                        : "status-text-red" // Default class for REJECTED and other statuses
+                                                }`}>
+                                                {complaint.status}
+                                            </div>
+
+                                        </div>
+                                    ))}
+
+                                    {showSuccessComplaintAddPopup && (
+                                        <div className="complaint-add-success-popup blur-background" style={{ fontFamily: 'MyCustomFont1' }}>
+
+                                            <div className="complaint-add-success-popup-content">
+                                                <div className="complaint-add-success-imgbox">
+                                                    <BiSolidCheckCircle style={{ fontSize: '140px', color: '#1FE70c' }} />
+                                                </div>
+                                                <div className="complaint-add-success-title">
+                                                    <h3>Success!</h3>
+                                                </div>
+                                                <p className="complaint-add-success-para" style={{ fontFamily: 'MyCustomFont' }}>Complaint Added Successfully!</p>
+                                            </div>
+
+
+                                        </div>
+                                    )}
+
+
+                                    {showModal && (
+                                        <div className="overlay">
+                                            <Modal show={showModal} onHide={handleCloseModal} centered className='selectedComplaint-Modal '>
+                                                <Modal.Header className='p-4 d-flex justify-content-center text-center' >
+                                                    <Modal.Title className=' fs-5 mx-5' style={{ fontFamily: 'MyCustomFont1' }}>Complaint Details</Modal.Title>
+                                                </Modal.Header>
+                                                <Modal.Body className='p-3 mx-3 '>
+                                                    {selectedComplaint && (
+                                                        <>
+                                                            <div className='row '>
+                                                                <div className=' row col-md-6'>
+                                                                    <p className='  col-md-4'>Date:</p>
+                                                                    <p className=' col-md-8'>{selectedComplaint.date}</p>
+                                                                </div>
+                                                                <div className='row col-md-6'>
+                                                                    <p className='  col-md-4'>Status:</p>
+                                                                    <p style={{ fontFamily: 'MyCustomFont1' }} className={`status col-md-8 ${selectedComplaint.status === "PENDING"
+                                                                        ? "status-text-green"
+                                                                        : selectedComplaint.status === "ON-PROGRESS"
+                                                                            ? "status-text-orange"
+                                                                            : selectedComplaint.status === "CLOSED"
+                                                                                ? "status-text-red"
+                                                                                : "status-text-red" // Default class for REJECTED and other statuses
+                                                                        }`}>{selectedComplaint.status}</p>
+                                                                </div>
+                                                            </div>
+                                                            <div className=''  >
+                                                                <p style={{ margin: '5px ', color: '#cccccc' }}>Remark : </p>
+                                                                <p style={{ border: '1px solid #2f363e', borderRadius: '10px', padding: '10px' }}>{selectedComplaint.remark}</p>
+                                                            </div>
+
+                                                            <div className=''  >
+                                                                <p style={{ margin: '5px ', color: '#cccccc' }}>Title : </p>
+                                                                <p style={{ border: '1px solid #2f363e', borderRadius: '10px', padding: '10px' }}>{selectedComplaint.title}</p>
+                                                            </div>
+                                                            <div >
+                                                                <p style={{ margin: '5px ', color: '#cccccc' }}>Description:</p>
+                                                                <p style={{ border: '1px solid #2f363e', borderRadius: '10px', padding: '10px' }}>{selectedComplaint.description}</p>
+                                                            </div>
+
+
+
+
+                                                        </>
+                                                    )}
+                                                </Modal.Body>
+                                                <Modal.Footer>
+                                                    <Button variant="secondary" onClick={handleCloseModal} style={{ fontFamily: 'MyCustomFont2' }}>
+                                                        Close
+                                                    </Button>
+                                                </Modal.Footer>
+                                            </Modal>
+                                        </div>
+                                    )}
+
+
                                 </div>
-                                {complaints.map(complaint => (
-                                    <div className="content-data-row complaintTableDataRow" onClick={handleShowModal}>
-                                        <div className="complaint-title">{complaint.title}</div>
-                                        <div className="date">{complaint.date}</div>
-                                        <div className={`status ${complaint.status === "PENDING" ? "status-text-green" : "status-text-red"}`}>
-                                            {complaint.status}
-                                        </div>
-                                    </div>
-                                ))}
-
-                                {showSuccessComplaintAddPopup && (
-                                    <div className="complaint-add-success-popup blur-background" style={{ fontFamily: 'MyCustomFont1' }}>
-
-                                        <div className="complaint-add-success-popup-content">
-                                            <div className="complaint-add-success-imgbox">
-                                                <BiSolidCheckCircle style={{ fontSize: '140px', color: '#1FE70c' }} />
-                                            </div>
-                                            <div className="complaint-add-success-title">
-                                                <h3>Success!</h3>
-                                            </div>
-                                            <p className="complaint-add-success-para" style={{ fontFamily: 'MyCustomFont' }}>Complaint Added Successfully!</p>
-                                        </div>
-
-
-                                    </div>
-                                )}
-
-
-                                {showModal && (
-                                    <div className="overlay">
-                                        <Modal show={showModal} onHide={handleCloseModal} centered>
-                                            <Modal.Header closeButton>
-                                                <Modal.Title></Modal.Title>
-                                            </Modal.Header>
-                                            <Modal.Body>
-                                                Content of the popup goes here.
-                                            </Modal.Body>
-                                            <Modal.Footer>
-                                                <Button variant="secondary" onClick={handleCloseModal}>
-                                                    Close
-                                                </Button>
-                                            </Modal.Footer>
-                                        </Modal>
-                                    </div>
-                                )}
-                            </div>
+                            )}
                         </div>
 
                     </div>
@@ -174,7 +280,7 @@ function OrganizerComplaint() {
                     <Route path='/organizer/searchartist' element={<SearchArtist />} />
                     <Route path='/organizer/searchartist/viewartist' element={<ViewArtist />} />
                     <Route path='/organizer/searchartist/viewartist/makeartistrequest' element={<MakeArtistRequest />} />
-
+                    <Route path='/organizer/searchband' element={<SearchBand />} />
                 </Routes>
 
             </SideMenuBarOrganizer>

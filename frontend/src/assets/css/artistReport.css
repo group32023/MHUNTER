@@ -1,36 +1,33 @@
-
-.MainContainer body{
+.MainContainer body {
 
     text-align: center;
 
 }
-#dateFrom{
-  
-        background-color: #ffffff !important;
-        position: absolute;
-        font-size: 15px;
-        width: 7%;
-        height: 6%;
-        font-weight: bold;
-        text-align: center;
-        color: #000000 !important;
-        border-radius: 10px;
-        border: none !important;
-        left:12%;
-        top: 127px;
 
-    
-}
-.MainContainer{
+*/ #dateFrom {
 
-  
+    background-color: #ffffff !important;
+    position: absolute;
+    font-size: 15px;
+    width: 7%;
+    height: 6%;
+    font-weight: bold;
+    text-align: center;
+    color: #000000 !important;
+    border-radius: 10px;
+    border: none !important;
+    left: 12%;
+    top: 127px;
+
 
 }
 
+.MainContainer {}
 
-#fromdate{
 
-   
+#fromdate {
+
+
     position: absolute;
     width: 11%;
     height: 6%;
@@ -39,9 +36,9 @@
 
 }
 
-#todate{
+#todate {
 
-   
+
     position: absolute;
     width: 11%;
     height: 6%;
@@ -51,43 +48,43 @@
 
 }
 
-#Today{
-        background-color: #ffffff !important;
-        position: absolute;
-        font-size: 15px;
-        width: 7%;
-        height: 6%;
-        font-weight: bold;
-        text-align: center;
-        color: #000000 !important;
-        border-radius: 10px;
-        border: none !important;
-        left: 40%;
-        top: 127px;
+#Today {
+    background-color: #ffffff !important;
+    position: absolute;
+    font-size: 15px;
+    width: 7%;
+    height: 6%;
+    font-weight: bold;
+    text-align: center;
+    color: #000000 !important;
+    border-radius: 10px;
+    border: none !important;
+    left: 40%;
+    top: 127px;
 
 }
 
-.eventTypeSelection{
+.eventTypeSelection {
 
-        background: #ffffff !important;
-        position: absolute;
-        font-size: 15px;
-        width: 6%;
-        height: 6%;
-        font-weight: bold;
-        text-align: center;
-        color: #000000 !important;
-        border-radius: 10px;
-        border: none !important;
-        left: 52%;
-        top: 127px;
-        --bs-btn-active-color: #7643D2 !important;
-    
-        
+    background: #ffffff !important;
+    position: absolute;
+    font-size: 15px;
+    width: 6%;
+    height: 6%;
+    font-weight: bold;
+    text-align: center;
+    color: #000000 !important;
+    border-radius: 10px;
+    border: none !important;
+    left: 52%;
+    top: 127px;
+    --bs-btn-active-color: #7643D2 !important;
+
+
 
 }
 
-#selector{
+#selector {
     position: absolute;
     font-size: 15px;
     width: 11%;
@@ -100,7 +97,7 @@
 }
 
 
-.download{
+.download {
     background-color: #7643D2 !important;
     position: absolute;
     font-size: 15px;
@@ -113,17 +110,17 @@
     border: none !important;
     left: 80%;
     top: 70%;
- 
+
 
 
 }
 
-.artistContainer{
+.artistContainer {
     height: 820px;
 }
 
 
-#CalenderReport{
+#CalenderReport {
     position: relative;
     left: -1%;
     padding-right: 10px;
@@ -151,52 +148,54 @@
 
 
 
-#ReportTable{
+#ReportTable {
     width: 80% !important;
     position: absolute;
     top: 30% !important;
     left: 12.5% !important;
-    
-   
 
-    --bs-table-border:none ;
+
+
+    --bs-table-border: none;
     border-collapse: separate;
     border-spacing: 0 15px;
     background-color: none !important;
     --bs-table-color: #ffffff !important;
-    --bs-table-color-type: none !important; 
+    --bs-table-color-type: none !important;
     justify-content: center;
     --bs-table-bg: none !important;
-    text-align: center !important; 
-  
+    text-align: center !important;
+
 }
 
-#ReportTable thead{
+#ReportTable thead {
     /* background: #000000 !important;
     color: #ffffff !important; */
-     --bs-table-bg: #2F363E;
-     --bs-table-color: #ffffff;
+    --bs-table-bg: #2F363E;
+    --bs-table-color: #ffffff;
 }
 
 
 
-#ReportTable tbody{
-    --bs-table-bg:#5F5C5C;
+#ReportTable tbody {
+    --bs-table-bg: #5F5C5C;
 }
 
 
-#ReportTable tr, td, th{
+#ReportTable tr,
+td,
+th {
 
     padding: 15px 10px 15px 10px !important;
-    
+
     margin: auto;
     text-align: center !important;
     height: 23px;
-    
+
     border: none;
     --bs-table-striped-bg: #5F5C5C;
     --bs-table-color: #ffffff !important;
-    --bs-table-color-type: none !important;  
+    --bs-table-color-type: none !important;
 
 
     

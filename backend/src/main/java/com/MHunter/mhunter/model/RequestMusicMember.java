@@ -8,6 +8,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 
 @Entity
 @Data
@@ -25,4 +26,9 @@ public class RequestMusicMember {
     private String reason;
     private LocalDateTime canceledDate;
     private String rejectReason;
+    private LocalTime arrivalTime;
+    private LocalTime departureTime;
+    private String specialNotes;
+
+
 }

@@ -1,7 +1,9 @@
 package com.MHunter.mhunter.service;
 
 import com.MHunter.mhunter.model.Event;
+import com.MHunter.mhunter.model.Organizer;
 import com.MHunter.mhunter.repository.EventRepository;
+import com.MHunter.mhunter.repository.OrganizerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,8 +21,7 @@ public class EventServiceImpl implements EventService {
     public Event saveEvent(Event event) {
 
         System.out.println("Event before save: " + event);
-        Event savedEvent = eventRepository.save(event);
-        return savedEvent;
+        return eventRepository.save(event);
 
     }
 
@@ -36,12 +37,41 @@ public class EventServiceImpl implements EventService {
     }
 
     @Override
+    public List<Event> viewPastEvents(int orgid){
+
+        return eventRepository.viewPastEvents(orgid);
+    }
+
+    @Override
     public List<Event> getSpecificEventByDate(LocalDate date) {
         return eventRepository.findByDate(date);
     }
 
     @Override
+    public List<Event> getEventsByOrgID(Integer OrgID){
+        return eventRepository.findByOrgID(OrgID);
+    }
+
+    @Override
+    public List<Event> getEventsByeventid(Integer eventid){
+        return eventRepository.findByeventid(eventid);
+    }
+
+//@Override
+//    public List<Event> getConfirmationStatusByEventIdOrgId(Integer eventid, Integer OrgID){
+//        return eventRepository.findByOrgIdEventIdConfirmationStatus(eventid,OrgID);
+//}
+
+
     public List<Event> getEventsForHome() {
         return eventRepository.findUpcomingEventsForEventHome();
     }
+    public List<Event> viewMusicMemberEventsOnDate(int mmid,LocalDate date){
+
+        return  eventRepository.viewMusicMemberEventsOnDate(mmid,date);
+
+    }
+
+
+
 }

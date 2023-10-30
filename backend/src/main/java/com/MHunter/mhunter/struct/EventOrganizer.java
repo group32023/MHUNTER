@@ -18,6 +18,7 @@ public class EventOrganizer {
     private String description;
     private double latitude;
     private double longitude;
+    private String location;
     private String town;
     private LocalTime endTime;
     private LocalDate date;

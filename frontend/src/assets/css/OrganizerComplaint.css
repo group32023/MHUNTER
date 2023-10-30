@@ -40,7 +40,7 @@
 .complaintFormForm input {
     background-color: #1c2126 !important;
     border-radius: 10px;
-    border: white -2px;
+    border: white -1px;
 }
 
 .complaintFormForm textarea {
@@ -160,6 +160,11 @@
     font-weight: bold;
 }
 
+.status-text-orange {
+    color: orange;
+    font-weight: bold;
+}
+
 /* .complaint-add-success-popup {
     position: fixed;
     top: 50%;
@@ -183,7 +188,7 @@
     height: 240px;
     text-align: center;
     background: #1c2126;
-    box-shadow: 4px 4px 70px 10px rgba(238, 238, 238, 0.11);
+    box-shadow: 4px 4px 70px 10px rgba(21, 20, 20, 0.11);
     border-radius: 25px;
 }
 
@@ -223,4 +228,39 @@
     background-color: rgba(47, 54, 62, 0.6);
     /* Adjust the background color and transparency */
     z-index: 1040;
+}
+
+.selectedComplaint-Modal {
+
+    color: white;
+}
+
+.modal-content {
+    background-color: #1c2126 !important;
+}
+
+.modal-header {
+    border-bottom: 1px solid #2f363e;
+}
+
+.modal-footer {
+    border-top: none;
+}
+
+/* .closeOpenedModal {
+    margin-left: 30px;
+} */
+
+
+/* .modal-header .btn-close {
+    color: white !important;
+    /* Set the close button's color to white */
+
+.complaintSelectEventByName {
+    background-color: #1c2126 !important;
+    border-radius: 10px;
+    padding: 0.375rem 0.75rem;
+    /* border: white -5px; */
+    color: white;
+    width: 420px;
 }

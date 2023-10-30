@@ -12,7 +12,7 @@ import SearchArtist from './pages/organizer/SearchArtist';
 import ViewEventHistory from './pages/organizer/ViewEventHistory';
 import ViewArtist from './pages/organizer/ViewArtist';
 import MakeArtistRequest from './pages/organizer/MakeArtistRequest';
-
+import SearchBand from './pages/organizer/SearchBand';
 
 import "./index.css"
 
@@ -120,41 +120,39 @@ function App() {
           <Route path='/artist/invoice/:id/:mmid' element={<ArtistInvoice/>}></Route> 
           <Route path='/requestsLog' element={<RequestsLog/>}></Route> 
 
-          <Route path='/artist/MyFeed' element={<MyFeed/>}></Route>
-       
           {/* Band Routes */}
-          <Route path='/band/PendingRequests' element={<BandPendingRequests/>}></Route>
+          <Route path='/band/PendingRequests' element={<BandPendingRequests />}></Route>
           {/* <Route path='/artist/Reports' element={<ArtistGenerateReports/>}></Route>
           <Route path='/artist/Dashboard' element={<ArtistDashboard/>}></Route>
           <Route path='/artist/Reports/:id' element={<ArtistGenerateReportsToday/>}></Route>
           <Route path='/artist/Event' element={<ArtistEvent/>}></Route>
           <Route path='/artist/EventSpecific/:id' element={<ArtistSpecificEvent/>}></Route> */}
-          <Route path='/band/PendingRequestView/:id' element={<BandPendingRequestView/>}></Route>
-          <Route path='/band/priorbooking/:id1/:id2/:id3' element={<BandPriorBooking/>}></Route>
-          <Route path='/band/eventsOn/:mmid/:date/:eventId' element={<BandEventsOn/>}></Route>
-          <Route path='/band/agreement/:id/:mid/:id1' element={<BandAgreement/>}></Route>
-          <Route path='/band/invoice/:id/:mid/:oid' element={<BandInvoice/>}></Route> 
-          <Route path='/band/agreementPreview/:id/:mmid' element={<BandAgreementPreview/>}></Route> 
-          <Route path='/band/invoicePreview/:id/:mmid' element={<BandInvoicePreview/>}></Route> 
+          <Route path='/band/PendingRequestView/:id' element={<BandPendingRequestView />}></Route>
+          <Route path='/band/priorbooking/:id1/:id2/:id3' element={<BandPriorBooking />}></Route>
+          <Route path='/band/eventsOn/:mmid/:date/:eventId' element={<BandEventsOn />}></Route>
+          <Route path='/band/agreement/:id/:mid/:id1' element={<BandAgreement />}></Route>
+          <Route path='/band/invoice/:id/:mid/:oid' element={<BandInvoice />}></Route>
+          <Route path='/band/agreementPreview/:id/:mmid' element={<BandAgreementPreview />}></Route>
+          <Route path='/band/invoicePreview/:id/:mmid' element={<BandInvoicePreview />}></Route>
 
-          
           {/* <Route path='/artist/MyFeed' element={<MyFeed/>}></Route> */}
-       
 
-      
+
+
           {/* Organizer Routes */}
           <Route path='/' element={<Home />}></Route>
 
           <Route path='/organizer/dashboard' element={<OrganizerDashboard />}></Route>
           <Route path='/organizer/event' element={<ViewEvents />}></Route>
-          <Route path='/organizer/event/eventdashboard' element={<OrganizerEventDashboard />}></Route>
+          <Route path='/organizer/event/eventdashboard/:eventid' element={<OrganizerEventDashboard />}></Route>
           <Route path='/organizer/event/CreateEvent' element={<CreateEvent />}></Route>
-          <Route path='/organizer/eventhistory' element={<ViewEventHistory/>}></Route>
+          <Route path='/organizer/eventhistory' element={<ViewEventHistory />}></Route>
           <Route path='/organizer/complaint' element={<OrganizerComplaint />}></Route>
           <Route path='/organizer/profile' element={<OrganizerProfile />}></Route>
           <Route path='/organizer/searchartist' element={<SearchArtist />} />
           <Route path='/organizer/searchartist/viewartist' element={<ViewArtist />} />  
           <Route path='/organizer/searchartist/viewartist/makeartistrequest' element={<MakeArtistRequest />} />  
+          <Route path='/organizer/searchband' element={<SearchBand />} />
 
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
@@ -178,7 +176,7 @@ function App() {
           <Route path='/admin/report' element={<AdminReport />} />
           <Route path='/admin/settings' element={<AdminSettings />} />
           <Route path='/admin/event' element={<AdminEvents />} />
-          <Route path='/admin/event/eventDetails' element={<AdminEventDashboard/>} />
+          <Route path='/admin/event/eventDetails' element={<AdminEventDashboard />} />
 
           {/*moderator*/}
           {/* <Route path='/moderator/moderatorDashoboardContent' element={<ModeratorDashoboardContent />}></Route>
@@ -186,7 +184,7 @@ function App() {
           <Route path='/moderator/registration/ProofCheck' element={<ProofCheck/>} />
           <Route path='/moderator/event' element={<ModeratorEvent />}></Route>
           <Route path='/moderator/complaints' element={<ModeratorComplaints />}></Route>
-          <Route path='/moderator/complaints/viewComplaints' element={<ViewComplaints/>} />
+          <Route path='/moderator/complaints/viewComplaints' element={<ViewComplaints />} />
           <Route path='/moderator/userDetails' element={<ModeratorUserDetails />}></Route>
           <Route path='/moderator/event/eventDetails' element={<EventDetails/>}/>
           <Route path='/moderator/registration/ProofCheck' element={<proofCheck/>}/>
