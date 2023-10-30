@@ -51,7 +51,7 @@ import PaymentArtist10 from '../../assets/images/paymentArtist10.jpg'
 
 
 export default function OrganizerDashboard() {
-  const artistId = 2;
+  const artistId = 20;
   return (
     <>
       <SideMenuBarOrganizer>
