@@ -275,14 +275,14 @@
     z-index: 1000;
 }
 
-.eventcontainer{
+.eventcontainer1{
 
     background-color:rgba(3, 3, 3, 0.60);
     width: 94%;
     height:63%;
     position: relative;
-    top: 14%;
-    left: -6%;
+    top: 28%;
+    left: 3%;
     z-index: 100;
 
 }

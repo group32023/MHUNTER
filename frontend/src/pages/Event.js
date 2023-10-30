@@ -170,7 +170,7 @@ const [expand,setExpandedSideBar] = useState(true)
                     With MHUNTER, event creation is a breeze. Seamlessly set up and customize your music events with essential details like event name, date, time, location. Craft the perfect atmosphere for your attendees, ensuring an unforgettable experience from start to finish.                    </p>
                 </section>
              
-                <div className='eventcontainer'>
+                <div className='eventcontainer1'>
 
                  
 

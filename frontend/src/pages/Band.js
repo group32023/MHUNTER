@@ -1,11 +1,13 @@
-import React from 'react'
+import React,{ useEffect, useState } from 'react'
 import NavBar from '../components/common/NavBar';
 import MainSlider from '../components/common/MainSlider';
 import backgroundimage from '../assets/images/backgroundimage1.jpg';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {Form, Container} from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
-
+import { faSearch } from '@fortawesome/free-solid-svg-icons';
+import StarRating from '../components/organizer/StarRating';
 import Services from '../components/Services';
 import BandSlider from '../components/BandSlider';
 import EventTable from '../components/EventTable';
@@ -23,8 +25,29 @@ import '../assets/css/home.css'
 import '../assets/css/event.css'
 
 export default function 
-h() {
-    
+HomeBand() {
+  const [band, setBands] = useState([])
+  const [searchInput, setSearchInput] = useState('');
+
+  const imageExtention = ["jpg", "png", "jpeg"]
+  const BASE_URL = "http://localhost:8080";
+
+
+  useEffect(() => {
+      fetch("http://localhost:8080/band/getAll")
+          .then(res => res.json())
+          .then((result) => {
+              setBands(result);
+              console.log(result);
+          }
+          )
+  }, [])
+
+  const filteredBands = band.filter((band) =>
+  band.user.firstName.toLowerCase().includes(searchInput.toLowerCase()) ||
+  band.user.lastName.toLowerCase().includes(searchInput.toLowerCase())
+  );
+
   return (
     <div>
        
@@ -74,23 +97,65 @@ h() {
                 <div className='eventcontainer'>
 
 
+                {/* <div className='row search-band-container'>
+                    
+                    <div className="search-container">
+                        <div className="searchbar">
+
+                            <input
+                                className="form-control me-1 custom-input"
+                                type="search"
+                                placeholder="Search An Artist"
+                                aria-label="Search"
+                                value={searchInput}
+                                onChange={(e) => setSearchInput(e.target.value)}
+                            />
+
+                        </div>
+
+                        <div className='searchicon'>
+
+                            <FontAwesomeIcon icon={faSearch} />
+                        </div>
+                    </div> */}
+
                     <Container>
                       <Form.Control
                         className="smaller-input"
-                        name="foo" id="statusInput"
-                        placeholder="Search Here"
+                        name="foo" id="statusInput1"
+                        placeholder="Enter Event Detail Here" value={searchInput}
+                            onChange={(e) => setSearchInput(e.target.value)}
                       />
                     </Container>
-                    <BandSlider></BandSlider>
-                    <Footer></Footer>
+
+                    {filteredBands.map(band => (
+
+            
+                        <div className='col-md-3 band-box' >
+                            <Link to="/organizer/searchband/viewband" className='link1'>
+                                <div className='image'>
+                                    <img src={`${BASE_URL}/postData/uploads/image/dinesh-tharanga.jpg`} alt="post media" />
+                                </div>
+
+                                <div className='content'>
+
+                                    <h5>{band.user.bandName}</h5>
+                                    <StarRating rating={5} ></StarRating>
+
+                                </div>
+                            </Link>
+                        </div>
+                    
+
+                    ))}
                   
 
                 </div>
 
             </div>
-            
+           </div> 
 
       </div>
-    </div>
+ 
   )
 }

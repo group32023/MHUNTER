@@ -36,7 +36,6 @@ export default function
           .then(res => res.json())
           .then((result) => {
               setArtists(result);
-              console.log(result);
           }
           )
   }, [])
@@ -100,7 +99,7 @@ export default function
             <div className='row search-artist-container'>
            
 
-                <div className="search-container">
+                {/* <div className="search-container">
                     <div className="searchbar">
 
                         <input
@@ -118,7 +117,17 @@ export default function
 
                         <FontAwesomeIcon icon={faSearch} />
                     </div>
-                </div>
+                </div> */}
+
+                
+                <Container>
+                      <Form.Control
+                        className="smaller-input"
+                        name="foo" id="statusInput1"
+                        placeholder="Enter Event Detail Here" value={searchInput}
+                            onChange={(e) => setSearchInput(e.target.value)}
+                      />
+                    </Container>
 
                 {filteredArtists.map(artist => (
 

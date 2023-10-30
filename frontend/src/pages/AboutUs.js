@@ -224,9 +224,7 @@ App() {
                             </tr>
                              <tr >
                              {                             
-                                showDiv1 && <div id="payments"> Offering a variety of payment options is crucial for our website to accommodate the diverse preferences and needs of customers.
-                                <br></br>
-                               &nbsp;  &nbsp;   &nbsp;   &nbsp;  *  Options: Credit & Debit cards using Stripe.
+                                showDiv1 && <div id="payments"> MHunter offers a variety of flexible payment options for both organizers and artists/bands. Organizers can securely make advance payments to secure their preferred talent, ensuring trust and reliability in the booking process. Payments can be either full or half, depending on the agreement between the parties. The integrated payment system ensures seamless financial transactions, eliminating concerns of financial mismanagement. With state-of-the-art payment technology, MHunter ensures that all transactions are safe and transparent, providing peace of mind to all users.
                                 </div>
                              }
                              </tr>
@@ -238,7 +236,7 @@ App() {
                             </tr>
                              <tr>
                              {                             
-                                showDiv2 && <div id="technology">Stripe </div>
+                                showDiv2 && <div id="technology">MHunter leverages cutting-edge technology to streamline the process of hiring singers and music bands for events. The platform's user-friendly interface, advanced search capabilities, and integrated payment system represent the state of the art in event management technology. The system uses the latest security measures to protect user data and financial transactions, ensuring a secure and efficient environment for event planning. With real-time updates, comprehensive artist/band profiles, and advanced features, MHunter is at the forefront of innovation in the event management industry.</div>
                              }
                              </tr>
 
@@ -249,7 +247,7 @@ App() {
                             </tr>
                              <tr>
                              {                             
-                                showDiv3 && <div id="service">Hello world hi! </div>
+                                showDiv3 && <div id="service">MHunter is committed to providing top-notch customer care service. The platform offers prompt support to address inquiries and issues from users. In case of complaints or disputes, a dedicated moderator reviews the issues and ensures fair resolutions, maintaining positive relationships with all users. The presence of a responsive customer care service adds an extra layer of trust and reliability to the platform, making the experience of hiring artists and bands a smooth and enjoyable one.</div>
                              }
                              </tr>
 
@@ -260,7 +258,7 @@ App() {
                             </tr>
                              <tr>
                              {                             
-                                showDiv4 && <div id="rates">Hello world hi! </div>
+                                showDiv4 && <div id="rates">MHunter is designed to reduce the financial burden on event organizers. By eliminating the need for intermediaries or coordinators, the platform allows organizers to hire artists and bands directly, without additional commission fees. This cost-saving benefit provides organizers with access to a wide network of talented performers at competitive rates, ensuring that they get the best value for their money. MHunter aims to make quality entertainment affordable and accessible. </div>
                              }
                              </tr>
 
@@ -271,7 +269,7 @@ App() {
                             </tr>
                              <tr>
                              {                             
-                                showDiv5 && <div id="free">Hello world hi! </div>
+                                showDiv5 && <div id="free">For emerging artists and bands, MHunter offers a valuable opportunity for free publicity and exposure. By creating comprehensive artist and band profiles, sharing performances, and connecting with event organizers, talented individuals and groups can gain visibility in the music industry. This free publicity not only benefits the artists but also enriches the event planning experience by providing a diverse range of musical options.</div>
                              }
                              </tr>
 
@@ -282,7 +280,7 @@ App() {
                             </tr>
                              <tr>
                              {                             
-                                showDiv6 && <div id="security">Hello world hi! </div>
+                                showDiv6 && <div id="security">MHunter places a strong emphasis on security, ensuring that all user data and financial transactions are protected. The platform verifies and validates artists, offering trust and reliability to event organizers. Additionally, a transparent refund policy ensures that organizers are financially protected in cases of event cancellations or rescheduling. With robust security measures in place, MHunter provides a safe and secure environment for all users, eliminating the risks associated with traditional hiring methods.</div>
                              }
                              </tr>
 

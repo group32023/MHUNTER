@@ -9,6 +9,8 @@ import notification from '../assets/images/notification.png'
 import home from '../assets/images/home-button.png'
 import logout from '../assets/images/logout.png'
 import kpop from '../assets/images/kpop.png'
+import empty from '../assets/images/empty(1).png'
+
 
 import CircularProgress from '@mui/material/CircularProgress';
 
@@ -86,7 +88,6 @@ export default function ArtistPriorBooking() {
   }
 
   
-  if(events.length===0) return <div><CircularProgress color="secondary" /></div>
 
 
     return (
@@ -147,7 +148,8 @@ export default function ArtistPriorBooking() {
                        
                          {divElements }
                           
-                    
+                         {(divElements.length ===0)?<><img src={empty} className='empty-img'></img><span className='emptyContent-report'>it's empty in here.</span></>:undefined}
+
                           
                         </tbody>
                       </Table>
