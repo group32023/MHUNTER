@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Button, Modal } from 'react-bootstrap';
-import { Tab, Nav } from 'react-bootstrap'
+import { Tab, Nav } from 'react-bootstrap';
+import '../../assets/css/ArtistInvoiceAgreementModal.css';
 
 function ArtistInvoiceAgreementModal({ index }) {
     const [show, setShow] = useState(false);
@@ -55,22 +56,22 @@ function ArtistInvoiceAgreementModal({ index }) {
             <Modal show={show} onHide={handleClose} >
 
                 <Modal.Body style={{ backgroundColor: '#1c2126' }}>
-                    <div className="container py-2 " style={{ color: 'white' }}>
+                    <div className="ArtistInvoiceAgreementModalContainer  p-2 " style={{ color: 'white' }}>
 
-                        <div className="p-4  rounded shadow mb-3">
-                            <Tab.Container activeKey={activeTab} onSelect={key => setActiveTab(key)}>
-                                <Nav variant="pills" className="flex-column flex-sm-row text-center border-1 rounded-nav" style={{ backgroundColor: '#1c2126' }}>
-                                    <Nav.Item className='mx-2'>
+                        <div className="ArtistInvoiceAgreementModalContainer1 p-4  rounded shadow mb-1">
+                            <Tab.Container activeKey={activeTab} onSelect={key => setActiveTab(key)} >
+                                <Nav variant="pills" className="ArtistInvoiceAgreementModalContainer1Nav py-2 flex-column flex-sm-row text-center border-1 rounded-nav" style={{ backgroundColor: '#1c2126' }}>
+                                    <Nav.Item className='col-3 mx-4 ' >
                                         <Nav.Link eventKey="details" >Details</Nav.Link>
                                     </Nav.Item>
-                                    <Nav.Item className='mx-2'>
+                                    <Nav.Item className='col-3 mx-4'>
                                         <Nav.Link eventKey="invoice">Invoice</Nav.Link>
                                     </Nav.Item>
-                                    <Nav.Item className='mx-2'>
+                                    <Nav.Item className='col-3 mx-4'>
                                         <Nav.Link eventKey="agreement">Agreement</Nav.Link>
                                     </Nav.Item>
                                 </Nav>
-                                <Tab.Content>
+                                <Tab.Content className='ArtistInvoiceAgreementTabContent mt-5 px-4'>
                                     <Tab.Pane eventKey="details">
                                         <p  >Lorem ipsum dolor sit amet, c</p>
                                         <p   >Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
@@ -85,14 +86,14 @@ function ArtistInvoiceAgreementModal({ index }) {
                                     </Tab.Pane>
                                 </Tab.Content>
                             </Tab.Container>
-
+                            <Button variant="secondary" onClick={handleClose}>
+                                Close
+                            </Button>
                         </div>
 
 
                     </div>
-                    <Button variant="secondary" onClick={handleClose}>
-                        Close
-                    </Button>
+
                 </Modal.Body>
 
             </Modal>

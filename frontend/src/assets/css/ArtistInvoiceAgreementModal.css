@@ -40,12 +40,12 @@
 
 .lined .nav-link.active {
     background: none;
-    color: #555;
+    color: rgb(229, 226, 226);
     border-color: #7643D2;
 }
 
 .nav-pills .nav-link {
-    color: #555;
+    color: rgb(229, 226, 226);
 }
 
 .text-uppercase {
@@ -63,4 +63,21 @@
 .nav-link:focus,
 .nav-link:hover {
     color: #7643D2;
+}
+
+.ArtistInvoiceAgreementModalContainer1 .ArtistInvoiceAgreementModalContainer1Nav {
+    border: 2px solid #7643D2;
+}
+
+.ArtistInvoiceAgreementModalContainer {
+    width: 765px;
+    height: 550px;
+}
+
+.ArtistInvoiceAgreementModalContainer1 {
+    height: 535px;
+}
+
+.ArtistInvoiceAgreementTabContent {
+    font-size: 14px;
 }
