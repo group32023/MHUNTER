@@ -39,6 +39,9 @@ public class RequestMusicMemberController {
     @Autowired
     private MusicMemberService musicMemberService;
 
+    @Autowired
+    private BookedListService bookedListService;
+
 //    @PostMapping("/add")
 //    public String save(@RequestBody RequestMusicMember requestMusicMember){}
         
@@ -390,8 +393,14 @@ public class RequestMusicMemberController {
             Object[] result = new Object[5];
             result[0] = requestMusicMember.getRequestMusicMemberId().getMMID();
             result[1] = requestMusicMember.getOrgId();
-            result[2] = requestMusicMember.getConfirmationStatus();
-            result[3] = requestMusicMember.getRequestMusicMemberId().getEventId();
+            result[2] = requestMusicMember.getRequestMusicMemberId().getEventId();
+            result[3] = requestMusicMember.getConfirmationStatus();
+
+            if (requestMusicMember.getConfirmationStatus() == 1) {
+                BookedList bookedList = bookedListService.getAllByMmidAndEventidRequestLogs((Integer) result[0], (Integer) result[2]);
+                result[3] = bookedList.getRequestState();
+
+            }
 
             MusicMember musicMember =  musicMemberService.findSpecificMusicMember(requestMusicMember.getRequestMusicMemberId().getMMID());
 

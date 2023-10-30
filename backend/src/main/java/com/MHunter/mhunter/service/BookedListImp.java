@@ -26,4 +26,15 @@ public class BookedListImp implements BookedListService{
     public List<BookedList> getAllRequestLogs() {
         return bookedListRepository.findAll();
     }
+
+    @Override
+    public BookedList getAllByMmidAndEventidRequestLogs(int mmid, int eventid) {
+        return bookedListRepository.findByMmidAndEventid(mmid,eventid);
+    }
+
+    @Override
+    public List<BookedList> getAllByOrgIdRequestLogs(int OrgId){
+        return bookedListRepository.findByOrgId(OrgId);
+    }
+
 }

@@ -72,4 +72,15 @@ public class BookedListController {
 
                return events;
    }
+
+    @GetMapping("/viewByMmidAndEventid/{mmid}/{eventid}")
+    public BookedList getAllByMmidRequestLogs(@PathVariable int mmid, @PathVariable int eventid){
+        return bookedListService.getAllByMmidAndEventidRequestLogs(mmid, eventid);
+    }
+
+    @GetMapping("/viewByOrgId/{OrgId}")
+    public List<BookedList> getAllByMmidRequestLogs(@PathVariable int OrgId){
+        return bookedListService.getAllByOrgIdRequestLogs(OrgId);
+    }
+
 }

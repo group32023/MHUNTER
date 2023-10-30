@@ -11,4 +11,8 @@ public interface BookedListService {
     public List<BookedList> viewRequestsLog(int mmid);
     public List<BookedList> getAllRequestLogs();
 
+    public BookedList getAllByMmidAndEventidRequestLogs(int mmid, int eventid);
+
+    public List<BookedList> getAllByOrgIdRequestLogs(int OrgId);
+
 }

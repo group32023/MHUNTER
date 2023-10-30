@@ -14,5 +14,7 @@ public interface BookedListRepository extends JpaRepository<BookedList, Integer>
     List<BookedList> findByRequestsLogList( @Param("mmid") int mmid);
 
 
+    BookedList findByMmidAndEventid(int mmid, int eventid);
 
+    List<BookedList> findByOrgId(int orgId);
 }

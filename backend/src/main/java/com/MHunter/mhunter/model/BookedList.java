@@ -23,7 +23,7 @@ public class BookedList {
     private int invoiceId;
 
 
-    private int agreementId;
+    private Integer agreementId;
 
 
     private int orgId;
