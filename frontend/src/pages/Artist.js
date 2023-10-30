@@ -1,13 +1,15 @@
-import React from 'react'
+import React,{ useEffect, useState } from 'react'
 import NavBar from '../components/common/NavBar';
 import MainSlider from '../components/common/MainSlider';
 import backgroundimage from '../assets/images/backgroundimage1.jpg';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {Form, Container} from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import Topbar from '../../components/common/Topbar';
-import anushka from '../../assets/images/anushka.png';
+import Topbar from '../components/common/Topbar';
 
+
+import { faSearch } from '@fortawesome/free-solid-svg-icons';
+import StarRating from '../components/organizer/StarRating';
 
 
 import Footer from '../components/common/Footer';
@@ -20,8 +22,11 @@ import '../assets/css/home.css'
 import '../assets/css/event.css'
 
 export default function 
-h() {
+
+    HomeArtist() {
            
+  const [artist, setArtists] = useState([])
+  const [searchInput, setSearchInput] = useState('');
 
   const BASE_URL = "http://localhost:8080";
 
@@ -93,7 +98,7 @@ h() {
 
 
             <div className='row search-artist-container'>
-                <Topbar />
+           
 
                 <div className="search-container">
                     <div className="searchbar">
