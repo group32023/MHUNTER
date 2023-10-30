@@ -66,8 +66,8 @@ export default function AdminDashboard() {
   }
 
   const seriesData = [{
-    name: "Desktops",
-    data: [10, 41, 35, 51, 49, 62, 69, 91, 148]
+    name: "Monthly Income",
+    data: [100000, 41000, 35000, 51000, 49000, 62000, 69000, 91000, 148000, 70000, 90000,67000]
   }];
 
   const optionsData = {
@@ -85,17 +85,18 @@ export default function AdminDashboard() {
       curve: 'straight'
     },
     title: {
-      text: 'Product Trends by Month',
-      align: 'left'
+      text: 'Annual Income',
+      align: 'center'
+      
     },
     grid: {
       row: {
-        colors: ['#f3f3f3', 'transparent'],
+        colors: ['#99ccff', 'transparent'],
         opacity: 0.5
       },
     },
     xaxis: {
-      categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep'],
+      categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct','Nov','Dec'],
     }
   };
 
@@ -255,8 +256,13 @@ export default function AdminDashboard() {
       </div>
     </div>
 
-    <div className='row' style={{ marginTop: '10px' }}>
-        <ReactApexChart options={optionsData} series={seriesData} type="line" height={350} width={400} />
+    <div className='container' style={{ marginTop: '3%',
+     backgroundColor: '#99b3e6', 
+     padding:'40px', 
+     display:'flex', justifyContent:'center',
+      borderRadius:'10px',
+      width:'60%'}}>
+        <ReactApexChart options={optionsData} series={seriesData} type="line" height={350} width={700} />
       </div>
 
 

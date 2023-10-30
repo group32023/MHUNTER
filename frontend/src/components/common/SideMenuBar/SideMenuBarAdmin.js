@@ -62,7 +62,7 @@ function SideMenuBarAdmin({ children }) {
                     </div>
 
                     <div className="row">
-                        <NavLink to="/">
+                        <NavLink to={`/admin/profile/${user?.userId}`}>
                             <div className="menu-profilePhoto col d-flex justify-content-center">
                                 <img
                                     className={isExpanded ? "menu-item-profilePhoto img-fluid my-4" : "menu-item-profilePhoto-NX"}

@@ -84,7 +84,7 @@
     background-color: #2f363e;
     color: #FAECFA;
     border: none;
-    border-radius: 10px;
+    
   }
   .react-calendar__month-view__weekdays__weekday {
     font-weight: bold;
@@ -97,6 +97,7 @@
     background-color: #7643d2;
     color: #fff;
     border: none;
+    border-radius: 10px;
   }
   .react-calendar__navigation {
     color: #2f363e;
@@ -119,7 +120,7 @@
     cursor: pointer;
     border: none;
     background-color: #2f363e;
-    border-radius: 50px;
+    
   }
 /* /Calender */
 

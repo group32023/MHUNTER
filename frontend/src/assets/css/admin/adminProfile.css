@@ -1,0 +1,43 @@
+.adminProfile-container{
+    background-image: url("../../images/band.jpg");
+    background-color: #2f363e;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.adminProfile-form{
+    width: 35%;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: rgba(173, 216, 230, 0.9); 
+
+}
+.adminProfile-backBtn {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+  }
+  
+  .adminProfile-backBtn button {
+    background-color: #7643d2;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    border-radius: 12px;
+  }
+  
+  .adminProfile-backBtn button:hover {
+    background-color: white;
+    color: black;
+  }
