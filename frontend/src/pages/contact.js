@@ -87,6 +87,12 @@ h() {
 
             </div>
 
+            <div className='footerForHomeContact'>
+
+             <Footer></Footer>
+
+         </div>
+
 
       </div>            
 

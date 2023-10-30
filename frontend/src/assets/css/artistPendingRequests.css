@@ -312,6 +312,20 @@
 
 } */
 
+
+.inputReason{
+    position: relative;
+    top:26px;
+    left: 0px;
+    width: 250px;
+
+}
+
+#reasonDes{
+   position: relative;
+   top: 32px;
+}
+
 .eventDate1{
     position: absolute;
     left: 20%;

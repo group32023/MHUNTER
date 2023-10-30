@@ -196,7 +196,7 @@ App() {
                  
             </div>
 
-            <div className='descriptionDiv1'>
+            <div className='descriptionDivoption'>
                <div className='captionbackground'>
                 <p className='caption1'>Home {'>'} About Us</p>
                 </div>
@@ -211,7 +211,7 @@ App() {
                     With MHUNTER, event creation is a breeze. Seamlessly set up and customize your music events with essential details like event name, date, time, location. Craft the perfect atmosphere for your attendees, ensuring an unforgettable experience from start to finish.                    </p>
                 </section>
              
-                <div className='eventcontainer'>
+                <div className='eventOptioncontainer'>
 
                    
                       <Table className='table table-hover table-dark ' id="tableEvents" >
@@ -224,7 +224,10 @@ App() {
                             </tr>
                              <tr >
                              {                             
-                                showDiv1 && <div id="payments">hello welcome jikflfmnfgfgfb njbj jxclokdclvd cknjccpocfnm cnjxjvb jhcjkcbbkjv jcjkbckjbcvkbj jkbckjjxvbvb cxnbchkbjjvvb  jhckjbcjcjb kjbckjxcxknckn jnkkvkxjdvjv</div>
+                                showDiv1 && <div id="payments"> Offering a variety of payment options is crucial for our website to accommodate the diverse preferences and needs of customers.
+                                <br></br>
+                               &nbsp;  &nbsp;   &nbsp;   &nbsp;  *  Options: Credit & Debit cards using Stripe.
+                                </div>
                              }
                              </tr>
                              
@@ -235,7 +238,7 @@ App() {
                             </tr>
                              <tr>
                              {                             
-                                showDiv2 && <div>Hello world hi! </div>
+                                showDiv2 && <div id="technology">Stripe </div>
                              }
                              </tr>
 
@@ -246,7 +249,7 @@ App() {
                             </tr>
                              <tr>
                              {                             
-                                showDiv3 && <div>Hello world hi! </div>
+                                showDiv3 && <div id="service">Hello world hi! </div>
                              }
                              </tr>
 
@@ -257,7 +260,7 @@ App() {
                             </tr>
                              <tr>
                              {                             
-                                showDiv4 && <div>Hello world hi! </div>
+                                showDiv4 && <div id="rates">Hello world hi! </div>
                              }
                              </tr>
 
@@ -268,7 +271,7 @@ App() {
                             </tr>
                              <tr>
                              {                             
-                                showDiv5 && <div>Hello world hi! </div>
+                                showDiv5 && <div id="free">Hello world hi! </div>
                              }
                              </tr>
 
@@ -279,7 +282,7 @@ App() {
                             </tr>
                              <tr>
                              {                             
-                                showDiv6 && <div>Hello world hi! </div>
+                                showDiv6 && <div id="security">Hello world hi! </div>
                              }
                              </tr>
 
@@ -295,6 +298,12 @@ App() {
                 </div>
 
             </div>
+
+            <div className='footerForHomeAboutUs'>
+
+                <Footer></Footer>
+
+                </div>
             
 
       </div>

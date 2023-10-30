@@ -38,6 +38,16 @@ public class RequestMusicMemberServiceImp implements RequestMusicMemberService{
     }
 
     @Override
+    public RequestMusicMember updateReasonRequestMusicMember(RequestMusicMemberId id, String reason) {
+        return requestMusicMemberRepository.findById(id).map(requestMusicMember1 -> {
+            requestMusicMember1.setConfirmationStatus(-1);
+            requestMusicMember1.setRejectReason(reason);
+            return requestMusicMemberRepository.save(requestMusicMember1);
+        }).orElse(null);
+    }
+
+
+    @Override
     public RequestMusicMember findSpecific(RequestMusicMemberId requestMusicMemberId) {
         Optional<RequestMusicMember> data = requestMusicMemberRepository.findById(requestMusicMemberId);
         return data.orElse(null);

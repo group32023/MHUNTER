@@ -11,6 +11,8 @@ public interface RequestMusicMemberService {
     public List<RequestMusicMember> viewAll();
 
     public RequestMusicMember updateRequestMusicMember(RequestMusicMemberId id);
+    public RequestMusicMember updateReasonRequestMusicMember(RequestMusicMemberId id,String reason);
+
 
     public boolean deleteRequestMusicMember(RequestMusicMemberId requestMusicMemberId);
 

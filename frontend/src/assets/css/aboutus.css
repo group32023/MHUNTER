@@ -120,5 +120,46 @@
 #payments{
     position: relative;
     left: 8%;
-    width: 85%;
+    width: 87%;
+}
+
+#service{
+    position: relative;
+    left: 8%;
+    width: 87%;
+}
+
+
+#rates{
+    position: relative;
+    left: 8%;
+    width: 87%;
+}
+
+
+#free{
+    position: relative;
+    left: 8%;
+    width: 87%;
+}
+
+
+#security{
+    position: relative;
+    left: 8%;
+    width: 87%;
+}
+
+#technology{
+    position: relative;
+    left: 8%;
+    width: 87%;
+}
+
+
+.footerForHomeAboutUs {
+    position: relative;
+    top: 531px;
+    left: 0px;
+    z-index: 10;
 }

@@ -24,4 +24,5 @@ public class RequestMusicMember {
     private int cancelStatus;
     private String reason;
     private LocalDateTime canceledDate;
+    private String rejectReason;
 }

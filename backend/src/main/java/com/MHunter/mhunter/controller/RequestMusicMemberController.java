@@ -66,6 +66,14 @@ public class RequestMusicMemberController {
       return requestMusicMemberService.updateRequestMusicMember(id);
     }
 
+    @PutMapping("/updateReason/{reason}/{mid}/{eventId}")
+    public RequestMusicMember updateReason(@PathVariable String reason,@PathVariable int mid,@PathVariable int eventId){
+        RequestMusicMemberId id = new RequestMusicMemberId();
+        id.setMMID(mid);
+        id.setEventId(eventId);
+        return requestMusicMemberService.updateReasonRequestMusicMember(id,reason);
+    }
+
     @DeleteMapping("/delete/{mid}/{eventId}")
     public String delete(@PathVariable int mid,@PathVariable int eventId){
         RequestMusicMemberId id =new RequestMusicMemberId();

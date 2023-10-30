@@ -23,6 +23,11 @@ public class ArtistController {
     @Autowired
     private MusicMemberService musicMemberService;
 
+
+
+
+
+
     @GetMapping("/view")
     public List<UserArtist> viewAll(){
         List<Artist> artistList = artistService.findAllArtist();

@@ -168,6 +168,16 @@
     z-index: 1000;
 }
 
+
+.descriptionDivoption{
+     background-color: #000; 
+    width: 100%;
+    height: 120%;
+    top: 88.5%;
+    z-index: 10;
+    position: absolute;
+}
+
 .eventcontainer{
 
     background-color:rgba(3, 3, 3, 0.60);
@@ -179,11 +189,25 @@
     z-index: 100;
 
 }
-.map {
-    width: 100%;
-    height: 400px; /* Set the height as per your requirement */
+
+.eventOptioncontainer{
+
+    width: 94%;
+    height:63%;
     position: absolute;
-    top: 8%;
+    top: 40%;
+    left: 2%;
+    z-index: 100;
+
+}
+
+
+.map {
+    width: 70%;
+    height: 265px;
+    position: absolute;
+    top: 10%;
+    left: 21%;
 
   }
 
@@ -194,13 +218,21 @@
     border: none; /* Remove iframe border */
   }
   .ContactDetailsDiv{
-    background-color:rgba(65, 65, 65, 0.563);
+    background-color: rgba(65, 65, 65, 0.563);
     height: 18%;
     position: absolute;
-    top: 40%;
-    left: -10%;
+    top: 60%;
+    width: 85%;
+    left: 7%;
     right: 0%;
   }
+
+  .footerForHomeContact {
+    position: relative;
+    top: 390px;
+    left: 0px;
+    z-index: 10;
+}
  
   
   .contactItem {
