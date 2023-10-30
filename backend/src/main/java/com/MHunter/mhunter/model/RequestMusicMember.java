@@ -20,7 +20,6 @@ public class RequestMusicMember {
     @Column(columnDefinition = "DATETIME DEFAULT CURRENT_TIMESTAMP")
     private LocalDateTime requestDate;
     private int confirmationStatus;
-
     private LocalDateTime confirmationDate;
     private int cancelStatus;
     private String reason;
