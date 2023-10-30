@@ -4,6 +4,9 @@ import MainSlider from '../components/common/MainSlider';
 import backgroundimage from '../assets/images/backgroundimage1.jpg';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {Form, Container} from 'react-bootstrap';
+import { Link } from 'react-router-dom';
+import Topbar from '../../components/common/Topbar';
+import anushka from '../../assets/images/anushka.png';
 
 
 
@@ -18,6 +21,26 @@ import '../assets/css/event.css'
 
 export default function 
 h() {
+           
+
+  const BASE_URL = "http://localhost:8080";
+
+
+  useEffect(() => {
+      fetch("http://localhost:8080/artist/getAll")
+          .then(res => res.json())
+          .then((result) => {
+              setArtists(result);
+              console.log(result);
+          }
+          )
+  }, [])
+  
+  const filteredArtists = artist.filter((artist) =>
+  artist.user.firstName.toLowerCase().includes(searchInput.toLowerCase()) ||
+  artist.user.lastName.toLowerCase().includes(searchInput.toLowerCase())
+  );
+  
   return (
     <div>
        
@@ -66,23 +89,55 @@ h() {
              
                 <div className='eventcontainer'>
 
-                    
+           
 
-                    <Container>
-                      <Form.Control
-                        className="smaller-input"
-                        name="foo" id="statusInput"
-                        placeholder="Search Here"
-                      />
-                    </Container>
-                     
-                     <div className='artistsliderViewArtist'>
-                        <ArtistSlider></ArtistSlider>
 
-                        <Footer></Footer>
-                     </div>
+            <div className='row search-artist-container'>
+                <Topbar />
+
+                <div className="search-container">
+                    <div className="searchbar">
+
+                        <input
+                            className="form-control me-1 custom-input"
+                            type="search"
+                            placeholder="Search An Artist"
+                            aria-label="Search"
+                            value={searchInput}
+                            onChange={(e) => setSearchInput(e.target.value)}
+                        />
+
+                    </div>
+
+                    <div className='searchicon'>
+
+                        <FontAwesomeIcon icon={faSearch} />
+                    </div>
+                </div>
+
+                {filteredArtists.map(artist => (
+
+        
+                    <div className='col-md-3 artist-box' >
+                        <Link to="/organizer/searchartist/viewartist" className='link1'>
+                            <div className='image'>
+                                <img src={`${BASE_URL}/postData/uploads/image/${artist.user.imagePath}`} alt="post media" />
+                            </div>
+
+                            <div className='content'>
+
+                                <h5>{artist.user.firstName} {artist.user.lastName}</h5>
+                                <StarRating rating={5} ></StarRating>
+
+                            </div>
+                        </Link>
+                    </div>
+                
+
+                ))}
+
                   
-                   
+                  </div> 
 
                 </div>
 
