@@ -21,6 +21,7 @@ import OrganizerEventLocation from '../../components/organizer/OrganizerEventLoc
 import SystemPreloader from '../../components/common/SystemPreloader';
 import EventDashboardImagePopup from '../../components/organizer/EventDashboardImagePopup';
 import EventDashboardDescriptionEdit from '../../components/organizer/EventDashboardDescriptionEdit';
+import ArtistInvoiceAgreementModal from '../../components/organizer/ArtistInvoiceAgreementModal';
 
 import SearchBand from './SearchBand'
 
@@ -109,19 +110,6 @@ function OrganizerEventDashboard() {
                 console.error('Error fetching data:', error);
             });
     }, [eventId]);
-
-    //Hoverable Div
-
-    const [hoveredIndex, setHoveredIndex] = useState(null);
-
-    const handleMouseEnter = (index) => {
-        setHoveredIndex(index);
-    };
-
-    const handleMouseLeave = () => {
-        setHoveredIndex(null);
-    };
-
 
 
     //Page Preloader
@@ -253,27 +241,9 @@ function OrganizerEventDashboard() {
                                     </div>
                                     {details.map((detail, index) => (
                                         <div className="row tableContent" key={index}
-                                            onMouseEnter={() => handleMouseEnter(index)}
-                                            onMouseLeave={handleMouseLeave}
+
                                         >
 
-                                            {hoveredIndex === index && (
-                                                <div
-                                                    style={{
-                                                        position: 'absolute',
-                                                        left: '25%',
-                                                        zIndex: 1000,
-                                                        transform: 'translate(-50%, -50%)',
-                                                        backgroundColor: 'rgba(0, 0, 0, 0.7)',
-                                                        color: 'white',
-                                                        width: '200px',
-                                                        padding: '10px',
-                                                        borderRadius: '10px',
-                                                    }}
-                                                >
-                                                    Click to see artist/band invoice and agreements
-                                                </div>
-                                            )}
 
                                             <div className="artistNameImgColumn column">
                                                 <div className="contentImg">
@@ -314,7 +284,8 @@ function OrganizerEventDashboard() {
                                                 </div>
 
                                                 <div className="contentImg">
-                                                    <Button>View Details</Button>
+                                                    <ArtistInvoiceAgreementModal index={index} />
+
                                                 </div>
 
                                             </div>
