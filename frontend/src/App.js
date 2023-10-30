@@ -80,6 +80,7 @@ import OrganizerSignup from './pages/OrganizerSignup';
 import UserDetails from './pages/admin/UserDetails';
 import AdminEvents from './pages/admin/AdminEvents';
 import AdminEventDashboard from './pages/admin/AdminEventDashboard';
+import AdminProfile from './pages/admin/AdminProfile';
 
 // import ModeratorDashoboardContent from './pages/moderator/moderatorDashoboardContent';
 // import ModeratorRegistration from './pages/moderator/registration';
@@ -175,6 +176,7 @@ function App() {
           <Route path='/admin/settings' element={<AdminSettings />} />
           <Route path='/admin/event' element={<AdminEvents />} />
           <Route path='/admin/event/eventDetails' element={<AdminEventDashboard/>} />
+          <Route path='/admin/profile/:id' element={<AdminProfile/>} />
 
           {/*moderator*/}
           {/* <Route path='/moderator/moderatorDashoboardContent' element={<ModeratorDashoboardContent />}></Route>
