@@ -66,11 +66,11 @@ function SideMenuBarAdmin({ children }) {
                             <div className="menu-profilePhoto col d-flex justify-content-center">
                                 <img
                                     className={isExpanded ? "menu-item-profilePhoto img-fluid my-4" : "menu-item-profilePhoto-NX"}
-                                    src={`http://localhost:8080/user/uploads/images/1056_b0GstR.jpg`}
+                                    
+                                    src={`http://localhost:8080/postData/uploads/image/${user?.imagePath}`}
                                     alt="Profile"
-                                    srcSet=""
-                                    width="130px"
-                                    height="130px"
+                                    style={{width:'80px', height:'80px'}}
+
                                     onError={() => {
                                         // Handle image loading error here (e.g., display a default image)
                                     }}

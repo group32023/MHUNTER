@@ -90,7 +90,7 @@ function AdminRegistration() {
             {userR.map((row, index) => (
                 <tr key={index} className='data-row-registration-tr'>
                     <td className='data-row-registration-td'>
-                    <img src={row.profilePicture} alt='band' className='profile-picture' />
+                    <img src={`http://localhost:8080/postData/uploads/image/${row.imagePath}`} alt='band' className='profile-picture' />
                     </td>
                     <td className='data-row-registration-td'>{row.name}</td>
                     <td className='data-row-registration-td'>{row.type}</td>
@@ -98,7 +98,7 @@ function AdminRegistration() {
                     <td className='data-row-registration-td'>
                    
                     <span className='data-button'>
-                        <button type='button' className='btn btn-primary' onClick={()=>load(row.id)}>View</button>
+                        <button type='button' className='btn btn-primary'  onClick={()=>load(row.id)}>View</button>
                     </span>
                     
                     </td>

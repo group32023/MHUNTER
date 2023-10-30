@@ -73,7 +73,8 @@ function ProofCheck() {
         <form className="form-user-details" >
           <div className="user-details">
             <div>
-              <img src={band} alt="band" className="profile-picture-proofcheck" />
+              <img src={`http://localhost:8080/postData/uploads/image/${formData.imagePath}`}
+               alt="band" className="profile-picture-proofcheck" />
             </div>
             <div className="my-form">
               <table>

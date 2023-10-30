@@ -91,39 +91,7 @@ function ViewUserDetails() {
               </table>
             </div>
           </div>
-          <div className='proof'>
-            <span className='label' style={{fontSize:'larger'}}>Proof :</span>
-            <span className='proof-file'>
-                  <div onClick={handleImageClick}>
-                  {image ? 
-                    <img src={URL.createObjectURL(image)} alt="Proof" height={150} width={150}/>
-                  :
-                  <img src={fimage} alt="Proof" height={100} width={100} className='upload-icon'/>
-                  }
-                  <input 
-                    type='file' 
-                    ref={inputRef} 
-                    onChange={handleImageChange} 
-                    style={{display:'none'}}
-                  />  
-                  </div>
-            </span>
-            <span className='proof-file'>
-                  <div  onClick={handleImageClick}> 
-                    {image ? 
-                      <img src={URL.createObjectURL(image)} alt="proof" height={150} width={150}/>
-                    :
-                    <img src={fimage} alt="Proof" height={100} width={100} className='upload-icon'/>
-                    }
-                    <input 
-                      type='file' 
-                      ref={inputRef} 
-                      onChange={handleImageChange} 
-                      style={{display:'none'}}
-                    />  
-                  </div>
-            </span>
-          </div>
+          
           <div className="d-flex justify-content-between button-proofcheck">
             
             <button  type="button" className="btn btn-danger"><h5>Remove User</h5></button>
