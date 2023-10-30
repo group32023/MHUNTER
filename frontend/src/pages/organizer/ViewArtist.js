@@ -1,6 +1,6 @@
 
 import React, { useEffect, useState ,useRef } from 'react';
-import { Link } from 'react-router-dom';
+import { Link,useParams } from 'react-router-dom';
 import Topbar from '../../components/common/Topbar';
 import './ViewArtist.css';
 import anushka from '../../assets/images/anushka.png';
@@ -72,9 +72,11 @@ function ViewArtist() {
     };
 
 
-    const mmid = 100;
-    const mmid1 = 758463;
-    const eventid = 3;
+    const { mmid, eventid } = useParams();
+
+    // const mmid = 100;
+    // const mmid1 = 758463;
+    // const eventid = 3;
     let formattedDate;
     let formattedDate1;
     let formattedDateString;
@@ -110,7 +112,7 @@ function ViewArtist() {
 
     useEffect(() => {
 
-        fetch(`http://localhost:8080/postData/postDetails/${mmid1}`)
+        fetch(`http://localhost:8080/postData/postDetails/${mmid}`)
             .then(res => res.json())
             .then((result) => {
                 setPosts(result);
@@ -132,7 +134,7 @@ function ViewArtist() {
                 formattedDateString = formattedDate1.toLocaleDateString('en-US', options);
                 formattedDateStringRef.current = formattedDateString;
                 // console.log(result);
-                // console.log(formattedDateString );
+                // console.log(formattedDateString ); 
 
                 fetch(`http://localhost:8080/event/musicMemberEventsOnDate/${mmid}/${formattedDate}`)
                     .then(res => res.json())
@@ -306,7 +308,7 @@ function ViewArtist() {
 
 
                         <button type="button" class="btn btn-lg" onClick={handleShowModal}>Events On {formattedDateStringRef.current}</button>
-                        <Link to="/organizer/searchartist/viewartist/MakeArtistRequest">
+                        <Link to={`/organizer/searchartist/viewartist/MakeArtistRequest/${mmid}/${eventid}`}>
                             <button type="button" class="btn btn-lg">Make a Request</button>
                         </Link>
                     </div>
@@ -369,9 +371,9 @@ function ViewArtist() {
                     <Route path='/organizer/eventhistory' element={<ViewEventHistory />}></Route>
                     <Route path='/organizer/complaint' element={<OrganizerComplaint />}></Route>
                     <Route path='/organizer/profile' element={<OrganizerProfile />}></Route>
-                    <Route path='/organizer/searchartist' element={<SearchArtist />} />
-                    <Route path='/organizer/searchartist/viewartist/makeartistrequest' element={<MakeArtistRequest />} />
-                    <Route path='/organizer/searchband' element={<SearchBand />} />
+                    <Route path='/organizer/searchartist/:eventid' element={<SearchArtist />} />
+                    <Route path='/organizer/searchartist/viewartist/makeartistrequest/:mmid/:eventid' element={<MakeArtistRequest />} />
+                    <Route path='/organizer/searchband/:eventid' element={<SearchBand />} />
                 </Routes>
 
             </SideMenuBarOrganizer>

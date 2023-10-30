@@ -15,4 +15,9 @@ public class BandServiceImp implements BandService {
     public List<Band> viewAllBands() {
         return bandRepository.findAll();
     }
+
+    @Override
+    public List<Band> getAllBands() {
+        return bandRepository.findAllBand();
+    }
 }

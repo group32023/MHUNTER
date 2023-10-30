@@ -6,4 +6,5 @@ import java.util.List;
 
 public interface BandService {
     public List<Band> viewAllBands();
+    public List<Band> getAllBands();
 }

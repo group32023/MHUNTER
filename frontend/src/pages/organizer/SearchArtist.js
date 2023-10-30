@@ -1,6 +1,6 @@
 
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link ,useParams } from 'react-router-dom';
 import Topbar from '../../components/common/Topbar';
 // import CreateEvent from './CreateEvent';
 import StarRating from '../../components/organizer/StarRating';
@@ -37,6 +37,7 @@ function SearchArtist() {
     const imageExtention = ["jpg", "png", "jpeg"]
     const BASE_URL = "http://localhost:8080";
 
+    const { eventid } = useParams();
 
     useEffect(() => {
         fetch("http://localhost:8080/artist/getAll")
@@ -83,7 +84,7 @@ function SearchArtist() {
 
             
                         <div className='col-md-3 artist-box' >
-                            <Link to="/organizer/searchartist/viewartist" className='link1'>
+                            <Link to= {`/organizer/searchartist/viewartist/${artist.musicMember.mmid}/${eventid}`} className='link1'>
                                 <div className='image'>
                                     <img src={`${BASE_URL}/postData/uploads/image/${artist.user.imagePath}`} alt="post media" />
                                 </div>
@@ -162,9 +163,9 @@ function SearchArtist() {
                     <Route path='/organizer/eventhistory' element={<ViewEventHistory />}></Route>
                     <Route path='/organizer/complaint' element={<OrganizerComplaint />}></Route>
                     <Route path='/organizer/profile' element={<OrganizerProfile />}></Route>
-                    <Route path='/organizer/searchartist/viewartist' element={<ViewArtist />} />
-                    <Route path='/organizer/searchartist/viewartist/makeartistrequest' element={<MakeArtistRequest />} />
-                    <Route path='/organizer/searchband' element={<SearchBand />} />
+                    <Route path='/organizer/searchartist/viewartist/:mmid/:eventid' element={<ViewArtist />} />
+                    <Route path='/organizer/searchartist/viewartist/makeartistrequest/:mmid/:eventid' element={<MakeArtistRequest />} />
+                    <Route path='/organizer/searchband/:eventid' element={<SearchBand />} />
                 </Routes>
             </SideMenuBarOrganizer>
         </>

@@ -17,7 +17,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @RestController
-@CrossOrigin
+@CrossOrigin(origins = "*")
 @RequestMapping("/band")
 public class BandController {
     @Autowired
@@ -39,5 +39,11 @@ public class BandController {
             }
         });
         return userBandList;
+    }
+
+    @GetMapping("/getAll")
+    public List<Band> getAllBands(){
+
+        return bandService.getAllBands();
     }
 }

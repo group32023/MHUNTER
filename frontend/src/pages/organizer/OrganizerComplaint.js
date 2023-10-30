@@ -277,10 +277,10 @@ function OrganizerComplaint() {
                     <Route path='/organizer/event/CreateEvent' element={<CreateEvent />}></Route>
                     <Route path='/organizer/eventhistory' element={<ViewEventHistory />}></Route>
                     <Route path='/organizer/profile' element={<OrganizerProfile />}></Route>
-                    <Route path='/organizer/searchartist' element={<SearchArtist />} />
-                    <Route path='/organizer/searchartist/viewartist' element={<ViewArtist />} />
-                    <Route path='/organizer/searchartist/viewartist/makeartistrequest' element={<MakeArtistRequest />} />
-                    <Route path='/organizer/searchband' element={<SearchBand />} />
+                    <Route path='/organizer/searchartist/:eventid' element={<SearchArtist />} />
+                    <Route path='/organizer/searchartist/viewartist/:mmid/:eventid' element={<ViewArtist />} />
+                    <Route path='/organizer/searchartist/viewartist/makeartistrequest/:mmid/:eventid' element={<MakeArtistRequest />} />
+                    <Route path='/organizer/searchband/:eventid' element={<SearchBand />} />
                 </Routes>
 
             </SideMenuBarOrganizer>

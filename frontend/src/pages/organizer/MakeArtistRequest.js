@@ -2,7 +2,7 @@ import './MakeArtistRequest.css';
 import { useState, useEffect } from 'react';
 import React from 'react';
 import { GoogleMap, Marker, LoadScript } from '@react-google-maps/api';
-import { Link } from 'react-router-dom';
+import { Link,useParams } from 'react-router-dom';
 import { format } from 'date-fns'
 import Topbar from '../../components/common/Topbar';
 import LocationInput from '../../components/organizer/LocationInput';
@@ -26,21 +26,15 @@ function MakeArtistRequest() {
 
 
     const [event, setEvents] = useState([]);
-    const mmid = 100;
+    
     const orgid = 1;
-    const eventid = 3;
-
+    const { mmid, eventid } = useParams();
 
     const currentDate = format(new Date(), 'yyyy-MM-dd');
 
 
-
     const [formData, setFormData] = useState({
 
-
-        // MMID: mmid,
-        // orgId: orgid,
-        // eventId: eventid,
         arrivalTime: '',
         departureTime: '',
         specialNotes: '',
@@ -271,9 +265,9 @@ function MakeArtistRequest() {
                     <Route path='/organizer/eventhistory' element={<ViewEventHistory />}></Route>
                     <Route path='/organizer/complaint' element={<OrganizerComplaint />}></Route>
                     <Route path='/organizer/profile' element={<OrganizerProfile />}></Route>
-                    <Route path='/organizer/searchartist' element={<SearchArtist />} />
-                    <Route path='/organizer/searchartist/viewartist' element={<ViewArtist />} />
-                    <Route path='/organizer/searchband' element={<SearchBand />} />
+                    <Route path='/organizer/searchartist/:eventid' element={<SearchArtist />} />
+                    <Route path='/organizer/searchartist/viewartist/:mmid/:eventid' element={<ViewArtist />} />
+                    <Route path='/organizer/searchband/:eventid' element={<SearchBand />} />
                 </Routes>
             </SideMenuBarOrganizer>
         </>
