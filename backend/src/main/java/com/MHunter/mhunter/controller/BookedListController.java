@@ -36,11 +36,23 @@ public class BookedListController {
 
    @PostMapping("/save")
    public String save(@RequestBody BookedList data){
-       System.out.println(data);
+       System.out.println("hi");
        data.setDate(LocalDateTime.now());
        bookedListService.saveBooking(data);
        return "added";
    }
+
+   @GetMapping("/getmmids/{eventid}")
+   public List<Integer> getMmidsByEventId(@PathVariable Integer eventid) {
+       return bookedListService.getMmidsByEventId(eventid);
+
+//       if (mmids.isEmpty()) {
+//           return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+//       }
+//
+//       return new ResponseEntity<>(mmids, HttpStatus.OK);
+   }
+
 
     @GetMapping("/getAll")
     public List<BookedList> getAllRequestLogs(){

@@ -15,9 +15,8 @@ public class Organizer {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int orgId;
     @Getter
-    @OneToOne(fetch = FetchType.LAZY)
+    @OneToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "user_id")
     private User user;
-
 
 }

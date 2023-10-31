@@ -11,8 +11,10 @@ import logout from '../assets/images/logout.png'
 import kpop from '../assets/images/kpop.png'
 import CircularProgress from '@mui/material/CircularProgress';
 import { Link } from 'react-router-dom'
+import empty from '../assets/images/empty(1).png'
 
-
+import Pagination from '@mui/material/Pagination';
+import Stack from '@mui/material/Stack';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {faPhone,faLocationDot,faList,faCalendarDays} from '@fortawesome/free-solid-svg-icons'
 import { faTwitter, faFontAwesome,faFacebook,faGooglePlusG,faLinkedinIn } from '@fortawesome/free-brands-svg-icons'
@@ -25,10 +27,14 @@ export default function ArtistEventOn() {
   const { mmid, date, eventId } = useParams();
   const componentPDF = useRef();
   const [eventList, setEventList] = useState([]);
+  const [page,setPage] = useState(1);
+  const noOfLinePerPage = 4;
 
   useEffect(() => {
+    const mmId = localStorage.getItem('mmid');
     // Fetch the data from the Java backend
-    fetch(`http://localhost:8080/requestMusicMember/eventsOn/${mmid}/${date}`)
+    if(mmId){
+    fetch(`http://localhost:8080/requestMusicMember/eventsOn/${mmId}/${date}`)
     .then((response) => {
       if (!response.ok) {
         throw new Error('Network response was not ok');
@@ -37,12 +43,14 @@ export default function ArtistEventOn() {
     })
      
       .then((data) => {
+        console.log(data);
         setEventList(data);
       })
       .catch((error) => {
         console.log('Error fetching data:', error);
       });
       console.log(eventList);
+    }
 
   }, []);
 
@@ -75,12 +83,41 @@ export default function ArtistEventOn() {
    
   }
 
+
+  const handleChange= (event,value)=>{
+    setPage(value)
+  }
+
+// setup the pagination
+  function setPagination(){
+    let noOfLine =1
+    let displayedData = []
+    if(divElements.length>0){
+      if(divElements.length < noOfLinePerPage*page){
+        noOfLine = divElements.length
+      }
+      else{
+        noOfLine =  noOfLinePerPage*page
+      }
+      for (let i = noOfLinePerPage*(page-1); i < noOfLine; i++) {
+        displayedData.push(divElements[i]);
+        
+      }
+      return displayedData
+    }
+    else{
+      
+      return displayedData 
+    }
+    
+  }
+
+
   const load=(id)=>{
     navigate(`/artist/PendingRequestView/${id}`);
 
   }
 
-  if(eventList.length===0) return <div className='progressBar'><CircularProgress color="secondary" /></div>
 
     return (
   
@@ -108,7 +145,10 @@ export default function ArtistEventOn() {
           
           </div>
         
-              
+          <div className='emptyMessageForEventsOn'>
+          {(divElements.length ===0)?<><img src={empty} className='empty-img'></img><span className='emptyContent-report'>it's empty in here.</span></>:undefined}
+
+          </div>
 
             <div className='reportContainer' >
             <div >
@@ -131,13 +171,17 @@ export default function ArtistEventOn() {
                         <tbody>
                          
                        
-                         {divElements}
+                        {setPagination().map((item) => item)}
                           
                          
                           
                         </tbody>
                       </Table>
-                  
+                      <div className='artistEventPagination'>
+                      <Stack spacing={2}>
+                        <Pagination count={(Math.round(divElements.length/noOfLinePerPage))} color="secondary" page={page} onChange={handleChange} />
+                      </Stack>
+                    </div>
           </div>     
           <Button className="back" onClick={()=>load(eventId)}>Back</Button>
            </div>

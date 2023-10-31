@@ -198,5 +198,21 @@ th {
     --bs-table-color-type: none !important;
 
 
-
+    
 }
+
+.empty-img{
+    position: absolute;
+    top: 339px;
+    width: 186px;
+    height: 186px;
+    left: 46%
+}
+
+.emptyContent-report{  
+    position: absolute;
+    top: 534px;
+    color: white;
+    left: 48.9%;
+}
+

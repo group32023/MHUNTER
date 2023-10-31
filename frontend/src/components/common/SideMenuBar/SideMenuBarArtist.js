@@ -15,16 +15,36 @@ import React, { useState } from "react";
 import {useEffect } from 'react';
 import axios from 'axios';
 
+
 function SideMenuBarArtist({ children }) {
     const [isExpanded, setExpandState] = useState(false);
     const [user, setUser] = useState(null);
+    const [image,setImage] = useState("")
+    const BASE_URL = "http://localhost:8080";
 
     useEffect(() => {
         const userId = localStorage.getItem('userId');
+        
+        fetch(`http://localhost:8080/musicUser/${userId}`)
+        .then((response)=>{
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+              }
+              return response.json();
+        })
+        .then((data)=>{
+            localStorage.setItem("mmid",data['mmid']);
+        })
+        .catch((error)=>{
+            console.log("Error fetching data:", error)
+        })
+
         if (userId) {
             axios.get(`http://localhost:8080/user/user/${userId}`)
                 .then(response => {
                     setUser(response.data);
+                    setImage(response.data['imagePath'])
+                    console.log(image)
                 })
                 .catch(error => {
                     console.error(error);
@@ -33,6 +53,7 @@ function SideMenuBarArtist({ children }) {
         }
     }, []);
     console.log("Current user:", user); 
+    
 
     return (
         <div className="full-container">
@@ -49,7 +70,7 @@ function SideMenuBarArtist({ children }) {
                     <div className="menu-heading d-flex align-items-center">
                         {isExpanded && (
                             <div className="menu-brand">
-                                <img src={logoImage} alt="" srcSet="" />
+                                <img src={`${BASE_URL}/postData/uploads/image/${image}`} alt="" srcSet="" />
                             </div>
                         )}
 
@@ -57,14 +78,22 @@ function SideMenuBarArtist({ children }) {
                             <BiMenu onClick={() => setExpandState(!isExpanded)} className={isExpanded ? "menubar-noncollapse-icon position-absolute  " : "menubar-collapse-icon position-absolute "} />
 
                         </div>
-
                     </div>
 
                     <div className="row">
-                        <NavLink to="/">
+                        <NavLink to="/artist/profile/${user?.userId}">
                             <div className="menu-profilePhoto col d-flex justify-content-center">
-                                <img className={isExpanded ? "menu-item-profilePhoto img-fluid my-4" : "menu-item-profilePhoto-NX"} src={profilePhoto} alt="Profile" srcSet="" width="130px" height="130px" />
-                                {isExpanded && (
+                            <img
+                                    className={isExpanded ? "menu-item-profilePhoto img-fluid my-4" : "menu-item-profilePhoto-NX"}
+                                    src={`${BASE_URL}/postData/uploads/image/${image}`}
+                                    alt="Profile"
+                                    srcSet=""
+                                    width="130px"
+                                    height="130px"
+                                    onError={() => {
+                                        // Handle image loading error here (e.g., display a default image)
+                                    }}
+                                />                                {isExpanded && (
                                     <div className="middle-pp-box">
                                         <div className="middle-pp-text">Go to Profile</div>
                                     </div>
@@ -156,7 +185,6 @@ function SideMenuBarArtist({ children }) {
                         </li>
                     </ul>
 
-
                 </div>
             </div>
 
@@ -166,4 +194,3 @@ function SideMenuBarArtist({ children }) {
 };
 
 export default SideMenuBarArtist;
-

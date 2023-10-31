@@ -1,6 +1,6 @@
 .adminProfile-container{
-    background-image: url("../../images/band.jpg");
-    background-color: #2f363e;
+    /* background-image: url("../../images/band.jpg");
+    background-color: #2f363e; */
     background-size: cover;
     background-position: center;
     display: flex;
@@ -12,8 +12,9 @@
 .adminProfile-form{
     width: 35%;
     padding: 20px;
-    border-radius: 10px;
-    background-color: rgba(173, 216, 230, 0.9); 
+    border-radius: 20px;
+    background-color: #292d31; 
+    color: #fff;
 
 }
 .adminProfile-backBtn {
@@ -34,7 +35,10 @@
     margin: 4px 2px;
     transition-duration: 0.4s;
     cursor: pointer;
-    border-radius: 12px;
+    border-radius: 10px;
+    position: relative;
+    top: 594px;
+    left: 1150px;
   }
   
   .adminProfile-backBtn button:hover {

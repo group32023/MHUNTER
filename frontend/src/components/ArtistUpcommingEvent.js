@@ -13,28 +13,31 @@ export default function ArtistUpcommingEvent() {
  const BASE_URL = "http://localhost:8080";
  
  const loadDate = () => {
-  fetch("http://localhost:8080/requestMusicMember/viewEventList/758463")
-  .then((res) => res.json())
-  .then((result) => {  
-      const newEvents = result.map(item => (
-          <div className='eventItem'> 
-              <img className='eventImage' src={`${BASE_URL}/postData/uploads/image/${item.eventImage}`} alt=''></img>
-              <p className='eventTopic'>{item.event_name}</p>
-              <span className='locationEvent'>{item.town}</span>
-              <p className='eventDescripition'>{item.description}</p>
-              <div className='eventTypeDiv'>
-                  <img className='eventTypeImage' src={eventType} alt=''></img>
-              </div>
-              <p className='eventTypeData'>{item.event_type}</p>
-              <div className='dateDiv'>
-                  <img className='dateImage' src={artistUpcommingCalandar} alt=''></img>
-              </div>
-              <p className='dateData'>{item.date}</p>
-              <hr className='line'></hr>
-          </div>
-      ));
-      setEvents(newEvents);
-  })
+  const mmId = localStorage.getItem('mmid');
+  if(mmId){
+    fetch(`http://localhost:8080/requestMusicMember/viewEventList/${mmId}`)
+    .then((res) => res.json())
+    .then((result) => {  
+        const newEvents = result.map(item => (
+            <div className='eventItem'> 
+                <img className='eventImage' src={`${BASE_URL}/postData/uploads/image/${item.eventImage}`} alt=''></img>
+                <p className='eventTopic'>{item.event_name}</p>
+                <span className='locationEvent'>{item.town}</span>
+                <p className='eventDescripition'>{item.description}</p>
+                <div className='eventTypeDiv'>
+                    <img className='eventTypeImage' src={eventType} alt=''></img>
+                </div>
+                <p className='eventTypeData'>{item.event_type}</p>
+                <div className='dateDiv'>
+                    <img className='dateImage' src={artistUpcommingCalandar} alt=''></img>
+                </div>
+                <p className='dateData'>{item.date}</p>
+                <hr className='line'></hr>
+            </div>
+        ));
+        setEvents(newEvents);
+    })
+}
 }
 
 useEffect(() => {

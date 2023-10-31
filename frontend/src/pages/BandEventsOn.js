@@ -1,7 +1,7 @@
 import React,{useState, useEffect,useRef} from 'react';
 import {Button, Table} from 'react-bootstrap';
 import { useNavigate,useParams} from 'react-router-dom';
-import SideMenuBarArtist from '../components/common/SideMenuBar/SideMenuBarArtist'
+import SideMenuBarBand from '../components/common/SideMenuBar/SideMenuBarBand'
 import '../assets/css/priorbooking.css'
 import { MDBBtn } from 'mdb-react-ui-kit';
 import { useReactToPrint } from 'react-to-print'
@@ -11,6 +11,7 @@ import logout from '../assets/images/logout.png'
 import kpop from '../assets/images/kpop.png'
 import CircularProgress from '@mui/material/CircularProgress';
 import { Link } from 'react-router-dom'
+import empty from '../assets/images/empty(1).png'
 
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -80,13 +81,12 @@ export default function ArtistEventOn() {
 
   }
 
-  if(eventList.length===0) return <div className='progressBar'><CircularProgress color="secondary" /></div>
 
     return (
   
       <div >
       
-         <SideMenuBarArtist>
+         <SideMenuBarBand>
         <div>
             <p className='headerDashboard'>Pending Requests</p>
             <div className={expand ? 'notificationBg':'notificationBg-ex'}>
@@ -107,7 +107,10 @@ export default function ArtistEventOn() {
           <h3 className='eventsOnDate'>Envents On : {date} </h3>
           
           </div>
-        
+          <div className='emptyMessageForEventsOn'>
+          {(divElements.length ===0)?<><img src={empty} className='empty-img'></img><span className='emptyContent-report'>it's empty in here.</span></>:undefined}
+
+          </div>
               
 
             <div className='reportContainer' >
@@ -143,7 +146,7 @@ export default function ArtistEventOn() {
            </div>
           
        
-           </SideMenuBarArtist>
+           </SideMenuBarBand>
       </div>
     )
 }

@@ -11,7 +11,6 @@ import java.util.List;
 
 public interface MusicMemberRepository extends JpaRepository<MusicMember,Integer> {
 
-
     @Query(value = "SELECT * FROM music_member WHERE mmid = :mmid ", nativeQuery = true)
     MusicMember findByMMID(int mmid);
 

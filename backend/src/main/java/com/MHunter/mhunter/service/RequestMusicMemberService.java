@@ -10,7 +10,9 @@ public interface RequestMusicMemberService {
 
     public List<RequestMusicMember> viewAll();
 
-    public RequestMusicMember updateRequestMusicMember(RequestMusicMember requestMusicMember, RequestMusicMemberId id);
+    public RequestMusicMember updateRequestMusicMember(RequestMusicMemberId id);
+    public RequestMusicMember updateReasonRequestMusicMember(RequestMusicMemberId id,String reason);
+
 
     public boolean deleteRequestMusicMember(RequestMusicMemberId requestMusicMemberId);
 
@@ -24,6 +26,7 @@ public interface RequestMusicMemberService {
     public List<RequestMusicMember> findConformationEventsByMMID(int mmid);
 
     public List<RequestMusicMember> findConformationEventsByMMIDForOrg(int mmid, int orgId);
+
 
 
 }

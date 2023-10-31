@@ -6,6 +6,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDate;
+
 @Entity
 @Data
 @NoArgsConstructor
@@ -27,6 +29,9 @@ public class Invoice {
     private String paymentType;
     private Long paidAmount;
     private Double artistFee;
+    @Column(columnDefinition = "DATETIME DEFAULT CURRENT_TIMESTAMP")
+    private LocalDate date;
+    private String additionalNote;
 
 
     //@Column(columnDefinition = "byte default 0")
