@@ -1,17 +1,12 @@
 package com.MHunter.mhunter.controller;
 
-import com.MHunter.mhunter.model.Artist;
 import com.MHunter.mhunter.model.Band;
 import com.MHunter.mhunter.model.MusicMember;
 import com.MHunter.mhunter.service.BandService;
 import com.MHunter.mhunter.service.MusicMemberService;
-import com.MHunter.mhunter.struct.UserArtist;
 import com.MHunter.mhunter.struct.UserBand;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -39,5 +34,29 @@ public class BandController {
             }
         });
         return userBandList;
+    }
+
+    @GetMapping("/view/verified")
+    public List<UserBand> viewVerifiedArtists() {
+        List<Band> bandList = bandService.viewAllBands();
+        List<UserBand> verifiedUserBandList = new ArrayList<>();
+
+        bandList.forEach(item -> {
+            MusicMember musicMember = musicMemberService.findSpecificMusicMember(item.getMusicMember().getMMID());
+            if (musicMember.getType().toLowerCase().equals("band") && item.getUser().getIsVerified()== 1 ) {
+                UserBand userBand = new UserBand();
+                userBand.setBandName(musicMember.getName());
+                userBand.setImgPath(item.getUser().getImagePath());
+                userBand.setFirstName(item.getUser().getFirstName());
+                userBand.setLastName(item.getUser().getLastName());
+                userBand.setType(item.getMusicMember().getType());
+                userBand.setId(item.getUser().getUserId());
+                userBand.setAddress(item.getUser().getAddress());
+                userBand.setEmail(item.getUser().getEmail());
+                userBand.setIsVerified(item.getUser().getIsVerified());
+                verifiedUserBandList.add(userBand);
+            }
+        });
+        return verifiedUserBandList;
     }
 }

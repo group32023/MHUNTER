@@ -1,6 +1,5 @@
 package com.MHunter.mhunter.controller;
 
-import com.MHunter.mhunter.exception.UserNotFoundException;
 import com.MHunter.mhunter.model.*;
 import com.MHunter.mhunter.service.*;
 import com.MHunter.mhunter.struct.EventOrganizer;

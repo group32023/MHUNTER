@@ -14,4 +14,6 @@ public interface UserService {
     public boolean deleteUser(int id);
     public List<Object[]> getAdminReportData();
 
+    public void deleteUserById(int id);
+
 }
