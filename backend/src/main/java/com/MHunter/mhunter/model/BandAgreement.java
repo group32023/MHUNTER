@@ -15,7 +15,7 @@ import java.time.LocalDate;
 public class BandAgreement {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int agreementId;
+    private int agreement_id;
     private int mmid;
     private int eventId;
 

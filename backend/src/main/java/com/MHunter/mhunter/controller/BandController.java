@@ -43,7 +43,7 @@ public class BandController {
 
         bandList.forEach(item -> {
             MusicMember musicMember = musicMemberService.findSpecificMusicMember(item.getMusicMember().getMMID());
-            if (musicMember.getType().toLowerCase().equals("band") && item.getUser().getIsVerified()== 1 ) {
+            if (musicMember.getType().toLowerCase().equals("band") && item.getUser().getIsVerified() == 1) {
                 UserBand userBand = new UserBand();
                 userBand.setBandName(musicMember.getName());
                 userBand.setImgPath(item.getUser().getImagePath());
@@ -58,6 +58,7 @@ public class BandController {
             }
         });
         return verifiedUserBandList;
+    }
     @GetMapping("/getAll")
     public List<Band> getAllBands(){
         return bandService.getAllBands();
