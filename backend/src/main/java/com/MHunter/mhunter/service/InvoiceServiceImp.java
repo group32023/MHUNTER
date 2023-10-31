@@ -34,11 +34,11 @@ public class InvoiceServiceImp implements InvoiceService {
 
         for (Object[] row : results) {
             Integer artistId = (Integer) row[0];
-            Double artistFee = (Double) row[1];
+            Double totalAmount = (Double) row[1];
             String paymentType=(String) row[2];
             Integer organizerId= (Integer) row[3];
             Integer invoiceId= (Integer) row[4];
-            InvoiceDataDTO data = new InvoiceDataDTO(artistId, artistFee, paymentType,organizerId,invoiceId);
+            InvoiceDataDTO data = new InvoiceDataDTO(artistId, totalAmount, paymentType,organizerId,invoiceId);
             dataList.add(data);
         }
 

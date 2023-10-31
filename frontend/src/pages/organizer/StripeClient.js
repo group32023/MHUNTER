@@ -7,7 +7,7 @@ import axios from "axios";
 import { Elements } from "@stripe/react-stripe-js";
 
 const stripePromise = loadStripe(
-  "pk_test_51NsUXRAVdPyCg7QwTx6EVhqPeFrJBONeRGAimIBGwGA8bM4gSAH87aghODQFoxXyXg21OoP9SXxddok90gXn4uOQ00pWBglEf0"
+  "pk_test_51NhFvIJUlgmxbd49bNKEoR9k8ePDIYZFQBX9hENA0QwkeXyB9eaGlVVdytw165IRwaeNLvGpdXxSBezYLIQHbrbg00dM6shbZc"
 );
 
 const StripeClient = () => {

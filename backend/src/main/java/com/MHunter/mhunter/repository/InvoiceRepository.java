@@ -16,7 +16,7 @@ import java.util.Optional;
 public interface InvoiceRepository extends JpaRepository<Invoice, Integer> {
     Invoice findByInvoiceId(Integer invoice_id);
 
-    @Query(value = "SELECT artist.artist_id , invoice.artist_fee ,invoice.payment_type, booked_list.org_Id, invoice.invoice_id FROM artist INNER JOIN booked_list ON artist.mmid = booked_list.mmid INNER JOIN invoice ON booked_list.invoice_id = invoice.invoice_id WHERE artist.artist_id=:artistId", nativeQuery = true)
+    @Query(value = "SELECT artist.artist_id , invoice.total_amount ,invoice.payment_type, booked_list.org_Id, invoice.invoice_id FROM artist INNER JOIN booked_list ON artist.mmid = booked_list.mmid INNER JOIN invoice ON booked_list.invoice_id = invoice.invoice_id WHERE artist.artist_id=:artistId", nativeQuery = true)
     List<Object[]> findByArtistId(Integer artistId);
 
 }

@@ -14,8 +14,6 @@ import CreateEvent from './CreateEvent';
 import SearchArtist from './SearchArtist';
 import ViewArtist from './ViewArtist';
 import MakeArtistRequest from './MakeArtistRequest';
-import SearchBand from './SearchBand'
-
 import '../../assets/css/OrganizerDashboard.css';
 // import OrganizerDashboardContent from "./OrganizerDashboardContent";
 
@@ -57,7 +55,7 @@ export default function OrganizerDashboard() {
       <SideMenuBarOrganizer>
 
         <div className='OrganizerDashboardMainContainer'>
-          <Topbar customProp="Dashboard" />
+          <Topbar />
           <div className='row' style={{ marginLeft: '35px' }}>
             <DashboardCarousel />
             <div className='DashboardCalenderDiv px-2'>
@@ -448,7 +446,7 @@ export default function OrganizerDashboard() {
           <Route path='/organizer/searchartist' element={<SearchArtist />} />
           <Route path='/organizer/searchartist/viewartist' element={<ViewArtist />} />
           <Route path='/organizer/searchartist/viewartist/makeartistrequest' element={<MakeArtistRequest />} />
-          <Route path='/organizer/searchband' element={<SearchBand />} />
+
         </Routes>
       </SideMenuBarOrganizer>
     </>

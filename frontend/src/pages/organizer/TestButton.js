@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 function TestButton() {
-  const artistId = 2;
+  const artistId = 20;
   const [paymentData, setPaymentData] = useState([]);
   const [selectedRefund, setSelectedRefund] = useState(null);
 
@@ -89,10 +89,11 @@ function TestButton() {
       <div>
         {selectedRefund !== null && (
           <div>
-            <h2>
-              Your payment has been refunded to {selectedRefund.payee_name}, and
-              the amount should now be in organizer account.{" "}
-            </h2>
+           <h2 style={{ color: "white" }}>
+  Your payment has been refunded to {selectedRefund.payee_name}, and
+  the amount should now be in organizer account.
+</h2>
+
             {/* Display payment data for the selected organization */}
             {paymentData
               .filter((payment) => payment.orgId === selectedRefund.orgId)

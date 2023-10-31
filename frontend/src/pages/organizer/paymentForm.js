@@ -51,7 +51,7 @@ function Payment() {
         // Assuming the response data has properties like invoiceNumber, amount, dueDate
         const sampleInvoiceData = {
           artistId: fetchedData[0].artist_id,
-          artistFee: fetchedData[0].artistFee,
+          totalAmount: fetchedData[0].totalAmount,
           paymentType: fetchedData[0].paymentType,
           organizerId: fetchedData[0].org_Id,
           invoiceId: fetchedData[0].invoiceId,
@@ -60,7 +60,7 @@ function Payment() {
         setInvoiceData(sampleInvoiceData);
         setPaymentType(sampleInvoiceData.paymentType);
         setFormPaymentType(sampleInvoiceData.paymentType);
-        setAmount(sampleInvoiceData.artistFee);
+        setAmount(sampleInvoiceData.totalAmount);
         setOrganizerId(sampleInvoiceData.organizerId);
         setInvoiceId(sampleInvoiceData.invoiceId);
         setIsLoading(false);
