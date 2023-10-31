@@ -18,4 +18,5 @@ public class Notification {
     private int notificationId;
     private String title;
     private String message;
+    private int mmids;
 }

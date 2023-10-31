@@ -14,7 +14,6 @@ import org.springframework.web.multipart.MultipartFile;
 @CrossOrigin
 @RequestMapping("/user")
 public class SignupController {
-
     @Autowired
     private SignupService signupService;
 

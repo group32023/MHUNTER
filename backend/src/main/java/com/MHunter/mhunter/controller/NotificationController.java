@@ -1,7 +1,9 @@
 package com.MHunter.mhunter.controller;
 
+import com.MHunter.mhunter.model.MusicMember;
 import com.MHunter.mhunter.model.Notification;
 import com.MHunter.mhunter.model.User;
+import com.MHunter.mhunter.service.MusicMemberService;
 import com.MHunter.mhunter.service.NotificationService;
 import com.MHunter.mhunter.service.UserNotificationService;
 import com.MHunter.mhunter.service.UserService;
@@ -27,6 +29,9 @@ public class NotificationController {
     public UserNotificationService userNotificationService;
 
     @Autowired
+    public MusicMemberService musicMemberService;
+
+    @Autowired
     public UserService userService;
 
     @PostMapping("/add")
@@ -44,6 +49,11 @@ public class NotificationController {
     @GetMapping("/unseen/{userId}")
     public int noOfUnseenNotification(@PathVariable int userId){
         return userNotificationService.countOfUnSeenNotification(userId);
+    }
+
+    @GetMapping("/notificaiton/{mmid}")
+    public List<Notification> getEventCancelNotification(@PathVariable int mmid){
+        return notificationService.viewSpecificNotificationByMMID(mmid);
     }
 
     @GetMapping("/view/{userId}")
@@ -76,6 +86,10 @@ public class NotificationController {
                 notificationList.add(notification);
             }
         });
+        MusicMember musicMember =musicMemberService.findSpecificMusicMemberByUserID(userId);
+        if(notificationService.viewSpecificNotificationByMMID(musicMember.getMMID()).size()>0){
+//            notificationList.add(notificationService.viewSpecificNotificationByMMID(musicMember.getMMID())
+        }
         return notificationList;
     }
 }

@@ -43,7 +43,7 @@ export default function ArtistEvent() {
     fetch(`http://localhost:8080/requestMusicMember/viewAllEvents/${mmId}?filterValue=${getFilterData}`).then((res)=>res.json()).then((result)=>{
       if(result.length>0){
         const newItem = result.map(item=>(
-          <div  className="requestContainerArtistEvent">
+          <div key={item.eventId}  className="requestContainerArtistEvent">
         <img src={profileImage} className="profileArtistEvent"></img>
         <div className="eventDetailsArtistEvent">
           <h4>{item.organizerName}</h4>
