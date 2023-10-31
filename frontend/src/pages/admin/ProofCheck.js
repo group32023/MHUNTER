@@ -21,6 +21,7 @@ import Modal from 'react-bootstrap/Modal';
 function ProofCheck() {
   const [formData, setFormData] = useState([]);
   const { id} = useParams();
+  const {type} = useParams();
   const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
@@ -73,7 +74,8 @@ function ProofCheck() {
         <form className="form-user-details" >
           <div className="user-details">
             <div>
-              <img src={band} alt="band" className="profile-picture-proofcheck" />
+              <img src={`http://localhost:8080/postData/uploads/image/${formData.imagePath}`}
+               alt="band" className="profile-picture-proofcheck" />
             </div>
             <div className="my-form">
               <table>
@@ -104,7 +106,7 @@ function ProofCheck() {
                         type="text"
                         name="userType"
                         placeholder="Artist"
-                        style ={{color:'white'}} value={formData.type}
+                        style ={{color:'white'}} value={type}
                       />
                     </td>
                   </tr>

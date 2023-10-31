@@ -91,7 +91,7 @@ export default function AdminProfile() {
         <h2>Profile Details</h2>
 
         <div className='artist-details-in-dashboard'>
-            <img src={band}  alt="Artist" style={{ maxWidth: '100px', display: 'block', margin: '0 auto' , borderRadius:'50%', height:'100px'}} />
+            <img src={`http://localhost:8080/postData/uploads/image/${formData.imagePath}`}  alt="Artist" style={{ maxWidth: '100px', display: 'block', margin: '0 auto' , borderRadius:'50%', height:'100px'}} />
             <br />
             <div class="row">
                 <div class="col-4">
@@ -147,7 +147,7 @@ export default function AdminProfile() {
                 </div>
             </div>
 
-            <div className="d-flex justify-content-between button-proofcheck">
+            <div className="d-flex justify-content-between button-proofcheck" style={{marginTop:'10px'}}>
             <button type="submit"  className="btn btn-primary" style={{ backgroundColor: 'rgb(118, 67, 210)', border: 'none', height:'40px', width:'auto' }} onClick={userUpdate}>
               <h5>Update</h5>
             </button>

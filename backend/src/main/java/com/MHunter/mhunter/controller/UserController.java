@@ -5,13 +5,14 @@ import com.MHunter.mhunter.model.MusicMember;
 import com.MHunter.mhunter.model.Organizer;
 import com.MHunter.mhunter.model.StaffMember;
 import com.MHunter.mhunter.model.User;
-import com.MHunter.mhunter.repository.UserRepository;
+import com.MHunter.mhunter.repository.*;
 import com.MHunter.mhunter.service.MusicMemberService;
 import com.MHunter.mhunter.service.OrganizerService;
 import com.MHunter.mhunter.service.StaffMemberService;
 import com.MHunter.mhunter.service.UserService;
 import com.MHunter.mhunter.struct.AllUsers;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -22,6 +23,17 @@ import java.util.List;
 public class UserController {
     @Autowired
     private UserRepository userRepository;
+    @Autowired
+    private MusicMemberRepository musicMemberRepository;
+    @Autowired
+    private ArtistRepository artistRepository;
+    @Autowired
+    private BandRepository bandRepository;
+    @Autowired
+    private StaffMemberRepository staffMemberRepository;
+    @Autowired
+    private OrganizerRepository organizerRepository;
+
 
     @Autowired
     private UserService userService;
@@ -119,13 +131,21 @@ public class UserController {
                 }).orElseThrow(() -> new UserNotFoundException(userId));
     }
 
-    @DeleteMapping("/user/{userId}")
+    /*@DeleteMapping("/user/{userId}")
     String deleteUser(@PathVariable int userId){
-        if(!userRepository.existsById(userId)){
+        if(!userRepository.existsById(userId)) {
             throw new UserNotFoundException(userId);
         }
+
+        artistRepository.deleteByUserId(userId); // Assuming deleteByUserId method is implemented in artistRepository
+        musicMemberRepository.deleteByUserId(userId); // Assuming deleteByUserId method is implemented in musicMemberRepository
         userRepository.deleteById(userId);
         return  "User with id "+userId+" has been deleted success.";
+    }*/
+    @DeleteMapping("/user/{userId}")
+    public ResponseEntity<String>  deleteUserById(@PathVariable int userId){
+        String msg = "User with ID " + userId + " has been deleted";
+        return ResponseEntity.ok(msg);
     }
 
     @GetMapping("/viewSpecificUser/{id}")

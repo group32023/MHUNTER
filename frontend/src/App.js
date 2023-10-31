@@ -173,10 +173,10 @@ function App() {
           {/*Admin*/}
           <Route path='/admin/admindashboard' element={<AdminDashboard />} />
           <Route path='/admin/registration' element={<AdminRegistration />} />
-          <Route path="/admin/registration/proofcheck/:id" element={<ProofCheck />} />
+          <Route path="/admin/registration/proofcheck/:id/:type" element={<ProofCheck />} />
           <Route path='/admin/Alluserdetails' element={<UserDetails />} />
-          <Route path='/admin/userdetails' element={<AllUserDetails />} />
-          <Route path='/admin/userdetails/viewdetails' element={<ViewUserDetails />} />
+          <Route path='/admin/userdetails/:type' element={<AllUserDetails />} />
+          <Route path='/admin/userdetails/viewdetails/:id/:type' element={<ViewUserDetails />} />
           <Route path='/admin/report' element={<AdminReport />} />
           <Route path='/admin/settings' element={<AdminSettings />} />
           <Route path='/admin/event' element={<AdminEvents />} />

@@ -9,6 +9,10 @@ import Topbar from '../../components/common/Topbar'
 import { Link, Routes, Route } from 'react-router-dom';
 
 function UserDetails() {
+    const typeA = 'Artist';
+    const typeB = 'Band';
+    const typeO = 'Organizer';
+    const typeM = 'Moderator';
   return (
     <>
     <SideMenuBarAdmin>
@@ -27,7 +31,7 @@ function UserDetails() {
                 <div className='artist-image'>
                     <img src={require('../../assets/images/artist.jpg')} alt={'artist'} height={150} width={150}/>
                 </div>
-                <Link to={'/admin/userdetails'}>
+                <Link  to={`/admin/userdetails/${typeA}`}>
                     <span className='button-userdetails'><button type='button' className=' btn btn-primary'> View </button></span>
                 </Link>
             </div>
@@ -40,7 +44,7 @@ function UserDetails() {
                 <div className='artist-image'>
                     <img src={require('../../assets/images/band.jpg')} alt={'artist'} height={150} width={150}/>
                 </div>
-                <Link to={'/admin/userdetails'}>
+                <Link  to={`/admin/userdetails/${typeB}`}>
                     <span className='button-userdetails'><button type='button' className=' btn btn-primary'> View </button></span>
                 </Link>
             </div>
@@ -56,7 +60,7 @@ function UserDetails() {
                 <div className='artist-image'>
                     <img src={require('../../assets/images/dineshtharanga.jpg')} alt={'artist'} height={150} width={150}/>
                 </div>
-                <Link to={'/admin/userdetails'}>
+                <Link  to={`/admin/userdetails/${typeO}`}>
                     <span className=' button-userdetails'><button type='button' className=' btn btn-primary'> View </button></span>
                 </Link>
             </div>
@@ -69,7 +73,7 @@ function UserDetails() {
                 <div className='artist-image'>
                     <img src={require('../../assets/images/profilePhoto.jpeg')} alt={'artist'} height={150} width={150}/>
                 </div>
-                <Link to={'/admin/userdetails'} >
+                <Link  to={`/admin/userdetails/${typeM}`}>
                     <span className='button-userdetails'><button type='button' className='btn btn-primary'> View </button></span>
                 </Link>
             </div>
