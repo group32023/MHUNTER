@@ -18,6 +18,8 @@ import OrganizerProfile from './OrganizerProfile';
 import SearchArtist from './SearchArtist';
 import ViewArtist from './ViewArtist';
 import SearchBand from './SearchBand'
+import ViewBand from './ViewBand'
+
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 
@@ -224,6 +226,7 @@ function MakeArtistRequest() {
                     <Route path='/organizer/searchartist/:eventid' element={<SearchArtist />} />
                     <Route path='/organizer/searchartist/viewartist/:mmid/:eventid' element={<ViewArtist />} />
                     <Route path='/organizer/searchband/:eventid' element={<SearchBand />} />
+                    <Route path='/organizer/searchband/viewband/:mmid/:eventid' element={<ViewBand/>} />
                 </Routes>
             </SideMenuBarOrganizer>
         </>

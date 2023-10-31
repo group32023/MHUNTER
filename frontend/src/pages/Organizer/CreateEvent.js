@@ -18,6 +18,8 @@ import ViewArtist from './ViewArtist';
 import MakeArtistRequest from './MakeArtistRequest';
 import OrganizerEventDashboard from './OrganizerEventDashboard';
 import SearchBand from './SearchBand'
+import ViewBand from './ViewBand'
+
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 
@@ -228,6 +230,7 @@ function CreateEvent() {
           <Route path='/organizer/searchartist/viewartist/:mmid/:eventid' element={<ViewArtist />} />
           <Route path='/organizer/searchartist/viewartist/makeartistrequest/:mmid/:eventid' element={<MakeArtistRequest />} />
           <Route path='/organizer/searchband/:eventid' element={<SearchBand />} />
+          <Route path='/organizer/searchband/viewband/:mmid/:eventid' element={<ViewBand/>} />
         </Routes>
       </SideMenuBarOrganizer>
     </>

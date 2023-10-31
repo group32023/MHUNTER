@@ -1,6 +1,6 @@
 
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import Topbar from '../../components/common/Topbar';
 // import CreateEvent from './CreateEvent';
 import StarRating from '../../components/organizer/StarRating';
@@ -20,6 +20,7 @@ import CreateEvent from './CreateEvent';
 import SearchArtist from './SearchArtist';
 import ViewArtist from './ViewArtist';
 import MakeArtistRequest from './MakeArtistRequest';
+import ViewBand from './ViewBand'
 import OrganizerEventDashboard from './OrganizerEventDashboard';
 import SideMenuBarOrganizer from '../../components/common/SideMenuBar/SideMenuBarOrganizer';
 library.add(fas);
@@ -28,6 +29,7 @@ function SearchBand() {
 
     const [band, setBands] = useState([])
     const [searchInput, setSearchInput] = useState('');
+    const { eventid } = useParams();
 
     const imageExtention = ["jpg", "png", "jpeg"]
     const BASE_URL = "http://localhost:8080";
@@ -78,14 +80,14 @@ function SearchBand() {
 
             
                         <div className='col-md-3 band-box' >
-                            <Link to="/organizer/searchband/viewband" className='link1'>
+                            <Link to={`/organizer/searchband/viewband/${band.musicMember.mmid}/${eventid}`} className='link1'>
                                 <div className='image'>
-                                    <img src={`${BASE_URL}/postData/uploads/image/dinesh-tharanga.jpg`} alt="post media" />
+                                    <img src={`${BASE_URL}/postData/uploads/image/${band.user.imagePath}`}alt="post media" />
                                 </div>
 
                                 <div className='content'>
 
-                                    <h5>{band.user.bandName}</h5>
+                                    <h5>{band.user.firstName}</h5>
                                     <StarRating rating={5} ></StarRating>
 
                                 </div>
@@ -94,56 +96,6 @@ function SearchBand() {
                     
 
                     ))}
-
-                    {/* 
-                    <div className='col-md-3 artist-box' >
-                        <Link to="/organizer/searchartist/viewartist" className='link1'>
-                            <div className='image'>
-                                <img src={DineshGamage} alt='image2'>
-                                </img>
-                            </div>
-
-                            <div className='content'>
-
-                                <h5>Dinesh Gamage</h5>
-                                <StarRating rating={5} ></StarRating>
-
-                            </div>
-                        </Link>
-                    </div>
-
-                    <div className='col-md-3 artist-box' >
-                        <Link to="/organizer/searchartist/viewartist" className='link1'>
-                            <div className='image'>
-                                <img src={dineshtharanga} alt='image3'>
-                                </img>
-                            </div>
-
-                            <div className='content'>
-
-                                <h5>Dinesh Tharanga</h5>
-                                <StarRating rating={5} ></StarRating>
-
-                            </div>
-                        </Link>
-                    </div>
-
-                    <div className='col-md-3 artist-box' >
-                        <Link to="/organizer/searchartist/viewartist" className='link1'>
-                            <div className='image'>
-                                <img src={theekshana} alt='image4'>
-                                </img>
-                            </div>
-
-                            <div className='content'>
-
-                                <h5>Theekshana Anuradha</h5>
-                                <StarRating rating={5} ></StarRating>
-
-                            </div>
-                        </Link>
-                    </div> */}
-
 
 
 
@@ -160,6 +112,7 @@ function SearchBand() {
                     <Route path='/organizer/searchartist/:eventid' element={<SearchArtist />} />
                     <Route path='/organizer/searchartist/viewartist/:mmid/:eventid' element={<ViewArtist />} />
                     <Route path='/organizer/searchartist/viewartist/makeartistrequest/:mmid/:eventid' element={<MakeArtistRequest />} />
+                    <Route path='/organizer/searchaband/viewband/:mmid/:eventid' element={<ViewBand/>} />
                 </Routes>
             </SideMenuBarOrganizer>
         </>

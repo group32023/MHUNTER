@@ -8,10 +8,7 @@ import com.MHunter.mhunter.service.MusicMemberService;
 import com.MHunter.mhunter.struct.UserArtist;
 import com.MHunter.mhunter.struct.UserBand;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -45,5 +42,12 @@ public class BandController {
     public List<Band> getAllBands(){
 
         return bandService.getAllBands();
+    }
+
+    @GetMapping("/viewSpecificBand/{mmid}")
+    public Band viewSpecificBand( @PathVariable int mmid){
+Band band = bandService.findByMMID(mmid);
+int bandId = band.getBandID();
+        return bandService.findSpecificBand(bandId);
     }
 }

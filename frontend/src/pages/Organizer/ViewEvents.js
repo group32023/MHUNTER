@@ -21,6 +21,7 @@ import ViewArtist from './ViewArtist';
 import MakeArtistRequest from './MakeArtistRequest';
 import OrganizerEventDashboard from './OrganizerEventDashboard';
 import SearchBand from './SearchBand'
+import ViewBand from './ViewBand'
 
 import SideMenuBarOrganizer from '../../components/common/SideMenuBar/SideMenuBarOrganizer';
 library.add(fas);
@@ -131,6 +132,7 @@ function ViewEvents() {
                     <Route path='/organizer/searchartist/viewartist/:mmid/:eventid' element={<ViewArtist />} />
                     <Route path='/organizer/searchartist/viewartist/makeartistrequest/:mmid/:eventid' element={<MakeArtistRequest />} />
                     <Route path='/organizer/searchband/:eventid' element={<SearchBand />} />
+                    <Route path='/organizer/searchband/viewband/:mmid/:eventid' element={<ViewBand/>} />
                 </Routes>
             </SideMenuBarOrganizer>
         </>

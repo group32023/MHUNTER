@@ -23,6 +23,7 @@ import EventDashboardImagePopup from '../../components/organizer/EventDashboardI
 import EventDashboardDescriptionEdit from '../../components/organizer/EventDashboardDescriptionEdit';
 
 import SearchBand from './SearchBand'
+import ViewBand from './ViewBand'
 
 import { BiSolidEdit } from "react-icons/bi";
 import { BiSolidBox } from "react-icons/bi";
@@ -437,7 +438,7 @@ function OrganizerEventDashboard() {
                                         </div>
                                     </Link>
 
-                                    <Link to="/organizer/searchband" style={{ color: 'white', textDecoration: 'none' }}>
+                                    <Link to={`/organizer/searchband/${eventid}`} style={{ color: 'white', textDecoration: 'none' }}>
                                         <div className="addRow p-2 mt-2 text-center">Add Band
                                             <BiSolidPlusCircle className='plusIcon mx-2 fs-3' />
                                         </div>
@@ -521,6 +522,7 @@ function OrganizerEventDashboard() {
                     <Route path='/organizer/searchartist/viewartist/:mmid/:eventid' element={<ViewArtist />} />
                     <Route path='/organizer/searchartist/viewartist/makeartistrequest/:mmid/:eventid' element={<MakeArtistRequest />} />
                     <Route path='/organizer/searchband/:eventid' element={<SearchBand />} />
+                    <Route path='/organizer/searchband/viewband/:mmid/:eventid' element={<ViewBand/>} />
                 </Routes>
 
             </SideMenuBarOrganizer>
