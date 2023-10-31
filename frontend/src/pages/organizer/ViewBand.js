@@ -26,7 +26,6 @@ import CreateEvent from './CreateEvent';
 import MakeArtistRequest from './MakeArtistRequest';
 import OrganizerEventDashboard from './OrganizerEventDashboard';
 import SearchBand from './SearchBand'
-import ViewBand from './ViewBand'
 
 library.add(fas);
 
@@ -36,7 +35,7 @@ function ViewArtist() {
     const [post, setPosts] = useState([]);
     const [eventondate, setEventondate] = useState([]);
     const [event, setEvents] = useState([]);
-    const [artist, setArtists] = useState([]);
+    const [band, setbands] = useState([]);
     const [showModal, setShowModal] = useState(false);
 
 
@@ -82,18 +81,19 @@ function ViewArtist() {
     let formattedDate1;
     let formattedDateString;
     let options;
-    let artistName;
+    let bandName;
     const formattedDateStringRef = useRef(null) ;
-    const artistNameRef = useRef(null) ;
+    const bandNameRef = useRef(null) ;
 
     useEffect(() => {
-        fetch(`http://localhost:8080/artist/viewSpecificArtist/${mmid}`)
+        fetch(`http://localhost:8080/band/viewSpecificBand/${mmid}`)
             .then(res => res.json())
             .then((result) => {
-                setArtists(result);
-                artistName = result.musicMember.user.firstName + ' ' + result.musicMember.user.lastName  ;
-                artistNameRef.current = artistName;
-                console.log(artistName);
+                console.log(result);
+                setbands(result);
+                bandName = result.musicMember.user.firstName   ;
+                bandNameRef.current = bandName;
+                console.log(bandName);
 
             }
             )
@@ -169,13 +169,13 @@ function ViewArtist() {
 
         <>
             <SideMenuBarOrganizer>
-                <div className='organizer-view-artist-container'>
+                <div className='organizer-view-band-container'>
                     <Topbar></Topbar>
-                    <div className='row artist-container'>
+                    <div className='row band-container'>
                         <div className='col-md-3 box-1 '>
                             <div className='d-flex flex-column'>
 
-                                <div className='artist-logo align-items-center'>
+                                <div className='band-logo align-items-center'>
                                     <div className='image'>
                                         <img src={anushka}>
                                         </img>
@@ -183,7 +183,7 @@ function ViewArtist() {
 
                                     <div className='content-box align-items-center'>
 
-                                        <h5>{artistNameRef.current}</h5>
+                                        <h5>{bandNameRef.current}</h5>
                                         {/* <StarRating rating={5} style={{marginLeft:"2rem"}} /> */}
                                     </div>
                                 </div>
@@ -248,12 +248,12 @@ function ViewArtist() {
                                 <div className='feed-post'>
 
                                     <div className='d-flex align-items-center'>
-                                        <div className='artist-image'>
+                                        <div className='band-image'>
                                             <img src={anushka} alt="User's Image" />
                                         </div>
 
                                         <div className='ml-2 content'>
-                                            <h7>{artistNameRef.current}</h7>
+                                            <h7>{bandNameRef.current}</h7>
                                             {/* <p>12 hrs</p> */}
                                         </div>
                                     </div>
@@ -309,7 +309,7 @@ function ViewArtist() {
 
 
                         <button type="button" class="btn btn-lg" onClick={handleShowModal}>Events On {formattedDateStringRef.current}</button>
-                        <Link to={`/organizer/searchartist/viewartist/MakeArtistRequest/${mmid}/${eventid}`}>
+                        <Link to={`/organizer/searchband/viewband/MakeBandRequest/${mmid}/${eventid}`}>
                             <button type="button" class="btn btn-lg">Make a Request</button>
                         </Link>
                     </div>
@@ -373,9 +373,9 @@ function ViewArtist() {
                     <Route path='/organizer/complaint' element={<OrganizerComplaint />}></Route>
                     <Route path='/organizer/profile' element={<OrganizerProfile />}></Route>
                     <Route path='/organizer/searchartist/:eventid' element={<SearchArtist />} />
+                    <Route path='/organizer/searchartist/viewartist/:mmid/:eventid' element={<ViewArtist />} />
                     <Route path='/organizer/searchartist/viewartist/makeartistrequest/:mmid/:eventid' element={<MakeArtistRequest />} />
                     <Route path='/organizer/searchband/:eventid' element={<SearchBand />} />
-                    <Route path='/organizer/searchband/viewband/:mmid/:eventid' element={<ViewBand/>} />
                 </Routes>
 
             </SideMenuBarOrganizer>

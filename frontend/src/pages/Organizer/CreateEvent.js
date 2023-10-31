@@ -18,9 +18,23 @@ import ViewArtist from './ViewArtist';
 import MakeArtistRequest from './MakeArtistRequest';
 import OrganizerEventDashboard from './OrganizerEventDashboard';
 import SearchBand from './SearchBand'
+import ViewBand from './ViewBand'
+
+import Modal from 'react-bootstrap/Modal';
+import Button from 'react-bootstrap/Button';
 
 function CreateEvent() {
 
+
+  const [showModal, setShowModal] = useState(false);
+
+  const handleShowModal = () => {
+    setShowModal(true);
+  };
+
+  const handleCloseModal = () => {
+    setShowModal(false);
+  };
 
   const currentDate = format(new Date(), 'yyyy-MM-dd');
   const [formData, setFormData] = useState({
@@ -35,7 +49,7 @@ function CreateEvent() {
     description: '',
     latitude: '',
     longitude: '',
-    image:'',
+    image: '',
 
   })
 
@@ -52,7 +66,7 @@ function CreateEvent() {
         ...prevFormData,
         [name]: value,
         image: value,
-        
+
       }));
       console.log(formData);
 
@@ -164,8 +178,10 @@ function CreateEvent() {
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify(formData)
                   }).then(() => {
-                    window.location.href = "/organizer/event";
-                })
+                    // window.location.href = "/organizer/event";
+                    handleShowModal();
+                  })
+
                 }} >Create Event</button>
               </Link>
             </div>
@@ -173,6 +189,31 @@ function CreateEvent() {
 
 
           </form>
+
+          {showModal && (
+            <div className="overlay">
+              <Modal show={showModal} onHide={handleCloseModal} className='modal-class-new' centered>
+                <Modal.Header closeButton>
+                  <Modal.Title className='events-view-modal-title'>Event is 
+                  created</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+
+                </Modal.Body>
+                <Modal.Footer>
+                  <Button variant="secondary" onClick={() => {
+                    handleCloseModal();
+                    
+                      // Redirect to the event page
+                      window.location.href = "/organizer/event";
+                    
+                  }}>
+                    Close
+                  </Button>
+                </Modal.Footer>
+              </Modal>
+            </div>
+          )}
 
           {/* </div> */}
 
@@ -185,10 +226,11 @@ function CreateEvent() {
           <Route path='/organizer/eventhistory' element={<ViewEventHistory />}></Route>
           <Route path='/organizer/complaint' element={<OrganizerComplaint />}></Route>
           <Route path='/organizer/profile' element={<OrganizerProfile />}></Route>
-          <Route path='/organizer/searchartist' element={<SearchArtist />} />
-          <Route path='/organizer/searchartist/viewartist' element={<ViewArtist />} />
-          <Route path='/organizer/searchartist/viewartist/makeartistrequest' element={<MakeArtistRequest />} />
-          <Route path='/organizer/searchband' element={<SearchBand />} />
+          <Route path='/organizer/searchartist/:eventid' element={<SearchArtist />} />
+          <Route path='/organizer/searchartist/viewartist/:mmid/:eventid' element={<ViewArtist />} />
+          <Route path='/organizer/searchartist/viewartist/makeartistrequest/:mmid/:eventid' element={<MakeArtistRequest />} />
+          <Route path='/organizer/searchband/:eventid' element={<SearchBand />} />
+          <Route path='/organizer/searchband/viewband/:mmid/:eventid' element={<ViewBand/>} />
         </Routes>
       </SideMenuBarOrganizer>
     </>

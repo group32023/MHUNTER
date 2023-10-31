@@ -1,0 +1,256 @@
+.organizer-view-band-container{
+
+    color: white;
+}
+
+
+.organizer-view-band-container .band-container .band-logo{
+
+height: 15rem;
+margin-left: 2rem;
+align-items: center;
+/* padding: 1rem; */
+}
+
+.band-logo .image{
+
+    width: 10rem;
+    max-height: 20rem;
+    overflow: hidden;
+    margin: auto;
+    margin-top: 2rem;
+
+  }
+  
+  .band-logo .image img{
+
+    width: 100%;
+    border-radius:50%;
+  }
+
+  .box-1 .content-box h5{
+
+     /* margin-left: 4rem; */
+     text-align: center;
+     margin-top: 1rem;
+     color: white;
+  }
+
+ 
+  .box-1 .content-box .filled-star,.empty-star{
+
+    color: gold;
+    font-size: 0.8rem;
+    margin-left: 0.2rem;
+ 
+ }
+
+.organizer-view-band-container .band-container .feedback-log{
+
+    border: 1px white solid;
+    border-radius: 5%;
+    background-color: #3B444D;
+    height: auto;
+    margin-left: 3rem;
+    margin-top: 2rem;
+
+}
+
+.feedback .filled-star,.empty-star{
+
+    color: gold;
+    font-size: 0.8rem;
+    margin-left: 0.2rem;
+  }
+
+
+.feedback-log .feedback{
+
+    margin-left: 1rem;
+}
+
+.feedback-log h5{
+
+    margin-top: 1rem;
+}
+
+.feedback .content{
+
+    margin-top: 0.5rem;
+    margin-left: 1rem;
+}
+
+.feedback-log .org-image{
+
+    width: 2rem;
+    max-height: 2rem;
+    overflow: hidden;
+    /* margin: auto;
+    margin-top: 2rem; */
+}
+
+.org-image img{
+
+    width: 100%;
+    border-radius:50%;
+}
+
+.organizer-view-band-container .band-container .box-2{
+
+    /* border: 1px white solid; */
+    height: auto;
+ margin-top: 1rem;
+ padding: 2rem;
+ padding-left: 4rem;
+border-radius: 10px;
+gap: 3rem;
+
+}
+
+.feed-post .band-image{
+
+    width: 2rem;
+    max-height: 2rem;
+    margin-top: -2rem;
+}
+
+.feed-post .band-image img{
+    
+    width: 100%;
+    border-radius:50%;
+}
+
+.feed-post .content{
+
+    margin-top: -2rem;
+    margin-left: 1rem;
+
+}
+
+.feed-post .content p{
+
+    font-size: 11px;
+
+}
+
+.feed-post .post-content{
+
+    margin-left: 3rem;
+    margin-top: 1rem;
+}
+
+.post-content .post-image{
+
+    width: 40rem;
+    max-height: 30rem;
+    overflow: hidden;
+    /* margin: auto;
+    margin-top: 2rem; */
+}
+
+.post-content .post-image img{
+    
+    width: 100%;
+    border-radius: 10px;
+
+}
+
+
+.organizer-view-band-container .click-btns{
+
+        position: fixed;
+        bottom: 20px; /* Adjust this value to control the vertical position from the bottom */
+        right: 20px; /* Adjust this value to control the horizontal position from the right */
+        display: flex;
+        flex-direction: column;
+        gap: 10px; /* Adjust this value to set the gap between buttons */
+        z-index: 999; /* Make sure it's above other content */
+        
+}
+
+.click-btns button{
+
+    background-color: #F70F5D;
+    color: white;
+    /* max-width: 200px; */
+    width: 180px;
+    height: 50px;
+    font-size: 16px;
+    padding: 5px;
+}
+
+.click-btns button:hover{
+
+    background-color: #7643D2;
+    color: white;
+    
+
+}
+
+
+
+
+
+.organizer-view-band-container .view-music-events-table{
+
+    color: white;
+    margin-left: 12rem;
+    margin-top: 5rem;
+    max-width: 60rem;
+    /* height: 25rem; */
+    background-color: #484E55;
+    padding: 4rem;
+    padding-bottom: 2rem;
+    padding-top: 1rem;
+    border-radius: 10px;
+}
+
+.organizer-view-band-container .view-music-events-table .music-events-table-data-row{
+
+    /* align-items:center; */
+    padding: 10px;
+    color: white;
+    
+}
+
+.view-music-events-table .titlenew-row{
+    font-weight: bold;
+    background-color: #2F363E;
+    border-radius: 10px;
+    text-align: center;
+    padding: 10px;
+    font-size: 16px;
+    color: white;
+}
+
+
+.view-music-events-table .event-name,.view-music-events-table .event-time, .view-music-events-table .event-type , .view-music-events-table .event-location , .view-music-events-table .event-date{
+
+    flex:1;
+    text-align: center;
+    color: white;
+}
+
+.view-music-events-table .datanew-row {
+
+    background-color: #24292D;
+    border-radius: 10px;
+    text-align: center;
+    padding: 10px;
+    margin-top: 8px;
+}
+
+.modal-class-new .modal-content{
+
+    /* background-color: #484E55; */
+    background-color:#484E55;
+    /* background-color: #24292D; */
+    /* background-color: white; */
+    
+}
+
+.modal-class-new .events-view-modal-title{
+
+    color: white;
+    margin-left: 7.5rem;
+}

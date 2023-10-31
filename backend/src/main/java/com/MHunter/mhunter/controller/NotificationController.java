@@ -1,5 +1,6 @@
 package com.MHunter.mhunter.controller;
 
+import com.MHunter.mhunter.model.Event;
 import com.MHunter.mhunter.model.Notification;
 import com.MHunter.mhunter.model.User;
 import com.MHunter.mhunter.service.NotificationService;
@@ -33,6 +34,16 @@ public class NotificationController {
     public String addNotification(@RequestBody Notification notification){
         notificationService.addNotification(notification);
         return "Notification Send";
+    }
+
+    @PostMapping("/send")
+    public String add(@RequestBody Notification notification) {
+
+//          return "added";
+        System.out.println("Event before save: " + notification);
+        notificationService.saveNotification(notification);
+        return "added";
+
     }
 
     @PutMapping("/seen/{userId}")
@@ -79,3 +90,4 @@ public class NotificationController {
         return notificationList;
     }
 }
+

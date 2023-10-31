@@ -1,6 +1,6 @@
 
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link ,useParams } from 'react-router-dom';
 import Topbar from '../../components/common/Topbar';
 // import CreateEvent from './CreateEvent';
 import StarRating from '../../components/organizer/StarRating';
@@ -26,6 +26,8 @@ import ViewArtist from './ViewArtist';
 import MakeArtistRequest from './MakeArtistRequest';
 import OrganizerEventDashboard from './OrganizerEventDashboard';
 import SearchBand from './SearchBand'
+import ViewBand from './ViewBand'
+
 import SideMenuBarOrganizer from '../../components/common/SideMenuBar/SideMenuBarOrganizer';
 library.add(fas);
 
@@ -37,6 +39,7 @@ function SearchArtist() {
     const imageExtention = ["jpg", "png", "jpeg"]
     const BASE_URL = "http://localhost:8080";
 
+    const { eventid } = useParams();
 
     useEffect(() => {
         fetch("http://localhost:8080/artist/getAll")
@@ -83,7 +86,7 @@ function SearchArtist() {
 
             
                         <div className='col-md-3 artist-box' >
-                            <Link to="/organizer/searchartist/viewartist" className='link1'>
+                            <Link to= {`/organizer/searchartist/viewartist/${artist.musicMember.mmid}/${eventid}`} className='link1'>
                                 <div className='image'>
                                     <img src={`${BASE_URL}/postData/uploads/image/${artist.user.imagePath}`} alt="post media" />
                                 </div>
@@ -100,55 +103,6 @@ function SearchArtist() {
 
                     ))}
 
-                    {/* 
-                    <div className='col-md-3 artist-box' >
-                        <Link to="/organizer/searchartist/viewartist" className='link1'>
-                            <div className='image'>
-                                <img src={DineshGamage} alt='image2'>
-                                </img>
-                            </div>
-
-                            <div className='content'>
-
-                                <h5>Dinesh Gamage</h5>
-                                <StarRating rating={5} ></StarRating>
-
-                            </div>
-                        </Link>
-                    </div>
-
-                    <div className='col-md-3 artist-box' >
-                        <Link to="/organizer/searchartist/viewartist" className='link1'>
-                            <div className='image'>
-                                <img src={dineshtharanga} alt='image3'>
-                                </img>
-                            </div>
-
-                            <div className='content'>
-
-                                <h5>Dinesh Tharanga</h5>
-                                <StarRating rating={5} ></StarRating>
-
-                            </div>
-                        </Link>
-                    </div>
-
-                    <div className='col-md-3 artist-box' >
-                        <Link to="/organizer/searchartist/viewartist" className='link1'>
-                            <div className='image'>
-                                <img src={theekshana} alt='image4'>
-                                </img>
-                            </div>
-
-                            <div className='content'>
-
-                                <h5>Theekshana Anuradha</h5>
-                                <StarRating rating={5} ></StarRating>
-
-                            </div>
-                        </Link>
-                    </div> */}
-
 
 
 
@@ -162,9 +116,10 @@ function SearchArtist() {
                     <Route path='/organizer/eventhistory' element={<ViewEventHistory />}></Route>
                     <Route path='/organizer/complaint' element={<OrganizerComplaint />}></Route>
                     <Route path='/organizer/profile' element={<OrganizerProfile />}></Route>
-                    <Route path='/organizer/searchartist/viewartist' element={<ViewArtist />} />
-                    <Route path='/organizer/searchartist/viewartist/makeartistrequest' element={<MakeArtistRequest />} />
-                    <Route path='/organizer/searchband' element={<SearchBand />} />
+                    <Route path='/organizer/searchartist/viewartist/:mmid/:eventid' element={<ViewArtist />} />
+                    <Route path='/organizer/searchartist/viewartist/makeartistrequest/:mmid/:eventid' element={<MakeArtistRequest />} />
+                    <Route path='/organizer/searchband/:eventid' element={<SearchBand />} />
+                    <Route path='/organizer/searchband/viewband/:mmid/:eventid' element={<ViewBand/>} />
                 </Routes>
             </SideMenuBarOrganizer>
         </>
