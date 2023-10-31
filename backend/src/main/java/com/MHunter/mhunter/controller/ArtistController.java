@@ -6,22 +6,24 @@ import com.MHunter.mhunter.service.ArtistService;
 import com.MHunter.mhunter.service.MusicMemberService;
 import com.MHunter.mhunter.struct.UserArtist;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @RestController
-@CrossOrigin
+@CrossOrigin(origins = "*")
 @RequestMapping("/artist")
 public class ArtistController {
     @Autowired
     private ArtistService artistService;
     @Autowired
     private MusicMemberService musicMemberService;
+
+
+
+
+
 
     @GetMapping("/view")
     public List<UserArtist> viewAll(){
@@ -39,4 +41,18 @@ public class ArtistController {
         });
         return userArtistList;
     }
+
+    @GetMapping("/getAll")
+    public List<Artist> getAllArtists(){
+
+        return artistService.findAllArtist();
+    }
+
+    @GetMapping("/viewSpecificArtist/{mmid}")
+    public Artist viewSpecificArtist( @PathVariable int mmid){
+
+        return artistService.findSpecificArtist(mmid);
+    }
+
+
 }

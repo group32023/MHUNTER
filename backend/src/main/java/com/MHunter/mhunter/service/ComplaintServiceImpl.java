@@ -18,7 +18,13 @@ public class ComplaintServiceImpl implements ComplaintService{
     }
 
     @Override
-    public List<Complaint> getAllComplaints() {
-        return complaintRepository.findAll();
+    public List<Complaint> getComplaintsByOrgId(Integer orgId) {
+
+        return complaintRepository.findByOrgId(orgId);
+
+
     }
+
+
+
 }

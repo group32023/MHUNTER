@@ -1,4 +1,4 @@
-.navBody{
+.navBody {
     width: 100%;
     height: 58px;
     flex-shrink: 0;
@@ -9,7 +9,8 @@
     left: 0px;
     z-index: 10000;
 }
-.logo img{
+
+.logo img {
     width: 189px;
     height: 161px;
     flex-shrink: 0;
@@ -17,19 +18,21 @@
     top: -57px;
     left: 28px;
 }
-.navContain{
+
+.navContain {
     position: absolute;
     top: 4px;
     left: 480px;
-    
+
 }
-.navContain ul{
-    display: flex; 
+
+.navContain ul {
+    display: flex;
     list-style: none;
     margin-left: 122px;
 }
 
-.navContain ul li{
+.navContain ul li {
     width: 101px;
     height: 22px;
     flex-direction: column;
@@ -44,7 +47,7 @@
     padding-top: 15px;
 }
 
-.slide1{
+.slide1 {
     width: 1440px;
     height: 702.791657px;
     flex-shrink: 0;
@@ -53,11 +56,12 @@
     background-repeat: no-repeat;
 }
 
-.navContain nav a{
+.navContain nav a {
     text-decoration: none;
     color: white;
 }
-.scroll{
+
+.scroll {
     position: fixed;
     top: 0;
     left: 0;
@@ -66,9 +70,11 @@
     background: #030303;
     z-index: 10000;
 }
-.active{
+
+.navContain .active {
     color: #7643D2 !important;
 }
-.navContain nav ul li a:hover{
+
+.navContain nav ul li a:hover {
     color: #7643D2 !important;
-  }
+}

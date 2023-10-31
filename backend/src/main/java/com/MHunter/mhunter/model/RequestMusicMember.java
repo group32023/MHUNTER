@@ -8,6 +8,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 
 @Entity
 @Data
@@ -20,9 +21,14 @@ public class RequestMusicMember {
     @Column(columnDefinition = "DATETIME DEFAULT CURRENT_TIMESTAMP")
     private LocalDateTime requestDate;
     private int confirmationStatus;
-
     private LocalDateTime confirmationDate;
     private int cancelStatus;
     private String reason;
     private LocalDateTime canceledDate;
+    private String rejectReason;
+    private LocalTime arrivalTime;
+    private LocalTime departureTime;
+    private String specialNotes;
+
+
 }

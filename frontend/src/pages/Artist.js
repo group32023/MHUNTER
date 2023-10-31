@@ -1,13 +1,19 @@
-import React from 'react'
+import React,{ useEffect, useState } from 'react'
 import NavBar from '../components/common/NavBar';
 import MainSlider from '../components/common/MainSlider';
 import backgroundimage from '../assets/images/backgroundimage1.jpg';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {Form, Container} from 'react-bootstrap';
+import { Link } from 'react-router-dom';
+import Topbar from '../components/common/Topbar';
 
-
-
+import Pagination from '@mui/material/Pagination';
+import Stack from '@mui/material/Stack';
 import Footer from '../components/common/Footer';
+import { faSearch } from '@fortawesome/free-solid-svg-icons';
+import StarRating from '../components/organizer/StarRating';
+
+
 import ArtistSlider from '../components/ArtistSlider';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {faPhone,faList} from '@fortawesome/free-solid-svg-icons'
@@ -17,7 +23,59 @@ import '../assets/css/home.css'
 import '../assets/css/event.css'
 
 export default function 
-h() {
+
+    HomeArtist() {
+           
+  const [artist, setArtists] = useState([])
+  const [searchInput, setSearchInput] = useState('');
+
+  const BASE_URL = "http://localhost:8080";
+  const [page,setPage] = useState(1);
+  const noOfLinePerPage = 4;
+
+  useEffect(() => {
+      fetch("http://localhost:8080/artist/getAll")
+          .then(res => res.json())
+          .then((result) => {
+              setArtists(result);
+          }
+          )
+  }, [])
+  
+  const filteredArtists = artist.filter((artist) =>
+  artist.user.firstName.toLowerCase().includes(searchInput.toLowerCase()) ||
+  artist.user.lastName.toLowerCase().includes(searchInput.toLowerCase())
+  );
+
+
+  
+  function setPagination(){
+    let noOfLine =1
+    let displayedData = []
+    if(filteredArtists.length>0){
+      if(filteredArtists.length < noOfLinePerPage*page){
+        noOfLine = filteredArtists.length
+      }
+      else{
+        noOfLine =  noOfLinePerPage*page
+      }
+      for (let i = noOfLinePerPage*(page-1); i < noOfLine; i++) {
+        displayedData.push(filteredArtists[i]);
+        
+      }
+      return displayedData
+    }
+    else{
+      
+      return displayedData 
+    }
+    
+  }
+
+  const handleChange= (event,value)=>{
+    setPage(value)
+  }
+  
   return (
     <div>
        
@@ -66,23 +124,73 @@ h() {
              
                 <div className='eventcontainer'>
 
-                    <Form.Select aria-label="Default select example" align-items-center justify-content-center id="selectionMenu">
-                    <FontAwesomeIcon icon={faList} />
-                      <option>Status</option>
-                      <option value="name">Artist Name</option>
-                      
-                    </Form.Select>
+           
 
-                    <Container>
+
+            <div className='row search-artist-container'>
+           
+
+                {/* <div className="search-container">
+                    <div className="searchbar">
+
+                        <input
+                            className="form-control me-1 custom-input"
+                            type="search"
+                            placeholder="Search An Artist"
+                            aria-label="Search"
+                            value={searchInput}
+                            onChange={(e) => setSearchInput(e.target.value)}
+                        />
+
+                    </div>
+
+                    <div className='searchicon'>
+
+                        <FontAwesomeIcon icon={faSearch} />
+                    </div>
+                </div> */}
+
+                
+                <Container>
                       <Form.Control
                         className="smaller-input"
-                        name="foo" id="statusInput"
-                        placeholder="Search Here"
+                        name="foo" id="statusInput1"
+                        placeholder="Enter Event Detail Here" value={searchInput}
+                            onChange={(e) => setSearchInput(e.target.value)}
                       />
                     </Container>
-                     
-                    <ArtistSlider></ArtistSlider>
-                    <Footer></Footer>
+
+                {setPagination().map(artist => (
+
+        
+                    <div className='col-md-3 artist-box' >
+                        <Link to="/organizer/searchartist/viewartist" className='link1'>
+                            <div className='image'>
+                                <img src={`${BASE_URL}/postData/uploads/image/${artist.user.imagePath}`} alt="post media" />
+                            </div>
+
+                            <div className='content'>
+
+                                <h5>{artist.user.firstName} {artist.user.lastName}</h5>
+                                <StarRating rating={5} ></StarRating>
+
+                            </div>
+                        </Link>
+                    </div>
+                
+
+                ))}
+
+                <div className='paginationForArtistHome'>
+                  <div className='artistEventPagination'>
+                  <Stack spacing={2}>
+                    <Pagination count={(Math.round(filteredArtists.length/noOfLinePerPage))} color="secondary" page={page} onChange={handleChange} />
+                  </Stack>
+                </div>
+              </div>
+
+                  
+                  </div> 
 
                 </div>
 

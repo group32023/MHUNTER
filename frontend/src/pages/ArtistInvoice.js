@@ -88,6 +88,8 @@ export default function BandInvoice() {
 
   const handleCloseModal = () => {
       setShowModal(false);
+      navigate('/artist/PendingRequests');
+
   };
   const handleCloseModalAndAccept = () => {
     setShowModal(false);
@@ -224,7 +226,7 @@ const handleCloseAcceptRequestModal=()=>{
     
         <SideMenuBarArtist>
         <div>
-            <p className='headerDashboard'>Pending Requests</p>
+            <p className='headerDashboard'>Invoice</p>
             <div className={expand ? 'notificationBg':'notificationBg-ex'}>
               <img src={notification} className='notificationIcon' alt='notification'></img>
             </div>
@@ -257,7 +259,7 @@ const handleCloseAcceptRequestModal=()=>{
         </div>
 
         <div className='InvoiceContainer'>
-            <h1>Invoice</h1>
+           
            
            <div className='invoiceFees'>
             
@@ -269,7 +271,7 @@ const handleCloseAcceptRequestModal=()=>{
             </div>
             
             <div className='AmountLabel'>
-            <label for='amount' className='label7'>Amount(Rs.)</label>
+            <label for='amount' className='label7'>Amount (Rs.)</label>
 
 
             <form onSubmit={addInvoice}>
@@ -296,8 +298,9 @@ const handleCloseAcceptRequestModal=()=>{
 
      
       
-      <button className='backInvoice' onClick={()=>load(101)}>Back</button>
       <button type='button' className='previewAgreement' onClick={loadInvoicePreview} >Preview</button>
+      <button className='backInvoice'>Back</button>
+
 
     </div>   
         </div>

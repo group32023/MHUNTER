@@ -1,7 +1,7 @@
 /* eslint-disable react/jsx-no-undef */
 import React,{useState, useEffect,useRef,Lable} from 'react';
 import { Link,useNavigate,useParams } from 'react-router-dom';
-import SideMenuBarArtist from '../components/common/SideMenuBar/SideMenuBarArtist'
+import SideMenuBarBand from '../components/common/SideMenuBar/SideMenuBarBand'
 import '../assets/css/bandInvoice.css'
 // import { MDBBtn } from 'mdb-react-ui-kit';
 import profileImage from '../assets/images/profilePhoto.jpeg';
@@ -26,7 +26,7 @@ import { Label } from '@mui/icons-material';
 
 
 export default function BandInvoice() {
-  const { id,mid,oid } = useParams();
+  const { id,mid,skip } = useParams();
   const [event, setEvent] = useState([]);
   const [updateRequest,setUpdateRequest] = useState([]);
   const [expand,setExpandedSideBar] = useState(true)
@@ -65,8 +65,10 @@ export default function BandInvoice() {
       });
    
 
-
-
+     if(skip==="skip"){
+         setAgreementId(0);
+     }
+     else{
 
       fetch(`http://localhost:8080/bandAgreement/findAgreement/${mid}/${id}`)
       .then((response) => {
@@ -84,6 +86,11 @@ export default function BandInvoice() {
         .catch((error) => {
           console.log('Error fetching data :', error);
         });
+
+     }
+
+
+     
      
 
   }, []);
@@ -105,6 +112,8 @@ export default function BandInvoice() {
 
 const handleCloseModal = () => {
     setShowModal(false);
+    navigate('/band/PendingRequests');
+
 };
 const handleCloseModalAndAccept = () => {
   setShowModal(false);
@@ -247,9 +256,9 @@ const loadInvoicePreview=(id,mmid)=>{
    
     
     <div >
-       <SideMenuBarArtist>
+       <SideMenuBarBand>
         <div>
-            <p className='headerDashboard'>Pending Requests</p>
+            <p className='headerDashboard'>Invoice</p>
             <div className={expand ? 'notificationBg':'notificationBg-ex'}>
               <img src={notification} className='notificationIcon' alt='notification'></img>
             </div>
@@ -280,7 +289,7 @@ const loadInvoicePreview=(id,mmid)=>{
         </div>
 
         <div className='InvoiceContainer'>
-            <h1>Invoice</h1>
+            
            
            <div className='invoiceFees'>
             
@@ -294,7 +303,7 @@ const loadInvoicePreview=(id,mmid)=>{
             </div>
             
             <div className='AmountLabel'>
-            <label for='amount' className='label17'>Amount(Rs.)</label>
+            <label for='amount' className='label17'>Amount (Rs.)</label>
 
 
             <form onSubmit={addInvoice}>
@@ -365,7 +374,7 @@ const loadInvoicePreview=(id,mmid)=>{
 
                                     </div>
                                 )}
-        </SideMenuBarArtist>
+        </SideMenuBarBand>
         
     </div>
   )

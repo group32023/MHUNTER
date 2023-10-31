@@ -2,7 +2,7 @@
 import React,{useState, useEffect,useRef} from 'react';
 import { useNavigate} from 'react-router-dom';
 import ReactPaginate from 'react-paginate';
-import SideMenuBarArtist from '../components/common/SideMenuBar/SideMenuBarArtist'
+import SideMenuBarBand from '../components/common/SideMenuBar/SideMenuBarBand'
 //import '../assets/css/artistDashboard.css'
 import '../assets/css/artistPendingRequests.css'
 // import { MDBBtn } from 'mdb-react-ui-kit';
@@ -30,10 +30,11 @@ export default function ArtistPendingRequests() {
   const [currentPage, setCurrentPage] =useState(1);
   const [linePerPage, setLinePerPage] = useState(4);
 
+  const mmid=localStorage.getItem('mmid');
   useEffect(() => {
     // Fetch the data from the Java backend
     const getPendingRequest = async () =>{
-      const res = await fetch('http://localhost:8080/requestMusicMember/pendingRequest/758464')
+      const res = await fetch(`http://localhost:8080/requestMusicMember/pendingRequest/${mmid}`)
 
       const data = await res.json();
         setEventList(data);
@@ -101,7 +102,7 @@ export default function ArtistPendingRequests() {
    
     
     <div >
-    <SideMenuBarArtist >
+    <SideMenuBarBand >
   
     
             <p className='headerDashboard'>Pending Requests</p>
@@ -130,7 +131,7 @@ export default function ArtistPendingRequests() {
       </div> */}
             
       
-      </SideMenuBarArtist>
+      </SideMenuBarBand>
     </div>
   )
 }

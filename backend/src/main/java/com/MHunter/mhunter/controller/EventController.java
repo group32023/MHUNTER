@@ -11,8 +11,10 @@ import com.MHunter.mhunter.service.RequestMusicMemberService;
 import com.MHunter.mhunter.service.UserService;
 import com.MHunter.mhunter.struct.EventOrganizer;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.sql.Date;
 import java.time.Duration;
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -51,6 +53,20 @@ public class EventController {
         return eventService.getAllEvents();
     }
 
+    @GetMapping("/musicMemberEventsOnDate/{mmid}/{date}")
+    public List<Event> viewMusicMemberEventsOnDate(@PathVariable int mmid, @PathVariable LocalDate date){
+
+        return eventService.viewMusicMemberEventsOnDate(mmid,date);
+    }
+
+
+    @GetMapping("/viewEventHistory/{orgid}")
+    public List<Event>viewPastEvents(@PathVariable int orgid){
+
+        return eventService.viewPastEvents(orgid);
+    }
+
+
     @GetMapping("/viewSpecificEvent/{eventId}")
     public EventOrganizer viewSpecificEvent(@PathVariable int eventId) {
         Event event = eventService.viewSpecificEvent(eventId);
@@ -62,6 +78,7 @@ public class EventController {
         eventOrganizer.setDescription(event.getDescription());
         eventOrganizer.setLatitude(event.getLatitude());
         eventOrganizer.setLongitude(event.getLongitude());
+        eventOrganizer.setLocation(event.getLocation());
         eventOrganizer.setEndTime((LocalTime) event.getEnd_time());
         eventOrganizer.setTown(event.getTown());
         eventOrganizer.setOrganizerName(user.getFirstName() + " " + user.getLastName());
@@ -71,7 +88,7 @@ public class EventController {
         eventOrganizer.setPlace(event.getTown());
         eventOrganizer.setDate(event.getDate());
         eventOrganizer.setCrowd(event.getCrowd());
-        eventOrganizer.setEventImage(event.getEventImage());
+//        eventOrganizer.setEventImage(event.getEventImage());
         Duration difference = Duration.between(event.getStart_time(), event.getEnd_time());
         long hours = difference.toHours();
         long minutes = difference.toMinutes() % 60;
@@ -92,6 +109,34 @@ public class EventController {
     public List<Event> getSpecificEventByDate(@PathVariable LocalDate date){
         return eventService.getSpecificEventByDate(date);
     }
+
+    @GetMapping("/byOrgID/{OrgID}")
+    public ResponseEntity<List<Event>> getEventsByOrgId(@PathVariable Integer OrgID) {
+        List<Event> events = eventService.getEventsByOrgID(OrgID);
+        if (events.isEmpty()) {
+            return ResponseEntity.notFound().build();
+        }
+        return ResponseEntity.ok(events);
+    }
+
+    @GetMapping("/byEventid/{eventid}")
+    public ResponseEntity<List<Event>> getEventsByEventid(@PathVariable Integer eventid) {
+        List<Event> events = eventService.getEventsByeventid(eventid);
+        if (events.isEmpty()) {
+            return ResponseEntity.notFound().build();
+        }
+        return ResponseEntity.ok(events);
+    }
+
+
+//    @GetMapping("/confirmationStatusByEventidOrgId/{eventid}/{OrgID}")
+//    public ResponseEntity<List<Event>> getConfirmationStatusByEventidOrgId(@PathVariable Integer eventid, @PathVariable Integer OrgID) {
+//        List<Event> confirmationArtists = eventService.getConfirmationStatusByEventIdOrgId(eventid, OrgID);
+//        if (confirmationArtists.isEmpty()) {
+//            return ResponseEntity.notFound().build();
+//        }
+//        return ResponseEntity.ok(confirmationArtists);
+//    }
 
 
 

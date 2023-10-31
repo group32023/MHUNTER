@@ -81,10 +81,19 @@ function SideMenuBarArtist({ children }) {
                     </div>
 
                     <div className="row">
-                        <NavLink to="/">
+                        <NavLink to="/artist/profile/${user?.userId}">
                             <div className="menu-profilePhoto col d-flex justify-content-center">
-                                <img className={isExpanded ? "menu-item-profilePhoto img-fluid my-4" : "menu-item-profilePhoto-NX"} src={`${BASE_URL}/postData/uploads/image/${image}`} alt="Profile" srcSet="" width="130px" height="130px" />
-                                {isExpanded && (
+                            <img
+                                    className={isExpanded ? "menu-item-profilePhoto img-fluid my-4" : "menu-item-profilePhoto-NX"}
+                                    src={`${BASE_URL}/postData/uploads/image/${image}`}
+                                    alt="Profile"
+                                    srcSet=""
+                                    width="130px"
+                                    height="130px"
+                                    onError={() => {
+                                        // Handle image loading error here (e.g., display a default image)
+                                    }}
+                                />                                {isExpanded && (
                                     <div className="middle-pp-box">
                                         <div className="middle-pp-text">Go to Profile</div>
                                     </div>

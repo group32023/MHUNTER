@@ -46,56 +46,48 @@ public class UserController {
         List<StaffMember> staffMembers = staffMemberService.findAllStaffMembers();
         List<AllUsers> allUsersList = new ArrayList<>();
         artistBandLists.forEach(item ->{
-            AllUsers allUsers = new AllUsers();
-            allUsers.setName(item.getName());
-            allUsers.setImagePath(item.getUser().getImagePath());
-            allUsers.setFirstName(item.getUser().getFirstName());
-            allUsers.setLastName(item.getUser().getLastName());
-            allUsers.setType(item.getType());
-            allUsers.setId(item.getUser().getUserId());
-            if(item.getUser().getIsVerified()==1){
-                allUsers.setStatus("Registered");
-            }
-            else {
+            if(item.getUser().getIsVerified()==0) {
+                AllUsers allUsers = new AllUsers();
+                allUsers.setName(item.getName());
+                allUsers.setImagePath(item.getUser().getImagePath());
+                allUsers.setFirstName(item.getUser().getFirstName());
+                allUsers.setLastName(item.getUser().getLastName());
+                allUsers.setType(item.getType());
+                allUsers.setId(item.getUser().getUserId());
                 allUsers.setStatus("Pending");
+                allUsersList.add(allUsers);
             }
-            allUsersList.add(allUsers);
         });
-        organizerList.forEach(item ->{
-            AllUsers allUsersO = new AllUsers();
-            allUsersO.setName(item.getUser().getFirstName());
-            allUsersO.setFirstName(item.getUser().getFirstName());
-            allUsersO.setLastName(item.getUser().getLastName());
-            allUsersO.setImagePath(item.getUser().getImagePath());
-            allUsersO.setType("Organizer");
-            allUsersO.setId(item.getUser().getUserId());
-            if(item.getUser().getIsVerified()==1){
-                allUsersO.setStatus("Registered");
-            }
-            else {
+        organizerList.forEach(item -> {
+            if(item.getUser().getIsVerified()==0) {
+                AllUsers allUsersO = new AllUsers();
+                allUsersO.setName(item.getUser().getFirstName());
+                allUsersO.setFirstName(item.getUser().getFirstName());
+                allUsersO.setLastName(item.getUser().getLastName());
+                allUsersO.setImagePath(item.getUser().getImagePath());
+                allUsersO.setType("Organizer");
+                allUsersO.setId(item.getUser().getUserId());
                 allUsersO.setStatus("Pending");
+                allUsersList.add(allUsersO);
             }
-            allUsersList.add(allUsersO);
         });
-        staffMembers.forEach(item ->{
-            AllUsers allUsersS = new AllUsers();
-            allUsersS.setName(item.getUser().getFirstName());
-            allUsersS.setType(item.getJobRoll());
-            allUsersS.setImagePath(item.getUser().getImagePath());
-            allUsersS.setId(item.getUser().getUserId());
-            if(item.getUser().getIsVerified()==1){
-                allUsersS.setStatus("Registered");
-            }
-            else {
+        staffMembers.forEach(item -> {
+            if(item.getUser().getIsVerified()==0) {
+                AllUsers allUsersS = new AllUsers();
+                allUsersS.setName(item.getUser().getFirstName());
+                allUsersS.setType(item.getJobRoll());
+                allUsersS.setImagePath(item.getUser().getImagePath());
+                allUsersS.setId(item.getUser().getUserId());
                 allUsersS.setStatus("Pending");
+                allUsersList.add(allUsersS);
             }
-            allUsersList.add(allUsersS);
         });
         return allUsersList;
     }
 
     @GetMapping("/user/{userId}")
     User getUserById(@PathVariable int userId) {
+
         return userRepository.findById(userId)
                 .orElseThrow(() -> new UserNotFoundException(userId));
     }
@@ -110,7 +102,19 @@ public class UserController {
         return userRepository.findById(userId)
                 .map(user -> {
                     user.setFirstName(newUser.getFirstName());
+                    user.setLastName(newUser.getLastName());
+                    user.setAddress(newUser.getAddress());
+                    user.setPhoneNumber(newUser.getPhoneNumber());
                     user.setEmail(newUser.getEmail());
+                    return userRepository.save(user);
+                }).orElseThrow(() -> new UserNotFoundException(userId));
+    }
+
+    @PutMapping("/userStatus/{userId}")
+    User updateUserStatus( @PathVariable int userId) {
+        return userRepository.findById(userId)
+                .map(user -> {
+                    user.setIsVerified(1);
                     return userRepository.save(user);
                 }).orElseThrow(() -> new UserNotFoundException(userId));
     }
@@ -133,6 +137,11 @@ public class UserController {
     @GetMapping("/countBandAndArtist")
     public List<Object[]> getCountOfBandAndArtist() {
         return musicMemberService.getCountOfBandAndArtist();
+    }
+
+    @GetMapping("/getAdminReportData")
+    public List<Object[]> getAdminReportData(){
+        return userService.getAdminReportData();
     }
 
 }

@@ -8,7 +8,11 @@ import { useReactToPrint } from 'react-to-print'
 import notification from '../assets/images/notification.png'
 import home from '../assets/images/home-button.png'
 import logout from '../assets/images/logout.png'
+import Pagination from '@mui/material/Pagination';
+import Stack from '@mui/material/Stack';
 import kpop from '../assets/images/kpop.png'
+import empty from '../assets/images/empty(1).png'
+
 
 import CircularProgress from '@mui/material/CircularProgress';
 
@@ -25,7 +29,8 @@ export default function ArtistPriorBooking() {
 
   // console.log(id1);
   // console.log(id2);
-
+  const [page,setPage] = useState(1)
+  const noOfLinePerPage = 4
   let navigate = useNavigate();
 
   const load=(id)=>{
@@ -53,12 +58,39 @@ export default function ArtistPriorBooking() {
       .catch((error) => {
         console.log('Error fetching data:', error);
       });
+      
      
 
   }, []);
 
 
-  
+  const handleChange= (event,value)=>{
+    setPage(value)
+  }
+
+// setup the pagination
+  function setPagination(){
+    let noOfLine =1
+    let displayedData = []
+    if(divElements.length>0){
+      if(divElements.length < noOfLinePerPage*page){
+        noOfLine = divElements.length
+      }
+      else{
+        noOfLine =  noOfLinePerPage*page
+      }
+      for (let i = noOfLinePerPage*(page-1); i < noOfLine; i++) {
+        displayedData.push(divElements[i]);
+        
+      }
+      return displayedData
+    }
+    else{
+      
+      return displayedData 
+    }
+    
+  }
    
   
   console.log(events)
@@ -86,7 +118,6 @@ export default function ArtistPriorBooking() {
   }
 
   
-  if(events.length===0) return <div><CircularProgress color="secondary" /></div>
 
 
     return (
@@ -113,9 +144,14 @@ export default function ArtistPriorBooking() {
 
           <div className='addressDiv'>
           <h3>Prior Booking </h3>
-      
+
+          <div className='emptyMessageForPriorBooking'>
+          {(divElements.length ===0)?<><img src={empty} className='empty-img'></img><span className='emptyContent-report'>it's empty in here.</span></>:undefined}
+
+          </div>
+
           <h4 className="organizer_tag">Organizer :  </h4>
-          <h4 className="organizerName">{events[0]['organizerName']}</h4>
+          <h4 className="organizerName">{events.length===0 ? undefined:events[0]['organizerName']}</h4>
           </div>
         
               {/* <Button className="date"><FontAwesomeIcon icon={faCalendarDays} id="CalenderReport"/>Date</Button> 
@@ -145,12 +181,20 @@ export default function ArtistPriorBooking() {
                         <tbody>
                          
                        
-                         {divElements }
+                         {setPagination().map((item) => item)}
                           
-                    
+
                           
                         </tbody>
                       </Table>
+
+
+               <div className='artistEventPagination'>
+              <Stack spacing={2}>
+                <Pagination count={(Math.round(divElements.length/noOfLinePerPage))} color="secondary" page={page} onChange={handleChange} />
+              </Stack>
+            </div>
+            
                   
           </div>     
           <Button className="back" onClick={()=>load(id3)}>Back</Button>

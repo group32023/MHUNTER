@@ -4,6 +4,8 @@ import SignatureCanvas from 'react-signature-canvas';
 import { Link,useNavigate,useParams } from 'react-router-dom';
 import SideMenuBarArtist from '../components/common/SideMenuBar/SideMenuBarArtist'
 import '../assets/css/bandAgreement.css'
+import SideMenuBarBand from '../components/common/SideMenuBar/SideMenuBarBand'
+
 // import { MDBBtn } from 'mdb-react-ui-kit';
 import profileImage from '../assets/images/profilePhoto.jpeg';
 import CurrencyInput from 'react-currency-input-field';
@@ -43,8 +45,7 @@ export default function BandAgreemnt() {
   const [mmid, setMmid]=useState(parseInt(mid))
   const [checkValidity,setCheckValidity]=useState(false)
 
-
-
+  const skip="skip";
 
   const [showModal1, setShowModal1] = useState(false);
 
@@ -55,6 +56,12 @@ export default function BandAgreemnt() {
 
     }
 
+  };
+  
+
+  const handleCloseModal0 = () => {
+   
+    setIsParagraphVisible(false);
   };
 
   const handleCloseModal1 = () => {
@@ -150,13 +157,12 @@ const handleCheckboxChangeRule4=()=>{
 let navigate = useNavigate();
 const loadPreview=(id,mmid)=>{
 
-  if(url===undefined){
-    console.log("hi, error of url");
-    setIsParagraphVisible(true)
+  if(url===null && (rule1==="null" || rule2==="null" || rule3==="null" || rule4==="null" || additionalRules==="" )){
+    setCheckValidity(true)
   }
 
   else{
-    setIsParagraphVisible(false)
+    setCheckValidity(false);
     navigate(`/band/agreementPreview/${id}/${mmid}`,{state:{r1:rule1,r2:rule2,r3:rule3,r4:rule4,aR:additionalRules,u:url}});
 
   }
@@ -165,7 +171,7 @@ const loadPreview=(id,mmid)=>{
 }
 
 const loadInvoice=(id,mmid)=>{
-  navigate(`/band/invoice/${id}/${mmid}/${id1}`);
+  navigate(`/band/invoice/${id}/${mmid}/${skip}`);
 }
 
 
@@ -173,9 +179,9 @@ const loadInvoice=(id,mmid)=>{
   return ( 
     
     <div >
-       <SideMenuBarArtist>
+       <SideMenuBarBand>
         <div className='mainC'>
-            <p className='headerDashboard'>Pending Requests</p>
+            <p className='headerDashboard'>Agreement</p>
             <div className={expand ? 'notificationBg':'notificationBg-ex'}>
               <img src={notification} className='notificationIcon' alt='notification'></img>
             </div>
@@ -194,65 +200,75 @@ const loadInvoice=(id,mmid)=>{
           <div className='containerForElements'>
           <div id="left">
       
-                  <h1>Agreement</h1>
+                 
 
                   <div className='bandDetailsDiv'>
                   <h5 className='h5forbandDetails'>Band Details</h5>
+                  <div className='detailsOfBandInfo'>
                   <div><p className='bandNameLable'>Band Name : </p> <p className='bandName'>FlashBack</p></div>
 
                   <div><p className='bandAddressLable'>Address : </p> <p className='bandAddress'>Colombo 05</p></div>
 
                   <div><p className='bandEmailLable'>E-mail : </p> <p className='bandEmail'>flashback@gmail.com</p></div>
                   </div>
+                  </div>
                   
 
-                  <h5 className='h5forRules'>Rules</h5>
-
-                  <p className='commandRules'>* Select Rules, want to add into agreement.</p>
+                
                   <form onSubmit={addAgreement}>
+
                         <div className='rulesForAgreement'>
-
-                      
                             
-                        <input type="checkbox" id="advanced1" name="advanced" onChange={handleCheckboxChangeRule1}/> <label className='rule1'>Others Can not sing</label>
-                        <input type="checkbox" id="advanced2" name="advanced" onChange={handleCheckboxChangeRule2}/><label className='rule2'>Others Can not sing</label>
-                        <input type="checkbox" id="advanced3" name="advanced" onChange={handleCheckboxChangeRule3}/> <label className='rule3'>Others Can not sing</label>
-                        <input type="checkbox" id="advanced4" name="advanced" onChange={handleCheckboxChangeRule4}/> <label className='rule4'>Others Can not sing</label>
-                        {/* <input type="checkbox" id="advanced5" name="advanced" onChange={handleCheckboxChangeRule5}/> <label className='rule5'>Others Can not sing</label>
-                        <input type="checkbox" id="advanced6" name="advanced" onChange={handleCheckboxChangeRule6}/> <label className='rule6'>Others Can not sing</label> */}
-                        <lable className="otherRules">Additional Rules : </lable><input type='text' id="advanced7" name="advanced" value={additionalRules} onChange={(e)=>setAdditionalRules(e.target.value)}></input>
+                            <h5 className='h5forRules'>Rules</h5>
 
-                        </div>
+                            <p className='commandRules'>* Select Rules, want to add into agreement.</p>
+                            <div className='agreementRulesDefine'>  
+                              <input type="checkbox" id="advanced1" name="advanced" onChange={handleCheckboxChangeRule1}/> <label className='rule1'>Others Can not sing</label>
+                              <input type="checkbox" id="advanced2" name="advanced" onChange={handleCheckboxChangeRule2}/><label className='rule2'>Others Can not sing</label>
+                              <input type="checkbox" id="advanced3" name="advanced" onChange={handleCheckboxChangeRule3}/> <label className='rule3'>Others Can not sing</label>
+                              <input type="checkbox" id="advanced4" name="advanced" onChange={handleCheckboxChangeRule4}/> <label className='rule4'>Others Can not sing</label>
+                              {/* <input type="checkbox" id="advanced5" name="advanced" onChange={handleCheckboxChangeRule5}/> <label className='rule5'>Others Can not sing</label>
+                              <input type="checkbox" id="advanced6" name="advanced" onChange={handleCheckboxChangeRule6}/> <label className='rule6'>Others Can not sing</label> */}
+                              <lable className="otherRules">Others : </lable><input type='text' id="advanced7" name="advanced" value={additionalRules} onChange={(e)=>setAdditionalRules(e.target.value)}></input>
+                              
+                            </div>  
+
+                            
+                            <p className='signatureLable'>* Insert Signature and press Set button. </p>
                   
+                            <div className='canvasforSignature' style={{border:"2px solid #ffffff",position:"absolute", width:300, height:150}}>
+                              <SignatureCanvas canvasProps={{width:300, height:150, className:'sigCanvas'}}
+                              ref={data=> setSign(data)} required />
+                        
+                          
+                              <button  type='button' onClick={Generate} className='setUrl'>Set</button>                       
+                              <button  type='button' className='clearBtn' onClick={clear}>Clear</button>
+                              {/* <button className='saveBtn' onClick={Generate}>Save</button> */}
+                            </div>
+                       </div>
+                  
+                      
 
 
-                          <h5 className='signatureLable'>Signature </h5>
-              
-                          <div className='canvasforSignature' style={{border:"2px solid #ffffff",position:"absolute", width:300, height:150}}>
-                            <SignatureCanvas canvasProps={{width:300, height:150, className:'sigCanvas'}}
-                            ref={data=> setSign(data)} required />
-                       
-                         
-                             <button  type='button' onClick={Generate} className='setUrl'>Set</button>                       
-                            <button  type='button' className='clearBtn' onClick={clear}>Clear</button>
-                            {/* <button className='saveBtn' onClick={Generate}>Save</button> */}
-                          </div>
 
-
-
+                       <div className='buttonSet'>
                           <button type='submit' className='submitAgreement' onClick={handleShowModal1} >Submit</button>
-                          <button type='submit' className='skipAgreement' onClick={()=>loadInvoice(id,mmid,id1)}>Skip</button>
+                          <button type='button' className='skipAgreement' onClick={()=>loadInvoice(id,mmid,skip)}>Skip</button>
                           <button type='button' className='previewAgreement1' onClick={()=>loadPreview(id,mmid)} >Preview</button>
+                          </div>   
+                        </form>
+                     
                           <button className='backInvoice1'>Back</button> 
+                    
 
 
-                       </form>
+                   
 
                        {/* <img src={url} /> */}
           </div>
 
           
-          {isParagraphVisible && <p className="wariningforurl">Insert Your Signature. After inserting, press Set Button.</p>}
+       
 
         </div>
 
@@ -291,7 +307,7 @@ const loadInvoice=(id,mmid)=>{
                                 )}
           
     
-        </SideMenuBarArtist>
+        </SideMenuBarBand>
         
     </div>
   )

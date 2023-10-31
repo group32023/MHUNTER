@@ -10,8 +10,10 @@ import java.util.Optional;
 
 @Service
 public class ArtistServiceImp implements ArtistService{
+
     @Autowired
     private ArtistRepository artistRepository;
+
     public ArtistServiceImp() {
         super();
     }
@@ -23,7 +25,7 @@ public class ArtistServiceImp implements ArtistService{
 
     @Override
     public List<Artist> findAllArtist() {
-        return artistRepository.findAll();
+        return artistRepository.findAllArtist();
     }
 
     @Override

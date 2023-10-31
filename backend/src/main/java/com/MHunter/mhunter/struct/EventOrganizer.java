@@ -14,10 +14,12 @@ import java.time.LocalTime;
 public class EventOrganizer {
     private int orgId;
     private int eventId;
+    private int userId;
     private String organizerName;
     private String description;
     private double latitude;
     private double longitude;
+    private String location;
     private String town;
     private LocalTime endTime;
     private LocalDate date;
@@ -29,4 +31,6 @@ public class EventOrganizer {
     private String duration;
     private Double income;
     private String eventImage;
+    private String organizerImage;
+
 }

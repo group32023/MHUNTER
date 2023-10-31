@@ -20,12 +20,15 @@ import SearchArtist from './SearchArtist';
 import ViewArtist from './ViewArtist';
 import MakeArtistRequest from './MakeArtistRequest';
 import OrganizerEventDashboard from './OrganizerEventDashboard';
+import SearchBand from './SearchBand'
+
 import SideMenuBarOrganizer from '../../components/common/SideMenuBar/SideMenuBarOrganizer';
 library.add(fas);
 
 function ViewEvents() {
 
     const [events, setEvents] = useState([])
+    const BASE_URL = "http://localhost:8080";
 
     const extractloc = (location) => {
 
@@ -50,8 +53,10 @@ function ViewEvents() {
             .then(res => res.json())
             .then((result) => {
                 setEvents(result);
+                console.log(result);
             }
             )
+            
     }, [])
 
 
@@ -66,14 +71,14 @@ function ViewEvents() {
         <>
             <SideMenuBarOrganizer>
                 <div className='row view-events-container'>
-                    <Topbar />
+                    <Topbar customProp="Events" />
                     {events.map(event => (
                         <div className='col-md-3 event-box' key={event.eventid}>
-                            <Link to="/organizer/event/eventdashboard" className='link1'>
+                            <Link to={`/organizer/event/eventdashboard/${event.eventid}`} className='link1'>
+
 
                                 <div className='image'>
-                                    <img src={musical}>
-                                    </img>
+                                    <img src={`${BASE_URL}/postData/uploads/image/${event.image}.jpg`} alt="Event Image" />
                                 </div>
 
                                 <div className='content'>
@@ -116,7 +121,7 @@ function ViewEvents() {
                 <Routes>
                     <Route path='/organizer/dashboard' element={<OrganizerDashboard />}></Route>
 
-                    <Route path='/organizer/event/eventdashboard' element={<OrganizerEventDashboard />}></Route>
+                    <Route path='/organizer/event/eventdashboard/:eventid' element={<OrganizerEventDashboard />}></Route>
                     <Route path='/organizer/event/CreateEvent' element={<CreateEvent />}></Route>
                     <Route path='/organizer/eventhistory' element={<ViewEventHistory />}></Route>
                     <Route path='/organizer/complaint' element={<OrganizerComplaint />}></Route>
@@ -124,6 +129,7 @@ function ViewEvents() {
                     <Route path='/organizer/searchartist' element={<SearchArtist />} />
                     <Route path='/organizer/searchartist/viewartist' element={<ViewArtist />} />
                     <Route path='/organizer/searchartist/viewartist/makeartistrequest' element={<MakeArtistRequest />} />
+                    <Route path='/organizer/searchband' element={<SearchBand />} />
                 </Routes>
             </SideMenuBarOrganizer>
         </>

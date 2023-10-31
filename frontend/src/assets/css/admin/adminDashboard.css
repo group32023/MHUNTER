@@ -84,7 +84,7 @@
     background-color: #2f363e;
     color: #FAECFA;
     border: none;
-    border-radius: 10px;
+    
   }
   .react-calendar__month-view__weekdays__weekday {
     font-weight: bold;
@@ -97,6 +97,7 @@
     background-color: #7643d2;
     color: #fff;
     border: none;
+    border-radius: 10px;
   }
   .react-calendar__navigation {
     color: #2f363e;
@@ -119,7 +120,7 @@
     cursor: pointer;
     border: none;
     background-color: #2f363e;
-    border-radius: 50px;
+    
   }
 /* /Calender */
 
@@ -128,7 +129,7 @@
   width: 30%;
 }
 .search-button{
-  background-color: #FAECFA;
+  background-color: #2f363e;
   border: none;
   color: #7643d2;
 }
@@ -339,5 +340,30 @@
   float: left;
   width: 75%;
   margin-top: 6px;
+}
+
+/*event*/
+.event-card-admin{
+  background-color: #2f363e;
+  
+  text-align: center;
+  padding: 20px;
+  text-decoration: none;
+  margin-left: 5px;
+  margin-bottom: 10px;
+}
+.event-link-admin{
+  text-decoration: none;
+  color: #FAECFA;
+}
+
+.event-link-admin:hover{
+  color: #7643d2;
+}
+
+/*report*/
+.rounded-table {
+  border-radius: 10px;
+  overflow: hidden;
 }
   

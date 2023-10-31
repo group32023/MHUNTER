@@ -1,7 +1,9 @@
 import React,{useState, useEffect,useRef} from 'react';
 import { Link,useParams, useNavigate } from 'react-router-dom';
-import SideMenuBarArtist from '../components/common/SideMenuBar/SideMenuBarArtist'
+import SideMenuBarBand from '../components/common/SideMenuBar/SideMenuBarBand'
+
 import '../assets/css/artistPendingRequests.css'
+import Button from 'react-bootstrap/Button';
 // import { MDBBtn } from 'mdb-react-ui-kit';
 import profileImage from '../assets/images/profilePhoto.jpeg';
 import crowd from '../assets/images/people.png';
@@ -24,11 +26,13 @@ export default function ArtistPendingRequests() {
   const { id } = useParams();
 
   const [event, setEvent] = useState([]);
-  
-  console.log(id);
+  const mmid=localStorage.getItem('mmid');;
+
 
   const [expand,setExpandedSideBar] = useState(true)
   let navigate = useNavigate();
+  const [showRejectedReason,setShowRejectedReason] =useState(false);
+  const [rejectReason,setRejectReason]=useState(null);
 
   useEffect(() => {
     // Fetch the data from the Java backend
@@ -49,6 +53,40 @@ export default function ArtistPendingRequests() {
       //console.log(event[0]);
 
   }, []);
+  
+  const handleReject = () => {
+    setShowRejectedReason(true);
+   
+  
+    
+  };
+
+  const handleRejectAndAccept = () => {
+    if(rejectReason!=null){
+
+      
+      fetch(`http://localhost:8080/requestMusicMember/updateReason/${rejectReason}/${mmid}/${id}`,{
+        method:"PUT",
+      
+        
+      }).then(()=>{
+      
+       
+      setShowRejectedReason(false);
+      loadPendingRequest();});
+
+    }
+   
+  
+    
+  };
+  const handleCloseModalAndAccept = () => {
+    setShowRejectedReason(false);
+
+   
+  
+    
+  };
 
   const loadAgreement=(id,mmid, oid)=>{
     navigate(`/band/agreement/${id}/${mmid}/${oid}`);
@@ -78,7 +116,7 @@ const loadPendingRequest=()=>{
 
     
     <div>
-      <SideMenuBarArtist>
+      <SideMenuBarBand>
         
 
        
@@ -115,14 +153,34 @@ const loadPendingRequest=()=>{
             </div>
             
 
-            <button className="priorbookingsBtn" onClick={()=>loadPriorBooking(758464,event['orgId'],event['eventId'])}>Prior Bookings</button>
-            <button className="myEventsBtn" onClick={()=>loadMyEventsOn(758464,event['date'],event['eventId'])}>My Events</button>
-            <button className="acceptBtn" onClick={()=>loadAgreement(event['eventId'],758464,event['orgId'])}>Accept</button>
-            <button className="rejectBtn" onClick={()=>loadPendingRequest()}>Reject</button>
+            <button className="priorbookingsBtn" onClick={()=>loadPriorBooking(mmid,event['orgId'],event['eventId'])}>Prior Bookings</button>
+            <button className="myEventsBtn" onClick={()=>loadMyEventsOn(mmid,event['date'],event['eventId'])}>My Events</button>
+            <button className="acceptBtn" onClick={()=>loadAgreement(event['eventId'],mmid,event['orgId'])}>Accept</button>
+            <button className="rejectBtn" onClick={()=>handleReject()}>Reject</button>
         </div>
 
+
+        {showRejectedReason && (
+                                    <div className="complaint-add-success-popup blur-background" style={{ fontFamily: 'MyCustomFont1' }}>
+
+                                        <div className="complaint-add-success-popup-content">
+                                           
+                                            <p className="complaint-add-success-para_for_request_acception" id="reasonDes">Enter Your Reason</p>
+                                            <input type='text' className='inputReason' onChange={(e)=>setRejectReason(e.target.value)}></input>
+                                          
+                                            <Button type='submit' className='RequestacceptBtn' onClick={handleRejectAndAccept}>
+                                        Submit
+                                    </Button>
+                                            <Button className='RequestCloseBtn' onClick={handleCloseModalAndAccept}>
+                                        Cancel
+                                    </Button>
+                                        </div>
+
+
+                                    </div>
+                                )}
        
-        </SideMenuBarArtist>
+        </SideMenuBarBand>
         
     </div>
   )

@@ -44,6 +44,7 @@ export default function ArtistPendingRequests() {
 
 
     // }
+   if(mmId){
 
     fetch(`http://localhost:8080/requestMusicMember/pendingRequest/${mmId}`)
     .then((response) => {
@@ -59,6 +60,9 @@ export default function ArtistPendingRequests() {
       .catch((error) => {
         console.log('Error fetching data:', error);
       });
+
+   }
+   
 
   }, []);
   
