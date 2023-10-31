@@ -120,6 +120,7 @@ public class RequestMusicMemberController {
             eventOrganizer.setStartTime(event.getStart_time());
             eventOrganizer.setPlace(event.getTown());
             eventOrganizer.setDate(event.getDate());
+            eventOrganizer.setUserId(user.getUserId());
             eventOrganizer.setCrowd(event.getCrowd());
 
             Duration difference = Duration.between( event.getStart_time(),event.getEnd_time());
@@ -168,7 +169,9 @@ public class RequestMusicMemberController {
             eventOrganizer.setStartTime(event.getStart_time());
             eventOrganizer.setPlace(event.getTown());
             eventOrganizer.setDate(event.getDate());
+            eventOrganizer.setUserId(user.getUserId());
             eventOrganizer.setCrowd(event.getCrowd());
+            eventOrganizer.setOrganizerImage(user.getImagePath());
             Duration difference = Duration.between( event.getStart_time(),event.getEnd_time());
             long hours = difference.toHours();
             long minutes = difference.toMinutes() % 60;
@@ -214,8 +217,11 @@ public class RequestMusicMemberController {
                 eventOrganizer.setEventType(event.getEvent_type());
                 eventOrganizer.setStartTime(event.getStart_time());
                 eventOrganizer.setPlace(event.getTown());
+                eventOrganizer.setUserId(user.getUserId());
                 eventOrganizer.setDate(event.getDate());
                 eventOrganizer.setCrowd(event.getCrowd());
+                eventOrganizer.setOrganizerImage(user.getImagePath());
+
                 Duration difference = Duration.between( event.getStart_time(),event.getEnd_time());
                 long hours = difference.toHours();
                 long minutes = difference.toMinutes() % 60;
@@ -335,6 +341,8 @@ public class RequestMusicMemberController {
             eventOrganizer.setCrowd(event.getCrowd());
             eventOrganizer.setEventId(res.getRequestMusicMemberId().getEventId());
             eventOrganizer.setOrgId(res.getOrgId());
+            eventOrganizer.setOrganizerImage(user.getImagePath());
+            eventOrganizer.setUserId(user.getUserId());
             Duration difference = Duration.between( event.getStart_time(),event.getEnd_time());
             long hours = difference.toHours();
             long minutes = difference.toMinutes() % 60;

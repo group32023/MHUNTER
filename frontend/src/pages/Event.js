@@ -40,11 +40,12 @@ export default function ArtistPendingRequests() {
 
 
 const [expand,setExpandedSideBar] = useState(true)
-
+const [searchInput, setSearchInput] = useState('');
   const [eventList, setEventList] = useState([]);
   const [currentPage, setCurrentPage] =useState(1);
   const [linePerPage, setLinePerPage] = useState(4);
   const [page,setPage] = useState(1);
+  const BASE_URL = "http://localhost:8080";
   const noOfLinePerPage = 4;
   useEffect(() => {
     // Fetch the data from the Java backend
@@ -59,20 +60,24 @@ const [expand,setExpandedSideBar] = useState(true)
      console.log(eventList)
 
   }, []);
+
+
+  const filteredEvents = eventList.filter((eventList) =>
+  eventList.event_name.toLowerCase().includes(searchInput.toLowerCase()) );
   
 
   function setPagination(){
     let noOfLine =1
     let displayedData = []
-    if(divElements.length>0){
-      if(divElements.length < noOfLinePerPage*page){
-        noOfLine = divElements.length
+    if(filteredEvents.length>0){
+      if(filteredEvents.length < noOfLinePerPage*page){
+        noOfLine = filteredEvents.length
       }
       else{
         noOfLine =  noOfLinePerPage*page
       }
       for (let i = noOfLinePerPage*(page-1); i < noOfLine; i++) {
-        displayedData.push(divElements[i]);
+        displayedData.push(filteredEvents[i]);
         
       }
       return displayedData
@@ -88,35 +93,35 @@ const [expand,setExpandedSideBar] = useState(true)
     setPage(value)
   }
 
-  const divCount = eventList.length;
-  const divElements = [];
+  // const divCount = eventList.length;
+  // const divElements = [];
  
-  console.log(eventList)
-  //Using a for loop to generate the <div> tags
-  for (let i = 0; i < divCount; i++) {
+  // console.log(eventList)
+  // //Using a for loop to generate the <div> tags
+  // for (let i = 0; i < divCount; i++) {
 
-  console.log(eventList[i]['eventName']);
+  // console.log(eventList[i]['eventName']);
   
     
-    divElements.push(<div key={i} className="requestContainerForEvent">
-      <img src={profileImage} className="profile"></img>
-      <div className="eventDetails">
-        <h5>{eventList[i]['organizerName']}</h5>
-        <p class="eventType7"><img src={eventtype} className="EventIconPendingRequest1"></img>{eventList[i]['event_name']}</p>
-            <p class="eventDate7"><FontAwesomeIcon icon={faCalendarDays} id="CalenderIconPendingRequest1"/>{eventList[i]['date']}</p>
-            <p class="venue7"><FontAwesomeIcon icon={faClock} id="LocationIconPendingRequest1"/>{eventList[i]['start_time']}</p>
-            <p class="eventDate8"><img src={crowd} className="CalenderIconPendingRequest2"></img>{eventList[i]['crowd']}</p>
-            <p class="venue8"><FontAwesomeIcon icon={faLocationDot} id="LocationIconPendingRequest2"/>{eventList[i]['town']}</p>
-      </div>
+  //   divElements.push(<div key={i} className="requestContainerForEvent">
+  //     <img src={profileImage} className="profile3"></img>
+  //     <div className="eventDetails">
+  //       <h5>{eventList[i]['organizerName']}</h5>
+  //       <p class="eventType7"><img src={eventtype} className="EventIconPendingRequest1"></img>{eventList[i]['event_name']}</p>
+  //           <p class="eventDate7"><FontAwesomeIcon icon={faCalendarDays} id="CalenderIconPendingRequest1"/>{eventList[i]['date']}</p>
+  //           <p class="venue7"><FontAwesomeIcon icon={faClock} id="LocationIconPendingRequest1"/>{eventList[i]['start_time']}</p>
+  //           <p class="eventDate8"><img src={crowd} className="CalenderIconPendingRequest2"></img>{eventList[i]['crowd']}</p>
+  //           <p class="venue8"><FontAwesomeIcon icon={faLocationDot} id="LocationIconPendingRequest2"/>{eventList[i]['town']}</p>
+  //     </div>
      
    
     
       
    
-  </div>
+  // </div>
 
-  );
-  }
+  // );
+  // }
 
 
 
@@ -178,23 +183,40 @@ const [expand,setExpandedSideBar] = useState(true)
                       <Form.Control
                         className="smaller-input"
                         name="foo" id="statusInput"
-                        placeholder="Enter Event Detail Here"
+                        placeholder="Enter Event Detail Here"  value={searchInput}
+                            onChange={(e) => setSearchInput(e.target.value)}
                       />
                     </Container>
                      <div className='eventTableContainerView'>
-                     {setPagination().map((item) => item)}
+                     {setPagination().map((eventList) => 
+                     <div className="requestContainerForEvent">
+                              <img src={profileImage} className="profile3"></img>
+                              <div className="eventDetails">
+                                <h5>{eventList['organizerName']}</h5>
+                                <p class="eventType7"><img src={eventtype} className="EventIconPendingRequest1"></img>{eventList['event_name']}</p>
+                                    <p class="eventDate7"><FontAwesomeIcon icon={faCalendarDays} id="CalenderIconPendingRequest1"/>{eventList['date']}</p>
+                                    <p class="venue7"><FontAwesomeIcon icon={faClock} id="LocationIconPendingRequest1"/>{eventList['start_time']}</p>
+                                    <p class="eventDate8"><img src={crowd} className="CalenderIconPendingRequest2"></img>{eventList['crowd']}</p>
+                                    <p class="venue8"><FontAwesomeIcon icon={faLocationDot} id="LocationIconPendingRequest2"/>{eventList['town']}</p>
+                              </div>
+     
+   
+    
+      
+   
+  </div>)}
                           
                      </div>
                   
 
                 </div>
-
-                <div className='artistEventPagination'>
-                <Stack spacing={2}>
-                  <Pagination count={(Math.round(divElements.length/noOfLinePerPage))} color="secondary" page={page} onChange={handleChange} />
-                </Stack>
+               <div className='paginationForEventHome'>
+                  <div className='artistEventPagination'>
+                  <Stack spacing={2}>
+                    <Pagination count={(Math.round(filteredEvents.length/noOfLinePerPage))} color="secondary" page={page} onChange={handleChange} />
+                  </Stack>
+                </div>
               </div>
-              {(divElements.length ===0)?<><img src={empty} className='empty-img'></img><span className='emptyContent-report'>it's empty in here.</span></>:undefined}
 
             </div>
             

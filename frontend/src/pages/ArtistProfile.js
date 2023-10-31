@@ -1,7 +1,9 @@
 import "../assets/css/admin/adminProfile.css"
 import band from '../assets/images/band.jpg';
 
-
+import notification from '../assets/images/notification.png'
+import home from '../assets/images/home-button.png'
+import logout from '../assets/images/logout.png'
 import SideMenuBarArtist from '../components/common/SideMenuBar/SideMenuBarArtist';
 import { Link, Route, Routes} from 'react-router-dom';
 
@@ -12,6 +14,8 @@ import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 
 export default function AdminProfile() {
+  const [expand,setExpandedSideBar] = useState(true)
+
   const [formData, setFormData] = useState({
     userId: '',
     firstName: '',
@@ -75,14 +79,30 @@ export default function AdminProfile() {
   return (
     <>
       <SideMenuBarArtist>
+
+      <div>
+            <p className='headerDashboard'>Profile</p>
+            <div className={expand ? 'notificationBg':'notificationBg-ex'}>
+              <img src={notification} className='notificationIcon' alt='notification'></img>
+            </div>
+            <div className={expand ? 'homeBg':'homeBg-ex'}>
+            <Link to={'/'}>
+                <img src={home} alt='homebtn' className='homeIcon'></img>
+              </Link>
+            </div>
+            <div className={expand ? 'logoutBg':'logoutBg-ex'}>
+              <img src={logout} alt='logout'className='logout'></img>
+              <p className='logoutbtn'>Logout</p>
+            </div>
+          </div>
       
     <div className='adminProfile-container'>
-      <div className="adminProfile-backBtn">
+      {/* <div className="adminProfile-backBtn">
         <button onClick={backButton}>Back</button>
-      </div>
+      </div> */}
        
       <div className='adminProfile-form'>
-        <h2>Profile Details</h2>
+        {/* <h2>Profile Details</h2> */}
 
         <div className='artist-details-in-dashboard'>
             <img src={band}  alt="Artist" style={{ maxWidth: '100px', display: 'block', margin: '0 auto' , borderRadius:'50%', height:'100px'}} />

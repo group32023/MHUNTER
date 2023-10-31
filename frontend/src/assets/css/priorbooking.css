@@ -21,6 +21,13 @@
 
 } */
 
+
+.emptyMessageForPriorBooking{
+    position: relative;
+    top: -143px;
+    left: 377px;
+}
+
 .back {
     background-color: #7643D2 !important;
     position: absolute;

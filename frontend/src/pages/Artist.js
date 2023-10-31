@@ -7,12 +7,13 @@ import {Form, Container} from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import Topbar from '../components/common/Topbar';
 
-
+import Pagination from '@mui/material/Pagination';
+import Stack from '@mui/material/Stack';
+import Footer from '../components/common/Footer';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import StarRating from '../components/organizer/StarRating';
 
 
-import Footer from '../components/common/Footer';
 import ArtistSlider from '../components/ArtistSlider';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {faPhone,faList} from '@fortawesome/free-solid-svg-icons'
@@ -29,7 +30,8 @@ export default function
   const [searchInput, setSearchInput] = useState('');
 
   const BASE_URL = "http://localhost:8080";
-
+  const [page,setPage] = useState(1);
+  const noOfLinePerPage = 4;
 
   useEffect(() => {
       fetch("http://localhost:8080/artist/getAll")
@@ -44,6 +46,35 @@ export default function
   artist.user.firstName.toLowerCase().includes(searchInput.toLowerCase()) ||
   artist.user.lastName.toLowerCase().includes(searchInput.toLowerCase())
   );
+
+
+  
+  function setPagination(){
+    let noOfLine =1
+    let displayedData = []
+    if(filteredArtists.length>0){
+      if(filteredArtists.length < noOfLinePerPage*page){
+        noOfLine = filteredArtists.length
+      }
+      else{
+        noOfLine =  noOfLinePerPage*page
+      }
+      for (let i = noOfLinePerPage*(page-1); i < noOfLine; i++) {
+        displayedData.push(filteredArtists[i]);
+        
+      }
+      return displayedData
+    }
+    else{
+      
+      return displayedData 
+    }
+    
+  }
+
+  const handleChange= (event,value)=>{
+    setPage(value)
+  }
   
   return (
     <div>
@@ -129,7 +160,7 @@ export default function
                       />
                     </Container>
 
-                {filteredArtists.map(artist => (
+                {setPagination().map(artist => (
 
         
                     <div className='col-md-3 artist-box' >
@@ -149,6 +180,14 @@ export default function
                 
 
                 ))}
+
+                <div className='paginationForArtistHome'>
+                  <div className='artistEventPagination'>
+                  <Stack spacing={2}>
+                    <Pagination count={(Math.round(filteredArtists.length/noOfLinePerPage))} color="secondary" page={page} onChange={handleChange} />
+                  </Stack>
+                </div>
+              </div>
 
                   
                   </div> 

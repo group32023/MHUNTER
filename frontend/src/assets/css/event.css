@@ -52,7 +52,23 @@
     top: 121px;
     left: 31px;
 }
-.requestContainerForEvent .profile{
+
+.paginationForEventHome{
+
+    position: relative;
+    top: -391px;
+    left: 0px;
+
+}
+
+.paginationForArtistHome{
+
+    position: relative;
+    top: -524px;
+    left: -108px;
+
+}
+.requestContainerForEvent .profile3{
 
     position: relative;
     width: 55px;
