@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Button, Modal } from 'react-bootstrap';
 import { Tab, Nav } from 'react-bootstrap';
 import '../../assets/css/ArtistInvoiceAgreementModal.css';
+import OrganizerAgreementView from './OrganizerAgreementView';
 
 function ArtistInvoiceAgreementModal(props) {
     const index = props.index;
@@ -252,8 +253,8 @@ function ArtistInvoiceAgreementModal(props) {
                                         </div>
                                     </Tab.Pane>
                                     <Tab.Pane eventKey="agreement">
-                                        <p >sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                                        <p  >Excepteur sint occaecat cupidatat non proident</p>
+                                        <OrganizerAgreementView />
+
                                     </Tab.Pane>
                                 </Tab.Content>
                             </Tab.Container>
