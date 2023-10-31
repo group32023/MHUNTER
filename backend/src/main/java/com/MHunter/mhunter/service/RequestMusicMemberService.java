@@ -2,6 +2,7 @@ package com.MHunter.mhunter.service;
 
 import com.MHunter.mhunter.model.RequestMusicMember;
 import com.MHunter.mhunter.model.RequestMusicMemberId;
+import com.MHunter.mhunter.struct.EventRequestStatus;
 
 import java.util.List;
 
@@ -26,6 +27,10 @@ public interface RequestMusicMemberService {
     public List<RequestMusicMember> findConformationEventsByMMID(int mmid);
 
     public List<RequestMusicMember> findConformationEventsByMMIDForOrg(int mmid, int orgId);
+
+//    public List<RequestMusicMember> getRowsByEventId(int eventId);
+
+    public List<RequestMusicMember> getRowsByEventId(int eventId);
 
 
 

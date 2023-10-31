@@ -10,5 +10,10 @@ public interface BookedListService {
     public BookedList saveBooking(BookedList bookedList);
     public List<BookedList> viewRequestsLog(int mmid);
     public List<BookedList> getAllRequestLogs();
+
+    public BookedList getAllByMmidAndEventidRequestLogs(int mmid, int eventid);
+
+    public List<BookedList> getAllByOrgIdRequestLogs(int OrgId);
+
     public List<Integer> getMmidsByEventId(int eventid) ;
 }

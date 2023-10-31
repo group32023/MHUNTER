@@ -16,8 +16,8 @@ import java.util.List;
 @CrossOrigin(origins = "*")
 @RequestMapping("/artist")
 public class ArtistController {
-    @Autowired
-    private ArtistService artistService;
+//    @Autowired
+//    private ArtistService artistService;
     @Autowired
     private MusicMemberService musicMemberService;
 

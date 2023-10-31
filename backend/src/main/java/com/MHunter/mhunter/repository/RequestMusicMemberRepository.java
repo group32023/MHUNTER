@@ -29,6 +29,12 @@ public interface RequestMusicMemberRepository extends JpaRepository<RequestMusic
     @Query(value = "SELECT * FROM request_music_member WHERE mmid = :mmid AND org_id= :orgId AND confirmation_status = 1", nativeQuery = true)
     List<RequestMusicMember> findByMMIDListForAOrganizer(@Param("mmid") int mmid,@Param("orgId") int orgId);
 
+//    @Query(value = "SELECT DISTINCT rm.requestMusicMemberId.MMID FROM RequestMusicMember rm WHERE rm.requestMusicMemberId.eventId = :eventId")
+//    List<RequestMusicMember>findMMIDsByEventId(@Param("eventId") int eventId);
+
+
+    @Query(value = "SELECT * FROM request_music_member WHERE  event_id= :eventId", nativeQuery = true)
+    List<RequestMusicMember> findByEventId(@Param("eventId") int eventId);
 
 
 }

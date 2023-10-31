@@ -1,5 +1,6 @@
 package com.MHunter.mhunter.model;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -13,6 +14,7 @@ import java.util.Objects;
 @NoArgsConstructor
 public class RequestMusicMemberId {
     private int MMID;
+    @Column(name = "event_id")
     private int eventId;
 
     @Override

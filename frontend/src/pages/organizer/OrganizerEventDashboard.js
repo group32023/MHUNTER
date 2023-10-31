@@ -21,6 +21,7 @@ import OrganizerEventLocation from '../../components/organizer/OrganizerEventLoc
 import SystemPreloader from '../../components/common/SystemPreloader';
 import EventDashboardImagePopup from '../../components/organizer/EventDashboardImagePopup';
 import EventDashboardDescriptionEdit from '../../components/organizer/EventDashboardDescriptionEdit';
+import ArtistInvoiceAgreementModal from '../../components/organizer/ArtistInvoiceAgreementModal';
 
 import SearchBand from './SearchBand'
 import ViewBand from './ViewBand'
@@ -50,6 +51,10 @@ import PaymentArtist8 from '../../assets/images/paymentArtist8.png'
 function OrganizerEventDashboard() {
     //Event Banner Image Change
     const [image, setImage] = useState(EventBanner4); // Set your default image here
+    const [data, setData] = useState([]);
+    const [error, setError] = useState(null);
+
+
 
     const handleImageDelete = () => {
         // Logic to delete the image (e.g., set it back to the default image)
@@ -138,6 +143,23 @@ function OrganizerEventDashboard() {
             });
     }, [eventid]);
 
+    //Confirmation Status
+    const [details, setDetails] = useState([]);
+    const eventId = eventid;
+
+    useEffect(() => {
+        // Make an HTTP GET request to fetch data from the Spring Boot API
+        axios.get(`http://localhost:8080/requestMusicMember/getRowsByEventId/${eventId}`)
+            .then(response => {
+                setDetails(response.data);
+            })
+            .catch(error => {
+                console.error('Error fetching data:', error);
+            });
+    }, [eventId]);
+
+
+    const [formData, setFormData] = useState(initialFormData);
 
     useEffect(() => {
         fetch(`http://localhost:8080/requestsLog/getmmids/${eventid}`)
@@ -223,7 +245,9 @@ function OrganizerEventDashboard() {
                             <div className="row p-2 ">
                                 <div className="eventImgDiv col-md-5 mt-2">
                                     <EventDashboardImagePopup currentImage={image} onDelete={handleImageDelete} onSave={handleImageSave} />
+
                                 </div>
+
                                 <div className="eventDescDiv col-md-7 mt-2"  >
                                     <span className="eventDescDivSpan">{event.event_name.toUpperCase()}</span>
                                     <div className="row" style={{ display: 'flex' }}>
@@ -305,7 +329,7 @@ function OrganizerEventDashboard() {
                     <div className="row">
                         <div className="requestTypeDescriptionDiv  mt-2 col-md-7" id='scrollbarStyle-1' style={{ fontFamily: 'MyCustomFont' }}>
                             <div className="p-3">
-                                <p className='fs-5' style={{ fontFamily: 'MyCustomFont1' }}>Requests</p>
+                                <p className='fs-5' style={{ fontFamily: 'MyCustomFont1' }}>Requests</p><Button style={{ width: '10%', height: '5%' }}>Rate Artist</Button>
                                 <hr></hr>
                                 <div className="requestTableDiv d-flex justify-content-center align-items-center">
 
@@ -321,78 +345,65 @@ function OrganizerEventDashboard() {
                                             </div>
                                         </div>
                                     </div>
-                                    <div className="row tableContent">
-                                        <div className="column">
-                                            <div className="content">
-                                                <img alt='' src={PaymentArtist4} width='45px' height='45px' className='mx-4' />
-                                                Dim3
+                                    {details.map((detail, index) => (
+                                        <div className="row tableContent" key={index}
+
+                                        >
+
+
+                                            <div className="artistNameImgColumn column">
+                                                <div className="contentImg">
+                                                    <img alt='' src={PaymentArtist4} width='45px' height='45px' style={{ marginLeft: '100px' }} />
+                                                </div>
+                                                <div className="content">
+                                                    {detail[4]}
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div className="column">
-                                            <div className="content confirmed d-flex align-items-center justify-content-center mt-2" style={{ fontFamily: 'MyCustomFont2' }}>
-                                                Confirmed <BiSolidCircle className='mx-2' />
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="row tableContent">
-                                        <div className="column">
-                                            <div className="content">
-                                                <img alt='' src={PaymentArtist5} width='45px' height='45px' className='mx-4' />
-                                                Ravi Royster
-                                            </div>
-                                        </div>
-                                        <div className="column">
-                                            <div className="content d-flex align-items-center justify-content-center mt-2" style={{ color: 'orange', fontFamily: 'MyCustomFont2' }}>
-                                                Pending <BiSolidCircle className='mx-2' style={{ color: 'orange' }} />
+                                            <div className="artistStateColumn column">
+
+
+                                                <div className="content confirmed d-flex align-items-center justify-content-center mt-2" style={{ fontFamily: 'MyCustomFont2' }}>
+                                                    {detail[3] === 0 && (
+                                                        <>
+                                                            <BiSolidCircle style={{ color: 'red' }} className='mx-2' />
+                                                            <span style={{ color: 'red' }}>PENDING</span>
+                                                        </>
+                                                    )}
+                                                    {detail[3] === -1 && (
+                                                        <>
+                                                            <BiSolidCircle style={{ color: 'red' }} className='mx-2' />
+                                                            <span style={{ color: 'red' }}>REJECTED</span>
+                                                        </>
+                                                    )}
+                                                    {detail[3] === 'ACCEPTED' && (
+                                                        <>
+                                                            <BiSolidCircle style={{ color: 'orange' }} className='mx-2' />
+                                                            <span style={{ color: 'orange' }}>ACCEPTED</span>
+                                                        </>
+                                                    )}
+                                                    {detail[3] === 'BOOKED' && (
+                                                        <>
+                                                            <BiSolidCircle style={{ color: 'yellow' }} className='mx-2' />
+                                                            <span style={{ color: 'yellow' }}>BOOKED</span>
+                                                        </>
+                                                    )}
+                                                    {detail[3] === 'CONFIRMED' && (
+                                                        <>
+                                                            <BiSolidCircle style={{ color: 'green' }} className='mx-2' />
+                                                            <span style={{ color: 'green' }}>CONFIRMED</span>
+                                                        </>
+                                                    )}
+                                                </div>
+
+                                                <div className="contentImg">
+                                                    <ArtistInvoiceAgreementModal index={index} detail0={detail[0]} detail2={detail[2]} detail3={detail[3]} />
+
+                                                </div>
+
                                             </div>
                                         </div>
 
-                                    </div>
-
-                                    <div className="row tableContent">
-                                        <div className="column">
-                                            <div className="content">
-                                                <img alt='' src={PaymentArtist6} width='45px' height='45px' className='mx-4' />
-                                                MidLane
-                                            </div>
-                                        </div>
-                                        <div className="column">
-                                            <div className="content d-flex align-items-center justify-content-center mt-2" style={{ color: 'red', fontFamily: 'MyCustomFont2' }} >
-                                                Rejected<BiSolidCircle className='mx-2' style={{ color: 'red' }} />
-                                            </div>
-                                        </div>
-
-                                    </div>
-
-                                    <div className="row tableContent">
-                                        <div className="column">
-                                            <div className="content">
-                                                <img alt='' src={PaymentArtist5} width='45px' height='45px' className='mx-4' />
-                                                B N S
-                                            </div>
-                                        </div>
-                                        <div className="column">
-                                            <div className="content d-flex align-items-center justify-content-center mt-2" style={{ color: 'orange', fontFamily: 'MyCustomFont2' }}>
-                                                Pending <BiSolidCircle className='mx-2' style={{ color: 'orange' }} />
-                                            </div>
-                                        </div>
-
-                                    </div>
-
-                                    <div className="row tableContent">
-                                        <div className="column">
-                                            <div className="content">
-                                                <img alt='' src={PaymentArtist8} width='45px' height='45px' className='mx-4' />
-                                                Dinesh Gamage
-                                            </div>
-                                        </div>
-                                        <div className="column">
-                                            <div className="content confirmed d-flex align-items-center justify-content-center mt-2" style={{ fontFamily: 'MyCustomFont2' }}>
-                                                Confirmed <BiSolidCircle className='mx-2' />
-                                            </div>
-                                        </div>
-                                    </div>
-
+                                    ))}
 
                                 </div>
                             </div>
@@ -478,7 +489,7 @@ function OrganizerEventDashboard() {
                                     <Button variant="secondary" onClick={handleCloseCancellationModal}>
                                         No
                                     </Button>
-                                    <Button  onClick={handleCancelEvent} className="yesButtonRed" >
+                                    <Button onClick={handleCancelEvent} className="yesButtonRed" >
                                         Yes
                                     </Button>
                                 </Modal.Footer>
@@ -494,14 +505,14 @@ function OrganizerEventDashboard() {
                                 </Modal.Header>
                                 <Modal.Body>
 
-                                The {event.event_name.toUpperCase()} scheduled for {event.date} has been canceled.
-                                    
+                                    The {event.event_name.toUpperCase()} scheduled for {event.date} has been canceled.
+
                                 </Modal.Body>
                                 <Modal.Footer>
                                     <Button variant="secondary" onClick={handleCloseCancellationModal1}>
                                         Ok
                                     </Button>
-                                    
+
                                 </Modal.Footer>
                             </Modal>
                         </div>
@@ -522,7 +533,7 @@ function OrganizerEventDashboard() {
                     <Route path='/organizer/searchartist/viewartist/:mmid/:eventid' element={<ViewArtist />} />
                     <Route path='/organizer/searchartist/viewartist/makeartistrequest/:mmid/:eventid' element={<MakeArtistRequest />} />
                     <Route path='/organizer/searchband/:eventid' element={<SearchBand />} />
-                    <Route path='/organizer/searchband/viewband/:mmid/:eventid' element={<ViewBand/>} />
+                    <Route path='/organizer/searchband/viewband/:mmid/:eventid' element={<ViewBand />} />
                 </Routes>
 
             </SideMenuBarOrganizer>

@@ -36,12 +36,15 @@ export default function ArtistDashboard() {
     })
     .then(response => response.json())
     .then(data => {
+      console.log(data)
       console.log('Success:');
     })
     .catch((error) => {
       console.error('Error:');
     });
   }
+
+
 
 
   // get the no of unseen notification
@@ -56,6 +59,7 @@ export default function ArtistDashboard() {
      
       .then((data) => {
         setNotification(data);
+        console.log(data);
       })
       .catch((error) => {
         console.log('Error fetching data:', error);

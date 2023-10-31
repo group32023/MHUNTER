@@ -3,10 +3,12 @@ package com.MHunter.mhunter.service;
 import com.MHunter.mhunter.model.RequestMusicMember;
 import com.MHunter.mhunter.model.RequestMusicMemberId;
 import com.MHunter.mhunter.repository.RequestMusicMemberRepository;
+import com.MHunter.mhunter.struct.EventRequestStatus;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -87,4 +89,22 @@ public class RequestMusicMemberServiceImp implements RequestMusicMemberService{
         return requestMusicMemberRepository.findByMMIDListForAOrganizer(mmid,orgId);
 
     }
+
+
+
+//    @Override
+//    public List<RequestMusicMember> getRowsByEventId(int eventId) {
+//        return requestMusicMemberRepository.findMMIDsByEventId(eventId);
+//    }
+//    @Override
+//    public RequestMusicMember getRowsByEventId(RequestMusicMemberId requestMusicMemberId) {
+//        Optional<RequestMusicMember> data = requestMusicMemberRepository.findById(requestMusicMemberId);
+//        return data.orElse(null);
+//    }
+
+    @Override
+    public List<RequestMusicMember> getRowsByEventId(int eventId) {
+        return requestMusicMemberRepository.findByEventId(eventId);
+    }
+
 }

@@ -27,7 +27,7 @@ public class Invoice {
     private Double transportFee;
     private Double others;
     private String paymentType;
-    private Double paidAmount;
+    private Long paidAmount;
     private Double artistFee;
     @Column(columnDefinition = "DATETIME DEFAULT CURRENT_TIMESTAMP")
     private LocalDate date;

@@ -1,0 +1,106 @@
+.rounded-nav {
+    border-radius: 50rem !important;
+}
+
+
+
+.rounded-nav .nav-link {
+    border-radius: 50rem !important;
+}
+
+/* With arrow tabs */
+
+.with-arrow .nav-link.active {
+    position: relative;
+}
+
+.with-arrow .nav-link.active::after {
+    content: '';
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 6px solid #7643D2;
+    position: absolute;
+    bottom: -6px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: block;
+}
+
+/* lined tabs */
+
+.lined .nav-link {
+    border: none;
+    border-bottom: 3px solid transparent;
+}
+
+.lined .nav-link:hover {
+    border: none;
+    border-bottom: 3px solid transparent;
+}
+
+.lined .nav-link.active {
+    background: none;
+    color: rgb(229, 226, 226);
+    border-color: #7643D2;
+}
+
+.nav-pills .nav-link {
+    color: rgb(229, 226, 226);
+}
+
+.text-uppercase {
+    letter-spacing: 0.1em;
+}
+
+.modal-content {
+    color: white;
+}
+
+.modal-dialog {
+    max-width: 800px;
+}
+
+.nav-link:focus,
+.nav-link:hover {
+    color: #7643D2;
+}
+
+.ArtistInvoiceAgreementModalContainer1 .ArtistInvoiceAgreementModalContainer1Nav {
+    border: 2px solid #7643D2;
+}
+
+.ArtistInvoiceAgreementModalContainer {
+    width: 765px;
+    height: 550px;
+    overflow-y: auto;
+}
+
+.ArtistInvoiceAgreementModalContainer1 {
+    height: 535px;
+}
+
+.ArtistInvoiceAgreementTabContent {
+    font-size: 14px;
+}
+
+#scrollbarStyle-12::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    background-color: #1c2126;
+}
+
+#scrollbarStyle-12::-webkit-scrollbar {
+    width: 10px;
+    background-color: #1c2126;
+}
+
+#scrollbarStyle-12::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+    background-color: #7643D2;
+}
+
+.invoice-header {
+    padding: 25px 25px 15px;
+
+}

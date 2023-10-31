@@ -3,8 +3,11 @@ package com.MHunter.mhunter.controller;
 import com.MHunter.mhunter.model.*;
 import com.MHunter.mhunter.service.*;
 import com.MHunter.mhunter.struct.EventOrganizer;
+import com.MHunter.mhunter.struct.EventRequestStatus;
 import com.MHunter.mhunter.struct.UserMusicMember;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.*;
@@ -35,9 +38,12 @@ public class RequestMusicMemberController {
     @Autowired
     private MusicMemberService musicMemberService;
 
+    @Autowired
+    private BookedListService bookedListService;
+
 //    @PostMapping("/add")
-//    public String save(@RequestBody RequestMusicMember requestMusicMember) {
-//    }
+//    public String save(@RequestBody RequestMusicMember requestMusicMember){}
+        
     @PostMapping("/add/{mmid}/{eventid}/{orgid}")
     public String save(@RequestBody RequestMusicMember requestMusicMember,@PathVariable("mmid") int mmid,@PathVariable("eventid") int eventid , @PathVariable("orgid") int orgid  ){
 
@@ -374,6 +380,11 @@ public class RequestMusicMemberController {
 
     @GetMapping("/musicMemberDetails/{mid}")
     public UserMusicMember musicMemberDetails(@PathVariable int mid) {
+//        {
+//            "userName": "Dinesh Gamage",
+//                "address": "252 B/2 Lower Gd Flr Methodist Central Bldg Galle Road, 03",
+//                "email": "dinesh@gmail.com"
+//        }
 
       MusicMember musicMember =  musicMemberService.findSpecificMusicMember(mid);
         User user = userService.findSpecificUser(musicMember.getUser().getUserId());
@@ -385,6 +396,36 @@ public class RequestMusicMemberController {
 
         return userMusicMember;
     }
+
+    @GetMapping("/getRowsByEventId/{eventId}")
+    public List<Object[]> getRowsByEventId(@PathVariable int eventId){
+        List<RequestMusicMember> requestMusicMembersList = requestMusicMemberService.getRowsByEventId(eventId);
+        List<Object[]> results = new ArrayList<>();
+
+        for (RequestMusicMember requestMusicMember : requestMusicMembersList) {
+            Object[] result = new Object[5];
+            result[0] = requestMusicMember.getRequestMusicMemberId().getMMID();
+            result[1] = requestMusicMember.getOrgId();
+            result[2] = requestMusicMember.getRequestMusicMemberId().getEventId();
+            result[3] = requestMusicMember.getConfirmationStatus();
+
+            if (requestMusicMember.getConfirmationStatus() == 1) {
+                BookedList bookedList = bookedListService.getAllByMmidAndEventidRequestLogs((Integer) result[0], (Integer) result[2]);
+                result[3] = bookedList.getRequestState();
+
+            }
+
+            MusicMember musicMember =  musicMemberService.findSpecificMusicMember(requestMusicMember.getRequestMusicMemberId().getMMID());
+
+            result[4] = musicMember.getName();
+
+            results.add(result);
+        }
+        return results;
+
+    }
+
+
 
 
 

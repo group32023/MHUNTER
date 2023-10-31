@@ -29,6 +29,15 @@ public class BookedListImp implements BookedListService{
     }
 
     @Override
+    public BookedList getAllByMmidAndEventidRequestLogs(int mmid, int eventid) {
+        return bookedListRepository.findByMmidAndEventid(mmid,eventid);
+    }
+
+    @Override
+    public List<BookedList> getAllByOrgIdRequestLogs(int OrgId){
+        return bookedListRepository.findByOrgId(OrgId);
+    }
+
     public List<Integer> getMmidsByEventId(int eventid) {
         List<BookedList> bookings = bookedListRepository.findByEventid(eventid);
         List<Integer> mmids = new ArrayList<>();

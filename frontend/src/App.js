@@ -49,6 +49,8 @@ import ArtistSpecificEvent from './pages/ArtistSpecificEvent';
 import ArtistGenerateReportsToday from './pages/ArtistGenerateReportsToday'
 import ArtistInvoice from './pages/ArtistInvoice';
 import RequestsLog from './pages/RequestLog';
+import PaymentForm from './pages/organizer/paymentForm';
+import StripePaymentForm from './pages/organizer/StripePaymentForm';
 
 import ArtistProfile from './pages/ArtistProfile';
 
@@ -86,15 +88,17 @@ import AdminEvents from './pages/admin/AdminEvents';
 import AdminEventDashboard from './pages/admin/AdminEventDashboard';
 import AdminProfile from './pages/admin/AdminProfile';
 
-// import ModeratorDashoboardContent from './pages/moderator/moderatorDashoboardContent';
-// import ModeratorRegistration from './pages/moderator/registration';
-// import ModeratorComplaints from './pages/moderator/complaints';
-// import ModeratorUserDetails from './pages/moderator/userDetails';
-// import ModeratorProofCheck from './pages/moderator/ProofCheck';
-// import EventDetails from './pages/moderator/eventDetails';
-// import ViewComplaints from './pages/moderator/viewComplaints';
-// import ModeratorEvent from "./pages/moderator/event";
-// import Suspenduser from './pages/moderator/suspenduser';
+import ModeratorDashoboardContent from './pages/moderator/moderatorDashoboardContent';
+import ModeratorRegistration from './pages/moderator/registration';
+import ModeratorComplaints from './pages/moderator/complaints';
+import ModeratorUserDetails from './pages/moderator/userDetails';
+import ModeratorProofCheck from './pages/moderator/ProofCheck';
+import EventDetails from './pages/moderator/eventDetails';
+import ViewComplaints from './pages/moderator/viewComplaints';
+import ModeratorEvent from "./pages/moderator/event";
+import Suspenduser from './pages/moderator/suspenduser';
+import StripeClient from './pages/organizer/StripeClient';
+import TestButton from './pages/organizer/TestButton';
 function App() {
   return (
 
@@ -154,6 +158,13 @@ function App() {
           <Route path='/organizer/eventhistory' element={<ViewEventHistory />}></Route>
           <Route path='/organizer/complaint' element={<OrganizerComplaint />}></Route>
           <Route path='/organizer/profile' element={<OrganizerProfile />}></Route>
+          <Route path='/organizer/searchartist' element={<SearchArtist />} />
+          <Route path='/organizer/searchartist/viewartist' element={<ViewArtist />} />  
+          <Route path='/organizer/searchartist/viewartist/makeartistrequest' element={<MakeArtistRequest />} />  
+          <Route path='/organizer/paymentForm/:artistId'element={<PaymentForm />} /> 
+          <Route path='/organizer/paymentForm/stripePayment'element={<StripeClient />} /> 
+          <Route path='/organizer/test-button'element={<TestButton />} /> 
+          <Route path='/organizer/searchband' element={<SearchBand />} />
           <Route path='/organizer/searchartist/:eventid' element={<SearchArtist />} />
           <Route path='/organizer/searchartist/viewartist/:mmid/:eventid' element={<ViewArtist />} />  
           <Route path='/organizer/searchartist/viewartist/makeartistrequest/:mmid/:eventid' element={<MakeArtistRequest />} />  
@@ -186,7 +197,7 @@ function App() {
           <Route path='/admin/profile/:id' element={<AdminProfile/>} />
 
           {/*moderator*/}
-          {/* <Route path='/moderator/moderatorDashoboardContent' element={<ModeratorDashoboardContent />}></Route>
+           <Route path='/moderator/moderatorDashoboardContent' element={<ModeratorDashoboardContent />}></Route>
           <Route path='/moderator/registration' element={<ModeratorRegistration  />}></Route>
           <Route path='/moderator/registration/ProofCheck' element={<ProofCheck/>} />
           <Route path='/moderator/event' element={<ModeratorEvent />}></Route>
@@ -196,7 +207,7 @@ function App() {
           <Route path='/moderator/event/eventDetails' element={<EventDetails/>}/>
           <Route path='/moderator/registration/ProofCheck' element={<proofCheck/>}/>
           <Route path='/moderator/registration/proofcheck/suspenduser' element={<Suspenduser/>}/>
-           */}
+          
 
         </Routes>
       </Router>
@@ -219,5 +230,4 @@ function App() {
 }
 
 export default App;
-
 

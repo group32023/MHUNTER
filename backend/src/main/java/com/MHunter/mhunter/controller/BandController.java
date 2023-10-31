@@ -62,7 +62,6 @@ public class BandController {
 
     @GetMapping("/getAll")
     public List<Band> getAllBands(){
-
         return bandService.getAllBands();
     }
 

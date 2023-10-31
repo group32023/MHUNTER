@@ -68,13 +68,13 @@ public class BookedListController {
 
        bookedLists.forEach(res -> {
                    Event event = eventService.viewSpecificEvent(res.getEventid());
-                   Organizer organizer = organizerService.findSpecificOrganizer(res.getOrgId());
+                   Organizer organizer = organizerService.findSpecificOrganizer(res.getOrg_id());
                    User user = userService.findSpecificUser(organizer.getUser().getUserId());
                    RequestLogDetails requestLogDetails = new RequestLogDetails();
 
                    requestLogDetails.setOrganizerName(user.getFirstName() + " " + user.getLastName());
                    requestLogDetails.setEventName(event.getEvent_name());
-                   requestLogDetails.setAgreementId(res.getAgreementId());
+                   requestLogDetails.setAgreementId(res.getAgreement_id());
                    requestLogDetails.setDate(event.getDate());
                    requestLogDetails.setRequestState(res.getRequestState());
 
@@ -84,4 +84,15 @@ public class BookedListController {
 
                return events;
    }
+
+    @GetMapping("/viewByMmidAndEventid/{mmid}/{eventid}")
+    public BookedList getAllByMmidRequestLogs(@PathVariable int mmid, @PathVariable int eventid){
+        return bookedListService.getAllByMmidAndEventidRequestLogs(mmid, eventid);
+    }
+
+    @GetMapping("/viewByOrgId/{OrgId}")
+    public List<BookedList> getAllByMmidRequestLogs(@PathVariable int OrgId){
+        return bookedListService.getAllByOrgIdRequestLogs(OrgId);
+    }
+
 }
