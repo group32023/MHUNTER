@@ -87,7 +87,7 @@ export default function ArtistPendingRequests() {
   
     
     divElements.push(<div key={i} className="requestContainer">
-      <img src={`${BASE_URL}/postData/uploads/image/`} className="profile"></img>
+      <img src={`${BASE_URL}/postData/uploads/image/${eventList[i]['organizerImage']}`} className="profile"></img>
       <div className="eventDetails">
         <h5>{eventList[i]['organizerName']}</h5>
         
@@ -106,6 +106,8 @@ export default function ArtistPendingRequests() {
   );
    
   }
+
+  console.log(eventList)
 
   const handlePageClick = (data)=>{
     console.log(data.selected); 

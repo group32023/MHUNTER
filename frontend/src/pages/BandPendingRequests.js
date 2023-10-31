@@ -29,6 +29,7 @@ export default function ArtistPendingRequests() {
   const [eventList, setEventList] = useState([]);
   const [currentPage, setCurrentPage] =useState(1);
   const [linePerPage, setLinePerPage] = useState(4);
+  const BASE_URL = "http://localhost:8080";
 
   const mmid=localStorage.getItem('mmid');
   useEffect(() => {
@@ -70,7 +71,7 @@ export default function ArtistPendingRequests() {
   
     
     divElements.push(<div key={i} className="requestContainer">
-      <img src={profileImage} className="profile1"></img>
+      <img src={`${BASE_URL}/postData/uploads/image/${eventList[i]['organizerImage']}`} className="profile1"></img>
       <div className="eventDetails">
         <h5>{eventList1[i]['organizerName']}</h5>
         
