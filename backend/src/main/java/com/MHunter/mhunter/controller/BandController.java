@@ -60,7 +60,6 @@ public class BandController {
         return verifiedUserBandList;
     @GetMapping("/getAll")
     public List<Band> getAllBands(){
-
         return bandService.getAllBands();
     }
 
