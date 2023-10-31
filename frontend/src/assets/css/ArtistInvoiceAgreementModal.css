@@ -53,7 +53,7 @@
 }
 
 .modal-content {
-    color: white !important;
+    color: white;
 }
 
 .modal-dialog {
@@ -104,4 +104,3 @@
     padding: 25px 25px 15px;
 
 }
-

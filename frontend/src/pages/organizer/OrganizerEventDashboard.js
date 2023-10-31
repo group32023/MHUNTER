@@ -263,6 +263,12 @@ function OrganizerEventDashboard() {
                                                             <span style={{ color: 'red' }}>PENDING</span>
                                                         </>
                                                     )}
+                                                    {detail[3] === -1 && (
+                                                        <>
+                                                            <BiSolidCircle style={{ color: 'red' }} className='mx-2' />
+                                                            <span style={{ color: 'red' }}>REJECTED</span>
+                                                        </>
+                                                    )}
                                                     {detail[3] === 'ACCEPTED' && (
                                                         <>
                                                             <BiSolidCircle style={{ color: 'orange' }} className='mx-2' />
