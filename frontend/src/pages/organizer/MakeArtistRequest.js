@@ -2,7 +2,7 @@ import './MakeArtistRequest.css';
 import { useState, useEffect } from 'react';
 import React from 'react';
 import { GoogleMap, Marker, LoadScript } from '@react-google-maps/api';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { format } from 'date-fns'
 import Topbar from '../../components/common/Topbar';
 import LocationInput from '../../components/organizer/LocationInput';
@@ -18,6 +18,10 @@ import OrganizerProfile from './OrganizerProfile';
 import SearchArtist from './SearchArtist';
 import ViewArtist from './ViewArtist';
 import SearchBand from './SearchBand'
+import ViewBand from './ViewBand'
+
+import Modal from 'react-bootstrap/Modal';
+import Button from 'react-bootstrap/Button';
 
 import SideMenuBarOrganizer from '../../components/common/SideMenuBar/SideMenuBarOrganizer';
 
@@ -25,22 +29,29 @@ import SideMenuBarOrganizer from '../../components/common/SideMenuBar/SideMenuBa
 function MakeArtistRequest() {
 
 
-    const [event, setEvents] = useState([]);
-    const mmid = 100;
-    const orgid = 1;
-    const eventid = 3;
 
+
+    const [showModal, setShowModal] = useState(false);
+
+    const handleShowModal = () => {
+        setShowModal(true);
+    };
+
+    const handleCloseModal = () => {
+        setShowModal(false);
+    };
+
+
+    const [event, setEvents] = useState([]);
+
+    const orgid = 1;
+    const { mmid, eventid } = useParams();
 
     const currentDate = format(new Date(), 'yyyy-MM-dd');
 
 
-
     const [formData, setFormData] = useState({
 
-
-        // MMID: mmid,
-        // orgId: orgid,
-        // eventId: eventid,
         arrivalTime: '',
         departureTime: '',
         specialNotes: '',
@@ -77,66 +88,7 @@ function MakeArtistRequest() {
 
     }, [])
 
-    // const [formData, setFormData] = useState({
-
-    //     event_name: '',
-    //     event_type: '',
-    //     date: '',
-    //     crowd: '',
-    //     start_time: '',
-    //     end_time: '',
-    //     location: '',
-    //     description: '',
-    //     latitude: '',
-    //     longitude: '',
-
-    // })
-
-    // const [crowdError, setCrowdError] = useState('');
-
-    // const onChangeHandler = (event) => {
-    //     if (!event.target) return; // Check if event.target exists
-
-    //     const { name, value } = event.target;
-
-    //     if (name === 'crowd') {
-
-    //         if (value <= 0) {
-    //             setCrowdError('Expected crowd should be a positive integer');
-    //         }
-
-    //         else if (!Number.isInteger(value)) {
-    //             setCrowdError('Expected crowd should be a positive integer');
-    //         }
-
-    //         else {
-    //             setCrowdError('');
-    //             // Handle location selection
-    //             setFormData((prevFormData) => ({
-    //                 ...prevFormData,
-    //                 [name]: value,
-    //             }));
-    //         }
-
-    //     } else {
-    //         // Handle form input changes
-    //         setFormData((prevFormData) => ({
-    //             ...prevFormData,
-    //             [name]: value,
-    //         }));
-    //     }
-    // };
-
-    // const handleLocationSelect = (selectedLocation) => {
-    //     // Update the location property in the formData state with the selected location data
-    //     setFormData((prevFormData) => ({
-    //         ...prevFormData,
-    //         location: selectedLocation.address,
-    //     }));
-
-    //     // Print the location value in the console
-    //     console.log(selectedLocation.address);
-    // };
+    
 
     return (
 
@@ -248,7 +200,7 @@ function MakeArtistRequest() {
                                         headers: { "Content-Type": "application/json" },
                                         body: JSON.stringify(formData)
                                     }).then(() => {
-                                        window.location.href = "/organizer/event";
+                                        window.location.href = `/organizer/event/eventdashboard/${eventid}`;
                                     })
                                 }} >Submit</button>
                             </Link>
@@ -271,9 +223,10 @@ function MakeArtistRequest() {
                     <Route path='/organizer/eventhistory' element={<ViewEventHistory />}></Route>
                     <Route path='/organizer/complaint' element={<OrganizerComplaint />}></Route>
                     <Route path='/organizer/profile' element={<OrganizerProfile />}></Route>
-                    <Route path='/organizer/searchartist' element={<SearchArtist />} />
-                    <Route path='/organizer/searchartist/viewartist' element={<ViewArtist />} />
-                    <Route path='/organizer/searchband' element={<SearchBand />} />
+                    <Route path='/organizer/searchartist/:eventid' element={<SearchArtist />} />
+                    <Route path='/organizer/searchartist/viewartist/:mmid/:eventid' element={<ViewArtist />} />
+                    <Route path='/organizer/searchband/:eventid' element={<SearchBand />} />
+                    <Route path='/organizer/searchband/viewband/:mmid/:eventid' element={<ViewBand/>} />
                 </Routes>
             </SideMenuBarOrganizer>
         </>

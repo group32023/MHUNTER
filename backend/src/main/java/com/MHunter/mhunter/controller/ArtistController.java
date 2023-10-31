@@ -1,6 +1,7 @@
 package com.MHunter.mhunter.controller;
 
 import com.MHunter.mhunter.model.Artist;
+import com.MHunter.mhunter.model.Band;
 import com.MHunter.mhunter.model.MusicMember;
 import com.MHunter.mhunter.service.ArtistService;
 import com.MHunter.mhunter.service.MusicMemberService;
@@ -50,8 +51,9 @@ public class ArtistController {
 
     @GetMapping("/viewSpecificArtist/{mmid}")
     public Artist viewSpecificArtist( @PathVariable int mmid){
-
-        return artistService.findSpecificArtist(mmid);
+        Artist artist = artistService.findByMMID(mmid);
+        int artistId = artist.getArtist_id();
+        return artistService.findSpecificArtist(artistId);
     }
 
 
