@@ -25,7 +25,7 @@ public class BookedList {
     private int agreementId;
 
 
-    private int org_id;
+    private int orgId;
 
 
     private int eventid;
