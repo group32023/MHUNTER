@@ -21,12 +21,14 @@ import ViewArtist from './ViewArtist';
 import MakeArtistRequest from './MakeArtistRequest';
 import OrganizerEventDashboard from './OrganizerEventDashboard';
 import SearchBand from './SearchBand'
+import ViewBand from './ViewBand'
 
 import SideMenuBarOrganizer from '../../components/common/SideMenuBar/SideMenuBarOrganizer';
 library.add(fas);
 
 function ViewEvents() {
 
+    const orgid = 1;
     const [events, setEvents] = useState([])
     const BASE_URL = "http://localhost:8080";
 
@@ -49,7 +51,7 @@ function ViewEvents() {
     };
 
     useEffect(() => {
-        fetch("http://localhost:8080/event/getAll")
+        fetch(`http://localhost:8080/event/getAll/${orgid}`)
             .then(res => res.json())
             .then((result) => {
                 setEvents(result);
@@ -126,10 +128,11 @@ function ViewEvents() {
                     <Route path='/organizer/eventhistory' element={<ViewEventHistory />}></Route>
                     <Route path='/organizer/complaint' element={<OrganizerComplaint />}></Route>
                     <Route path='/organizer/profile' element={<OrganizerProfile />}></Route>
-                    <Route path='/organizer/searchartist' element={<SearchArtist />} />
-                    <Route path='/organizer/searchartist/viewartist' element={<ViewArtist />} />
-                    <Route path='/organizer/searchartist/viewartist/makeartistrequest' element={<MakeArtistRequest />} />
-                    <Route path='/organizer/searchband' element={<SearchBand />} />
+                    <Route path='/organizer/searchartist/:eventid' element={<SearchArtist />} />
+                    <Route path='/organizer/searchartist/viewartist/:mmid/:eventid' element={<ViewArtist />} />
+                    <Route path='/organizer/searchartist/viewartist/makeartistrequest/:mmid/:eventid' element={<MakeArtistRequest />} />
+                    <Route path='/organizer/searchband/:eventid' element={<SearchBand />} />
+                    <Route path='/organizer/searchband/viewband/:mmid/:eventid' element={<ViewBand/>} />
                 </Routes>
             </SideMenuBarOrganizer>
         </>
