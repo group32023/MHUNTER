@@ -38,7 +38,9 @@ export default function ArtistEvent() {
 
   // get the all data form backend
   const handle = ()=>{
-    fetch(`http://localhost:8080/requestMusicMember/viewAllEvents/758463?filterValue=${getFilterData}`).then((res)=>res.json()).then((result)=>{
+    const mmId = localStorage.getItem('mmid');
+    if(mmId){
+    fetch(`http://localhost:8080/requestMusicMember/viewAllEvents/${mmId}?filterValue=${getFilterData}`).then((res)=>res.json()).then((result)=>{
       if(result.length>0){
         const newItem = result.map(item=>(
           <div  className="requestContainerArtistEvent">
@@ -56,7 +58,7 @@ export default function ArtistEvent() {
         setData(newItem) 
       }
      
-    })
+    })}
     
   }
  
@@ -135,7 +137,7 @@ export default function ArtistEvent() {
 
 {/* pagination */}
             <div>{setPagination().map((item) => item)}</div>
-            {(data.length ==0)?<><img src={empty} className='empty'></img><span className='emptyContent'>it's empty in here.</span></>:undefined}
+            {(data.length ==0)?<><img src={empty} className='empty'></img><span className='emptyContent-artistEvent'>it's empty in here.</span></>:undefined}
 
             <div className='artistEventPagination'>
               <Stack spacing={2}>

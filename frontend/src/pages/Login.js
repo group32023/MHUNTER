@@ -4,6 +4,8 @@ import { useNavigate, Link } from 'react-router-dom';
 import axios from 'axios';
 import NavBar from '../components/common/NavBar';
 import logo from '../assets/images/logo-login.png'
+import Notification from '../components/common/Notification';
+import '../assets/css/notification.css'
 
 export default function Login() {
   const [email, setEmail] = useState('');

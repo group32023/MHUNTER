@@ -15,10 +15,13 @@ import React, { useState } from "react";
 import {useEffect } from 'react';
 import axios from 'axios';
 
+
 function SideMenuBarArtist({ children }) {
     const [isExpanded, setExpandState] = useState(false);
     const [user, setUser] = useState(null);
-    
+    const [image,setImage] = useState("")
+    const BASE_URL = "http://localhost:8080";
+
     useEffect(() => {
         const userId = localStorage.getItem('userId');
         
@@ -40,6 +43,8 @@ function SideMenuBarArtist({ children }) {
             axios.get(`http://localhost:8080/user/user/${userId}`)
                 .then(response => {
                     setUser(response.data);
+                    setImage(response.data['imagePath'])
+                    console.log(image)
                 })
                 .catch(error => {
                     console.error(error);
@@ -48,6 +53,7 @@ function SideMenuBarArtist({ children }) {
         }
     }, []);
     console.log("Current user:", user); 
+    
 
     return (
         <div className="full-container">
@@ -64,7 +70,7 @@ function SideMenuBarArtist({ children }) {
                     <div className="menu-heading d-flex align-items-center">
                         {isExpanded && (
                             <div className="menu-brand">
-                                <img src={logoImage} alt="" srcSet="" />
+                                <img src={`${BASE_URL}/postData/uploads/image/${image}`} alt="" srcSet="" />
                             </div>
                         )}
 
@@ -72,7 +78,6 @@ function SideMenuBarArtist({ children }) {
                             <BiMenu onClick={() => setExpandState(!isExpanded)} className={isExpanded ? "menubar-noncollapse-icon position-absolute  " : "menubar-collapse-icon position-absolute "} />
 
                         </div>
-
                     </div>
 
                     <div className="row">
@@ -80,7 +85,7 @@ function SideMenuBarArtist({ children }) {
                             <div className="menu-profilePhoto col d-flex justify-content-center">
                             <img
                                     className={isExpanded ? "menu-item-profilePhoto img-fluid my-4" : "menu-item-profilePhoto-NX"}
-                                    src={`http://localhost:8080/user/uploads/images/1056_b0GstR.jpg`}
+                                    src={`${BASE_URL}/postData/uploads/image/${image}`}
                                     alt="Profile"
                                     srcSet=""
                                     width="130px"

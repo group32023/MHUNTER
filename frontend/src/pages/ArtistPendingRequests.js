@@ -27,6 +27,7 @@ export default function ArtistPendingRequests() {
   const [expand,setExpandedSideBar] = useState(true)
 
   const [eventList, setEventList] = useState([]);
+  const BASE_URL = "http://localhost:8080";
  
 
   useEffect(() => {
@@ -86,7 +87,7 @@ export default function ArtistPendingRequests() {
   
     
     divElements.push(<div key={i} className="requestContainer">
-      <img src={profileImage} className="profile"></img>
+      <img src={`${BASE_URL}/postData/uploads/image/`} className="profile"></img>
       <div className="eventDetails">
         <h5>{eventList[i]['organizerName']}</h5>
         
@@ -107,10 +108,10 @@ export default function ArtistPendingRequests() {
   }
 
   const handlePageClick = (data)=>{
-    console.log(data.selected);
+    console.log(data.selected); 
   }
 
-  
+  console.log(eventList)
  if(eventList.length===0) return <div className='progressBar'><CircularProgress color="secondary" /></div>
 
   return (
