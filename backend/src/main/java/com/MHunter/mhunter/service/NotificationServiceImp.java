@@ -25,4 +25,13 @@ public class NotificationServiceImp implements NotificationService{
     public List<Notification> viewNotification() {
         return notificationRepository.findAll();
     }
+
+    public Notification saveNotification(Notification notification) {
+
+        System.out.println("Event before save: " + notification);
+
+        return notificationRepository.save(notification);
+
+    }
+
 }
