@@ -21,6 +21,7 @@ import Modal from 'react-bootstrap/Modal';
 function ProofCheck() {
   const [formData, setFormData] = useState([]);
   const { id} = useParams();
+  const {type} = useParams();
   const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
@@ -105,7 +106,7 @@ function ProofCheck() {
                         type="text"
                         name="userType"
                         placeholder="Artist"
-                        style ={{color:'white'}} value={formData.type}
+                        style ={{color:'white'}} value={type}
                       />
                     </td>
                   </tr>

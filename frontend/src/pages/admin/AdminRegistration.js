@@ -25,12 +25,11 @@ function AdminRegistration() {
 
   const [userR, setUserR] = useState([]);
   let navigate = useNavigate();
-  const { id } = useParams(); 
-  const load=(id)=>{
+  
+  const load=(id , type)=>{
     if (id) {
-      navigate(`/admin/registration/proofcheck/${id}`);
+      navigate(`/admin/registration/proofcheck/${id}/${type}`);
     } else {
-      // Handle the case where id is undefined or null
       console.error("Invalid id:", id);
     }
 
@@ -98,7 +97,7 @@ function AdminRegistration() {
                     <td className='data-row-registration-td'>
                    
                     <span className='data-button'>
-                        <button type='button' className='btn btn-primary'  onClick={()=>load(row.id)}>View</button>
+                        <button type='button' className='btn btn-primary'  onClick={()=>load(row.id, row.type)}>View</button>
                     </span>
                     
                     </td>

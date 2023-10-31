@@ -1,9 +1,10 @@
-import React, { useRef, useState } from 'react'
+import React, { useRef, useState,useEffect } from 'react'
 import SideMenuBarAdmin from '../../components/common/SideMenuBar/SideMenuBarAdmin'
 import '../../assets/css/admin/adminDashboard.css'
 import band from '../../assets/images/band.jpg'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUpload } from '@fortawesome/free-solid-svg-icons';
+import { useParams } from 'react-router-dom';
 
 import { Link, Route, Routes } from 'react-router-dom';
 
@@ -18,7 +19,29 @@ import Topbar from '../../components/common/Topbar'
 import fimage from '../../assets/icons/requestlog.png'
 
 function ViewUserDetails() {
-    const [formData, setFormData] = useState({
+  const [userformData, setuserFormData] = useState([]);
+  const { id} = useParams();
+  const {type} = useParams();
+
+  useEffect(() => {
+    console.log(id);
+    fetch(`http://localhost:8080/user/${id}`)
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.json();
+      })
+      .then((data) => {
+        console.log('Fetched data:', data);
+        setuserFormData(data);
+      })
+      .catch((error) => {
+        console.log('Error fetching data:', error);
+      });
+  }, [id]);
+
+    /*const [formData, setFormData] = useState({
         name: '',
         usecode: '',
         userType: '',
@@ -33,21 +56,11 @@ function ViewUserDetails() {
     
       const handleSubmit = (event) => {
         event.preventDefault();
-        // You can perform any action with the form data here, like submitting it to a backend server
         console.log(formData);
       };
     
-      const inputRef = useRef(null);
-      const [image, setImage] = useState("");
-    
-      const handleImageClick = () =>{
-        inputRef.current.click();
-      }
-      const handleImageChange = (event) =>{
-        const file = event.target.files[0];
-        console.log(file);
-        setImage(event.target.files[0]);
-      }
+      const inputRef = useRef(null);*/
+
     
       return (
         <>
@@ -68,26 +81,26 @@ function ViewUserDetails() {
               <table>
                 <tr>
                   <td className='label'>Name  :</td>
-                  <td><input type="text" name="name" value={formData.name} onChange={handleChange} placeholder='D.K.D.Dickovita' /></td>
+                  <td><input type="text" name="name" value={userformData.firstName} placeholder='D.K.D.Dickovita' style ={{color:'white'}}/></td>
                 </tr>
 
                 <tr>
                   <td className='label'>User Code :</td>
-                  <td><input type="text" name="usecode" value={formData.usecode} onChange={handleChange} placeholder='0012' /></td>
+                  <td><input type="text" name="usecode" value={userformData.userId} placeholder='0012' style ={{color:'white'}} /></td>
                 </tr>
 
                 <tr>
-                  <td className='label'>User Type :</td>
-                  <td><input type="text" name="userType" value={formData.userType} onChange={handleChange} placeholder='Artist'/></td>
+                  <td className='label' >User Type :</td>
+                  <td><input type="text" name="userType" value={type} placeholder='Artist' style ={{color:'white'}}/></td>
                 </tr>
                 <tr>
                   <td className='label'>Address  :</td>
-                  <td><input type="text" name="address" value={formData.address} onChange={handleChange} placeholder='No 03, Colombo'/></td>
+                  <td><input type="text" name="address" value={userformData.address} placeholder='No 03, Colombo' style ={{color:'white'}}/></td>
 
                 </tr>
 
                   <td className='label'>Email   :</td>
-                  <td><input type="email" name="email" value={formData.email} onChange={handleChange} placeholder='anjalika@gmail.com'/></td>
+                  <td><input type="email" name="email" value={userformData.email} placeholder='anjalika@gmail.com' style ={{color:'white'}}/></td>
               </table>
             </div>
           </div>

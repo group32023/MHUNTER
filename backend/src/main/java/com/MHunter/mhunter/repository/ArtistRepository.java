@@ -2,9 +2,23 @@ package com.MHunter.mhunter.repository;
 
 import com.MHunter.mhunter.model.Artist;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 @Repository
 public interface ArtistRepository extends JpaRepository<Artist,Integer> {
     Artist findByUserUserId(Integer userId);
+    @Transactional
+    @Modifying
+    @Query(value = "DELETE a FROM artist a WHERE a.mmid IN (SELECT mm.mmid FROM music_member mm WHERE mm.user_id = :user_id)", nativeQuery = true)
+    void deleteByUserId(@Param("user_id") int userId);
+
+    /*@Transactional
+    @Modifying
+    @Query(value = "DELETE FROM Artist a WHERE a.user.userId = :userId")
+    void deleteByUserId(@Param("userId") int userId);*/
+
 }
