@@ -1,6 +1,5 @@
 package com.MHunter.mhunter.controller;
 
-import com.MHunter.mhunter.exception.UserNotFoundException;
 import com.MHunter.mhunter.model.*;
 import com.MHunter.mhunter.service.*;
 import com.MHunter.mhunter.struct.EventOrganizer;
@@ -36,8 +35,7 @@ public class RequestMusicMemberController {
     @Autowired
     private MusicMemberService musicMemberService;
 
-    @PostMapping("/add")
-    public String save(@RequestBody RequestMusicMember requestMusicMember){
+
         
     @PostMapping("/add/{mmid}/{eventid}/{orgid}")
     public String save(@RequestBody RequestMusicMember requestMusicMember,@PathVariable("mmid") int mmid,@PathVariable("eventid") int eventid , @PathVariable("orgid") int orgid  ){
