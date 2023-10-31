@@ -12,5 +12,8 @@ public interface UserService {
 
     public User updateUser(User user,int id);
     public boolean deleteUser(int id);
+    public List<Object[]> getAdminReportData();
+
+    public void deleteUserById(int id);
 
 }

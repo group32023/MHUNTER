@@ -33,7 +33,7 @@ public class ArtistController {
                 UserArtist userArtist = new UserArtist();
                 userArtist.setArtistName(musicMember.getName());
                 userArtist.setImgPath(item.getUser().getImagePath());
-                System.out.println(item.getUser().getImagePath());
+
                 userArtistList.add(userArtist);
             }
         });
@@ -54,5 +54,29 @@ public class ArtistController {
         return artistService.findSpecificArtist(mmid);
     }
 
+
+    @GetMapping("/view/verified")
+    public List<UserArtist> viewVerifiedArtists() {
+        List<Artist> artistList = artistService.findAllArtist();
+        List<UserArtist> verifiedUserArtistList = new ArrayList<>();
+
+        artistList.forEach(item -> {
+            MusicMember musicMember = musicMemberService.findSpecificMusicMember(item.getMusicMember().getMMID());
+            if (musicMember.getType().toLowerCase().equals("artist") && item.getUser().getIsVerified()== 1 ) {
+                UserArtist userArtist = new UserArtist();
+                userArtist.setArtistName(musicMember.getName());
+                userArtist.setImgPath(item.getUser().getImagePath());
+                userArtist.setFirstName(item.getUser().getFirstName());
+                userArtist.setLastName(item.getUser().getLastName());
+                userArtist.setType(item.getMusicMember().getType());
+                userArtist.setId(item.getUser().getUserId());
+                userArtist.setAddress(item.getUser().getAddress());
+                userArtist.setEmail(item.getUser().getEmail());
+                userArtist.setIsVerified(item.getUser().getIsVerified());
+                verifiedUserArtistList.add(userArtist);
+            }
+        });
+        return verifiedUserArtistList;
+    }
 
 }
