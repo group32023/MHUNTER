@@ -13,6 +13,7 @@ import ViewEventHistory from './pages/organizer/ViewEventHistory';
 import ViewArtist from './pages/organizer/ViewArtist';
 import MakeArtistRequest from './pages/organizer/MakeArtistRequest';
 import SearchBand from './pages/organizer/SearchBand';
+import ViewBand from './pages/organizer/ViewBand'
 
 import "./index.css"
 
@@ -154,10 +155,11 @@ function App() {
           <Route path='/organizer/eventhistory' element={<ViewEventHistory />}></Route>
           <Route path='/organizer/complaint' element={<OrganizerComplaint />}></Route>
           <Route path='/organizer/profile' element={<OrganizerProfile />}></Route>
-          <Route path='/organizer/searchartist' element={<SearchArtist />} />
-          <Route path='/organizer/searchartist/viewartist' element={<ViewArtist />} />  
-          <Route path='/organizer/searchartist/viewartist/makeartistrequest' element={<MakeArtistRequest />} />  
-          <Route path='/organizer/searchband' element={<SearchBand />} />
+          <Route path='/organizer/searchartist/:eventid' element={<SearchArtist />} />
+          <Route path='/organizer/searchartist/viewartist/:mmid/:eventid' element={<ViewArtist />} />  
+          <Route path='/organizer/searchartist/viewartist/makeartistrequest/:mmid/:eventid' element={<MakeArtistRequest />} />  
+          <Route path='/organizer/searchband/:eventid' element={<SearchBand />} />
+          <Route path='/organizer/searchband/viewband/:mmid/:eventid' element={<ViewBand/>} />
 
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
@@ -165,7 +167,7 @@ function App() {
           <Route path='/artistsignup' element={<ArtistSignup />} />
           <Route path='/bandsignup' element={<BandSignup />} />
           <Route path='/organizersignup' element={<OrganizerSignup />} />
-          <Route path='/artistdashboard' element={<ArtistDashboard />} />
+          <Route path='/artistdashboard' element={<ArtistDashboard />} /> 
           <Route path='/banddashboard' element={<BandDashboard />} />
           {/* <Route path='/moderatordashboard' element={<ModeratorDashboard />} /> */}
           <Route path='/organizerdashboard' element={<OrganizerDashboard />} />

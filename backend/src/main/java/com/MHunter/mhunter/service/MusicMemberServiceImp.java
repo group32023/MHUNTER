@@ -28,4 +28,5 @@ public class MusicMemberServiceImp implements MusicMemberService{
     public List<Object[]> getCountOfBandAndArtist() {
         return musicMemberRepository.countBandArtist();
     }
+
 }

@@ -1,5 +1,5 @@
 package com.MHunter.mhunter.service;
-
+import com.MHunter.mhunter.model.Event;
 import com.MHunter.mhunter.model.Notification;
 
 import java.util.List;
@@ -13,4 +13,7 @@ public interface NotificationService {
     public List<Notification> viewSpecificNotificationByMMID(int mmid);
 
 
+  public Notification saveNotification(Notification notification);
+
 }
+

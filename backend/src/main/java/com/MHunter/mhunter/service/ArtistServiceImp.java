@@ -1,6 +1,7 @@
 package com.MHunter.mhunter.service;
 
 import com.MHunter.mhunter.model.Artist;
+import com.MHunter.mhunter.model.Band;
 import com.MHunter.mhunter.repository.ArtistRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -51,5 +52,10 @@ public class ArtistServiceImp implements ArtistService{
     public boolean deleteArtist(int id) {
         artistRepository.deleteById(id);
         return true;
+    }
+
+    @Override
+    public Artist findByMMID(int mmid){
+        return artistRepository.findByMmid(mmid);
     }
 }

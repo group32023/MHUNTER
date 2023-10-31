@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @RestController
-@CrossOrigin
+@CrossOrigin(origins = "*")
 @RequestMapping("/band")
 public class BandController {
     @Autowired
@@ -58,5 +58,16 @@ public class BandController {
             }
         });
         return verifiedUserBandList;
+    @GetMapping("/getAll")
+    public List<Band> getAllBands(){
+
+        return bandService.getAllBands();
+    }
+
+    @GetMapping("/viewSpecificBand/{mmid}")
+    public Band viewSpecificBand( @PathVariable int mmid){
+Band band = bandService.findByMMID(mmid);
+int bandId = band.getBandID();
+        return bandService.findSpecificBand(bandId);
     }
 }
