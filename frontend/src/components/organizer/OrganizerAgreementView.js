@@ -15,22 +15,17 @@ const OrganizerAgreementView = () => {
 
     return (
         <div className="form_holder">
-            <h2 className="fs-title" style={{ color: '#fff' }}>
-                steps React form with Icons
-            </h2>
+
             <form id="msform">
                 <ul id="progressbar">
-                    <li className={step === 1 ? 'active' : ''}>1. Complaints Details</li>
-                    <li className={step === 2 ? 'active' : ''}>2. Contact Information</li>
-                    <li className={step === 3 ? 'active' : ''}>3. Confirmation</li>
+                    <li className={step === 1 ? 'active' : ''}>Read Agreement</li>
+                    <li className={step === 2 ? 'active' : ''}>Sign</li>
+                    <li className={step === 3 ? 'active' : ''}>Submit</li>
                 </ul>
                 {step === 1 && (
                     <fieldset>
                         <h2 className="fs-title">Create your account</h2>
                         <h3 className="fs-subtitle">This is step 1</h3>
-                        <input type="text" name="email" placeholder="Email" />
-                        <input type="password" name="pass" placeholder="Password" />
-                        <input type="password" name="cpass" placeholder="Confirm Password" />
                         <input
                             type="button"
                             className="next action-button"

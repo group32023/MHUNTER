@@ -15,6 +15,8 @@ const OrganizerInvoiceView = (props) => {
     const [musicMember, setMusicMember] = useState({});
 
 
+
+
     useEffect(() => {
 
         const apiUrl = `http://localhost:8080/invoice/findAllInInvoice/${mmid}/${eventid}`;
@@ -96,7 +98,7 @@ const OrganizerInvoiceView = (props) => {
 
                     </div>
 
-                    <div class="table-responsive-sm">
+                    <div class="table-responsive-sm">Description of Services Provided:
                         <table class="table table-striped">
                             <thead>
                                 <tr>
@@ -104,47 +106,57 @@ const OrganizerInvoiceView = (props) => {
                                     <th>Item</th>
                                     <th>Description</th>
 
-                                    <th class="right">Unit Cost</th>
-                                    <th class="center">Qty</th>
-                                    <th class="right">Total</th>
+
+                                    <th class="right">Cost</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
                                     <td class="center">1</td>
                                     <td class="left strong">Artist Fee</td>
-                                    <td class="left">Fee for the live performance by the bande</td>
+                                    <td class="left">Fee for the live performance by the Artist </td>
 
-                                    <td class="right">$999,00</td>
-                                    <td class="center">1</td>
-                                    <td class="right">$999,00</td>
+
+                                    <td class="right">LKR {invoice.artistFee}</td>
                                 </tr>
                                 <tr>
                                     <td class="center">2</td>
-                                    <td class="left">Custom Services</td>
-                                    <td class="left">Instalation and Customization (cost per hour)</td>
+                                    <td class="left">Band Fee</td>
+                                    <td class="left">Fee for the live performance by the Band</td>
 
-                                    <td class="right">$150,00</td>
-                                    <td class="center">20</td>
-                                    <td class="right">$3.000,00</td>
+
+                                    <td class="right">LKR {invoice.bandFee}</td>
                                 </tr>
                                 <tr>
                                     <td class="center">3</td>
-                                    <td class="left">Hosting</td>
-                                    <td class="left">1 year subcription</td>
+                                    <td class="left">Transportation Fee</td>
+                                    <td class="left">Cost associated with transporting the band and their equipment </td>
 
-                                    <td class="right">$499,00</td>
-                                    <td class="center">1</td>
-                                    <td class="right">$499,00</td>
+
+                                    <td class="right">LKR {invoice.transportFee}</td>
                                 </tr>
                                 <tr>
                                     <td class="center">4</td>
-                                    <td class="left">Platinum Support</td>
-                                    <td class="left">1 year subcription 24/7</td>
+                                    <td class="left">Sound Equipment Fee</td>
+                                    <td class="left">Charges for the sound equipment provided for the performance</td>
 
-                                    <td class="right">$3.999,00</td>
-                                    <td class="center">1</td>
-                                    <td class="right">$3.999,00</td>
+
+                                    <td class="right">LKR {invoice.soundFee}</td>
+                                </tr>
+                                <tr>
+                                    <td class="center">5</td>
+                                    <td class="left">Instrumental Equipment Fee</td>
+                                    <td class="left">Charges for the muusic instrumental equipment</td>
+
+
+                                    <td class="right">LKR {invoice.instrumentFee}</td>
+                                </tr><tr>
+                                    <td class="center">6</td>
+                                    <td class="left">Other Expenses</td>
+                                    <td class="left">Any additional expenses or miscellaneous fees</td>
+
+
+                                    <td class="right">LKR {invoice.others}</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -161,26 +173,21 @@ const OrganizerInvoiceView = (props) => {
                                         <td class="left">
                                             <strong>Subtotal</strong>
                                         </td>
-                                        <td class="right">$8.497,00</td>
+                                        <td class="right">{invoice.totalAmount}</td>
                                     </tr>
                                     <tr>
                                         <td class="left">
-                                            <strong>Discount (20%)</strong>
+                                            <strong>Discount</strong>
                                         </td>
-                                        <td class="right">$1,699,40</td>
+                                        <td class="right">{invoice.totalAmount}</td>
                                     </tr>
-                                    <tr>
-                                        <td class="left">
-                                            <strong>VAT (10%)</strong>
-                                        </td>
-                                        <td class="right">$679,76</td>
-                                    </tr>
+
                                     <tr>
                                         <td class="left">
                                             <strong>Total</strong>
                                         </td>
                                         <td class="right">
-                                            <strong>$7.477,36</strong>
+                                            <strong>{invoice.totalAmount}</strong>
                                         </td>
                                     </tr>
                                 </tbody>
@@ -194,13 +201,30 @@ const OrganizerInvoiceView = (props) => {
                 <div className="columns card-footer row">
                     <div className='col-9'>
                         <h5>Payment Information</h5>
-                        <p>Credit Card<br></br>
-                            Card Type: Visa<br></br>
-                            &bull;&bull;&bull;&bull; &bull;&bull;&bull;&bull; &bull;&bull;&bull;&bull; 1234
+                        <p>Bank Name: [Your Bank Name]<br></br>
+                            Account Name: [Your Account Name]<br></br>
+                            Account Number: [Your Account Number]<br></br>
+                            Routing Number: [Your Routing Number]<br></br>
+                            PayPal: [Your PayPal ID]<br></br>
+
+                        </p>
+
+                        <h5>Additional Information</h5><hr></hr>
+                        <p>
+                            Payment Terms:
+                            Please make the payment by the due date mentioned above. You can make the payment via bank transfer or PayPal using the provided information.
+
+                            Thank you for choosing our band and artist for your event. If you have any questions or concerns regarding this invoice, please feel free to contact us at [Your Phone Number] or [Your Email Address].
+
+                            Sincerely,
+
+                            {musicMember.userName}
                         </p>
                     </div>
                     <div className='col-3'>
                         <Button >Pay Now</Button>
+                        <br></br>
+
                     </div>
 
                 </div>

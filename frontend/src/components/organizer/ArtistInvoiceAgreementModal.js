@@ -5,6 +5,7 @@ import '../../assets/css/ArtistInvoiceAgreementModal.css';
 import OrganizerAgreementView from './OrganizerAgreementView';
 import AgreementDetailProfile from './AgreementDetailProfile';
 import OrganizerInvoiceView from './OrganizerInvoiceView';
+import { useReactToPrint } from 'react-to-print';
 
 function ArtistInvoiceAgreementModal(props) {
     const index = props.index;
@@ -30,6 +31,11 @@ function ArtistInvoiceAgreementModal(props) {
     const handleMouseLeave = () => {
         setHoveredIndex(null);
     };
+
+    const componentRef = React.useRef();
+    const handlePrint = useReactToPrint({
+        content: () => componentRef.current,
+    });
 
 
     return (
@@ -85,7 +91,9 @@ function ArtistInvoiceAgreementModal(props) {
                                         <AgreementDetailProfile style={{ color: 'black' }} />
                                     </Tab.Pane>
                                     <Tab.Pane eventKey="invoice">
+                                        <Button onClick={handlePrint}>Print</Button>
                                         <OrganizerInvoiceView
+                                            ref={componentRef}
                                             detail0={detail0}
                                             detail2={detail2}
                                             detail3={detail3}
