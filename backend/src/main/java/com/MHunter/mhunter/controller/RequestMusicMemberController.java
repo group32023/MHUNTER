@@ -356,11 +356,6 @@ public class RequestMusicMemberController {
         return userMusicMember;
     }
 
-    @GetMapping("/musicMemberDetailsByEvent/{eventID}")
-    public List<RequestMusicMember> getEventID(@PathVariable int eventID){
-        System.out.println(eventID);
-        return requestMusicMemberService.findByEventID(eventID);
-    }
 
 
     }

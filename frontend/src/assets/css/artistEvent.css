@@ -123,3 +123,10 @@
     background-color: #7643D2 !important;
     
   }
+
+  .emptyContent-artistEvent{
+    position: absolute;
+    left: 720px;
+    top: 455px;
+    color: white;
+  }
