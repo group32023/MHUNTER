@@ -9,4 +9,6 @@ import java.util.List;
 @Repository
 public interface ComplaintRepository extends JpaRepository<Complaint,Integer> {
     List<Complaint> findByOrgId(Integer orgId);
+//    List<Complaint> findAll();
+
 }

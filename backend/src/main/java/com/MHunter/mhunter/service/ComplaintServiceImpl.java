@@ -8,10 +8,11 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class ComplaintServiceImpl implements ComplaintService{
+public class ComplaintServiceImpl implements ComplaintService {
 
     @Autowired
     private ComplaintRepository complaintRepository;
+
     @Override
     public Complaint saveComplaint(Complaint complaint) {
         return complaintRepository.save(complaint);
@@ -19,12 +20,11 @@ public class ComplaintServiceImpl implements ComplaintService{
 
     @Override
     public List<Complaint> getComplaintsByOrgId(Integer orgId) {
-
         return complaintRepository.findByOrgId(orgId);
-
-
     }
 
-
-
+//    @Override
+//    public List<Complaint> getAllComplaints() {
+//        return complaintRepository.findAll();
+//    }
 }

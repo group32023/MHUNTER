@@ -60,16 +60,17 @@ export default function ModeratorDashboard() {
               <ModeratorUpcommingEvent/>
                </div> */}
                  {/* pending request */}
-                 <div className={expand ? 'moderatorpendingRequestDiv':'moderatorpendingRequestDiv-exp'}>
+                 {/* <div className={expand ? 'moderatorpendingRequestDiv':'moderatorpendingRequestDiv-exp'}>
                 <ModeratorPendingRequest />
-            </div>
+            </div> */}
                              {/* pending request */}
-                <div className={expand ? 'moderatorpendingomplaintsDiv':'moderatorpendingomplaintsDiv-exp'}>
+                {/* <div className={expand ? 'moderatorpendingomplaintsDiv':'moderatorpendingomplaintsDiv-exp'}>
                  <ModeratotPendingComplaints />
-                </div>
-                <div className={expand ? 'moderatorregisterOverview':'moderatorregisterOverview-exp'}>
+                </div> */}
+                {/* <div className={expand ? 'moderatorregisterOverview':'moderatorregisterOverview-exp'}>
                  < ModeratorMemberincrease/>
-                </div>
+                </div> */}
+
  
             
 
