@@ -122,6 +122,7 @@ public class RequestMusicMemberController {
             eventOrganizer.setDate(event.getDate());
             eventOrganizer.setUserId(user.getUserId());
             eventOrganizer.setCrowd(event.getCrowd());
+            eventOrganizer.setOrganizerImage(user.getImagePath());
 
             Duration difference = Duration.between( event.getStart_time(),event.getEnd_time());
             long hours = difference.toHours();

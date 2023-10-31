@@ -67,7 +67,7 @@ export default function ArtistPriorBooking() {
      
       .then((data) => {
         setOrg(data);
-        console.log(org);
+        console.log();
 
       })
       .catch((error) => {
@@ -110,6 +110,7 @@ export default function ArtistPriorBooking() {
 
     return (
   
+
       <div>
           
 
@@ -135,7 +136,7 @@ export default function ArtistPriorBooking() {
           {(divElements.length ===0)?<><img src={empty} className='empty-img'></img><span className='emptyContent-report'>it's empty in here.</span></>:undefined}
 
           <h4 className="organizer_tag">Organizer :  </h4>
-          <h4 className="organizerName">{}</h4>
+          <h4 className="organizerName">{(org)? org.user['firstName']+" "+org.user['lastName']:undefined}</h4>
           </div>
         
               {/* <Button className="date"><FontAwesomeIcon icon={faCalendarDays} id="CalenderReport"/>Date</Button> 

@@ -26,6 +26,7 @@ export default function ArtistPriorBooking() {
   const [expand,setExpandedSideBar] = useState(true)
   const componentPDF = useRef();
   const { id1,id2,id3 } = useParams();
+  const [org,setOrg]=useState();
 
   // console.log(id1);
   // console.log(id2);
@@ -59,7 +60,22 @@ export default function ArtistPriorBooking() {
         console.log('Error fetching data:', error);
       });
       
+      fetch(`http://localhost:8080/organizer/viewSpecificOrganizer/${id2}`)
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      return response.json();
+    })
      
+      .then((data) => {
+        setOrg(data);
+        console.log();
+
+      })
+      .catch((error) => {
+        console.log('Error fetching data:', error);
+      });
 
   }, []);
 
@@ -151,7 +167,7 @@ export default function ArtistPriorBooking() {
           </div>
 
           <h4 className="organizer_tag">Organizer :  </h4>
-          <h4 className="organizerName">{events.length===0 ? undefined:events[0]['organizerName']}</h4>
+          <h4 className="organizerName">{(org)? org.user['firstName']+" "+org.user['lastName']:undefined}</h4>
           </div>
         
               {/* <Button className="date"><FontAwesomeIcon icon={faCalendarDays} id="CalenderReport"/>Date</Button> 
