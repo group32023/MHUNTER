@@ -15,6 +15,7 @@ import SearchArtist from './SearchArtist';
 import ViewArtist from './ViewArtist';
 import MakeArtistRequest from './MakeArtistRequest';
 import SearchBand from './SearchBand'
+import ViewBand from './ViewBand'
 
 import '../../assets/css/OrganizerDashboard.css';
 // import OrganizerDashboardContent from "./OrganizerDashboardContent";
@@ -52,6 +53,7 @@ import PaymentArtist10 from '../../assets/images/paymentArtist10.jpg'
 
 
 export default function OrganizerDashboard() {
+  const artistId = 20;
   return (
     <>
       <SideMenuBarOrganizer>
@@ -83,9 +85,10 @@ export default function OrganizerDashboard() {
                       <div className='PaymentTBEventName d-flex align-items-center justify-content-center'><BsMusicNoteList className='' style={{ fontSize: '18px', marginRight: '7px', color: '#7643D2' }} />OBA NISA PERA BEATZ</div>
                       <div className='PaymentTBAmount d-flex align-items-center justify-content-center'>LKR 60 000.00</div>
                       <div className=' PaymentTBBtn d-flex align-items-center justify-content-center'>
-                        <Button className='paymentBtn shadow' variant="secondary" >
-                          Pay Now
-                        </Button>
+                      <Link to={`/organizer/paymentForm/${artistId}`} >
+                          <Button className='paymentBtn shadow' variant="secondary">Pay Now</Button>
+                        </Link>
+                    
                       </div>
 
                     </div>
@@ -444,10 +447,11 @@ export default function OrganizerDashboard() {
           <Route path='/organizer/eventhistory' element={<ViewEventHistory />}></Route>
           <Route path='/organizer/complaint' element={<OrganizerComplaint />}></Route>
           <Route path='/organizer/profile' element={<OrganizerProfile />}></Route>
-          <Route path='/organizer/searchartist' element={<SearchArtist />} />
-          <Route path='/organizer/searchartist/viewartist' element={<ViewArtist />} />
-          <Route path='/organizer/searchartist/viewartist/makeartistrequest' element={<MakeArtistRequest />} />
-          <Route path='/organizer/searchband' element={<SearchBand />} />
+          <Route path='/organizer/searchartist/:eventid' element={<SearchArtist />} />
+          <Route path='/organizer/searchartist/viewartist/:mmid/:eventid' element={<ViewArtist />} />
+          <Route path='/organizer/searchartist/viewartist/makeartistrequest/:mmid/:eventid' element={<MakeArtistRequest />} />
+          <Route path='/organizer/searchband/:eventid' element={<SearchBand />} />
+          <Route path='/organizer/searchband/viewband/:mmid/:eventid' element={<ViewBand/>} />
         </Routes>
       </SideMenuBarOrganizer>
     </>

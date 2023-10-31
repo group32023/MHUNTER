@@ -47,10 +47,10 @@ public class EventController {
          return "added";
     }
 
-    @GetMapping("/getAll")
-    public List<Event> getAllEvents(){
+    @GetMapping("/getAll/{orgid}")
+    public List<Event> getAllEvents(@PathVariable int orgid){
 
-        return eventService.getAllEvents();
+        return eventService.getEventsByOrgID(orgid);
     }
 
     @GetMapping("/musicMemberEventsOnDate/{mmid}/{date}")

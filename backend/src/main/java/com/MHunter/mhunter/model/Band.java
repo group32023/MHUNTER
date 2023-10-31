@@ -1,16 +1,18 @@
 package com.MHunter.mhunter.model;
 
 import jakarta.persistence.*;
+import lombok.Data;
 
 @Entity
+@Data
 public class Band {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int BandID;
-    @OneToOne(fetch = FetchType.LAZY)
+    @OneToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "mmid")
     private MusicMember musicMember;
-    @OneToOne(fetch = FetchType.LAZY)
+    @OneToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "user_id")
     private User user;
 

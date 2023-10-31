@@ -5,8 +5,8 @@ import "../../assets/css/OrganizerEventDashboard.css"
 import Topbar from '../../components/common/Topbar';
 import { Link, useParams } from 'react-router-dom';
 import axios from 'axios';
-import { Button } from 'react-bootstrap';
-
+import Modal from 'react-bootstrap/Modal';
+import Button from 'react-bootstrap/Button';
 
 import CreateEvent from './CreateEvent';
 import ViewEvents from './ViewEvents';
@@ -24,6 +24,7 @@ import EventDashboardDescriptionEdit from '../../components/organizer/EventDashb
 import ArtistInvoiceAgreementModal from '../../components/organizer/ArtistInvoiceAgreementModal';
 
 import SearchBand from './SearchBand'
+import ViewBand from './ViewBand'
 
 import { BiSolidEdit } from "react-icons/bi";
 import { BiSolidBox } from "react-icons/bi";
@@ -79,7 +80,29 @@ function OrganizerEventDashboard() {
         setDescription(newDescription);
     };
 
-    //Location Loading
+
+    const [showCancellationModal, setShowCancellationModal] = useState(false);
+
+    const handleShowCancellationModal = () => {
+        setShowCancellationModal(true);
+    };
+
+    const handleCloseCancellationModal = () => {
+        setShowCancellationModal(false);
+    };
+
+
+
+    const [showCancellationModal1, setShowCancellationModal1] = useState(false);
+
+    const handleShowCancellationModal1 = () => {
+        setShowCancellationModal1(true);
+    };
+
+    const handleCloseCancellationModal1 = () => {
+        setShowCancellationModal1(false);
+    };
+
 
     const { eventid } = useParams();
     const [event, setEvent] = useState(null);
@@ -89,8 +112,20 @@ function OrganizerEventDashboard() {
     const initialFormData = {
         title: 'Event Cancellation',
         message: '',
-        mmids: mmids,
+        mmids: '',
     };
+
+
+    // const handleShowModal = () => {
+    //     setShowModal(true);
+    // };
+
+    // const handleCloseModal = () => {
+    //     setShowModal(false);
+    // };
+
+    const [formData, setFormData] = useState(initialFormData);
+
 
     //Event Data Fetching
     useEffect(() => {
@@ -99,7 +134,7 @@ function OrganizerEventDashboard() {
                 setEvent(response.data[0]);
                 const updatedFormData = {
                     ...initialFormData,
-                    message: `The ${response.data[0].event_name} scheduled for ${response.data[0].date} has been canceled.\n\nEvent Details:\nEvent Name: ${response.data[0].event_name}\nEvent Date: ${response.data[0].date}\nEvent Location: ${response.data[0].location}`,
+                    message: `The ${response.data[0].event_name} scheduled for ${response.data[0].date} has been canceled.`,
                 };
                 setFormData(updatedFormData);
             })
@@ -131,15 +166,54 @@ function OrganizerEventDashboard() {
             .then(res => res.json())
             .then((result) => {
                 setMmids(result);
-                console.log(mmids);
+                console.log(result);
                 setFormData((prevData) => ({
                     ...prevData,
                     mmids: result,
                 }));
+
             }
             )
 
     }, [])
+
+
+    const handleCancelEvent = () => {
+        // Send a notification for each mmid
+        mmids.forEach((mmid) => {
+            const formDataForMmid = {
+                title: 'Event Cancellation',
+                message: `The ${event.event_name} scheduled for ${event.date} has been canceled.`,
+                mmids: mmid,
+            };
+
+            console.log(formDataForMmid);
+
+            fetch("http://localhost:8080/notification/send", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(formDataForMmid),
+            })
+                .then((response) => {
+                    if (response.ok) {
+                        return response.json();
+                    } else {
+                        throw new Error('Failed to send the notification.');
+                    }
+                })
+                .then((data) => {
+                    console.log('Notification sent successfully:', data);
+                    // Handle success as needed
+                })
+                .catch((error) => {
+                    console.error('Error sending notification:', error);
+                    // Handle errors as needed
+                });
+        });
+
+        handleShowCancellationModal1();
+        handleCloseCancellationModal();
+    };
 
 
 
@@ -369,13 +443,13 @@ function OrganizerEventDashboard() {
 
                             <div className="addTypeDescriptionDiv p-2" style={{ fontFamily: 'MyCustomFont1' }}>
                                 <div className="row col-md-12 ">
-                                    <Link to="/organizer/searchartist" style={{ color: 'white', textDecoration: 'none' }}>
+                                    <Link to={`/organizer/searchartist/${eventid}`} style={{ color: 'white', textDecoration: 'none' }}>
                                         <div className="addRow  p-2 text-center">Add Artist
                                             <BiSolidPlusCircle className='plusIcon mx-2 fs-3' />
                                         </div>
                                     </Link>
 
-                                    <Link to="/organizer/searchartist" style={{ color: 'white', textDecoration: 'none' }}>
+                                    <Link to={`/organizer/searchband/${eventid}`} style={{ color: 'white', textDecoration: 'none' }}>
                                         <div className="addRow p-2 mt-2 text-center">Add Band
                                             <BiSolidPlusCircle className='plusIcon mx-2 fs-3' />
                                         </div>
@@ -386,35 +460,7 @@ function OrganizerEventDashboard() {
 
                             <div className="row btnTypeDescriptionDiv " style={{ fontFamily: 'MyCustomFont1' }}>
 
-                                <button className="eventDashboardCancelBtn col-md-5" onClick={(event) => {
-                                    event.preventDefault();
-
-                                    // Define your formData here with the necessary event details.
-
-                                    console.log(formData);
-
-                                    fetch("http://localhost:8080/notification/send", {
-                                        method: "POST",
-                                        headers: { "Content-Type": "application/json" },
-                                        body: JSON.stringify(formData),
-                                    })
-                                        .then((response) => {
-                                            if (response.ok) {
-                                                return response.json();
-                                            } else {
-                                                throw new Error('Failed to create the event.');
-                                            }
-                                        })
-                                        .then((data) => {
-                                            console.log('Event created successfully:', data);
-                                            // After successful creation, you can redirect the user or perform other actions.
-                                            window.location.href = "/organizer/event";
-                                        })
-                                        .catch((error) => {
-                                            console.error('Error creating event:', error);
-                                            // Handle the error, show a message to the user, or perform appropriate actions.
-                                        });
-                                }}  >
+                                <button className="eventDashboardCancelBtn col-md-5" onClick={handleShowCancellationModal}  >
                                     Cancel Event
                                 </button>
                                 <button className="resheduleBtn col-md-5" >
@@ -425,6 +471,52 @@ function OrganizerEventDashboard() {
                     </div>
 
 
+                    {showCancellationModal && (
+                        <div className="overlay">
+                            <Modal show={showCancellationModal} onHide={handleCloseCancellationModal} className='modal-class-new' centered>
+                                <Modal.Header closeButton>
+                                    <Modal.Title className='events-view-modal-title'>Confirm Cancellation</Modal.Title>
+                                </Modal.Header>
+                                <Modal.Body>
+
+
+                                    Are you sure you would like to cancel this event? This
+                                    action cannot be undone.
+
+
+                                </Modal.Body>
+                                <Modal.Footer>
+                                    <Button variant="secondary" onClick={handleCloseCancellationModal}>
+                                        No
+                                    </Button>
+                                    <Button onClick={handleCancelEvent} className="yesButtonRed" >
+                                        Yes
+                                    </Button>
+                                </Modal.Footer>
+                            </Modal>
+                        </div>
+                    )}
+
+                    {showCancellationModal1 && (
+                        <div className="overlay">
+                            <Modal show={showCancellationModal1} onHide={handleCloseCancellationModal1} className='modal-class-new' centered>
+                                <Modal.Header closeButton>
+                                    <Modal.Title className='events-view-modal-title'>Event is cancelled!</Modal.Title>
+                                </Modal.Header>
+                                <Modal.Body>
+
+                                    The {event.event_name.toUpperCase()} scheduled for {event.date} has been canceled.
+
+                                </Modal.Body>
+                                <Modal.Footer>
+                                    <Button variant="secondary" onClick={handleCloseCancellationModal1}>
+                                        Ok
+                                    </Button>
+
+                                </Modal.Footer>
+                            </Modal>
+                        </div>
+                    )}
 
 
                 </div>
@@ -437,10 +529,11 @@ function OrganizerEventDashboard() {
                     <Route path='/organizer/eventhistory' element={<ViewEventHistory />}></Route>
                     <Route path='/organizer/complaint' element={<OrganizerComplaint />}></Route>
                     <Route path='/organizer/profile' element={<OrganizerProfile />}></Route>
-                    <Route path='/organizer/searchartist' element={<SearchArtist />} />
-                    <Route path='/organizer/searchartist/viewartist' element={<ViewArtist />} />
-                    <Route path='/organizer/searchartist/viewartist/makeartistrequest' element={<MakeArtistRequest />} />
-                    <Route path='/organizer/searchband' element={<SearchBand />} />
+                    <Route path='/organizer/searchartist/:eventid' element={<SearchArtist />} />
+                    <Route path='/organizer/searchartist/viewartist/:mmid/:eventid' element={<ViewArtist />} />
+                    <Route path='/organizer/searchartist/viewartist/makeartistrequest/:mmid/:eventid' element={<MakeArtistRequest />} />
+                    <Route path='/organizer/searchband/:eventid' element={<SearchBand />} />
+                    <Route path='/organizer/searchband/viewband/:mmid/:eventid' element={<ViewBand />} />
                 </Routes>
 
             </SideMenuBarOrganizer>

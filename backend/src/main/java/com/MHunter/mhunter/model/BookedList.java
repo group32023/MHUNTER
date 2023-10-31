@@ -20,13 +20,15 @@ public class BookedList {
     private int bookedId;
 
 
-    private int invoiceId;
+    @OneToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "invoice_id")
+    private Invoice invoice;
 
 
     private Integer agreementId;
 
 
-    private int orgId;
+    private int org_id;
 
 
     private int eventid;
