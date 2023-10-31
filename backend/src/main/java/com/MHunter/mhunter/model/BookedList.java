@@ -1,6 +1,5 @@
 package com.MHunter.mhunter.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -20,15 +19,13 @@ public class BookedList {
     private int bookedId;
 
 
-    @OneToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "invoice_id")
-    private Invoice invoice;
+    private int invoiceId;
 
 
-    private Integer agreementId;
+    private int agreementId;
 
 
-    private int org_id;
+    private int orgId;
 
 
     private int eventid;

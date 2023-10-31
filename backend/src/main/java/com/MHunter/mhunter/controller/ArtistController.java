@@ -1,7 +1,6 @@
 package com.MHunter.mhunter.controller;
 
 import com.MHunter.mhunter.model.Artist;
-import com.MHunter.mhunter.model.Band;
 import com.MHunter.mhunter.model.MusicMember;
 import com.MHunter.mhunter.service.ArtistService;
 import com.MHunter.mhunter.service.MusicMemberService;
@@ -16,8 +15,8 @@ import java.util.List;
 @CrossOrigin(origins = "*")
 @RequestMapping("/artist")
 public class ArtistController {
-//    @Autowired
-//    private ArtistService artistService;
+    @Autowired
+  private ArtistService artistService;
     @Autowired
     private MusicMemberService musicMemberService;
 
