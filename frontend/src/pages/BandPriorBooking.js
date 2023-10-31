@@ -9,6 +9,7 @@ import notification from '../assets/images/notification.png'
 import home from '../assets/images/home-button.png'
 import logout from '../assets/images/logout.png'
 import kpop from '../assets/images/kpop.png'
+import empty from '../assets/images/empty(1).png'
 
 import CircularProgress from '@mui/material/CircularProgress';
 
@@ -22,6 +23,7 @@ export default function ArtistPriorBooking() {
   const [expand,setExpandedSideBar] = useState(true)
   const componentPDF = useRef();
   const { id1,id2,id3 } = useParams();
+  const [org,setOrg]=useState();
 
   // console.log(id1);
   // console.log(id2);
@@ -48,6 +50,24 @@ export default function ArtistPriorBooking() {
      
       .then((data) => {
         setEvents(data);
+
+      })
+      .catch((error) => {
+        console.log('Error fetching data:', error);
+      });
+
+
+      fetch(`http://localhost:8080/organizer/viewSpecificOrganizer/${id2}`)
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      return response.json();
+    })
+     
+      .then((data) => {
+        setOrg(data);
+        console.log(org);
 
       })
       .catch((error) => {
@@ -86,7 +106,6 @@ export default function ArtistPriorBooking() {
   }
 
   
-  if(events.length===0) return <div><CircularProgress color="secondary" /></div>
 
 
     return (
@@ -113,9 +132,10 @@ export default function ArtistPriorBooking() {
 
           <div className='addressDiv'>
           <h3>Prior Booking </h3>
-      
+          {(divElements.length ===0)?<><img src={empty} className='empty-img'></img><span className='emptyContent-report'>it's empty in here.</span></>:undefined}
+
           <h4 className="organizer_tag">Organizer :  </h4>
-          <h4 className="organizerName">{events[0]['organizerName']}</h4>
+          <h4 className="organizerName">{}</h4>
           </div>
         
               {/* <Button className="date"><FontAwesomeIcon icon={faCalendarDays} id="CalenderReport"/>Date</Button> 
