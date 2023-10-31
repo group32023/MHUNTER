@@ -15,4 +15,5 @@ public interface BookedListService {
 
     public List<BookedList> getAllByOrgIdRequestLogs(int OrgId);
 
+    public List<Integer> getMmidsByEventId(int eventid) ;
 }

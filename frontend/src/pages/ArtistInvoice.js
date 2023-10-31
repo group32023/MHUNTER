@@ -21,7 +21,6 @@ import Button from 'react-bootstrap/Button';
 
 
 
-
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {faPhone,faLocationDot,faList,faCalendarDays,faClock} from '@fortawesome/free-solid-svg-icons'
 import { faTwitter, faFontAwesome,faFacebook,faGooglePlusG,faLinkedinIn } from '@fortawesome/free-brands-svg-icons'
@@ -33,9 +32,12 @@ import { Label } from '@mui/icons-material';
 export default function BandInvoice() {
     const [confirmationStatus,setConfirmationStatus] = useState(0);
     let navigate = useNavigate();
-  const { id } = useParams();
+  const { id,mmid } = useParams();
   const [event, setEvent] = useState([]);
   const [expand,setExpandedSideBar] = useState(true)
+  const [invoiceId,setInvoiceId] = useState(0);
+
+  const eventid=id;
   useEffect(() => {
     // Fetch the data from the Java backend
     fetch(`http://localhost:8080/event/viewSpecificEvent/${id}`)
@@ -65,9 +67,11 @@ export default function BandInvoice() {
   const [others,setOthers] = useState(0.00);
   const [totalAmount,setTotalAmount] = useState(0.00);
   const [paymentType, setpaymentType]=useState("Full")
+  const [additionalNote, setAdditionalNote]=useState("")
+
   const [showSuccessComplaintAddPopup, setShowSuccessComplaintAddPopup] = useState(false);
 
- 
+  const orgId= event['orgId'];
 
   // Event handler for checkbox change
   const handleCheckboxChange = () => {
@@ -77,6 +81,8 @@ export default function BandInvoice() {
   }
 
   const [showModal, setShowModal] = useState(false);
+  const [showAcceptRequestModal, setShowAcceptRequestModal] = useState(false);
+
 
   const handleShowModal = () => {
       setShowModal(true);
@@ -84,39 +90,105 @@ export default function BandInvoice() {
 
   const handleCloseModal = () => {
       setShowModal(false);
+      navigate('/artist/PendingRequests');
+
   };
   const handleCloseModalAndAccept = () => {
     setShowModal(false);
+    setShowAcceptRequestModal(true);
+   
+
     
+};
+
+
+const handleCloseAcceptRequestModal=()=>{
+  setShowAcceptRequestModal(false);
+
+  const bookedlist = {orgId,eventid,mmid,invoiceId};
+
+  console.log(bookedlist);
+
+  fetch("http://localhost:8080/requestsLog/save",{
+    method:"POST",
+    headers:{"Content-Type" : "application/json"},
+    body:JSON.stringify(bookedlist)
+    
+  }).then(()=>{
+
+    fetch(`http://localhost:8080/requestMusicMember/update/${mmid}/${id}`,{
+      method:"PUT"
+    })
+    .then((response) => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.json(); // Parse the response JSON if needed
+      })
+      .then((data) => {
+        // Handle a successful response here
+        console.log('User status updated successfully', data);
+      })
+      .catch((error) => {
+        // Handle errors here
+        console.error('Error updating user status', error);
+      });
+  });
+
+
+
+
+
+  setBandFee(0.00);
+  setArtistFee(0.00)
+  setTransportFee(0.00)
+  setOthers(0.00)
+  setInstrumentFee(0.00)
+  setTotalAmount(0.00)
+  setSoundFee(0.00)
+  navigate('/artist/PendingRequests');
+
+
 };
 
  
   const addInvoice=(e)=>{
     e.preventDefault();
-    const invoice = {artistFee,bandFee,soundFee,instrumentFee,transportFee,others,totalAmount,paymentType}
-    console.log(invoice)
- 
+    const invoice = {artistFee,bandFee,soundFee,instrumentFee,transportFee,others,totalAmount,paymentType,eventid,mmid,additionalNote} 
 
     if(artistFee===0.00 && bandFee===0.00 && transportFee===0.00 && soundFee===0.00 && instrumentFee===0.00 && others===0.00){
 
     }
     else if(artistFee>=0.00 && bandFee>=0.00 && transportFee>=0.00 && soundFee>=0.00 && instrumentFee>=0.00 && others>=0.00){
-        fetch("http://localhost:8080/invoice/add",{
-            method:"POST",
-            headers:{"Content-Type" : "application/json"},
-            body:JSON.stringify(invoice)
-          }).then(()=>{
+       fetch("http://localhost:8080/invoice/add",{
+          method:"POST",
+          headers:{"Content-Type" : "application/json"},
+          body:JSON.stringify(invoice)
+        }).then(()=>{
+         
+          fetch(`http://localhost:8080/invoice/findInvoice/${mmid}/${id}`)
+          .then((response) => {
+            if (!response.ok) {
+              throw new Error('Network response was not ok');
+            }
+            return response.json();
+          })
+           
+            .then((data) => {
+              setInvoiceId(data);
+              
       
-              alert("Confirm Request!");
-              setBandFee(0.00);
-              setArtistFee(0.00)
-              setTransportFee(0.00)
-              setOthers(0.00)
-              setInstrumentFee(0.00)
-              setTotalAmount(0.00)
-              setSoundFee(0.00)
             })
-            
+            .catch((error) => {
+              console.log('Error fetching data :', error);
+            });
+
+          handleShowModal()
+
+
+
+
+            })
     }
     
 
@@ -156,7 +228,7 @@ export default function BandInvoice() {
     
         <SideMenuBarArtist>
         <div>
-            <p className='headerDashboard'>Pending Requests</p>
+            <p className='headerDashboard'>Invoice</p>
             <div className={expand ? 'notificationBg':'notificationBg-ex'}>
               <img src={notification} className='notificationIcon' alt='notification'></img>
             </div>
@@ -189,7 +261,7 @@ export default function BandInvoice() {
         </div>
 
         <div className='InvoiceContainer'>
-            <h1>Invoice</h1>
+           
            
            <div className='invoiceFees'>
             
@@ -201,7 +273,7 @@ export default function BandInvoice() {
             </div>
             
             <div className='AmountLabel'>
-            <label for='amount' className='label7'>Amount(Rs.)</label>
+            <label for='amount' className='label7'>Amount (Rs.)</label>
 
 
             <form onSubmit={addInvoice}>
@@ -217,8 +289,10 @@ export default function BandInvoice() {
            
            <input type="checkbox" id="advanced" name="advanced" onChange={handleCheckboxChange}/>
           <label for="advancedpayment" className='advancedpayment'>Advanced is required.</label>
+          <lable className="otherRules">Additional Note : </lable><input type='text' id="advanced7" name="advanced" value={additionalNote} onChange={(e)=>setAdditionalNote(e.target.value)}></input>
 
-            <button type='submit' className='submitInvoice' onClick={handleShowModal}>Submit</button>
+
+            <button type='submit' className='submitInvoice' >Submit</button>
             </form>
             </div>
             </div>
@@ -228,8 +302,9 @@ export default function BandInvoice() {
 
      
       
-      <button className='backInvoice' onClick={()=>load(101)}>Back</button>
       <button type='button' className='previewAgreement' onClick={loadInvoicePreview} >Preview</button>
+      <button className='backInvoice'>Back</button>
+
 
     </div>   
         </div>
@@ -246,6 +321,24 @@ export default function BandInvoice() {
                                         Accept
                                     </Button>
                                             <Button className='RequestCloseBtn' onClick={handleCloseModal}>
+                                        Exit
+                                    </Button>
+                                        </div>
+
+
+                                    </div>
+                                )}
+
+
+                                
+                                {showAcceptRequestModal && (
+                                    <div className="complaint-add-success-popup blur-background" style={{ fontFamily: 'MyCustomFont1' }}>
+
+                                        <div className="complaint-add-success-popup-content">
+                                           
+                                            <p className="complaint-add-success-para_for_request_acception">Request Accept successfully!</p>
+                                          
+                                            <Button className='RequestCloseBtn' onClick={handleCloseAcceptRequestModal}>
                                         Exit
                                     </Button>
                                         </div>

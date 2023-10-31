@@ -36,4 +36,5 @@ public interface RequestMusicMemberRepository extends JpaRepository<RequestMusic
     @Query(value = "SELECT * FROM request_music_member WHERE  event_id= :eventId", nativeQuery = true)
     List<RequestMusicMember> findByEventId(@Param("eventId") int eventId);
 
+
 }

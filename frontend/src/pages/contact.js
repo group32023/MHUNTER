@@ -70,7 +70,7 @@ h() {
                 <div className='ContactDetailsDiv'>
                 <div className='contactItem'>
                 <img src={location} className='location' ></img>
-                <span className   = 'imageText'>33/23/1/1,<br></br>Queens Road,<br></br> Banbalapitiya ,<br></br>Sri Lanka</span>
+                <span className   = 'imageText'>33/23/1/1,<br></br>Queens Road,<br></br> Bambalapitiya ,<br></br>Sri Lanka</span>
                 </div>
                 <div className='contactItem'>
                 <img src={hotline} className='location' ></img>
@@ -86,6 +86,12 @@ h() {
                 </div>
 
             </div>
+
+            <div className='footerForHomeContact'>
+
+             <Footer></Footer>
+
+         </div>
 
 
       </div>            

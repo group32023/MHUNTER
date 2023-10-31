@@ -1,6 +1,5 @@
 package com.MHunter.mhunter.controller;
 
-import com.MHunter.mhunter.exception.UserNotFoundException;
 import com.MHunter.mhunter.model.*;
 import com.MHunter.mhunter.service.*;
 import com.MHunter.mhunter.struct.EventOrganizer;
@@ -75,14 +74,19 @@ public class RequestMusicMemberController {
     }
 
     @PutMapping("/update/{mid}/{eventId}")
-    public RequestMusicMember update(@RequestBody RequestMusicMember requestMusicMember, @PathVariable int mid,@PathVariable int eventId){
-        System.out.println(mid);
-        System.out.println(eventId);
+    public RequestMusicMember update(@PathVariable int mid,@PathVariable int eventId){
         RequestMusicMemberId id = new RequestMusicMemberId();
         id.setMMID(mid);
         id.setEventId(eventId);
-        System.out.println("come here");
-      return   requestMusicMemberService.updateRequestMusicMember(requestMusicMember,id);
+      return requestMusicMemberService.updateRequestMusicMember(id);
+    }
+
+    @PutMapping("/updateReason/{reason}/{mid}/{eventId}")
+    public RequestMusicMember updateReason(@PathVariable String reason,@PathVariable int mid,@PathVariable int eventId){
+        RequestMusicMemberId id = new RequestMusicMemberId();
+        id.setMMID(mid);
+        id.setEventId(eventId);
+        return requestMusicMemberService.updateReasonRequestMusicMember(id,reason);
     }
 
     @DeleteMapping("/delete/{mid}/{eventId}")
@@ -121,7 +125,9 @@ public class RequestMusicMemberController {
             eventOrganizer.setStartTime(event.getStart_time());
             eventOrganizer.setPlace(event.getTown());
             eventOrganizer.setDate(event.getDate());
+            eventOrganizer.setUserId(user.getUserId());
             eventOrganizer.setCrowd(event.getCrowd());
+            eventOrganizer.setOrganizerImage(user.getImagePath());
 
             Duration difference = Duration.between( event.getStart_time(),event.getEnd_time());
             long hours = difference.toHours();
@@ -169,7 +175,9 @@ public class RequestMusicMemberController {
             eventOrganizer.setStartTime(event.getStart_time());
             eventOrganizer.setPlace(event.getTown());
             eventOrganizer.setDate(event.getDate());
+            eventOrganizer.setUserId(user.getUserId());
             eventOrganizer.setCrowd(event.getCrowd());
+            eventOrganizer.setOrganizerImage(user.getImagePath());
             Duration difference = Duration.between( event.getStart_time(),event.getEnd_time());
             long hours = difference.toHours();
             long minutes = difference.toMinutes() % 60;
@@ -215,8 +223,11 @@ public class RequestMusicMemberController {
                 eventOrganizer.setEventType(event.getEvent_type());
                 eventOrganizer.setStartTime(event.getStart_time());
                 eventOrganizer.setPlace(event.getTown());
+                eventOrganizer.setUserId(user.getUserId());
                 eventOrganizer.setDate(event.getDate());
                 eventOrganizer.setCrowd(event.getCrowd());
+                eventOrganizer.setOrganizerImage(user.getImagePath());
+
                 Duration difference = Duration.between( event.getStart_time(),event.getEnd_time());
                 long hours = difference.toHours();
                 long minutes = difference.toMinutes() % 60;
@@ -336,6 +347,8 @@ public class RequestMusicMemberController {
             eventOrganizer.setCrowd(event.getCrowd());
             eventOrganizer.setEventId(res.getRequestMusicMemberId().getEventId());
             eventOrganizer.setOrgId(res.getOrgId());
+            eventOrganizer.setOrganizerImage(user.getImagePath());
+            eventOrganizer.setUserId(user.getUserId());
             Duration difference = Duration.between( event.getStart_time(),event.getEnd_time());
             long hours = difference.toHours();
             long minutes = difference.toMinutes() % 60;
@@ -411,6 +424,7 @@ public class RequestMusicMemberController {
         return results;
 
     }
+
 
 
 

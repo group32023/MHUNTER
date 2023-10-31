@@ -14,6 +14,8 @@ import com.MHunter.mhunter.model.User;
 
 import java.lang.reflect.Array;
 import java.time.*;
+import java.time.chrono.ChronoLocalDate;
+import java.time.chrono.ChronoLocalDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -96,46 +98,74 @@ public class IncomeArtistController {
         return eventOrganizerList;
     }
 
-    @GetMapping("/specificArtistIncomeDetailsOntoday/{eventType}/{fromDate}/{toDate}/{mmid}")
-    public List<EventOrganizer> specificArtistIncomeDetailsOntoday(@PathVariable String eventType,@PathVariable LocalDate fromDate,@PathVariable LocalDate toDate,@PathVariable int mmid) {
-        List<IncomeArtist> incomeList = incomeArtistService.viewListOfArtistIncomes(mmid);
+    @GetMapping("/specificArtistIncomeDetailsOntoday")
+    public List<EventOrganizer> specificArtistIncomeDetailsOntoday(
+            @RequestParam(value = "eventType", required = false) String eventType,
+            @RequestParam(value = "fromDate", required = false) LocalDate fromDate,
+            @RequestParam(value = "toDate", required = false) LocalDate toDate,
+            @RequestParam(value = "mmid") int mmid) {
+
+        ChronoLocalDateTime<?> fromDate1;
+        ChronoLocalDateTime<?> toDate1;
+
+//        List<IncomeArtist> incomeList = incomeArtistService.viewListOfArtistIncomes(mmid);
+        List<EventOrganizer> eventOrganizerFullList = viewSpecificArtistIncomeDetails(mmid);
         List<EventOrganizer> eventOrganizerList = new ArrayList<>();
-        System.out.println(toDate.getClass());
-//        incomeList.forEach((res->{
-//           if(fromDate.(res.getDate().toLocalDate())){
-//               Event event = eventService.viewSpecificEvent(res.getId().getEventId());
-//               Organizer organizer = organizerService.findSpecificOrganizer(event.getOrgID());
-//               User user = userService.findSpecificUser(organizer.getUserId());
-//               EventOrganizer eventOrganizer = new EventOrganizer();
-//               eventOrganizer.setIncome(res.getIncome());
-//               eventOrganizer.setOrgId(event.getOrgID());
-//               eventOrganizer.setEventId((event.getEventID()));
-//               eventOrganizer.setOrganizerName(user.getFname() + " " +  user.getLname());
-//               eventOrganizer.setEventName(event.getEvent_name());
-//               eventOrganizer.setEventType(event.getEvent_type());
-//               eventOrganizer.setStartTime(event.getStart_time());
-//               eventOrganizer.setPlace(event.getTown());
-//               eventOrganizer.setDate(event.getDate());
-//               eventOrganizer.setCrowd(event.getCrowd());
-//
-//               Duration difference = Duration.between( event.getStart_time(),event.getEnd_time());
-//               long hours = difference.toHours();
-//               long minutes = difference.toMinutes() % 60;
-//               if(minutes==0){
-//                   eventOrganizer.setDuration(hours + " hours ");
-//
-//               }
-//               else{
-//                   eventOrganizer.setDuration(hours + " hours and " + minutes + " minutes");
-//
-//               }
-//               eventOrganizerList.add(eventOrganizer);
-//
-//           }
-//
-//        }
-//
-//        ));
+
+        if(fromDate != null){
+             fromDate1 = fromDate.atStartOfDay();
+        } else {
+            fromDate1 = null;
+        }
+        if(toDate != null){
+             toDate1 = toDate.atStartOfDay();
+        }
+        else {
+            toDate1 = null;
+        }
+
+        System.out.println(fromDate);
+        eventOrganizerFullList.forEach((res-> {
+            ChronoLocalDateTime<?> getDate = res.getDate().atStartOfDay();
+
+
+            if (!eventType.isEmpty() && fromDate ==null && toDate == null){
+                if (res.getEventType().equals(eventType)){
+                    eventOrganizerList.add(res);
+                }
+            }
+            else if(eventType.isEmpty() && fromDate != null && toDate == null){
+                if(getDate.compareTo(fromDate1)>0){
+                    eventOrganizerList.add(res);
+                }
+            }
+            else if(eventType.isEmpty() && fromDate == null && toDate != null){
+                if(getDate.compareTo(toDate1)<0){
+                    eventOrganizerList.add(res);
+                }
+            }
+            else if(!eventType.isEmpty() && fromDate == null && toDate != null){
+                if(getDate.compareTo(toDate1)<0 && res.getEventType().equals(eventType)){
+                    eventOrganizerList.add(res);
+                }
+            }
+            else if(!eventType.isEmpty() && fromDate != null && toDate == null){
+                if(getDate.compareTo(fromDate1)>0 && res.getEventType().equals(eventType)){
+                    eventOrganizerList.add(res);
+                }
+            }
+            else if(!eventType.isEmpty() && fromDate != null && toDate != null){
+
+                if(getDate.compareTo(toDate1)<0 && getDate.compareTo(fromDate1)>0 && res.getEventType().equals(eventType)){
+                    eventOrganizerList.add(res);
+                }
+            }
+            else{
+                eventOrganizerList.add(res);
+            }
+        }
+
+        ));
 
 
 

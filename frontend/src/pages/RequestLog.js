@@ -60,16 +60,18 @@ export default function ArtistPendingRequests() {
   };
 
   useEffect(() => {
+    const mmId = localStorage.getItem('mmid');
     // Fetch the data from the Java backend
+    if(mmId){
     const getPendingRequest = async () =>{
-      const res = await fetch('http://localhost:8080/requestsLog/viewLogs/758463')
+      const res = await fetch(`http://localhost:8080/requestsLog/viewLogs/${mmId}`)
 
       const data = await res.json();
         setEventList(data);
       };
      getPendingRequest();
 
-     
+    }
 
   }, []);
   

@@ -50,6 +50,7 @@ import PaymentArtist10 from '../../assets/images/paymentArtist10.jpg'
 
 
 
+
 export default function OrganizerDashboard() {
   return (
     <>

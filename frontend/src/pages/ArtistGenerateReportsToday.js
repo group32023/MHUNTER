@@ -11,6 +11,9 @@ import notification from '../assets/images/notification.png'
 import home from '../assets/images/home-button.png'
 import logout from '../assets/images/logout.png'
 import kpop from '../assets/images/kpop.png'
+import empty from '../assets/images/empty(1).png'
+import Pagination from '@mui/material/Pagination';
+import Stack from '@mui/material/Stack';
 
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -29,6 +32,9 @@ export default function ArtistGenerateReports() {
   const [fromDate, setFromDate] = useState("");
   const [toDate, setToDate] = useState("");
   const [selectedOption, setSelectedOption] = useState("");
+  const [line,setLine] = useState([]);
+  const [page,setPage] = useState(1);
+  const noOfLinePerPage = 4;
 
   const handleSelectChange = (value) => {
   
@@ -38,39 +44,39 @@ export default function ArtistGenerateReports() {
 
 
   const handleDateChangeFromDate = (value) => {
-
-
     setFromDate(value);
-   
   };
 
   const handleDateChangeToDate = (value) => {
- 
-
     setToDate(value);
-  
   };
+
+  
 
   useEffect(() => {
     // Fetch the data from the Java backend
     const fromDateObject = new Date(fromDate);
     const toDateObject = new Date(toDate);
     // fetch(`http://localhost:8080/artistIncome/specificArtistIncomeDetailsOntoday/${selectedOption}/${fromDateObject.getDate}/${toDateObject.getDate}/101`)
-    fetch(`http://localhost:8080/artistIncome/specificArtistIncomeDetails/758463`)
-
-    .then((response) => {
-      if (!response.ok) {
-        throw new Error('Network response was not ok');
-      }
-      return response.json();
-    })
-     
-      .then((data) => {
-        setEventList(data);
+    // fetch(`http://localhost:8080/artistIncome/specificArtistIncomeDetails/758463`)
+    const mmId = localStorage.getItem('mmid');
+    
+    if (mmId) {
+      fetch(`http://localhost:8080/artistIncome/specificArtistIncomeDetailsOntoday?eventType=${selectedOption}&fromDate=${fromDate}&todDate=${toDate}&mmid=${mmId}`)
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.json();
       })
-      .catch((error) => {
-        console.log('Error fetching data:', error);
-      });
+      
+        .then((data) => {
+          setEventList(data);
+        })
+        .catch((error) => {
+          console.log('Error fetching data:', error);
+        });
+    }
      
   }, [selectedOption, fromDate, toDate]);
 
@@ -80,6 +86,7 @@ export default function ArtistGenerateReports() {
   const divCount = eventList.length;
   const divElements = [];
  
+
  
 
   const todayIncome=(id)=>{
@@ -90,9 +97,6 @@ export default function ArtistGenerateReports() {
 
   // Using a for loop to generate the <div> tags
   for (let i = 0; i < divCount; i++) {
-
-    //var eventID=eventList[i]['eventid'];
-    
     divElements.push(
       <tr>
       <td>{eventList[i]['eventName']}</td>
@@ -105,6 +109,35 @@ export default function ArtistGenerateReports() {
 </tr>
   );
    
+  }
+
+   // set the current page
+   const handleChange= (event,value)=>{
+    setPage(value)
+  }
+
+// setup the pagination
+  function setPagination(){
+    let noOfLine =1
+    let displayedData = []
+    if(divElements.length>0){
+      if(divElements.length < noOfLinePerPage*page){
+        noOfLine = divElements.length
+      }
+      else{
+        noOfLine =  noOfLinePerPage*page
+      }
+      for (let i = noOfLinePerPage*(page-1); i < noOfLine; i++) {
+        displayedData.push(divElements[i]);
+        
+      }
+      return displayedData
+    }
+    else{
+      
+      return displayedData 
+    }
+    
   }
 
   
@@ -138,7 +171,7 @@ export default function ArtistGenerateReports() {
           </div>
              <lable className='col-sm-2 col-form-label' id="dateFrom">From Date:</lable> <input type='date' className='form-control' id="fromdate" name='fromdate' placeholder='dd-mm-yyyy'  value={fromDate} onChange={(e)=>handleDateChangeFromDate(e.target.value)}></input>
              
-             <lable className='col-sm-2 col-form-label' id="Today"><FontAwesomeIcon icon={faCalendarDays} id="CalenderReport"/>To Date :</lable><input type='date' className='form-control' id="todate" name='todate' placeholder='dd-mm-yyyy' value={toDate} onChange={(e)=>handleDateChangeToDate(e.target.value)}></input>
+             <lable className='col-sm-2 col-form-label' id="Today"><FontAwesomeIcon icon={faCalendarDays} id="CalenderReport"/>To Date :</lable><input type='date' className='form-control' id="todate" name='todate' placeholder='dd-mm-yyyy' value={toDate} min={fromDate} onChange={(e)=>handleDateChangeToDate(e.target.value)}></input>
 
         
               {/* <Button className="dateFrom"><FontAwesomeIcon icon={faCalendarDays} id="CalenderReport"/>Date From</Button> 
@@ -155,8 +188,6 @@ export default function ArtistGenerateReports() {
 
             <div className='reportContainer' >
             <div ref={componentPDF}>
-
-              <p>Income</p>
           
              <Table id="ReportTable" className='table table-hover table-dark table-condensed table-resposive'  >
                         <thead>
@@ -173,7 +204,7 @@ export default function ArtistGenerateReports() {
                         <tbody>
                          
                        
-                         {divElements}
+                        {setPagination().map((item) => item)}
                           
                          
                           
@@ -183,6 +214,17 @@ export default function ArtistGenerateReports() {
           </div>     
           <Button className="download" onClick={generatePDF}>Download</Button>
            </div>
+
+
+           {/* pagination */}
+           
+            {(divElements.length ==0)?<><img src={empty} className='empty-img'></img><span className='emptyContent-report'>it's empty in here.</span></>:undefined}
+
+            <div className='artistEventPagination'>
+              <Stack spacing={2}>
+                <Pagination count={(Math.round(divElements.length/noOfLinePerPage))} color="secondary" page={page} onChange={handleChange} />
+              </Stack>
+            </div>
           
            </SideMenuBarArtist> 
            

@@ -3,8 +3,8 @@
     border-radius: 50%;
     width: 55px;
     height: 55px;
-    top: 36.5px;
-    left: -458px;
+    top: 19.5px;
+    left: 34px;
 }
 
 .requestContainer .profile1 {
@@ -12,7 +12,7 @@
     border-radius: 50%;
     width: 55px;
     height: 55px;
-    top: 36.5px;
+    top: 20.5px;
     left: 71px;
 }
 
@@ -27,6 +27,7 @@
     position: relative;
     color: white;
     font-size: 15px;
+    top:-16px;
     text-align: center;
 }
 
@@ -66,7 +67,7 @@
     text-align: center;
     color: white;
     left: 40%;
-    top: -48.8px;
+    top: -60.8px;
     border-radius: 10px;
     border: none !important;
     /* box-shadow: 4px 7px 10px rgba(0, 0, 0, .4) !important; */
@@ -81,8 +82,8 @@
     font-weight: bold;
     text-align: center;
     color: white;
-    left: 957px;
-    top: -48.8px;
+    left: 858px;
+    top: -60.8px;
     border-radius: 10px;
     border: none !important;
     /* box-shadow: 4px 7px 10px rgba(0, 0, 0, .4) !important; */
@@ -90,10 +91,10 @@
 
 .requestContainer {
     background-color: #3b444d;
-    height: 15%;
+    height: 94px;
     width: 70%;
     position: relative;
-    top: 187px;
+    top: 122px;
     left: 14%;
     margin-bottom: 20px;
     border-radius: 25px;
@@ -132,8 +133,8 @@
     border-radius: 50%;
     width: 75px;
     height: 75px;
-    top: 30px;
-    left: -328px;
+    top: 12px;
+    left: 34px;
 
 
 }
@@ -155,7 +156,7 @@
     height: 60%;
     width: 45%;
     position: relative;
-    top: -35px;
+    top: -56px;
     left: 16%;
     color: #FFFFFF;
     font-size: 18px;
@@ -166,12 +167,12 @@
     background-color: #7643D2 !important;
     position: relative;
     font-size: 15px;
-    width: 15%;
-    height: 8%;
+    width: 20%;
+    height: 10%;
     font-weight: bold;
     text-align: center;
     color: white;
-    left: 45%;
+    left: 50%;
     top: -277px;
     border-radius: 10px;
     border: none !important;
@@ -182,8 +183,8 @@
     background-color: #FFFFFF !important;
     position: relative;
     font-size: 15px;
-    width: 15%;
-    height: 8%;
+    width: 20%;
+    height: 10%;
     font-weight: bold;
     text-align: center;
     color: #000000 !important;
@@ -198,15 +199,15 @@
     background-color: #1BD067 !important;
     position: relative;
     font-size: 15px;
-    width: 8%;
-    height: 8%;
+    width: 9%;
+    height: 9%;
     font-weight: bold;
     text-align: center;
     color: white;
     border-radius: 10px;
     border: none !important;
-    left: -32%;
-    top: -17px;
+    left: -35%;
+    top: -42px;
 }
 
 .rejectBtn {
@@ -214,13 +215,13 @@
     --bs-btn-bg: none !important;
     position: relative;
     font-size: 15px;
-    width: 8%;
-    height: 8%;
+    width: 9%;
+    height: 9%;
     font-weight: bold;
     text-align: center;
-    background-color: #3b444d !important;
-    left: -22%;
-    top: -17px;
+   background-color: #3b444d !important;
+    left: -28%;
+    top: -42px;
     border-radius: 10px;
     border: 3px solid #FF0000 !important;
     --bs-btn-hover-bg: none !important;
@@ -234,16 +235,17 @@
     font-size: 20px;
     color: #FFFFFF;
     position: relative;
-    top: -4%;
-    left: -20%;
+    top: -8%;
+    left: -22%;
 }
 
 
 .requestViewContainer h4 {
     color: #11fe70;
     position: relative;
-    top: -12.2%;
-    left: -10px;
+    top: -17.2%;
+    left: 4px;
+    font-weight: 700;
 
 }
 
@@ -314,7 +316,21 @@
 
 } */
 
-.eventDate1 {
+
+.inputReason{
+    position: relative;
+    top:26px;
+    left: 0px;
+    width: 250px;
+
+}
+
+#reasonDes{
+   position: relative;
+   top: 32px;
+}
+
+.eventDate1{
     position: absolute;
     left: 20%;
     top: 30%;

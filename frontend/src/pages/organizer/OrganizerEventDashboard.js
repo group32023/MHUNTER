@@ -83,13 +83,25 @@ function OrganizerEventDashboard() {
 
     const { eventid } = useParams();
     const [event, setEvent] = useState(null);
+    const [mmids, setMmids] = useState(null);
     const zoom = 15;
+
+    const initialFormData = {
+        title: 'Event Cancellation',
+        message: '',
+        mmids: mmids,
+    };
 
     //Event Data Fetching
     useEffect(() => {
         axios.get(`http://localhost:8080/event/byEventid/${eventid}`)
             .then((response) => {
                 setEvent(response.data[0]);
+                const updatedFormData = {
+                    ...initialFormData,
+                    message: `The ${response.data[0].event_name} scheduled for ${response.data[0].date} has been canceled.\n\nEvent Details:\nEvent Name: ${response.data[0].event_name}\nEvent Date: ${response.data[0].date}\nEvent Location: ${response.data[0].location}`,
+                };
+                setFormData(updatedFormData);
             })
             .catch((error) => {
                 console.error('Error fetching event data:', error);
@@ -112,6 +124,26 @@ function OrganizerEventDashboard() {
     }, [eventId]);
 
 
+    const [formData, setFormData] = useState(initialFormData);
+
+    useEffect(() => {
+        fetch(`http://localhost:8080/requestsLog/getmmids/${eventid}`)
+            .then(res => res.json())
+            .then((result) => {
+                setMmids(result);
+                console.log(mmids);
+                setFormData((prevData) => ({
+                    ...prevData,
+                    mmids: result,
+                }));
+            }
+            )
+
+    }, [])
+
+
+
+    // console.log(result);
     //Page Preloader
 
     if (!event) {
@@ -353,7 +385,36 @@ function OrganizerEventDashboard() {
                             </div>
 
                             <div className="row btnTypeDescriptionDiv " style={{ fontFamily: 'MyCustomFont1' }}>
-                                <button className="eventDashboardCancelBtn col-md-5" >
+
+                                <button className="eventDashboardCancelBtn col-md-5" onClick={(event) => {
+                                    event.preventDefault();
+
+                                    // Define your formData here with the necessary event details.
+
+                                    console.log(formData);
+
+                                    fetch("http://localhost:8080/notification/send", {
+                                        method: "POST",
+                                        headers: { "Content-Type": "application/json" },
+                                        body: JSON.stringify(formData),
+                                    })
+                                        .then((response) => {
+                                            if (response.ok) {
+                                                return response.json();
+                                            } else {
+                                                throw new Error('Failed to create the event.');
+                                            }
+                                        })
+                                        .then((data) => {
+                                            console.log('Event created successfully:', data);
+                                            // After successful creation, you can redirect the user or perform other actions.
+                                            window.location.href = "/organizer/event";
+                                        })
+                                        .catch((error) => {
+                                            console.error('Error creating event:', error);
+                                            // Handle the error, show a message to the user, or perform appropriate actions.
+                                        });
+                                }}  >
                                     Cancel Event
                                 </button>
                                 <button className="resheduleBtn col-md-5" >

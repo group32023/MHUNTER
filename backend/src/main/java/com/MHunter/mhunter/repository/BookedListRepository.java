@@ -15,6 +15,8 @@ public interface BookedListRepository extends JpaRepository<BookedList, Integer>
 
 
     BookedList findByMmidAndEventid(int mmid, int eventid);
+    @Query(value = "SELECT * FROM booked_list WHERE eventid = :eventid", nativeQuery = true)
+    List<BookedList> findByEventid(@Param("eventid") int eventid);
 
     List<BookedList> findByOrgId(int orgId);
 }

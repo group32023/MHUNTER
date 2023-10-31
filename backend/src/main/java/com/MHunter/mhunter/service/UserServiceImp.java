@@ -2,16 +2,22 @@ package com.MHunter.mhunter.service;
 
 import com.MHunter.mhunter.model.User;
 import com.MHunter.mhunter.repository.ArtistRepository;
+import com.MHunter.mhunter.repository.MusicMemberRepository;
 import com.MHunter.mhunter.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
-import java.util.Optional;
 @Service
 public class UserServiceImp implements UserService{
     @Autowired
     private UserRepository userRepository;
+    @Autowired
+    private ArtistRepository artistRepository;
+
+    @Autowired
+    private MusicMemberRepository musicMemberRepository;
     @Override
     public User saveUser(User user) {
         return userRepository.save(user);
@@ -54,4 +60,18 @@ public class UserServiceImp implements UserService{
         userRepository.deleteById(id);
         return true;
     }
+
+    @Override
+    public List<Object[]> getAdminReportData(){
+        return userRepository.adminReport();
+    }
+
+    @Transactional
+    public void deleteUserById(int userId) {
+        musicMemberRepository.deleteByUserId(userId);
+        artistRepository.deleteByUserId(userId);
+        userRepository.deleteById(userId);
+    }
+
+
 }

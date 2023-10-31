@@ -15,10 +15,14 @@ import Topbar from '../../components/common/Topbar';
 import fimage from '../../assets/icons/requestlog.png';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
+import Button from 'react-bootstrap/Button';
+import Modal from 'react-bootstrap/Modal';
 
 function ProofCheck() {
   const [formData, setFormData] = useState([]);
-  const { id} = useParams();// Access the 'id' parameter from the route
+  const { id} = useParams();
+  const {type} = useParams();
+  const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
     console.log(id);
@@ -39,23 +43,21 @@ function ProofCheck() {
   }, [id]);
 
 
+
   const handleSubmit = (event) => {
-    event.preventDefault();
-    console.log(formData);
-  };
-
-  const inputRef = useRef(null);
-  const [image, setImage] = useState('');
-
-  const handleImageClick = () => {
-    inputRef.current.click();
+    event.preventDefault(); 
+    axios
+      .put(`http://localhost:8080/userStatus/${id}`)
+      .then((response) => {
+        setShowModal(true);
+        //alert("User is Verified");
+        window.history.back();
+      })
+      .catch((error) => {
+        alert('Error updating user: ' + error);
+      });
   };
   
-  const handleImageChange = (event) => {
-    const file = event.target.files[0];
-    console.log(file);
-    setImage(event.target.files[0]);
-  };  
 
 
   return (
@@ -72,9 +74,10 @@ function ProofCheck() {
         <form className="form-user-details" >
           <div className="user-details">
             <div>
-              <img src={band} alt="band" className="profile-picture-proofcheck" />
+              <img src={`http://localhost:8080/postData/uploads/image/${formData.imagePath}`}
+               alt="band" className="profile-picture-proofcheck" />
             </div>
-            <div className="my-form" onClick={handleSubmit}>
+            <div className="my-form">
               <table>
                 <tbody>
                   <tr>
@@ -103,7 +106,7 @@ function ProofCheck() {
                         type="text"
                         name="userType"
                         placeholder="Artist"
-                        style ={{color:'white'}} value={formData.type}
+                        style ={{color:'white'}} value={type}
                       />
                     </td>
                   </tr>
@@ -134,33 +137,10 @@ function ProofCheck() {
               </table>
             </div>
           </div>
-          <div className="proof">
-            <span className="label" style={{ fontSize: 'larger' }}>
-              Proof :
-            </span>
-            <span className="proof-file">
-              <div onClick={handleImageClick}>
-                {image ? (
-                  <img src={URL.createObjectURL(image)} alt="Proof" height={150} width={150} />
-                ) : (
-                  <img src={fimage} alt="Proof" height={100} width={100} className="upload-icon" />
-                )}
-                <input type="file" ref={inputRef} onChange={handleImageChange} style={{ display: 'none' }} />
-              </div>
-            </span>
-            <span className="proof-file">
-              <div onClick={handleImageClick}>
-                {image ? (
-                  <img src={URL.createObjectURL(image)} alt="proof" height={150} width={150} />
-                ) : (
-                  <img src={fimage} alt="Proof" height={100} width={100} className="upload-icon" />
-                )}
-                <input type="file" ref={inputRef} onChange={handleImageChange} style={{ display: 'none' }} />
-              </div>
-            </span>
-          </div>
+          <br />
+
           <div className="d-flex justify-content-between button-proofcheck">
-            <button type="submit" className="btn btn-primary" style={{ backgroundColor: 'rgb(118, 67, 210)', border: 'none' }}>
+            <button type="submit" onClick={handleSubmit} className="btn btn-primary" style={{ backgroundColor: 'rgb(118, 67, 210)', border: 'none' }}>
               <h5>Accept</h5>
             </button>
             <button type="button" className="btn btn-danger">
@@ -168,6 +148,21 @@ function ProofCheck() {
             </button>
           </div>
         </form>
+
+
+        <Modal show={showModal} onHide={() => setShowModal(false)}>
+          <Modal.Header closeButton>
+            <Modal.Title>User Verification</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>User is verified.</Modal.Body>
+          <Modal.Footer>
+            <Button variant="secondary" onClick={() => setShowModal(false)}>
+              Close
+            </Button>
+          </Modal.Footer>
+        </Modal>
+
+        
         <Routes>
           <Route path="/admin/admindashobard" element={<AdminDashboard />} />
           <Route path="/admin/registration" element={<AdminRegistration />} />
@@ -183,3 +178,4 @@ function ProofCheck() {
 }
 
 export default ProofCheck;
+

@@ -14,10 +14,12 @@ export default function PendingRequest({expand}) {
   
 
   useEffect(()=>{
-
-    fetch("http://localhost:8080/requestMusicMember/monthlyGrowth/758463").then((res)=>res.json()).then((result)=>inc=result)
-    console.log(inc)
-    fetch("http://localhost:8080/requestMusicMember/noOfPendingRequest/758463").then((res)=>res.json()).then((result)=>setRequests({requests:result,increase:inc})) 
+    const mmId = localStorage.getItem('mmid');
+    if(mmId){
+      fetch(`http://localhost:8080/requestMusicMember/monthlyGrowth/${mmId}`).then((res)=>res.json()).then((result)=>inc=result)
+      fetch(`http://localhost:8080/requestMusicMember/noOfPendingRequest/${mmId}`).then((res)=>res.json()).then((result)=>setRequests({requests:result,increase:inc})) 
+    }
+    
   },[])
 
 
