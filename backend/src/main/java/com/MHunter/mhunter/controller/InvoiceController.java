@@ -46,4 +46,8 @@ public class InvoiceController {
 
         return invoice;
     }
+    @GetMapping("/findInvoice/{mmid}/{eventid}")
+    public int getInvoice(@PathVariable int mmid, @PathVariable int eventid){
+        return invoiceService.getInvoiceIdForEvent(mmid,eventid);
+    }
 }

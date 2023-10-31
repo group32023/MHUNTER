@@ -36,7 +36,7 @@ public class BookedList {
 
     private int mmid;
 
-    private String requestState="Confirmed";
+    private String requestState="ACCEPTED";
 
     @Column(columnDefinition = "DATETIME DEFAULT CURRENT_TIMESTAMP")
     private LocalDateTime date;
