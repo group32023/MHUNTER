@@ -21,5 +21,8 @@ public interface MusicMemberRepository extends JpaRepository<MusicMember,Integer
     @Query(value = "DELETE FROM music_member WHERE userId = :user_id", nativeQuery = true)
     void deleteByUserId(@Param("user_id") int userId);
 
+    @Query(value = "SELECT * FROM music_member WHERE user_id = :user_id", nativeQuery = true)
+    MusicMember findUserByUser_Id(int user_id);
+
 
 }
