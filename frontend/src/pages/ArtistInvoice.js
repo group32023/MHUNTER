@@ -67,6 +67,8 @@ export default function BandInvoice() {
   const [others,setOthers] = useState(0.00);
   const [totalAmount,setTotalAmount] = useState(0.00);
   const [paymentType, setpaymentType]=useState("Full")
+  const [additionalNote, setAdditionalNote]=useState("")
+
   const [showSuccessComplaintAddPopup, setShowSuccessComplaintAddPopup] = useState(false);
 
   const orgId= event['orgId'];
@@ -152,7 +154,7 @@ const handleCloseAcceptRequestModal=()=>{
  
   const addInvoice=(e)=>{
     e.preventDefault();
-    const invoice = {artistFee,bandFee,soundFee,instrumentFee,transportFee,others,totalAmount,paymentType,eventid,mmid} 
+    const invoice = {artistFee,bandFee,soundFee,instrumentFee,transportFee,others,totalAmount,paymentType,eventid,mmid,additionalNote} 
 
     if(artistFee===0.00 && bandFee===0.00 && transportFee===0.00 && soundFee===0.00 && instrumentFee===0.00 && others===0.00){
 
@@ -287,6 +289,8 @@ const handleCloseAcceptRequestModal=()=>{
            
            <input type="checkbox" id="advanced" name="advanced" onChange={handleCheckboxChange}/>
           <label for="advancedpayment" className='advancedpayment'>Advanced is required.</label>
+          <lable className="otherRules">Additional Note : </lable><input type='text' id="advanced7" name="advanced" value={additionalNote} onChange={(e)=>setAdditionalNote(e.target.value)}></input>
+
 
             <button type='submit' className='submitInvoice' >Submit</button>
             </form>
