@@ -9,6 +9,8 @@ public interface ComplaintService {
     public Complaint saveComplaint(Complaint complaint);
 
     public List<Complaint> getComplaintsByOrgId(Integer orgId);
-//    List<Complaint> getAllComplaints();
+
+    public List<Complaint> getComplaintsByComplaintID(int complaintID);
+    List<Complaint> getAllComplaints(); // Add this method
 
 }

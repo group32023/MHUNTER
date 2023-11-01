@@ -202,7 +202,7 @@ function App() {
           <Route path='/moderator/registration/ProofCheck' element={<ProofCheck/>} />
           <Route path='/moderator/event' element={<ModeratorEvent />}></Route>
           <Route path='/moderator/complaints' element={<ModeratorComplaints />}></Route>
-          <Route path='/moderator/complaints/viewComplaints' element={<ViewComplaints />} />
+          <Route path='/moderator/complaints/viewComplaints/:id' element={<ViewComplaints />} />
           <Route path='/moderator/userDetails' element={<ModeratorUserDetails />}></Route>
           <Route path='/moderator/event/eventDetails' element={<EventDetails/>}/>
           <Route path='/moderator/registration/ProofCheck' element={<proofCheck/>}/>

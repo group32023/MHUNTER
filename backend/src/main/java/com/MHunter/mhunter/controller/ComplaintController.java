@@ -9,8 +9,9 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:3000") // Replace with your frontend's URL
+
 @RequestMapping("/complaint")
-@CrossOrigin
 public class ComplaintController {
     @Autowired
     private ComplaintService complaintService;
@@ -21,21 +22,25 @@ public class ComplaintController {
         return "New Complaint Added";
     }
 
-//  @GetMapping("/getAll")
-//   public List<Complaint> getAllComplaints(){
-//     return complaintService.getAllComplaints();
-//  }
-//@GetMapping("/getAll/{id}")
-//public ResponseEntity<List<Complaint>> getAllComplaints(@PathVariable Integer id)  {
-//    List<Complaint> complaints = complaintService.getAllComplaints();
-//    if (complaints.isEmpty()) {
-//        return ResponseEntity.notFound().build();
-//    }
-//    return ResponseEntity.ok(complaints);
-//}
+    @GetMapping("/getAll")
+    public ResponseEntity<List<Complaint>> getAllComplaints() {
+        List<Complaint> complaints = complaintService.getAllComplaints();
+        if (complaints.isEmpty()) {
+            return ResponseEntity.notFound().build();
+        }
+        return ResponseEntity.ok(complaints);
+    }
     @GetMapping("/complaintByOrgId/{orgId}")
     public ResponseEntity<List<Complaint>> getComplaintsByOrgId(@PathVariable Integer orgId) {
         List<Complaint> complaints = complaintService.getComplaintsByOrgId(orgId);
+        if (complaints.isEmpty()) {
+            return ResponseEntity.notFound().build();
+        }
+        return ResponseEntity.ok(complaints);
+    }
+    @GetMapping("/complaintByComplaintID/{complaintID}")
+    public ResponseEntity<List<Complaint>> getComplaintsByComplaintID(@PathVariable int complaintID) {
+        List<Complaint> complaints = complaintService.getComplaintsByComplaintID(complaintID);
         if (complaints.isEmpty()) {
             return ResponseEntity.notFound().build();
         }

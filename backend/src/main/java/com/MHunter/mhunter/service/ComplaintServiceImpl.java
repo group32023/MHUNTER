@@ -22,9 +22,12 @@ public class ComplaintServiceImpl implements ComplaintService {
     public List<Complaint> getComplaintsByOrgId(Integer orgId) {
         return complaintRepository.findByOrgId(orgId);
     }
+    @Override
+    public List<Complaint> getComplaintsByComplaintID(int complaintID) {
+        return complaintRepository.findByComplaintID(complaintID);
+    }@Override
+    public List<Complaint> getAllComplaints() {
+        return complaintRepository.findAll();
+    }
 
-//    @Override
-//    public List<Complaint> getAllComplaints() {
-//        return complaintRepository.findAll();
-//    }
 }

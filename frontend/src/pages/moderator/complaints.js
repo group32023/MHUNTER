@@ -11,7 +11,7 @@ import { BsArrowLeftCircle} from 'react-icons/bs';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
-import band from '../../assets/images/band.jpg'
+import band from '../../assets/images/band.jpg';
 import ModeratorRegistration from './registration';
 import ModeratorComplaints from './complaints';
 import ModeratorUserDetails from './userDetails';
@@ -20,7 +20,7 @@ import EventDetails from './eventDetails';
 import ModeratorEvent from './event';
 import ViewComplaints from './viewComplaints';
 import ProofCheck from './ProofCheck';
-import Suspenduser from './suspenduser';  
+import Suspenduser from './suspenduser';
 
 function Complaints() {
   const [currentPage, setCurrentPage] = useState(0);
@@ -44,6 +44,11 @@ function Complaints() {
 
   const handlePageChange = ({ selected }) => {
     setCurrentPage(selected);
+  };
+
+  // Function to handle the "View" button click and pass the complaintID
+  const handleViewClick = (complaintID) => {
+    navigate(`/moderator/complaints/viewComplaints/${complaintID}`);
   };
 
   return (
@@ -74,14 +79,13 @@ function Complaints() {
               {displayedData.map((item, index) => (
                 <tr key={index} className="data-row-complaints">
                   <td className="data-name-complaints">{item.complaintID}</td>
-                  <td className="data-name-complaints">{item.name}</td>
                   <td className="data-name-complaints">{item.title}</td>
                   <td className="data-name-complaints">{item.date}</td>
                   <td className={`data-name-complaints-${item.status}`}>{item.status}</td>
                   <td>
-                    {/* Use the navigate function to handle the link */}
+                    {/* Use the handleViewClick function to handle the link and pass the complaintID */}
                     <button
-                      onClick={() => navigate(`/moderator/complaints/viewComplaints`)}
+                      onClick={() => handleViewClick(item.complaintID)}
                       className="data-button2"
                     >
                       View
@@ -91,7 +95,7 @@ function Complaints() {
               ))}
             </tbody>
           </table>
-          
+
           {/* Pagination component */}
           <div className="pagination-wrapper">
             <ReactPaginate
@@ -111,7 +115,7 @@ function Complaints() {
         {/* <Route path="/moderator/moderatorDashboardContent" element={<ModeratorDashboardContent />} /> */}
         <Route path="/moderator/registration" element={<ModeratorRegistration />} />
         <Route path="/moderator/complaints" element={<ModeratorComplaints />} />
-        <Route path="/moderator/complaints/viewComplaints" element={<ViewComplaints />} />
+        <Route path="/moderator/complaints/viewComplaints/:complaintID" element={<ViewComplaints />} />
         <Route path="/moderator/userDetails" element={<ModeratorUserDetails />} />
         <Route path="/moderator/event" element={<ModeratorEvent />} />
         <Route path="/moderator/event/eventDetails" element={<EventDetails />} />
