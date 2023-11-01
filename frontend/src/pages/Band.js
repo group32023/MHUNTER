@@ -48,6 +48,8 @@ HomeBand() {
   band.user.lastName.toLowerCase().includes(searchInput.toLowerCase())
   );
 
+  console.log(band)
+
   return (
     <div>
        
@@ -135,7 +137,7 @@ HomeBand() {
 
                                 <div className='content'>
 
-                                    <h5>{band.name}</h5>
+                                    <h5>{band[0]}</h5>
                                     <StarRating rating={5} ></StarRating>
 
                                 </div>
