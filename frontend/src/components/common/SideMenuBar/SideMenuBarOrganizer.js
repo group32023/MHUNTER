@@ -77,9 +77,9 @@ function SideMenuBarOrganizer({ children }) {
 					</div>
 
 					<div className="row">
-						<NavLink to="/organizer/profile">
+						<NavLink to={`/admin/profile/${user?.userId}`}>
 							<div className="menu-profilePhoto col d-flex justify-content-center">
-								<img className={isExpanded ? "menu-item-profilePhoto img-fluid my-4" : "menu-item-profilePhoto-NX"} src={profilePhoto} alt="Profile" srcSet="" width="130px" height="130px" />
+								<img className={isExpanded ? "menu-item-profilePhoto img-fluid my-4" : "menu-item-profilePhoto-NX"} src={`http://localhost:8080/postData/uploads/image/${user?.imagePath}`} alt="Profile" srcSet="" width="130px" height="130px" />
 								{isExpanded && (
 									<div className="middle-pp-box">
 										<div className="middle-pp-text">Go to Profile</div>
@@ -95,7 +95,7 @@ function SideMenuBarOrganizer({ children }) {
 					<div className="row">
 						{isExpanded && (
 							<div className="menu-profilePName col d-flex justify-content-center">
-								<p >Tehani Imara</p>
+								 <p >{user?.firstName} {user?.lastName}</p>
 							</div>
 						)}
 					</div>
