@@ -1,6 +1,12 @@
-.carousel {
-    width: 917px;
-    position: absolute;
-    top: 86px;
-    left: 3.57%;
-}
+ .carousel {
+     width: 700px;
+     position: absolute;
+     top: 86px;
+     left: 3.6%;
+
+ }
+
+ .mainContainer-NX .carousel {
+     width: 990px;
+
+ }
