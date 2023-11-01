@@ -11,12 +11,45 @@ import { BiSolidCalendarCheck } from "react-icons/bi";
 import { BiSolidCommentError } from "react-icons/bi";
 import { BiSolidSearch } from "react-icons/bi";
 import React, { useState } from "react";
+import {useEffect } from 'react';
+import axios from 'axios';
 
 function SideMenuBarOrganizer({ children }) {
 	const [isExpanded, setExpandState] = useState(false);
+	const [user, setUser] = useState(null);
 
-	
-	
+	useEffect(() => {
+        const userId = localStorage.getItem('userId');
+        
+        fetch(`http://localhost:8080/organizer/${userId}`)
+        .then((response)=>{
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+              }
+              return response.json();
+        })
+        .then((data)=>{
+            localStorage.setItem("orgid",data['org_id']);
+        })
+        .catch((error)=>{
+            console.log("Error fetching data:", error)
+        })
+
+        if (userId) {
+            axios.get(`http://localhost:8080/user/user/${userId}`)
+                .then(response => {
+                    setUser(response.data);
+                    // setImage(response.data['imagePath'])
+                    // console.log(image)
+                })
+                .catch(error => {
+                    console.error(error);
+                    alert(error);
+                });
+        }
+    }, []);
+    console.log("Current user:", user); 
+
 	return (
 		<div className="full-container">
 			<div
