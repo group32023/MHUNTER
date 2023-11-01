@@ -104,7 +104,7 @@ export default function ArtistPendingRequests() {
         </div>
 
         <button
-          className="viewBtn"
+          className="viewBtn4"
           onClick={() => load(eventList[i]["eventId"])}
         >
           View

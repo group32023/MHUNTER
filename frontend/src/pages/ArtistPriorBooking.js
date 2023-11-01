@@ -70,7 +70,7 @@ export default function ArtistPriorBooking() {
      
       .then((data) => {
         setOrg(data);
-        console.log();
+        console.log(data);
 
       })
       .catch((error) => {
