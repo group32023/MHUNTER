@@ -141,7 +141,7 @@ function CreateEvent() {
 
                 <label htmlFor="crowd" className="form-label">Expected Crowd</label>
                 <input type="text" className="form-control" onChange={onChangeHandler} name="crowd" ></input>
-                {crowdError && <div className='invalid-feedback'>{crowdError}</div>}
+                
               </div>
             </div>
 
