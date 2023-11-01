@@ -50,7 +50,7 @@ function ProofCheck() {
       .put(`http://localhost:8080/userStatus/${id}`)
       .then((response) => {
         setShowModal(true);
-        //alert("User is Verified");
+        alert("User is Verified");
         window.history.back();
       })
       .catch((error) => {

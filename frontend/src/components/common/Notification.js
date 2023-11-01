@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGear } from "@fortawesome/free-solid-svg-icons";
 
 export default function Notification() {
-  const [getData,setData] = useState()
+  const [getData,setData] = useState([])
   const BASE_URL = "http://localhost:8080";
 
   // get the all data form backend

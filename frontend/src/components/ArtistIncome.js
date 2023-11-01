@@ -5,9 +5,8 @@ import "../assets/css/artistIncome.css";
 
 export default function ArtistIncome() {
   const [income, setIncome] = useState([]);
-
+  const mmId = localStorage.getItem("mmid");
   useEffect(() => {
-    const mmId = localStorage.getItem("mmid");
     if (mmId) {
       fetch(`http://localhost:8080/artistIncome/incomeAndMonthlyGrowth/${mmId}`)
         .then((res) => res.json())
@@ -16,7 +15,7 @@ export default function ArtistIncome() {
           setIncome(result);
         });
     }
-  }, []);
+  }, [mmId]);
 
   return (
     <div>
