@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ComplaintServiceImpl implements ComplaintService {
@@ -25,9 +26,33 @@ public class ComplaintServiceImpl implements ComplaintService {
     @Override
     public List<Complaint> getComplaintsByComplaintID(int complaintID) {
         return complaintRepository.findByComplaintID(complaintID);
-    }@Override
+    }
+
+    @Override
+    public Complaint updateComplaint(int complaintID, UpdateComplaintRequest request) {
+        Optional<Complaint> optionalComplaint = complaintRepository.findById(complaintID);
+        if (optionalComplaint.isPresent()) {
+            Complaint complaint = optionalComplaint.get();
+
+            // Update both status and remark
+            if (request.getStatus() != null) {
+                complaint.setStatus(request.getStatus());
+            }
+            if (request.getRemark() != null) {
+                complaint.setRemark(request.getRemark());
+            }
+            return complaintRepository.save(complaint);
+        }
+        return null;
+    }
+
+    @Override
     public List<Complaint> getAllComplaints() {
         return complaintRepository.findAll();
     }
+
+
+
+
 
 }

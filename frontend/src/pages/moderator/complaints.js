@@ -67,12 +67,11 @@ function Complaints() {
           <table className="data-table-complaints">
             <thead>
               <tr>
-                <th>Complain ID</th>
-                <th>Name</th>
+                <th>Complaint Number</th>
                 <th>Title</th>
                 <th>Date</th>
                 <th>Status</th>
-                <th></th>
+                <th>View</th>
               </tr>
             </thead>
             <tbody>
@@ -85,11 +84,14 @@ function Complaints() {
                   <td>
                     {/* Use the handleViewClick function to handle the link and pass the complaintID */}
                     <button
-                      onClick={() => handleViewClick(item.complaintID)}
-                      className="data-button2"
-                    >
-                      View
-                    </button>
+  onClick={() => handleViewClick(item.complaintID)}
+  style={{ backgroundColor: 'purple', color: 'white', border: 'none' }}
+>
+  View
+</button>
+
+
+
                   </td>
                 </tr>
               ))}
