@@ -36,7 +36,7 @@ export default function ArtistPendingRequests() {
   useEffect(() => {
     // Fetch the data from the Java backend
     const getPendingRequest = async () =>{
-      const res = await fetch(`http://localhost:8080/requestMusicMember/pendingRequest/758473`)
+      const res = await fetch(`http://localhost:8080/requestMusicMember/pendingRequest/${mmid}`)
 
       const data = await res.json();
         setEventList(data);
