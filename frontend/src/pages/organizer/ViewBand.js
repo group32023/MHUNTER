@@ -2,7 +2,7 @@
 import React, { useEffect, useState ,useRef } from 'react';
 import { Link,useParams } from 'react-router-dom';
 import Topbar from '../../components/common/Topbar';
-import './ViewArtist.css';
+import './ViewBand.css';
 import anushka from '../../assets/images/anushka.png';
 import anushkashow from '../../assets/images/anushkashow.jpg';
 import anushkashow2 from '../../assets/images/anushkashow2.jpg';

@@ -91,6 +91,7 @@ function ViewArtist() {
             .then(res => res.json())
             .then((result) => {
                 setArtists(result);
+                console.log(result);
                 artistName = result.musicMember.user.firstName + ' ' + result.musicMember.user.lastName  ;
                 artistNameRef.current = artistName;
                 console.log(artistName);
@@ -176,8 +177,8 @@ function ViewArtist() {
                             <div className='d-flex flex-column'>
 
                                 <div className='artist-logo align-items-center'>
-                                    <div className='image'>
-                                        <img src={anushka}>
+                                    <div className='image' key={artist.artistId}>
+                                        <img src={`${BASE_URL}/postData/uploads/image/${artist.user.imagePath}`} alt="Artist's Image" >
                                         </img>
                                     </div>
 
