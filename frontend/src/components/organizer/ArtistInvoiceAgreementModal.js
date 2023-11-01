@@ -91,7 +91,7 @@ function ArtistInvoiceAgreementModal(props) {
                                         <AgreementDetailProfile style={{ color: 'black' }} />
                                     </Tab.Pane>
                                     <Tab.Pane eventKey="invoice">
-                                        <Button onClick={handlePrint}>Print</Button>
+
                                         <OrganizerInvoiceView
                                             ref={componentRef}
                                             detail0={detail0}

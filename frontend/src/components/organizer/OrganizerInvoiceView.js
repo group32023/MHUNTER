@@ -44,6 +44,18 @@ const OrganizerInvoiceView = (props) => {
 
     return (
         <div className="container">
+            <div className="button-wrapper col-4 d-flex">
+                <Button id="myButtonPppp" class="btn btn-default">
+                    Print
+
+                </Button>
+            </div>
+            <div className="button-wrapper col-4">
+                <Button id="myButtonPppp" class="btn btn-default">
+                    Paynow
+
+                </Button>
+            </div>
             <div className="card">
                 <div className="card-header invoice-header">
 
@@ -221,15 +233,13 @@ const OrganizerInvoiceView = (props) => {
                             {musicMember.userName}
                         </p>
                     </div>
-                    <div className='col-3'>
-                        <Button >Pay Now</Button>
-                        <br></br>
 
-                    </div>
 
                 </div>
 
+
             </div>
+
         </div>
     )
 }
