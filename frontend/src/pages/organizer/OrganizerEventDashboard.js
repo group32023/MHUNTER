@@ -159,7 +159,7 @@ function OrganizerEventDashboard() {
     }, [eventid]);
 
 
-    // const [formData, setFormData] = useState(initialFormData);
+    const [formData, setFormData] = useState(initialFormData);
 
     useEffect(() => {
         fetch(`http://localhost:8080/requestsLog/getmmids/${eventid}`)
