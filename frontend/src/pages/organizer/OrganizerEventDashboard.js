@@ -124,7 +124,7 @@ function OrganizerEventDashboard() {
     //     setShowModal(false);
     // };
 
-    const [formData, setFormData] = useState(initialFormData);
+    // const [formData, setFormData] = useState(initialFormData);
 
 
     //Event Data Fetching
@@ -145,18 +145,18 @@ function OrganizerEventDashboard() {
 
     //Confirmation Status
     const [details, setDetails] = useState([]);
-    const eventId = eventid;
+    // const eventId = eventid;
 
     useEffect(() => {
         // Make an HTTP GET request to fetch data from the Spring Boot API
-        axios.get(`http://localhost:8080/requestMusicMember/getRowsByEventId/${eventId}`)
+        axios.get(`http://localhost:8080/requestMusicMember/getRowsByEventId/${eventid}`)
             .then(response => {
                 setDetails(response.data);
             })
             .catch(error => {
                 console.error('Error fetching data:', error);
             });
-    }, [eventId]);
+    }, [eventid]);
 
 
     const [formData, setFormData] = useState(initialFormData);
