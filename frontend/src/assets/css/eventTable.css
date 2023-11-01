@@ -1,6 +1,6 @@
 .eventTable{
     position: absolute;
-    top: 340%;
+    top: 48%;
     left: 39%;
 
 }
@@ -44,7 +44,7 @@
     font-weight: 800;
     line-height: normal;
     position: absolute;
-    top: -27px;
+    top: 42px;
     left: 635px;
     z-index: 100;
 }
@@ -196,18 +196,18 @@
 
     background-color: rgba(3, 3, 3, 0.60);
     width: 94%;
-    height: 82%;
+    height: 12%;
     position: absolute;
-    top: 338%;
+    top: 52%;
     left: 2%;
     z-index: 100;
 
 }
 
 .artistEventTablePagination{
- position: absolute !important;
-  top: 525px !important;
-  left: 699px !important;
+    position: absolute !important;
+    top: 480px !important;
+    left: 699px !important;
 }
 
 

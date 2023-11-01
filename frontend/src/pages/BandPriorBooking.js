@@ -23,7 +23,7 @@ export default function ArtistPriorBooking() {
   const [expand,setExpandedSideBar] = useState(true)
   const componentPDF = useRef();
   const { id1,id2,id3 } = useParams();
-  const [org,setOrg]=useState([]);
+  const [org,setOrg]=useState();
 
   // console.log(id1);
   // console.log(id2);
@@ -50,14 +50,7 @@ export default function ArtistPriorBooking() {
      
       .then((data) => {
         setEvents(data);
-
-      })
-      .catch((error) => {
-        console.log('Error fetching data:', error);
-      });
-
-
-      fetch(`http://localhost:8080/organizer/viewSpecificOrganizer/${id2}`)
+        fetch(`http://localhost:8080/organizer/viewSpecificOrganizer/${id2}`)
     .then((response) => {
       if (!response.ok) {
         throw new Error('Network response was not ok');
@@ -76,6 +69,14 @@ export default function ArtistPriorBooking() {
      
 
   }, []);
+
+      })
+      .catch((error) => {
+        console.log('Error fetching data:', error);
+      });
+
+
+      
 
 
   
@@ -134,7 +135,7 @@ export default function ArtistPriorBooking() {
           <div className='addressDiv'>
           <h3>Prior Booking </h3>
           <div className='emptyMessageForPriorBooking'>
-          {(divElements.length ===0)?<><img src={empty} className='empty-img'></img><span className='emptyContent-report'>it's empty in here.</span></>:undefined}
+          {(divElements.length ===0 || divCount===0)?<><img src={empty} className='empty-img'></img><span className='emptyContent-report'>it's empty in here.</span></>:undefined}
 
           </div>
           <h4 className="organizer_tag">Organizer :  </h4>

@@ -77,16 +77,25 @@
     left: 262px;
 }
 
-.requestContainerForEvent{
+.requestContainerForEvent123{
     height: 8%;
     width: 70%;
     position: relative;
     top: 187px;
-    left: 25%;
+    left: 20%;
     margin-bottom: 20px;
     border-radius: 25px;
     
   
+}
+
+
+.requestContainerForEvent123 .profile4 {
+    position: relative;
+    width: 55px;
+    height: 55px;
+    top: 31.5px;
+    left: 195px;
 }
 
 .requestContainerForEvent .eventType1{

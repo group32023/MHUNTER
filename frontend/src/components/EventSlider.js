@@ -21,7 +21,7 @@ export default function EventSlider() {
             const newItem = data.map(item =>
                         (
                             <SwiperSlide style={{width:400,height:400}}> <div className='artistSlide1'>
-                                <img src={`${BASE_URL}/postData/uploads/image/${item.eventImage}`} className='artist1Pic' style={{width:400,height:400}} alt='event'></img> 
+                                <img src={`${BASE_URL}/postData/uploads/image/${item.image}`} className='artist1Pic' style={{width:400,height:400}} alt='event'></img> 
                                 </div>
                             </SwiperSlide>
                         ))
