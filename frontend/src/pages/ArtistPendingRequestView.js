@@ -57,6 +57,9 @@ export default function ArtistPendingRequests() {
 
   const handleReject = () => {
     setShowRejectedReason(true);
+   
+  
+    
   };
 
   const handleRejectAndAccept = () => {
