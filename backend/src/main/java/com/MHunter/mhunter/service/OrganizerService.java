@@ -7,9 +7,9 @@ import java.util.List;
 
 
 public interface OrganizerService {
+
     public Organizer findSpecificOrganizer(int orgId);
     public List<Organizer> findAllOrganizer();
     public Organizer findSpecificOrganizerByUserID(int user_id);
-
 
 }
