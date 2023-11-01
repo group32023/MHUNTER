@@ -19,6 +19,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import eventtype from '../assets/images/eventtype.png';
 import {faPhone,faLocationDot,faList,faCalendarDays} from '@fortawesome/free-solid-svg-icons'
 import { faTwitter, faFontAwesome,faFacebook,faGooglePlusG,faLinkedinIn } from '@fortawesome/free-brands-svg-icons'
+import empty from '../assets/images/empty(1).png'
 
 
 
@@ -32,6 +33,7 @@ export default function ArtistPendingRequests() {
 
   useEffect(() => {
     const mmId = localStorage.getItem('mmid');
+    console.log(mmId)
     // if(mmId){
     // // Fetch the data from the Java backend
     // const getPendingRequest = async () =>{
@@ -97,7 +99,7 @@ export default function ArtistPendingRequests() {
       </div>
      
    
-      <button className="viewBtn" onClick={()=>load(eventList[i]['eventId'])}>View</button>
+      <button className="viewBtn4" onClick={()=>load(eventList[i]['eventId'])}>View</button>
     
       
    
@@ -114,7 +116,6 @@ export default function ArtistPendingRequests() {
   }
 
   console.log(eventList)
- if(eventList.length===0) return <div className='progressBar'><CircularProgress color="secondary" /></div>
 
   return (
 
@@ -142,6 +143,11 @@ export default function ArtistPendingRequests() {
       
        
         {divElements}
+        <div className='emptyForPendingRequest'>
+        {(divElements.length ===0)?<><img src={empty} className='empty-img'></img><span className='emptyContent-report'>it's empty in here.</span></>:undefined}
+
+        </div>
+
         </div>
         
 

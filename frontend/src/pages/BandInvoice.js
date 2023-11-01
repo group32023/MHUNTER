@@ -42,7 +42,7 @@ export default function BandInvoice() {
   const mmid=mid;
   const eventid=id;
   const [agreementId, setAgreementId]=useState(0)
-
+  const [additionalNote, setAdditionalNote]=useState("")
 
 
   useEffect(() => {
@@ -176,7 +176,7 @@ navigate('/band/PendingRequests');
 
   const addInvoice=(e)=>{
     e.preventDefault();
-    const invoice = {bandFee,soundFee,instrumentFee,transportFee,others,totalAmount,paymentType,eventid,mmid}
+    const invoice = {bandFee,soundFee,instrumentFee,transportFee,others,totalAmount,paymentType,eventid,mmid,additionalNote}
     console.log(invoice)
 
     
@@ -322,6 +322,8 @@ const loadInvoicePreview=(id,mmid)=>{
            
            <input type="checkbox" id="advanced1" name="advanced" onChange={handleCheckboxChange}/>
           <label for="advancedpayment" className='advancedpayment1'>Advanced is required.</label>
+          <lable className="additionalnotes1">Additional Note : </lable><input type='text' id="advanced9" name="advanced" value={additionalNote} onChange={(e)=>setAdditionalNote(e.target.value)}></input>
+
 
             <button type='submit' className='submitInvoice1' >Submit</button>
             </form>
