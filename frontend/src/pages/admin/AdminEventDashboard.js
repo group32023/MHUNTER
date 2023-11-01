@@ -29,28 +29,28 @@ import locationDemo from '../../assets/images/locationDemo.jpeg'
 import EventBanner4 from '../../assets/images/aaley.jpg'
 import ArtistImage from '../../assets/images/artist.jpg'
 import BandImage from '../../assets/images/band.jpg'
-
+import axios from 'axios';
 
 function AdminEventDashboard() {
     const { id} = useParams();
     const [formData, setFormData] = useState([]);
-    useEffect(() => {
-        console.log(id);
-        fetch(`http://localhost:8080/event/byEventid/${id}`)
-          .then((response) => {
-            if (!response.ok) {
-              throw new Error('Network response was not ok');
-            }
-            return response.json();
-          })
-          .then((data) => {
-            setFormData(data);
-            console.log(formData);
-          })
-          .catch((error) => {
-            console.log('Error fetching data:', error);
-          });
-      }, [id]);
+
+  // Event Data Fetching
+  useEffect(() => {
+    const fetchEventDetails = async () => {
+      try {
+        const response = await axios.get(`http://localhost:8080/event/byEventid/${id}`);
+        setFormData(response.data);
+        console.log(response.data);
+      } catch (error) {
+        console.error('Error fetching events:', error);
+      }
+    };
+
+    fetchEventDetails();
+  }, [id]);
+
+
   return (
     <>
     <SideMenuBarAdmin>
@@ -61,19 +61,20 @@ function AdminEventDashboard() {
                             <h1>Event Details</h1>
                         </div>
                     </div>
-
+                    {formData.map(event => (
                     <div className="row">
+                    
                         <div className="eventDescriptionDiv  mt-3 col-md-7">
                             <div className="row p-2 ">
                                 <div className="eventImgDiv col-md-5 mt-2">
                                     <img alt='' src={EventBanner4} width='385px' height='210px' />
                                 </div>
                                 <div className="eventDescDiv col-md-7 mt-2"  >
-                                    <span className="eventDescDivSpan"> {formData.event_name}</span>
+                                    <span className="eventDescDivSpan"> {event.event_name}</span>
                                     <div className="row" style={{ display: 'flex' }}>
                                         <div className="eventDescInnerDiv col-md-10 py-2 " >
                                             <p style={{ textAlign: 'justify' }}>
-                                                {formData.description}
+                                                {event.description}
                                             </p>
                                         </div>
 
@@ -86,7 +87,7 @@ function AdminEventDashboard() {
                                                 <BiSolidCalendar className='dateIcon fs-1 col-md-3 ' />
                                                 <div className='col-md-8 mt-2'>
                                                     <p>Event Date<br></br>
-                                                        <span className='fs-4'>{formData.date}</span>
+                                                        <span className='fs-4'>{event.date}</span>
                                                     </p>
                                                 </div>
                                             </div>
@@ -96,7 +97,7 @@ function AdminEventDashboard() {
                                                 <BiSolidTimeFive className='timeIcon fs-1 col-md-3 ' />
                                                 <div className='col-md-8 mt-2'>
                                                     <p>Event Time<br></br>
-                                                        <span className='fs-4'>18:00:00</span>
+                                                        <span className='fs-4'>{event.start_time}</span>
                                                     </p>
 
                                                 </div>
@@ -109,7 +110,7 @@ function AdminEventDashboard() {
 
                             </div>
                         </div>
-
+                        
                         <div className="locationDescriptionDiv mt-3 col-md-4">
                             <div className="locationTypeDescriptionDiv">
                                 <img className='img-fluid' src={locationDemo} alt='' ></img>
@@ -120,7 +121,7 @@ function AdminEventDashboard() {
                                         <BiSolidCalendarStar className='dateIcon fs-1 col-md-3 ' />
                                         <div className='col-md-8' >
                                             <p className='fs-6' style={{ fontFamily: 'MyCustomFont' }}>Event Type<br></br>
-                                                <span className='fs-4' style={{ fontFamily: 'MyCustomFont1' }}>Concert</span>
+                                                <span className='fs-4' style={{ fontFamily: 'MyCustomFont1' }}>{event.event_type}</span>
                                             </p>
 
                                         </div>
@@ -129,7 +130,7 @@ function AdminEventDashboard() {
                             </div>
                         </div>
                     </div>
-
+                    ))}
                     <div style={{ display: 'flex', flexDirection: 'row'}}>
                         
                         <div  style={{ flex: 1, padding: '30px', backgroundColor:'#2f363e', borderRadius:'10px',marginLeft:'20px' }}>

@@ -1,6 +1,5 @@
 package com.MHunter.mhunter.controller;
 
-import com.MHunter.mhunter.model.Event;
 import com.MHunter.mhunter.model.Organizer;
 import com.MHunter.mhunter.service.OrganizerService;
 import org.springframework.beans.factory.annotation.Autowired;
