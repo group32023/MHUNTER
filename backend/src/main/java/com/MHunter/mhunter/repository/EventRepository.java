@@ -28,7 +28,7 @@ public interface EventRepository extends JpaRepository<Event,Integer> {
     @Query(value = "SELECT * FROM event WHERE orgid = :orgid AND date<CURDATE() ORDER BY date DESC",nativeQuery = true)
     List<Event>viewPastEvents(@Param("orgid") int orgid);
 
-    @Query(value = "SELECT * FROM event e INNER JOIN request_music_member rmm on e.eventid = rmm.event_id WHERE e.date = :date AND rmm.mmid = :mmid  ",nativeQuery = true)
+    @Query(value = "SELECT * FROM event e INNER JOIN request_music_member rmm on e.eventid = rmm.event_id WHERE e.date = :date AND rmm.mmid = :mmid AND rmm.confirmation_status=1  ",nativeQuery = true)
     List<Event> viewMusicMemberEventsOnDate(@Param("mmid") Integer mmid, @Param("date") LocalDate date);
 
     @Query(value = "SELECT * FROM event WHERE date > CURRENT_DATE ORDER BY date ASC", nativeQuery = true)
