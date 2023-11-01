@@ -404,49 +404,52 @@ public class RequestMusicMemberController {
         int noOfRequest =requestMusicMemberService.countPendingRequest(mid);
 
         List<RequestMusicMember> reqData = requestMusicMemberService.findEventsByMMID(mid);
-        LocalDateTime dateTime = LocalDateTime.parse(reqData.get(0).getRequestDate().toString());
+        if(reqData.size() > 0){
+            LocalDateTime dateTime = LocalDateTime.parse(reqData.get(0).getRequestDate().toString());
 
-        AtomicInteger firstMonthRequests= new AtomicInteger();
-        AtomicInteger lastMonthRequests = new AtomicInteger();
+            AtomicInteger firstMonthRequests= new AtomicInteger();
+            AtomicInteger lastMonthRequests = new AtomicInteger();
 
 
-        Month firstMonth = dateTime.getMonth();
-         firstYear = dateTime.getYear();
-         firstDay = dateTime.getDayOfMonth();
+            Month firstMonth = dateTime.getMonth();
+            firstYear = dateTime.getYear();
+            firstDay = dateTime.getDayOfMonth();
 
-        LocalDateTime dateTime1 = LocalDateTime.parse(reqData.get(reqData.size()-1).getRequestDate().toString());
-        Month lastMonth = dateTime1.getMonth();
-        int lastYear = dateTime1.getYear();
-        int lastDay = dateTime1.getDayOfMonth();
+            LocalDateTime dateTime1 = LocalDateTime.parse(reqData.get(reqData.size()-1).getRequestDate().toString());
+            Month lastMonth = dateTime1.getMonth();
+            int lastYear = dateTime1.getYear();
+            int lastDay = dateTime1.getDayOfMonth();
 
-        reqData.forEach(res ->{
-            LocalDateTime dateTime2 = LocalDateTime.parse(res.getRequestDate().toString());
-            Month month = dateTime2.getMonth();
-            int year = dateTime2.getYear();
-            if(month == firstMonth && year == firstYear){
-                firstMonthRequests.set(firstMonthRequests.get() + 1);
-            }
-            else {
-                if(month == lastMonth && year == lastYear){
-                    lastMonthRequests.set(lastMonthRequests.get() + 1);
+            reqData.forEach(res ->{
+                LocalDateTime dateTime2 = LocalDateTime.parse(res.getRequestDate().toString());
+                Month month = dateTime2.getMonth();
+                int year = dateTime2.getYear();
+                if(month == firstMonth && year == firstYear){
+                    firstMonthRequests.set(firstMonthRequests.get() + 1);
                 }
+                else {
+                    if(month == lastMonth && year == lastYear){
+                        lastMonthRequests.set(lastMonthRequests.get() + 1);
+                    }
+                }
+            });
+
+            LocalDate startDate = LocalDate.of(firstYear,firstMonth,firstDay);
+            LocalDate lastDate = LocalDate.of(lastYear,lastMonth,lastDay);
+            Period period = Period.between(startDate,lastDate);
+            diffMonth = period.getYears()*12 + period.getMonths();
+            if(diffMonth == 0){
+                diffMonth =1;
             }
-        });
 
-        LocalDate startDate = LocalDate.of(firstYear,firstMonth,firstDay);
-        LocalDate lastDate = LocalDate.of(lastYear,lastMonth,lastDay);
-        Period period = Period.between(startDate,lastDate);
-         diffMonth = period.getYears()*12 + period.getMonths();
-        if(diffMonth == 0){
-            diffMonth =1;
+
+
+            double monthlyGrowth =Math.round(((Math.pow((lastMonthRequests.get()/firstMonthRequests.get()),(1/diffMonth)))-1)*100);
+
+            monthlyGrowthAndRequest.set(0,(double)noOfRequest);
+            monthlyGrowthAndRequest.set(1,monthlyGrowth);
+
         }
-
-
-
-        double monthlyGrowth =Math.round(((Math.pow((lastMonthRequests.get()/firstMonthRequests.get()),(1/diffMonth)))-1)*100);
-
-        monthlyGrowthAndRequest.set(0,(double)noOfRequest);
-        monthlyGrowthAndRequest.set(1,monthlyGrowth);
 
         return monthlyGrowthAndRequest;
 

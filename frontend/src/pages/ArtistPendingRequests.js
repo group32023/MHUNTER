@@ -129,8 +129,31 @@ export default function ArtistPendingRequests() {
   console.log(eventList);
   if (eventList.length === 0)
     return (
-      <div className="progressBar">
-        <CircularProgress color="secondary" />
+      <div>
+        <SideMenuBarArtist>
+          <div className="MainContainer">
+            <p className="headerDashboard">Pending Requests</p>
+            <div className={expand ? "notificationBg" : "notificationBg-ex"}>
+              <img
+                src={notification}
+                className="notificationIcon"
+                alt="notification"
+              ></img>
+            </div>
+            <div className={expand ? "homeBg" : "homeBg-ex"}>
+              <Link to={"/"}>
+                <img src={home} alt="homebtn" className="homeIcon"></img>
+              </Link>
+            </div>
+            <div className={expand ? "logoutBg" : "logoutBg-ex"}>
+              <img src={logout} alt="logout" className="logout"></img>
+              <p className="logoutbtn">Logout</p>
+            </div>
+            <div className="progressBar">
+              <CircularProgress color="secondary" />
+            </div>
+          </div>
+        </SideMenuBarArtist>
       </div>
     );
 
