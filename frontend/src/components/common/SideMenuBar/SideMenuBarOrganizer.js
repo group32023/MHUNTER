@@ -14,6 +14,9 @@ import React, { useState } from "react";
 
 function SideMenuBarOrganizer({ children }) {
 	const [isExpanded, setExpandState] = useState(false);
+
+	
+	
 	return (
 		<div className="full-container">
 			<div

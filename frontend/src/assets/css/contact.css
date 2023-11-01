@@ -98,17 +98,6 @@
 .descriptionDiv1{
     /* background-color:rgba(3, 3, 3, 0.4); */
     width: 100%;
-    height: 100%;
-    top: 88.5%;
-    z-index: 10;
-    position: absolute;
-
-
-}
-
-.descriptionDiv7{
-    /* background-color:rgba(3, 3, 3, 0.4); */
-    width: 100%;
     height: 120%;
     top: 88.5%;
     z-index: 10;
@@ -117,6 +106,31 @@
 
 }
 
+.descriptionDiv7{
+    background-color:#030303;
+    width: 100%;
+    height: 120%;
+    top: 88.5%;
+    z-index: 10;
+    position: absolute;
+
+
+}
+.footerForHomeartist{
+        position: relative;
+        top: 1127px;
+        left: 0px;
+        z-index: 10;
+    
+}
+
+.footerForHomeband{
+    position: relative;
+    top: 1127px;
+    left: 0px;
+    z-index: 10;
+
+}
 .captionbackground{
     background-color:rgba(3, 3, 3, 0.50);
     width: 100%;
@@ -174,7 +188,7 @@
     letter-spacing: 0;
     line-height: normal;
     /* position: fixed;*/
-    top:24%;
+    top:20%;
     width: 92%;
     position: absolute;
     left: 5%;
@@ -199,6 +213,17 @@
     height: 80%;
     position: absolute;
     top: 60%;
+    left: 7%;
+    z-index: 100;
+
+}
+
+
+.descriptionDiv7 .eventcontainer{
+    width: 90%;
+    height: 80%;
+    position: absolute;
+    top: 35%;
     left: 7%;
     z-index: 100;
 

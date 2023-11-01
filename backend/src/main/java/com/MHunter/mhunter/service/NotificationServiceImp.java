@@ -22,6 +22,16 @@ public class NotificationServiceImp implements NotificationService{
     }
 
     @Override
+    public List<Notification> viewSpecificNotificationByMMID(int mmid) {
+        return notificationRepository.findByMMID(mmid);
+    }
+
+    // @Override
+    // public Notification saveNotification(Notification notification) {
+    //     return null;
+    // }
+
+    @Override
     public List<Notification> viewNotification() {
         return notificationRepository.findAll();
     }
