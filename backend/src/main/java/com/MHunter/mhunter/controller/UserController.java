@@ -11,6 +11,7 @@ import com.MHunter.mhunter.service.OrganizerService;
 import com.MHunter.mhunter.service.StaffMemberService;
 import com.MHunter.mhunter.service.UserService;
 import com.MHunter.mhunter.struct.AllUsers;
+import com.MHunter.mhunter.struct.UserArtist;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -50,6 +51,26 @@ public class UserController {
     @GetMapping("/allUsers")
     List<User> getAllUsers() {
         return userRepository.findAll();
+    }
+    @GetMapping("/orgnizer/view/verified")
+    public List<UserArtist> getOrganizers(){
+        List<Organizer> organizersList = organizerService.findAllOrganizer();
+        List<UserArtist> UsersList = new ArrayList<>();
+        organizersList.forEach(item ->{
+            if(item.getUser().getIsVerified()==1) {
+                UserArtist allUserOrg = new UserArtist();
+                allUserOrg.setImgPath(item.getUser().getImagePath());
+                allUserOrg.setFirstName(item.getUser().getFirstName());
+                allUserOrg.setLastName(item.getUser().getLastName());
+                allUserOrg.setEmail(item.getUser().getEmail());
+                allUserOrg.setAddress(item.getUser().getAddress());
+                allUserOrg.setType("Organizer");
+                allUserOrg.setId(item.getUser().getUserId());
+                UsersList.add(allUserOrg);
+            }
+        });
+        return UsersList;
+
     }
     @GetMapping("/view")
     public List<AllUsers> viewAll(){

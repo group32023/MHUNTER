@@ -53,7 +53,16 @@ function AllUserDetails() {
             console.error(error);
             alert(error);
           });
-      }
+      } else if (type === "Organizer") {
+      axios.get(`http://localhost:8080/orgnizer/view/verified`)
+        .then(response => {
+          setUserR(response.data);
+        })
+        .catch(error => {
+          console.error(error);
+          alert(error);
+        });
+    }
     }
   }, [type]);
 
