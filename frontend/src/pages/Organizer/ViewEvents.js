@@ -28,7 +28,9 @@ library.add(fas);
 
 function ViewEvents() {
 
-    const orgid = 1;
+    // const orgid = 1;
+    const orgid = localStorage.getItem('orgid');
+    // console.log('orgid:', orgid);
     const [events, setEvents] = useState([])
     const BASE_URL = "http://localhost:8080";
 

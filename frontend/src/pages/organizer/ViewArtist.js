@@ -178,7 +178,7 @@ function ViewArtist() {
 
                                 <div className='artist-logo align-items-center'>
                                     <div className='image' key={artist.artistId}>
-                                        <img src={`${BASE_URL}/postData/uploads/image/${artist.user.imagePath}`} alt="Artist's Image" >
+                                        <img src={anushka} alt="Artist's Image" >
                                         </img>
                                     </div>
 
