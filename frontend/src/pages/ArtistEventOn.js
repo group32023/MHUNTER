@@ -141,7 +141,7 @@ export default function ArtistEventOn() {
           </div>
 
           <div className='addressDiv'>
-          <h3 className='eventsOnDate'>Envents On : {date} </h3>
+          <h3 className='eventsOnDate'>Events On : {date} </h3>
           
           </div>
         

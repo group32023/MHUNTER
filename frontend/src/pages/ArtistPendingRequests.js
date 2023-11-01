@@ -99,7 +99,7 @@ export default function ArtistPendingRequests() {
               icon={faLocationDot}
               id="LocationIconPendingRequest"
             />{" "}
-            {eventList[i]["place"]}
+            Colombo 07
           </p>
         </div>
 
