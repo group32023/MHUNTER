@@ -126,4 +126,9 @@ public class UserController {
     }
 
 
+    @GetMapping("/organizer/{userId}")
+    Organizer getOrgById(@PathVariable int userId) {
+        return organizerService.findSpecificOrganizerByUserID(userId);
+    }
+
 }
