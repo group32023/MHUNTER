@@ -48,7 +48,6 @@
   left: 52.7%;
   text-align: left;
   font-size: 10px;
-  top: 606%;
 }
 
 .ft-2 ul li {
@@ -92,7 +91,7 @@
 
 .ft-1 .logoInFooter {
   position: absolute;
-  top: 593%;
+  top: 92.5%;
   left: 9%;
   width: 176px;
   height: 186px;
@@ -100,7 +99,7 @@
 
 .ft-1 .introductionFooter {
   position: absolute;
-  top: 613%;
+  top: 95.5%;
   left: 10%;
   color: #fff;
   font-family: 'Roboto', sans-serif;
@@ -137,7 +136,7 @@
 .footer-icons {
   position: absolute;
   left: -9%;
-  top: 618%;
+  top: 96.5%;
   width: 1470px;
 
 }

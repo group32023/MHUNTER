@@ -18,7 +18,7 @@
     font-weight: 800;
     line-height: normal;
     position: absolute;
-    top: 3.5%;
+    top: 0.7%;
     left: 3%;
     z-index: 100;
 }
@@ -28,7 +28,7 @@
     flex-shrink: 0;
     color: #FEFEFE;
     position: absolute;
-    top: 2.9%;
+    top: 0.7%;
     left: 1.25%;
     z-index: 100;
 }
@@ -38,7 +38,7 @@
     flex-shrink: 0;
     color: #FDFDFD;
     position: absolute;
-    top: 2.9%;
+    top: 0.7%;
     left: 80.5%;
     z-index: 100;
     cursor: pointer;
@@ -53,7 +53,7 @@
     flex-shrink: 0;
     color: #FDFDFD;
     position: absolute;
-    top: 2.9%;
+    top: 0.7%;
     left: 84.5%;
     z-index: 100;
     cursor: pointer;
@@ -68,7 +68,7 @@
     flex-shrink: 0;
     color: #FDFDFD;
     position: absolute;
-    top: 2.9%;
+    top: 0.7%;
     left: 88.5%;
     z-index: 100;
     cursor: pointer;
@@ -82,7 +82,7 @@
     flex-shrink: 0;
     color: #FDFDFD;
     position: absolute;
-    top: 2.9%;
+    top: 0.7%;
     left: 92.5%;
     z-index: 100;
     cursor: pointer;
@@ -112,29 +112,32 @@
     font-family: "Inter-ExtraBold", Helvetica;
     font-size: 21px;
     font-weight: 800;
-    /* left: 0; */
+    left: 0;
     letter-spacing: 0;
     line-height: normal;
-    /* position: fixed;
-    top: 0; */
+    position: fixed;
+    top: 0;
     width: 447px;
     position: absolute;
-    top: 52%;
+    top: 9%;
     left: 10%;
     z-index: 100;
 }
 .signupBtn{
     border: 5px solid;
+    border-top-color: currentcolor;
+    border-right-color: currentcolor;
+    border-bottom-color: currentcolor;
+    border-left-color: currentcolor;
     border-color: #ffffff;
     border-radius: 35px;
     height: 46px;
     width: 169px;
     position: absolute;
-    top: 67%;
+    top: 11%;
     left: 19%;
     z-index: 100;
     background-color: transparent;
-
     color: #ffffff;
     font-family: "Inter-ExtraBold", Helvetica;
     font-size: 20px;
