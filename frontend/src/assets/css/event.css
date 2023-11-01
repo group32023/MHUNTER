@@ -49,7 +49,7 @@
 }
 .eventTableContainerView{
     position: relative;
-    top: 121px;
+    top: 242px;
     left: 31px;
 }
 
@@ -81,7 +81,7 @@
     height: 8%;
     width: 70%;
     position: relative;
-    top: 1791px;
+    top: -28px;
     left: 5%;
     margin-bottom: 20px;
     border-radius: 25px;
@@ -116,9 +116,10 @@
     position: absolute;
     left: 105%;
     top: 30%;
+    width: 200px;
 }
 
-.requestContainerForEvent123 .eventDetails {
+.requestContainerForEvent123 .eventDetails2 {
     position: relative;
     color: white;
     font-size: 20px;
@@ -355,9 +356,9 @@
     width: 94%;
     height: 63%;
     position: relative;
-    top: 1832px;
+    top: 1995px;
     left: 3%;
-    z-index: 10000;
+    z-index: 100;
 
 }
 
@@ -387,3 +388,32 @@
     top: -237px;
     left: -88px;
 }
+
+.artistEventPagination23{
+    position: absolute !important;
+    top: 3010px !important;
+    left: 699px !important;
+    z-index: 1000;
+  }
+
+  .css-19micn4-MuiButtonBase-root-MuiPaginationItem-root.Mui-selected{
+    background-color: #7643D2 !important;
+    
+  }
+
+  .event-list-Header{
+    display: flex;
+    width: 216px;
+    height: 65px;
+    flex-direction: column;
+    color: #FFF;
+    font-family: Inter;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+    position: absolute;
+    top: 1206px;
+    left: 643px;
+    z-index: 100;
+  }

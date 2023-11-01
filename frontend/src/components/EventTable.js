@@ -68,12 +68,12 @@ useEffect(()=>{
         <div>
              
                 <div className='eventcontainer3'>
-
+                <label className='event-list-Header'>EVENT LIST</label>
                     
                 {setPagination().map((eventList) => 
                      <div className="requestContainerForEvent123">
-                              <img src={profileImage} className="profile4"></img>
-                              <div className="eventDetails">
+                              <img src={`${BASE_URL}/postData/uploads/image/${eventList["image"]}`} className="profile4"></img>
+                              <div className="eventDetails2">
                                 <h5>{eventList['organizerName']}</h5>
                                 <p class="eventType11"><img src={eventtype} className="EventIconPendingRequest1"></img>{eventList['event_name']}</p>
                                     <p class="eventDate11"><FontAwesomeIcon icon={faCalendarDays} id="CalenderIconPendingRequest1"/>{eventList['date']}</p>
@@ -90,7 +90,7 @@ useEffect(()=>{
 
                 </div>
 
-                <div className='artistEventPagination'>
+                <div className='artistEventPagination23'>
                   <Stack spacing={2}>
                     <Pagination count={(Math.round(event.length/noOfLinePerPage))} color="secondary" page={page} onChange={handleChange} />
                   </Stack>
