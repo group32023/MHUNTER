@@ -194,7 +194,7 @@ function App() {
           <Route path='/admin/report' element={<AdminReport />} />
           <Route path='/admin/settings' element={<AdminSettings />} />
           <Route path='/admin/event' element={<AdminEvents />} />
-          <Route path='/admin/event/eventDetails' element={<AdminEventDashboard/>} />
+          <Route path='/admin/event/eventDetails/:id' element={<AdminEventDashboard/>} />
           <Route path='/admin/profile/:id' element={<AdminProfile/>} />
 
           {/*moderator*/}

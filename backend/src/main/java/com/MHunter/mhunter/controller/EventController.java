@@ -3,8 +3,8 @@ package com.MHunter.mhunter.controller;
 
 import com.MHunter.mhunter.model.Event;
 import com.MHunter.mhunter.model.Organizer;
-import com.MHunter.mhunter.model.RequestMusicMember;
 import com.MHunter.mhunter.model.User;
+import com.MHunter.mhunter.repository.EventRepository;
 import com.MHunter.mhunter.service.EventService;
 import com.MHunter.mhunter.service.OrganizerService;
 import com.MHunter.mhunter.service.RequestMusicMemberService;
@@ -14,7 +14,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.sql.Date;
 import java.time.Duration;
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -37,6 +36,9 @@ public class EventController {
 
     @Autowired
     private UserService userService;
+
+    @Autowired
+    private EventRepository eventRepository;
 
     @PostMapping("/add")
     public String add(@RequestBody Event event) {
@@ -185,6 +187,9 @@ public class EventController {
 
         return eventOrganizerList;
     }
-
+    @GetMapping("/allEvents")
+    List<Event> getAllEvents() {
+        return eventRepository.findAll();
+    }
 
 }
