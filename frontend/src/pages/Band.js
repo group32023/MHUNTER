@@ -48,6 +48,8 @@ HomeBand() {
   band.user.lastName.toLowerCase().includes(searchInput.toLowerCase())
   );
 
+  console.log(band)
+
   return (
     <div>
        
@@ -85,17 +87,13 @@ HomeBand() {
                 </div>
                 <section>
                     <p className='description1'>
-                    Elevate your events with outstanding musical talent. MHUNTER provides a vast network of bands, allowing you to handpick the perfect lineup. Easily browse, select, and assign bands to specific slots, ensuring a diverse and captivating program that leaves the crowd wanting more.                       </p>
+                    A band is a musical group consisting of multiple musicians who collaborate to create and perform music together. Bands can vary in size and style, and they often consist of members who play various instruments and contribute to vocals, producing a collective sound that defines their unique musical identity.</p>
                      
-                    <p className='description2'>
-                    Create Stunning Events:
-                    <br></br>
-                    With MHUNTER, event creation is a breeze. Seamlessly set up and customize your music events with essential details like event name, date, time, location. Craft the perfect atmosphere for your attendees, ensuring an unforgettable experience from start to finish.                    </p>
-              
+                  
                 </section>
              
-                <div className='eventcontainer'>
-
+                <div className='eventcontainer123'>
+                <div className='row search-artist-container'>
 
                 {/* <div className='row search-band-container'>
                     
@@ -131,15 +129,15 @@ HomeBand() {
                     {filteredBands.map(band => (
 
             
-                        <div className='col-md-3 band-box' >
+                        <div className='col-md-3 artist-box' >
                             <Link to="/organizer/searchband/viewband" className='link1'>
                                 <div className='image'>
-                                    <img src={`${BASE_URL}/postData/uploads/image/dinesh-tharanga.jpg`} alt="post media" />
+                                    <img src={`${BASE_URL}/postData/uploads/image/${band.user.imagePath}`} alt="post media" />
                                 </div>
 
                                 <div className='content'>
 
-                                    <h5>{band.user.bandName}</h5>
+                                    <h5>{band[0]}</h5>
                                     <StarRating rating={5} ></StarRating>
 
                                 </div>
@@ -149,7 +147,7 @@ HomeBand() {
 
                     ))}
                   
-
+                </div>
                 </div>
 
             </div>

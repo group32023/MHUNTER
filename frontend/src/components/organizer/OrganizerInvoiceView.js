@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import axios from 'axios';
 import { Button } from 'react-bootstrap';
 import '../../assets/css/ArtistInvoiceAgreementModal.css';
+import { useReactToPrint } from 'react-to-print';
 
 const OrganizerInvoiceView = (props) => {
 
@@ -14,7 +15,13 @@ const OrganizerInvoiceView = (props) => {
 
     const [musicMember, setMusicMember] = useState({});
 
+    const componentPDF = useRef();
 
+    const generatePDF = useReactToPrint({
+        content: () => componentPDF.current,
+        documentTitle: "Invoice",
+        onAfterPrint: () => alert("Data saved in PDF")
+    });
 
 
     useEffect(() => {
@@ -44,7 +51,19 @@ const OrganizerInvoiceView = (props) => {
 
     return (
         <div className="container">
-            <div className="card">
+            <div className="button-wrapper d-flex mb-3">
+
+                <Button id="myButtonPppp" class="button btn btn-default" onClick={generatePDF}>
+                    Print
+                    <div class="fill-container"></div>
+                </Button>
+                <Button id="myButtonPppp" class="button btn btn-default">
+                    Paynow
+                    <div class="fill-container"></div>
+                </Button>
+            </div>
+
+            <div className="card" ref={componentPDF}>
                 <div className="card-header invoice-header">
 
                     <div className="row">
@@ -221,15 +240,13 @@ const OrganizerInvoiceView = (props) => {
                             {musicMember.userName}
                         </p>
                     </div>
-                    <div className='col-3'>
-                        <Button >Pay Now</Button>
-                        <br></br>
 
-                    </div>
 
                 </div>
 
+
             </div>
+
         </div>
     )
 }

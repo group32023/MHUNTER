@@ -28,7 +28,9 @@ library.add(fas);
 
 function ViewEvents() {
 
-    const orgid = 1;
+    // const orgid = 1;
+    const orgid = localStorage.getItem('orgid');
+    // console.log('orgid:', orgid);
     const [events, setEvents] = useState([])
     const BASE_URL = "http://localhost:8080";
 
@@ -58,7 +60,7 @@ function ViewEvents() {
                 console.log(result);
             }
             )
-            
+
     }, [])
 
 
@@ -132,7 +134,7 @@ function ViewEvents() {
                     <Route path='/organizer/searchartist/viewartist/:mmid/:eventid' element={<ViewArtist />} />
                     <Route path='/organizer/searchartist/viewartist/makeartistrequest/:mmid/:eventid' element={<MakeArtistRequest />} />
                     <Route path='/organizer/searchband/:eventid' element={<SearchBand />} />
-                    <Route path='/organizer/searchband/viewband/:mmid/:eventid' element={<ViewBand/>} />
+                    <Route path='/organizer/searchband/viewband/:mmid/:eventid' element={<ViewBand />} />
                 </Routes>
             </SideMenuBarOrganizer>
         </>

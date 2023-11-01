@@ -2,9 +2,13 @@ import React, { useState,useEffect } from 'react'
 import eventimage from '../assets/images/slide_8.jpg';
 import { Table } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
-
+import profileImage from '../assets/images/profilePhoto.jpeg';
+import crowd from '../assets/images/people.png';
+import duration from '../assets/images/hourglass.png';
+import eventtype from '../assets/images/eventtype.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import {faPhone,faLocationDot,faList} from '@fortawesome/free-solid-svg-icons'
+import {faPhone,faLocationDot,faList,faCalendarDays,faClock} from '@fortawesome/free-solid-svg-icons'
+import { faTwitter, faFontAwesome,faFacebook,faGooglePlusG,faLinkedinIn } from '@fortawesome/free-brands-svg-icons'
 
 import '../assets/css/eventTable.css'
 import Pagination from '@mui/material/Pagination';
@@ -19,18 +23,8 @@ export default function () {
 
   const handle = () =>{
     fetch(`http://localhost:8080/event/getAll`).then((res)=>res.json()).then((data)=>{
-        const newItem = data.map(item =>
-      (
-            <tr>
-                  <td>{item.date}</td>
-                  <td><img src={`${BASE_URL}/postData/uploads/image/${item.eventImage}`} id="eventImage"></img></td>
-                  <td>{item.event_name}</td>
-                  <td><FontAwesomeIcon icon={faLocationDot} id="LocationIcon"/>MATARA</td>
-                  <td>{item.start_time}</td>
-            </tr>
-      ))
-                    
-      setEvent(newItem)
+       
+      setEvent(data);
             
 }) .catch(error =>{
       console.log('There was a problem with the fetch operation:', error.message)
@@ -73,21 +67,33 @@ useEffect(()=>{
        
         <div>
              
-                <div className='eventTablecontainer'>
+                <div className='eventcontainer3'>
+                <label className='event-list-Header'>EVENT LIST</label>
+                    
+                {setPagination().map((eventList) => 
+                     <div className="requestContainerForEvent123">
+                              <img src={`${BASE_URL}/postData/uploads/image/${eventList["image"]}`} className="profile4"></img>
+                              <div className="eventDetails2">
+                                <h5>{eventList['organizerName']}</h5>
+                                <p class="eventType11"><img src={eventtype} className="EventIconPendingRequest1"></img>{eventList['event_name']}</p>
+                                    <p class="eventDate11"><FontAwesomeIcon icon={faCalendarDays} id="CalenderIconPendingRequest1"/>{eventList['date']}</p>
+                                    <p class="venue11"><FontAwesomeIcon icon={faClock} id="LocationIconPendingRequest1"/>{eventList['start_time']}</p>
+                                    <p class="eventDate12"><img src={crowd} className="CalenderIconPendingRequest2"></img>{eventList['crowd']}</p>
+                                    <p class="venue12"><FontAwesomeIcon icon={faLocationDot} id="LocationIconPendingRequest2"/>{eventList['town']}</p>
+                              </div>
+     
+   
+    
+      
+   
+  </div>)}
 
-                    <lable className="eventList">EVENTS LIST</lable>
-                      <Table className='table table-hover table-dark' id="tableEvent" >
-                        <tbody>
-                          <div>{setPagination().map((item) => item)}</div>
-                        </tbody>
-                      </Table>
-                      <div className='artistEventTablePagination'>
-                        <Stack spacing={2}>
-                          <Pagination count={(Math.round(event.length/noOfLinePerPage))} color="secondary" page={page} onChange={handleChange} />
-                        </Stack>
-                      </div>
-                  
+                </div>
 
+                <div className='artistEventPagination23'>
+                  <Stack spacing={2}>
+                    <Pagination count={(Math.round(event.length/noOfLinePerPage))} color="secondary" page={page} onChange={handleChange} />
+                  </Stack>
                 </div>
 
             </div>

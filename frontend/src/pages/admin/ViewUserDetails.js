@@ -41,27 +41,22 @@ function ViewUserDetails() {
       });
   }, [id]);
 
-    /*const [formData, setFormData] = useState({
-        name: '',
-        usecode: '',
-        userType: '',
-        address: '',
-        email: '',
-      });
-    
-      const handleChange = (event) => {
-        const { name, value } = event.target;
-        setFormData({ ...formData, [name]: value });
-      };
-    
-      const handleSubmit = (event) => {
-        event.preventDefault();
-        console.log(formData);
-      };
-    
-      const inputRef = useRef(null);*/
 
-    
+  const removeUser = () => {
+    fetch(`http://localhost:8080/user/${id}`, {
+      method: 'DELETE'
+    })
+      .then((response) => {
+        if (!response.ok) {
+          alert("User is removed Successfully");
+          throw new Error('Network response was not ok');
+        }
+      })
+      .catch((error) => {
+        console.error('Error removing user:', error);
+      });
+  };
+
       return (
         <>
         <SideMenuBarAdmin>
@@ -75,7 +70,7 @@ function ViewUserDetails() {
         <form>
           <div className='user-details'>
             <div >
-              <img src={band} alt='band' className='profile-picture-proofcheck'></img>
+              <img src={`http://localhost:8080/postData/uploads/image/${userformData.imagePath}`} alt='band' className='profile-picture-proofcheck'></img>
             </div>
             <div className="my-form">
               <table>
@@ -107,7 +102,7 @@ function ViewUserDetails() {
           
           <div className="d-flex justify-content-between button-proofcheck">
             
-            <button  type="button" className="btn btn-danger"><h5>Remove User</h5></button>
+            <button  type="button" className="btn btn-danger" style={{marginTop:'10px'}} onClick={removeUser}><h5>Remove User</h5></button>
           </div>
         </form>
 

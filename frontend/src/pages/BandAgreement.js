@@ -48,7 +48,31 @@ export default function BandAgreemnt() {
   const skip="skip";
 
   const [showModal1, setShowModal1] = useState(false);
+  const [band, setBand] = useState();
 
+
+
+  useEffect(() => {
+    //console.log(mmid);
+      fetch(`http://localhost:8080/band/viewSpecificBand/${mmid}`)
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error("Network response was not ok");
+          }
+          return response.json();
+        })
+
+        .then((data) => {
+          setBand(data);
+         
+        })
+        .catch((error) => {
+          console.log("Error fetching data:", error);
+        });
+    
+  }, []);
+
+ console.log(band.musicMember['name']);
   const handleShowModal1 = () => {
     if((rule1==="null" && rule2==="null" && rule3==="null" && rule4==="null" && additionalRules==="" )|| url==="null"){
     }else{
@@ -123,24 +147,24 @@ const Generate=()=>{
 
 
 const handleCheckboxChangeRule1=()=>{
-  setRule1("Advanced1");
+  setRule1("LED Wall Required");
 
 }
 
 const handleCheckboxChangeRule2=()=>{
-  setRule2("Advanced2");
+  setRule2("Sound System Required");
 
 
 }
 
 const handleCheckboxChangeRule3=()=>{
-  setRule3("Advanced3");
+  setRule3("Singers must perform with band members");
 
   
 }
 
 const handleCheckboxChangeRule4=()=>{
-  setRule4("Advanced4");
+  setRule4("Band has a Dancing Team");
 
   
 }
@@ -205,11 +229,11 @@ const loadInvoice=(id,mmid)=>{
                   <div className='bandDetailsDiv'>
                   <h5 className='h5forbandDetails'>Band Details</h5>
                   <div className='detailsOfBandInfo'>
-                  <div><p className='bandNameLable'>Band Name : </p> <p className='bandName'>FlashBack</p></div>
+                  <div><p className='bandNameLable'>Band Name : </p> <p className='bandName'>{band.musicMember['name']}</p></div>
 
-                  <div><p className='bandAddressLable'>Address : </p> <p className='bandAddress'>Colombo 05</p></div>
+                  <div><p className='bandAddressLable'>Address : </p> <p className='bandAddress'>{band.user['address']}</p></div>
 
-                  <div><p className='bandEmailLable'>E-mail : </p> <p className='bandEmail'>flashback@gmail.com</p></div>
+                  <div><p className='bandEmailLable'>E-mail : </p> <p className='bandEmail'>{band.user['email']}</p></div>
                   </div>
                   </div>
                   
@@ -223,10 +247,10 @@ const loadInvoice=(id,mmid)=>{
 
                             <p className='commandRules'>* Select Rules, want to add into agreement.</p>
                             <div className='agreementRulesDefine'>  
-                              <input type="checkbox" id="advanced1" name="advanced" onChange={handleCheckboxChangeRule1}/> <label className='rule1'>Others Can not sing</label>
-                              <input type="checkbox" id="advanced2" name="advanced" onChange={handleCheckboxChangeRule2}/><label className='rule2'>Others Can not sing</label>
-                              <input type="checkbox" id="advanced3" name="advanced" onChange={handleCheckboxChangeRule3}/> <label className='rule3'>Others Can not sing</label>
-                              <input type="checkbox" id="advanced4" name="advanced" onChange={handleCheckboxChangeRule4}/> <label className='rule4'>Others Can not sing</label>
+                              <input type="checkbox" id="advanced1" name="advanced" onChange={handleCheckboxChangeRule1}/> <label className='rule1'>LED Wall Required</label>
+                              <input type="checkbox" id="advanced2" name="advanced" onChange={handleCheckboxChangeRule2}/><label className='rule2'>Sound System Required</label>
+                              <input type="checkbox" id="advanced3" name="advanced" onChange={handleCheckboxChangeRule3}/> <label className='rule3'>Singers must perform with band members</label>
+                              <input type="checkbox" id="advanced4" name="advanced" onChange={handleCheckboxChangeRule4}/> <label className='rule4'>We have a dancing team</label>
                               {/* <input type="checkbox" id="advanced5" name="advanced" onChange={handleCheckboxChangeRule5}/> <label className='rule5'>Others Can not sing</label>
                               <input type="checkbox" id="advanced6" name="advanced" onChange={handleCheckboxChangeRule6}/> <label className='rule6'>Others Can not sing</label> */}
                               <lable className="otherRules">Others : </lable><input type='text' id="advanced7" name="advanced" value={additionalRules} onChange={(e)=>setAdditionalRules(e.target.value)}></input>

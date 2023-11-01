@@ -27,6 +27,9 @@ function CreateEvent() {
 
 
   const [showModal, setShowModal] = useState(false);
+  
+  const orgid = parseInt(localStorage.getItem('orgid'), 10);
+  console.log('orgid:', orgid);
 
   const handleShowModal = () => {
     setShowModal(true);
@@ -43,6 +46,7 @@ function CreateEvent() {
     event_type: '',
     date: '',
     crowd: '',
+    orgID: orgid,
     start_time: '',
     end_time: '',
     location: '',
@@ -66,7 +70,7 @@ function CreateEvent() {
         ...prevFormData,
         [name]: value,
         image: value,
-
+        
       }));
       console.log(formData);
 
@@ -75,6 +79,7 @@ function CreateEvent() {
       setFormData((prevFormData) => ({
         ...prevFormData,
         [name]: value,
+       
       }));
       console.log(formData);
     }

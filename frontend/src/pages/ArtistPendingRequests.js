@@ -104,7 +104,7 @@ export default function ArtistPendingRequests() {
         </div>
 
         <button
-          className="viewBtn"
+          className="viewBtn4"
           onClick={() => load(eventList[i]["eventId"])}
         >
           View
@@ -119,37 +119,7 @@ export default function ArtistPendingRequests() {
     console.log(data.selected);
   };
 
-  console.log(eventList);
-  if (eventList.length === 0)
-    return (
-      <div>
-        <SideMenuBarArtist>
-          <div className="MainContainer">
-            <p className="headerDashboard">Pending Requests</p>
-            <div className={expand ? "notificationBg" : "notificationBg-ex"}>
-              <img
-                src={notification}
-                className="notificationIcon"
-                alt="notification"
-              ></img>
-            </div>
-            <div className={expand ? "homeBg" : "homeBg-ex"}>
-              <Link to={"/"}>
-                <img src={home} alt="homebtn" className="homeIcon"></img>
-              </Link>
-            </div>
-            <div className={expand ? "logoutBg" : "logoutBg-ex"}>
-              <img src={logout} alt="logout" className="logout"></img>
-              <p className="logoutbtn">Logout</p>
-            </div>
-            <div className="progressBar">
-              <CircularProgress color="secondary" />
-            </div>
-          </div>
-        </SideMenuBarArtist>
-      </div>
-    );
-
+ 
   return (
     <div>
       <SideMenuBarArtist>
@@ -172,6 +142,11 @@ export default function ArtistPendingRequests() {
             <p className="logoutbtn">Logout</p>
           </div>
           {divElements}
+          <div className='emptyForPendingRequest'>
+        {(divElements.length ===0)?<><img src={empty} className='empty-img'></img><span className='emptyContent-report'>it's empty in here.</span></>:undefined}
+
+        </div>
+
         </div>
       </SideMenuBarArtist>
     </div>

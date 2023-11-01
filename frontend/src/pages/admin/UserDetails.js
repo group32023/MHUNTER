@@ -73,7 +73,7 @@ function UserDetails() {
                 <div className='artist-image'>
                     <img src={require('../../assets/images/profilePhoto.jpeg')} alt={'artist'} height={150} width={150}/>
                 </div>
-                <Link  to={`/admin/userdetails/${typeM}`}>
+                <Link  to={`/admin/userdetails/moderators`}>
                     <span className='button-userdetails'><button type='button' className='btn btn-primary'> View </button></span>
                 </Link>
             </div>

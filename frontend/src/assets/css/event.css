@@ -49,7 +49,7 @@
 }
 .eventTableContainerView{
     position: relative;
-    top: 121px;
+    top: 242px;
     left: 31px;
 }
 
@@ -77,16 +77,63 @@
     left: 262px;
 }
 
-.requestContainerForEvent{
+.requestContainerForEvent123{
     height: 8%;
     width: 70%;
     position: relative;
-    top: 187px;
-    left: 25%;
+    top: -28px;
+    left: 5%;
     margin-bottom: 20px;
     border-radius: 25px;
     
   
+}
+
+.eventType11 {
+    position: absolute;
+    left: 30%;
+    top: 30%;
+}
+
+.eventDate11 {
+    position: absolute;
+    left: 55%;
+    top: 30%;
+}
+
+.eventDate12 {
+    position: absolute;
+    left: 90%;
+    top: 30%;
+}
+
+.venue11 {
+    position: absolute;
+    left: 75%;
+    top: 30%;
+}
+.venue12 {
+    position: absolute;
+    left: 105%;
+    top: 30%;
+    width: 200px;
+}
+
+.requestContainerForEvent123 .eventDetails2 {
+    position: relative;
+    color: white;
+    font-size: 20px;
+    top: -16px;
+    text-align: center;
+}
+
+
+.requestContainerForEvent123 .profile4 {
+    position: relative;
+    width: 55px;
+    height: 55px;
+    top: 31.5px;
+    left: 195px;
 }
 
 .requestContainerForEvent .eventType1{
@@ -303,12 +350,24 @@
 
 }
 
+.eventcontainer3{
+
+    background-color: rgba(3, 3, 3, 0.60);
+    width: 94%;
+    height: 63%;
+    position: relative;
+    top: 1995px;
+    left: 3%;
+    z-index: 100;
+
+}
+
 
 .requestContainerForEvent{
     width: 94%;
     height:63%;
     position: relative;
-    top: 14%;
+    top: -79px;
     left: -6%;
 
 }
@@ -329,3 +388,32 @@
     top: -237px;
     left: -88px;
 }
+
+.artistEventPagination23{
+    position: absolute !important;
+    top: 3010px !important;
+    left: 699px !important;
+    z-index: 1000;
+  }
+
+  .css-19micn4-MuiButtonBase-root-MuiPaginationItem-root.Mui-selected{
+    background-color: #7643D2 !important;
+    
+  }
+
+  .event-list-Header{
+    display: flex;
+    width: 216px;
+    height: 65px;
+    flex-direction: column;
+    color: #FFF;
+    font-family: Inter;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+    position: absolute;
+    top: 1206px;
+    left: 643px;
+    z-index: 100;
+  }

@@ -95,7 +95,7 @@ public class EventController {
         eventOrganizer.setPlace(event.getTown());
         eventOrganizer.setDate(event.getDate());
         eventOrganizer.setCrowd(event.getCrowd());
-//        eventOrganizer.setEventImage(event.getEventImage());
+        eventOrganizer.setEventImage(event.getImage());
         Duration difference = Duration.between(event.getStart_time(), event.getEnd_time());
         long hours = difference.toHours();
         long minutes = difference.toMinutes() % 60;
@@ -190,6 +190,15 @@ public class EventController {
     @GetMapping("/allEvents")
     List<Event> getAllEvents() {
         return eventRepository.findAll();
+    }
+
+    @GetMapping("/upcomingEvents")
+    public ResponseEntity<List<Event>> getUpcomingEvents() {
+        List<Event> upcomingEvents = eventService.getUpcomingEvents();
+        if (upcomingEvents.isEmpty()) {
+            return ResponseEntity.notFound().build();
+        }
+        return ResponseEntity.ok(upcomingEvents);
     }
 
 }
