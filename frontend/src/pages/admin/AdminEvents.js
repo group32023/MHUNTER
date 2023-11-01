@@ -1,4 +1,4 @@
-import React from 'react'
+import Reac, { useState } from 'react'
 import SideMenuBarAdmin from '../../components/common/SideMenuBar/SideMenuBarAdmin'
 import '../../assets/css/admin/adminDashboard.css'
 import { Link, Route, Routes } from 'react-router-dom';
@@ -16,41 +16,26 @@ import band from '../../assets/images/band.jpg'
 import EventBanner from '../../assets/images/aaley.jpg'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
+import {useEffect } from 'react';
+import axios from 'axios';
+
 function AdminEvents() {
-    const events = [
-        {
-          eventid: 1,
-          event_name: 'Aaley Conert',
-          location: 'Example Place, Example Town',
-          date: 'June 14 2023',
-          start_time: '18:00',
-          image: EventBanner
-        },
-        {
-          eventid: 2,
-          event_name: 'Art Exhibition',
-          location: 'Art Gallery, Artville',
-          date: 'June 14 2023',
-          start_time: '15:00',
-          image: band
-        },
-        {
-          eventid: 3,
-          event_name: 'Food Festival',
-          location: 'Food Park, Tastyville',
-          date: 'June 14 2023',
-          start_time: '12:00',
-          image: band
-        },
-        {
-            eventid: 4,
-            event_name: 'Food Festival',
-            location: 'Food Park, Tastyville',
-            date: 'June 14 2023',
-            start_time: '12:00',
-            image: band
-          }
-      ];
+    const [events, setEvents] = useState([]);
+
+  useEffect(() => {
+    const fetchEvents = async () => {
+      try {
+        const response = await axios.get('http://localhost:8080/event/allEvents');
+        setEvents(response.data);
+        console.log(response.data);
+      } catch (error) {
+        console.error('Error fetching events:', error);
+      }
+    };
+
+    fetchEvents();
+  }, []);
+
   return (
     <>
     <SideMenuBarAdmin>
@@ -63,18 +48,20 @@ function AdminEvents() {
     <div className="row">
         {events.map(event => (
         <div className="col-md" key={event.eventid}>
-            <Link to={'/admin/event/eventDetails'} className="event-link-admin">
+            <Link to={`/admin/event/eventDetails/${event.eventid}`} className="event-link-admin">
 
                 <div className="event-card-admin">
                     <img
-                    src={event.image}
+                    src={EventBanner}
                     alt={`Event ${event.eventid}`}
                     style={{ height: '150px', marginBottom: '20px', borderRadius: '30px' }} />
 
-                    <div className="event-details">
+                    <div className="event-details" style={{display:'flex', justifyContent:'center'}}>
                         <div><h3>{event.event_name}</h3>
-                        <p>{event.location}</p></div>
-                        <div className="start-time">Start Time {event.start_time}</div>
+                        <p >{event.location}</p>
+                        <p >Start Time {event.start_time}</p>
+                        </div>
+                        
                     </div>
 
                     <div className='date-container'>
