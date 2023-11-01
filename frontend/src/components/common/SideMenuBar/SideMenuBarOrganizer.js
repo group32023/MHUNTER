@@ -29,7 +29,7 @@ function SideMenuBarOrganizer({ children }) {
               return response.json();
         })
         .then((data)=>{
-            localStorage.setItem("orgid",data['org_id']);
+            localStorage.setItem("orgid",data['orgId']);
         })
         .catch((error)=>{
             console.log("Error fetching data:", error)
@@ -48,7 +48,7 @@ function SideMenuBarOrganizer({ children }) {
                 });
         }
     }, []);
-    console.log("Current user:", user); 
+    // console.log("Current user:", user); 
 
 	return (
 		<div className="full-container">

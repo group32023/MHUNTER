@@ -99,6 +99,8 @@ import ModeratorEvent from "./pages/moderator/event";
 import Suspenduser from './pages/moderator/suspenduser';
 import StripeClient from './pages/organizer/StripeClient';
 import TestButton from './pages/organizer/TestButton';
+import AllModeratorDetails from './pages/admin/AllModeratorDetails';
+import AddModerator from './pages/admin/AddModerator';
 function App() {
   return (
 
@@ -196,6 +198,8 @@ function App() {
           <Route path='/admin/event' element={<AdminEvents />} />
           <Route path='/admin/event/eventDetails/:id' element={<AdminEventDashboard/>} />
           <Route path='/admin/profile/:id' element={<AdminProfile/>} />
+          <Route path='/admin/userdetails/moderators' element={<AllModeratorDetails/>} />
+          <Route path='/admin/userdetails/moderators/add' element={<AddModerator/>} />
 
           {/*moderator*/}
            <Route path='/moderator/moderatorDashoboardContent' element={<ModeratorDashoboardContent />}></Route>

@@ -72,7 +72,7 @@ function ArtistInvoiceAgreementModal(props) {
                 <Modal.Body style={{ backgroundColor: '#1c2126' }}>
                     <div className="ArtistInvoiceAgreementModalContainer  p-2 " style={{ color: 'white' }} id='scrollbarStyle-12'>
 
-                        <div className="ArtistInvoiceAgreementModalContainer1 p-4  rounded shadow mb-1">
+                        <div className="ArtistInvoiceAgreementModalContainer1 p-4  rounded shadow">
                             <Tab.Container activeKey={activeTab} onSelect={key => setActiveTab(key)} >
                                 <Nav variant="pills" className="ArtistInvoiceAgreementModalContainer1Nav py-2 flex-column flex-sm-row text-center border-1 rounded-nav" style={{ backgroundColor: '#1c2126' }}>
                                     <Nav.Item className='col-3 mx-4 ' >
@@ -85,13 +85,13 @@ function ArtistInvoiceAgreementModal(props) {
                                         <Nav.Link eventKey="agreement">Agreement</Nav.Link>
                                     </Nav.Item>
                                 </Nav>
-                                <Tab.Content className='ArtistInvoiceAgreementTabContent mt-5 px-4'>
+                                <Tab.Content className='ArtistInvoiceAgreementTabContent mt-3 px-4'>
                                     <Tab.Pane eventKey="details">
 
                                         <AgreementDetailProfile style={{ color: 'black' }} />
                                     </Tab.Pane>
                                     <Tab.Pane eventKey="invoice">
-                                        <Button onClick={handlePrint}>Print</Button>
+
                                         <OrganizerInvoiceView
                                             ref={componentRef}
                                             detail0={detail0}
