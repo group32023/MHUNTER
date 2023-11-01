@@ -95,7 +95,11 @@ public class EventController {
         eventOrganizer.setPlace(event.getTown());
         eventOrganizer.setDate(event.getDate());
         eventOrganizer.setCrowd(event.getCrowd());
+<<<<<<< HEAD
+        eventOrganizer.setOrganizerImage(user.getImagePath());
+=======
         eventOrganizer.setEventImage(event.getImage());
+>>>>>>> de61354ec9c0982e9bacf6069deb903a39b21a8f
         Duration difference = Duration.between(event.getStart_time(), event.getEnd_time());
         long hours = difference.toHours();
         long minutes = difference.toMinutes() % 60;
