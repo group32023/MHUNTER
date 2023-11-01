@@ -16,6 +16,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import SideMenuBarBand from '../../components/common/SideMenuBar/SideMenuBarBand'
 import Notification from '../../components/common/Notification'
 import '../../assets/css/notification.css'
+import Topbar from '../../components/common/Topbar'
 
 export default function BandDashboard() {
   
@@ -78,21 +79,8 @@ export default function BandDashboard() {
         
         <div >
             <p className='headerDashboard'>Dashboard</p>
-            <div className={expand ? 'notificationBg':'notificationBg-ex'}>
-              <div className={noNotification >0 ? 'count-notification-bg':''}>
-                <small>{noNotification >0 ? noNotification:undefined}</small>
-              </div>
-              <img src={notification} className='notificationIcon' alt='notification' onClick={(e)=>handleOpenNotification()}></img>
-            </div>
-            <div className={expand ? 'homeBg':'homeBg-ex'}>
-            <Link to={'/'}>
-                <img src={home} alt='homebtn' className='homeIcon'></img>
-              </Link>
-            </div>
-            <div className={expand ? 'logoutBg':'logoutBg-ex'}>
-              <img src={logout} alt='logout'className='logout'></img>
-              <p className='logoutbtn'>Logout</p>
-            </div>
+            <Topbar></Topbar>
+           
 
             {/* web post */}
             <ArtistDashboardCarousel/>

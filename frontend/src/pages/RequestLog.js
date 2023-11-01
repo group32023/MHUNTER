@@ -21,6 +21,7 @@ import empty from '../assets/images/empty(1).png'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {faPhone,faLocationDot,faList,faCalendarDays} from '@fortawesome/free-solid-svg-icons'
 import { faTwitter, faFontAwesome,faFacebook,faGooglePlusG,faLinkedinIn } from '@fortawesome/free-brands-svg-icons'
+import Topbar from '../components/common/Topbar';
 
 
 
@@ -35,6 +36,7 @@ export default function ArtistPendingRequests() {
   const [id1,setId1]=useState(0)
   const [cancelState,setCancelState]=useState(false)
   const [reason,setReason]=useState(" ")
+  const BASE_URL = "http://localhost:8080";
 
 
   const handleShowModal = (id) => {
@@ -99,7 +101,7 @@ export default function ArtistPendingRequests() {
   for (let i = 0; i < divCount; i++) {
     
     divElements.push(<div key={i} className="requestContainerlog">
-      <img src={`http://localhost:8080/postData/uploads/image/${eventList[i]["organizerImage"]}`} className="profilelog"></img>
+      <img src={`${BASE_URL}/postData/uploads/image/${eventList[i]["image"]}`} className="profilelog"></img>
       <div className="eventDetailslog">
         <h5>{eventList[i]['organizerName']}</h5>
        { console.log(eventList[i]['organizerName'])}
@@ -134,16 +136,7 @@ export default function ArtistPendingRequests() {
   
     
             <p className='headerDashboard'>Request Log</p>
-            <div className={expand ? 'notificationBg':'notificationBg-ex'}>
-              <img src={notification} className='notificationIcon' alt='notification'></img>
-            </div>
-            <div className={expand ? 'homeBg':'homeBg-ex'}>
-              <img src={home} alt='homebtn' className='homeIcon'></img>
-            </div>
-            <div className={expand ? 'logoutBg':'logoutBg-ex'}>
-              <img src={logout} alt='logout'className='logout'></img>
-              <p className='logoutbtn'>Logout</p>
-          </div>
+            <Topbar></Topbar>
 
      
       

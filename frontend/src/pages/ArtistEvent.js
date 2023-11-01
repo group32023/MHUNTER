@@ -17,6 +17,7 @@ import Pagination from '@mui/material/Pagination';
 import Stack from '@mui/material/Stack';
 import CircularProgress from '@mui/material/CircularProgress';
 import empty from '../assets/images/empty(1).png'
+import Topbar from '../components/common/Topbar'
 
 
 export default function ArtistEvent() {
@@ -49,7 +50,7 @@ export default function ArtistEvent() {
           <h4>{item.organizerName}</h4>
           <p class="artistEventTypeArtistEvent"><img src={eventType} alt=''className='artistEventTypeImg'></img>{item.eventType}</p>
           <p class="eventDateArtistEvent"><FontAwesomeIcon icon={faCalendarDays} id="CalenderIconPendingRequest"/>{item.date}</p>
-          <p class="venueArtistEvent"><FontAwesomeIcon icon={faLocationDot} id="LocationIconPendingRequest"/>{item.place}</p>
+          <p class="venueArtistEvent"><FontAwesomeIcon icon={faLocationDot} id="LocationIconPendingRequest"/>Colombo 07</p>
         </div>
         <Button className="viewBtnArtistEvent" onClick={()=>directions(item.eventId)}>View</Button>
      
@@ -115,21 +116,7 @@ export default function ArtistEvent() {
     <div>
             <SideMenuBarArtist>
         <p className='headerDashboard'>Events</p>
-            <div className={expand ? 'notificationBg':'notificationBg-ex'}>
-              <img src={notification} className='notificationIcon' alt='notification'></img>
-            </div>
-            <div className={expand ? 'homeBg':'homeBg-ex'}>
-              <Link to={'/'}>
-                <img src={home} alt='homebtn' className='homeIcon'></img>
-              </Link>
-            </div>
-            <div className={expand ? 'logoutBg':'logoutBg-ex'}>
-              
-              <img src={logout} alt='logout'className='logout'></img>
-              
-              
-              <p className='logoutbtn'>Logout</p>
-            </div>
+            <Topbar></Topbar>
             <input className='artistEventSearchBar' placeholder='Search by keyword' value={getFilterData} onChange={(e)=>{setFilterData(e.target.value);setFilter()}}></input>
             {getFilterData.length > 0 ? 
             <FontAwesomeIcon icon="fa-solid fa-circle-xmark" className='artistEventSearchBarIcon' onClick={clearState}/>

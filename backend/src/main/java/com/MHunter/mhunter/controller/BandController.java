@@ -66,8 +66,8 @@ public class BandController {
 
     @GetMapping("/viewSpecificBand/{mmid}")
     public Band viewSpecificBand( @PathVariable int mmid){
-Band band = bandService.findByMMID(mmid);
-int bandId = band.getBandID();
+        Band band = bandService.findByMMID(mmid);
+        int bandId = band.getBandID();
         return bandService.findSpecificBand(bandId);
     }
 

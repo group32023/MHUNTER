@@ -26,7 +26,8 @@ export default function ArtistPendingRequests() {
   const { id } = useParams();
 
   const [event, setEvent] = useState([]);
-  const mmid=localStorage.getItem('mmid');;
+  const mmid=localStorage.getItem('mmid');
+  // const BASE_URL = "http://localhost:8080";
 
 
   const [expand,setExpandedSideBar] = useState(true)
