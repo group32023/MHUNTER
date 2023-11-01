@@ -72,6 +72,27 @@ public class UserController {
         return UsersList;
 
     }
+
+    @GetMapping("/moderator/view/verified")
+    public List<UserArtist> getModerators(){
+        List<StaffMember> staffMembersList = staffMemberService.findAllStaffMembers();
+        List<UserArtist> ModeratorsList = new ArrayList<>();
+        staffMembersList.forEach(item ->{
+            if("Moderator".equals(item.getJobRoll())) {
+                UserArtist allUserM = new UserArtist();
+                allUserM.setImgPath(item.getUser().getImagePath());
+                allUserM.setFirstName(item.getUser().getFirstName());
+                allUserM.setLastName(item.getUser().getLastName());
+                allUserM.setEmail(item.getUser().getEmail());
+                allUserM.setAddress(item.getUser().getAddress());
+                allUserM.setType("Moderator");
+                allUserM.setId(item.getUser().getUserId());
+                ModeratorsList.add(allUserM);
+            }
+        });
+        return ModeratorsList;
+
+    }
     @GetMapping("/view")
     public List<AllUsers> viewAll(){
         List<MusicMember> artistBandLists = musicMemberService.viewMusicMembers();
@@ -152,22 +173,19 @@ public class UserController {
                 }).orElseThrow(() -> new UserNotFoundException(userId));
     }
 
-    /*@DeleteMapping("/user/{userId}")
-    String deleteUser(@PathVariable int userId){
-        if(!userRepository.existsById(userId)) {
+    @DeleteMapping("/user/{userId}")
+    public ResponseEntity<String> deleteUser(@PathVariable int userId) {
+        if (!userRepository.existsById(userId)) {
             throw new UserNotFoundException(userId);
         }
-
-        artistRepository.deleteByUserId(userId); // Assuming deleteByUserId method is implemented in artistRepository
-        musicMemberRepository.deleteByUserId(userId); // Assuming deleteByUserId method is implemented in musicMemberRepository
         userRepository.deleteById(userId);
-        return  "User with id "+userId+" has been deleted success.";
-    }*/
-    @DeleteMapping("/user/{userId}")
+        return ResponseEntity.ok("User with id " + userId + " has been deleted successfully.");
+    }
+   /* @DeleteMapping("/user/{userId}")
     public ResponseEntity<String>  deleteUserById(@PathVariable int userId){
         String msg = "User with ID " + userId + " has been deleted";
         return ResponseEntity.ok(msg);
-    }
+    }*/
 
     @GetMapping("/viewSpecificUser/{id}")
     public User viewSpecificUser(@PathVariable int id){

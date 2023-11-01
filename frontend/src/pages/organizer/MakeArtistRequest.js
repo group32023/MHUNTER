@@ -29,6 +29,8 @@ import SideMenuBarOrganizer from '../../components/common/SideMenuBar/SideMenuBa
 function MakeArtistRequest() {
 
 
+    const orgid1 = parseInt(localStorage.getItem('orgid'), 10);
+    console.log('orgid:', orgid1);
 
 
     const [showModal, setShowModal] = useState(false);
@@ -44,7 +46,7 @@ function MakeArtistRequest() {
 
     const [event, setEvents] = useState([]);
 
-    const orgid = 1;
+    // const orgid = 1;
     const { mmid, eventid } = useParams();
 
     const currentDate = format(new Date(), 'yyyy-MM-dd');
@@ -55,7 +57,7 @@ function MakeArtistRequest() {
         arrivalTime: '',
         departureTime: '',
         specialNotes: '',
-
+        // org_id : orgid1
 
     })
 
@@ -195,7 +197,7 @@ function MakeArtistRequest() {
                         <div className="form-group">
                             <Link to="/organizer/event" className='link1'>
                                 <button class="btn " type="submit" onClick={(e) => {
-                                    e.preventDefault(); console.log(formData); fetch(`http://localhost:8080/requestMusicMember/add/${mmid}/${eventid}/${orgid}`, {
+                                    e.preventDefault(); console.log(formData); fetch(`http://localhost:8080/requestMusicMember/add/${mmid}/${eventid}/${orgid1}`, {
                                         method: "POST",
                                         headers: { "Content-Type": "application/json" },
                                         body: JSON.stringify(formData)
