@@ -203,4 +203,10 @@ public class UserController {
         return userService.getAdminReportData();
     }
 
+
+    @GetMapping("/organizer/{userId}")
+    Organizer getOrgById(@PathVariable int userId) {
+        return organizerService.findSpecificOrganizerByUserID(userId);
+    }
+
 }

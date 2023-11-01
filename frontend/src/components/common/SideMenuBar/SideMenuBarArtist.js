@@ -46,7 +46,6 @@ function SideMenuBarArtist({ children }) {
                 .then(response => {
                     setUser(response.data);
                     setImage(response.data['imagePath'])
-                    console.log(image)
                 })
                 .catch(error => {
                     console.error(error);
@@ -83,7 +82,7 @@ function SideMenuBarArtist({ children }) {
                     </div>
 
                     <div className="row">
-                        <NavLink to="/artist/profile/${user?.userId}">
+                        <NavLink to={`/artist/profile/${user?.userId}`}>
                             <div className="menu-profilePhoto col d-flex justify-content-center">
                             <img
                                     className={isExpanded ? "menu-item-profilePhoto img-fluid my-4" : "menu-item-profilePhoto-NX"}

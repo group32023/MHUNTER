@@ -51,14 +51,14 @@ function ViewEvents() {
     };
 
     useEffect(() => {
-        fetch(`http://localhost:8080/event/getAll/${orgid}`)
+        fetch(`http://localhost:8080/event/getAll/9`)
             .then(res => res.json())
             .then((result) => {
                 setEvents(result);
                 console.log(result);
             }
             )
-            
+
     }, [])
 
 
@@ -132,7 +132,7 @@ function ViewEvents() {
                     <Route path='/organizer/searchartist/viewartist/:mmid/:eventid' element={<ViewArtist />} />
                     <Route path='/organizer/searchartist/viewartist/makeartistrequest/:mmid/:eventid' element={<MakeArtistRequest />} />
                     <Route path='/organizer/searchband/:eventid' element={<SearchBand />} />
-                    <Route path='/organizer/searchband/viewband/:mmid/:eventid' element={<ViewBand/>} />
+                    <Route path='/organizer/searchband/viewband/:mmid/:eventid' element={<ViewBand />} />
                 </Routes>
             </SideMenuBarOrganizer>
         </>

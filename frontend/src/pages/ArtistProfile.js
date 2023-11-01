@@ -7,7 +7,7 @@ import logout from "../assets/images/logout.png";
 import SideMenuBarArtist from "../components/common/SideMenuBar/SideMenuBarArtist";
 import { Link, Route, Routes } from "react-router-dom";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import Button from "react-bootstrap/Button";
@@ -15,6 +15,11 @@ import Modal from "react-bootstrap/Modal";
 
 export default function ArtistProfile() {
   const [expand, setExpandedSideBar] = useState(true);
+  const [fileName, setFileName] = useState("No file chosen");
+  const [file,setFile] = useState(null)
+  const [errorFile,setErrorFile] = useState('')
+  const fileInput = useRef(null);
+  const BASE_URL = "http://localhost:8080";
 
   const [formData, setFormData] = useState({
     userId: "",
@@ -70,10 +75,30 @@ export default function ArtistProfile() {
     }));
   };
 
+  const handleFileChange = (e) => {
+    // Set the name of the file to the state
+    setFileName(e.target.files[0].name);
+    setFile(e.target.files[0])
+    
+    if(e.target.files[0].size >= 1048576){
+      setErrorFile("File is too large!!")
+    }
+    
+  };
+
+  const handleButtonClick = () => {
+    // trigger the click event of the hidden file input
+    fileInput.current.click();
+    
+  };
+
+  
+
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+
 
   return (
     <>
@@ -81,6 +106,12 @@ export default function ArtistProfile() {
         <div>
           <p className="headerDashboard">Profile</p>
           <div className={expand ? "notificationBg" : "notificationBg-ex"}>
+          <input
+              type="file"
+              ref={fileInput}
+              style={{ display: "none" }}
+              onChange={handleFileChange}
+            />
             <img
               src={notification}
               className="notificationIcon"
@@ -108,8 +139,9 @@ export default function ArtistProfile() {
 
             <div className="artist-details-in-dashboard">
               <img
-                src={band}
+                src={`${BASE_URL}/postData/uploads/image/${formData.imagePath}`}
                 alt="Artist"
+                onClick={handleButtonClick}
                 style={{
                   maxWidth: "100px",
                   display: "block",
