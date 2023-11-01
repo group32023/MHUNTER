@@ -61,7 +61,7 @@ export default function OrganizerDashboard() {
 
         <div className='OrganizerDashboardMainContainer'>
           <Topbar customProp="Dashboard" />
-          <div className='row' style={{ marginLeft: '35px' }}>
+          <div className='row .organizerDashboardCarousel' style={{ marginLeft: '35px' }}>
             <DashboardCarousel className="col-8" />
 
             <div className='DashboardCalenderDiv px-2 col-3 artistCalanderDiv '>

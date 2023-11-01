@@ -28,7 +28,9 @@ library.add(fas);
 
 function ViewEvents() {
 
-    const orgid = 1;
+    // const orgid = 1;
+    const orgid = localStorage.getItem('orgid');
+    // console.log('orgid:', orgid);
     const [events, setEvents] = useState([])
     const BASE_URL = "http://localhost:8080";
 
@@ -51,7 +53,7 @@ function ViewEvents() {
     };
 
     useEffect(() => {
-        fetch(`http://localhost:8080/event/getAll/9`)
+        fetch(`http://localhost:8080/event/getAll/${orgid}`)
             .then(res => res.json())
             .then((result) => {
                 setEvents(result);

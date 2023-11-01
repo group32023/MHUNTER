@@ -81,12 +81,49 @@
     height: 8%;
     width: 70%;
     position: relative;
-    top: 187px;
-    left: 20%;
+    top: 1791px;
+    left: 5%;
     margin-bottom: 20px;
     border-radius: 25px;
     
   
+}
+
+.eventType11 {
+    position: absolute;
+    left: 30%;
+    top: 30%;
+}
+
+.eventDate11 {
+    position: absolute;
+    left: 55%;
+    top: 30%;
+}
+
+.eventDate12 {
+    position: absolute;
+    left: 90%;
+    top: 30%;
+}
+
+.venue11 {
+    position: absolute;
+    left: 75%;
+    top: 30%;
+}
+.venue12 {
+    position: absolute;
+    left: 105%;
+    top: 30%;
+}
+
+.requestContainerForEvent123 .eventDetails {
+    position: relative;
+    color: white;
+    font-size: 20px;
+    top: -16px;
+    text-align: center;
 }
 
 
@@ -312,12 +349,24 @@
 
 }
 
+.eventcontainer3{
+
+    background-color: rgba(3, 3, 3, 0.60);
+    width: 94%;
+    height: 63%;
+    position: relative;
+    top: 1832px;
+    left: 3%;
+    z-index: 10000;
+
+}
+
 
 .requestContainerForEvent{
     width: 94%;
     height:63%;
     position: relative;
-    top: 14%;
+    top: -79px;
     left: -6%;
 
 }
