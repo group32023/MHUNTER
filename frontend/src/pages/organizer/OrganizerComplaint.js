@@ -45,10 +45,12 @@ function OrganizerComplaint() {
     const day = String(daten.getDate()).padStart(2, '0');
 
     const date = `${year}-${month}-${day}`;
+    const orgid = localStorage.getItem('orgid');
+console.log('orgid:', orgid); // Check the value in the console
 
     const handleClick = (e) => {
         e.preventDefault()
-        const complaint = { title, description, date, status: "PENDING", orgId: 9, eventId: selectedEvent };
+        const complaint = { title, description, date, status: "PENDING", orgId: orgid, eventId: selectedEvent };
         console.log(complaint)
         fetch("http://localhost:8080/complaint/add", {
             method: "POST",
@@ -69,13 +71,21 @@ function OrganizerComplaint() {
 
 
     useEffect(() => {
-        fetch("http://localhost:8080/complaint/complaintByOrgId/9")
-            .then(res => res.json())
-            .then((result) => {
-                setComplaints(result);
+        fetch(`http://localhost:8080/complaint/complaintByOrgId/${orgid}`)
+          .then(res => {
+            if (!res.ok) {
+              throw new Error('Network response was not ok');
             }
-            )
-    }, [])
+            return res.json();
+          })
+          .then(result => {
+            setComplaints(result);
+          })
+          .catch(error => {
+            console.error('Error fetching data:', error);
+          });
+      }, []);
+      
 
 
 
@@ -87,17 +97,28 @@ function OrganizerComplaint() {
 
 
     useEffect(() => {
-
-        axios.get('http://localhost:8080/event/byOrgID/9')
-            .then((response) => {
-                // Assuming your API returns an array of events
-                setEvents(response.data);
-            })
-            .catch((error) => {
-                console.error('Error fetching data:', error);
-            });
-    }, []);
-
+        axios.get(`http://localhost:8080/event/byOrgID/${orgid}`)
+          .then(response => {
+            // Assuming your API returns an array of events
+            if (response.data) {
+              setEvents(response.data);
+            }
+          })
+          .catch(error => {
+            if (error.response) {
+              // The request was made, but the server responded with a status code
+              // that falls out of the range of 2xx
+              console.error('Server responded with an error:', error.response.data);
+            } else if (error.request) {
+              // The request was made but no response was received
+              console.error('No response received from the server:', error.request);
+            } else {
+              // Something happened in setting up the request that triggered an Error
+              console.error('Error setting up the request:', error.message);
+            }
+          });
+      }, []);
+      
 
 
 
