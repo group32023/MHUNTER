@@ -48,7 +48,31 @@ export default function BandAgreemnt() {
   const skip="skip";
 
   const [showModal1, setShowModal1] = useState(false);
+  const [band, setBand] = useState();
 
+
+
+  useEffect(() => {
+    //console.log(mmid);
+      fetch(`http://localhost:8080/band/viewSpecificBand/${mmid}`)
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error("Network response was not ok");
+          }
+          return response.json();
+        })
+
+        .then((data) => {
+          setBand(data);
+         
+        })
+        .catch((error) => {
+          console.log("Error fetching data:", error);
+        });
+    
+  }, []);
+
+ console.log(band.musicMember['name']);
   const handleShowModal1 = () => {
     if((rule1==="null" && rule2==="null" && rule3==="null" && rule4==="null" && additionalRules==="" )|| url==="null"){
     }else{
@@ -205,11 +229,11 @@ const loadInvoice=(id,mmid)=>{
                   <div className='bandDetailsDiv'>
                   <h5 className='h5forbandDetails'>Band Details</h5>
                   <div className='detailsOfBandInfo'>
-                  <div><p className='bandNameLable'>Band Name : </p> <p className='bandName'>FlashBack</p></div>
+                  <div><p className='bandNameLable'>Band Name : </p> <p className='bandName'>{band.musicMember['name']}</p></div>
 
-                  <div><p className='bandAddressLable'>Address : </p> <p className='bandAddress'>Colombo 05</p></div>
+                  <div><p className='bandAddressLable'>Address : </p> <p className='bandAddress'>{band.user['address']}</p></div>
 
-                  <div><p className='bandEmailLable'>E-mail : </p> <p className='bandEmail'>flashback@gmail.com</p></div>
+                  <div><p className='bandEmailLable'>E-mail : </p> <p className='bandEmail'>{band.user['email']}</p></div>
                   </div>
                   </div>
                   
