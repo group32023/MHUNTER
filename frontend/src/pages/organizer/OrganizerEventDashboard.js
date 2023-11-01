@@ -463,9 +463,9 @@ function OrganizerEventDashboard() {
                                 <button className="eventDashboardCancelBtn col-md-5" onClick={handleShowCancellationModal}  >
                                     Cancel Event
                                 </button>
-                                <button className="resheduleBtn col-md-5" >
+                                {/* <button className="resheduleBtn col-md-5" >
                                     Reshedule Event
-                                </button>
+                                </button> */}
                             </div>
                         </div>
                     </div>
