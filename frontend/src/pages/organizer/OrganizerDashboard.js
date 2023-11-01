@@ -55,13 +55,7 @@ import PaymentArtist10 from '../../assets/images/paymentArtist10.jpg'
 
 
 export default function OrganizerDashboard() {
-<<<<<<< HEAD
-  // const artistId = 20;
-  const orgid = 9;
-=======
-  //const artistId = 20;
  
->>>>>>> de61354ec9c0982e9bacf6069deb903a39b21a8f
 
   const orgid = localStorage.getItem('orgid');
   const [invoices, setInvoices] = useState([]);
