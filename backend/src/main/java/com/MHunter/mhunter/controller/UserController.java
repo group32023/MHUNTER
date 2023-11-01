@@ -130,7 +130,7 @@ public class UserController {
         return musicMemberService.getCountOfBandAndArtist();
     }
 
-    @GetMapping("/musicUser/{userId}")
+    @GetMapping("/organizer/{userId}")
     MusicMember getOrgById(@PathVariable int userId) {
         return musicMemberService.findSpecificOrganizerByUserID(userId);
     }
