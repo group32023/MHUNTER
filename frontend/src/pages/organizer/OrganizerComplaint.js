@@ -63,7 +63,7 @@ function OrganizerComplaint() {
 
             }, 3000);
 
-            // window.location.reload();
+            window.location.reload();
         })
     }
 
@@ -282,7 +282,7 @@ function OrganizerComplaint() {
                     <Route path='/organizer/searchartist/viewartist/:mmid/:eventid' element={<ViewArtist />} />
                     <Route path='/organizer/searchartist/viewartist/makeartistrequest/:mmid/:eventid' element={<MakeArtistRequest />} />
                     <Route path='/organizer/searchband/:eventid' element={<SearchBand />} />
-                    <Route path='/organizer/searchband/viewband/:mmid/:eventid' element={<ViewBand/>} />
+                    <Route path='/organizer/searchband/viewband/:mmid/:eventid' element={<ViewBand />} />
                 </Routes>
 
             </SideMenuBarOrganizer>
