@@ -53,7 +53,7 @@ function ViewEvents() {
     };
 
     useEffect(() => {
-        fetch(`http://localhost:8080/event/getAll/9`)
+        fetch(`http://localhost:8080/event/getAll/${orgid}`)
             .then(res => res.json())
             .then((result) => {
                 setEvents(result);
