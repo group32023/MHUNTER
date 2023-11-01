@@ -123,6 +123,7 @@ export default function OrganizerDashboard() {
 
 
 
+  const artistId = 27;
   return (
     <>
       <SideMenuBarOrganizer>
