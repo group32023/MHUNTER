@@ -23,7 +23,7 @@ export default function ArtistPriorBooking() {
   const [expand,setExpandedSideBar] = useState(true)
   const componentPDF = useRef();
   const { id1,id2,id3 } = useParams();
-  const [org,setOrg]=useState();
+  const [org,setOrg]=useState([]);
 
   // console.log(id1);
   // console.log(id2);

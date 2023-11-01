@@ -139,7 +139,7 @@ function SideMenuBarArtist({ children }) {
                         </li>
 
                         <li className={isExpanded ? "nav-item p-1" : "nav-item"}>
-                            <NavLink to="/artist/PendingRequests" activeclassName="active" className={isExpanded ? "nav-link   d-flex align-items-center text-decoration-none" : "nav-link collapsed-nav-link   d-flex align-items-center text-decoration-none"}>
+                            <NavLink to="/artist/Event" activeclassName="active" className={isExpanded ? "nav-link   d-flex align-items-center text-decoration-none" : "nav-link collapsed-nav-link   d-flex align-items-center text-decoration-none"}>
                                 <BiSolidTimeFive className={isExpanded ? "menu-icon mx-4" : "menu-icon"} />
                                 {isExpanded && (
                                     <span className="menu_link_name fs-6 ">Pending Requests</span>
