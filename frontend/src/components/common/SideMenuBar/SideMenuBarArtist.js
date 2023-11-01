@@ -33,11 +33,12 @@ function SideMenuBarArtist({ children }) {
               return response.json();
         })
         .then((data)=>{
-           
+            console.log(data['mmid']);
             localStorage.setItem("mmid",data['mmid']);
         })
         .catch((error)=>{
             console.log("Error fetching data:", error)
+            
         })
 
         if (userId) {

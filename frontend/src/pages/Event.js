@@ -226,11 +226,11 @@ const [searchInput, setSearchInput] = useState('');
 
               
                  
-         <div className='footerForHomeevent'>
+         {/* <div className='footerForHomeevent'>
 
              <Footer></Footer>
 
-         </div>
+         </div> */}
 
 
                     </div>

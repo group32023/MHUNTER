@@ -47,6 +47,11 @@ public class EventController {
          return "added";
     }
 
+    @GetMapping("/getAll")
+    public List<Event> getAllEventsForHome(){
+
+        return eventService.getAllEvents();
+    }
     @GetMapping("/getAll/{orgid}")
     public List<Event> getAllEvents(@PathVariable int orgid){
 
