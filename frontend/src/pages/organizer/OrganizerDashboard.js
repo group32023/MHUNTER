@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+
 import { Routes, Route } from 'react-router-dom';
 import SideMenuBarOrganizer from '../../components/common/SideMenuBar/SideMenuBarOrganizer';
 import { Link } from "react-router-dom";
@@ -55,13 +56,80 @@ import PaymentArtist10 from '../../assets/images/paymentArtist10.jpg'
 
 export default function OrganizerDashboard() {
   const artistId = 20;
+  const orgid = 9;
+
+  // const orgid = localStorage.getItem('orgid');
+  const [invoices, setInvoices] = useState([]);
+  const [musicMember, setMusicMember] = useState({});
+  const [event, setEvent] = useState({});
+
+  useEffect(() => {
+    // Make a GET request to the Spring Boot API endpoint for invoices
+    fetch(`http://localhost:8080/invoice/getAllByOrgId/${orgid}`)
+      .then((response) => response.json())
+      .then((data) => {
+        // Set the retrieved data to the 'invoices' state
+        setInvoices(data);
+      })
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+      });
+  }, [orgid]);
+
+  useEffect(() => {
+    // Make a GET request to fetch musicMember details for each invoice
+    invoices.forEach((invoice) => {
+      fetch(`http://localhost:8080/requestMusicMember/musicMemberDetails/${invoice.mmid}`)
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error("Network response was not ok");
+          }
+          return response.json();
+        })
+        .then((data) => {
+          // Set the retrieved data to the 'musicMember' state
+          setMusicMember((prevMusicMember) => {
+            return { ...prevMusicMember, [invoice.mmid]: data };
+          });
+        })
+        .catch((error) => {
+          console.error("Error fetching data:", error);
+        });
+    });
+  }, [invoices]);
+
+  useEffect(() => {
+    // Make a GET request to fetch musicMember details for each invoice
+    invoices.forEach((invoice) => {
+      fetch(`http://localhost:8080/event/viewSpecificEvent/${invoice.eventid}`)
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error("Network response was not ok");
+          }
+          return response.json();
+        })
+        .then((data) => {
+          // Set the retrieved data to the 'musicMember' state
+          setEvent((prevEvent) => {
+            return { ...prevEvent, [invoice.eventid]: data };
+          });
+        })
+        .catch((error) => {
+          console.error("Error fetching data:", error);
+        });
+    });
+  }, [invoices]);
+
+
+
+
   return (
     <>
       <SideMenuBarOrganizer>
 
         <div className='OrganizerDashboardMainContainer'>
           <Topbar customProp="Dashboard" />
-          <div className='row .organizerDashboardCarousel' style={{ marginLeft: '35px' }}>
+          <div className='row' style={{ marginLeft: '35px' }}>
             <DashboardCarousel className="col-8" />
 
             <div className='DashboardCalenderDiv px-2 col-3 artistCalanderDiv '>
@@ -79,178 +147,49 @@ export default function OrganizerDashboard() {
 
                 <div className="PaymentTBTableDiv mt-4">
 
-                  <div className="row tablePaymentTBContent">
-                    <div className='PaymentTBImage '>
-                      <img className='' alt='' src={PaymentArtist4} width='50px' height='50px'></img>
-                    </div>
-                    <div className="innertablePaymentTBContent">
-                      <div className='PaymentTBTitle d-flex align-items-center justify-content-center'>DIM3</div>
-                      <div className='PaymentTBEventName d-flex align-items-center justify-content-center'><BsMusicNoteList className='' style={{ fontSize: '18px', marginRight: '7px', color: '#7643D2' }} />OBA NISA PERA BEATZ</div>
-                      <div className='PaymentTBAmount d-flex align-items-center justify-content-center'>LKR 60 000.00</div>
-                      <div className=' PaymentTBBtn d-flex align-items-center justify-content-center'>
-                        <Link to={`/organizer/paymentForm/${artistId}`} >
-                          <Button className='paymentBtn shadow' variant="secondary">Pay Now</Button>
-                        </Link>
+                  {invoices.map((invoice) => (
+
+                    <div className="row tablePaymentTBContent">
+
+                      <div className='PaymentTBImage '>
+                        <img className='' alt='' src={PaymentArtist4} width='50px' height='50px'></img>
+                      </div>
+
+                      <div className="innertablePaymentTBContent">
+                        {musicMember[invoice.mmid] && (
+                          <div className='PaymentTBTitle d-flex align-items-center justify-content-center'>{musicMember[invoice.mmid].userName}</div>
+                        )}
+                        {event[invoice.eventid] && (
+                          <div className='PaymentTBEventName d-flex align-items-center justify-content-center'>
+                            <BsMusicNoteList className='' style={{ fontSize: '18px', marginRight: '7px', color: '#7643D2' }} />
+                            {event[invoice.eventid].eventName}
+                          </div>
+                        )}
+
+                        <div className='PaymentTBAmount d-flex align-items-center justify-content-center'>LKR {invoice.totalAmount - invoice.paidAmount}</div>
+                        <div className=' PaymentTBBtn d-flex align-items-center justify-content-center'>
+                          <Link to={`/organizer/paymentForm/${artistId}`} >
+                            <Button className='paymentBtn shadow' variant="secondary">Pay Now</Button>
+                          </Link>
+
+                        </div>
 
                       </div>
 
-                    </div>
-                  </div>
-
-                  <div className="row tablePaymentTBContent">
-                    <div className='PaymentTBImage '>
-                      <img className='' alt='' src={PaymentArtist1} width='50px' height='50px'></img>
-                    </div>
-                    <div className="innertablePaymentTBContent">
-                      <div className='PaymentTBTitle d-flex align-items-center justify-content-center'>WASTHI</div>
-                      <div className='PaymentTBEventName d-flex align-items-center justify-content-center'><BsMusicNoteList className='' style={{ fontSize: '18px', marginRight: '7px', color: '#7643D2' }} />APE KALAWA</div>
-                      <div className='PaymentTBAmount d-flex align-items-center justify-content-center'>LKR 60 000.00</div>
-                      <div className=' PaymentTBBtn d-flex align-items-center justify-content-center'>
-                        <Button className='paymentBtn shadow' variant="secondary" >
-                          Pay Now
-                        </Button>
-                      </div>
-
-                    </div>
-                  </div>
-
-                  <div className="row tablePaymentTBContent">
-                    <div className='PaymentTBImage '>
-                      <img className='' alt='' src={PaymentArtist7} width='50px' height='50px'></img>
-                    </div>
-                    <div className="innertablePaymentTBContent">
-                      <div className='PaymentTBTitle d-flex align-items-center justify-content-center'>B N S</div>
-                      <div className='PaymentTBEventName d-flex align-items-center justify-content-center'><BsMusicNoteList className='' style={{ fontSize: '18px', marginRight: '7px', color: '#7643D2' }} />B N S LIVE IN CONCERT</div>
-                      <div className='PaymentTBAmount d-flex align-items-center justify-content-center'>LKR 60 000.00</div>
-                      <div className=' PaymentTBBtn d-flex align-items-center justify-content-center'>
-                        <Button className='paymentBtn shadow' variant="secondary" >
-                          Pay Now
-                        </Button>
-                      </div>
-
-                    </div>
-                  </div>
-
-                  <div className="row tablePaymentTBContent">
-                    <div className='PaymentTBImage '>
-                      <img className='' alt='' src={PaymentArtist8} width='50px' height='50px'></img>
-                    </div>
-                    <div className="innertablePaymentTBContent">
-                      <div className='PaymentTBTitle d-flex align-items-center justify-content-center'>DINESH GAMAGE</div>
-                      <div className='PaymentTBEventName d-flex align-items-center justify-content-center'><BsMusicNoteList className='' style={{ fontSize: '18px', marginRight: '7px', color: '#7643D2' }} />APE KALAWA</div>
-                      <div className='PaymentTBAmount d-flex align-items-center justify-content-center'>LKR 60 000.00</div>
-                      <div className=' PaymentTBBtn d-flex align-items-center justify-content-center'>
-                        <Button className='paymentBtn shadow' variant="secondary" >
-                          Pay Now
-                        </Button>
-                      </div>
-
-                    </div>
-                  </div>
-
-                  <div className="row tablePaymentTBContent">
-                    <div className='PaymentTBImage '>
-                      <img className='' alt='' src={PaymentArtist9} width='50px' height='50px'></img>
-                    </div>
-                    <div className="innertablePaymentTBContent">
-                      <div className='PaymentTBTitle d-flex align-items-center justify-content-center'>MARIANS</div>
-                      <div className='PaymentTBEventName d-flex align-items-center justify-content-center'><BsMusicNoteList className='' style={{ fontSize: '18px', marginRight: '7px', color: '#7643D2' }} />LEGENDS PLUS LIVE</div>
-                      <div className='PaymentTBAmount d-flex align-items-center justify-content-center'>LKR 60 000.00</div>
-                      <div className=' PaymentTBBtn d-flex align-items-center justify-content-center'>
-                        <Button className='paymentBtn shadow' variant="secondary" >
-                          Pay Now
-                        </Button>
-                      </div>
-
-                    </div>
-                  </div>
-
-                  <div className="row tablePaymentTBContent">
-                    <div className='PaymentTBImage '>
-                      <img className='' alt='' src={PaymentArtist10} width='50px' height='50px'></img>
-                    </div>
-                    <div className="innertablePaymentTBContent">
-                      <div className='PaymentTBTitle d-flex align-items-center justify-content-center'>DADDY</div>
-                      <div className='PaymentTBEventName d-flex align-items-center justify-content-center'><BsMusicNoteList className='' style={{ fontSize: '18px', marginRight: '7px', color: '#7643D2' }} />APE KALAWA</div>
-                      <div className='PaymentTBAmount d-flex align-items-center justify-content-center'>LKR 60 000.00</div>
-                      <div className=' PaymentTBBtn d-flex align-items-center justify-content-center'>
-                        <Button className='paymentBtn shadow' variant="secondary" >
-                          Pay Now
-                        </Button>
-                      </div>
-
-                    </div>
-                  </div>
-
-                  <div className="row tablePaymentTBContent">
-                    <div className='PaymentTBImage '>
-                      <img className='' alt='' src={PaymentArtist2} width='50px' height='50px'></img>
-                    </div>
-                    <div className="innertablePaymentTBContent">
-                      <div className='PaymentTBTitle d-flex align-items-center justify-content-center'>KANCHANA ANURADHI</div>
-                      <div className='PaymentTBEventName d-flex align-items-center justify-content-center'><BsMusicNoteList className='' style={{ fontSize: '18px', marginRight: '7px', color: '#7643D2' }} />APE KALAWA</div>
-                      <div className='PaymentTBAmount d-flex align-items-center justify-content-center'>LKR 60 000.00</div>
-                      <div className=' PaymentTBBtn d-flex align-items-center justify-content-center'>
-                        <Button className='paymentBtn shadow' variant="secondary" >
-                          Pay Now
-                        </Button>
-                      </div>
-
-                    </div>
-                  </div>
-
-                  <div className="row tablePaymentTBContent">
-                    <div className='PaymentTBImage '>
-                      <img className='' alt='' src={PaymentArtist1} width='50px' height='50px'></img>
-                    </div>
-                    <div className="innertablePaymentTBContent">
-                      <div className='PaymentTBTitle d-flex align-items-center justify-content-center'>WASTHI</div>
-                      <div className='PaymentTBEventName d-flex align-items-center justify-content-center'><BsMusicNoteList className='' style={{ fontSize: '18px', marginRight: '7px', color: '#7643D2' }} />ROSA KALPANA</div>
-                      <div className='PaymentTBAmount d-flex align-items-center justify-content-center'>LKR 60 000.00</div>
-                      <div className=' PaymentTBBtn d-flex align-items-center justify-content-center'>
-                        <Button className='paymentBtn shadow' variant="secondary" >
-                          Pay Now
-                        </Button>
-                      </div>
-
-                    </div>
-                  </div>
 
 
 
-                  <div className="row tablePaymentTBContent">
-                    <div className='PaymentTBImage '>
-                      <img className='' alt='' src={PaymentArtist5} width='50px' height='50px'></img>
-                    </div>
-                    <div className="innertablePaymentTBContent">
-                      <div className='PaymentTBTitle d-flex align-items-center justify-content-center'>WASTHI</div>
-                      <div className='PaymentTBEventName d-flex align-items-center justify-content-center'><BsMusicNoteList className='' style={{ fontSize: '18px', marginRight: '7px', color: '#7643D2' }} />OBA NISA PERA BEATZ</div>
-                      <div className='PaymentTBAmount d-flex align-items-center justify-content-center'>LKR 60 000.00</div>
-                      <div className=' PaymentTBBtn d-flex align-items-center justify-content-center'>
-                        <Button className='paymentBtn shadow' variant="secondary" >
-                          Pay Now
-                        </Button>
-                      </div>
 
                     </div>
-                  </div>
 
-                  <div className="row tablePaymentTBContent">
-                    <div className='PaymentTBImage '>
-                      <img className='' alt='' src={PaymentArtist6} width='50px' height='50px'></img>
-                    </div>
-                    <div className="innertablePaymentTBContent">
-                      <div className='PaymentTBTitle d-flex align-items-center justify-content-center'>WASTHI</div>
-                      <div className='PaymentTBEventName d-flex align-items-center justify-content-center'><BsMusicNoteList className='' style={{ fontSize: '18px', marginRight: '7px', color: '#7643D2' }} />ROSA KALPANA</div>
-                      <div className='PaymentTBAmount d-flex align-items-center justify-content-center'>LKR 60 000.00</div>
-                      <div className=' PaymentTBBtn d-flex align-items-center justify-content-center'>
-                        <Button className='paymentBtn shadow' variant="secondary" >
-                          Pay Now
-                        </Button>
-                      </div>
+                  ))}
 
-                    </div>
-                  </div>
+
+
+
+
+
+
 
 
                 </div>
