@@ -67,7 +67,7 @@ useEffect(()=>{
        
         <div>
              
-                <div className='eventTablecontainer'>
+                <div className='eventcontainer3'>
 
                     
                 {setPagination().map((eventList) => 
@@ -75,11 +75,11 @@ useEffect(()=>{
                               <img src={profileImage} className="profile4"></img>
                               <div className="eventDetails">
                                 <h5>{eventList['organizerName']}</h5>
-                                <p class="eventType7"><img src={eventtype} className="EventIconPendingRequest1"></img>{eventList['event_name']}</p>
-                                    <p class="eventDate7"><FontAwesomeIcon icon={faCalendarDays} id="CalenderIconPendingRequest1"/>{eventList['date']}</p>
-                                    <p class="venue7"><FontAwesomeIcon icon={faClock} id="LocationIconPendingRequest1"/>{eventList['start_time']}</p>
-                                    <p class="eventDate8"><img src={crowd} className="CalenderIconPendingRequest2"></img>{eventList['crowd']}</p>
-                                    <p class="venue8"><FontAwesomeIcon icon={faLocationDot} id="LocationIconPendingRequest2"/>{eventList['town']}</p>
+                                <p class="eventType11"><img src={eventtype} className="EventIconPendingRequest1"></img>{eventList['event_name']}</p>
+                                    <p class="eventDate11"><FontAwesomeIcon icon={faCalendarDays} id="CalenderIconPendingRequest1"/>{eventList['date']}</p>
+                                    <p class="venue11"><FontAwesomeIcon icon={faClock} id="LocationIconPendingRequest1"/>{eventList['start_time']}</p>
+                                    <p class="eventDate12"><img src={crowd} className="CalenderIconPendingRequest2"></img>{eventList['crowd']}</p>
+                                    <p class="venue12"><FontAwesomeIcon icon={faLocationDot} id="LocationIconPendingRequest2"/>{eventList['town']}</p>
                               </div>
      
    
