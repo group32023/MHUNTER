@@ -65,7 +65,7 @@ console.log('orgid:', orgid); // Check the value in the console
 
             }, 3000);
 
-            // window.location.reload();
+            window.location.reload();
         })
     }
 
@@ -303,7 +303,7 @@ console.log('orgid:', orgid); // Check the value in the console
                     <Route path='/organizer/searchartist/viewartist/:mmid/:eventid' element={<ViewArtist />} />
                     <Route path='/organizer/searchartist/viewartist/makeartistrequest/:mmid/:eventid' element={<MakeArtistRequest />} />
                     <Route path='/organizer/searchband/:eventid' element={<SearchBand />} />
-                    <Route path='/organizer/searchband/viewband/:mmid/:eventid' element={<ViewBand/>} />
+                    <Route path='/organizer/searchband/viewband/:mmid/:eventid' element={<ViewBand />} />
                 </Routes>
 
             </SideMenuBarOrganizer>
