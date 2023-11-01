@@ -49,7 +49,7 @@ export default function ArtistEvent() {
           <h4>{item.organizerName}</h4>
           <p class="artistEventTypeArtistEvent"><img src={eventType} alt=''className='artistEventTypeImg'></img>{item.eventType}</p>
           <p class="eventDateArtistEvent"><FontAwesomeIcon icon={faCalendarDays} id="CalenderIconPendingRequest"/>{item.date}</p>
-          <p class="venueArtistEvent"><FontAwesomeIcon icon={faLocationDot} id="LocationIconPendingRequest"/>{item.place}</p>
+          <p class="venueArtistEvent"><FontAwesomeIcon icon={faLocationDot} id="LocationIconPendingRequest"/>Colombo 07</p>
         </div>
         <Button className="viewBtnArtistEvent" onClick={()=>directions(item.eventId)}>View</Button>
      

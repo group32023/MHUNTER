@@ -26,13 +26,15 @@ export default function ArtistPendingRequests() {
   const { id } = useParams();
 
   const [event, setEvent] = useState([]);
-  const mmid=localStorage.getItem('mmid');;
+  const mmid=localStorage.getItem('mmid');
+  const BASE_URL = "http://localhost:8080";
 
 
   const [expand,setExpandedSideBar] = useState(true)
   let navigate = useNavigate();
   const [showRejectedReason,setShowRejectedReason] =useState(false);
   const [rejectReason,setRejectReason]=useState(null);
+  const BASE_URL = "http://localhost:8080";
 
   useEffect(() => {
     // Fetch the data from the Java backend
@@ -106,7 +108,7 @@ export default function ArtistPendingRequests() {
 const loadPendingRequest=()=>{
   navigate('/band/PendingRequests');
 }
- 
+ console.log(event);
  //var eventID =event[0]['eventid'];
 
  if(event===null) return <div>Loading....................</div>
@@ -138,7 +140,7 @@ const loadPendingRequest=()=>{
 
         <div className="requestViewContainer">
         
-            <img src={profileImage} className="profileView1"></img>
+            <img src={`${BASE_URL}/postData/uploads/image/${event['organizerImage']}`} className="profileView1"></img>
             <p className='paraRequestName'>Requested By : </p>
             <h4>{event['organizerName']}</h4>
 

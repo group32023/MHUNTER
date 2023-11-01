@@ -2,7 +2,6 @@ import React,{useState, useEffect,useRef} from 'react';
 import { Link,useParams, useNavigate } from 'react-router-dom';
 import SideMenuBarArtist from '../components/common/SideMenuBar/SideMenuBarArtist'
 import '../assets/css/artistPendingRequests.css'
-// import { MDBBtn } from 'mdb-react-ui-kit';
 import Button from 'react-bootstrap/Button';
 
 import profileImage from '../assets/images/profilePhoto.jpeg';
@@ -33,6 +32,7 @@ export default function ArtistPendingRequests() {
   let navigate = useNavigate();
   const [showRejectedReason,setShowRejectedReason] =useState(false);
   const [rejectReason,setRejectReason]=useState(null);
+  const BASE_URL = "http://localhost:8080";
 
   useEffect(() => {
     // Fetch the data from the Java backend
@@ -115,7 +115,7 @@ const loadPendingRequest=()=>{
  //var eventID =event[0]['eventid'];
 
  if(event===null) return <div><CircularProgress color="secondary" /></div>
-
+  console.log(event);
   return (
 
     
@@ -142,7 +142,7 @@ const loadPendingRequest=()=>{
 
         <div className="requestViewContainer">
         
-            <img src={profileImage} className="profileView1"></img>
+            <img src={`${BASE_URL}/postData/uploads/image/${event["organizerImage"]}`} className="profileView1"></img>
             <p className='paraRequestName'>Requested By : </p>
             <h4>{event['organizerName']}</h4>
 
@@ -152,7 +152,7 @@ const loadPendingRequest=()=>{
             <p class="venue1"><FontAwesomeIcon icon={faClock} id="LocationIconPendingRequest1"/> Time : {event['startTime']}</p>
             <p class="eventType2"><img src={duration} className="EventIconPendingRequest2"></img>Duration : {event['duration']}</p>
             <p class="eventDate2"><img src={crowd} className="CalenderIconPendingRequest2"></img>Crowd : {event['crowd']}</p>
-            <p class="venue2"><FontAwesomeIcon icon={faLocationDot} id="LocationIconPendingRequest2"/>Venue : {event['place']}</p>
+            <p class="venue2"><FontAwesomeIcon icon={faLocationDot} id="LocationIconPendingRequest2"/>Venue : Colombo 07</p>
 
             </div>
             

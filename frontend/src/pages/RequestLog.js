@@ -1,6 +1,6 @@
 /* eslint-disable react/jsx-no-undef */
 import React,{useState, useEffect,useRef} from 'react';
-import { useNavigate} from 'react-router-dom';
+import { Link, useNavigate} from 'react-router-dom';
 import ReactPaginate from 'react-paginate';
 import SideMenuBarArtist from '../components/common/SideMenuBar/SideMenuBarArtist'
 //import '../assets/css/artistDashboard.css'
@@ -35,6 +35,7 @@ export default function ArtistPendingRequests() {
   const [id1,setId1]=useState(0)
   const [cancelState,setCancelState]=useState(false)
   const [reason,setReason]=useState(" ")
+  const BASE_URL = "http://localhost:8080";
 
 
   const handleShowModal = (id) => {
@@ -99,7 +100,7 @@ export default function ArtistPendingRequests() {
   for (let i = 0; i < divCount; i++) {
     
     divElements.push(<div key={i} className="requestContainerlog">
-      <img src={profileImage} className="profilelog"></img>
+      <img src={`${BASE_URL}/postData/uploads/image/${eventList[i]["image"]}`} className="profilelog"></img>
       <div className="eventDetailslog">
         <h5>{eventList[i]['organizerName']}</h5>
        { console.log(eventList[i]['organizerName'])}
@@ -181,9 +182,9 @@ export default function ArtistPendingRequests() {
                                               
                                                 <p className="complaint-add-success-para_for_request_cancel">Enter Reason  </p>
                                                 <input type='text' className='reasonforCancalation' value={reason} onChange={(e)=>setReason((e.target.value))}/>
-                                                <Button className='reasonSubmit' onClick={handleCloseModalCancelRequest1}>
+                                                <Link to={'/organizer/test-button'} className='reasonSubmit' onClick={handleCloseModalCancelRequest1}>
                                             Submit
-                                        </Button>
+                                        </Link>
                                                 <Button className='reasonCancel' onClick={handleCloseModal1}>
                                             Cancel
                                         </Button>
