@@ -99,7 +99,7 @@ export default function ArtistPendingRequests() {
   for (let i = 0; i < divCount; i++) {
     
     divElements.push(<div key={i} className="requestContainerlog">
-      <img src={`${BASE_URL}/postData/uploads/image/${eventList[i]["organizerImage"]}`} className="profilelog"></img>
+      <img src={`http://localhost:8080/postData/uploads/image/${eventList[i]["organizerImage"]}`} className="profilelog"></img>
       <div className="eventDetailslog">
         <h5>{eventList[i]['organizerName']}</h5>
        { console.log(eventList[i]['organizerName'])}
