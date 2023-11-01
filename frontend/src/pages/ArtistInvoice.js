@@ -289,7 +289,7 @@ const handleCloseAcceptRequestModal=()=>{
            
            <input type="checkbox" id="advanced" name="advanced" onChange={handleCheckboxChange}/>
           <label for="advancedpayment" className='advancedpayment'>Advanced is required.</label>
-          <lable className="otherRules">Additional Note : </lable><input type='text' id="advanced7" name="advanced" value={additionalNote} onChange={(e)=>setAdditionalNote(e.target.value)}></input>
+          <lable className="additionalnotes">Additional Note : </lable><input type='text' id="advanced8" name="advanced" value={additionalNote} onChange={(e)=>setAdditionalNote(e.target.value)}></input>
 
 
             <button type='submit' className='submitInvoice' >Submit</button>

@@ -33,6 +33,7 @@ function SideMenuBarArtist({ children }) {
               return response.json();
         })
         .then((data)=>{
+           
             localStorage.setItem("mmid",data['mmid']);
         })
         .catch((error)=>{

@@ -133,8 +133,10 @@ export default function ArtistPriorBooking() {
 
           <div className='addressDiv'>
           <h3>Prior Booking </h3>
+          <div className='emptyMessageForPriorBooking'>
           {(divElements.length ===0)?<><img src={empty} className='empty-img'></img><span className='emptyContent-report'>it's empty in here.</span></>:undefined}
 
+          </div>
           <h4 className="organizer_tag">Organizer :  </h4>
           <h4 className="organizerName">{(org)? org.user['firstName']+" "+org.user['lastName']:undefined}</h4>
           </div>

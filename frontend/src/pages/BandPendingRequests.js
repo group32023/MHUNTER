@@ -21,6 +21,7 @@ import { faTwitter, faFontAwesome,faFacebook,faGooglePlusG,faLinkedinIn } from '
 
 import eventtype from '../assets/images/eventtype.png';
 
+import empty from '../assets/images/empty(1).png'
 
 export default function ArtistPendingRequests() {
 
@@ -35,7 +36,7 @@ export default function ArtistPendingRequests() {
   useEffect(() => {
     // Fetch the data from the Java backend
     const getPendingRequest = async () =>{
-      const res = await fetch(`http://localhost:8080/requestMusicMember/pendingRequest/${mmid}`)
+      const res = await fetch(`http://localhost:8080/requestMusicMember/pendingRequest/758473`)
 
       const data = await res.json();
         setEventList(data);
@@ -96,7 +97,6 @@ export default function ArtistPendingRequests() {
   }
 
   
- if(eventList.length===0) return <div><CircularProgress color="secondary" /></div>
 
   return (
 
@@ -122,6 +122,10 @@ export default function ArtistPendingRequests() {
       
         
         {divElements}
+        <div className='emptyForPendingRequest'>
+        {(divElements.length ===0)?<><img src={empty} className='empty-img'></img><span className='emptyContent-report'>it's empty in here.</span></>:undefined}
+
+        </div>
 
       {/* <div className='pagination'>
       <Pagination 
