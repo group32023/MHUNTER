@@ -190,7 +190,7 @@ const [searchInput, setSearchInput] = useState('');
                      <div className='eventTableContainerView'>
                      {setPagination().map((eventList) => 
                      <div className="requestContainerForEvent">
-                              <img src={profileImage} className="profile3"></img>
+                              <img src={`${BASE_URL}/postData/uploads/image/${eventList["image"]}`} className="profile3"></img>
                               <div className="eventDetails">
                                 <h5>{eventList['organizerName']}</h5>
                                 <p class="eventType7"><img src={eventtype} className="EventIconPendingRequest1"></img>{eventList['event_name']}</p>
