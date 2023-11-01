@@ -97,6 +97,11 @@ public class UserController {
         return allUsersList;
     }
 
+    @GetMapping("/musicUser/{userId}")
+    MusicMember getMusicUserById(@PathVariable int userId) {
+        return musicMemberService.findSpecificMusicMemberByUserID(userId);
+    }
+
     @GetMapping("/user/{userId}")
     User getUserById(@PathVariable int userId) {
 

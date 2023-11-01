@@ -64,7 +64,9 @@ export default function ArtistPendingRequests() {
 
   const handleRejectAndAccept = () => {
     if(rejectReason!=null){
-
+       console.log(rejectReason)
+       console.log(mmid)
+       console.log(id)
       
       fetch(`http://localhost:8080/requestMusicMember/updateReason/${rejectReason}/${mmid}/${id}`,{
         method:"PUT",

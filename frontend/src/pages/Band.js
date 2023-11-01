@@ -153,6 +153,12 @@ HomeBand() {
                 </div>
 
             </div>
+
+            {/* <div className='footerForHomeband'>
+
+                        <Footer></Footer>
+
+                        </div> */}
            </div> 
 
       </div>

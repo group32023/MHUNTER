@@ -104,6 +104,15 @@
     border: none !important;
     /* box-shadow: 4px 7px 10px rgba(0, 0, 0, .4) !important; */
 
+.emptyMessageForRequestLog{
+
+    position: relative;
+    top: -60px;
+    left: 0px;
+
+
+}
+
 
 .agreementBtn {
     background-color: #03ff70 !important;
