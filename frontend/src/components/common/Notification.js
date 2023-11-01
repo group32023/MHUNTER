@@ -9,6 +9,8 @@ export default function Notification() {
   // get the all data form backend
   const handle = ()=>{
     const userId = localStorage.getItem('userId');
+    const mmId = localStorage.getItem('mmid');
+
     if(userId){
     fetch(`http://localhost:8080/notification/view/${userId}`).then((res)=>res.json()).then((result)=>{
       if(result.length>0){
@@ -34,11 +36,10 @@ export default function Notification() {
             </div>
           </div>
         ))
+        
         setData(newItem) 
       }
-     console.log(getData)
-    })}
-    
+    })}    
   }
 
   useEffect(()=>{

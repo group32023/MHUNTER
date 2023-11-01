@@ -21,7 +21,6 @@ import java.nio.file.Paths;
 @CrossOrigin
 @RequestMapping("/user")
 public class SignupController {
-
     @Autowired
     private SignupService signupService;
 

@@ -10,6 +10,8 @@ public interface NotificationService {
 
     public Notification viewSpecificNotificationByNotificationID(int notificationId);
 
+    public List<Notification> viewSpecificNotificationByMMID(int mmid);
+
 
   public Notification saveNotification(Notification notification);
 
