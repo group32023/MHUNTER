@@ -77,7 +77,7 @@ public class BookedListController {
                    requestLogDetails.setAgreementId(res.getAgreementId());
                    requestLogDetails.setDate(event.getDate());
                    requestLogDetails.setRequestState(res.getRequestState());
-
+                   requestLogDetails.setImage(user.getImagePath());
                    events.add(requestLogDetails);
                });
 

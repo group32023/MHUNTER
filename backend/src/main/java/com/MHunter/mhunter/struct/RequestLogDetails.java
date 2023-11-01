@@ -15,5 +15,6 @@ public class RequestLogDetails {
     private int agreementId;
     private LocalDate date;
     private String requestState;
+    private String image;
 
 }

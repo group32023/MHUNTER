@@ -55,7 +55,7 @@ import PaymentArtist10 from '../../assets/images/paymentArtist10.jpg'
 
 
 export default function OrganizerDashboard() {
-  const artistId = 20;
+  // const artistId = 20;
   const orgid = 9;
 
   // const orgid = localStorage.getItem('orgid');
