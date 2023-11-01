@@ -1,8 +1,6 @@
 package com.MHunter.mhunter.service;
 
-import com.MHunter.mhunter.model.Complaint;
 import com.MHunter.mhunter.model.Event;
-import com.MHunter.mhunter.model.IncomeArtist;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -28,4 +26,6 @@ public interface EventService {
     public List<Event> getEventsForHome();
 
     public List<Event> viewMusicMemberEventsOnDate(int mmid,LocalDate date);
+
+    public List<Event> getUpcomingEvents() ;
 }

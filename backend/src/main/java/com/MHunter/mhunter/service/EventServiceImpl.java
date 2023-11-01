@@ -1,9 +1,7 @@
 package com.MHunter.mhunter.service;
 
 import com.MHunter.mhunter.model.Event;
-import com.MHunter.mhunter.model.Organizer;
 import com.MHunter.mhunter.repository.EventRepository;
-import com.MHunter.mhunter.repository.OrganizerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -70,6 +68,10 @@ public class EventServiceImpl implements EventService {
 
         return  eventRepository.viewMusicMemberEventsOnDate(mmid,date);
 
+    }
+
+    public List<Event> getUpcomingEvents() {
+        return eventRepository.findUpcomingEvents();
     }
 
 
