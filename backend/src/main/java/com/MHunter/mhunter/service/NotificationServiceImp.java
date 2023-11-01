@@ -26,10 +26,10 @@ public class NotificationServiceImp implements NotificationService{
         return notificationRepository.findByMMID(mmid);
     }
 
-    @Override
-    public Notification saveNotification(Notification notification) {
-        return null;
-    }
+    // @Override
+    // public Notification saveNotification(Notification notification) {
+    //     return null;
+    // }
 
     @Override
     public List<Notification> viewNotification() {
