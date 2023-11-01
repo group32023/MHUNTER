@@ -99,7 +99,7 @@ public class NotificationController {
         });
         MusicMember musicMember =musicMemberService.findSpecificMusicMemberByUserID(userId);
         if(notificationService.viewSpecificNotificationByMMID(musicMember.getMMID()).size()>0){
-//            notificationList.add(notificationService.viewSpecificNotificationByMMID(musicMember.getMMID())
+//                notificationList.add(notificationService.viewSpecificNotificationByMMID(musicMember.getMMID())
         }
         return notificationList;
     }
