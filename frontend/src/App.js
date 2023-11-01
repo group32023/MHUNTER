@@ -166,7 +166,7 @@ function App() {
           <Route path='/organizer/searchartist/viewartist/makeartistrequest' element={<MakeArtistRequest />} />  
           <Route path='/organizer/paymentForm/:artistId'element={<PaymentForm />} /> 
           <Route path='/organizer/paymentForm/stripePayment'element={<StripeClient />} /> 
-          <Route path='/organizer/test-button'element={<TestButton />} /> 
+          <Route path='/organizer/test-buton'element={<TestButton />} /> 
           <Route path='/organizer/searchband' element={<SearchBand />} />
           <Route path='/organizer/searchartist/:eventid' element={<SearchArtist />} />
           <Route path='/organizer/searchartist/viewartist/:mmid/:eventid' element={<ViewArtist />} />  

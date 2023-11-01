@@ -27,6 +27,8 @@ export default function MyFeed() {
     const [errorDes,setErrorDes] = useState('')
     const [errorFile,setErrorFile] = useState('')
 
+    const mmId = localStorage.getItem('mmid')
+
     
 
   
@@ -58,8 +60,8 @@ export default function MyFeed() {
       }
 
       if(errorCaption.length === 0 && errorDes.length ===0 && errorFile.length === 0){
-        var mmid = 758463
-        const post = {caption,description,mmid}
+        
+        const post = {caption,description,mmId}
 
         // fetch("http://localhost:8080/post/add",{
         //   method:"POST",
@@ -75,7 +77,7 @@ export default function MyFeed() {
         formData.append("file",file)
         formData.append("caption", caption);
         formData.append("description", description);
-        formData.append("mmid", mmid.toString());
+        formData.append("mmid", mmId.toString());
         try{
           fetch("http://localhost:8080/postData/uploads",{
             method:"POST",

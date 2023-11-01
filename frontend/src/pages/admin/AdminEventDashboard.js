@@ -67,7 +67,7 @@ function AdminEventDashboard() {
                         <div className="eventDescriptionDiv  mt-3 col-md-7">
                             <div className="row p-2 ">
                                 <div className="eventImgDiv col-md-5 mt-2">
-                                    <img alt='' src={EventBanner4} width='385px' height='210px' />
+                                    <img alt='' src={`http://localhost:8080/postData/uploads/image/${event.image}.jpg`} width='385px' height='210px' />
                                 </div>
                                 <div className="eventDescDiv col-md-7 mt-2"  >
                                     <span className="eventDescDivSpan"> {event.event_name}</span>

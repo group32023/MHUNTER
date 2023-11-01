@@ -192,4 +192,13 @@ public class EventController {
         return eventRepository.findAll();
     }
 
+    @GetMapping("/upcomingEvents")
+    public ResponseEntity<List<Event>> getUpcomingEvents() {
+        List<Event> upcomingEvents = eventService.getUpcomingEvents();
+        if (upcomingEvents.isEmpty()) {
+            return ResponseEntity.notFound().build();
+        }
+        return ResponseEntity.ok(upcomingEvents);
+    }
+
 }

@@ -17,26 +17,26 @@ export default function PreviousFeed() {
   const loadData = ()=>{
     const mmId = localStorage.getItem('mmid');
     if(mmId){
-      // fetch(`http://localhost:8080/postData/postDetails/${mmId}`)
-      // .then((res)=>res.json())
-      // .then((result)=>{ 
-      //     const newPost = result.map(item=>(
-      //       <div className='postDiv'>
-      //         <p className='postCaption'>{item.caption}</p>
-      //         {   
-      //             ( imageExtention.includes(item.fileType)) 
-      //             ? <img className='imagePost' src={`${BASE_URL}/postData/uploads/image/${item.fileName}`} alt="post media" />
-      //             : ( videoExtention.includes(item.fileType)) 
-      //             ? <video className='imagePost' controls width="320" height="240"><source src={`${BASE_URL}/postData/uploads/video/${item.fileName}`} type={`video/${item.fileType}`} /></video>
-      //             : <audio className='imagePost' controls><source src={`${BASE_URL}/postData/uploads/audio/${item.fileName}`} type={`audio/${item.fileType}`} /></audio>
-      //         }
-      //         <p className='postDescripiton'>{item.description}</p>
-      //         <p className='postDate'>{item.date}</p>
-      //         <Button className='postDeleteBtn' onClick={()=>deletePost(item.postID)}><img src={deleteBtn} className='deleteLable' onClick={()=>deletePost(item.postID)}></img></Button>
-      //     </div>
-      //     ))
-      //     setData(newPost)
-      // })
+      fetch(`http://localhost:8080/postData/postDetails/${mmId}`)
+      .then((res)=>res.json())
+      .then((result)=>{ 
+          const newPost = result.map(item=>(
+            <div className='postDiv'>
+              <p className='postCaption'>{item.caption}</p>
+              {   
+                  ( imageExtention.includes(item.fileType)) 
+                  ? <img className='imagePost' src={`${BASE_URL}/postData/uploads/image/${item.fileName}`} alt="post media" />
+                  : ( videoExtention.includes(item.fileType)) 
+                  ? <video className='imagePost' controls width="320" height="240"><source src={`${BASE_URL}/postData/uploads/video/${item.fileName}`} type={`video/${item.fileType}`} /></video>
+                  : <audio className='imagePost' controls><source src={`${BASE_URL}/postData/uploads/audio/${item.fileName}`} type={`audio/${item.fileType}`} /></audio>
+              }
+              <p className='postDescripiton'>{item.description}</p>
+              <p className='postDate'>{item.date}</p>
+              <Button className='postDeleteBtn' onClick={()=>deletePost(item.postID)}><img src={deleteBtn} className='deleteLable' onClick={()=>deletePost(item.postID)}></img></Button>
+          </div>
+          ))
+          setData(newPost)
+      })
     }
     
   }

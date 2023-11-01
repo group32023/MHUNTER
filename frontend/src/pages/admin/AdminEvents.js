@@ -52,7 +52,7 @@ function AdminEvents() {
 
                 <div className="event-card-admin">
                     <img
-                    src={EventBanner}
+                    src={`http://localhost:8080/postData/uploads/image/${event.image}.jpg`}
                     alt={`Event ${event.eventid}`}
                     style={{ height: '150px', marginBottom: '20px', borderRadius: '30px' }} />
 
