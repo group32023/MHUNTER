@@ -27,6 +27,11 @@ public class NotificationServiceImp implements NotificationService{
     }
 
     @Override
+    public Notification saveNotification(Notification notification) {
+        return null;
+    }
+
+    @Override
     public List<Notification> viewNotification() {
         return notificationRepository.findAll();
     }
