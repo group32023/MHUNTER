@@ -23,7 +23,7 @@ export default function () {
       (
             <tr>
                   <td>{item.date}</td>
-                  <td><img src={`${BASE_URL}/postData/uploads/image/${item.eventImage}`} id="eventImage"></img></td>
+                  <td><img src={`${BASE_URL}/postData/uploads/image/${item.image}`} id="eventImage"></img></td>
                   <td>{item.event_name}</td>
                   <td><FontAwesomeIcon icon={faLocationDot} id="LocationIcon"/>MATARA</td>
                   <td>{item.start_time}</td>
