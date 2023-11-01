@@ -21,6 +21,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {faPhone,faLocationDot,faList,faCalendarDays} from '@fortawesome/free-solid-svg-icons'
 import { faTwitter, faFontAwesome,faFacebook,faGooglePlusG,faLinkedinIn } from '@fortawesome/free-brands-svg-icons'
 import { Label } from '@mui/icons-material';
+import Topbar from '../components/common/Topbar';
 
 
 
@@ -259,18 +260,7 @@ const loadInvoicePreview=(id,mmid)=>{
        <SideMenuBarBand>
         <div>
             <p className='headerDashboard'>Invoice</p>
-            <div className={expand ? 'notificationBg':'notificationBg-ex'}>
-              <img src={notification} className='notificationIcon' alt='notification'></img>
-            </div>
-            <div className={expand ? 'homeBg':'homeBg-ex'}>
-            <Link to={'/'}>
-                <img src={home} alt='homebtn' className='homeIcon'></img>
-              </Link>
-            </div>
-            <div className={expand ? 'logoutBg':'logoutBg-ex'}>
-              <img src={logout} alt='logout'className='logout'></img>
-              <p className='logoutbtn'>Logout</p>
-            </div>
+            <Topbar></Topbar>
           </div>
           <div className='eventDetailsDisplayContainer'>
              <div className='eventDetailsDisplayInnerContainer1'>

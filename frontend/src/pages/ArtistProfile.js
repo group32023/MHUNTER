@@ -12,6 +12,7 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
+import Topbar from "../components/common/Topbar";
 
 export default function ArtistProfile() {
   const [expand, setExpandedSideBar] = useState(true);
@@ -105,28 +106,7 @@ export default function ArtistProfile() {
       <SideMenuBarArtist>
         <div>
           <p className="headerDashboard">Profile</p>
-          <div className={expand ? "notificationBg" : "notificationBg-ex"}>
-          <input
-              type="file"
-              ref={fileInput}
-              style={{ display: "none" }}
-              onChange={handleFileChange}
-            />
-            <img
-              src={notification}
-              className="notificationIcon"
-              alt="notification"
-            ></img>
-          </div>
-          <div className={expand ? "homeBg" : "homeBg-ex"}>
-            <Link to={"/"}>
-              <img src={home} alt="homebtn" className="homeIcon"></img>
-            </Link>
-          </div>
-          <div className={expand ? "logoutBg" : "logoutBg-ex"}>
-            <img src={logout} alt="logout" className="logout"></img>
-            <p className="logoutbtn">Logout</p>
-          </div>
+          <Topbar></Topbar>
         </div>
 
         <div className="adminProfile-container">

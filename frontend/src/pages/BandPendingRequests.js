@@ -22,6 +22,7 @@ import { faTwitter, faFontAwesome,faFacebook,faGooglePlusG,faLinkedinIn } from '
 import eventtype from '../assets/images/eventtype.png';
 
 import empty from '../assets/images/empty(1).png'
+import Topbar from '../components/common/Topbar';
 
 export default function ArtistPendingRequests() {
 
@@ -107,16 +108,7 @@ export default function ArtistPendingRequests() {
   
     
             <p className='headerDashboard'>Pending Requests</p>
-            <div className={expand ? 'notificationBg':'notificationBg-ex'}>
-              <img src={notification} className='notificationIcon' alt='notification'></img>
-            </div>
-            <div className={expand ? 'homeBg':'homeBg-ex'}>
-              <img src={home} alt='homebtn' className='homeIcon'></img>
-            </div>
-            <div className={expand ? 'logoutBg':'logoutBg-ex'}>
-              <img src={logout} alt='logout'className='logout'></img>
-              <p className='logoutbtn'>Logout</p>
-          </div>
+            <Topbar></Topbar>
 
      
       

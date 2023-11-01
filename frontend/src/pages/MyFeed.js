@@ -10,6 +10,7 @@ import SideMenuBarArtist from '../components/common/SideMenuBar/SideMenuBarArtis
 import "../assets/css/myFeed.css"
 import PreviousFeed from '../components/PreviousFeed'
 import { Link, useNavigate } from 'react-router-dom'
+import Topbar from '../components/common/Topbar'
 
 export default function MyFeed() {
     const [expand,setExpandedSideBar] = useState(true)
@@ -100,18 +101,7 @@ export default function MyFeed() {
         </div>
         <div className='mainEventContainer'>
         <p className='headerDashboard'>My Feed</p>
-            <div className={expand ? 'notificationBg':'notificationBg-ex'}>
-              <img src={notification} className='notificationIcon' alt='notification'></img>
-            </div>
-            <div className={expand ? 'homeBg':'homeBg-ex'}>
-              <Link to={'/'}>
-                <img src={home} alt='homebtn' className='homeIcon'></img>
-              </Link>
-            </div>
-            <div className={expand ? 'logoutBg':'logoutBg-ex'}>
-              <img src={logout} alt='logout'className='logout'></img>
-              <p className='logoutbtn'>Logout</p>
-            </div>
+           <Topbar></Topbar>
             </div>
 
         <div className='post'>
