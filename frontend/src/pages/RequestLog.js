@@ -14,6 +14,8 @@ import home from '../assets/images/home-button.png'
 import logout from '../assets/images/logout.png'
 import kpop from '../assets/images/kpop.png'
 import Button from 'react-bootstrap/Button';
+import empty from '../assets/images/empty(1).png'
+
 
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -121,7 +123,7 @@ export default function ArtistPendingRequests() {
   }
 
   
- if(eventList.length===0) return <div>Loading....................</div>
+
 
   return (
 
@@ -147,6 +149,11 @@ export default function ArtistPendingRequests() {
       
         
         {divElements}
+
+        <div className='emptyMessageForRequestLog'>
+          {(divElements.length ===0)?<><img src={empty} className='empty-img'></img><span className='emptyContent-report'>it's empty in here.</span></>:undefined}
+
+          </div>
 
         {showModal && (
                                     <div className="complaint-add-success-popup blur-background" style={{ fontFamily: 'MyCustomFont1' }}>
