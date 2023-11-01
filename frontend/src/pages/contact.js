@@ -87,11 +87,11 @@ h() {
 
             </div>
 
-            <div className='footerForHomeContact'>
+            {/* <div className='footerForHomeContact'>
 
              <Footer></Footer>
 
-         </div>
+         </div> */}
 
 
       </div>            

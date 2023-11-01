@@ -201,7 +201,7 @@
 .descriptionDivoption{
      background-color: #000; 
     width: 100%;
-    height: 120%;
+    height: 100%;
     top: 88.5%;
     z-index: 10;
     position: absolute;
@@ -213,6 +213,17 @@
     height: 80%;
     position: absolute;
     top: 60%;
+    left: 7%;
+    z-index: 100;
+
+}
+
+.eventcontainer123{
+
+    width: 90%;
+    height: 80%;
+    position: absolute;
+    top: 40%;
     left: 7%;
     z-index: 100;
 
@@ -259,7 +270,7 @@
     width: 94%;
     height:63%;
     position: absolute;
-    top: 40%;
+    top: 22%;
     left: 2%;
     z-index: 100;
 
@@ -283,11 +294,11 @@
   }
   .ContactDetailsDiv{
     background-color: rgba(65, 65, 65, 0.563);
-    height: 18%;
+    height: 35%;
     position: absolute;
-    top: 60%;
-    width: 85%;
-    left: 7%;
+    top: 51%;
+    width: 100%;
+    left: 0%;
     right: 0%;
   }
 
@@ -317,10 +328,11 @@
   
   .imageText {
     display: block;
-    font-family: 'Dosis-semibold'; 
+    font-family: 'Dosis-semibold';
     font-size: 25px;
-    color:white;
-    margin-top: 30px; /* Add the desired fixed top margin for the images */
+    color: white;
+    margin-top: 30px;
+    margin-left: 50px; /* Add the desired fixed top margin for the images */
 
   }
   

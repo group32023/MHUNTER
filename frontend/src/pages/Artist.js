@@ -113,7 +113,7 @@ export default function
                 </div>
                 <section>
                     <p className='description1'>
-                    Elevate your events with outstanding musical talent. MHUNTER provides a vast network of  artists, allowing you to handpick the perfect lineup. Easily browse, select, and assign artists to specific slots, ensuring a diverse and captivating program that leaves the crowd wanting more.                     
+                    An artist is an individual who creates visual, auditory, or performing art. They use their creativity and skills to express ideas, emotions, or concepts through various forms of artistic expression, such as painting, sculpture, music, dance, literature, and more.                  
                     </p>
                   
                 </section>

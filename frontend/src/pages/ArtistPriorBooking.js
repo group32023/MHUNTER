@@ -26,7 +26,7 @@ export default function ArtistPriorBooking() {
   const [expand,setExpandedSideBar] = useState(true)
   const componentPDF = useRef();
   const { id1,id2,id3 } = useParams();
-  const [org,setOrg]=useState([]);
+  const [org,setOrg]=useState();
 
   // console.log(id1);
   // console.log(id2);
@@ -39,7 +39,7 @@ export default function ArtistPriorBooking() {
 
   }
 
-
+  console.log(id2);
   const [events, setEvents] = useState([]);
 
   useEffect(() => {
@@ -54,28 +54,29 @@ export default function ArtistPriorBooking() {
      
       .then((data) => {
         setEvents(data);
-
-      })
-      .catch((error) => {
-        console.log('Error fetching data:', error);
-      });
-      
+         
       fetch(`http://localhost:8080/organizer/viewSpecificOrganizer/${id2}`)
-    .then((response) => {
-      if (!response.ok) {
-        throw new Error('Network response was not ok');
-      }
-      return response.json();
-    })
-     
-      .then((data) => {
-        setOrg(data);
-        console.log(data);
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.json();
+      })
+       
+        .then((data) => {
+          setOrg(data);
+         
+  
+        })
+        .catch((error) => {
+          console.log('Error fetching data:', error);
+        });
 
       })
       .catch((error) => {
         console.log('Error fetching data:', error);
       });
+    
 
   }, []);
 
@@ -109,8 +110,9 @@ export default function ArtistPriorBooking() {
   }
    
   
-  console.log(events)
+
   const divCount = events.length;
+  console.log(divCount)
   const divElements = [];
 
 //   // Using a for loop to generate the <div> tags
@@ -162,7 +164,7 @@ export default function ArtistPriorBooking() {
           <h3>Prior Booking </h3>
 
           <div className='emptyMessageForPriorBooking'>
-          {(divElements.length ===0)?<><img src={empty} className='empty-img'></img><span className='emptyContent-report'>it's empty in here.</span></>:undefined}
+          {(divElements.length ===0 || divCount===0)?<><img src={empty} className='empty-img'></img><span className='emptyContent-report'>it's empty in here.</span></>:undefined}
 
           </div>
 

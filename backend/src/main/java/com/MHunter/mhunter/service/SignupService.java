@@ -14,6 +14,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.Date;
 
 @Service
 public class SignupService {
@@ -73,8 +74,12 @@ public class SignupService {
             }
         }
         else{
+            savedUser.setIsVerified(1);
             StaffMember staffMember = new StaffMember();
             staffMember.setUser(savedUser);
+            Date todayDate = new Date();
+            staffMember.setAddedDate(todayDate);
+            staffMember.setJobRoll("Moderator");
             staffMemberRepository.save(staffMember);
         }
         String imageName = user.getUserId() + "_" + Image.getOriginalFilename();

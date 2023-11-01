@@ -113,6 +113,22 @@
 
 }
 
+.cancelBtnForRequestLog{
+    background-color: #FF0303 !important;
+    position: relative;
+    font-size: 15px;
+    width: 8%;
+    height: 43px;
+    font-weight: bold;
+    text-align: center;
+    color: white;
+    left: 77%;
+    top: -48.8px;
+    border-radius: 10px;
+    border: none !important;
+
+}
+
 
 .agreementBtn {
     background-color: #03ff70 !important;

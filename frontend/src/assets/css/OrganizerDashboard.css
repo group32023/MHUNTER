@@ -40,10 +40,10 @@
 
 }
 
-.mainContainer-NX .DashboardCalenderDiv {
+/* .mainContainer-NX .DashboardCalenderDiv {
     width: 412px;
     transition: all .5s ease;
-}
+} */
 
 .UpcominEventsDiv {
     background-color: #2f363e;
@@ -56,6 +56,8 @@
 .Dashboard-custom-flex-row {
     display: flex;
     margin-right: 40px;
+    position: absolute;
+    top: 52.5%;
 }
 
 .innertablePaymentTBContent {
@@ -181,4 +183,67 @@
     padding: 10px;
     border-radius: 10px;
     margin-bottom: 20px;
+}
+
+.artistCalanderDiv {
+    width: 344px;
+    height: 302.5px;
+    border-radius: 15px;
+    background: #3B444D;
+    position: absolute;
+    top: 57.8%;
+    left: 75%;
+    margin-top: -21%;
+    margin-left: -1%;
+
+}
+
+.artistCalanderDiv-exp {
+    width: 344px;
+    height: 264px;
+    border-radius: 15px;
+    background: #3B444D;
+    position: relative;
+    top: 13.9%;
+    left: 72.3%;
+    margin-top: -21%;
+    margin-left: -10%;
+
+}
+
+.artistCalanderDiv-exp .monthlyRequestPersontageMinus {
+    color: #FF0000;
+    font-family: 'Dosis', sans-serif;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+    position: absolute;
+    top: 57%;
+    left: 80%;
+}
+
+.artistCalanderDiv-exp .monthlyRequestPersontage {
+    color: #11FE70;
+    font-family: 'Dosis', sans-serif;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+    position: absolute;
+    top: 57%;
+    left: 80%;
+}
+
+.artistCalanderDiv-exp .css-15v8kdh-MuiPickersFadeTransitionGroup-root-MuiDateCalendar-viewTransitionContainer {
+    height: 234px;
+}
+
+.artistCalanderDiv-exp .css-nk89i7-MuiPickersCalendarHeader-root {
+    margin-top: 6px;
+    margin-bottom: -7px;
+}
+
+.artistCalanderDiv-exp .css-flbe84-MuiDayCalendar-weekContainer {
+    margin: 0px 0;
 }
