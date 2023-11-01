@@ -131,8 +131,8 @@ public class UserController {
     }
 
     @GetMapping("/organizer/{userId}")
-    MusicMember getOrgById(@PathVariable int userId) {
-        return musicMemberService.findSpecificOrganizerByUserID(userId);
+    Organizer getOrgById(@PathVariable int userId) {
+        return organizerService.findSpecificOrganizerByUserID(userId);
     }
 
 }
