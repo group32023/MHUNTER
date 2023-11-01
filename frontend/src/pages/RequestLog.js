@@ -110,7 +110,7 @@ export default function ArtistPendingRequests() {
     
       <button className="agreementBtn">Agreement</button>
    
-      <button className="cancelBtn" onClick={()=>handleShowModal(eventList[i]['eventId'])}>Cancel</button>
+      <button className="cancelBtnForRequestLog" onClick={()=>handleShowModal(eventList[i]['eventId'])}>Cancel</button>
     
        </div>
 

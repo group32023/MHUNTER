@@ -16,6 +16,7 @@ import ViewArtist from './ViewArtist';
 import MakeArtistRequest from './MakeArtistRequest';
 import SearchBand from './SearchBand'
 import ViewBand from './ViewBand'
+import ArtistCalendar from "../../components/ArtistCalendar";
 
 import '../../assets/css/OrganizerDashboard.css';
 // import OrganizerDashboardContent from "./OrganizerDashboardContent";
@@ -61,11 +62,13 @@ export default function OrganizerDashboard() {
         <div className='OrganizerDashboardMainContainer'>
           <Topbar customProp="Dashboard" />
           <div className='row' style={{ marginLeft: '35px' }}>
-            <DashboardCarousel />
-            <div className='DashboardCalenderDiv px-2'>
-              <DashboardCalender className='mt-3' />
-              {/* <img alt='' className='mt-2' src={CalenderImg} width='330px' height='310px'></img> */}
+            <DashboardCarousel className="col-8" />
+
+            <div className='DashboardCalenderDiv px-2 col-3 artistCalanderDiv '>
+              <ArtistCalendar />
             </div>
+            {/* <img alt='' className='mt-2' src={CalenderImg} width='330px' height='310px'></img> */}
+
           </div>
 
           <div className='row mt-3 Dashboard-custom-flex-row' style={{ marginLeft: '50px' }}>
@@ -85,10 +88,10 @@ export default function OrganizerDashboard() {
                       <div className='PaymentTBEventName d-flex align-items-center justify-content-center'><BsMusicNoteList className='' style={{ fontSize: '18px', marginRight: '7px', color: '#7643D2' }} />OBA NISA PERA BEATZ</div>
                       <div className='PaymentTBAmount d-flex align-items-center justify-content-center'>LKR 60 000.00</div>
                       <div className=' PaymentTBBtn d-flex align-items-center justify-content-center'>
-                      <Link to={`/organizer/paymentForm/${artistId}`} >
+                        <Link to={`/organizer/paymentForm/${artistId}`} >
                           <Button className='paymentBtn shadow' variant="secondary">Pay Now</Button>
                         </Link>
-                    
+
                       </div>
 
                     </div>
@@ -451,7 +454,7 @@ export default function OrganizerDashboard() {
           <Route path='/organizer/searchartist/viewartist/:mmid/:eventid' element={<ViewArtist />} />
           <Route path='/organizer/searchartist/viewartist/makeartistrequest/:mmid/:eventid' element={<MakeArtistRequest />} />
           <Route path='/organizer/searchband/:eventid' element={<SearchBand />} />
-          <Route path='/organizer/searchband/viewband/:mmid/:eventid' element={<ViewBand/>} />
+          <Route path='/organizer/searchband/viewband/:mmid/:eventid' element={<ViewBand />} />
         </Routes>
       </SideMenuBarOrganizer>
     </>
