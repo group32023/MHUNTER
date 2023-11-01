@@ -43,7 +43,7 @@
 
 .footerForHomeevent{
     position: relative;
-    top: 450px;
+    top: 1127px;
     left: 0px;
     z-index: 10;
 }
@@ -299,7 +299,7 @@
     position: relative;
     top: 28%;
     left: 3%;
-    z-index: 100;
+    z-index: 0;
 
 }
 

@@ -107,7 +107,7 @@ export default function
                  
             </div>
 
-            <div className='descriptionDiv1'>
+            <div className='descriptionDiv7'>
                <div className='captionbackground'>
                 <p className='caption1'>Home {'>'} Artists</p>
                 </div>
@@ -115,11 +115,7 @@ export default function
                     <p className='description1'>
                     Elevate your events with outstanding musical talent. MHUNTER provides a vast network of  artists, allowing you to handpick the perfect lineup. Easily browse, select, and assign artists to specific slots, ensuring a diverse and captivating program that leaves the crowd wanting more.                     
                     </p>
-                    <p className='description2'>
-                    Create Stunning Events:
-                    <br></br>
-                    With MHUNTER, event creation is a breeze. Seamlessly set up and customize your music events with essential details like event name, date, time, location. Craft the perfect atmosphere for your attendees, ensuring an unforgettable experience from start to finish.                    </p>
-              
+                  
                 </section>
              
                 <div className='eventcontainer'>
@@ -195,7 +191,11 @@ export default function
                 </div>
 
             </div>
-           
+            {/* <div className='footerForHomeartist'>
+
+            <Footer></Footer>
+
+            </div> */}
 
       </div>
     </div>

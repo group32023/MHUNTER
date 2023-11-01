@@ -1,4 +1,5 @@
-import React from 'react'
+import React,{useState} from 'react'
+import {useEffect } from 'react'
 import SideMenuBarAdmin from '../../components/common/SideMenuBar/SideMenuBarAdmin'
 import '../../assets/css/admin/adminDashboard.css'
 import { Link, Route, Routes } from 'react-router-dom';
@@ -21,6 +22,7 @@ import { BiSolidCalendarStar } from "react-icons/bi";
 import { BiSolidPlusCircle } from "react-icons/bi";
 import { BiSolidCircle } from "react-icons/bi";
 import 'bootstrap/dist/css/bootstrap.min.css'
+import { useParams } from 'react-router-dom';
 
 import profilePhoto from '../../assets/images/profilePhoto.jpeg'
 import locationDemo from '../../assets/images/locationDemo.jpeg'
@@ -30,6 +32,25 @@ import BandImage from '../../assets/images/band.jpg'
 
 
 function AdminEventDashboard() {
+    const { id} = useParams();
+    const [formData, setFormData] = useState([]);
+    useEffect(() => {
+        console.log(id);
+        fetch(`http://localhost:8080/event/byEventid/${id}`)
+          .then((response) => {
+            if (!response.ok) {
+              throw new Error('Network response was not ok');
+            }
+            return response.json();
+          })
+          .then((data) => {
+            setFormData(data);
+            console.log(formData);
+          })
+          .catch((error) => {
+            console.log('Error fetching data:', error);
+          });
+      }, [id]);
   return (
     <>
     <SideMenuBarAdmin>
@@ -48,12 +69,11 @@ function AdminEventDashboard() {
                                     <img alt='' src={EventBanner4} width='385px' height='210px' />
                                 </div>
                                 <div className="eventDescDiv col-md-7 mt-2"  >
-                                    <span className="eventDescDivSpan">Aaley</span>
+                                    <span className="eventDescDivSpan"> {formData.event_name}</span>
                                     <div className="row" style={{ display: 'flex' }}>
                                         <div className="eventDescInnerDiv col-md-10 py-2 " >
                                             <p style={{ textAlign: 'justify' }}>
-                                                The Aaley Concert is an energetic and diverse music event featuring renowned artists, dynamic performances, and cultural celebration. It blends modern genres, encouraging audience participation and showcasing emerging talent.
-
+                                                {formData.description}
                                             </p>
                                         </div>
 
@@ -66,7 +86,7 @@ function AdminEventDashboard() {
                                                 <BiSolidCalendar className='dateIcon fs-1 col-md-3 ' />
                                                 <div className='col-md-8 mt-2'>
                                                     <p>Event Date<br></br>
-                                                        <span className='fs-4'>Aug 20 2023</span>
+                                                        <span className='fs-4'>{formData.date}</span>
                                                     </p>
                                                 </div>
                                             </div>

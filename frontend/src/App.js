@@ -120,6 +120,7 @@ function App() {
           <Route path='/artist/Dashboard' element={<ArtistDashboard/>}></Route>
           <Route path='/artist/Reports/:id' element={<ArtistGenerateReportsToday/>}></Route>
           <Route path='/artist/Event' element={<ArtistEvent/>}></Route>
+          <Route path='/artist/MyFeed' element={<MyFeed/>}></Route>
           <Route path='/artist/EventSpecific/:id' element={<ArtistSpecificEvent/>}></Route>
           <Route path='/artist/PendingRequestView/:id' element={<ArtistPendingRequestView/>}></Route>
           <Route path='/artist/priorbooking/:id1/:id2/:id3' element={<ArtistPriorBooking/>}></Route>
@@ -193,7 +194,7 @@ function App() {
           <Route path='/admin/report' element={<AdminReport />} />
           <Route path='/admin/settings' element={<AdminSettings />} />
           <Route path='/admin/event' element={<AdminEvents />} />
-          <Route path='/admin/event/eventDetails' element={<AdminEventDashboard/>} />
+          <Route path='/admin/event/eventDetails/:id' element={<AdminEventDashboard/>} />
           <Route path='/admin/profile/:id' element={<AdminProfile/>} />
 
           {/*moderator*/}

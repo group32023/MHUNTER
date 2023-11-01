@@ -3,12 +3,14 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGear } from "@fortawesome/free-solid-svg-icons";
 
 export default function Notification() {
-  const [getData,setData] = useState()
+  const [getData,setData] = useState([])
   const BASE_URL = "http://localhost:8080";
 
   // get the all data form backend
   const handle = ()=>{
     const userId = localStorage.getItem('userId');
+    const mmId = localStorage.getItem('mmid');
+
     if(userId){
     fetch(`http://localhost:8080/notification/view/${userId}`).then((res)=>res.json()).then((result)=>{
       if(result.length>0){
@@ -34,11 +36,10 @@ export default function Notification() {
             </div>
           </div>
         ))
+        
         setData(newItem) 
       }
-     console.log(getData)
-    })}
-    
+    })}    
   }
 
   useEffect(()=>{

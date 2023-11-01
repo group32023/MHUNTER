@@ -5,7 +5,7 @@ import notification from '../assets/images/notification.png'
 import home from '../assets/images/home-button.png'
 import logout from '../assets/images/logout.png'
 import kpop from '../assets/images/kpop.png'
-import PendingRequest from '../components/PendingRequest'
+import PendingRequests from '../components/common/PendingRequests'
 import ArtistIncome from '../components/ArtistIncome'
 import ArtistCalendar from '../components/ArtistCalendar'
 import ArtistEarningOverview from '../components/ArtistEarningOverview'
@@ -99,7 +99,7 @@ export default function ArtistDashboard() {
 
             {/* pending request */}
             <div className={expand ? 'pendingRequestDiv':'pendingRequestDiv-exp'}>
-                <PendingRequest />
+                <PendingRequests />
             </div>
 
             {/* Income */}

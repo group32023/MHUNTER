@@ -205,11 +205,7 @@ App() {
                     Welcome to MHUNTER, the all-in-one music event management system that puts you in control of creating and managing incredible music events. Whether you're a seasoned event planner, or a budding organizer, MHUNTER empowers you to bring your musical visions to life.
                        </p>
                      
-                    <p className='description2'>
-                    Create Stunning Events:
-                    <br></br>
-                    With MHUNTER, event creation is a breeze. Seamlessly set up and customize your music events with essential details like event name, date, time, location. Craft the perfect atmosphere for your attendees, ensuring an unforgettable experience from start to finish.                    </p>
-                </section>
+                   </section>
              
                 <div className='eventOptioncontainer'>
 
@@ -297,12 +293,12 @@ App() {
 
             </div>
 
-            <div className='footerForHomeAboutUs'>
+            {/* <div className='footerForHomeAboutUs'>
 
                 <Footer></Footer>
 
                 </div>
-            
+             */}
 
       </div>
     </div>
