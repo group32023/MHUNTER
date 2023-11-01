@@ -11,9 +11,12 @@ import { BiSolidCalendarCheck } from "react-icons/bi";
 import { BiSolidCommentError } from "react-icons/bi";
 import { BiSolidSearch } from "react-icons/bi";
 import React, { useState } from "react";
+import {useEffect } from 'react';
+import axios from 'axios';
 
 function SideMenuBarOrganizer({ children }) {
 	const [isExpanded, setExpandState] = useState(false);
+	const [user, setUser] = useState(null);
 
 	useEffect(() => {
         const userId = localStorage.getItem('userId');
@@ -36,8 +39,8 @@ function SideMenuBarOrganizer({ children }) {
             axios.get(`http://localhost:8080/user/user/${userId}`)
                 .then(response => {
                     setUser(response.data);
-                    setImage(response.data['imagePath'])
-                    console.log(image)
+                    // setImage(response.data['imagePath'])
+                    // console.log(image)
                 })
                 .catch(error => {
                     console.error(error);

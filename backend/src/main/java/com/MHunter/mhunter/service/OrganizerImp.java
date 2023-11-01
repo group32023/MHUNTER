@@ -23,4 +23,10 @@ public class OrganizerImp implements OrganizerService{
     public List<Organizer> findAllOrganizer() {
         return organizerRepository.findAll();
     }
+
+    @Override
+    public Organizer findSpecificOrganizerByUserID(int user_id){
+
+        return organizerRepository.findOrganizerUserId(user_id);
+    }
 }
