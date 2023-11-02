@@ -17,6 +17,7 @@ import Pagination from '@mui/material/Pagination';
 import Stack from '@mui/material/Stack';
 import CircularProgress from '@mui/material/CircularProgress';
 import empty from '../assets/images/empty(1).png'
+import Topbar from '../components/common/Topbar'
 
 
 export default function ArtistEvent() {
@@ -115,21 +116,7 @@ export default function ArtistEvent() {
     <div>
             <SideMenuBarArtist>
         <p className='headerDashboard'>Events</p>
-            <div className={expand ? 'notificationBg':'notificationBg-ex'}>
-              <img src={notification} className='notificationIcon' alt='notification'></img>
-            </div>
-            <div className={expand ? 'homeBg':'homeBg-ex'}>
-              <Link to={'/'}>
-                <img src={home} alt='homebtn' className='homeIcon'></img>
-              </Link>
-            </div>
-            <div className={expand ? 'logoutBg':'logoutBg-ex'}>
-              
-              <img src={logout} alt='logout'className='logout'></img>
-              
-              
-              <p className='logoutbtn'>Logout</p>
-            </div>
+            <Topbar></Topbar>
             <input className='artistEventSearchBar' placeholder='Search by keyword' value={getFilterData} onChange={(e)=>{setFilterData(e.target.value);setFilter()}}></input>
             {getFilterData.length > 0 ? 
             <FontAwesomeIcon icon="fa-solid fa-circle-xmark" className='artistEventSearchBarIcon' onClick={clearState}/>

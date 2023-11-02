@@ -20,7 +20,7 @@ export default function ArtistUpcommingEvent() {
     .then((result) => {  
         const newEvents = result.map(item => (
             <div className='eventItem'> 
-                <img className='eventImage' src={`${BASE_URL}/postData/uploads/image/${item.eventImage}`} alt=''></img>
+                <img className='eventImage' src={`${BASE_URL}/postData/uploads/image/${item.image}.jpg`} alt=''></img>
                 <p className='eventTopic'>{item.event_name}</p>
                 <span className='locationEvent'>{item.town}</span>
                 <p className='eventDescripition'>{item.description}</p>

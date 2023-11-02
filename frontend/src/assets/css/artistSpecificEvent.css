@@ -56,8 +56,8 @@
     border-radius: 15px;
     background: #3B444D;
     position: relative;
-    top: -17%;
-    left: 67.6%;
+    top: -217px;
+    left: 67.6%
     
   
 }
@@ -82,13 +82,13 @@
 }
 
 .specificEventType{
-    width: 399px;
-    height: 107px;
+    width: 398px;
+    height: 83px;
     border-radius: 15px;
     background: #3B444D;
     position: relative;
-    top: -16%;
-    left: 67.6%;
+    top: -86px;
+    left: 987px;
   
 }
 
@@ -117,7 +117,7 @@
     border-radius: 40px;
     background: #7643D2;
     position: relative;
-    top: -12px;
+    top: -31px;
     left: 23px;
   }
 
@@ -148,7 +148,7 @@
     border-radius: 15px;
     background: #3B444D;
     position: relative;
-    top: -94px;
+    top: -171px;
     left: 148px;
 }
 
@@ -199,8 +199,8 @@
     border-radius: 15px;
     background: #3B444D;
     position: relative;
-    top: -178px;
-    left: 578px;
+    top: -253px;
+    left: 578px
   
 }
 
@@ -230,8 +230,8 @@
     border-radius: 15px;
     background: #3B444D;
     position: relative;
-    top: -261px;
-    left: 1040px;
+    top: -438px;
+    left: 988px;
 }
 
 .specificEventCrowdTitle{
@@ -272,7 +272,7 @@
     border-radius: 15px;
     background: #3B444D;
     position: relative;
-    top: -241px;
+    top: -314px;
     left: 146px;
 }
 
@@ -282,8 +282,9 @@
     border-radius: 15px;
     background: linear-gradient(180deg, #7643D2 17.71%, rgba(118, 67, 210, 0.34) 100%);
     position: relative;
-    top: -483px;
-    left: 1040px;
+    top: -560px;
+    left: 987px;
+  
 }
 
 .specificEventIncomeTitle{
