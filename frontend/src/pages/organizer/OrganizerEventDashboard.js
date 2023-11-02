@@ -25,6 +25,7 @@ import ArtistInvoiceAgreementModal from '../../components/organizer/ArtistInvoic
 
 import SearchBand from './SearchBand'
 import ViewBand from './ViewBand'
+import MakeBandRequest from './MakeBandRequest';
 
 import { BiSolidEdit } from "react-icons/bi";
 import { BiSolidBox } from "react-icons/bi";
@@ -534,6 +535,7 @@ function OrganizerEventDashboard() {
                     <Route path='/organizer/searchartist/viewartist/makeartistrequest/:mmid/:eventid' element={<MakeArtistRequest />} />
                     <Route path='/organizer/searchband/:eventid' element={<SearchBand />} />
                     <Route path='/organizer/searchband/viewband/:mmid/:eventid' element={<ViewBand />} />
+                    <Route path='/organizer/searchband/viewband/makebandrequest/:mmid/:eventid' element={<MakeBandRequest />} />
                 </Routes>
 
             </SideMenuBarOrganizer>

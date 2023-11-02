@@ -17,6 +17,7 @@ import ViewArtist from './ViewArtist';
 import MakeArtistRequest from './MakeArtistRequest';
 import SearchBand from './SearchBand'
 import ViewBand from './ViewBand'
+import MakeBandRequest from './MakeBandRequest';
 import ArtistCalendar from "../../components/ArtistCalendar";
 
 import '../../assets/css/OrganizerDashboard.css';
@@ -394,6 +395,7 @@ export default function OrganizerDashboard() {
           <Route path='/organizer/searchartist/viewartist/makeartistrequest/:mmid/:eventid' element={<MakeArtistRequest />} />
           <Route path='/organizer/searchband/:eventid' element={<SearchBand />} />
           <Route path='/organizer/searchband/viewband/:mmid/:eventid' element={<ViewBand />} />
+          {/* <Route path='/organizer/searchband/viewband/makebandrequest/:mmid/:eventid' element={<MakeBandRequest />} /> */}
         </Routes>
       </SideMenuBarOrganizer>
     </>
