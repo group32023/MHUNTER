@@ -1,5 +1,6 @@
 import React from 'react'
 import { useRef, useState} from 'react'
+import { Modal, Button } from 'react-bootstrap';
 
 export default function ArtistSignup() {
   const formRef = useRef(null);
@@ -7,6 +8,15 @@ export default function ArtistSignup() {
   const inputRef = useRef(null);
   const [Image, setImage] = useState("");
 
+  const [showModal, setShowModal] = useState(false);
+
+  //const handleCloseModal = () => setShowModal(false);
+  const handleCloseModal = () => {
+    setShowModal(false);
+    window.location.href = "/login";
+  };
+  
+  const handleShowModal = () => setShowModal(true);
   const handleImageClick = () =>{
     inputRef.current.click();
   }
@@ -96,8 +106,9 @@ export default function ArtistSignup() {
         if (response.ok) {
           formRef.current.reset();
           resetFormFields();
-          alert("Artist Registration Successfully");
-          window.location.href = "/login";
+          handleShowModal();
+          //alert("Artist Registration Successfully");
+          //window.location.href = "/login";
         } else {
           const errorMessage = await response.text();
           if (errorMessage === "Email already exists!") {
@@ -239,9 +250,28 @@ export default function ArtistSignup() {
                 
             </div>
           </form>
-  
+          <Modal show={showModal} onHide={handleCloseModal}>
+        <Modal.Header closeButton>
+          <Modal.Title>Success!</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <p>Welcome to our Band Artist Organizer Management System!</p>
+             <p>We are thrilled to have you on board. Please note that you have successfully registered as an artist. 
+             However, to fully participate in events, we kindly request that you submit a certificate validating your authenticity within the next two weeks through postal.
+              Until the certificate is received, you can update your profile with your latest works and information.
+               Please be aware that during this period, the organizers will be unable to send any event requests your way.
+                </p><p>Thank you for your understanding, and we look forward to your active participation in our upcoming events!</p>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleCloseModal}>
+            Close
+          </Button>
+        </Modal.Footer>
+      </Modal>
         
     </div>
+
+    
 
   )
 }

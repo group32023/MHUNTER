@@ -50,6 +50,7 @@ public class InvoiceServiceImp implements InvoiceService {
         if (optionalInvoice.isPresent()) {
             Invoice invoice = optionalInvoice.get();
             invoice.setPaidAmount(newPaidAmount);
+            invoice.setIsPaid(1);
             return invoiceRepository.save(invoice); // Save and return the updated invoice
         } else {
             throw new IllegalArgumentException("Invalid Invoice ID");

@@ -69,7 +69,7 @@ function SideMenuBarAdmin({ children }) {
                                     
                                     src={`http://localhost:8080/postData/uploads/image/${user?.imagePath}`}
                                     alt="Profile"
-                                    style={{width:'80px', height:'80px'}}
+                                    style={{width:'60px', height:'60px'}}
 
                                     onError={() => {
                                         // Handle image loading error here (e.g., display a default image)
@@ -151,17 +151,7 @@ function SideMenuBarAdmin({ children }) {
                             )}
 
                         </li>
-                        <li className={isExpanded ? "nav-item p-1" : "nav-item"}>
-                            <NavLink to="/admin/settings" activeClassName="active" className={isExpanded ? "nav-link d-flex align-items-center text-decoration-none" : "nav-link collapsed-nav-link d-flex align-items-center text-decoration-none"}>
-                                <BiSolidCog className={isExpanded ? "menu-icon mx-4" : "menu-icon"} />
-                                {isExpanded && (
-                                    <span className="menu_link_name fs-6">Settings</span>
-                                )}</NavLink>
-                            {!isExpanded && (
-                                <span className="tooltip">Settings</span>
-                            )}
-
-                        </li>
+                       
                     </ul>
 
 

@@ -27,50 +27,122 @@ import { BsMusicNoteList } from "react-icons/bs";
 import {BiSolidUserPlus} from "react-icons/bi";
 
 import ReactApexChart from 'react-apexcharts';
+import axios from 'axios';
 
 
 
 export default function AdminDashboard() {
+  const [artistDataSource, setArtistDataSource] = useState([]);
+
+  useEffect(() => {
+    fetchDataA().then((artistData) => {
+      setArtistDataSource(artistData);
+    });
+  }, []);
+
+  const fetchDataA = () => {
+    return axios
+      .get('http://localhost:8080/artist/top10') 
+      .then((response) => response.data)
+      .catch((error) => {
+        console.error('Error fetching data from the server:', error);
+        return [];
+      });
+  };
 
   const [banddataSource, setBandDataSource] = useState(Array.from({length:10}));
-  const [artistdataSource, setArtistDataSource] = useState(Array.from({length:10}));
+  //const [artistdataSource, setArtistDataSource] = useState(Array.from({length:10}));
   const[date, setDate] = useState(new Date());
 
   useEffect(() => {
     fetchData().then((banddata) => {
       setBandDataSource(banddata);
     });
-    fetchDataA().then((artistdata) => {
-      setArtistDataSource(artistdata);
-    });
   }, []);
 
   const fetchData = () => {
     return new Promise((resolve) => {
       setTimeout(() => {
-        const banddata = ['FlashBack', 'Wayo', 'Jaya Sri', 'Marians', 'Sunflower', 'Gypsies', 'Dharmarathna Brother', 'Three Sisters Sri Lanka', 'La Bambas Sri Lanka', 'The Moonstones Sri Lanka'];
+        const banddata = ['FlashBack', 'Wayo', 'Jaya Sri', 'Marians', 'Sunflower'];
         resolve(banddata);
 
       }, 1000);
     })}
-    const fetchDataA = () => {
-      return new Promise((resolve) => {
-        setTimeout(() => {
-          const artistdata = ['Dhanith Sri', 'Dinesh Gamage', 'Supun Perera', 'Methun SK', 'Ridma Werawardhne', 'BnS', 'Lahiru Perera', 'Umara', 'Shashika Nisansala', 'Theekshana Anuradha'];
-          resolve(artistdata);
-        }, 1000);
-      })}
 
   const onChange = date => {
     setDate(date);
   }
+/*---------------------------------------------uptocome-------------------------------------------------------------*/
+  const [upcomingEvents, setUpcomingEvents] = useState([]);
 
-  const seriesData = [{
+  useEffect(() => {
+    fetchDataUptocome();
+  }, []);
+
+  const fetchDataUptocome = async () => {
+    try {
+      const response = await axios.get('http://localhost:8080/event/upcomingEvents');
+      const upcomingEventsData = response.data;
+      setUpcomingEvents(upcomingEventsData);
+    } catch (error) {
+      console.error('Error fetching data from the server:', error);
+    }
+  };
+/*------------------------------------------------------chart-----------------------------------------------*/
+const [reportData, setReportData] = useState([]);
+
+useEffect(() => {
+  fetchReportData();
+}, []);
+
+const fetchReportData = async () => {
+  try {
+    const response = await axios.get('http://localhost:8080/getAdminReportData');
+    const reportData = response.data;
+    setReportData(reportData);
+  } catch (error) {
+    console.error('Error fetching data from the server:', error);
+  }
+};
+
+ /* const seriesData = [{
     name: "Monthly Income",
     data: [100000, 41000, 35000, 51000, 49000, 62000, 69000, 91000, 148000, 70000, 90000,67000]
-  }];
+  }];*/
 
-  const optionsData = {
+  const chartData = {
+    series: reportData.map((dataPoint) => dataPoint[1]),
+    options: {
+      chart: {
+        height: 350,
+        type: 'line',
+        zoom: {
+          enabled: false,
+        },
+      },
+      dataLabels: {
+        enabled: false,
+      },
+      stroke: {
+        curve: 'straight',
+      },
+      title: {
+        text: 'Income of the Events',
+        align: 'center',
+      },
+      grid: {
+        row: {
+          colors: ['#99ccff', 'transparent'],
+          opacity: 0.5,
+        },
+      },
+      xaxis: {
+        categories: reportData.map((dataPoint) => dataPoint[0]),
+      },
+    },
+  };
+/*------------------------------------------------count Artist and Band-----------------------------------------------------*/
+ /* const optionsData = {
     chart: {
       height: 350,
       type: 'line',
@@ -97,6 +169,28 @@ export default function AdminDashboard() {
     },
     xaxis: {
       categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct','Nov','Dec'],
+    }
+  };*/
+
+  const [artistCount, setArtistCount] = useState(0);
+  const [bandCount, setBandCount] = useState(0);
+
+  useEffect(() => {
+    fetchDataABC();
+  }, []);
+
+  const fetchDataABC = async () => {
+    try {
+      const response = await axios.get('http://localhost:8080/countBandAndArtist'); 
+      response.data.forEach(item => {
+        if (item[0] === 'Artist') {
+          setArtistCount(item[1]);
+        } else if (item[0] === 'Band') {
+          setBandCount(item[1]);
+        }
+      });
+    } catch (error) {
+      console.error('Error fetching data from the server:', error);
     }
   };
 
@@ -126,17 +220,29 @@ export default function AdminDashboard() {
         <div className="col-sm-4">
           <div className='top-band-list bgimage-admin'>
             <h3 className='text-center' style={{color:'#00ff00'}}>Top 10 Artists</h3>
-            <InfiniteScroll dataLength={artistdataSource.length} className='text-center admin-list'>
-              {artistdataSource.map((item, index)=>{
+            <InfiniteScroll dataLength={artistDataSource.length} className='text-center admin-list'>
+              {artistDataSource.map((item, index)=>{
                 return<div key={index}> {item} </div>
               })}
             </InfiniteScroll>
           </div>
         </div>
         <div className="col-sm-4">
-          <div className='admin-calendar text-center'>
-            <Calendar onChange={onChange} value={date} />
-          </div>
+        <div className="admin-calendar text-center">
+        <Calendar
+          onChange={onChange}
+          value={date}
+          tileContent={({ date, view }) =>
+            view === 'month' &&
+            upcomingEvents.some(
+              (event) =>
+                new Date(event.date).toDateString() === date.toDateString()
+            ) ? (
+              <div style={{ backgroundColor: 'red' }}>•</div>
+            ) : null
+          }
+        />
+      </div>
         </div>
       </div>
     </div>
@@ -145,14 +251,14 @@ export default function AdminDashboard() {
         <div className="col-sm-3">
             <div className="card card-userdetails">
             <div className="card-body text-center">
-              <span className='icon-name-container' style={{color:'#00ff00'}}><BiSolidUserDetail className='icon-dashboard'/><h4 className="card-title text-light" >Artists 10</h4></span>
+              <span className='icon-name-container' style={{color:'#00ff00'}}><BiSolidUserDetail className='icon-dashboard'/><h4 className="card-title text-light" >Artists  {artistCount}</h4></span>
             </div>
             </div>
         </div>
         <div className="col-sm-3">
             <div className="card card-userdetails">
             <div className="card-body text-center">
-            <span className='icon-name-container' style={{color:'#bf00ff'}}  ><BiSolidUserDetail className='icon-dashboard'/><h4 className="card-title text-light">Bands 15</h4></span>
+            <span className='icon-name-container' style={{color:'#bf00ff'}}  ><BiSolidUserDetail className='icon-dashboard'/><h4 className="card-title text-light">Bands {bandCount}</h4></span>
             </div>
             </div>
         </div>
@@ -179,23 +285,24 @@ export default function AdminDashboard() {
           <div className="p-3">
             <p className='fs-5' style={{ fontFamily: 'MyCustomFont1' , color:'white'}}>Upcoming Events</p>
             <hr></hr>
+
             <div className="UpcomingTableDiv mt-4">
-              <div className="row tableUpcomingContent">
+            {upcomingEvents.map((event, index) => (
+              <div className="row tableUpcomingContent" key={index}>
                 <div>
                 </div>
                 <div className='upcomingDivEventImage '>
-                  <img className='' alt='' src={EventBanner2} width='200px' height='110px'></img>
+                  <img className='' alt='' src={`http://localhost:8080/postData/uploads/image/${event.image}.jpg`} width='200px' height='110px'></img>
                 </div>
 
-
                 <div className='upcomingDivEventData'>
-                  <span className='row eventTitle'>OBA NISA PERA BEATZ</span>
+                  <span className='row eventTitle'>{event.event_name}</span>
                   <div className='row eventDataRow1'>
-                    <span className='row eventLocation'>University of Peradeniya, Gymnasium</span>
-                    <span className='row eventLocation' style={{color:'white'}}>Oba Nisa live in concert: A vibrant musical journey for university students, featuring a fusion of genres and unforgettable performances that celebrate youth.</span>
+                    <span className='row eventLocation'>{event.location}</span>
+                    <span className='row eventLocation' style={{color:'white'}}>{event.description}</span>
                     <div className='row eventDate'>
                       <BiSolidCalendarStar className='fs-5' style={{ color: 'white' }} />
-                      <span  style={{ color: 'white' }}  >2023-10-05</span>
+                      <span  style={{ color: 'white' }}  >{event.date}</span>
                     </div>
 
                   </div>
@@ -203,52 +310,7 @@ export default function AdminDashboard() {
                 <hr className='mt-3 '></hr>
 
               </div>
-
-              <div className="row tableUpcomingContent">
-                <div className='upcomingDivEventImage '>
-                  <img className='' alt='' src={EventBanner1} width='200px' height='110px'></img>
-                </div>
-
-
-                <div className='upcomingDivEventData'>
-                  <span className='row eventTitle'>DADDY LIVE IN CONCERT</span>
-                  <div className='row eventDataRow1'>
-                    <span className='row eventLocation'>Central Auditorium, Weligama,Matara</span>
-                    <span className='row eventLocation' style={{color:'white'}}>Daddy Band delivers an electrifying live concert experience, blending dynamic rock melodies with captivating stage presence.</span>
-                    <div className='row eventDate'>
-                      <BiSolidCalendarStar className='fs-5' style={{ color: 'white' }} />
-                      <span  style={{ color: 'white' }} >2023-11-23</span>
-                    </div>
-
-                  </div>
-
-                </div>
-                <hr className='mt-3 '></hr>
-
-              </div>
-
-              <div className="row tableUpcomingContent">
-                <div className='upcomingDivEventImage '>
-                  <img className='' alt='' src={EventBanner3} width='200px' height='110px'></img>
-                </div>
-
-
-                <div className='upcomingDivEventData'>
-                  <span className='row eventTitle'>B N S LIVE IN CONCERT</span>
-                  <div className='row eventDataRow1'>
-                    <span className='row eventLocation'> Air Force Grounds, Weerawila</span>
-                    <span className='row eventLocation' style={{ color: 'white' }} >BNS takes the stage in an unforgettable live concert, creating an immersive musical experience that resonates with fans of all ages.</span>
-                    <div className='row eventDate'>
-                      <BiSolidCalendarStar className='fs-5' style={{ color: 'white' }} />
-                      <span style={{ color: 'white' }} >2023-11-25</span>
-                    </div>
-
-                  </div>
-
-                </div>
-                <hr className='mt-3 '></hr>
-
-              </div>
+               ))}
 
             </div>
           </div>
@@ -262,7 +324,13 @@ export default function AdminDashboard() {
      display:'flex', justifyContent:'center',
       borderRadius:'10px',
       width:'60%'}}>
-        <ReactApexChart options={optionsData} series={seriesData} type="line" height={350} width={700} />
+         <ReactApexChart
+      options={chartData.options}
+      series={[{ data: chartData.series }]}
+      type="line"
+      height={350}
+      width={700}
+    />
       </div>
 
 

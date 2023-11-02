@@ -18,6 +18,7 @@ import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 
 export default function AdminProfile() {
+  
   const [formData, setFormData] = useState({
     userId: '',
     firstName: '',
@@ -62,6 +63,10 @@ export default function AdminProfile() {
       .catch((error) => {
         alert('Error updating user: ' + error);
       });
+  };
+
+  const handleCancel = () => {
+    window.location.href = "/admin/admindashboard";
   };
 
   const handleInputChange = (e) => {
@@ -151,7 +156,7 @@ export default function AdminProfile() {
             <button type="submit"  className="btn btn-primary" style={{ backgroundColor: 'rgb(118, 67, 210)', border: 'none', height:'40px', width:'auto' }} onClick={userUpdate}>
               <h5>Update</h5>
             </button>
-            <button type="button" className="btn btn-danger" style={{height:'40px', width:'auto', marginLeft:'10%'}}>
+            <button type="button" className="btn btn-danger" style={{height:'40px', width:'auto', marginLeft:'10%'}} onClick={handleCancel}>
               <h5>Cancel</h5>
             </button>
           </div>

@@ -35,7 +35,7 @@ public class Invoice {
 
 
     //@Column(columnDefinition = "byte default 0")
-    private byte isPaid;
+    private int isPaid;
 
 
 }

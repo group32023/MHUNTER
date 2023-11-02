@@ -25,6 +25,16 @@ public class MusicMemberServiceImp implements MusicMemberService{
     }
 
     @Override
+    public List<Object[]> getTop10Artists() {
+        return musicMemberRepository.findTop10Artists();
+    }
+
+    @Override
+    public List<Object[]> getTop10Bands() {
+        return musicMemberRepository.findTop10Bands();
+    }
+
+    @Override
     public List<Object[]> getCountOfBandAndArtist() {
         return musicMemberRepository.countBandArtist();
     }

@@ -37,7 +37,7 @@ public class BandController {
     }
 
     @GetMapping("/view/verified")
-    public List<UserBand> viewVerifiedArtists() {
+    public List<UserBand> viewVerifiedBands() {
         List<Band> bandList = bandService.viewAllBands();
         List<UserBand> verifiedUserBandList = new ArrayList<>();
 
@@ -71,6 +71,10 @@ int bandId = band.getBandID();
         return bandService.findSpecificBand(bandId);
     }
 
+    @GetMapping("/top10")
+    public List<Object[]> getTop10Bands() {
+        return musicMemberService.getTop10Bands();
+    }
 
 
 }

@@ -13,10 +13,11 @@ public interface UserRepository extends JpaRepository<User,Integer> {
     User findByUserId(int userId);
     User findByEmail(String email);
 
-    @Query(value = "SELECT event.event_name, (invoice.total_amount*5)/100 , user.first_name " +
+    @Query(value = "SELECT event.event_name, (invoice.total_amount*5)/100 , user.first_name, income_artist.date " +
             "FROM event " +
             "INNER JOIN invoice ON invoice.eventid = event.eventid " +
             "INNER JOIN organizer ON event.orgid = organizer.org_id " +
-            "INNER JOIN user ON organizer.user_id = user.user_id;", nativeQuery = true)
+            "INNER JOIN user ON organizer.user_id = user.user_id " +
+            "INNER JOIN income_artist ON event.eventid = income_artist.event_id;", nativeQuery = true)
     List<Object[]> adminReport();
 }

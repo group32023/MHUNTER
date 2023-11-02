@@ -13,4 +13,7 @@ public interface MusicMemberService {
 
     public MusicMember findSpecificMusicMemberByUserID(int user_id);
 
+    List<Object[]> getTop10Artists();
+    List<Object[]> getTop10Bands();
+
 }

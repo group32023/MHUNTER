@@ -80,4 +80,9 @@ public class ArtistController {
         return verifiedUserArtistList;
     }
 
+    @GetMapping("/top10")
+    public List<Object[]> getTop10Artists() {
+        return musicMemberService.getTop10Artists();
+    }
+
 }

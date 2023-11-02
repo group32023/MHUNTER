@@ -25,6 +25,7 @@ function AdminRegistration() {
 
   const [userR, setUserR] = useState([]);
   let navigate = useNavigate();
+  const [searchTerm, setSearchTerm] = useState('');
   
   const load=(id , type)=>{
     if (id) {
@@ -48,15 +49,21 @@ function AdminRegistration() {
             });
     }
 }, []);
-    const [searchTerm, setSearchTerm] = useState('');
 
-    const handleInputChange = (event) => {
-      setSearchTerm(event.target.value);
-    };
-  
-    const handleSearch = () => {
-      console.log('Searching for:', searchTerm);
-    };
+const handleInputChange = (event) => {
+  setSearchTerm(event.target.value);
+};
+
+const handleSearch = () => {
+  console.log('Searching for:', searchTerm);
+  const filteredUserR = userR.filter(
+    (item) =>
+      item.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      item.type.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      item.status.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+  setUserR(filteredUserR);
+};
   return (
     <>
     <SideMenuBarAdmin>
