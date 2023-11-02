@@ -109,7 +109,7 @@
     height: 94px;
     width: 70%;
     position: relative;
-    top: 122px;
+    top: 24px;
     left: 14%;
     margin-bottom: 20px;
     border-radius: 25px;
@@ -259,7 +259,7 @@
     color: #11fe70;
     position: relative;
     top: -17.2%;
-    left: -12px;
+    left: -34px;
     font-weight: 700;
 
 }
@@ -385,7 +385,7 @@
 .venue2 {
     position: absolute;
     top: 70%;
-    left: 20%;
+    left: 12.5%;
 
 }
 

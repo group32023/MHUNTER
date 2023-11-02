@@ -92,7 +92,7 @@ public class EventController {
         eventOrganizer.setEventName(event.getEvent_name());
         eventOrganizer.setStartTime(event.getStart_time());
         eventOrganizer.setEventType(event.getEvent_type());
-        eventOrganizer.setPlace(event.getTown());
+        eventOrganizer.setPlace(event.getLocation());
         eventOrganizer.setDate(event.getDate());
         eventOrganizer.setCrowd(event.getCrowd());
         eventOrganizer.setOrganizerImage(user.getImagePath());
@@ -164,7 +164,7 @@ public class EventController {
             eventOrganizer.setEventName(res.getEvent_name());
             eventOrganizer.setEventType(res.getEvent_type());
             eventOrganizer.setStartTime(res.getStart_time());
-            eventOrganizer.setPlace(res.getTown());
+            eventOrganizer.setPlace(res.getLocation());
             eventOrganizer.setDate(res.getDate());
             eventOrganizer.setCrowd(res.getCrowd());
 

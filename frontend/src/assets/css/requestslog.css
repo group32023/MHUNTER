@@ -3,7 +3,7 @@
     border-radius: 50%;
     width: 55px;
     height: 55px;
-    top: 36.5px;
+    top: 20.5px;
     left: 31px;
 }
 
@@ -19,6 +19,8 @@
     color: white;
     font-size: 15px;
     text-align: center;
+    top: -15px;
+
 }
 
 .eventDetailslog h5 {
@@ -123,7 +125,7 @@
     text-align: center;
     color: white;
     left: 77%;
-    top: -48.8px;
+    top: -63.8px;
     border-radius: 10px;
     border: none !important;
 
@@ -140,7 +142,7 @@
     text-align: center;
     color: white;
     left: 75%;
-    top: -48.8px;
+    top: -63.8px;
     border-radius: 10px;
     border: none !important;
     /* box-shadow: 4px 7px 10px rgba(0, 0, 0, .4) !important; */
@@ -148,11 +150,11 @@
 
 .requestContainerlog {
     background-color: #3b444d;
-    height: 15%;
+    height: 94px;
     width: 70%;
     position: relative;
-    top: 187px;
-    left: 13%;
+    top: 51px;
+    left: 14%;
     margin-bottom: 20px;
     border-radius: 25px;
 

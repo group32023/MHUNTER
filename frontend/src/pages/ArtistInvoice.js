@@ -100,6 +100,15 @@ export default function BandInvoice() {
 
     
 };
+const extractloc = (location) => {
+
+  const parts = location.split(',');
+  const placeName = parts[0];
+  const town = parts[parts.length - 2];
+  const stringPart = town.replace(/\d+/g, '');
+  return `${stringPart}`;
+}
+
 
 
 const handleCloseAcceptRequestModal=()=>{
@@ -254,7 +263,7 @@ const handleCloseAcceptRequestModal=()=>{
             <p class="venue3"><FontAwesomeIcon icon={faClock} id="LocationIconPendingRequest3"/> Time : {event['startTime']}</p>
             <p class="eventType4"><img src={duration} className="EventIconPendingRequest4"></img>Duration : {event['duration']}</p>
             <p class="eventDate4"><img src={crowd} className="CalenderIconPendingRequest4"></img>Crowd : {event['crowd']}</p>
-            <p class="venue4"><FontAwesomeIcon icon={faLocationDot} id="LocationIconPendingRequest4"/>Venue : {event['place']}</p>
+            <p class="venue4"><FontAwesomeIcon icon={faLocationDot} id="LocationIconPendingRequest4"/>Venue : {event["place"]}</p>
 
         
              </div>
@@ -289,7 +298,7 @@ const handleCloseAcceptRequestModal=()=>{
            
            <input type="checkbox" id="advanced" name="advanced" onChange={handleCheckboxChange}/>
           <label for="advancedpayment" className='advancedpayment'>Advanced is required.</label>
-          <lable className="additionalnotes">Additional Note : </lable><input type='text' id="advanced8" name="advanced" value={additionalNote} onChange={(e)=>setAdditionalNote(e.target.value)}></input>
+          <lable className="additionalnotes">Bank Details : </lable><input type='text' id="advanced8" name="advanced" placeholder="BankName,AccNo,Branch" value={additionalNote} onChange={(e)=>setAdditionalNote(e.target.value)}></input>
 
 
             <button type='submit' className='submitInvoice' >Submit</button>
@@ -302,7 +311,7 @@ const handleCloseAcceptRequestModal=()=>{
 
      
       
-      <button type='button' className='previewAgreement' onClick={loadInvoicePreview} >Preview</button>
+      <button type='button' className='previewAgreement' >Preview</button>
       <button className='backInvoice'>Back</button>
 
 

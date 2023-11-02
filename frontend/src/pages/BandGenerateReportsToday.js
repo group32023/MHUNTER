@@ -16,6 +16,8 @@ import Pagination from '@mui/material/Pagination';
 import Stack from '@mui/material/Stack';
 
 
+import SideMenuBarBand from '../components/common/SideMenuBar/SideMenuBarBand'
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {faPhone,faLocationDot,faList,faCalendarDays} from '@fortawesome/free-solid-svg-icons'
 import { faTwitter, faFontAwesome,faFacebook,faGooglePlusG,faLinkedinIn } from '@fortawesome/free-brands-svg-icons'
@@ -87,14 +89,6 @@ export default function ArtistGenerateReports() {
   const divCount = eventList.length;
   const divElements = [];
  
-  const extractloc = (location) => {
-
-    const parts = location.split(',');
-    const placeName = parts[0];
-    const town = parts[parts.length - 2];
-    const stringPart = town.replace(/\d+/g, '');
-    return `${stringPart}`;
-}
 
  
 
@@ -111,6 +105,7 @@ export default function ArtistGenerateReports() {
       <td>{eventList[i]['eventName']}</td>
       <td>{eventList[i]['organizerName']}</td>
       <td>{eventList[i]['eventType']}</td>
+      <td><FontAwesomeIcon icon={faLocationDot} id="LocationIcon"/>{extractloc(eventList[i]["place"])}</td>
       <td>{eventList[i]['date']}</td>
       <td>{eventList[i]['income']}</td>
       
@@ -148,6 +143,16 @@ export default function ArtistGenerateReports() {
     
   }
 
+  const extractloc = (location) => {
+
+    const parts = location.split(',');
+    const placeName = parts[0];
+    const town = parts[parts.length - 2];
+    const stringPart = town.replace(/\d+/g, '');
+    return `${stringPart}`;
+}
+
+
   
 
    const generatePDF=useReactToPrint({
@@ -159,8 +164,7 @@ export default function ArtistGenerateReports() {
     return (
   
       <div >
-       <SideMenuBarArtist>
-      
+            <SideMenuBarBand>
           
         <div>
             <p className='headerDashboard'>Reports</p>
@@ -192,6 +196,7 @@ export default function ArtistGenerateReports() {
                           <th>Event Name</th>
                           <th>Organizer Name</th>
                           <th>Event Type</th>
+                          <th>Town</th>
                           <th>Date</th>
                           <th>Income (Rs)</th>
                           </tr>
@@ -222,8 +227,8 @@ export default function ArtistGenerateReports() {
               </Stack>
             </div>
           
-           </SideMenuBarArtist> 
-           
+           </SideMenuBarBand>
+                 
       </div>
     )
 }

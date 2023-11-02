@@ -5,6 +5,8 @@ import notification from '../assets/images/notification.png'
 import home from '../assets/images/home-button.png'
 import logout from '../assets/images/logout.png'
 import '../assets/css/artistEvent.css'
+import SideMenuBarBand from '../components/common/SideMenuBar/SideMenuBarBand'
+
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {faLocationDot,faCalendarDays} from '@fortawesome/free-solid-svg-icons'
@@ -30,6 +32,7 @@ export default function ArtistEvent() {
 
   const divCount = 4;
   const divElements = [];
+
   const extractloc = (location) => {
 
     const parts = location.split(',');
@@ -38,6 +41,7 @@ export default function ArtistEvent() {
     const stringPart = town.replace(/\d+/g, '');
     return `${stringPart}`;
 }
+
 
   let navigate = useNavigate()
 
@@ -123,7 +127,7 @@ export default function ArtistEvent() {
 
   return (
     <div>
-            <SideMenuBarArtist>
+            <SideMenuBarBand>
         <p className='headerDashboard'>Events</p>
             <Topbar></Topbar>
             <input className='artistEventSearchBar' placeholder='Search by keyword' value={getFilterData} onChange={(e)=>{setFilterData(e.target.value);setFilter()}}></input>
@@ -142,7 +146,7 @@ export default function ArtistEvent() {
             </div>
             
        
-        </SideMenuBarArtist>
+        </SideMenuBarBand>
     </div>
   )
 }

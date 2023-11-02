@@ -50,6 +50,14 @@ export default function BandAgreemnt() {
   const [showModal1, setShowModal1] = useState(false);
   const [band, setBand] = useState({});
 
+  const extractloc = (location) => {
+
+    const parts = location.split(',');
+    const placeName = parts[0];
+    const town = parts[parts.length - 2];
+    const stringPart = town.replace(/\d+/g, '');
+    return `${stringPart}`;
+}
 
   useEffect(() => {
     
@@ -264,7 +272,7 @@ const loadInvoice=(id,mmid)=>{
                        <div className='buttonSet'>
                           <button type='submit' className='submitAgreement' onClick={handleShowModal1} >Submit</button>
                           <button type='button' className='skipAgreement' onClick={()=>loadInvoice(id,mmid,skip)}>Skip</button>
-                          <button type='button' className='previewAgreement1' onClick={()=>loadPreview(id,mmid)} >Preview</button>
+                          <button type='button' className='previewAgreement1' >Preview</button>
                           </div>   
                         </form>
                      
