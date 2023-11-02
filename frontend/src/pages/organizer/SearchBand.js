@@ -47,8 +47,8 @@ function SearchBand() {
     }, [])
     
     const filteredBands = band.filter((band) =>
-    band.user.firstName.toLowerCase().includes(searchInput.toLowerCase()) ||
-    band.user.lastName.toLowerCase().includes(searchInput.toLowerCase())
+    band.musicMember.name.toLowerCase().includes(searchInput.toLowerCase()) ||
+    band.musicMember.name.toLowerCase().includes(searchInput.toLowerCase())
     );
 
     return (
@@ -88,7 +88,7 @@ function SearchBand() {
 
                                 <div className='content'>
 
-                                    <h5>{band.user.firstName}</h5>
+                                    <h5>{band.musicMember.name}</h5>
                                     <StarRating rating={5} ></StarRating>
 
                                 </div>

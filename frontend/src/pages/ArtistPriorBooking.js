@@ -56,6 +56,13 @@ export default function ArtistPriorBooking() {
       .then((data) => {
         setEvents(data);
          
+     
+
+      })
+      .catch((error) => {
+        console.log('Error fetching data:', error);
+      });
+
       fetch(`http://localhost:8080/organizer/viewSpecificOrganizer/${id2}`)
       .then((response) => {
         if (!response.ok) {
@@ -72,11 +79,6 @@ export default function ArtistPriorBooking() {
         .catch((error) => {
           console.log('Error fetching data:', error);
         });
-
-      })
-      .catch((error) => {
-        console.log('Error fetching data:', error);
-      });
     
 
   }, []);

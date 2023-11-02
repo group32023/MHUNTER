@@ -5,6 +5,8 @@ import notification from '../assets/images/notification.png'
 import home from '../assets/images/home-button.png'
 import logout from '../assets/images/logout.png'
 import '../assets/css/artistEvent.css'
+import SideMenuBarBand from '../components/common/SideMenuBar/SideMenuBarBand'
+
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {faLocationDot,faCalendarDays} from '@fortawesome/free-solid-svg-icons'
@@ -27,10 +29,10 @@ export default function ArtistEvent() {
   const [line,setLine] = useState([])
   const [page,setPage] = useState(1)
   const noOfLinePerPage = 4
-  const BASE_URL = "http://localhost:8080";
 
   const divCount = 4;
   const divElements = [];
+
   const extractloc = (location) => {
 
     const parts = location.split(',');
@@ -39,6 +41,7 @@ export default function ArtistEvent() {
     const stringPart = town.replace(/\d+/g, '');
     return `${stringPart}`;
 }
+
 
   let navigate = useNavigate()
 
@@ -52,11 +55,10 @@ export default function ArtistEvent() {
     const mmId = localStorage.getItem('mmid');
     if(mmId){
     fetch(`http://localhost:8080/requestMusicMember/viewAllEvents/${mmId}?filterValue=${getFilterData}`).then((res)=>res.json()).then((result)=>{
-      console.log(result);
       if(result.length>0){
         const newItem = result.map(item=>(
           <div key={item.eventId}  className="requestContainerArtistEvent">
-        <img src={`${BASE_URL}/postData/uploads/image/${item.organizerImage}`} className="profileArtistEvent"></img>
+        <img src={profileImage} className="profileArtistEvent"></img>
         <div className="eventDetailsArtistEvent">
           <h4>{item.organizerName}</h4>
           <p class="artistEventTypeArtistEvent"><img src={eventType} alt=''className='artistEventTypeImg'></img>{item.eventType}</p>
@@ -73,7 +75,7 @@ export default function ArtistEvent() {
     })}
     
   }
- console.log(data)
+ 
   
   useEffect(()=>{
     handle();
@@ -125,7 +127,7 @@ export default function ArtistEvent() {
 
   return (
     <div>
-            <SideMenuBarArtist>
+            <SideMenuBarBand>
         <p className='headerDashboard'>Events</p>
             <Topbar></Topbar>
             <input className='artistEventSearchBar' placeholder='Search by keyword' value={getFilterData} onChange={(e)=>{setFilterData(e.target.value);setFilter()}}></input>
@@ -144,7 +146,7 @@ export default function ArtistEvent() {
             </div>
             
        
-        </SideMenuBarArtist>
+        </SideMenuBarBand>
     </div>
   )
 }

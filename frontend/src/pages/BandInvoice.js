@@ -44,7 +44,16 @@ export default function BandInvoice() {
   const eventid=id;
   const [agreementId, setAgreementId]=useState(0)
   const [additionalNote, setAdditionalNote]=useState("")
+  const BASE_URL = "http://localhost:8080";
 
+  const extractloc = (location) => {
+
+    const parts = location.split(',');
+    const placeName = parts[0];
+    const town = parts[parts.length - 2];
+    const stringPart = town.replace(/\d+/g, '');
+    return `${stringPart}`;
+}
 
   useEffect(() => {
     // Fetch the data from the Java backend
@@ -264,7 +273,7 @@ const loadInvoicePreview=(id,mmid)=>{
           </div>
           <div className='eventDetailsDisplayContainer'>
              <div className='eventDetailsDisplayInnerContainer1'>
-             <img src={profileImage} className="profileInvoice"></img>
+             <img src={`${BASE_URL}/postData/uploads/image/${event["organizerImage"]}`} className="profileInvoice"></img>
              <h5 id='bandOrganizer'>{event['organizerName']}</h5>
             
             <p class="eventType1"><img src={eventtype} className="EventIconPendingRequest3"></img>{event['eventName']}</p>
@@ -272,7 +281,7 @@ const loadInvoicePreview=(id,mmid)=>{
             <p class="venue1"><FontAwesomeIcon icon={faLocationDot} id="LocationIconPendingRequest3"/> {event['startTime']}</p>
             <p class="eventType2"><img src={duration} className="EventIconPendingRequest4"></img>{event['duration']}</p>
             <p class="eventDate2"><img src={crowd} className="CalenderIconPendingRequest4"></img>{event['crowd']}</p>
-            <p class="venue2"><FontAwesomeIcon icon={faLocationDot} id="LocationIconPendingRequest4"/> {event['place']}</p>
+            <p class="venue2"><FontAwesomeIcon icon={faLocationDot} id="LocationIconPendingRequest4"/> {event["place"]}</p>
            
         
              </div>
@@ -312,7 +321,7 @@ const loadInvoicePreview=(id,mmid)=>{
            
            <input type="checkbox" id="advanced1" name="advanced" onChange={handleCheckboxChange}/>
           <label for="advancedpayment" className='advancedpayment1'>Advanced is required.</label>
-          <lable className="additionalnotes1">Additional Note : </lable><input type='text' id="advanced9" name="advanced" value={additionalNote} onChange={(e)=>setAdditionalNote(e.target.value)}></input>
+          <lable className="additionalnotes1">Bank Details : </lable><input type='text' id="advanced9" name="advanced" placeholder="BankName,AccNo,Branch" value={additionalNote} onChange={(e)=>setAdditionalNote(e.target.value)}></input>
 
 
             <button type='submit' className='submitInvoice1' >Submit</button>
@@ -325,7 +334,7 @@ const loadInvoicePreview=(id,mmid)=>{
 
      
       
-      <button className='previewInvoice1'onClick={()=>loadInvoicePreview(id,758463)}>Preview</button>
+      <button className='previewInvoice1'>Preview</button>
 
           
         </div>

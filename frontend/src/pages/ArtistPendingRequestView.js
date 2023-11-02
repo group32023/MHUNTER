@@ -47,6 +47,7 @@ export default function ArtistPendingRequests() {
      
       .then((data) => {
         setEvent(data);
+        console.log(event)
       })
       .catch((error) => {
         console.log('Error fetching data:', error);
@@ -62,6 +63,17 @@ export default function ArtistPendingRequests() {
   
     
   };
+
+
+  const extractloc1 = (location) => {
+    
+    var parts1 = location.split(',');
+    var placeName = parts1[0];
+    var town1 = parts1[parts1.length - 2];
+    var stringPart1 = town1.replace(/\d+/g, '');
+    return `${stringPart1}`;
+}
+
 
   const handleRejectAndAccept = () => {
     if(rejectReason!=null){
@@ -142,7 +154,7 @@ const loadPendingRequest=()=>{
             <p class="venue1"><FontAwesomeIcon icon={faClock} id="LocationIconPendingRequest1"/> Time : {event['startTime']}</p>
             <p class="eventType2"><img src={duration} className="EventIconPendingRequest2"></img>Duration : {event['duration']}</p>
             <p class="eventDate2"><img src={crowd} className="CalenderIconPendingRequest2"></img>Crowd : {event['crowd']}</p>
-            <p class="venue2"><FontAwesomeIcon icon={faLocationDot} id="LocationIconPendingRequest2"/>Venue : Colombo 07</p>
+            <p class="venue2"><FontAwesomeIcon icon={faLocationDot} id="LocationIconPendingRequest2"/>Venue : {event['place']}</p>
 
             </div>
             

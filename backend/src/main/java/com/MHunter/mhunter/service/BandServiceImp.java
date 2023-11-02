@@ -20,7 +20,7 @@ public class BandServiceImp implements BandService {
 
     @Override
     public List<Band> getAllBands() {
-        return bandRepository.findAllBand();
+        return bandRepository.findAllBandVerified();
     }
 
     @Override

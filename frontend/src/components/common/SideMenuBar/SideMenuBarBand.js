@@ -18,6 +18,9 @@ import axios from 'axios';
 function SideMenuBarBand({ children }) {
     const [isExpanded, setExpandState] = useState(false);
     const [user, setUser] = useState(null);
+    const BASE_URL = "http://localhost:8080";
+    const [image,setImage] = useState("")
+
 
     useEffect(() => {
         const userId = localStorage.getItem('userId');
@@ -40,12 +43,15 @@ function SideMenuBarBand({ children }) {
             axios.get(`http://localhost:8080/user/user/${userId}`)
                 .then(response => {
                     setUser(response.data);
+                    setImage(response.data['imagePath'])
                 })
                 .catch(error => {
                     console.error(error);
                     alert(error);
                 });
         }
+
+   
     }, []);
     console.log("Current user:", user); 
 
@@ -78,7 +84,7 @@ function SideMenuBarBand({ children }) {
                     <div className="row">
                         <NavLink to="/">
                             <div className="menu-profilePhoto col d-flex justify-content-center">
-                                <img className={isExpanded ? "menu-item-profilePhoto img-fluid my-4" : "menu-item-profilePhoto-NX"} src={profilePhoto} alt="Profile" srcSet="" width="130px" height="130px" />
+                                <img className={isExpanded ? "menu-item-profilePhoto img-fluid my-4" : "menu-item-profilePhoto-NX"} src={`${BASE_URL}/postData/uploads/image/${image}`} alt="Profile" srcSet="" width="130px" height="130px" />
                                 {isExpanded && (
                                     <div className="middle-pp-box">
                                         <div className="middle-pp-text">Go to Profile</div>
@@ -101,7 +107,7 @@ function SideMenuBarBand({ children }) {
 
                     <ul className={isExpanded ? "nav nav-pills flex-column px-0 mt-3" : "nav nav-pills flex-column px-0 mt-4"}>
                         <li className={isExpanded ? "nav-item p-1" : "nav-item"}>
-                            <NavLink to="/artist/Dashboard" activeclassName="active" className={isExpanded ? "nav-link   d-flex align-items-center text-decoration-none" : "nav-link collapsed-nav-link   d-flex align-items-center text-decoration-none"}>
+                            <NavLink to="/banddashboard" activeclassName="active" className={isExpanded ? "nav-link   d-flex align-items-center text-decoration-none" : "nav-link collapsed-nav-link   d-flex align-items-center text-decoration-none"}>
                                 <BiSolidDashboard className={isExpanded ? "menu-icon mx-4" : "menu-icon"} />
                                 {isExpanded && (
                                     <span className="menu_link_name fs-6 ">Dashboard</span>
@@ -113,7 +119,7 @@ function SideMenuBarBand({ children }) {
                         </li>
 
                         <li className={isExpanded ? "nav-item p-1" : "nav-item"}>
-                            <NavLink to="/artist/Event" activeclassName="active" className={isExpanded ? "nav-link d-flex align-items-center text-decoration-none" : "nav-link collapsed-nav-link d-flex align-items-center text-decoration-none"}>
+                            <NavLink to="/band/Event" activeclassName="active" className={isExpanded ? "nav-link d-flex align-items-center text-decoration-none" : "nav-link collapsed-nav-link d-flex align-items-center text-decoration-none"}>
                                 <BiSolidCalendar className={isExpanded ? "menu-icon mx-4" : "menu-icon"} />
                                 {isExpanded && (
                                     <span className="menu_link_name fs-6 ">Events</span>
@@ -136,7 +142,7 @@ function SideMenuBarBand({ children }) {
 
                         </li>
                         <li className={isExpanded ? "nav-item p-1" : "nav-item"}>
-                            <NavLink to="/artist/MyFeed" activeclassName="active" className={isExpanded ? "nav-link   d-flex align-items-center text-decoration-none" : "nav-link collapsed-nav-link   d-flex align-items-center text-decoration-none"}>
+                            <NavLink to="/band/MyFeed" activeclassName="active" className={isExpanded ? "nav-link   d-flex align-items-center text-decoration-none" : "nav-link collapsed-nav-link   d-flex align-items-center text-decoration-none"}>
                                 <BiSolidPhotoAlbum className={isExpanded ? "menu-icon mx-4" : "menu-icon"} />
                                 {isExpanded && (
                                     <span className="menu_link_name fs-6 ">My Feed</span>
@@ -148,7 +154,7 @@ function SideMenuBarBand({ children }) {
                         </li>
 
                         <li className={isExpanded ? "nav-item p-1" : "nav-item"}>
-                            <NavLink to="/requestsLog" activeclassName="active" className={isExpanded ? "nav-link   d-flex align-items-center text-decoration-none" : "nav-link collapsed-nav-link   d-flex align-items-center text-decoration-none"}>
+                            <NavLink to="/band/requestsLog" activeclassName="active" className={isExpanded ? "nav-link   d-flex align-items-center text-decoration-none" : "nav-link collapsed-nav-link   d-flex align-items-center text-decoration-none"}>
                                 <BiSolidFile className={isExpanded ? "menu-icon mx-4" : "menu-icon"} />
                                 {isExpanded && (
                                     <span className="menu_link_name fs-6 ">Requests Log</span>
@@ -159,7 +165,7 @@ function SideMenuBarBand({ children }) {
 
                         </li>
                         <li className={isExpanded ? "nav-item p-1" : "nav-item"}>
-                            <NavLink to="/artist/Reports/758463" activeclassName="active" className={isExpanded ? "nav-link   d-flex align-items-center text-decoration-none" : "nav-link collapsed-nav-link   d-flex align-items-center text-decoration-none"}>
+                            <NavLink to="/band/Reports/758463" activeclassName="active" className={isExpanded ? "nav-link   d-flex align-items-center text-decoration-none" : "nav-link collapsed-nav-link   d-flex align-items-center text-decoration-none"}>
                                 <BiSolidReport className={isExpanded ? "menu-icon mx-4" : "menu-icon"} />
                                 {isExpanded && (
                                     <span className="menu_link_name fs-6 ">Reports</span>

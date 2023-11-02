@@ -8,8 +8,11 @@ import { useReactToPrint } from 'react-to-print'
 import notification from '../assets/images/notification.png'
 import home from '../assets/images/home-button.png'
 import logout from '../assets/images/logout.png'
+import Pagination from '@mui/material/Pagination';
+import Stack from '@mui/material/Stack';
 import kpop from '../assets/images/kpop.png'
 import empty from '../assets/images/empty(1).png'
+
 
 import CircularProgress from '@mui/material/CircularProgress';
 
@@ -28,7 +31,8 @@ export default function ArtistPriorBooking() {
 
   // console.log(id1);
   // console.log(id2);
-
+  const [page,setPage] = useState(1)
+  const noOfLinePerPage = 4
   let navigate = useNavigate();
 
   const load=(id)=>{
@@ -36,7 +40,7 @@ export default function ArtistPriorBooking() {
 
   }
 
-
+  console.log(id2);
   const [events, setEvents] = useState([]);
 
   useEffect(() => {
@@ -51,40 +55,67 @@ export default function ArtistPriorBooking() {
      
       .then((data) => {
         setEvents(data);
-        fetch(`http://localhost:8080/organizer/viewSpecificOrganizer/${id2}`)
-    .then((response) => {
-      if (!response.ok) {
-        throw new Error('Network response was not ok');
-      }
-      return response.json();
-    })
+         
      
-      .then((data) => {
-        setOrg(data);
-        console.log();
 
       })
       .catch((error) => {
         console.log('Error fetching data:', error);
       });
-     
+
+      fetch(`http://localhost:8080/organizer/viewSpecificOrganizer/${id2}`)
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.json();
+      })
+       
+        .then((data) => {
+          setOrg(data);
+         
+  
+        })
+        .catch((error) => {
+          console.log('Error fetching data:', error);
+        });
+    
 
   }, []);
 
-      })
-      .catch((error) => {
-        console.log('Error fetching data:', error);
-      });
 
+  const handleChange= (event,value)=>{
+    setPage(value)
+  }
 
+// setup the pagination
+  function setPagination(){
+    let noOfLine =1
+    let displayedData = []
+    if(divElements.length>0){
+      if(divElements.length < noOfLinePerPage*page){
+        noOfLine = divElements.length
+      }
+      else{
+        noOfLine =  noOfLinePerPage*page
+      }
+      for (let i = noOfLinePerPage*(page-1); i < noOfLine; i++) {
+        displayedData.push(divElements[i]);
+        
+      }
+      return displayedData
+    }
+    else{
       
-
-
-  
+      return displayedData 
+    }
+    
+  }
    
   
-  console.log(events)
+
   const divCount = events.length;
+  console.log(divCount)
   const divElements = [];
 
 //   // Using a for loop to generate the <div> tags
@@ -96,7 +127,7 @@ export default function ArtistPriorBooking() {
       <tr>
       <td>{events[i]['eventName']}</td>
       <td>{events[i]['eventType']}</td>
-      <td><FontAwesomeIcon icon={faLocationDot} id="LocationIcon1"/>{events[i]['place']}</td>
+      <td><FontAwesomeIcon icon={faLocationDot} id="LocationIcon1"/>Colombo 07</td>
       <td>{events[i]['duration']}</td>
       <td>{events[i]['crowd']}</td>
       <td>{events[i]['income']}</td>
@@ -112,7 +143,6 @@ export default function ArtistPriorBooking() {
 
     return (
   
-
       <div>
           
 
@@ -124,10 +154,12 @@ export default function ArtistPriorBooking() {
 
           <div className='addressDiv'>
           <h3>Prior Booking </h3>
+
           <div className='emptyMessageForPriorBooking'>
           {(divElements.length ===0 || divCount===0)?<><img src={empty} className='empty-img'></img><span className='emptyContent-report'>it's empty in here.</span></>:undefined}
 
           </div>
+
           <h4 className="organizer_tag">Organizer :  </h4>
           <h4 className="organizerName">{(org)? org.user['firstName']+" "+org.user['lastName']:undefined}</h4>
           </div>
@@ -159,12 +191,20 @@ export default function ArtistPriorBooking() {
                         <tbody>
                          
                        
-                         {divElements }
+                         {setPagination().map((item) => item)}
                           
-                    
+
                           
                         </tbody>
                       </Table>
+
+
+               <div className='artistEventPagination'>
+              <Stack spacing={2}>
+                <Pagination count={(Math.round(divElements.length/noOfLinePerPage))} color="secondary" page={page} onChange={handleChange} />
+              </Stack>
+            </div>
+            
                   
           </div>     
           <Button className="back" onClick={()=>load(id3)}>Back</Button>

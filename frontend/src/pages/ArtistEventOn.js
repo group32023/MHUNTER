@@ -31,6 +31,15 @@ export default function ArtistEventOn() {
   const [page,setPage] = useState(1);
   const noOfLinePerPage = 4;
 
+  const extractloc = (location) => {
+
+    const parts = location.split(',');
+    const placeName = parts[0];
+    const town = parts[parts.length - 2];
+    const stringPart = town.replace(/\d+/g, '');
+    return `${stringPart}`;
+}
+
   useEffect(() => {
     const mmId = localStorage.getItem('mmid');
     // Fetch the data from the Java backend
@@ -75,9 +84,9 @@ export default function ArtistEventOn() {
       <td>{eventList[i]['eventName']}</td>
       <td>{eventList[i]['organizerName']}</td>
       <td>{eventList[i]['eventType']}</td>
-      <td><FontAwesomeIcon icon={faLocationDot} id="LocationIcon1"/>{eventList[i]['place']}</td>
+      <td><FontAwesomeIcon icon={faLocationDot} id="LocationIcon1"/>{extractloc(eventList[i]['place'])}</td>
       <td>{eventList[i]['crowd']}</td>
-      <td>{eventList[i]['income']}</td>
+ 
       
 </tr>
   );
@@ -119,6 +128,8 @@ export default function ArtistEventOn() {
 
   }
 
+ 
+
 
     return (
   
@@ -153,7 +164,7 @@ export default function ArtistEventOn() {
                           <th>Event Type</th>
                           <th>Town</th>
                           <th>Crowd</th>
-                          <th>Fee (Rs.)</th>
+                         
                         
                           </tr>
                         </thead>
