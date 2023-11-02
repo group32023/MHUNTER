@@ -92,7 +92,7 @@ function ViewArtist() {
             .then((result) => {
                 console.log(result);
                 setbands(result);
-                bandName = result.musicMember.user.firstName   ;
+                bandName = result.musicMember.name   ;
                 bandNameRef.current = bandName;
                 console.log(bandName);
 

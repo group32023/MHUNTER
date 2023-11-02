@@ -330,7 +330,8 @@ function OrganizerEventDashboard() {
                     <div className="row">
                         <div className="requestTypeDescriptionDiv  mt-2 col-md-7" id='scrollbarStyle-1' style={{ fontFamily: 'MyCustomFont' }}>
                             <div className="p-3">
-                                <p className='fs-5' style={{ fontFamily: 'MyCustomFont1' }}>Requests</p><Button style={{ width: '10%', height: '5%' }}>Rate Artist</Button>
+                                <p className='fs-5' style={{ fontFamily: 'MyCustomFont1' }}>Requests</p>
+                                {/* <Button style={{ width: '10%', height: '5%' }}>Rate Artist</Button> */}
                                 <hr></hr>
                                 <div className="requestTableDiv d-flex justify-content-center align-items-center">
 
