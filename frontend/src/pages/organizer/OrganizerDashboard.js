@@ -56,7 +56,7 @@ import PaymentArtist10 from '../../assets/images/paymentArtist10.jpg'
 
 
 export default function OrganizerDashboard() {
- 
+
 
   const orgid = localStorage.getItem('orgid');
   const [invoices, setInvoices] = useState([]);
@@ -158,7 +158,7 @@ export default function OrganizerDashboard() {
 
                       <div className="innertablePaymentTBContent">
                         {musicMember[invoice.mmid] && (
-                          <div className='PaymentTBTitle d-flex align-items-center justify-content-center'>{musicMember[invoice.mmid].userName}</div>
+                          <div className='PaymentTBTitle d-flex align-items-center justify-content-center'>{musicMember[invoice.mmid].userName.toUpperCase()}</div>
                         )}
                         {event[invoice.eventid] && (
                           <div className='PaymentTBEventName d-flex align-items-center justify-content-center'>

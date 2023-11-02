@@ -23,9 +23,9 @@ function EventDashboardImagePopup({ currentImage, onDelete, onSave }) {
         <>
             <div className="eventImgDiv col-md-5 mt-2">
                 <img alt='' src={currentImage} width='385px' height='110px' />
-                <button className="btn btn-link" onClick={handleShow}>
+                {/* <button className="btn btn-link" onClick={handleShow}>
                     Change/Delete Image
-                </button>
+                </button> */}
             </div>
 
             <Modal show={show} onHide={handleClose} style={{ color: 'white' }}>
