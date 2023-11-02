@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.io.File;
 
 @RestController
-@CrossOrigin
+@CrossOrigin(origins = "http://localhost:3000")
 @RequestMapping("/sendMail")
 public class SendMailController {
     @Autowired
