@@ -12,7 +12,7 @@
   height: 80px;
   width: 70%;
   position: relative;
-  top: 187px;
+  top: 133px;
   left: 18%;
   margin-bottom: 20px;
   border-radius: 25px;
@@ -37,7 +37,7 @@
     position: relative;
     top: -31px;
     width: 250px;
-    margin-left: 15%;
+    margin-left: 12%;
     color: white;
   }
 
@@ -50,7 +50,7 @@
     text-align: center;
     color: white;
     border-radius: 10px;
-    left: 51%;
+    left: 32%;
     top: 29px;
     
   }
@@ -58,7 +58,7 @@
   .eventDateArtistEvent {
     position: relative;
     margin-top: -3.2%;
-    left: 44%;
+    left: 55%;
     top: -30px;
     color: white;
   }
@@ -67,7 +67,7 @@
     position: relative;
     margin-top: -3.2%;
     left: 70%;
-    top: -34px;
+    top: -37px;
     color: white;
   }
 
@@ -80,8 +80,8 @@
   font-weight: bold;
   text-align: center;
   color: white;
-  left: 85%;
-  top: -81.8px;
+  left: 87%;
+  top: -85.8px;
   border-radius: 10px;
   border: none !important;
   box-shadow: 4px 7px 10px rgba(0, 0, 0, .4) !important;
@@ -115,7 +115,7 @@
 
   .artistEventPagination{
     position: absolute !important;
-    top: 600px !important;
+    top: 628px !important;
     left: 699px !important;
   }
 

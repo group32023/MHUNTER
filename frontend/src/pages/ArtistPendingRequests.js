@@ -68,6 +68,15 @@ export default function ArtistPendingRequests() {
     navigate(`/artist/PendingRequestView/${id}`);
   };
 
+  const extractloc = (location) => {
+
+    var parts = location.split(',');
+    var placeName = parts[0];
+    var town = parts[parts.length - 2];
+    var stringPart = town.replace(/\d+/g, '');
+    return `${stringPart}`;
+}
+
   const divCount = eventList.length;
   const divElements = [];
 
@@ -100,7 +109,7 @@ export default function ArtistPendingRequests() {
               icon={faLocationDot}
               id="LocationIconPendingRequest"
             />{" "}
-            Colombo 07
+            {extractloc(eventList[i]["place"])}
           </p>
         </div>
 

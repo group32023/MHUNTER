@@ -6,6 +6,7 @@ import image2 from '../../assets/images/carousel2.jpg';
 import image3 from '../../assets/images/carousel4.png';
 import image4 from '../../assets/images/carousel5.png';
 import image5 from '../../assets/images/carousel6.jpg';
+import '../../assets/css/artistDashboardCarousel.css'
 
 function DashboardCarousel() {
     const [index, setIndex] = useState(0);
@@ -31,7 +32,7 @@ function DashboardCarousel() {
     }, [images.length]);
 
     return (
-        <div className='col-md-8' style={{ borderRadius: '10px' }}>
+        <div className='col-md-8 organizerDashboardCarousel' style={{ borderRadius: '10px' }}>
             <Carousel activeIndex={index} onSelect={handleSelect} interval={null}>
                 {images.map((image, i) => (
                     <Carousel.Item key={i}>

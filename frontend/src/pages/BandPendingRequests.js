@@ -32,6 +32,15 @@ export default function ArtistPendingRequests() {
   const [currentPage, setCurrentPage] =useState(1);
   const [linePerPage, setLinePerPage] = useState(4);
 
+  const extractloc = (location) => {
+
+    const parts = location.split(',');
+    const placeName = parts[0];
+    const town = parts[parts.length - 2];
+    const stringPart = town.replace(/\d+/g, '');
+    return `${stringPart}`;
+}
+
 
   const mmid=localStorage.getItem('mmid');
   useEffect(() => {
@@ -79,7 +88,7 @@ export default function ArtistPendingRequests() {
         
         <p class="eventType"><FontAwesomeIcon icon={faCalendarDays} id="EventIconPendingRequest"/>{eventList1[i]['eventName']}</p>
       <p class="eventDate"><FontAwesomeIcon icon={faCalendarDays} id="CalenderIconPendingRequest"/>{eventList1[i]['date']}</p>
-        <p class="venue"><FontAwesomeIcon icon={faLocationDot} id="LocationIconPendingRequest"/> {eventList1[i]['place']}</p>
+        <p class="venue"><FontAwesomeIcon icon={faLocationDot} id="LocationIconPendingRequest"/> {extractloc(eventList[i]["place"])}</p>
       </div>
      
    

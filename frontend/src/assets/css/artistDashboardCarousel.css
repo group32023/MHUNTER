@@ -1,4 +1,4 @@
- .carousel {
+ /* .carousel {
      width: 700px;
      position: absolute;
      top: 86px;
@@ -9,4 +9,16 @@
  .mainContainer-NX .carousel {
      width: 990px;
 
+ } */
+
+ .mainContainer-NX .organizerDashboardCarousel {
+     width: 1010px;
+     left: 3%;
+ }
+
+ .organizerDashboardCarousel {
+     width: 805px;
+     position: absolute;
+     top: 86px;
+     left: 3%;
  }
