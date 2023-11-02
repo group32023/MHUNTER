@@ -105,7 +105,6 @@ console.log(data)
     <div className="artistSpecificEventDiv">
       <SideMenuBarArtist>
         <div className="mainArtistDashboard"></div>
-        <p className="headerDashboard">Events</p>
         <Topbar></Topbar>
 
         <div className="mainDescriptionDiv">

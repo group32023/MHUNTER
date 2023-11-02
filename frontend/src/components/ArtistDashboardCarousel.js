@@ -34,7 +34,7 @@ function ArtistDashboardCarousel() {
 
     return (
         <div className='col-md-8' style={{ borderRadius: '10px',width:'100px' }}>
-            <Carousel activeIndex={index} onSelect={handleSelect} interval={null} style={{width:'720px',marginLeft:'30px',marginTop:'13px'}}>
+            <Carousel activeIndex={index} onSelect={handleSelect} interval={null} style={{width:'720px',marginLeft:'80px',marginTop:'13px'}}>
                 {images.map((image, i) => (
                     <Carousel.Item key={i}>
                         <img

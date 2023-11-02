@@ -31,6 +31,15 @@ export default function ArtistEventOn() {
   const [page,setPage] = useState(1);
   const noOfLinePerPage = 4;
 
+  const extractloc = (location) => {
+
+    const parts = location.split(',');
+    const placeName = parts[0];
+    const town = parts[parts.length - 2];
+    const stringPart = town.replace(/\d+/g, '');
+    return `${stringPart}`;
+}
+
   useEffect(() => {
     const mmId = localStorage.getItem('mmid');
     // Fetch the data from the Java backend
@@ -119,14 +128,7 @@ export default function ArtistEventOn() {
 
   }
 
-  const extractloc = (location) => {
-
-    const parts = location.split(',');
-    const placeName = parts[0];
-    const town = parts[parts.length - 2];
-    const stringPart = town.replace(/\d+/g, '');
-    return `${stringPart}`;
-}
+ 
 
 
     return (

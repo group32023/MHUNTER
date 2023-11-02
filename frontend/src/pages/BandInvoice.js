@@ -44,6 +44,7 @@ export default function BandInvoice() {
   const eventid=id;
   const [agreementId, setAgreementId]=useState(0)
   const [additionalNote, setAdditionalNote]=useState("")
+  const BASE_URL = "http://localhost:8080";
 
   const extractloc = (location) => {
 
@@ -272,7 +273,7 @@ const loadInvoicePreview=(id,mmid)=>{
           </div>
           <div className='eventDetailsDisplayContainer'>
              <div className='eventDetailsDisplayInnerContainer1'>
-             <img src={profileImage} className="profileInvoice"></img>
+             <img src={`${BASE_URL}/postData/uploads/image/${event["organizerImage"]}`} className="profileInvoice"></img>
              <h5 id='bandOrganizer'>{event['organizerName']}</h5>
             
             <p class="eventType1"><img src={eventtype} className="EventIconPendingRequest3"></img>{event['eventName']}</p>

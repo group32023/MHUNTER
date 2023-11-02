@@ -26,8 +26,9 @@ public class ArtistServiceImp implements ArtistService{
 
     @Override
     public List<Artist> findAllArtist() {
-        return artistRepository.findAllArtist();
+        return artistRepository.findAllArtistVerified();
     }
+
 
     @Override
     public Artist findSpecificArtist(int id) {

@@ -14,6 +14,9 @@ public interface BandRepository extends JpaRepository<Band,Integer> {
     @Query(value = "SELECT b.* FROM band b INNER JOIN user u ON b.user_id = u.user_id ",nativeQuery = true)
     List<Band> findAllBand();
 
+    @Query(value = "SELECT b.* FROM band b INNER JOIN user u ON b.user_id = u.user_id WHERE is_verified = 1",nativeQuery = true)
+    List<Band> findAllBandVerified();
+
     @Query(value = "SELECT * FROM band WHERE mmid = :mmid ",nativeQuery = true)
     Band findByMmid(@Param("mmid") int mmid);
 

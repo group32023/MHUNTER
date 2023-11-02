@@ -19,6 +19,7 @@ import Button from 'react-bootstrap/Button';
 
 
 
+import Topbar from '../components/common/Topbar';
 
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -36,6 +37,8 @@ export default function BandInvoice() {
   const [event, setEvent] = useState([]);
   const [expand,setExpandedSideBar] = useState(true)
   const [invoiceId,setInvoiceId] = useState(0);
+  const BASE_URL = "http://localhost:8080";
+
 
   const eventid=id;
   useEffect(() => {
@@ -252,26 +255,14 @@ const handleCloseAcceptRequestModal=()=>{
     <div >
     
         <SideMenuBarArtist>
-        <div>
+      
             <p className='headerDashboard'>Invoice</p>
-            <div className={expand ? 'notificationBg':'notificationBg-ex'}>
-              <img src={notification} className='notificationIcon' alt='notification'></img>
-            </div>
-            <div className={expand ? 'homeBg':'homeBg-ex'}>
-            <Link to={'/'}>
-                <img src={home} alt='homebtn' className='homeIcon'></img>
-              </Link>
-            </div>
-            <div className={expand ? 'logoutBg':'logoutBg-ex'}>
-              <img src={logout} alt='logout'className='logout'></img>
-              <p className='logoutbtn'>Logout</p>
-            </div>
-          </div>
+            <Topbar></Topbar>
 
     <div className='MainContainer'>
         <div className='eventDetailsDisplayContainer'>
              <div className='eventDetailsDisplayInnerContainer'>
-             <img src={profileImage} className="profileInvoice"></img>
+             <img src={`${BASE_URL}/postData/uploads/image/${event["organizerImage"]}`} className="profileInvoice"></img>
              <h4>{event['organizerName']}</h4>
 
             <p class="eventType3"><img src={eventtype} className="EventIconPendingRequest3"></img>Event Name : {event['eventName']}</p>
