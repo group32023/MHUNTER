@@ -185,7 +185,7 @@
     margin-bottom: 20px;
 }
 
-.OrganizerDashboardMainContainer .artistCalanderDiv {
+.mainContainer-NX .OrganizerDashboardMainContainer .artistCalanderDiv {
     width: 349px;
     height: 304.5px;
     border-radius: 15px;
@@ -197,6 +197,21 @@
     margin-left: -1%;
 
 }
+
+.OrganizerDashboardMainContainer .artistCalanderDiv {
+    width: 376px;
+    height: 304.5px;
+    border-radius: 15px;
+    background: #3B444D;
+    position: absolute;
+    top: 47.8%;
+    left: 68%;
+    margin-top: -21%;
+    margin-left: -1%;
+
+}
+
+
 
 .OrganizerDashboardMainContainer .artistCalanderDiv-exp {
     width: 344px;

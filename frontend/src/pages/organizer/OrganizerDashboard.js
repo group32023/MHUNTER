@@ -17,6 +17,7 @@ import ViewArtist from './ViewArtist';
 import MakeArtistRequest from './MakeArtistRequest';
 import SearchBand from './SearchBand'
 import ViewBand from './ViewBand'
+import MakeBandRequest from './MakeBandRequest';
 import ArtistCalendar from "../../components/ArtistCalendar";
 
 import '../../assets/css/OrganizerDashboard.css';
@@ -55,7 +56,7 @@ import PaymentArtist10 from '../../assets/images/paymentArtist10.jpg'
 
 
 export default function OrganizerDashboard() {
- 
+
 
   const orgid = localStorage.getItem('orgid');
   const [invoices, setInvoices] = useState([]);
@@ -157,7 +158,7 @@ export default function OrganizerDashboard() {
 
                       <div className="innertablePaymentTBContent">
                         {musicMember[invoice.mmid] && (
-                          <div className='PaymentTBTitle d-flex align-items-center justify-content-center'>{musicMember[invoice.mmid].userName}</div>
+                          <div className='PaymentTBTitle d-flex align-items-center justify-content-center'>{musicMember[invoice.mmid].userName.toUpperCase()}</div>
                         )}
                         {event[invoice.eventid] && (
                           <div className='PaymentTBEventName d-flex align-items-center justify-content-center'>
@@ -394,6 +395,7 @@ export default function OrganizerDashboard() {
           <Route path='/organizer/searchartist/viewartist/makeartistrequest/:mmid/:eventid' element={<MakeArtistRequest />} />
           <Route path='/organizer/searchband/:eventid' element={<SearchBand />} />
           <Route path='/organizer/searchband/viewband/:mmid/:eventid' element={<ViewBand />} />
+          {/* <Route path='/organizer/searchband/viewband/makebandrequest/:mmid/:eventid' element={<MakeBandRequest />} /> */}
         </Routes>
       </SideMenuBarOrganizer>
     </>

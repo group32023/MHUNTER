@@ -96,9 +96,25 @@ export default function BandInvoice() {
   const handleCloseModalAndAccept = () => {
     setShowModal(false);
     setShowAcceptRequestModal(true);
-   
-
     
+    fetch(`http://localhost:8080/sendMail/send/${orgId}/${eventid}/${mmid}`,{
+      method:"PUT"
+    })
+    .then((response) => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.json(); // Parse the response JSON if needed
+      })
+      .then((data) => {
+        // Handle a successful response here
+        console.log('User status updated successfully', data);
+      })
+      .catch((error) => {
+        // Handle errors here
+        console.error('Error updating user status', error);
+      });
+  
 };
 const extractloc = (location) => {
 

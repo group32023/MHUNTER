@@ -78,6 +78,7 @@ export default function ArtistDashboard() {
       <SideMenuBarArtist>
 
         <div >
+        <p className="headerDashboard">Dashboard</p>
           <Topbar></Topbar>
 
           {/* web post */}

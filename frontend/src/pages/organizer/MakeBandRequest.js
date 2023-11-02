@@ -1,4 +1,4 @@
-import './MakeArtistRequest.css';
+import './MakeBandRequest.css';
 import { useState, useEffect } from 'react';
 import React from 'react';
 import { GoogleMap, Marker, LoadScript } from '@react-google-maps/api';
@@ -17,9 +17,9 @@ import OrganizerComplaint from './OrganizerComplaint';
 import OrganizerProfile from './OrganizerProfile';
 import SearchArtist from './SearchArtist';
 import ViewArtist from './ViewArtist';
+import MakeArtistRequest from './MakeArtistRequest';
 import SearchBand from './SearchBand'
 import ViewBand from './ViewBand'
-import MakeBandRequest from './MakeBandRequest';
 
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
@@ -27,7 +27,7 @@ import Button from 'react-bootstrap/Button';
 import SideMenuBarOrganizer from '../../components/common/SideMenuBar/SideMenuBarOrganizer';
 
 
-function MakeArtistRequest() {
+function MakeBandRequest() {
 
 
     const orgid1 = parseInt(localStorage.getItem('orgid'), 10);
@@ -98,13 +98,13 @@ function MakeArtistRequest() {
         <>
             <SideMenuBarOrganizer>
 
-                <div className='artist-request-container'>
+                <div className='band-request-container'>
                     {/* <SideMenuBarOrganizer /> */}
 
                     {/* <div className="container" style={{ width: '1215px', marginLeft: '20%' }} > */}
 
                     <Topbar />
-                    <form className='artist-request-form'>
+                    <form className='band-request-form'>
 
                         <h2>Make Request</h2>
                         <div className="form-group ">
@@ -228,9 +228,9 @@ function MakeArtistRequest() {
                     <Route path='/organizer/profile' element={<OrganizerProfile />}></Route>
                     <Route path='/organizer/searchartist/:eventid' element={<SearchArtist />} />
                     <Route path='/organizer/searchartist/viewartist/:mmid/:eventid' element={<ViewArtist />} />
+                    <Route path='/organizer/searchartist/viewartist/makeartistrequest/:mmid/:eventid' element={<MakeArtistRequest />} />
                     <Route path='/organizer/searchband/:eventid' element={<SearchBand />} />
                     <Route path='/organizer/searchband/viewband/:mmid/:eventid' element={<ViewBand/>} />
-                    <Route path='/organizer/searchband/viewband/makebandrequest/:mmid/:eventid' element={<MakeBandRequest />} />
                 </Routes>
             </SideMenuBarOrganizer>
         </>
@@ -239,4 +239,4 @@ function MakeArtistRequest() {
 
 }
 
-export default MakeArtistRequest;
+export default MakeBandRequest;
