@@ -27,6 +27,7 @@ export default function ArtistEvent() {
   const [line,setLine] = useState([])
   const [page,setPage] = useState(1)
   const noOfLinePerPage = 4
+  const BASE_URL = "http://localhost:8080";
 
   const divCount = 4;
   const divElements = [];
@@ -42,10 +43,11 @@ export default function ArtistEvent() {
     const mmId = localStorage.getItem('mmid');
     if(mmId){
     fetch(`http://localhost:8080/requestMusicMember/viewAllEvents/${mmId}?filterValue=${getFilterData}`).then((res)=>res.json()).then((result)=>{
+      console.log(result);
       if(result.length>0){
         const newItem = result.map(item=>(
           <div key={item.eventId}  className="requestContainerArtistEvent">
-        <img src={profileImage} className="profileArtistEvent"></img>
+        <img src={`${BASE_URL}/postData/uploads/image/${item.organizerImage}`} className="profileArtistEvent"></img>
         <div className="eventDetailsArtistEvent">
           <h4>{item.organizerName}</h4>
           <p class="artistEventTypeArtistEvent"><img src={eventType} alt=''className='artistEventTypeImg'></img>{item.eventType}</p>
@@ -62,7 +64,7 @@ export default function ArtistEvent() {
     })}
     
   }
- 
+ console.log(data)
   
   useEffect(()=>{
     handle();

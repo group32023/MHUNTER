@@ -57,9 +57,11 @@ export default function CalendarEvent() {
   const [getHoverDate,setHoverDate] = useState(null)
 const [isPopupVisible,setPopupVisible] = useState(false)
 
+const mmId = localStorage.getItem('mmid')
+
   const fetchHighlightedDays = (date) => {
     const controller = new AbortController();
-    fetch("http://localhost:8080/requestMusicMember/viewEventList/758463", { signal: controller.signal }).then((res)=>res.json()).then((result)=>{
+    fetch(`http://localhost:8080/requestMusicMember/viewEventList/${mmId}`, { signal: controller.signal }).then((res)=>res.json()).then((result)=>{
       setUpCommingEvents(result);
       result.forEach(res => {
         setHighlightedDays((prevDays) => {
