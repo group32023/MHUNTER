@@ -182,9 +182,9 @@ export default function ArtistPendingRequests() {
                                               
                                                 <p className="complaint-add-success-para_for_request_cancel">Enter Reason  </p>
                                                 <input type='text' className='reasonforCancalation' value={reason} onChange={(e)=>setReason((e.target.value))}/>
-                                                <Link to={'/organizer/test-button'} className='reasonSubmit' onClick={handleCloseModalCancelRequest1}>
+                                                <Button className='reasonSubmit' onClick={handleCloseModalCancelRequest1}>
                                             Submit
-                                        </Link>
+                                        </Button>
                                                 <Button className='reasonCancel' onClick={handleCloseModal1}>
                                             Cancel
                                         </Button>
