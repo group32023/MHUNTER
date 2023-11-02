@@ -14,6 +14,7 @@ import ViewArtist from './pages/organizer/ViewArtist';
 import MakeArtistRequest from './pages/organizer/MakeArtistRequest';
 import SearchBand from './pages/organizer/SearchBand';
 import ViewBand from './pages/organizer/ViewBand'
+import MakeBandRequest from './pages/organizer/MakeBandRequest';
 
 import "./index.css"
 
@@ -173,6 +174,7 @@ function App() {
           <Route path='/organizer/searchartist/viewartist/makeartistrequest/:mmid/:eventid' element={<MakeArtistRequest />} />  
           <Route path='/organizer/searchband/:eventid' element={<SearchBand />} />
           <Route path='/organizer/searchband/viewband/:mmid/:eventid' element={<ViewBand/>} />
+          <Route path='/organizer/searchband/viewband/makebandrequest/:mmid/:eventid' element={<MakeBandRequest />} />
 
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />

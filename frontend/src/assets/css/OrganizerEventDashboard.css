@@ -43,7 +43,10 @@
 .eventImgDiv img {
     border-radius: 10px;
 
+    height: 195px;
 }
+
+
 
 .eventDescDivSpan {
     font-size: 19px;
@@ -330,23 +333,23 @@
     color: #7643D2;
 }
 
-.modal-class-new .modal-content{
+.modal-class-new .modal-content {
 
     /* background-color: #484E55; */
-    background-color:#484E55;
+    background-color: #484E55;
     /* background-color: #24292D; */
     /* background-color: white; */
     color: white;
-    
+
 }
 
-.modal-class-new .events-view-modal-title{
+.modal-class-new .events-view-modal-title {
 
     color: white;
     margin-left: 7.5rem;
 }
 
-.modal-class-new .yesButtonRed{
+.modal-class-new .yesButtonRed {
 
     outline: none;
     background-color: red;
