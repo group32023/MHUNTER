@@ -88,7 +88,7 @@ function ArtistInvoiceAgreementModal(props) {
                                 <Tab.Content className='ArtistInvoiceAgreementTabContent mt-3 px-4'>
                                     <Tab.Pane eventKey="details">
 
-                                        <AgreementDetailProfile style={{ color: 'black' }} />
+                                        <AgreementDetailProfile style={{ color: 'black' }} detail0={detail0} />
                                     </Tab.Pane>
                                     <Tab.Pane eventKey="invoice">
 

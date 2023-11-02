@@ -4,6 +4,7 @@ import { Link,useParams } from 'react-router-dom';
 import Topbar from '../../components/common/Topbar';
 import './ViewArtist.css';
 import anushka from '../../assets/images/anushka.png';
+import theekshana from '../../assets/images/theekshana.jpg'
 import anushkashow from '../../assets/images/anushkashow.jpg';
 import anushkashow2 from '../../assets/images/anushkashow2.jpg';
 import anushkashow3 from '../../assets/images/anushkashow3.jpg';
@@ -179,7 +180,7 @@ function ViewArtist() {
 
                                 <div className='artist-logo align-items-center'>
                                     <div className='image' key={artist.artistId}>
-                                        <img src={anushka} alt="Artist's Image" >
+                                        <img src={theekshana} alt="Artist's Image" >
                                         </img>
                                     </div>
 
@@ -251,7 +252,7 @@ function ViewArtist() {
 
                                     <div className='d-flex align-items-center'>
                                         <div className='artist-image'>
-                                            <img src={anushka} alt="User's Image" />
+                                            <img src={theekshana} alt="User's Image" />
                                         </div>
 
                                         <div className='ml-2 content'>

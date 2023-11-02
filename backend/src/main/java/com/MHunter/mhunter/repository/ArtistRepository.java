@@ -19,6 +19,10 @@ public interface ArtistRepository extends JpaRepository<Artist,Integer> {
 
     @Query (value = "SELECT a.* FROM artist a INNER JOIN user u ON a.user_id = u.user_id ",nativeQuery = true)
     List <Artist> findAllArtist();
+
+    @Query (value = "SELECT a.* FROM artist a INNER JOIN user u ON a.user_id = u.user_id WHERE is_verified = 1 ",nativeQuery = true)
+    List <Artist> findAllArtistVerified();
+
     @Transactional
     @Modifying
     @Query(value = "DELETE a FROM artist a WHERE a.mmid IN (SELECT mm.mmid FROM music_member mm WHERE mm.user_id = :user_id)", nativeQuery = true)
