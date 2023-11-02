@@ -399,7 +399,7 @@ function OrganizerEventDashboard() {
                                                 </div>
 
                                                 <div className="contentImg">
-                                                    <ArtistInvoiceAgreementModal index={index} detail0={detail[0]} detail2={detail[2]} detail3={detail[3]} />
+                                                    <ArtistInvoiceAgreementModal index={index} detail0={detail[0]} detail2={detail[2]} detail3={detail[3]} eventid={eventid} />
 
                                                 </div>
 
