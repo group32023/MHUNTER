@@ -73,15 +73,22 @@ const OrganizerAgreementView = (props) => {
                                 <div className="row" style={{ color: 'black' }}>
                                     <div className="col-8">
                                         <h2 className="">AGREEMENT </h2>
-                                        <h4 className=" text-muted">NO: 554{data.agreement_id}/R1 | Date: {data.date}</h4>
+                                        <h5 className=" text-muted">NO: 554{data.agreement_id}/R1 | Date: {data.date}</h5>
                                     </div>
                                 </div>
 
                                 <div style={{ color: 'black' }}><h5>TERM OF AGREEMENT</h5><br></br>
+
                                     - This Agreement shall be effective on the date of the signing of this Agreement (hereinafter
                                     referred to as the “Effective Date”) .
                                     - Upon the end of the term of the Agreement, this Agreement will not be automatically
                                     renewed for a new term.
+                                    <br></br>
+                                    1. {data.rule1}
+                                    <br></br>
+                                    2. {data.rule2}
+                                    <br></br>
+                                    3. {data.rule3}
                                     <br></br>
                                     <h5>RELATIONSHIP OF THE PARTIES</h5>
                                     - Hereby, the Parties agree that this is a non-exclusive agreement and that the Parties are
@@ -101,6 +108,8 @@ const OrganizerAgreementView = (props) => {
                                     - In addition, the Client will be responsible to pay for all the Services that have been
                                     successfully performed up to the date of termination of this Agreement apart from the case
                                     where the Service Provider breached this Agreement</div>
+
+                                <img src={data.url} className='esignatureForPreview' />
 
 
 
