@@ -11,6 +11,7 @@ import "../assets/css/myFeed.css"
 import PreviousFeed from '../components/PreviousFeed'
 import { Link, useNavigate } from 'react-router-dom'
 import Topbar from '../components/common/Topbar'
+import SideMenuBarBand from '../components/common/SideMenuBar/SideMenuBarBand'
 
 export default function MyFeed() {
     const [expand,setExpandedSideBar] = useState(true)
@@ -97,7 +98,7 @@ export default function MyFeed() {
   return (
     <div className='myFeedContainer'>
         <div className='mainArtistDashboard'>
-            <SideMenuBarArtist></SideMenuBarArtist>
+            <SideMenuBarBand></SideMenuBarBand>
         </div>
         <div className='mainEventContainer'>
         <p className='headerDashboard'>My Feed</p>

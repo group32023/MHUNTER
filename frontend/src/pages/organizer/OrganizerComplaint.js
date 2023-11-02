@@ -22,7 +22,7 @@ import SystemPreloader from '../../components/common/SystemPreloader';
 
 import SearchBand from './SearchBand'
 import ViewBand from './ViewBand'
-
+import MakeBandRequest from './MakeBandRequest';
 
 function OrganizerComplaint() {
     const [showModal, setShowModal] = useState(false);
@@ -304,6 +304,7 @@ console.log('orgid:', orgid); // Check the value in the console
                     <Route path='/organizer/searchartist/viewartist/makeartistrequest/:mmid/:eventid' element={<MakeArtistRequest />} />
                     <Route path='/organizer/searchband/:eventid' element={<SearchBand />} />
                     <Route path='/organizer/searchband/viewband/:mmid/:eventid' element={<ViewBand />} />
+                    <Route path='/organizer/searchband/viewband/makebandrequest/:mmid/:eventid' element={<MakeBandRequest />} />
                 </Routes>
 
             </SideMenuBarOrganizer>

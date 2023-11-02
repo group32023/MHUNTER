@@ -19,6 +19,7 @@ import CircularProgress from '@mui/material/CircularProgress';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {faPhone,faLocationDot,faList,faCalendarDays} from '@fortawesome/free-solid-svg-icons'
 import { faTwitter, faFontAwesome,faFacebook,faGooglePlusG,faLinkedinIn } from '@fortawesome/free-brands-svg-icons'
+import Topbar from '../components/common/Topbar';
 
 
 
@@ -55,6 +56,13 @@ export default function ArtistPriorBooking() {
       .then((data) => {
         setEvents(data);
          
+     
+
+      })
+      .catch((error) => {
+        console.log('Error fetching data:', error);
+      });
+
       fetch(`http://localhost:8080/organizer/viewSpecificOrganizer/${id2}`)
       .then((response) => {
         if (!response.ok) {
@@ -71,11 +79,6 @@ export default function ArtistPriorBooking() {
         .catch((error) => {
           console.log('Error fetching data:', error);
         });
-
-      })
-      .catch((error) => {
-        console.log('Error fetching data:', error);
-      });
     
 
   }, []);
@@ -124,7 +127,7 @@ export default function ArtistPriorBooking() {
       <tr>
       <td>{events[i]['eventName']}</td>
       <td>{events[i]['eventType']}</td>
-      <td><FontAwesomeIcon icon={faLocationDot} id="LocationIcon1"/>{events[i]['place']}</td>
+      <td><FontAwesomeIcon icon={faLocationDot} id="LocationIcon1"/>Colombo 07</td>
       <td>{events[i]['duration']}</td>
       <td>{events[i]['crowd']}</td>
       <td>{events[i]['income']}</td>
@@ -146,18 +149,7 @@ export default function ArtistPriorBooking() {
           <SideMenuBarArtist >
         <div>
             <p className='headerDashboard'>Pending Requests</p>
-            <div className={expand ? 'notificationBg':'notificationBg-ex'}>
-              <img src={notification} className='notificationIcon' alt='notification'></img>
-            </div>
-            <div className={expand ? 'homeBg':'homeBg-ex'}>
-            <Link to={'/'}>
-                <img src={home} alt='homebtn' className='homeIcon'></img>
-              </Link>
-            </div>
-            <div className={expand ? 'logoutBg':'logoutBg-ex'}>
-              <img src={logout} alt='logout'className='logout'></img>
-              <p className='logoutbtn'>Logout</p>
-            </div>
+            <Topbar></Topbar>
           </div>
 
           <div className='addressDiv'>

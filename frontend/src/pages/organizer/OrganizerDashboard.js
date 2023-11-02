@@ -17,6 +17,7 @@ import ViewArtist from './ViewArtist';
 import MakeArtistRequest from './MakeArtistRequest';
 import SearchBand from './SearchBand'
 import ViewBand from './ViewBand'
+import MakeBandRequest from './MakeBandRequest';
 import ArtistCalendar from "../../components/ArtistCalendar";
 
 import '../../assets/css/OrganizerDashboard.css';
@@ -55,8 +56,7 @@ import PaymentArtist10 from '../../assets/images/paymentArtist10.jpg'
 
 
 export default function OrganizerDashboard() {
-  //const artistId = 20;
- 
+
 
   const orgid = localStorage.getItem('orgid');
   const [invoices, setInvoices] = useState([]);
@@ -149,41 +149,32 @@ export default function OrganizerDashboard() {
                 <div className="PaymentTBTableDiv mt-4">
 
                   {invoices.map((invoice) => (
-
-                    <div className="row tablePaymentTBContent">
-
-                      <div className='PaymentTBImage '>
-                        <img className='' alt='' src={PaymentArtist4} width='50px' height='50px'></img>
-                      </div>
-
-                      <div className="innertablePaymentTBContent">
-                        {musicMember[invoice.mmid] && (
-                          <div className='PaymentTBTitle d-flex align-items-center justify-content-center'>{musicMember[invoice.mmid].userName}</div>
-                        )}
-                        {event[invoice.eventid] && (
-                          <div className='PaymentTBEventName d-flex align-items-center justify-content-center'>
-                            <BsMusicNoteList className='' style={{ fontSize: '18px', marginRight: '7px', color: '#7643D2' }} />
-                            {event[invoice.eventid].eventName}
-                          </div>
-                        )}
-
-                        <div className='PaymentTBAmount d-flex align-items-center justify-content-center'>LKR {invoice.totalAmount - invoice.paidAmount}</div>
-                        <div className=' PaymentTBBtn d-flex align-items-center justify-content-center'>
-                          <Link to={`/organizer/paymentForm/${artistId}`} >
-                            <Button className='paymentBtn shadow' variant="secondary">Pay Now</Button>
-                          </Link>
-
+                    invoice.totalAmount - invoice.paidAmount > 0 && (
+                      <div className="row tablePaymentTBContent">
+                        <div className='PaymentTBImage '>
+                          <img className='' alt='' src={PaymentArtist4} width='50px' height='50px'></img>
                         </div>
-
+                        <div className="innertablePaymentTBContent">
+                          {musicMember[invoice.mmid] && (
+                            <div className='PaymentTBTitle d-flex align-items-center justify-content-center'>{musicMember[invoice.mmid].userName.toUpperCase()}</div>
+                          )}
+                          {event[invoice.eventid] && (
+                            <div className='PaymentTBEventName d-flex align-items-center justify-content-center'>
+                              <BsMusicNoteList className='' style={{ fontSize: '18px', marginRight: '7px', color: '#7643D2' }} />
+                              {event[invoice.eventid].eventName}
+                            </div>
+                          )}
+                          <div className='PaymentTBAmount d-flex align-items-center justify-content-center'>LKR {invoice.totalAmount - invoice.paidAmount}</div>
+                          <div className='PaymentTBBtn d-flex align-items-center justify-content-center'>
+                            <Link to={`/organizer/paymentForm/${artistId}`}>
+                              <Button className='paymentBtn shadow' variant="secondary">Pay Now</Button>
+                            </Link>
+                          </div>
+                        </div>
                       </div>
-
-
-
-
-
-                    </div>
-
+                    )
                   ))}
+
 
 
 
@@ -395,6 +386,7 @@ export default function OrganizerDashboard() {
           <Route path='/organizer/searchartist/viewartist/makeartistrequest/:mmid/:eventid' element={<MakeArtistRequest />} />
           <Route path='/organizer/searchband/:eventid' element={<SearchBand />} />
           <Route path='/organizer/searchband/viewband/:mmid/:eventid' element={<ViewBand />} />
+          {/* <Route path='/organizer/searchband/viewband/makebandrequest/:mmid/:eventid' element={<MakeBandRequest />} /> */}
         </Routes>
       </SideMenuBarOrganizer>
     </>

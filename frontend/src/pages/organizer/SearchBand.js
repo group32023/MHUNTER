@@ -21,6 +21,7 @@ import SearchArtist from './SearchArtist';
 import ViewArtist from './ViewArtist';
 import MakeArtistRequest from './MakeArtistRequest';
 import ViewBand from './ViewBand'
+import MakeBandRequest from './MakeBandRequest';
 import OrganizerEventDashboard from './OrganizerEventDashboard';
 import SideMenuBarOrganizer from '../../components/common/SideMenuBar/SideMenuBarOrganizer';
 library.add(fas);
@@ -46,8 +47,8 @@ function SearchBand() {
     }, [])
     
     const filteredBands = band.filter((band) =>
-    band.user.firstName.toLowerCase().includes(searchInput.toLowerCase()) ||
-    band.user.lastName.toLowerCase().includes(searchInput.toLowerCase())
+    band.musicMember.name.toLowerCase().includes(searchInput.toLowerCase()) ||
+    band.musicMember.name.toLowerCase().includes(searchInput.toLowerCase())
     );
 
     return (
@@ -87,7 +88,7 @@ function SearchBand() {
 
                                 <div className='content'>
 
-                                    <h5>{band.user.firstName}</h5>
+                                    <h5>{band.musicMember.name}</h5>
                                     <StarRating rating={5} ></StarRating>
 
                                 </div>
@@ -113,6 +114,7 @@ function SearchBand() {
                     <Route path='/organizer/searchartist/viewartist/:mmid/:eventid' element={<ViewArtist />} />
                     <Route path='/organizer/searchartist/viewartist/makeartistrequest/:mmid/:eventid' element={<MakeArtistRequest />} />
                     <Route path='/organizer/searchaband/viewband/:mmid/:eventid' element={<ViewBand/>} />
+                    <Route path='/organizer/searchband/viewband/makebandrequest/:mmid/:eventid' element={<MakeBandRequest />} />
                 </Routes>
             </SideMenuBarOrganizer>
         </>

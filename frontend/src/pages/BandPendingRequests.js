@@ -22,6 +22,7 @@ import { faTwitter, faFontAwesome,faFacebook,faGooglePlusG,faLinkedinIn } from '
 import eventtype from '../assets/images/eventtype.png';
 
 import empty from '../assets/images/empty(1).png'
+import Topbar from '../components/common/Topbar';
 
 export default function ArtistPendingRequests() {
 
@@ -30,7 +31,16 @@ export default function ArtistPendingRequests() {
   const [eventList, setEventList] = useState([]);
   const [currentPage, setCurrentPage] =useState(1);
   const [linePerPage, setLinePerPage] = useState(4);
-  const BASE_URL = "http://localhost:8080";
+
+  const extractloc = (location) => {
+
+    const parts = location.split(',');
+    const placeName = parts[0];
+    const town = parts[parts.length - 2];
+    const stringPart = town.replace(/\d+/g, '');
+    return `${stringPart}`;
+}
+
 
   const mmid=localStorage.getItem('mmid');
   useEffect(() => {
@@ -72,13 +82,13 @@ export default function ArtistPendingRequests() {
   
     
     divElements.push(<div key={i} className="requestContainer">
-      <img src={`${BASE_URL}/postData/uploads/image/${eventList[i]['organizerImage']}`} className="profile1"></img>
+      <img src={`http://localhost:8080/postData/uploads/image/${eventList[i]['organizerImage']}`} className="profile1"></img>
       <div className="eventDetails">
         <h5>{eventList1[i]['organizerName']}</h5>
         
         <p class="eventType"><FontAwesomeIcon icon={faCalendarDays} id="EventIconPendingRequest"/>{eventList1[i]['eventName']}</p>
       <p class="eventDate"><FontAwesomeIcon icon={faCalendarDays} id="CalenderIconPendingRequest"/>{eventList1[i]['date']}</p>
-        <p class="venue"><FontAwesomeIcon icon={faLocationDot} id="LocationIconPendingRequest"/> {eventList1[i]['place']}</p>
+        <p class="venue"><FontAwesomeIcon icon={faLocationDot} id="LocationIconPendingRequest"/> {extractloc(eventList[i]["place"])}</p>
       </div>
      
    
@@ -107,16 +117,7 @@ export default function ArtistPendingRequests() {
   
     
             <p className='headerDashboard'>Pending Requests</p>
-            <div className={expand ? 'notificationBg':'notificationBg-ex'}>
-              <img src={notification} className='notificationIcon' alt='notification'></img>
-            </div>
-            <div className={expand ? 'homeBg':'homeBg-ex'}>
-              <img src={home} alt='homebtn' className='homeIcon'></img>
-            </div>
-            <div className={expand ? 'logoutBg':'logoutBg-ex'}>
-              <img src={logout} alt='logout'className='logout'></img>
-              <p className='logoutbtn'>Logout</p>
-          </div>
+            <Topbar></Topbar>
 
      
       

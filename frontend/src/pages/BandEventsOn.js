@@ -17,6 +17,7 @@ import empty from '../assets/images/empty(1).png'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {faPhone,faLocationDot,faList,faCalendarDays} from '@fortawesome/free-solid-svg-icons'
 import { faTwitter, faFontAwesome,faFacebook,faGooglePlusG,faLinkedinIn } from '@fortawesome/free-brands-svg-icons'
+import Topbar from '../components/common/Topbar';
 
 
 
@@ -26,6 +27,16 @@ export default function ArtistEventOn() {
   const { mmid, date, eventId } = useParams();
   const componentPDF = useRef();
   const [eventList, setEventList] = useState([]);
+
+  const extractloc = (location) => {
+
+    const parts = location.split(',');
+    const placeName = parts[0];
+    const town = parts[parts.length - 2];
+    const stringPart = town.replace(/\d+/g, '');
+    return `${stringPart}`;
+}
+
 
   useEffect(() => {
     // Fetch the data from the Java backend
@@ -67,9 +78,8 @@ export default function ArtistEventOn() {
       <td>{eventList[i]['eventName']}</td>
       <td>{eventList[i]['organizerName']}</td>
       <td>{eventList[i]['eventType']}</td>
-      <td><FontAwesomeIcon icon={faLocationDot} id="LocationIcon1"/>{eventList[i]['place']}</td>
+      <td><FontAwesomeIcon icon={faLocationDot} id="LocationIcon1"/>{extractloc(eventList[i]['place'])}</td>
       <td>{eventList[i]['crowd']}</td>
-      <td>{eventList[i]['income']}</td>
       
 </tr>
   );
@@ -89,18 +99,7 @@ export default function ArtistEventOn() {
          <SideMenuBarBand>
         <div>
             <p className='headerDashboard'>Pending Requests</p>
-            <div className={expand ? 'notificationBg':'notificationBg-ex'}>
-              <img src={notification} className='notificationIcon' alt='notification'></img>
-            </div>
-            <div className={expand ? 'homeBg':'homeBg-ex'}>
-            <Link to={'/'}>
-                <img src={home} alt='homebtn' className='homeIcon'></img>
-              </Link>
-            </div>
-            <div className={expand ? 'logoutBg':'logoutBg-ex'}>
-              <img src={logout} alt='logout'className='logout'></img>
-              <p className='logoutbtn'>Logout</p>
-            </div>
+            <Topbar></Topbar>
           </div>
 
           <div className='addressDiv'>
@@ -126,7 +125,6 @@ export default function ArtistEventOn() {
                           <th>Event Type</th>
                           <th>Town</th>
                           <th>Crowd</th>
-                          <th>Fee (Rs.)</th>
                         
                           </tr>
                         </thead>

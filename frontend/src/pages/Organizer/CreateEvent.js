@@ -19,6 +19,8 @@ import MakeArtistRequest from './MakeArtistRequest';
 import OrganizerEventDashboard from './OrganizerEventDashboard';
 import SearchBand from './SearchBand'
 import ViewBand from './ViewBand'
+import MakeBandRequest from './MakeBandRequest';
+
 
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
@@ -141,7 +143,7 @@ function CreateEvent() {
 
                 <label htmlFor="crowd" className="form-label">Expected Crowd</label>
                 <input type="text" className="form-control" onChange={onChangeHandler} name="crowd" ></input>
-                {crowdError && <div className='invalid-feedback'>{crowdError}</div>}
+                
               </div>
             </div>
 
@@ -236,6 +238,7 @@ function CreateEvent() {
           <Route path='/organizer/searchartist/viewartist/makeartistrequest/:mmid/:eventid' element={<MakeArtistRequest />} />
           <Route path='/organizer/searchband/:eventid' element={<SearchBand />} />
           <Route path='/organizer/searchband/viewband/:mmid/:eventid' element={<ViewBand/>} />
+          <Route path='/organizer/searchband/viewband/makebandrequest/:mmid/:eventid' element={<MakeBandRequest />} />
         </Routes>
       </SideMenuBarOrganizer>
     </>

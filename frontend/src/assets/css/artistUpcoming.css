@@ -14,13 +14,12 @@
   height: 75px;
   position: relative;
   top: 50px;
-  left: -224px;
+  left: 31px;
 
   }
   
   .eventTopic {
-    
-    color: #FFF;
+    color: #1BD067;
     font-family: 'Blinker', sans-serif;
     font-size: 19px;
     font-style: normal;
@@ -28,7 +27,7 @@
     line-height: normal;
     position: relative;
     top: -28px;
-    left: 193px;
+    left: 183px;
     width: 200px;
     text-align: left;
   }
@@ -43,8 +42,8 @@
     position: relative;
     top: -45px;
     left: -106px;
-  
   }
+
   .eventDescripition {
     width: 476px;
     height: 52px;
@@ -106,8 +105,8 @@
   font-weight: 600;
   line-height: normal;
   position: relative;
-  top: -163px;
-  left: 101px;
+  top: -160px;
+  left: 403px;
   }
 .dateData {
   color: #FFF;
@@ -117,8 +116,8 @@
   font-weight: 600;
   line-height: normal;
   position: relative;
-  top: -237px;
-  left: 233px;
+  top: -232px;
+  left: 528px;
   }
   .line {
     width: 614px;

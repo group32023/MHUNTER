@@ -6,9 +6,13 @@ import { useReactToPrint } from 'react-to-print';
 
 const OrganizerInvoiceView = (props) => {
 
+    const [eventData, setEventData] = useState(null);
+
     const detail0 = props.detail0;
     const detail2 = props.detail2;
     const detail3 = props.detail3;
+
+
     const [invoice, setInvoice] = useState({});
     const mmid = detail0;
     const eventid = detail2;
@@ -49,6 +53,27 @@ const OrganizerInvoiceView = (props) => {
             });
     }, []);
 
+
+
+    useEffect(() => {
+        fetch(`http://localhost:8080/event/viewSpecificEvent/${eventid}`)
+            .then((response) => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json(); // Assuming you're expecting JSON data
+            })
+            .then((data) => {
+                // Handle the data received from the server
+                setEventData(data);
+            })
+            .catch((error) => {
+                // Handle any errors that occurred during the fetch
+                console.error('Error:', error);
+            });
+    }, [eventid]);
+
+
     return (
         <div className="container">
             <div className="button-wrapper d-flex mb-3">
@@ -73,9 +98,7 @@ const OrganizerInvoiceView = (props) => {
                         </div>
                         <div className="col-4">
                             <div className="media">
-                                <div className="media-left">
-                                    <img className="media-object logo" src="https://dummyimage.com/70x70/000/fff&text=ACME" />
-                                </div>
+
                                 <ul className="media-body list-unstyled">
                                     <li><strong>{musicMember.userName}</strong></li>
                                     <li>{musicMember.address}</li>
@@ -194,12 +217,7 @@ const OrganizerInvoiceView = (props) => {
                                         </td>
                                         <td class="right">{invoice.totalAmount}</td>
                                     </tr>
-                                    <tr>
-                                        <td class="left">
-                                            <strong>Discount</strong>
-                                        </td>
-                                        <td class="right">{invoice.totalAmount}</td>
-                                    </tr>
+
 
                                     <tr>
                                         <td class="left">

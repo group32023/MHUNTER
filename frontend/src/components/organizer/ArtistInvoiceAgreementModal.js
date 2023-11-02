@@ -12,6 +12,7 @@ function ArtistInvoiceAgreementModal(props) {
     const detail0 = props.detail0;
     const detail2 = props.detail2;
     const detail3 = props.detail3;
+    const eventid = props.eventid;
 
     const [show, setShow] = useState(false);
 
@@ -40,13 +41,16 @@ function ArtistInvoiceAgreementModal(props) {
 
     return (
         <div>
-            <Button variant="primary"
+            <Button
+                variant="primary"
                 onClick={handleShow}
                 onMouseEnter={() => handleMouseEnter(index)}
                 onMouseLeave={handleMouseLeave}
+                disabled={detail3 === 0}
             >
                 View Details
             </Button>
+
 
             {hoveredIndex === index && (
                 <div
@@ -88,7 +92,7 @@ function ArtistInvoiceAgreementModal(props) {
                                 <Tab.Content className='ArtistInvoiceAgreementTabContent mt-3 px-4'>
                                     <Tab.Pane eventKey="details">
 
-                                        <AgreementDetailProfile style={{ color: 'black' }} />
+                                        <AgreementDetailProfile style={{ color: 'black' }} detail0={detail0} />
                                     </Tab.Pane>
                                     <Tab.Pane eventKey="invoice">
 
@@ -100,7 +104,9 @@ function ArtistInvoiceAgreementModal(props) {
                                         />
                                     </Tab.Pane>
                                     <Tab.Pane eventKey="agreement">
-                                        <OrganizerAgreementView />
+                                        <OrganizerAgreementView detail0={detail0}
+                                            detail2={detail2}
+                                            detail3={detail3} />
 
                                     </Tab.Pane>
                                 </Tab.Content>

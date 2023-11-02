@@ -48,12 +48,19 @@ export default function BandAgreemnt() {
   const skip="skip";
 
   const [showModal1, setShowModal1] = useState(false);
-  const [band, setBand] = useState();
+  const [band, setBand] = useState({});
 
+  const extractloc = (location) => {
 
+    const parts = location.split(',');
+    const placeName = parts[0];
+    const town = parts[parts.length - 2];
+    const stringPart = town.replace(/\d+/g, '');
+    return `${stringPart}`;
+}
 
   useEffect(() => {
-    //console.log(mmid);
+    
       fetch(`http://localhost:8080/band/viewSpecificBand/${mmid}`)
         .then((response) => {
           if (!response.ok) {
@@ -72,7 +79,6 @@ export default function BandAgreemnt() {
     
   }, []);
 
- console.log(band.musicMember['name']);
   const handleShowModal1 = () => {
     if((rule1==="null" && rule2==="null" && rule3==="null" && rule4==="null" && additionalRules==="" )|| url==="null"){
     }else{
@@ -115,21 +121,9 @@ const addAgreement=(e)=>{
           method:"POST",
           headers:{"Content-Type" : "application/json"},
           body:JSON.stringify(agreement)
-        }).then(()=>{
-    
-         
-           
-          
-           
-            
-          })
-          
-  }
-  
-
-   
- 
-     
+        }).then(()=>{   
+          })      
+  } 
       }
   
 
@@ -229,11 +223,11 @@ const loadInvoice=(id,mmid)=>{
                   <div className='bandDetailsDiv'>
                   <h5 className='h5forbandDetails'>Band Details</h5>
                   <div className='detailsOfBandInfo'>
-                  <div><p className='bandNameLable'>Band Name : </p> <p className='bandName'>{band.musicMember['name']}</p></div>
+                  <div><p className='bandNameLable'>Band Name : </p> <p className='bandName'>{band.musicMember ? band.musicMember.name : 'N/A'}</p></div>
 
-                  <div><p className='bandAddressLable'>Address : </p> <p className='bandAddress'>{band.user['address']}</p></div>
+                  <div><p className='bandAddressLable'>Address : </p> <p className='bandAddress'>{band.user ? band.user.address : 'N/A'}</p></div>
 
-                  <div><p className='bandEmailLable'>E-mail : </p> <p className='bandEmail'>{band.user['email']}</p></div>
+                  <div><p className='bandEmailLable'>E-mail : </p> <p className='bandEmail'>{band.user ? band.user.email : 'N/A'}</p></div>
                   </div>
                   </div>
                   
@@ -278,7 +272,7 @@ const loadInvoice=(id,mmid)=>{
                        <div className='buttonSet'>
                           <button type='submit' className='submitAgreement' onClick={handleShowModal1} >Submit</button>
                           <button type='button' className='skipAgreement' onClick={()=>loadInvoice(id,mmid,skip)}>Skip</button>
-                          <button type='button' className='previewAgreement1' onClick={()=>loadPreview(id,mmid)} >Preview</button>
+                          <button type='button' className='previewAgreement1' >Preview</button>
                           </div>   
                         </form>
                      

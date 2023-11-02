@@ -1,0 +1,99 @@
+
+
+ 
+  .band-request-container .band-request-form{
+    
+    color: aliceblue;
+    background-color: #484E55;
+    margin-left: 30rem;
+    width: 500px;
+    /* border: 2px black solid; */
+    padding: 2rem;
+    border-radius: 10px;
+  }
+  
+  .band-request-container .band-request-form h2{ 
+    
+   text-align: center;
+  }
+  
+   .band-request-form .form-group {
+    margin-bottom: 20px;
+  }
+  
+  .band-request-form .form-label {
+    font-weight: 400;
+  }
+  
+   .band-request-form .form-control {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid white;
+    background-color: #24292D;
+    border-radius: 12px;
+    color: white;
+  
+  }
+
+
+   .band-request-form .form-select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #24292D;
+    border-radius: 12px;
+    color: white;
+  }
+
+   .band-request-form button{
+
+    margin-left: 15rem;
+    margin-top: 1rem;
+    background-color: #F70F5D;
+    color: white;
+    border-radius: 10px;
+    width: 10rem;
+  }
+
+  .band-request-form button:hover{
+
+    margin-left: 15rem;
+    margin-top: 1rem;
+    background-color: #7643D2;
+    border-radius: 10px;
+    width: 10rem;
+  }
+
+  .band-request-form .form-control::placeholder {
+   color:#a09d9d;
+  }
+
+
+   .band-request-form input[type="date"]::-webkit-calendar-picker-indicator {
+    filter: invert(1); /* This inverts the icon color; you can also use "grayscale(1)" or any other filter you prefer */
+  }
+  
+  /* Time input field icon color */
+   .band-request-form input[type="time"]::-webkit-calendar-picker-indicator {
+    filter: invert(1); /* This inverts the icon color; you can also use "grayscale(1)" or any other filter you prefer */
+  }
+
+   .band-request-form .standalone-searchbox > input {
+    background-color: black; /* Replace "your-color" with the desired background color for the search bar */
+    color: black; /* Replace "your-text-color" with the desired text color for the search bar */
+    border: 1px solid  ; /* Replace "your-border-color" with the desired border color for the search bar */
+    border-radius: 20px; /* Set the border radius to round the corners */
+    padding: 8px; /* Set the padding around the input field */
+  }
+
+
+
+
+
+
+
+
+
+
+ 

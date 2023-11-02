@@ -20,6 +20,7 @@ import eventtype from '../assets/images/eventtype.png';
 import {faPhone,faLocationDot,faList,faCalendarDays} from '@fortawesome/free-solid-svg-icons'
 import { faTwitter, faFontAwesome,faFacebook,faGooglePlusG,faLinkedinIn } from '@fortawesome/free-brands-svg-icons'
 import empty from '../assets/images/empty(1).png'
+import Topbar from "../components/common/Topbar";
 
 
 
@@ -67,6 +68,15 @@ export default function ArtistPendingRequests() {
     navigate(`/artist/PendingRequestView/${id}`);
   };
 
+  const extractloc = (location) => {
+
+    var parts = location.split(',');
+    var placeName = parts[0];
+    var town = parts[parts.length - 2];
+    var stringPart = town.replace(/\d+/g, '');
+    return `${stringPart}`;
+}
+
   const divCount = eventList.length;
   const divElements = [];
 
@@ -99,7 +109,7 @@ export default function ArtistPendingRequests() {
               icon={faLocationDot}
               id="LocationIconPendingRequest"
             />{" "}
-            {eventList[i]["place"]}
+            {extractloc(eventList[i]["place"])}
           </p>
         </div>
 
@@ -125,22 +135,8 @@ export default function ArtistPendingRequests() {
       <SideMenuBarArtist>
         <div className="MainContainer">
           <p className="headerDashboard">Pending Requests</p>
-          <div className={expand ? "notificationBg" : "notificationBg-ex"}>
-            <img
-              src={notification}
-              className="notificationIcon"
-              alt="notification"
-            ></img>
-          </div>
-          <div className={expand ? "homeBg" : "homeBg-ex"}>
-            <Link to={"/"}>
-              <img src={home} alt="homebtn" className="homeIcon"></img>
-            </Link>
-          </div>
-          <div className={expand ? "logoutBg" : "logoutBg-ex"}>
-            <img src={logout} alt="logout" className="logout"></img>
-            <p className="logoutbtn">Logout</p>
-          </div>
+          <Topbar></Topbar>
+         
           {divElements}
           <div className='emptyForPendingRequest'>
         {(divElements.length ===0)?<><img src={empty} className='empty-img'></img><span className='emptyContent-report'>it's empty in here.</span></>:undefined}

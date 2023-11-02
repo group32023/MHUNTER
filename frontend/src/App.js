@@ -14,6 +14,7 @@ import ViewArtist from './pages/organizer/ViewArtist';
 import MakeArtistRequest from './pages/organizer/MakeArtistRequest';
 import SearchBand from './pages/organizer/SearchBand';
 import ViewBand from './pages/organizer/ViewBand'
+import MakeBandRequest from './pages/organizer/MakeBandRequest';
 
 import "./index.css"
 
@@ -41,6 +42,10 @@ import BandAgreementPreview from './pages/BandAgreementPreview';
 import BandInvoicePreview from './pages/BandInvoicePreview';
 import BandEventsOn from './pages/BandEventsOn';
 import BandPriorBooking from "./pages/BandPriorBooking"
+import BandGenerateReportsToday from './pages/BandGenerateReportsToday'
+import BandMyFeed from './pages/BandMyFeed';
+import BandEvent from './pages/BandEvent';
+
 
 
 import BandInvoice from './pages/BandInvoice';
@@ -49,6 +54,8 @@ import ArtistSpecificEvent from './pages/ArtistSpecificEvent';
 import ArtistGenerateReportsToday from './pages/ArtistGenerateReportsToday'
 import ArtistInvoice from './pages/ArtistInvoice';
 import RequestsLog from './pages/RequestLog';
+import BandRequestsLog from './pages/BandRequestLog';
+
 import PaymentForm from './pages/organizer/paymentForm';
 import StripePaymentForm from './pages/organizer/StripePaymentForm';
 
@@ -146,6 +153,11 @@ function App() {
           <Route path='/band/invoice/:id/:mid/:oid' element={<BandInvoice />}></Route>
           <Route path='/band/agreementPreview/:id/:mmid' element={<BandAgreementPreview />}></Route>
           <Route path='/band/invoicePreview/:id/:mmid' element={<BandInvoicePreview />}></Route>
+          <Route path='/band/Event' element={<BandEvent/>}></Route>
+          <Route path='/band/MyFeed' element={<BandMyFeed/>}></Route>
+          <Route path='/band/Reports/:id' element={<BandGenerateReportsToday/>}></Route>
+          <Route path='/band/requestsLog' element={<BandRequestsLog/>}></Route> 
+
 
           {/* <Route path='/artist/MyFeed' element={<MyFeed/>}></Route> */}
 
@@ -173,6 +185,7 @@ function App() {
           <Route path='/organizer/searchartist/viewartist/makeartistrequest/:mmid/:eventid' element={<MakeArtistRequest />} />  
           <Route path='/organizer/searchband/:eventid' element={<SearchBand />} />
           <Route path='/organizer/searchband/viewband/:mmid/:eventid' element={<ViewBand/>} />
+          <Route path='/organizer/searchband/viewband/makebandrequest/:mmid/:eventid' element={<MakeBandRequest />} />
 
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />

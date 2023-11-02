@@ -2,7 +2,7 @@
 import React,{useState, useEffect,useRef} from 'react';
 import { Link, useNavigate} from 'react-router-dom';
 import ReactPaginate from 'react-paginate';
-import SideMenuBarArtist from '../components/common/SideMenuBar/SideMenuBarArtist'
+import SideMenuBarBand from '../components/common/SideMenuBar/SideMenuBarBand'
 //import '../assets/css/artistDashboard.css'
 import '../assets/css/requestslog.css'
 // import { MDBBtn } from 'mdb-react-ui-kit';
@@ -38,6 +38,14 @@ export default function ArtistPendingRequests() {
   const [reason,setReason]=useState(" ")
   const BASE_URL = "http://localhost:8080";
 
+  const extractloc = (location) => {
+
+    const parts = location.split(',');
+    const placeName = parts[0];
+    const town = parts[parts.length - 2];
+    const stringPart = town.replace(/\d+/g, '');
+    return `${stringPart}`;
+}
 
   const handleShowModal = (id) => {
       setShowModal(true);
@@ -132,7 +140,7 @@ export default function ArtistPendingRequests() {
    
     
     <div >
-    <SideMenuBarArtist >
+    <SideMenuBarBand >
   
     
             <p className='headerDashboard'>Request Log</p>
@@ -187,7 +195,7 @@ export default function ArtistPendingRequests() {
                                     )}
                 
       
-      </SideMenuBarArtist>
+      </SideMenuBarBand>
     </div>
   )
 }

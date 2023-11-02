@@ -149,7 +149,7 @@
 }
 
 .headerDashboard {
-    width: 280px;
+    width: 292px;
 }
 
 .label3 {
@@ -526,6 +526,7 @@
 .venue4 {
     position: absolute;
     top: 80%;
-    left: 20%;
+    left: 3px;
+
 
 }

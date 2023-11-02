@@ -19,6 +19,7 @@ import Button from 'react-bootstrap/Button';
 
 
 
+import Topbar from '../components/common/Topbar';
 
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -36,6 +37,8 @@ export default function BandInvoice() {
   const [event, setEvent] = useState([]);
   const [expand,setExpandedSideBar] = useState(true)
   const [invoiceId,setInvoiceId] = useState(0);
+  const BASE_URL = "http://localhost:8080";
+
 
   const eventid=id;
   useEffect(() => {
@@ -96,10 +99,35 @@ export default function BandInvoice() {
   const handleCloseModalAndAccept = () => {
     setShowModal(false);
     setShowAcceptRequestModal(true);
-   
-
     
+    fetch(`http://localhost:8080/sendMail/send/${orgId}/${eventid}/${mmid}`,{
+      method:"PUT"
+    })
+    .then((response) => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.json(); // Parse the response JSON if needed
+      })
+      .then((data) => {
+        // Handle a successful response here
+        console.log('User status updated successfully', data);
+      })
+      .catch((error) => {
+        // Handle errors here
+        console.error('Error updating user status', error);
+      });
+  
 };
+const extractloc = (location) => {
+
+  const parts = location.split(',');
+  const placeName = parts[0];
+  const town = parts[parts.length - 2];
+  const stringPart = town.replace(/\d+/g, '');
+  return `${stringPart}`;
+}
+
 
 
 const handleCloseAcceptRequestModal=()=>{
@@ -227,26 +255,14 @@ const handleCloseAcceptRequestModal=()=>{
     <div >
     
         <SideMenuBarArtist>
-        <div>
+      
             <p className='headerDashboard'>Invoice</p>
-            <div className={expand ? 'notificationBg':'notificationBg-ex'}>
-              <img src={notification} className='notificationIcon' alt='notification'></img>
-            </div>
-            <div className={expand ? 'homeBg':'homeBg-ex'}>
-            <Link to={'/'}>
-                <img src={home} alt='homebtn' className='homeIcon'></img>
-              </Link>
-            </div>
-            <div className={expand ? 'logoutBg':'logoutBg-ex'}>
-              <img src={logout} alt='logout'className='logout'></img>
-              <p className='logoutbtn'>Logout</p>
-            </div>
-          </div>
+            <Topbar></Topbar>
 
     <div className='MainContainer'>
         <div className='eventDetailsDisplayContainer'>
              <div className='eventDetailsDisplayInnerContainer'>
-             <img src={profileImage} className="profileInvoice"></img>
+             <img src={`${BASE_URL}/postData/uploads/image/${event["organizerImage"]}`} className="profileInvoice"></img>
              <h4>{event['organizerName']}</h4>
 
             <p class="eventType3"><img src={eventtype} className="EventIconPendingRequest3"></img>Event Name : {event['eventName']}</p>
@@ -254,7 +270,7 @@ const handleCloseAcceptRequestModal=()=>{
             <p class="venue3"><FontAwesomeIcon icon={faClock} id="LocationIconPendingRequest3"/> Time : {event['startTime']}</p>
             <p class="eventType4"><img src={duration} className="EventIconPendingRequest4"></img>Duration : {event['duration']}</p>
             <p class="eventDate4"><img src={crowd} className="CalenderIconPendingRequest4"></img>Crowd : {event['crowd']}</p>
-            <p class="venue4"><FontAwesomeIcon icon={faLocationDot} id="LocationIconPendingRequest4"/>Venue : {event['place']}</p>
+            <p class="venue4"><FontAwesomeIcon icon={faLocationDot} id="LocationIconPendingRequest4"/>Venue : {event["place"]}</p>
 
         
              </div>
@@ -289,7 +305,7 @@ const handleCloseAcceptRequestModal=()=>{
            
            <input type="checkbox" id="advanced" name="advanced" onChange={handleCheckboxChange}/>
           <label for="advancedpayment" className='advancedpayment'>Advanced is required.</label>
-          <lable className="additionalnotes">Additional Note : </lable><input type='text' id="advanced8" name="advanced" value={additionalNote} onChange={(e)=>setAdditionalNote(e.target.value)}></input>
+          <lable className="additionalnotes">Bank Details : </lable><input type='text' id="advanced8" name="advanced" placeholder="BankName,AccNo,Branch" value={additionalNote} onChange={(e)=>setAdditionalNote(e.target.value)}></input>
 
 
             <button type='submit' className='submitInvoice' >Submit</button>
@@ -302,7 +318,7 @@ const handleCloseAcceptRequestModal=()=>{
 
      
       
-      <button type='button' className='previewAgreement' onClick={loadInvoicePreview} >Preview</button>
+      <button type='button' className='previewAgreement' >Preview</button>
       <button className='backInvoice'>Back</button>
 
 

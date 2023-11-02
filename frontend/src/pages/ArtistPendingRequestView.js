@@ -18,6 +18,7 @@ import CircularProgress from '@mui/material/CircularProgress';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {faPhone,faLocationDot,faList,faCalendarDays,faClock} from '@fortawesome/free-solid-svg-icons'
 import { faTwitter, faFontAwesome,faFacebook,faGooglePlusG,faLinkedinIn } from '@fortawesome/free-brands-svg-icons'
+import Topbar from '../components/common/Topbar';
 
 
 
@@ -46,6 +47,7 @@ export default function ArtistPendingRequests() {
      
       .then((data) => {
         setEvent(data);
+        console.log(event)
       })
       .catch((error) => {
         console.log('Error fetching data:', error);
@@ -61,6 +63,17 @@ export default function ArtistPendingRequests() {
   
     
   };
+
+
+  const extractloc1 = (location) => {
+    
+    var parts1 = location.split(',');
+    var placeName = parts1[0];
+    var town1 = parts1[parts1.length - 2];
+    var stringPart1 = town1.replace(/\d+/g, '');
+    return `${stringPart1}`;
+}
+
 
   const handleRejectAndAccept = () => {
     if(rejectReason!=null){
@@ -126,18 +139,7 @@ const loadPendingRequest=()=>{
        
         <div >
             <p className='headerDashboard'>Pending Requests</p>
-            <div className={expand ? 'notificationBg':'notificationBg-ex'}>
-              <img src={notification} className='notificationIcon' alt='notification'></img>
-            </div>
-            <div className={expand ? 'homeBg':'homeBg-ex'}>
-            <Link to={'/'}>
-                <img src={home} alt='homebtn' className='homeIcon'></img>
-              </Link>
-            </div>
-            <div className={expand ? 'logoutBg':'logoutBg-ex'}>
-              <img src={logout} alt='logout'className='logout'></img>
-              <p className='logoutbtn'>Logout</p>
-            </div>
+            <Topbar></Topbar>
           </div>
 
         <div className="requestViewContainer">
