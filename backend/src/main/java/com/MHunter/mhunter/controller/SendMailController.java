@@ -15,9 +15,9 @@ public class SendMailController {
     @Autowired
     private SendMailService sendMailService;
 
-    @PostMapping("/send")
-    public String sendMail(@RequestBody MailDetails mailDetails) throws MessagingException {
-        sendMailService.sendMail(mailDetails.getToMail(),mailDetails.getSubject(),mailDetails.getBody());
+    @PostMapping("/send/{orgId}/{eventId}/{mmid}")
+    public String sendMail(@PathVariable int orgId,@PathVariable int eventId, @PathVariable int mmid) throws MessagingException {
+        sendMailService.sendMail(orgId,eventId,mmid);
         return "Mail Send Successfully";
     }
 }

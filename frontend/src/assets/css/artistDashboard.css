@@ -1,3 +1,10 @@
+@font-face {
+	font-family: 'MyCustomFont';
+	src: url('../fonts/Dosis-Regular.ttf') format('truetype');
+	/* src: url('../../../assets/icons/dashboard.png') format('truetype'); */
+	/* Add other font file formats and their paths here */
+}
+
 .mainArtistDashboard{
     display: flex;
     position: fixed;
@@ -5,6 +12,8 @@
     width: 100%;
     height: 100%;
 }
+
+
 
 
 .artistSideBarOne{
@@ -17,7 +26,7 @@
 
 .headerDashboard{
     color: #FFF;
-    font-family: Dosis;
+    font-family: 'MyCustomFont';
     font-size: 35px;
     font-style: normal;
     font-weight: 800;
@@ -25,7 +34,9 @@
     position: absolute;
     top: 4% !important;
     left: 8%;
-    width: 262px
+    width: 262px;
+    z-index: 10;
+    
    
 }
 
@@ -235,7 +246,7 @@
 
  .pendingRequestDiv-exp .monthlyRequestPersontage{
     color: #11FE70;
-    font-family: 'Dosis', sans-serif;
+    font-family: 'MyCustomFont';
     font-size: 20px;
     font-style: normal;
     font-weight: 800;
@@ -271,7 +282,7 @@
 
 .artistIncomeDiv-exp .monthlyRequestPersontage{
     color: #11FE70;
-    font-family: 'Dosis', sans-serif;
+    font-family: 'MyCustomFont';
     font-size: 20px;
     font-style: normal;
     font-weight: 800;
@@ -283,7 +294,7 @@
 
  .artistIncomeDiv-exp .monthlyRequestPersontageMinus {
     color: #FF0000;
-    font-family: 'Dosis', sans-serif;
+    font-family: 'MyCustomFont';
     font-size: 20px;
     font-style: normal;
     font-weight: 800;
@@ -321,7 +332,7 @@
 
 .artistCalanderDiv-exp .monthlyRequestPersontageMinus{
     color: #FF0000;
-    font-family: 'Dosis', sans-serif;
+    font-family: 'MyCustomFont';
     font-size: 20px;
     font-style: normal;
     font-weight: 800;
@@ -333,7 +344,7 @@
 
 .artistCalanderDiv-exp .monthlyRequestPersontage{
     color: #11FE70;
-    font-family: 'Dosis', sans-serif;
+    font-family: 'MyCustomFont';
     font-size: 20px;
     font-style: normal;
     font-weight: 800;
@@ -443,7 +454,7 @@
     width: 413px;
     height: 52px;
     color: #FFF;
-    font-family: 'Blinker', sans-serif;
+    font-family: 'MyCustomFont';
     font-size: 13px;
     font-style: normal;
     font-weight: 600;
@@ -617,7 +628,8 @@
 
       .artistEarningOverviewHeader {
         color: #FFF;
-        font-family: Dosis;
+        font-family: 'MyCustomFont';
+
         font-size: 24px;
         font-style: normal;
         font-weight: 400;
@@ -651,7 +663,7 @@
 
     .artistEarningOverview   .artistEarningOverviewHeader {
         color: #FFF;
-        font-family: Dosis;
+        font-family: 'MyCustomFont';
         font-size: 24px;
         font-style: normal;
         font-weight: 400;
@@ -754,7 +766,7 @@
 
       .headerDashboard {
         color: #FFF;
-        font-family: Dosis;
+        font-family: 'MyCustomFont';
         font-size: 35px;
         font-style: normal;
         font-weight: 800;
@@ -763,6 +775,7 @@
         top: 2%;
         left: 6%;
         width: 165px;
+        z-index: 10;
       }
     
   }

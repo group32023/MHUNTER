@@ -49,13 +49,14 @@ export default function CalendarEventPopup({date}) {
   }
 
   fetch(`http://localhost:8080/event/findEvent/${eventDate}`).then((res)=>res.json()).then((result)=>{
+    console.log(result);
     const newPopup = result.map(item=>(
       <Card sx={{ maxWidth: 345 }}>
     <CardActionArea>
       <CardMedia
         component="img"
         height="140"
-        src={`${BASE_URL}/postData/uploads/image/${item.eventImage}`}
+        src={`${BASE_URL}/postData/uploads/image/${item.image}.jpg`}
         alt="green iguana"
       />
       <CardContent>

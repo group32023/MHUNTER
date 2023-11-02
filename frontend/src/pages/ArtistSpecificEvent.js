@@ -100,7 +100,7 @@ export default function ArtistSpecificEvent() {
         <CircularProgress color="secondary" />
       </div>
     );
-
+console.log(data)
   return (
     <div className="artistSpecificEventDiv">
       <SideMenuBarArtist>
@@ -110,7 +110,7 @@ export default function ArtistSpecificEvent() {
 
         <div className="mainDescriptionDiv">
           <img
-            src={`${BASE_URL}/postData/uploads/image/${data.image}.jpg`}
+            src={`${BASE_URL}/postData/uploads/image/${data.eventImage}.jpg`}
             className="specificEventImg"
           ></img>
           <p className="specificEventName">{data.eventName}</p>
